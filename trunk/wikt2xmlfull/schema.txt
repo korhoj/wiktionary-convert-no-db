@@ -1,0 +1,77 @@
+Object schema
+  based on JWKTL and "Gettings Started with JWI & JWKTL - Manna, Debraj"
+(examples from "book")
+
+Word ("title" in Wiktionary)
+  Has 1 - n WordLanguages
+
+WordLanguage
+  1 - n WordLanguages belong to 1 Word
+  Has 1 LanguageID
+  Has 1 - n WordEtymologies
+  e.g. ("bake")
+    ==English==
+    ==Middle English== (preceded by ---)
+
+WordEtymology
+  1 - n WordEtymologies belong to 1 WordLanguage
+  1 WordEtymology has 0 - n Etymologies
+  e.g.
+    1) From {{etyl|enm}} {{term|book|lang=enm}}
+    2) From {{etyl|enm}} {{term|book|lang=enm}}, from {{etyl|ang}} ...
+  Has 1 - n WordEntries
+
+Etymology
+  Has 1 LanguageID
+  Belongs to 1 WordEtymology
+  attr. isEtymologySource
+  Has 0 - n Etymologies (which have isEtymologySource==true) - LinkedList 
+
+EtymologySource
+
+LanguageID
+  Each WordLanguage has 1 LanguageID
+  attr. ID
+    final enum
+      en, enm, af, ar, ...
+  attr. name
+    final enum
+      English, Middle English, Africaans, Arabic, ...
+  ID is key in a hashmap for names
+
+WordEntry
+  1 - n WordEntries belong to 1 Word
+  1 - n WordEntries belong to 1 SynSet
+  Has 1 - n Senses
+  attr. POSType (Part Of Speech type)
+
+POSType
+  final enum
+    e.g. ====Verb====
+         {{head|en|verb form}}
+         
+         ====Noun====
+         {{en-noun}}
+
+Sense
+  Belongs to 1 - n WordEntries (each having 1 POS)
+  e.g.
+    # {{context|UK|_|dialectal|Northern England}} {{form of|Alternative simple past|bake|lang=en}}.
+    # A collection of sheets of paper bound together
+    # A major division of a long work
+  Has 0 - n Examples
+
+SynSet (set of synonyms)
+  1 SynSet has 1 - n WordEntries
+  e.g.
+    "(to) book [verb]", "book, volume [noun]"
+
+Example
+  Belongs to 1 - n Senses
+    contains many words so may be an example for many (strictly taken is
+     for all of them but only marked at the level of Words, not Senses)
+  e.g.
+    #: ''She opened the '''book''' to page 37 and began to read aloud.''
+    #: ''He was frustrated because he couldn't find anything about dinosaurs in the '''book'''.''
+  --> <br/><center><cite>A man, in questions of this kind, is able to be a skillful <u>umpire</u> between
+   himself and others.</cite></center> 

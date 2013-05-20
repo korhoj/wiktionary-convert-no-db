@@ -1,0 +1,38 @@
+﻿  <page>
+    <title>the grass is always greener on the other side</title>
+    <id>3371</id>
+    <revision>
+      <id>16477728</id>
+      <timestamp>2012-03-18T10:15:41Z</timestamp>
+      <contributor>
+        <username>Atitarev</username>
+        <id>27724</id>
+      </contributor>
+      <comment>/* Translations */</comment>
+      <text xml:space="preserve">==English==
+
+===Alternative forms===
+* [[the grass is always greener]] {{qualifier|normal shortened form}}.
+* [[the grass is always greener on the other side of the fence]] {{qualifier|normal long form}}.
+
+===Proverb===
+'''[[the]] [[grass]] [[is]] [[always]] [[green]]er [[on]] [[the]] [[other]] [[side]]'''
+
+# Other [[circumstance]]s seem more desirable than one's own but in reality are often not
+
+====Translations====
+&lt;!--Note: please provide EQUIVALENT IDIOMS in foreign languages - DO NOT TRANSLATE THE EXPRESSION WORD FOR WORD!--&gt;
+{{trans-top|desirability of other's circumstances}}
+* Bengali: (nodir oe paraytae sob shuk achay)
+* German: {{t|de|die Kirschen aus Nachbars Garten schmecken immer besser}}, {{t|de|die Kirschen aus Nachbars Garten schmecken immer noch am besten}} &
+lt;!--literally: &quot;the cherries from the neighbor's garden always taste better/still taste the best&quot;--&gt;
+{{trans-bottom}}
+
+[[Category:English proverbs]]
+
+[[fr:the grass is always greener on the other side]]
+[[ko:the grass is always greener on the other side]]
+[[no:the grass is always greener on the other side]]
+[[pl:the grass is always greener on the other side]]</text>
+    </revision>
+  </page>

@@ -1,0 +1,23 @@
+  <page>
+    <title>senjen</title>
+    <ns>0</ns>
+    <id>3021939</id>
+    <revision>
+      <id>13382136</id>
+      <timestamp>2011-06-22T23:09:14Z</timestamp>
+      <contributor>
+        <ip>41.190.90.40</ip>
+      </contributor>
+      <comment>/* English */</comment>
+      <sha1>rcdh90dxr0sasts9a5yvo73k5fdx07z</sha1>
+      <text xml:space="preserve">==English==
+SenJen Company is a software company established in 2003 and now based in Accra, Ghana. It is one of very few shareware companies in Ghana and one of
+the pioneers in this field since most Ghanaian software companies deal with software outsourcing.
+
+
+===Noun===
+{{en-noun}}
+
+#</text>
+    </revision>
+  </page>

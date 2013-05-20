@@ -1,0 +1,64 @@
+  <page>
+    <title>aimiez</title>
+    <ns>0</ns>
+    <id>220486</id>
+    <revision>
+      <id>16665069</id>
+      <timestamp>2012-04-10T22:38:50Z</timestamp>
+      <contributor>
+        <username>MglovesfunBot</username>
+        <id>264304</id>
+      </contributor>
+      <minor />
+      <comment>/* Pronunciation */bot: bypassing template redirects, minor spacing</comment>
+      <sha1>6p1j54wnt506yebsoxkfel5s0ncugq7</sha1>
+      <text xml:space="preserve">==French==
+
+===Pronunciation===
+* {{IPA|lang=fr|/+ø.mje/}}, {{X-SAMPA|/E.mje/}}
+
+===Verb form===
+'''aimiez'''
+
+# ''second-person plural indicative imperfect of [[aimer]]''
+# ''second-person plural subjunctive present of aimer''
+
+[[Category:French verb forms]]
+
+[[fr:aimiez]]
+[[ja:aimiez]]
+[[no:aimiez]]</text>
+    </revision>
+  </page>
+  <page>
+    <title>aimions</title>
+    <ns>0</ns>
+    <id>220487</id>
+    <revision>
+      <id>16665068</id>
+      <timestamp>2012-04-10T22:38:48Z</timestamp>
+      <contributor>
+        <username>MglovesfunBot</username>
+        <id>264304</id>
+      </contributor>
+      <minor />
+      <comment>/* Pronunciation */bot: bypassing template redirects, minor spacing</comment>
+      <sha1>k6t6hijsqdkkfwwyriu64bdos1xjoi2</sha1>
+      <text xml:space="preserve">==French==
+
+===Pronunciation===
+* {{IPA|lang=fr|/+ø.mj+ö¦â/}}, {{X-SAMPA|/E.mjO~/}}
+
+===Verb form===
+'''aimions'''
+
+# ''first-person plural indicative imperfect of [[aimer]]''
+# ''first-person plural subjunctive present of aimer''
+
+[[Category:French verb forms]]
+
+[[fr:aimions]]
+[[ja:aimions]]
+[[no:aimions]]</text>
+    </revision>
+  </page>

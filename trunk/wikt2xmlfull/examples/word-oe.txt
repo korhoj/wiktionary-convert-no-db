@@ -1,0 +1,22 @@
+  <page>
+    <title>word</title>
+    <id>45</id>
+    <revision>
+      <id>16927608</id>
+      <timestamp>2012-06-07T15:48:43Z</timestamp>
+      <contributor>
+        <username>Leasnam</username>
+        <id>220495</id>
+      </contributor>
+      <comment>/* Etymology */</comment>
+      <text xml:space="preserve">
+==Old English==
+
+===Noun===
+{{ang-noun|g=n|pl=word}}
+
+# [[#English|word]]
+# [[speech]], [[utterance]], [[statement]]
+# {{context|grammar}} [[verb]]</text>
+    </revision>
+</page>

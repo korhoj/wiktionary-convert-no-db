@@ -1,0 +1,228 @@
+  <page>
+    <title>bake</title>
+    <id>50242</id>
+    <revision>
+      <id>16446757</id>
+      <timestamp>2012-03-13T10:24:09Z</timestamp>
+      <contributor>
+        <username>Matthias Buchmeier</username>
+        <id>38116</id>
+      </contributor>
+      <comment>/* Translations */</comment>
+      <text xml:space="preserve">==English==
+
+===Etymology===
+From {{etyl|enm}} {{term|baken|lang=enm}}, from {{etyl|ang}} {{term|bacan||to bake|lang=ang}}, from {{proto|Germanic|bakanan|to bake|lang=en}}, from {{proto|Indo-European|b╩░┼<8D>g-|to roast, bake|lang=en}}. Cognate with {{etyl|nl|-}} {{term|bakken||to bake|lang=nl}}, {{etyl|de|-}} {{term|backen||to bake|lang=de}}, {{etyl|sv|-}} {{term|baka||to bake|lang=sv}}, {{etyl|grc|-}} {{term|¤å¤Ä╬│¤ë|sc=polytonic|tr=ph┼<8D>g┼<8D>||roast|pos=verb|lang=grc}}, {{etyl|fa}} {{term|┘¥Ï«Ï¬┘å|tr=pokhtan||to bake|pos=verb|sc=fa-Arab|pos=verb}}.
+
+===Pronunciation===
+* {{IPA|/be╔¬k/}}, {{SAMPA|/beIk/}}
+* {{audio|en-us-bake.ogg|Audio (US)}}
+* {{rhymes|e╔¬k}}
+
+===Verb===
+{{en-verb|bakes|baking|'''[[baked]]''' or '''[[book]]''' {{qualifier|dialectal}}|'''[[baked]]''' or '''[[baken]]''' {{qualifier|dialectal}}}}
+
+# {{transitive|ergative}} To [[cook]] (something) in an [[oven]], but not in fat. Compare [[roast]].
+#: ''To '''bake''' bread.''
+#: ''I '''baked''' a delicious cherry pie.''
+# {{transitive}} To dry by heat.
+# {{transitive|figuratively}} (Of a person, the weather, or an object:) To be [[hot]].
+#: ''It is '''baking''' in the greenhouse.''
+#: ''I'm '''baking''' after that workout in the gym.''
+# {{intransitive}} To become baked.
+#: ''The bread is '''baking''' at the moment.''
+# {{slang|intransitive}} To smoke [[marijuana]].
+
+====Synonyms====
+* See also [[Wikisaurus:cook]]
+
+====Derived terms====
+* [[baked]] &lt;!--terms such as &quot;baked beans&quot; are at [[baked]]--&gt;
+* [[bake-off]]
+* [[baking]] &lt;!--terms such as &quot;baking tray&quot; are at [[baking]]--&gt;
+* [[in a bake]]
+* [[half-baked]]
+
+====Related terms====
+* [[roast]]
+
+====Translations====
+{{trans-top|to cook in an oven}}
+* Arabic: {{t+|ar|Ï«Ï¿Ï▓|tr=khabaza}}
+* Bulgarian: {{t+|bg|ð┐ðÁð║ð░}}
+* Catalan: {{t|ca|fornejar}}
+* Chinese: {{t-|cmn|þâñ|tr=kÃÄo|sc=Hani}}, {{t-|cmn|þâÿ|tr=h┼<8D>ng|sc=Hani}}, {{t|cmn|þäÖþçÆ}}, {{t|cmn|þäÖþâº|tr=b├¿ish─<81>o}}, {{t|cmn|þâÿþâñ|tr=h┼<8D>ngkÃÄo|sc=Hani}}
+* Czech: [[p├®ci]], [[p├®ct]]
+* Danish: {{t-|da|bage}}
+* Dutch: {{t+|nl|bakken}}
+* Finnish: [[paistaa#Finnish|paistaa]] {{t|fi|uuni|alt=uunissa}} {{qualifier|to bake in oven}}; {{t|fi|leipoa}} {{qualifier|to produce baked goods}}
+* French: {{t+|fr|cuire}} (au [[four#French|four]])
+* German: {{t+|de|backen}}
+* Greek: {{t|el|¤ê╬«╬¢¤ë|tr=ps├¡no|sc=Grek}}
+* Hungarian: {{t+|hu|s├╝t}}
+{{trans-mid}}
+* Italian: {{t-|it|cuocere al forno}}
+* Japanese: {{t-|ja|þä╝Ò<81><8F>|tr=yaku}}
+* Latgalian: {{t├©|ltg|cept}}
+* Latvian: {{t|lv|cept}}
+* Lithuanian: {{t|lt|kepti}}
+* Polish: {{t+|pl|piec}}
+* Portuguese: {{t+|pt|cozer}}
+* Romanian: {{t+|ro|coace}}
+* Russian: {{t+|ru|ð┐ðÁÐçÐî|tr=p'e─<8D>}} {{impf}}, {{t+|ru|ð©Ð<81>ð┐ðÁÐçÐî|isp'├®─<8D>}} {{pf.}}
+* Spanish: {{t-|es|hornear}}
+* Swedish: {{t|sv|baka}}
+* Turkish: {{t|tr|f─▒r─▒nlamak}}
+* Volap├╝k: {{t|vo|bak├Ân}}
+* Yiddish: {{t|yi|ÎæÎ<90>ÍÀÎºÎƒ|tr=bakn|sc=Hebr}}
+{{trans-bottom}}
+
+{{trans-top|to dry by heat}}
+* Bulgarian: {{t|bg|Ð<81>ÐâÐêð░ ð¢ð░ Ð<81>ð╗Ðèð¢ÐåðÁ}}
+* Danish: {{t|da|t├©rre}}
+* Dutch: {{t+|nl|bakken}}
+* Finnish: [[kuivata#Finnish|kuivata]] {{t|fi|l├ñmp├Â|alt=l├ñmm├Âll├ñ}}
+* German: {{t+|de|trocknen}}
+{{trans-mid}}
+* Hungarian: {{t|hu|p├Ârk├Âl}}, {{t+|hu|sz├ír├¡t}}
+* Italian: {{t+|it|cuocere}}
+* Japanese: {{t-|ja|þä╝Ò<81><8F>|tr=yaku}}
+* Polish: {{t+|pl|wypala─ç}}
+* Turkish: {{t+|tr|kurutmak}}
+{{trans-bottom}}
+
+{{trans-top|to be hot}}
+* Dutch: {{t+|nl|bakken}}
+* Finnish: {{t|fi|hehkua}}
+{{trans-mid}}
+* Greek: {{t|el|¤ê╬«╬¢╬┐╬╝╬▒╬╣|tr=ps├¡nomai|sc=Grek}}
+* Hungarian: {{t|hu|megs├╝l}}
+{{trans-bottom}}
+
+{{trans-top|to become baked}}
+* Bulgarian: {{t|bg|ð©ðÀð┐ð©Ðçð░ð╝ Ð<81>ðÁ}}
+* Danish: {{t-|da|bage}}
+* Dutch: {{t+|nl|bakken}}
+* Finnish: {{t|fi|paistua}}, {{t|fi|leipoutua}}
+* Greek: {{t|el|¤ê╬«╬¢╬Á¤ä╬▒╬╣|tr=ps├¡netai|sc=Grek}}
+* Hungarian: {{t|hu|s├╝l}}
+{{trans-mid}}
+* Italian: {{t|it|cuocersi}}, {{t-|it|infornare}}
+* Japanese: [[þä╝Ò<81>æÒéï]] (yakeru)
+* Persian: {{t|fa|┘¥Ï«Ï¬┘å|sc=fa-Arab}}
+* Russian: {{t|ru|ð┐ðÁÐçÐîÐ<81>Ð<8F>|tr=p'e─<8D>s'a}} {{impf}}, {{t|ru|ð©Ð<81>ð┐ðÁÐçÐîÐ<81>Ð<8F>|isp'├®─<8D>s'z}} {{pf.}}
+* Swedish: {{t|sv|bakas}}
+{{trans-bottom}}
+
+{{checktrans-top}}
+* {{ttbc|yue}}: [[þäù]] (gu╠┐k)
+* {{ttbc|el}}: [[¤ê╬«¤â╬Á╬╣]] (p═ísß©ùsei), [[¤å¤Ä╬│╬Á╬╣╬¢]] (phogein)
+* {{ttbc|he}}: [[Î£Î<90>ÎñÎòÎ¬]] (le'efot)
+* {{ttbc|is}}: [[baka]]
+* {{ttbc|ko}}: [[ÛÁ¢Ùïñ]] (gubda, gup-), [[Ù│ÂÙïñ]] (bokkda)
+* {{ttbc|la}}: [[coquere]]
+{{trans-mid}}
+* {{ttbc|no}}: [[baka]]
+* {{ttbc|ang}}: [[bacan]]
+* {{ttbc|non}}: [[baka]]
+* {{ttbc|pt}}: [[cozer]], {{qualifier|Brazil}} [[cozinhar]]
+* {{ttbc|es}}: [[hornear]], [[enhornar]]
+* {{ttbc|sv}}: [[baka]], [[gr├ñdda]]
+* {{ttbc|th}}: [[Ó©¡Ó©Ü]] (aab)
+{{trans-bottom}}
+
+===Noun===
+{{en-noun}}
+
+# {{UK}} Any of various baked dishes resembling [[casserole]].
+#* '''2009''', Rosalind Peters, Kate Pankhurst, Clive Boursnell, ''Midnight Feast Magic: Sleepover Fun and Food''
+#*: If you happen to have small, heat-proof glass or ceramic pots in your kitchen (known as ramekins) then you can make this very easy pasta '''bake''' in fun-size, individual portions.
+# The act of cooking food by baking.
+
+====Translations====
+{{trans-top|baked dish resembling casserole}}
+* Finnish: {{t|fi|laatikko}}
+{{trans-mid}}
+{{trans-bottom}}
+
+{{trans-top|act of baking}}
+* Finnish: {{t|fi|paistaminen}}; {{t|fi|leivonta}}, {{t|fi|leipominen}}
+{{trans-mid}}
+{{trans-bottom}}
+
+===Anagrams===
+* [[beak#English|beak]]
+
+[[Category:English ergative verbs]]
+[[Category:en:Cooking]]
+
+----
+
+==Basque==
+
+===Etymology===
+{{etyl|la|eu}} {{term|pax|lang=la}}.
+
+===Noun===
+{{eu-noun}}
+
+# [[peace]]
+
+====Declension====
+{{eu-decl-inanim noun|av=1|kv=1}}
+
+----
+==Middle English==
+
+===Alternative forms===
+* [[bak]]
+* [[bakke]] {{qualifier|main article}}
+* [[balke]]
+
+===Noun===
+{{enm-noun}}
+
+# [[bat]] (flying rodent)
+
+[[Category:enm:Mammals]]
+
+[[ar:bake]]
+[[cs:bake]]
+[[cy:bake]]
+[[da:bake]]
+[[de:bake]]
+[[et:bake]]
+[[el:bake]]
+[[es:bake]]
+[[fa:bake]]
+[[fr:bake]]
+[[fy:bake]]
+[[gl:bake]]
+[[ko:bake]]
+[[hr:bake]]
+[[io:bake]]
+[[it:bake]]
+[[kn:bake]]
+[[lo:bake]]
+[[lt:bake]]
+[[hu:bake]]
+[[ml:bake]]
+[[my:bake]]
+[[nl:bake]]
+[[ja:bake]]
+[[ps:bake]]
+[[pl:bake]]
+[[pt:bake]]
+[[ru:bake]]
+[[simple:bake]]
+[[fi:bake]]
+[[sv:bake]]
+[[ta:bake]]
+[[te:bake]]
+[[th:bake]]
+[[tr:bake]]
+[[vi:bake]]
+[[wa:bake]]
+[[zh:bake]]</text>
+    </revision>
+  </page>
