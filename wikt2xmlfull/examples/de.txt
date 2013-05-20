@@ -1,0 +1,32 @@
+<title>de</title>
+<text xml:space="preserve">{{also|Appendix:Variations of &quot;de&quot;|ϻ|Appendix:ISO 639-1 language codes}}
+==Translingual==
+{{wikipedia}}
+
+===Etymology 1===
+From {{term|Deutschland|lang=de}}.
+
+===={{abbreviation|mul}}====
+{{head|mul|abbreviation}}
+
+# {{rfd-sense}} [[Germany]]
+
+===Etymology 2===
+From {{etyl|fr|mul}} {{term|de|lang=fr}}.
+
+====Symbol====
+{{head|mul|symbol}}
+
+# {{context|radio slang|lang=mul}} [[from]] (operator), this is (operator)
+
+----
+
+==English==
+
+===Alternative forms===
+* [[dee]] {{qualifier|Northumbria}}
+
+===Verb===
+{{en-verb|diz|dein|did|dyun}}
+
+# {{Northumbria}} To [[do]].

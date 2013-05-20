@@ -1,0 +1,44 @@
+﻿==Translingual==
+==Interlingua==
+
+==Anglo-Norman==
+==Low German==
+==Old English==
+==Old French==
+==Scottish Gaelic==
+
+==Anglo-Norman==
+==Asturian==
+==Catalan==
+==Dalmatian==
+==Danish==
+==Dutch==
+==Esperanto==
+==French==
+==Galician==
+==Greek==
+==Haitian Creole==
+==Hungarian==
+==Ido==
+==Irish==
+==Italian==
+==Japanese==
+==[[!Kung]]==
+==Ladino==
+==Latin==
+==Lojban==
+==Low German==
+==Luxembourgish==
+==Mandarin==
+==Norwegian Bokmål==
+==Norwegian Nynorsk==
+==Old French==
+==Portuguese==
+==Romanian==
+==Scottish Gaelic==
+==Spanish==
+==Sranan Tongo==
+==Swedish==
+==Tarantino==
+==Turkish==
+==West Frisian==
