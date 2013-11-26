@@ -38,9 +38,11 @@ public class DeepCopy {
         }
         catch(IOException e) {
             e.printStackTrace();
+            throw new RuntimeException("DeepCopy failed: " + e.getMessage());
         }
         catch(ClassNotFoundException cnfe) {
             cnfe.printStackTrace();
+            throw new RuntimeException("DeepCopy failed: " + cnfe.getMessage());
         }
         return obj;
     }

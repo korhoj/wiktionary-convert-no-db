@@ -1,1784 +1,1784 @@
 use wikt;
 
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Afar", "aa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Abkhazian", "ab");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Afrikaans", "af");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Akan", "ak");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Alemannic", "als");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Amharic", "am");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Aragonese", "an");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Anglo-Saxon", "ang");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Arabic", "ar");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Assamese", "as");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Asturian", "ast");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Avar", "av");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Aymar", "ay");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Azerbaijani", "az");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Belarusian", "be");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bulgarian", "bg");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bihari", "bh");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bislama", "bi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bambara", "bm");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bengali", "bn");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tibetan", "bo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Breton", "br");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bosnian", "bs");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Catalan", "ca");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Chamorro", "cha");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Cherokee", "chr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Corsican", "co");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Cree", "cr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Czech", "cs");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kashubian", "csb");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Welsh", "cy");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Danish", "da");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("German", "de");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Divehi", "di");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Dzongkha", "dz");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Greek", "el");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("English", "en");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Esperanto", "eo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Spanish", "es");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Estonian", "et");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Basque", "eu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Persian", "fa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Finnish", "fi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Fijian", "fj");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Faroese", "fo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("French", "fr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("West Frisian", "fy");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Gaelic", "gd");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Galician", "gl");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Guarani", "gn");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Gujarati", "gu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Manx", "gv");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Hausa", "ha");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Hebrew", "he");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Hindi", "hi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Croatian", "hr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Upper Sorbian", "hsb");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Hungarian", "hu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Armenian", "hy");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Interlingua", "ia");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Indonesian", "id");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Interlingue", "ie");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Inupiak", "ik");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ido", "io");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Irish", "iri");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Icelandic", "is");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Italian", "it");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Inuktitut", "iu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Japanese", "ja");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Lojban", "jbo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Javenese", "jv");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Georgian", "ka");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kazakh", "kk");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Greenlandic", "kl");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Cambodian", "km");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kannada", "kn");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Korean", "ko");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kashmiri", "ks");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kurdish", "ku");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Cornish", "kw");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kirghiz", "ky");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Latin", "la");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Luxembourgish", "lb");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Limburgian", "li");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Lingala", "ln");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Lao", "lo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Lithuanian", "lt");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Latvian", "lv");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Malagasy", "mg");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Marshallese", "mh");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Maori", "mi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Macedonian", "mk");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Malayalam", "ml");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mongolian", "mn");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Moldovan", "mo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Marathi", "mr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Malay", "ms");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Burmese", "my");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Nauruan", "na");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Nahuatl", "nah");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Norwegian Bokm�l", "nb");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Low Saxon", "nds");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Nepali", "ne");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Dutch", "nl");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Norwegian Nynorsk", "nn");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Norwegian", "no");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Occitan", "oc");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Oromo", "om");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Oriya", "or");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Panjabi", "pa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Pali", "pi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Polish", "pl");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Western Panjabi", "pnb");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Pashto", "ps");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Portuguese", "pt");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Quechua", "qu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Raeto Romance", "rm");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kirundi", "rn");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Romanian", "ro");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Aromanian", "roa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Russian", "ru");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Rwandi", "rw");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sanskrit", "sa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sardinian", "sc");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sicilian", "scn");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sindhi", "sd");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sango", "sg");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Serbo-Croatian", "sh");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sinhalese", "si");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Slovak", "sk");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Slovenian", "sl");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Samoan", "sm");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Shona", "sn");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Somali", "so");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Albanian", "SQ");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Serbian", "sr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Swati", "ss");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Southern Sotho", "ST");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sundanese", "su");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Swedish", "sv");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Swahili", "sw");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tamil", "ta");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Telugu", "te");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tajik", "TG");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Thai", "th");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tigrinya", "ti");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Turkmen", "tk");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tagalog", "tl");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Setswana", "tn");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tonga", "to");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tok Pisin", "tpi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Turkish", "tr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tsonga", "ts");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tatar", "tt");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Twi", "tw");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Uyghur", "ug");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ukrainian", "uk");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Urdu", "ur");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Uzbek", "uz");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Vietnamese", "vi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Volap�k", "vo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Walloon", "wa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Wolof", "wo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Xhosan", "xh");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Yiddish", "yi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Yoruba", "yo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Zhuang", "za");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Chinese", "zh");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Min Nan", "zhm");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Zulu", "zu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ancient Greek", "agr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Anglo-Norman", "ann");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Classical Nahuatl", "cn");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Gothic", "go");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Low German", "lg");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Middle Dutch", "md");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Middle English", "me");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Middle French", "MF");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Middle High German", "mhg");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Middle Low German", "mlg");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Norman", "NMA");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Dutch", "od");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old English", "oe");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old French", "of");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Frisian", "ofi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old High German", "ohg");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Irish", "oi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Norse", "on");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Portuguese", "opo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Proven�al", "opr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Saxon", "osa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Swedish", "osv");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Welsh", "ow");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sumerian", "sume");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ancient Macedonian", "amc");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Assyrian Neo-Aramaic", "ana");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Classical Syriac", "cls");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Central Melanau", "cme");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Dutch Low Saxon", "dls");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Hittite", "hit");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Late Middle Chinese", "lmc");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Middle Chinese", "mci");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Middle Korean", "mik");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Middle Persian", "mip");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Middle Irish", "mir");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Middle Welsh", "miw");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Northern Dagara", "nda");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("North Levantine Arabic", "nla");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Northern Ohlone", "noh");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Northern Sotho", "nso");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Northern Thai", "nth");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Northern Yukaghir", "nyu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Armenian", "oar");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Chinese", "och");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Church Slavonic", "ocs");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old East Slavic", "oes");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Georgian", "oge");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Japanese", "ojp");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Javanese", "ojv");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Korean", "oko");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Lithuanian", "oli");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Persian", "ope");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Polish", "opl");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Prussian", "opu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Spanish", "osp");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old South Arabian", "osr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Old Tupi", "otu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Primitive Irish", "pri");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Proto-Norse", "prn");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Southern Altai", "sal");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Southeastern Tepehuan", "set");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Southern Hindko", "shi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("South Levantine Arabic", "sla");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Southern Ohlone", "soh");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("South Marquesan", "som");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("South Picene", "spi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Southern Sama", "ssa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Southern Sami", "ssi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("South Slavey", "ssl");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Southern Yukaghir", "syu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Western Kayah", "wka");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Western Mari", "wma");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Western Arrernte", "wrr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Aari", "aar");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Abau", "aba");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Abenaki", "abe");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Abkhaz", "abk");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Abanyom", "abn");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Abu", "abu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Abaza", "abz");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Acehnese", "ace");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Acholi", "ach");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Achuar-Shiwiar", "acr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Achumawi", "acu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Adangme", "ada");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Adele", "ade");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Adioukrou", "adi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Adnyamathanha", "adn");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Adyghe", "ady");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Adzera", "adz");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Alemannic German", "ag");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Aghul", "agh");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Aguaruna", "agu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ainu", "ain");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Akawaio", "aka");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Akkadian", "akk");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Aklanon", "akl");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Akkala Sami", "aks");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Alabama", "al");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Alcozauca Mixtec", "alc");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Aleut", "ale");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Alamblak", "alm");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Alutiiq", "alt");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Alutor", "alu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Alviri-Vidari", "alv");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ama", "ama");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ambai", "amb");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Amaimon", "ami");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ambonese Malay", "amm");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Amanab", "amn");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ammonite", "amo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("American Sign Language", "ams");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ambulas", "amu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Amuzgo", "amz");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Annobonese", "anb");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Antillean Creole", "anc");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Angaataha", "anga");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Angolar", "angl");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Angor", "angr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ankave", "ank");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Angloromani", "anr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ansus", "ans");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Anuta", "anu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Aneme Wake", "anw");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Apala�", "apa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Aramaic", "aram");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Arapaho", "arap");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Arawak", "araw");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Arabela", "arb");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Archi", "arc");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("'Are'are", "are");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Argobba", "arg");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Arin", "ari");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Assan", "ass");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Atayal", "ata");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Auhelawa", "auh");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("'Auhelawa", "auhe");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Avestan", "ave");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Awabakal", "awab");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Awadhi", "awad");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Aymara", "aym");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Aynu", "ayn");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Azeri", "aze");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bactrian", "bac");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Baekje", "bae");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Balinese", "bali");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Balti", "balt");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Baluchi", "balu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bandjalang", "band");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Banjarese", "banj");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Banyumasan", "bany");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Baruga", "bar");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bashkir", "bas");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Batak Toba", "bat");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Baure", "bau");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bavarian", "bav");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Berbice Creole Dutch", "bcd");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Beja", "bej");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Betawi", "bet");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bhojpuri", "bho");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Biak", "bia");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bikol Central", "bic");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bikol", "bik");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bintulu", "bin");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bishnupriya Manipuri", "bis");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Blackfoot", "bl");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bondei", "bon");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bor�ro", "bor");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Broome Pearling Lugger Pidgin", "bplp");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Brahui", "bra");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bribri", "bri");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bube", "bub");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Buginese", "bug");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Buhid", "buh");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bulgarian", "bul");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Bunurong", "bun");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Buryat", "bur");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Buyeo", "buy");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Cal�", "cal");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Cantonese", "can");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Carian", "car");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Campidanese Sardinian", "cas");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Catawba", "cat");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Cebuano", "ceb");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Cappadocian Greek", "cgr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Chagatai", "chag");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Chickasaw", "chc");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Chechen", "chec");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Cheyenne", "chey");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Chichewa", "chic");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Chinook", "chin");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Chiquitano", "chiq");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Chiricahua", "chir");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Chinook Jargon", "chj");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Chamicuro", "chmi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Choctaw", "choc");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Chol", "chol");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ch'orti'", "chor");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Chinese Pidgin English", "chpe");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Chru", "chru");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Chukchi", "chuk");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Chuvash", "chuv");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Cia-Cia", "cia");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Cimbrian", "cim");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Coastal Kadazan", "cka");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Classical Nahuatl", "cna");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Comanche", "coma");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Coatl�n Mixe", "comi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Comorian", "como");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Comox", "comx");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Coptic", "copt");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Cowlitz", "cowl");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Creek", "cre");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Crimean tatar", "crt");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Crimean Tatar", "ct");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Central Tarahumara", "cta");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Central Atlas Tamazight", "ctat");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Central Dusun", "ctdu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Central Siberian Yupik", "ctsy");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Central Tagbanwa", "ctta");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Cuiba", "cui");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Dacian", "dac");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Dadibi", "dad");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Dakota", "dak");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Dalmatian", "dal");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Dargwa", "darg");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Darling", "darl");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Dhivehi", "dhi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Dhuwal", "dhu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Dieri", "die");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Diitidaht", "dii");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Dinka", "din");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Darkinjung", "dki");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Dena'ina", "dni");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Dogrib", "dog");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Dolgan", "dol");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Dorze", "dor");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Drents", "dre");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Dungan", "dun");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Dyirbal", "dyi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Eastern Arrernte", "ear");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Eblaite", "ebl");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Eastern Cham", "ech");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Eastern Canadian Inuktitut", "eci");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Eteocretan", "ecr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Edo", "edo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Edomite", "edom");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("East Futuna", "efu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Egyptian", "eg");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Egyptian Arabic", "ega");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Elfdalian", "elfd");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Erzya", "erz");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Esan", "esa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Etruscan", "etr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Evenki", "eve");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ewe", "ewe");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Extremaduran", "ext");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Faliscan", "fal");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Fiji Hindi", "fh");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Flemish", "fle");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Fon", "fon");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Frankish", "fra");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Friulian", "fri");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Franco-Proven�al", "frp");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Fula", "ful");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ga", "ga");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Gabi", "gab");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Gagauz", "gag");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Gallo", "gal");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Gamilaraay", "gam");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Gan", "gan");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Garifuna", "gar");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Gallurese Sardinian", "gas");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Gaulish", "gau");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Gayo", "gay");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Gazi", "gaz");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ge'ez", "gee");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Georgia", "geo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Greenlandic Eskimo Pidgin", "gep");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Gheg Albanian", "gha");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Gilbertese", "gil");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Goguryeo", "gog");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Golin", "gol");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Goonivandi", "goo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Gooniyandi", "goy");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Gronings", "gro");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("German Sign Language", "gsl");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Guaran�", "gua");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Guern�siais", "gue");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Gullah", "gul");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Gunai", "gun");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Gusii", "gus");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Guugu Yimidhirr", "guu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Haida", "hai");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Hakka", "hak");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Haamer-Banna", "ham");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Hamer-Banna", "hame");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Harari", "har");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Hassaniya", "has");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Haitian Creole", "hc");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Hiligaynon", "hil");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Hiri Motu", "hir");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Hmong", "hmo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Hmong Daw", "hmod");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Hopi", "hop");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Hunsrik", "hun");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Hurrian", "hur");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Haitian Vodoun Culture Language", "hvl");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Hawaiian", "hw");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Hawaiian Pidgin", "hwp");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Iban", "iba");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ida'an", "ida");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Igbo", "igb");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ilocano", "il");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Isthmus-Mecayapan Nahuatl", "imn");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Indonesian", "indo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Inese�o", "ine");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ingrian", "ingr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ingush", "ingu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Inari Sami", "ins");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Istro-Romanian", "ir");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Iranun", "iran");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Istriot", "ist");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Italia", "ita");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Itelmen", "ite");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Isthmus Zapotec", "iza");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Jarai", "jar");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Javanese", "jav");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Jamaican Creole", "jc");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("J�rriais", "je");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Jingpho", "jin");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Jurchen", "jur");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kabardian", "kaba");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kabuverdianu", "kabu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kabyle", "kaby");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kadiw�u", "kad");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kalanga", "kalg");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kalispel-Pend d'Oreille", "kali");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kalami", "kalm");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kalenjin", "kaln");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kalmyk", "kaly");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kamassian", "kama");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kamba", "kamb");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kanjobal", "kanj");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kanuri", "kanu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kapampangan", "kapa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kapingamarangi", "kapi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Karachay-Balkar", "kara");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Karelian", "kare");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kariti�na", "kari");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Karakalpak", "kark");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Karamojong", "karm");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kashaya", "kas");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kaurna", "kau");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kelabit", "kel");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kedah Malay", "kem");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kemi Sami", "kesa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ket", "ket");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kalo Finnish Romani", "kfr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Khakas", "khak");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Khanty", "khan");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Khazar", "khaz");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Khitan", "khi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Khmer", "khme");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Khmu", "khmu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Khowar", "kho");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Khvarshi", "khv");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("K'iche'", "kic");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kikuyu", "kik");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kilivila", "kil");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kinyarwanda", "kin");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kiput", "kip");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kildin Sami", "kisa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("!Kung", "kng");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("K�lsch", "kol");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Komi-Peryak", "kom");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kongo", "kon");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Komi-Permyak", "kope");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Korean", "kor");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Koryak", "kory");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kott", "kot");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Komi-Zyrian", "kozy");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("kril", "kri");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Krio", "KRIL");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Krisa", "krs");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kuanua", "kua");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kumyk", "kum");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kuna", "kun");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kurudu", "kur");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kusunda", "kus");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kuvi", "kuv");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kven", "kv");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kwanyama", "kwa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Kyrgyz", "kyr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Laal", "laa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ladin", "lad");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Lak", "lak");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Laki", "laki");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Lakota", "lako");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Latgalian", "lat");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Laurentian", "lau");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Lavukaleve", "lav");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Laz", "laz");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Literary Chinese", "lci");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Louisiana Creole French", "lcr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ladino", "ldi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Lemnian", "lem");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Lenape", "len");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Leonese", "leo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Lepontic", "lep");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Lezgi", "lez");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Libyan Arabic", "lia");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Limbu", "lim");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Livonian", "liv");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Limburgish", "lm");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Lombard", "lom");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Lozi", "loz");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Logudorese Sardinian", "lsa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Lower Sorbian", "lso");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Luganda", "lug");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Luhya", "luh");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Lubuagan Kalinga", "luka");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Luba-Katanga", "lukt");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Lunda", "lun");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Luo", "luo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Lule Sami", "lusa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Lusitanian", "lusi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Luwian", "luw");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Lycian", "lyc");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Lydian", "lyd");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Maasai", "maas");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Maay", "maay");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mauritian Creole", "mac");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Madurese", "mad");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Makah", "maka");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Makhuwa", "makh");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Makasar", "maks");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Malecite-Passamaquoddy", "malc");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mal�ku Ja�ka", "male");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Maltese", "malt");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Manchu", "manc");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mandarin", "mand");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mangarevan", "mang");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mandinka", "mani");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mandari", "manr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mansi", "mans");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mapudungun", "map");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Marau", "mara");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mara Chin", "marc");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mari", "mari");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Maricopa", "maro");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Marti Ke", "mark");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Marrucinian", "marr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Marsian", "mars");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Martuthunira", "mart");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Marwari", "marw");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Massachusett", "mas");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mayangna", "may");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mazanderani", "maz");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mbabaram", "mba");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Me�nkieli", "mea");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Median", "med");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Megleno-Romanian", "meg");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mende", "men");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Meriam", "meri");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Meru", "meru");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Miami", "mia");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Michif", "mic");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mi'kmaq", "mikm");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Minangkabau", "mina");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Min Dong", "mind");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mingrelian", "ming");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Minoan", "mino");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mirandese", "mira");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Miskito", "mis");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Miyako", "miy");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mizo", "mizo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mainstream Kenyah", "mke");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Moabite", "moa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mobilian", "mob");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mohawk", "moh");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Moksah", "mok");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Moksha", "moks");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mon", "mon");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Monguor", "mong");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Montagnais", "mont");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mop�n", "mop");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Moroccan Arabic", "mora");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Motu", "motu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Muduapa", "mud");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mungaka", "MUGA");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Munggui", "mugg");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Murrinh-Patha", "mur");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Mycenaean Greek", "myg");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Nage", "nage");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ndali", "ndal");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ndonga", "ndo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Neapolitan", "nea");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Nenets", "nen");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Newari", "new");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("North Frisian", "nf");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ngaanyatjarra", "ngaa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ngaju", "ngaj");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Nganasan", "ngan");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ngarrindjeri", "ngar");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ngawun", "ngaw");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Navajo", "nh");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Nhanda", "nha");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Nias", "nias");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Niuean", "niu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Nivkh", "niv");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Nogai", "nog");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Nootka", "noo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Novial", "nov");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Norfuk", "norf");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Nigerian Pidgin", "np");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Norn", "nrn");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Northern Sami", "ns");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Nyankole", "nya");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Nyunga", "nyun");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ojibwe", "oj");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Okinawan", "oki");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Omaha-Ponca", "oma");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("O'odham", "ns");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Osage", "osag");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Oscan", "osc");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ossetian", "oss");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ottoman Turkish", "ott");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Paelignian", "pae");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Pahoun", "pah");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Pahouin", "paho");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Paiwan", "pai");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Palauan", "pala");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Palu'e", "palu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Pangasinan", "pang");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Panyjima", "pany");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Papiamentu", "papi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Papuma", "papu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Parthian", "par");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Paumar�", "pau");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Penobscot", "pen");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Pennsylvania German", "pg");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Phoenician", "pho");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Phrygian", "phr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Picard", "pic");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Piedmontese", "pie");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Pijin", "pij");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Pinyin", "pin");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Pipil", "pip");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Pirah�", "pir");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Pite Sami", "pisa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Pitjantjatjara", "pit");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Pochutec", "poc");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Pohnpeian", "poh");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Polabian", "polb");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Polari", "polr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Portugal", "por");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Potawatomi", "pota");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Pulaar", "pul");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Pumpokol", "pum");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Punic", "puni");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Punjabi", "punj");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Puyuma", "puy");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Rade", "rad");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Rajasthani", "raj");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Rapa Nui", "rap");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Rarotongan", "rar");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Rejang", "rej");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Rhymes", "rhy");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Romani", "rma");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Rohingya", "roh");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Romansch", "rom");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Rotokas", "roto");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Rotuman", "rotu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Russenorsk", "runo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Russia Buryat", "ruby");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Rusyn", "rusy");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Rutul", "rutu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Saanich", "saa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Saterland Frisian", "saf");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Samogitian", "sam");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Santali", "san");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Samoan Plantation Pidgin", "sap");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sarcee", "sar");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sasak", "sasa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sassarese Sardinian", "sass");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sawi", "saw");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sayula Popoluca", "say");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Scottish Gaelic", "scg");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Scots", "sco");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sebat Bet Gurage", "seb");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Seneca", "sen");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Seraiki", "sera");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Seri", "seri");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Serui-Laut", "seru");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Shabo", "sha");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Shan", "shan");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Shel", "shel");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sherpa", "sher");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Shelta", "shet");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Shor", "shor");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Shoshone", "shos");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Shuar", "shu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Silesian", "sil");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sichuan Yi", "siy");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Skolt Sami", "sks");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Slovincian", "slo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Slovene", "slv");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Soqotri", "soq");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sotho", "sot");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sranan Tongo", "srt");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sumbawa", "sumb");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sursurunga", "sur");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Svan", "sva");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Swabian", "swa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Sydney", "syd");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Syriac", "syr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tabassaran", "tab");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tacana", "taca");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tachelhit", "tach");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tai Dam", "tad");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tahitian", "tah");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tamashek", "tama");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tambora", "tamb");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Taos", "taos");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tarantino", "tar");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tasmanian", "tas");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tausug", "tau");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ter Sami", "tesa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tetum", "tet");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tigre", "tig");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tiwi", "tiwi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tocharian A", "toa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tocharian B", "tob");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tongan", "ton");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Taimyr Pidgin Russian", "tpr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Translingual", "tra");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tsakhur", "tsa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Torres Strait Creole", "tsc");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tshiluba", "tsh");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tswana", "tsw");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tuamotuan", "tuam");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tunisian Arabic", "tuar");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tulu", "tul");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tumbuka", "tum");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tupinamb�", "tup");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tuvaluan", "tuvl");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tuvan", "tuvn");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Twents", "twe");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Tz'utujil", "tz");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ubykh", "uby");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Udi", "udi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Udmurt", "udmz");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ugaritic", "uga");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Uab Meto", "um");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Umbrian", "umbr");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Umbundu", "umbu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Ume Sami", "umsa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Unami", "una");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Undetermined", "und");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Unserdeutsch", "uns");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Urum", "uru");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Vai", "vai");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Vandalic", "van");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Venda", "vend");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Venetian", "vene");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Venetic", "vent");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Veps", "vep");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Vestinian", "vest");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Vilamovian", "vil");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Vinza", "vin");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Volscian", "vol");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("V�ro", "vor");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Votic", "vot");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Wabo", "wa�bo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Wageman", "wag");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Wallisian", "wal");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Wandamen", "wand");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Wangaaybuwan-Ngiyambaa", "wang");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Western Apache", "wap");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Wari'", "wari");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Warao", "waro");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Waropen", "warp");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Waray-Waray", "wary");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Wawa", "wawa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("West Coast Bajau", "wcb");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Wemba-Wemba", "wem");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Weyewa", "wey");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Wik-Mungkan", "wik");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Winnebago", "win");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Wiradhuri", "wir");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Woi", "woi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Worimi", "wor");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Warlpiri", "WRL");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Wu", "wu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Woiwurrung", "wwu");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Xavante", "xa");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Xhosa", "xho");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("!X��", "xoo");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Yaeyama", "yae");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Yagnobi", "yag");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Yakut", "yak");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Yami", "yam");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Yankunytjatjara", "yank");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Yanyuwa", "yany");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Yapese", "yap");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Yidiny", "yid");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Yindjibarndi", "yin");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Yola", "yol");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Yosond�a Mixtec", "yom");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Yonaguni", "yon");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Yopno", "yop");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Yucatec Maya", "yum");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Yup'ik", "yup");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Yurok", "yur");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Yatzachi Zapotec", "yza");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Zenaga", "ze");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Zimba", "zi");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Zoogocho Zapotec", "zoz");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Zulgo-Gemzek", "zug");
-insert into language (langname, langcode)
+insert into lang (name, code)
 values ("Zuni", "zuni");

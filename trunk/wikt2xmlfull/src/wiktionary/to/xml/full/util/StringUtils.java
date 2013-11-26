@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 import com.google.api.client.util.escape.CharEscapers;
 
+import wiktionary.to.xml.full.data.OutputTypes.OutputType;
 import wiktionary.to.xml.full.data.TokenWithPos;
 
 /**
@@ -297,7 +298,7 @@ public class StringUtils {
 	 * 
 	 * @param USETYPE 0 == KindleStorer, 1 == JDBCStorer, 2 == StardictStorer 
 	 */
-	public static String convertWikiLinks (String defin, String startTag, String endTag, int USETYPE) {
+	public static String convertWikiLinks (String defin, String startTag, String endTag, OutputType outputType) {
 		String termResult = null;
 		StringBuffer sb = new StringBuffer();
 		
@@ -336,15 +337,18 @@ public class StringUtils {
 						defValue = termResult.substring(posBar+1);
 					}
 					
-					if (USETYPE == 1) { // Kindle output
+					switch(outputType) {
+					case Kindle:
 						String newLink = "<a href=\"" + linkValue + "\">";
-						
+					
 						if (defValue != null) {
 							termResult = newLink + defValue + "</a>";
 						} else {
 							termResult = newLink + "</a>";
 						}
-					} else { // JDBC and StarDict: use no HTML
+						break;
+					default:
+						// JDBC and StarDict: use no HTML
 						termResult = linkValue;
 					}
 					
@@ -512,5 +516,45 @@ public class StringUtils {
 //	    	System.out.println( "--> TagsRemoved: " + sb.toString() );
 	    }
 		return sb.toString();		
+	}
+	
+	/**
+	 * Returns the part of the string delimited by prefix and postfix.
+	 * If prefix and postfix are present many times, uses the first
+	 * found prefix and the last found postfix.
+	 * 
+	 * @param s String to parse
+	 * @param prefix Beginning delimiter
+	 * @param postfix Ending delimiter
+	 * @return Parsed string
+	 */
+	public static String findInsidePart(String s, String prefix, String postfix) {
+		String result = null;
+		int prefixPos = s.indexOf(prefix)+1+prefix.length();
+		int postfixPos = s.lastIndexOf(postfix);
+		result = s.substring(prefixPos, postfixPos);
+
+		return result;
+	}
+	
+	/**
+	 * Returns the part of the string delimited by prefix and postfix.
+	 * If prefix and postfix are present many times, uses the first
+	 * found prefix and the first found postfix after the prefix.
+	 * Discards the rest of the String.
+	 * 
+	 * @param s String to parse
+	 * @param prefix Beginning delimiter
+	 * @param postfix Ending delimiter
+	 * @return Parsed string
+	 */
+	public static String findFirstInsidePart(String s, String prefix, String postfix) {
+		String result = null;
+		int prefixPos = s.indexOf(prefix)+1+prefix.length();
+		String rest = s.substring(prefixPos);
+		int postfixPos = rest.indexOf(postfix);
+		result = rest.substring(0, postfixPos);
+
+		return result;
 	}
 }

@@ -1,5 +1,5 @@
 Object schema
-  based on JWKTL and "Gettings Started with JWI & JWKTL - Manna, Debraj"
+  based on JWKTL and "Getting Started with JWI & JWKTL - Manna, Debraj"
 (examples from "book")
 
 Word ("title" in Wiktionary)

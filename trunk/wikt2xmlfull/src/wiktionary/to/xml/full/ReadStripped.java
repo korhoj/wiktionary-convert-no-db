@@ -1,9 +1,15 @@
 package wiktionary.to.xml.full;
 
+import static wiktionary.to.xml.full.data.OutputTypes.OutputType;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -14,19 +20,21 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import wiktionary.to.xml.full.data.Example;
-import wiktionary.to.xml.full.data.ExampleSource;
-import wiktionary.to.xml.full.data.LanguageID;
-import wiktionary.to.xml.full.data.LanguageIDList;
+import org.hibernate.Session;
+
+import wiktionary.to.xml.full.jpa.Example;
+//import wiktionary.to.xml.full.data.ExampleSource;
 import wiktionary.to.xml.full.data.POSType;
-import wiktionary.to.xml.full.data.Sense;
-import wiktionary.to.xml.full.data.Word;
-import wiktionary.to.xml.full.data.WordEntry;
-import wiktionary.to.xml.full.data.WordEtymology;
-import wiktionary.to.xml.full.data.WordLanguage;
-import wiktionary.to.xml.full.storer.JDBCStorer;
-import wiktionary.to.xml.full.storer.KindleStorer;
+import wiktionary.to.xml.full.jpa.Lang;
+import wiktionary.to.xml.full.jpa.Sense;
+import wiktionary.to.xml.full.jpa.Word;
+import wiktionary.to.xml.full.jpa.WordEntry;
+import wiktionary.to.xml.full.jpa.WordEtym;
+import wiktionary.to.xml.full.jpa.WordLang;
+//import wiktionary.to.xml.full.storer.JDBCStorer;
+//import wiktionary.to.xml.full.storer.KindleStorer;
 import wiktionary.to.xml.full.storer.StardictStorer;
+import wiktionary.to.xml.full.util.HibernateUtil;
 import wiktionary.to.xml.full.util.StringUtils;
 
 /**
@@ -42,11 +50,12 @@ import wiktionary.to.xml.full.util.StringUtils;
  * language as ALL in cmdline to use. JDBC output not yet supported
  * for this, only Kindle and StarDict
  * 2012-07-31 Outputs result concurrently with reading, in another thread
+ * 2013-11-25 Changed to use Hibernate (JPA)
  */
 public class ReadStripped {
-	// Set to true to use KindleStorer, false to use JDBCStorer
-	private static int OUTPUT_TYPE = 2; // 0 == KindleStorer, 1 == JDBCStorer, 2 == StardictStorer
 	private static int STORE_INTERVAL = 1000; // Store entries after this many read
+	//private static int STORE_INTERVAL = 5; // Store entries after this many read
+	private static long MAXENTRIES_TOPROCESS = 10000000;
 	
 	public final static Logger LOGGER = Logger.getLogger(ReadStripped.class
 			.getName());
@@ -57,6 +66,15 @@ public class ReadStripped {
 	
 	public final static String LF = System.getProperty("line.separator");
 	public final static int LF_LEN = LF.length();
+	
+	private Session session = null; // JPA session
+	
+	public final Set<Lang> langs = new HashSet<Lang>();
+	
+	private int wordLangNbr = 0;
+	private int wordEtymsNbr = 0;
+	private int wordEntriesNbr = 0;
+	private int senseNbr = 0;
 	
 	// TODO Since we only include NS 0, should we define any others below?
 	private final static String HEADER =
@@ -144,8 +162,9 @@ public class ReadStripped {
 
 		consoleHandler = new ConsoleHandler();
 
-//		LOGGER.setLevel(Level.ALL);
-		LOGGER.setLevel(Level.INFO);
+		LOGGER.setLevel(Level.ALL);
+		// TODO
+//		LOGGER.setLevel(Level.INFO);
 
 		// Create txt Formatter
 		formatterTxt = new SimpleFormatter();
@@ -196,24 +215,20 @@ public class ReadStripped {
 			}
 			
 			String outputType = args[4];
-			switch(outputType) {
-				case "Kindle": OUTPUT_TYPE = 0;
-				break;
-				case "JDBC": OUTPUT_TYPE = 1;
-				break;
-				case "Stardict": OUTPUT_TYPE = 2;
-				break;
-				default: OUTPUT_TYPE = 0;
+			
+			// Throws error if wrong argument used
+			switch(OutputType.valueOf(outputType)) {
+				default:
 			}
 			
 			LOGGER.log(Level.INFO, "Input: " + inFileName);
 			LOGGER.log(Level.INFO, "Output: " + outFileName);
-			LOGGER.log(Level.INFO, "Language: " + lang + ", ID: " + langID);
-			LOGGER.log(Level.INFO, "Output type: " + OUTPUT_TYPE);
+			LOGGER.log(Level.INFO, "Language: " + (lang != null ? lang : "(all)") + ", ID: " + (langID != null ? langID : ""));
+			LOGGER.log(Level.INFO, "Output type: " + OutputType.valueOf(outputType));
 			
 			ReadStripped readStripped = new ReadStripped();
 		
-			readStripped.process(inFileName, outFileName, lang, langID);
+			readStripped.process(OutputType.valueOf(outputType), inFileName, outFileName, lang, langID);
 			
 			LOGGER.log(Level.INFO, "***FINISHED***");
 			
@@ -226,124 +241,162 @@ public class ReadStripped {
 		}
 	}
 
-	private void process (String inFileName, String outFileName, String lang, String langID) throws Exception {
+	private void process (OutputType outputType, String inFileName, String outFileName, String lang, String langID) throws Exception {
 		//boolean isSame = false;
 		long entryNbr = 0;
-		boolean evenThousand = false; // log every thousand entries
+		boolean evenThousand = true; // log every thousand entries
 		boolean textSection = false; // true when have reached <text> of a new entry and are in it
 		boolean hadTextSection = false; // had reached <text> section of a new term and it ended with </text>
 		//String prevTitle = null;
 		String currentTitle = null;
+		String outStr = null;
+//		EntityManagerFactory emFactory = null;
+//        EntityManager em = null;
+        //Session session = null;
 		
-		try {
-			BufferedReader in = new BufferedReader(new InputStreamReader(
-					new FileInputStream(inFileName), "UTF-8"));
+        try (BufferedReader in = new BufferedReader(new InputStreamReader(
+				new FileInputStream(inFileName), "UTF-8"))) {
+        	// Session is needed whilst processing languages later too since it currently lazy loads languages
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			session.beginTransaction();
+			@SuppressWarnings("unchecked")
+			//List<Lang> langResult = session.createQuery("select id as id, name as name, code as code, abr as abr from Lang").list();
+			List<Lang> langResult = session.createQuery("from Lang").list();
+			//Query q = session.createQuery("from Lang");
+//			emFactory = Persistence.createEntityManagerFactory("HibernateJBossTools");
+//			em = emFactory.createEntityManager();
+            //Query q = session.createNamedQuery("Lang.findAll");
+            //@SuppressWarnings("unchecked")
+            //Type[] t = q.getReturnTypes();
+            //List<Lang> langResult = q.getResultList();
+//            for (Lang l : langResult) {
+//            	System.out.println("Lang found: " + l.getCode() + " - " + l.getName());
+//            }
+			System.out.println("Lang list size: " + langResult.size());
+			if (langResult.size() == 0) {
+				throw new Exception("Language db hasn't been initialized. Run CreateDatabase.sql." +
+			     " Currently you need to change table lang to allow nulls for column abr");
+			}
 			
-//			FileOutputStream fos = null;
-//			fos = new FileOutputStream(outFileName);
-//			PrintWriter out = new PrintWriter(new BufferedWriter(
-//					new OutputStreamWriter(fos, "UTF-8")));
-			
-			//out.println(HEADER);
+			langs.addAll(langResult);
 			
 			String s = in.readLine();
-			String outStr = "";
-			while (s != null) {
-				if (entryNbr % STORE_INTERVAL == 0 && entryNbr > 0 && evenThousand) {
-					LOGGER.log(Level.INFO, "Processed entry " + entryNbr);
-					
-					callStorer(lang, langID, outFileName);
-					
-					evenThousand = false; // otherwise prints until finds new entry
-				}
-
-				// To stop here:
-//				if (entryNbr % 10000 == 0 && entryNbr > 0) {
-//					in.close();
-//					try {
-//						KindleStorer storer = new KindleStorer(words);
-//						storer.storeWords(false, outFileName);
-//					} catch (Exception e) {
-//						String msg = "Output failed";
-//						LOGGER.severe(msg);
-//						throw e;
-//					}
-//					System.exit(1);
-//				}
-				
-				if (s.indexOf("<page>") > -1) {
-					textSection = false; // should be false already
-					hadTextSection = false;
-					
-					if (outStr.length() > 0) { // Not first time
-//						LOGGER.log(Level.INFO, "Processed entry " + entryNbr);
+			outStr = "";
+			while (s != null && entryNbr < MAXENTRIES_TOPROCESS) {
+				try {
+					if (entryNbr % STORE_INTERVAL == 0 && entryNbr > 0 && evenThousand) {
+						LOGGER.log(Level.INFO, "Processed entry " + entryNbr);
 						
-						//LOGGER.fine("To parse: '" + currentTitle + "'");
-						if (lang != null) {
-							parseEntry(outStr, currentTitle, lang);
-						} else {
-							parseEntryAllLangs(outStr, currentTitle, lang);
+						callStorer(outputType, lang, langID, outFileName);
+						
+						evenThousand = false; // otherwise prints until finds new entry
+					}
+	
+					// To stop here:
+	//				if (entryNbr % 10000 == 0 && entryNbr > 0) {
+	//					in.close();
+	//					try {
+	//						KindleStorer storer = new KindleStorer(words);
+	//						storer.storeWords(false, outFileName);
+	//					} catch (Exception e) {
+	//						String msg = "Output failed";
+	//						LOGGER.severe(msg);
+	//						throw e;
+	//					}
+	//					System.exit(1);
+	//				}
+					
+					if (s.indexOf("<page>") > -1) {
+						textSection = false; // should be false already
+						hadTextSection = false;
+						
+						if (outStr.length() > 0) { // Not first time
+							LOGGER.fine("Processed entry " + entryNbr);
+							
+							LOGGER.fine("To parse: '" + currentTitle + "'");
+							//LOGGER.info("To parse: '" + currentTitle + "'");
+							if (lang != null) {
+								// TODO
+								throw new Exception("TODO single lang processing");
+								//parseEntry(outStr, currentTitle, lang);
+							} else {
+								parseEntryAllLangs(outStr, currentTitle, outputType, session);
+							}
+							
+							outStr = null;
+							entryNbr++;
+							evenThousand = true; // restart logging every 1000 entries
 						}
+					} else if (s.indexOf("<title>") > -1) {
+						//prevTitle = currentTitle;
 						
-						outStr = null;
-						entryNbr++;
-						evenThousand = true; // restart logging every 1000 entries
-					}
-				} else if (s.indexOf("<title>") > -1) {
-					//prevTitle = currentTitle;
-					
-					int beginIndex = s.indexOf("<title>") + 7;
-					int endIndex = s.indexOf("</title>");
-					
-					if (endIndex > -1) {
-						currentTitle = s.substring(beginIndex, endIndex);
+						int beginIndex = s.indexOf("<title>") + 7;
+						int endIndex = s.indexOf("</title>");
+						
+						if (endIndex > -1) {
+							currentTitle = s.substring(beginIndex, endIndex);
+						} else {
+							currentTitle = s; // leaks purposefully
+							String msg = "Bad title end section at entryNbr: " + entryNbr + ", " +
+							 "SECTION = '" + currentTitle + "'";
+							LOGGER.warning(msg);
+						}
+					} else if (s.indexOf("<text") > -1) {
+						textSection = true;
+						
+						if (s.indexOf("<text xml:space=\"preserve\">") > -1) {
+							int startIndex = s.indexOf("<text xml:space=\"preserve\">") + 27;
+							outStr = s.substring(startIndex);
+						} else {
+							outStr = s; // leaks purposefully
+							String msg = "Bad text section at entryNbr: " + entryNbr + ", " +
+							 "title = '" + currentTitle + "'";
+							LOGGER.warning(msg);
+						}
+					} else if (s.indexOf("</text>") > -1) {
+						hadTextSection = true;
+						textSection = false;
+						
+						int endPos = s.indexOf("</text>");
+						if (endPos > 0) {
+							String substr = s.substring(0, endPos);
+							outStr = outStr + LF + substr;
+						}
+					} else if (textSection) {
+						outStr = outStr + LF + s;
 					} else {
-						currentTitle = s; // leaks purposefully
-						String msg = "Bad title end section at entryNbr: " + entryNbr + ", " +
-						 "SECTION = '" + currentTitle + "'";
-						LOGGER.warning(msg);
+						// skip other tags
 					}
-				} else if (s.indexOf("<text") > -1) {
-					textSection = true;
+				} catch (Exception e) {
+					String titleStart = currentTitle;
+					if (currentTitle.length() > 100)
+						titleStart = currentTitle.substring(0, 100);
 					
-					if (s.indexOf("<text xml:space=\"preserve\">") > -1) {
-						int startIndex = s.indexOf("<text xml:space=\"preserve\">") + 27;
-						outStr = s.substring(startIndex);
-					} else {
-						outStr = s; // leaks purposefully
-						String msg = "Bad text section at entryNbr: " + entryNbr + ", " +
-						 "title = '" + currentTitle + "'";
-						LOGGER.warning(msg);
-					}
-				} else if (s.indexOf("</text>") > -1) {
-					hadTextSection = true;
-					textSection = false;
+					String msg = "Problem at entryNbr: " + entryNbr + ", title: '" + titleStart + "'";
+					LOGGER.warning(msg);
+					//LOGGER.finer(outStr);
+					LOGGER.info(outStr);
 					
-					int endPos = s.indexOf("</text>");
-					if (endPos > 0) {
-						String substr = s.substring(0, endPos);
-						outStr = outStr + LF + substr;
-					}
-				} else if (textSection) {
-					outStr = outStr + LF + s;
-				} else {
-					// skip other tags
+					//throw e; // continue
+					//throw e;
 				}
 	
 				s = in.readLine();
 			}
 			
 			// Handle last entry if any
-			if (outStr.length() > 0 && // this should always be true if there is any input
+			if (outStr != null && outStr.length() > 0 && // this should always be true if there is any input
 				hadTextSection) { // had reached <text> section of a new term and it ended with <text>
 				
 				if (lang != null) {
-					parseEntry(outStr, currentTitle, lang);
+					// TODO
+					throw new Exception("TODO single lang processing");
+					//parseEntry(outStr, currentTitle, lang);
 				} else {
-					parseEntryAllLangs(outStr, currentTitle, lang);
+					parseEntryAllLangs(outStr, currentTitle, outputType, session);
 				}
 				
-				callStorer(lang, langID, outFileName);
+				callStorer(outputType, lang, langID, outFileName);
 				
 				outStr = null;
 				entryNbr++;
@@ -352,35 +405,63 @@ public class ReadStripped {
 			
 			in.close();
 			
-			if (OUTPUT_TYPE == 0) {
+			switch(outputType) {
+			case Kindle:
+				// TODO Fix
 				//KindleStorer.closeOutput();
-			} else if (OUTPUT_TYPE == 1) {
-				JDBCStorer.closeOutput();
-			} else {
+				break;
+			case JDBC:
+				// TODO Fix
+				//JDBCStorer.closeOutput();
+				break;
+			case Stardict:
 				StardictStorer.closeOutput();
 			}
 			
+			//session.getTransaction().rollback();
+			session.getTransaction().commit();
+			session = null;
 		} catch (Exception e) {
-			String msg = "Failed at entryNbr: " + entryNbr;
+			String titleStart = currentTitle;
+			if (currentTitle.length() > 100)
+				titleStart = currentTitle.substring(0, 100);
+			
+			String msg = "Failed at entryNbr: " + entryNbr + ", title: '" + titleStart + "'";
 			LOGGER.severe(msg);
+			//LOGGER.severe(outStr);
+			LOGGER.fine(outStr);
 			throw e;
-		}
+		} finally {
+        	if (session != null) {
+        		try { session.getTransaction().rollback(); } catch (Exception e) {}
+        	}
+////        if (em != null) {
+////        try { em.close(); } catch (Exception e) {}
+////    }
+////    if (emFactory != null) {
+////        try { emFactory.close(); } catch (Exception e) {}
+////    }
+        }
 	}
 	
-	private void callStorer(String lang, String langID, String outFileName) throws Exception {
+	private void callStorer(OutputType outputType, String lang, String langID, String outFileName) throws Exception {
 		try {
 			LOGGER.log(Level.INFO, "Storing " + words.size() + " entries");
 			
-			if (OUTPUT_TYPE == 0) {
-				KindleStorer storer = new KindleStorer(words, lang, langID);
-				//Thread kThread = new Thread(storer, "kThread");
-				storer.storeWords(false, outFileName);
-			} else if (OUTPUT_TYPE == 1) {
-				JDBCStorer storer = new JDBCStorer(words, lang, langID);
-				Thread jThread = new Thread(storer, "jThread");
-				jThread.run();
-				jThread = null;
-			} else {
+			switch(outputType) {
+			case Kindle:
+				// TODO Fix
+				//KindleStorer storer = new KindleStorer(words, lang, langID);
+				//storer.storeWords(false, outFileName);
+				break;
+			case JDBC:
+				// TODO Fix
+//				JDBCStorer storer = new JDBCStorer(words, lang, langID);
+//				Thread jThread = new Thread(storer, "jThread");
+//				jThread.run();
+//				jThread = null;
+				break;
+			case Stardict:
 				StardictStorer storer = new StardictStorer(words, lang, langID, outFileName);
 				Thread sThread = new Thread(storer, "sThread");
 				sThread.run();
@@ -395,6 +476,7 @@ public class ReadStripped {
 		}
 	}
 	
+	// TODO Fix
 	private void parseEntry(String s, String currentTitle, String lang) throws Exception {
 		String langStr = null;
 		
@@ -407,7 +489,8 @@ public class ReadStripped {
 			return;
 		}
 
-		Word word = new Word(currentTitle);
+		Word word = new Word();
+		word.setDataField(currentTitle);
 		
 //		for (Entry<String, LanguageID> entry: LanguageIDList.langIDs.entrySet()) {
 //		String key = entry.getKey();
@@ -437,18 +520,22 @@ public class ReadStripped {
 			}
 	//		LOGGER.info("ToParse: '" + sLangSect + "'");
 	
-			LanguageID langID = LanguageIDList.langIDs_Desc.get(lang);
-			if (langID == null) {
-				String msg = "Unknown language: '" + lang + "'";
-				LOGGER.warning(msg);
-				//throw new Exception(msg);
-			}
+//			LanguageID langID = LanguageIDList.langIDs_Desc.get(lang);
+//			if (langID == null) {
+//				String msg = "Unknown language: '" + lang + "'";
+//				LOGGER.warning(msg);
+//				//throw new Exception(msg);
+//			}
 			
-			WordLanguage wordLang = parseWord(word, sLangSect, currentTitle, langID);
+			// TODO Fix
+			//WordLang wordLang = parseWord(word, sLangSect, currentTitle, langID);
 			
-			LinkedList<WordLanguage> langs = new LinkedList<WordLanguage>();
-			langs.add(wordLang);
-			word.setWordLanguages(langs);
+//			LinkedList<WordLang> langs = new LinkedList<WordLang>();
+//			langs.add(wordLang);
+			// --> private List<WordLang> wordlangs;
+			// TODO Fix
+			//word.getWordlangs().add(wordLang);
+			//word.setWordLanguages(langs);
 			
 			words.add(word);
 		}
@@ -457,26 +544,27 @@ public class ReadStripped {
 	
 	/*
 	 * This version of the method parses and stores all languages for the entry.
-	 * This isn't usually needed because usually the input has been stripped
-	 * to contain only a single language. If then the input does contain many
-	 * languages, the extra languages shouldn't be parsed.
 	 * 
-	 * This new v. loops all languages in input and outputs all.
+	 * Loops all languages in input and outputs all.
 	 * The output modules output all languages passed to them.
 	 */
-	private void parseEntryAllLangs(String s, String currentTitle, String lang) throws Exception {
+	private void parseEntryAllLangs(String s, String currentTitle, OutputType outputType, Session session) throws Exception {
 		
 		if ( currentTitle.startsWith("Appendix:") ||
 			 currentTitle.startsWith("Help:") ||
 			 currentTitle.startsWith("Wiktionary:")
 			) {
-//			LOGGER.fine("- Skipped: '" + currentTitle + "'");
+			// TODO
+			//LOGGER.fine("- Skipped: '" + currentTitle + "'");
+			//LOGGER.info("- Skipped: '" + currentTitle + "'");
 			
 			return;
 		}
 
-		Word word = new Word(currentTitle);
-		LinkedList<WordLanguage> langs = new LinkedList<WordLanguage>();
+		Word word = new Word();
+		word.setDataField(currentTitle);
+		
+		Lang lookupLang = new Lang();
 		
 		int i = 0;
 		int langStart = s.indexOf("==");
@@ -505,7 +593,6 @@ public class ReadStripped {
 				langNameEnd = -1; // Flag to stop processing but output what has been processed
 			}
 			
-			LanguageID langID = null;
 			if (langNameEnd > -1) {
 				langName = s.substring(langStart + 2, langNameEnd);
 				langName = langName.trim();
@@ -523,27 +610,60 @@ public class ReadStripped {
 					langName = langName.substring(0, langName.length()-2);
 				}
 				
-				LOGGER.fine("langName: '" + langName + "'");
+				//LOGGER.info("langName: '" + langName + "'");
+				LOGGER.finer("langName: '" + langName + "'");
 				
-				langID = LanguageIDList.langIDs_Desc.get(langName);
+				lookupLang.setName(langName);
 			}
 			
-			if (langID == null) {
+			if (!langs.contains(lookupLang)) {
 				String msg = "Unknown language: '" + langName + "'";
 				LOGGER.warning(msg);
 				//throw new Exception(msg);
 			} else {			
-				String sFullSect = s.substring(langStart + 2);
+				String sFullSect = s.substring(langStart + 2); // 2: skip ==
 				int posLF = sFullSect.indexOf(LF);
 				// This is just s without the language part
 				String sLangSect = sFullSect.substring(posLF + LF_LEN);
 			
 				LOGGER.fine("Before parseWord: '" + sLangSect + "'");
-			
-				// process lang here
-				WordLanguage wordLang = parseWord(word, sLangSect, currentTitle, langID);
-			
-				langs.add(wordLang);
+				
+				boolean foundLang = false;
+				for (Lang lang : langs) {
+					if (lang.getName().equals(lookupLang.getName())) {
+						foundLang = true;
+						
+						LOGGER.finer("langName: '" + langName + "', id=" + lang.getId());
+						
+						WordLang wordLang = new WordLang();
+						wordLangNbr++;
+						wordLang.setId(new Integer(wordLangNbr));
+						wordLang.setLang(lang);
+						
+						// Informative only
+						wordLang.setDataField(lang.getName());
+						// Each wordlang has 1-n etymologies (wordetym)
+						
+						Set<WordEtym> wordEtyms = parseWord(word, sLangSect, currentTitle, outputType, wordLang);
+						wordLang.setWordEtyms( wordEtyms );
+						
+						wordLang.setWord(word);
+						
+						Set<WordLang> langWordLangs = null;
+						langWordLangs = lang.getWordLangs();
+						langWordLangs.add(wordLang);
+						lang.setWordLangs(langWordLangs);
+
+						Set<WordLang> wordWordLangs = null;
+						wordWordLangs = word.getWordLangs();
+						wordWordLangs.add(wordLang);
+						word.setWordLangs(wordWordLangs);
+						
+						break;
+					}
+				}
+				if (!foundLang)
+					throw new Exception("Lang not found");
 			}
 			
 			if (langNameEnd > -1) {
@@ -561,94 +681,100 @@ public class ReadStripped {
 			i++;
 		}
 		
-		word.setWordLanguages(langs);
-		
+		// Outputed in callStorer()
 		words.add(word);
 		
-		//LOGGER.info("Parsed: '" + currentTitle + "'");
+		LOGGER.fine("Parsed: '" + currentTitle + "'");
 	}
 	
-	private WordLanguage parseWord(Word word, String sLangSect, String currentTitle, LanguageID langID) {
-		
-		WordEtymology etym = new WordEtymology();
-		LinkedList<WordEntry> wordEntries = etym.getWordEntries();
+	// wordLang is just a link back
+	private Set<WordEtym> parseWord(Word word, String sLangSect, String currentTitle, OutputType outputType,
+		WordLang wordLang) {
+
+		/* TODO Doesn't take etymologies into account currently.
+		 * All word entries are processed as if there was just one etymology.
+		 * Should parse:
+		 * 
+		 * ===Etymology 1===
+		 * ...
+         * ====Verb====
+         * ...
+         * ===Etymology 2===
+         * ...
+		 */
+		Set<WordEtym> wordEtymologies = new LinkedHashSet<WordEtym>();
+
+		WordEtym wordEtym = new WordEtym();
+		wordEtymsNbr++;
+		wordEtym.setId(wordEtymsNbr);
+		wordEtym.setWordLang(wordLang); // Just a link back
+		Set<WordEntry> wordEntries = wordEtym.getWordEntries();
 		
 		int nounStart = sLangSect.indexOf("===Noun===");
 		if (nounStart > -1) {
-			POSType pos = new POSType( POSType.NOUN );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, nounStart);
+			WordEntry entry = processPOS(POSType.NOUN, currentTitle, sLangSect, nounStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
 		int prNounStart = sLangSect.indexOf("===Proper noun===");
 		if (prNounStart > -1) {
-			POSType pos = new POSType( POSType.PRNOUN );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, prNounStart);
+			WordEntry entry = processPOS(POSType.PRNOUN, currentTitle, sLangSect, prNounStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
-				
+		
 		// TODO Pickup the comparative and superlative: {{en-adj|freer|freest}}
 		int adjStart = sLangSect.indexOf("===Adjective===");
 		if (adjStart > -1) {
-			POSType pos = new POSType( POSType.ADJ );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, adjStart);
+			WordEntry entry = processPOS(POSType.ADJ, currentTitle, sLangSect, adjStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
 		int vbStart = sLangSect.indexOf("===Verb===");
 		if (vbStart > -1) {
-			POSType pos = new POSType( POSType.VERBGEN );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, vbStart);
+			WordEntry entry = processPOS(POSType.VERBGEN, currentTitle, sLangSect, vbStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
 		int advStart = sLangSect.indexOf("===Adverb===");
 		if (advStart > -1) {
-			POSType pos = new POSType( POSType.ADV );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, advStart);
+			WordEntry entry = processPOS(POSType.ADV, currentTitle, sLangSect, advStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
 		int conjStart = sLangSect.indexOf("===Conjunction===");
 		if (conjStart > -1) {
-			POSType pos = new POSType( POSType.CONJ );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, conjStart);
+			WordEntry entry = processPOS(POSType.CONJ, currentTitle, sLangSect, conjStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
 		int initStart = sLangSect.indexOf("==={{initialism}}===");
 		if (initStart > -1) {
-			POSType pos = new POSType( POSType.INIT );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, initStart);
+			WordEntry entry = processPOS(POSType.INIT, currentTitle, sLangSect, initStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
 		initStart = sLangSect.indexOf("===Initialism===");
 		if (initStart > -1) {
-			POSType pos = new POSType( POSType.INIT );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, initStart);
+			WordEntry entry = processPOS(POSType.INIT, currentTitle, sLangSect, initStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
 		int acronStart = sLangSect.indexOf("==={{acronym}}===");
 		if (acronStart > -1) {
-			POSType pos = new POSType( POSType.ACRON );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, acronStart);
+			WordEntry entry = processPOS(POSType.ACRON, currentTitle, sLangSect, acronStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
 		// e.g. EU, the Swedish section
 		acronStart = sLangSect.indexOf("===Acronym===");
 		if (acronStart > -1) {
-			POSType pos = new POSType( POSType.ACRON );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, acronStart);
+			WordEntry entry = processPOS(POSType.ACRON, currentTitle, sLangSect, acronStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
 		int abbrStart = sLangSect.indexOf("==={{abbreviation}}===");
 		if (abbrStart > -1) {
-			POSType pos = new POSType( POSType.ABBR );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, abbrStart);
+			WordEntry entry = processPOS(POSType.ABBR, currentTitle, sLangSect, abbrStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
@@ -657,136 +783,98 @@ public class ReadStripped {
 		 */
 		abbrStart = sLangSect.indexOf("===Abbreviation===");
 		if (abbrStart > -1) {
-			POSType pos = new POSType( POSType.ABBR );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, abbrStart);
+			WordEntry entry = processPOS(POSType.ABBR, currentTitle, sLangSect, abbrStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 
 		int letterStart = sLangSect.indexOf("===Letter===");
 		if (letterStart > -1) {
-			POSType pos = new POSType( POSType.LETTER );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, letterStart);
+			WordEntry entry = processPOS(POSType.LETTER, currentTitle, sLangSect, letterStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
 		int prefixStart = sLangSect.indexOf("===Prefix===");
 		if (prefixStart > -1) {
-			POSType pos = new POSType( POSType.PREFIX );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, prefixStart);
+			WordEntry entry = processPOS(POSType.PREFIX, currentTitle, sLangSect, prefixStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
 		int suffixStart = sLangSect.indexOf("===Suffix===");
 		if (suffixStart > -1) {
-			POSType pos = new POSType( POSType.SUFFIX );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, suffixStart);
+			WordEntry entry = processPOS(POSType.SUFFIX, currentTitle, sLangSect, suffixStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
 		int pronounStart = sLangSect.indexOf("===Pronoun===");
 		if (pronounStart > -1) {
-			POSType pos = new POSType( POSType.PRON );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, pronounStart);
+			WordEntry entry = processPOS(POSType.PRON, currentTitle, sLangSect, pronounStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
 		int detStart = sLangSect.indexOf("===Determiner===");
 		if (detStart > -1) {
-			POSType pos = new POSType( POSType.DET );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, detStart);
+			WordEntry entry = processPOS(POSType.DET, currentTitle, sLangSect, detStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
 		int cardStart = sLangSect.indexOf("===Cardinal number===");
 		if (cardStart > -1) {
-			POSType pos = new POSType( POSType.CARD );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, cardStart);
+			WordEntry entry = processPOS(POSType.CARD, currentTitle, sLangSect, cardStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
 		int numerStart = sLangSect.indexOf("===Numeral===");
 		if (numerStart > -1) {
-			POSType pos = new POSType( POSType.NUM );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, numerStart);
+			WordEntry entry = processPOS(POSType.NUM, currentTitle, sLangSect, numerStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
 		int interStart = sLangSect.indexOf("===Interjection===");
 		if (interStart > -1) {
-			POSType pos = new POSType( POSType.INT );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, interStart);
+			WordEntry entry = processPOS(POSType.INT, currentTitle, sLangSect, interStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
 		int contrStart = sLangSect.indexOf("===Contraction===");
 		if (contrStart > -1) {
-			POSType pos = new POSType( POSType.CONT );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, contrStart);
+			WordEntry entry = processPOS(POSType.CONT, currentTitle, sLangSect, contrStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
 		int phrStart = sLangSect.indexOf("===Phrase===");
 		if (phrStart > -1) {
-			POSType pos = new POSType( POSType.PHRASE );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, phrStart);
+			WordEntry entry = processPOS(POSType.PHRASE, currentTitle, sLangSect, phrStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
 		int provStart = sLangSect.indexOf("===Proverb===");
 		if (provStart > -1) {
-			POSType pos = new POSType( POSType.PROVERB );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, provStart);
+			WordEntry entry = processPOS(POSType.PROVERB, currentTitle, sLangSect, provStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
 		int vbFormStart = sLangSect.indexOf("===Verb form===");
 		if (vbFormStart > -1) {
-			POSType pos = new POSType( POSType.VERBFORM );
-			WordEntry entry = processPOS(pos, currentTitle, sLangSect, vbFormStart);
+			WordEntry entry = processPOS(POSType.VERBFORM, currentTitle, sLangSect, vbFormStart, outputType, wordEtym);
 			wordEntries.add(entry);
 		}
 		
-		etym.setWordEntries(wordEntries);
+		wordEtym.setWordEntries(wordEntries);
 
-		LinkedList<WordEtymology> wordEtymologies = new LinkedList<WordEtymology>();
-		wordEtymologies.add( etym );
+		wordEtymologies.add( wordEtym );
 
-		WordLanguage wordLang = new WordLanguage(langID);
-		wordLang.setWordEtymologies( wordEtymologies );
-		
-		return wordLang;
-		
-		// TODO Set contents of Word
-		// loop WordEtymologies
-//				for ( WordEtymology etym : lang.getWordEtymologies() ) {
-//					/*
-//					 * There are two levels here:
-//					 * Etymologies and WordEntries
-//					 * We don't print etyms here yet as aren't most relevant for Kindle users
-//					 */
-//					
-//					// loop WordEntries
-//					for ( WordEntry entries : etym.getWordEntries() ) {
-//						POSType pos = entries.getPos();
-//						String posStr = pos.getPosType();
-//						
-//						sb.append(posStr + "<br/>"); // e.g. "v.t." or "n."
-//						
-//						int senseNbr = 0;
-//						for ( Sense sense : entries.getSenses() ) {
-//							String content = sense.getContent();
-//							senseNbr++;
-//							
-//							sb.append(senseNbr + " " + content + "<br/>"); // e.g. 1 To coat with zinc; to galvanize.
-//						}
-//					}
-//				}
+		return wordEtymologies;
 	}
 	
-	private WordEntry processPOS ( POSType pos, String currentTitle, String sLangSect, int start ) {
-		WordEntry entry = new WordEntry( pos );
+	private WordEntry processPOS ( String wordPos, String currentTitle, String sLangSect, int start, OutputType outputType,
+			WordEtym wordEtym) {
+		WordEntry wordEntry = new WordEntry();
+		wordEntriesNbr++;
+		wordEntry.setId(new Integer(wordEntriesNbr));
+		wordEntry.setPos(wordPos);
+		wordEntry.setWordEtym(wordEtym); // a link back
 		
-		LinkedList<Sense> senses = new LinkedList<Sense>();
+		Set<Sense> senses = new LinkedHashSet<Sense>(0);
 		
 		boolean sensesCont = true;
 		int i = start;
@@ -814,9 +902,18 @@ public class ReadStripped {
 				int lfPos = sLangSect.substring(i).indexOf(LF);
 				if (lfPos > -1) {
 					String senseStr = sLangSect.substring(i, i + lfPos);
-					String unwikifiedStr = unwikifyStr(senseStr);
-					Sense sense = new Sense(unwikifiedStr);
+					String unwikifiedStr = unwikifyStr(senseStr, outputType);
+					
+					Sense sense = new Sense();
+					sense.setDataField(unwikifiedStr);
+					senseNbr++;
+					sense.setId(new Integer(senseNbr));
 					senses.add(sense);
+					
+					String unwikifiedStrStart = unwikifiedStr;
+					if (unwikifiedStrStart.length() > 80)
+						unwikifiedStrStart = unwikifiedStrStart.substring(0, 80);
+					LOGGER.fine("Sense #" + senseNbr + ": '" + unwikifiedStrStart + "' at wordEntry " + wordEntriesNbr);
 					
 					//int hashSpacePos = sLangSect.substring(i).indexOf("# ");
 					
@@ -826,6 +923,7 @@ public class ReadStripped {
 					int posSrc = sLangSect.substring(i).indexOf("#*");
 					int posQuote = sLangSect.substring(i).indexOf("#:");
 					
+					// We use LinkedList temporarily due to it having getLast etc.
 					LinkedList<Example> examples = new LinkedList<Example>();
 					
 //					while ( (hashSpacePos == -1 &&
@@ -895,15 +993,20 @@ public class ReadStripped {
 							 * this is a source for the next example 
 							 */
 							if (lastExample == null ||
-								lastExample.getSrc() != null) {
-								String unwikifiedContentStr = unwikifyStr(content);
-								ExampleSource egSource = new ExampleSource(unwikifiedContentStr);
-								Example example = new Example(egSource);
+								lastExample.getDataField() != null) {
+								String unwikifiedContentStr = unwikifyStr(content, outputType);
+								// TODO Set also ExampleSource
+								//ExampleSource egSource = new ExampleSource(unwikifiedContentStr);
+								//Example example = new Example(egSource);
+								Example example = new Example();
+								example.setDataField(unwikifiedContentStr);
 								examples.add(example);
 							} else { // This is the source for the last example
-								String unwikifiedContentStr = unwikifyStr(content);
-								ExampleSource egSource = new ExampleSource(unwikifiedContentStr);
-								lastExample.setSrc(egSource);
+								String unwikifiedContentStr = unwikifyStr(content, outputType);
+								// TODO Set also ExampleSource
+								//ExampleSource egSource = new ExampleSource(unwikifiedContentStr);
+								//lastExample.setSrc(egSource);
+								lastExample.setDataField(unwikifiedContentStr);
 								int lastPos = examples.size() - 1;
 								examples.set(lastPos, lastExample);
 							}
@@ -917,14 +1020,17 @@ public class ReadStripped {
 							 * This is the first example or this a new example since last one already
 							 * had content
 							 */
-							if (lastExample == null || lastExample.getContent() != null) {
-								String unwikifiedContentStr = unwikifyStr(content);
-								Example example = new Example(unwikifiedContentStr);
+							if (lastExample == null || lastExample.getDataField() != null) {
+								String unwikifiedContentStr = unwikifyStr(content, outputType);
+								//Example example = new Example(unwikifiedContentStr);
+								Example example = new Example();
+								example.setDataField(unwikifiedContentStr);
 						
 								examples.add(example);
 							} else { // last example only has a source, thus add it's content now
-								String unwikifiedContentStr = unwikifyStr(content);
-								lastExample.setContent(unwikifiedContentStr);
+								String unwikifiedContentStr = unwikifyStr(content, outputType);
+								//lastExample.setContent(unwikifiedContentStr);
+								lastExample.setDataField(unwikifiedContentStr);
 								int lastPos = examples.size() - 1;
 								examples.set(lastPos, lastExample);
 							}
@@ -934,15 +1040,32 @@ public class ReadStripped {
 						posSrc = sLangSect.substring(i).indexOf("#*");
 						posQuote = sLangSect.substring(i).indexOf("#:");
 					}
-					sense.setExamples(examples);
+					
+					// Convert from LinkedList
+					Set<Example> examplesSet = new LinkedHashSet<Example>(0);
+//					for (Example e : examples) {
+//						examplesSet.add(e);
+//					}
+					// TODO Not sure if works OK and examples aren't used yet
+//					examplesSet.addAll(examples);
+//					
+//					sense.setExamples(examplesSet);
 					
 				} else {
 					// was last line
 					String senseStr = sLangSect.substring(i);
 					
-					String unwikifiedStr = unwikifyStr(senseStr);
+					String unwikifiedStr = unwikifyStr(senseStr, outputType);
 					
-					Sense sense = new Sense(unwikifiedStr);
+					String unwikifiedStrStart = unwikifiedStr;
+					if (unwikifiedStrStart.length() > 80)
+						unwikifiedStrStart = unwikifiedStrStart.substring(0, 80);
+					LOGGER.fine("Sense #" + senseNbr + ": '" + unwikifiedStrStart + "' at wordEntry " + wordEntriesNbr);
+					
+					Sense sense = new Sense();
+					sense.setDataField(unwikifiedStr);
+					senseNbr++;
+					sense.setId(new Integer(senseNbr));
 					senses.add(sense);
 				}
 				
@@ -973,21 +1096,21 @@ public class ReadStripped {
 			}
 		} while ( sensesCont );
 		
-		entry.setSenses(senses);
-		
-		return entry;
+		wordEntry.setSenses(senses);
+
+		return wordEntry;
 	}
 	
 	/*
 	 * 
 	 */
-	private String unwikifyStr(String senseStr) {
+	private String unwikifyStr(String senseStr, OutputType outputType) {
 		String s = senseStr;
 
 		// Convert w: links
-		s = StringUtils.convertWikiLinks(s, "[[w:", "]]", OUTPUT_TYPE);
+		s = StringUtils.convertWikiLinks(s, "[[w:", "]]", outputType);
 		// Convert Wikipedia: links
-		s = StringUtils.convertWikiLinks(s, "[[w:", "]]", OUTPUT_TYPE);
+		s = StringUtils.convertWikiLinks(s, "[[w:", "]]", outputType);
 		
 		/*
 		 * {{chiefly|_|UK}}
