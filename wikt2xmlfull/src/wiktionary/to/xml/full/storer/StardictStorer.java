@@ -7,17 +7,18 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
+import java.util.Set;
 
-import wiktionary.to.xml.full.data.Example;
-import wiktionary.to.xml.full.data.ExampleSource;
-import wiktionary.to.xml.full.data.LanguageID;
+import wiktionary.to.xml.full.jpa.Example;
 import wiktionary.to.xml.full.data.POSType;
-import wiktionary.to.xml.full.data.Sense;
-import wiktionary.to.xml.full.data.Word;
-import wiktionary.to.xml.full.data.WordEntry;
-import wiktionary.to.xml.full.data.WordEtymology;
-import wiktionary.to.xml.full.data.WordLanguage;
+import wiktionary.to.xml.full.jpa.Lang;
+import wiktionary.to.xml.full.jpa.Sense;
+import wiktionary.to.xml.full.jpa.Word;
+import wiktionary.to.xml.full.jpa.WordEntry;
+import wiktionary.to.xml.full.jpa.WordEtym;
+import wiktionary.to.xml.full.jpa.WordLang;
 import wiktionary.to.xml.full.util.DeepCopy;
 
 /**
@@ -28,11 +29,12 @@ import wiktionary.to.xml.full.util.DeepCopy;
  * @author Joel Korhonen
  * 2012-07-04 First version, based on KindleStorer.java
  * 2012-07-26 Support outputting all language codes in LanguageID
+ * 2013-11-25 Get data from JPA entities
  */
 public class StardictStorer implements Storer, Runnable {
 	private LinkedList<Word> words = new LinkedList<Word>();
-	private String lang = null;
-	private String langID = null;
+	private String lang = null; // Storer interface requires, unused
+	private String langID = null; // Storer interface requires, unused
 	private String target = null;
 	
 	// thread shared objects
@@ -41,6 +43,40 @@ public class StardictStorer implements Storer, Runnable {
 	
 	public StardictStorer(LinkedList<Word> words, String lang, String langID, String target) {
 		LinkedList<Word> kopio = null;
+		
+		
+//		int w = 0;
+//		for (Word word : words) {
+//			w++;
+//			System.out.println("Word #" + w + ": '" + word.getDataField() + "'");
+//			int langnr = 0;
+//			for ( WordLang wordLang : word.getWordLangs() ) {
+//				langnr++;
+//				System.out.println(" Lang #" + langnr + " vs. " + wordLang.getId() + ": '" + wordLang.getDataField() + "'");
+//				Set<WordEtym> wordEtyms = wordLang.getWordEtyms();
+//				int etymnr = 0;
+//				for (WordEtym wordEtym : wordEtyms) {
+//					etymnr++;
+//					System.out.println("  Etym #" + etymnr + " vs. " + wordEtym.getId());
+//					int entries = 0;
+//					for (WordEntry wordEntry : wordEtym.getWordEntries()) {
+//						entries++;
+//						System.out.println("   Entry #" + entries + " vs. " + wordEntry.getId() + " - " + wordEntry.getPos());
+//						int sensenr = 0;
+//						for (Sense sense : wordEntry.getSenses()) {
+//							sensenr++;
+//							System.out.println("    Sense #" + sensenr + " vs. " + sense.getId());
+//							String s = sense.getDataField();
+//							if (s.length() > 50)
+//								s = s.substring(0, 50);
+//							System.out.println("    Sense #" + sensenr + " vs. " + sense.getId());
+//							System.out.println("    : '" + s + "'");
+//						}
+//					}
+//				}
+//			}
+//		}
+		
 		
 		kopio = (LinkedList<Word>)DeepCopy.copy(words);
 		
@@ -78,7 +114,7 @@ public class StardictStorer implements Storer, Runnable {
 		
 		// loop words
 		for (Word word : words) {
-			for ( WordLanguage wordLang : word.getWordLanguages() ) {
+			for ( WordLang wordLang : word.getWordLangs() ) {
 				outputWord(word, wordLang);
 			}
 		}
@@ -104,24 +140,26 @@ public class StardictStorer implements Storer, Runnable {
 	/*
 	 * zinc\t v. t.\n 1 To coat with zinc; to galvanize. \n [src. Wikt.]
 	 */	
-	private void outputWord (Word word, WordLanguage wordLang) throws Exception {
+	private void outputWord (Word word, WordLang wordLang) throws Exception {
 		StringBuilder sb = new StringBuilder();
 		boolean isEnglish = true;
-		LanguageID langID = null;
+		//LanguageID langID = null;
 		String langID_ID = null;
 		boolean isFirstPOS = true;
 		
-		langID = wordLang.getLangID();
-		
-		langID_ID = langID.getLangID();
-		
-		if ( ! ( langID_ID.equals( LanguageID.LANG_EN )
+		langID_ID = wordLang.getLang().getName();
+		// TODO
+//		langID = wordLang.getLangID();
+//		
+//		langID_ID = langID.getLangID();
+//		
+		if ( ! ( langID_ID.equals("English")
 			   )
 		   ) {
 			isEnglish = false;
 		}
 		
-		sb.append(word.getName() + "\t");
+		sb.append(word.getDataField() + "\t");
 		
 		/*
 		 * loop WordEtymologies
@@ -131,7 +169,7 @@ public class StardictStorer implements Storer, Runnable {
 		 */
 		
 		// loop WordEtymologies
-		for ( WordEtymology etym : wordLang.getWordEtymologies() ) {
+		for ( WordEtym etym : wordLang.getWordEtyms() ) {
 			/*
 			 * There are two levels here:
 			 * Etymologies and WordEntries
@@ -139,9 +177,8 @@ public class StardictStorer implements Storer, Runnable {
 			 */
 			
 			// loop WordEntries
-			for ( WordEntry entries : etym.getWordEntries() ) {
-				POSType pos = entries.getPos();
-				String posStr = pos.getPosType();
+			for ( WordEntry wordEntry : etym.getWordEntries() ) {
+				String posStr = wordEntry.getPos(); 
 				
 				// e.g. first have defined etym. 1 of "bake" as "n.", now as "vb."
 				if (!isFirstPOS) {
@@ -153,30 +190,35 @@ public class StardictStorer implements Storer, Runnable {
 				} else {
 					String langStr = null;
 					
-					langStr = langID.getLangStr();
-										
+					// TODO
+					//langStr = langID.getLangStr();
+					langStr = langID_ID;
+					
 					sb.append(langStr + " " + posStr); // e.g. "Fr. v.t." or "Fr. n."
 				}
 				
 				int senseNbr = 0;
-				int sensesSize = entries.getSenses().size();
+				//int sensesSize = entries.getSenses().size();
 				// loop Senses
-				for ( Sense sense : entries.getSenses() ) {
-					String content = sense.getContent();
+				for ( Sense sense : wordEntry.getSenses() ) {
+					String content = sense.getDataField();
 					senseNbr++;
 					
-					if (sensesSize > 1) {
-						// We write "\n" to file, not a newline
-						sb.append("\\n" + senseNbr + " " + content); // e.g. 1 To coat with zinc; to galvanize.
-					} else {
-						sb.append("\\n" + content); // e.g. To coat with zinc; to galvanize.
-					}
+					// TODO Fix
+//					if (sensesSize > 1) {
+//						// We write "\n" to file, not a newline
+//						sb.append("\\n" + senseNbr + " " + content); // e.g. 1 To coat with zinc; to galvanize.
+//					} else {
+//						sb.append("\\n" + content); // e.g. To coat with zinc; to galvanize.
+//					}
+					sb.append("\\n" + senseNbr + " " + content); // e.g. 1 To coat with zinc; to galvanize.
 					
-					for ( Example example : sense.getExamples() ) {
-						String egContent = example.getContent();
+//					for ( Example example : sense.getExamples() ) {
+//						String egContent = example.getDataField();
 						
-						ExampleSource egSource = example.getSrc();
-						String egSourceStr = null;
+						// TODO
+//						ExampleSource egSource = example.getSrc();
+//						String egSourceStr = null;
 						
 						/*
 						 * Since example content may come before or after the example
@@ -218,7 +260,7 @@ public class StardictStorer implements Storer, Runnable {
 						 * with his Servant and '''Portmanteau''', went to Don Juan's; where they first found good
 						 * Stabling for their Horses, and afterwards as good Provision for themselves.
 						 */
-					}
+//					}
 				}
 				isFirstPOS = false;
 			} // ... loop WordEntries
@@ -280,7 +322,8 @@ public class StardictStorer implements Storer, Runnable {
 				
 				// loop words
 				for (Word word : words) {
-					for ( WordLanguage wordLang : word.getWordLanguages() ) {
+					//System.out.println("OUTPUTING WORD " + word.getDataField());
+					for ( WordLang wordLang : word.getWordLangs() ) {
 						outputWord(word, wordLang);
 					}
 				}
