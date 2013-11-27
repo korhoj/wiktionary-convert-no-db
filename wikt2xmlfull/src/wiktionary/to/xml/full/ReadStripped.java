@@ -2,8 +2,11 @@ package wiktionary.to.xml.full;
 
 import static wiktionary.to.xml.full.data.OutputTypes.OutputType;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -52,11 +55,14 @@ import wiktionary.to.xml.full.util.StringUtils;
  * for this, only Kindle and StarDict
  * 2012-07-31 Outputs result concurrently with reading, in another thread
  * 2013-11-25 Changed to use Hibernate (JPA)
+ * 2013-11-27 Auto-adds missing languages during processing (not to DB though)
  */
 public class ReadStripped {
 	private static int STORE_INTERVAL = 1000; // Store entries after this many read
+	//private static int STORE_INTERVAL = 200; // Store entries after this many read
 	//private static int STORE_INTERVAL = 5; // Store entries after this many read
 	private static long MAXENTRIES_TOPROCESS = 10000000;
+	//private static long MAXENTRIES_TOPROCESS = 4000;
 	//private static long MAXENTRIES_TOPROCESS = 10;
 	
 	private static boolean FAIL_AT_FIRST_PROBLEM = false;
@@ -64,16 +70,15 @@ public class ReadStripped {
 	public final static Logger LOGGER = Logger.getLogger(ReadStripped.class
 			.getName());
 	private static FileHandler fileHandler;
-	private static ConsoleHandler consoleHandler;
 	private static SimpleFormatter formatterTxt;
-	private static DocumentBuilder db;
 	
 	public final static String LF = System.getProperty("line.separator");
 	public final static int LF_LEN = LF.length();
 	
 	private Session session = null; // JPA session
 	
-	public final Set<Lang> langs = new HashSet<Lang>();
+	public Set<Lang> langs = new HashSet<Lang>();
+	private int langsCount = 0;
 	
 	private int wordLangNbr = 0;
 	private int wordEtymsNbr = 0;
@@ -144,17 +149,6 @@ public class ReadStripped {
 	private LinkedList<Word> words = new LinkedList<Word>();
 	
 	static {
-		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-		dbf.setNamespaceAware(true);
-		try {
-			db = dbf.newDocumentBuilder();
-		} catch (ParserConfigurationException e1) {
-			String msg = "Parser config error: '" + e1.getMessage() + "'";
-			System.err.println(msg);
-			e1.printStackTrace();
-			System.exit(255);
-		}
-		
 		try {
 			fileHandler = new FileHandler(ReadStripped.class.getName() + ".log");
 		} catch (Exception e) {
@@ -164,10 +158,7 @@ public class ReadStripped {
 			System.exit(255);
 		}
 
-		consoleHandler = new ConsoleHandler();
-
 		//LOGGER.setLevel(Level.ALL);
-		// TODO
 		LOGGER.setLevel(Level.INFO);
 		//LOGGER.setLevel(Level.WARNING);
 
@@ -175,11 +166,6 @@ public class ReadStripped {
 		formatterTxt = new SimpleFormatter();
 		fileHandler.setFormatter(formatterTxt);
 		LOGGER.addHandler(fileHandler);
-
-		// Default: java.util.logging.SimpleFormatter
-		// consoleHandler.setFormatter(formatterTxt);
-		// TODO If added, writes twice to console?!
-//		LOGGER.addHandler(consoleHandler);
 	}	
 	
 	/**
@@ -258,26 +244,34 @@ public class ReadStripped {
 		
         try (BufferedReader in = new BufferedReader(new InputStreamReader(
 				new FileInputStream(inFileName), "UTF-8"))) {
-        	// Session is needed whilst processing languages later too since it currently lazy loads languages
-			session = HibernateUtil.getSessionFactory().getCurrentSession();
-			session.beginTransaction();
-			@SuppressWarnings("unchecked")
-			List<Lang> langResult = session.createQuery("from Lang").list();
-			LOGGER.fine("Lang list size: " + langResult.size());
-			if (langResult.size() == 0) {
-				throw new Exception("Language db hasn't been initialized. Run CreateDatabase.sql." +
-			     " Currently you need to change table lang to allow nulls for column abr");
-			}
-			
-			langs.addAll(langResult);
+        	
+        	if (outputType == OutputType.JPA) {
+	        	// Session is needed whilst processing languages later too since it currently lazy loads languages
+				session = HibernateUtil.getSessionFactory().getCurrentSession();
+				session.beginTransaction();
+				
+	        	// Load languages from DB
+				@SuppressWarnings("unchecked")
+				List<Lang> langResult = session.createQuery("from Lang").list();
+				LOGGER.fine("Lang list size: " + langResult.size());
+				if (langResult.size() == 0) {
+					throw new Exception("Language db hasn't been initialized. Run CreateDatabase.sql." +
+				     " Currently you need to change table lang to allow nulls for column abr");
+				}
+				
+				langs.addAll(langResult);
+        	} else {
+	        	// Load languages from csv file to avoid JPA processing
+	        	
+	        	langs = loadLanguages();
+        	}
 			
 			String s = in.readLine();
 			outStr = "";
 			while (s != null && entryNbr < MAXENTRIES_TOPROCESS) {
 				try {
 					if (entryNbr % STORE_INTERVAL == 0 && entryNbr > 0 && evenThousand) {
-						//LOGGER.info("Processed entry " + entryNbr);
-						LOGGER.fine("Processed entry " + entryNbr);
+						LOGGER.info("Processed entry " + entryNbr);
 						
 						callStorer(outputType, lang, langID, outFileName);
 						
@@ -416,13 +410,13 @@ public class ReadStripped {
 				break;
 			case Stardict:
 				StardictStorer.closeOutput();
-				session.getTransaction().rollback();
+				//session.getTransaction().rollback();
 			}
 			
 			session = null;
 		} catch (Exception e) {
 			String titleStart = currentTitle;
-			if (currentTitle.length() > 100)
+			if (currentTitle != null && currentTitle.length() > 100)
 				titleStart = currentTitle.substring(0, 100);
 			
 			String msg = "Failed at entryNbr: " + entryNbr + ", title: '" + titleStart + "'";
@@ -439,7 +433,7 @@ public class ReadStripped {
 	
 	private void callStorer(OutputType outputType, String lang, String langID, String outFileName) throws Exception {
 		try {
-			LOGGER.log(Level.INFO, "Storing " + words.size() + " entries");
+			LOGGER.fine("Storing " + words.size() + " entries");
 			
 			switch(outputType) {
 			case Kindle:
@@ -461,6 +455,7 @@ public class ReadStripped {
 				jThread = null;
 			    break;
 			case Stardict:
+				StardictStorer.flushOutput();
 				StardictStorer storer = new StardictStorer(words, lang, langID, outFileName);
 				Thread sThread = new Thread(storer, "sThread");
 				sThread.run();
@@ -563,7 +558,7 @@ public class ReadStripped {
 		int langStart = s.indexOf("==");
 		int LOOP_MAX = 10;
 		while (langStart > -1 && i < LOOP_MAX) {
-			
+			// TODO Maybe we should check for both Windows and Linux style linefeeds
 			int langNameEnd = s.indexOf("==" + LF);
 			if (langNameEnd == -1) {
 				String msg = "Language end not found in string '" + s + "'";
@@ -603,13 +598,25 @@ public class ReadStripped {
 					langName = langName.substring(0, langName.length()-2);
 				}
 				
-				//LOGGER.info("langName: '" + langName + "'");
-				LOGGER.finer("langName: '" + langName + "'");
+				//LOGGER.finer("langName to look for: '" + langName + "'");
 				
 				lookupLang.setName(langName);
 			}
 			
-			if (!langs.contains(lookupLang)) {
+			if (langName != null && langName.indexOf("=") == -1 && !langs.contains(lookupLang)) {
+				String msg = "Adding language: '" + langName + "', langsCount=" + (langsCount+1);
+				LOGGER.info(msg);
+				// TODO Write separate output file of new language candidates?
+				
+				Lang addLang = new Lang();
+				addLang.setId(++langsCount);
+				addLang.setName(langName);
+				addLang.setCode(langName);
+				langs.add(addLang);
+				
+			}
+			
+			if (langName == null || !langs.contains(lookupLang)) {
 				String msg = "Unknown language: '" + langName + "'";
 				LOGGER.warning(msg);
 				//throw new Exception(msg);
@@ -627,6 +634,7 @@ public class ReadStripped {
 						foundLang = true;
 						
 						LOGGER.finer("langName: '" + langName + "', id=" + lang.getId());
+						//LOGGER.info("langName: '" + langName + "', id=" + lang.getId());
 						
 						WordLang wordLang = new WordLang();
 						wordLangNbr++;
@@ -1117,5 +1125,44 @@ public class ReadStripped {
 		s = StringUtils.formatSquareTags(s);
 		
 		return s;
+	}
+	
+	private Set<Lang> loadLanguages() throws IOException {
+		String inFileName = "language codes.csv";
+		
+		LOGGER.info("Reading languages file");
+		
+		ClassLoader cl = ReadStripped.class.getClassLoader();
+		
+		InputStream res = cl.getResourceAsStream(inFileName);
+		if (res == null) {
+			inFileName = "src/" + inFileName; // when running in Eclipse
+			res = cl.getResourceAsStream(inFileName);
+		}
+        
+		try (BufferedReader in = new BufferedReader(new InputStreamReader(
+				new BufferedInputStream(res), "UTF-8"))) {
+			String s = in.readLine(); // skip csv headers
+			s = in.readLine();
+			while (s != null) {
+				String[] langArr = s.split(";");
+						
+				Lang addLang = new Lang();
+				addLang.setId(++langsCount);
+				addLang.setName(langArr[1]);
+				addLang.setCode(langArr[2]);
+				// TODO Abr is unused for now, it would be an official, well-known abbreviation put in the output
+				langs.add(addLang);
+				
+				s = in.readLine();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new IOException("Unable to read languages file: " + e.getMessage());
+		}
+		
+		LOGGER.info("Ended reading languages file");
+		
+		return langs;
 	}
 }
