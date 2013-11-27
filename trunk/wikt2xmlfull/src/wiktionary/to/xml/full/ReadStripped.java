@@ -31,6 +31,7 @@ import wiktionary.to.xml.full.jpa.Word;
 import wiktionary.to.xml.full.jpa.WordEntry;
 import wiktionary.to.xml.full.jpa.WordEtym;
 import wiktionary.to.xml.full.jpa.WordLang;
+import wiktionary.to.xml.full.storer.JPAStorer;
 //import wiktionary.to.xml.full.storer.JDBCStorer;
 //import wiktionary.to.xml.full.storer.KindleStorer;
 import wiktionary.to.xml.full.storer.StardictStorer;
@@ -56,6 +57,9 @@ public class ReadStripped {
 	private static int STORE_INTERVAL = 1000; // Store entries after this many read
 	//private static int STORE_INTERVAL = 5; // Store entries after this many read
 	private static long MAXENTRIES_TOPROCESS = 10000000;
+	//private static long MAXENTRIES_TOPROCESS = 10;
+	
+	private static boolean FAIL_AT_FIRST_PROBLEM = false;
 	
 	public final static Logger LOGGER = Logger.getLogger(ReadStripped.class
 			.getName());
@@ -162,9 +166,10 @@ public class ReadStripped {
 
 		consoleHandler = new ConsoleHandler();
 
-		LOGGER.setLevel(Level.ALL);
+		//LOGGER.setLevel(Level.ALL);
 		// TODO
-//		LOGGER.setLevel(Level.INFO);
+		LOGGER.setLevel(Level.INFO);
+		//LOGGER.setLevel(Level.WARNING);
 
 		// Create txt Formatter
 		formatterTxt = new SimpleFormatter();
@@ -250,9 +255,6 @@ public class ReadStripped {
 		//String prevTitle = null;
 		String currentTitle = null;
 		String outStr = null;
-//		EntityManagerFactory emFactory = null;
-//        EntityManager em = null;
-        //Session session = null;
 		
         try (BufferedReader in = new BufferedReader(new InputStreamReader(
 				new FileInputStream(inFileName), "UTF-8"))) {
@@ -260,19 +262,8 @@ public class ReadStripped {
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			session.beginTransaction();
 			@SuppressWarnings("unchecked")
-			//List<Lang> langResult = session.createQuery("select id as id, name as name, code as code, abr as abr from Lang").list();
 			List<Lang> langResult = session.createQuery("from Lang").list();
-			//Query q = session.createQuery("from Lang");
-//			emFactory = Persistence.createEntityManagerFactory("HibernateJBossTools");
-//			em = emFactory.createEntityManager();
-            //Query q = session.createNamedQuery("Lang.findAll");
-            //@SuppressWarnings("unchecked")
-            //Type[] t = q.getReturnTypes();
-            //List<Lang> langResult = q.getResultList();
-//            for (Lang l : langResult) {
-//            	System.out.println("Lang found: " + l.getCode() + " - " + l.getName());
-//            }
-			System.out.println("Lang list size: " + langResult.size());
+			LOGGER.fine("Lang list size: " + langResult.size());
 			if (langResult.size() == 0) {
 				throw new Exception("Language db hasn't been initialized. Run CreateDatabase.sql." +
 			     " Currently you need to change table lang to allow nulls for column abr");
@@ -285,7 +276,8 @@ public class ReadStripped {
 			while (s != null && entryNbr < MAXENTRIES_TOPROCESS) {
 				try {
 					if (entryNbr % STORE_INTERVAL == 0 && entryNbr > 0 && evenThousand) {
-						LOGGER.log(Level.INFO, "Processed entry " + entryNbr);
+						//LOGGER.info("Processed entry " + entryNbr);
+						LOGGER.fine("Processed entry " + entryNbr);
 						
 						callStorer(outputType, lang, langID, outFileName);
 						
@@ -311,6 +303,7 @@ public class ReadStripped {
 						hadTextSection = false;
 						
 						if (outStr.length() > 0) { // Not first time
+							//LOGGER.info("Processed entry " + entryNbr);
 							LOGGER.fine("Processed entry " + entryNbr);
 							
 							LOGGER.fine("To parse: '" + currentTitle + "'");
@@ -374,11 +367,13 @@ public class ReadStripped {
 					
 					String msg = "Problem at entryNbr: " + entryNbr + ", title: '" + titleStart + "'";
 					LOGGER.warning(msg);
-					//LOGGER.finer(outStr);
-					LOGGER.info(outStr);
+					LOGGER.finer(outStr);
+					//LOGGER.info(outStr);
 					
-					//throw e; // continue
-					//throw e;
+					if (FAIL_AT_FIRST_PROBLEM) {
+						LOGGER.info(outStr);
+						throw e;
+					}
 				}
 	
 				s = in.readLine();
@@ -409,17 +404,21 @@ public class ReadStripped {
 			case Kindle:
 				// TODO Fix
 				//KindleStorer.closeOutput();
+				//session.getTransaction().rollback();
 				break;
 			case JDBC:
 				// TODO Fix
 				//JDBCStorer.closeOutput();
+				//session.getTransaction().rollback();
+				break;
+			case JPA:
+				session.getTransaction().commit();
 				break;
 			case Stardict:
 				StardictStorer.closeOutput();
+				session.getTransaction().rollback();
 			}
 			
-			//session.getTransaction().rollback();
-			session.getTransaction().commit();
 			session = null;
 		} catch (Exception e) {
 			String titleStart = currentTitle;
@@ -435,12 +434,6 @@ public class ReadStripped {
         	if (session != null) {
         		try { session.getTransaction().rollback(); } catch (Exception e) {}
         	}
-////        if (em != null) {
-////        try { em.close(); } catch (Exception e) {}
-////    }
-////    if (emFactory != null) {
-////        try { emFactory.close(); } catch (Exception e) {}
-////    }
         }
 	}
 	
@@ -461,6 +454,12 @@ public class ReadStripped {
 //				jThread.run();
 //				jThread = null;
 				break;
+			case JPA:
+				JPAStorer jpaStorer = new JPAStorer(words, lang, langID);
+				Thread jThread = new Thread(jpaStorer, "jpaThread");
+				jThread.run();
+				jThread = null;
+			    break;
 			case Stardict:
 				StardictStorer storer = new StardictStorer(words, lang, langID, outFileName);
 				Thread sThread = new Thread(storer, "sThread");
@@ -491,11 +490,6 @@ public class ReadStripped {
 
 		Word word = new Word();
 		word.setDataField(currentTitle);
-		
-//		for (Entry<String, LanguageID> entry: LanguageIDList.langIDs.entrySet()) {
-//		String key = entry.getKey();
-//	}		
-//		WordLanguage wordLang = new WordLanguage(langIDStr);
 		
 		/**
 		 * Handle only the section of the specified language langStr as
@@ -554,8 +548,7 @@ public class ReadStripped {
 			 currentTitle.startsWith("Help:") ||
 			 currentTitle.startsWith("Wiktionary:")
 			) {
-			// TODO
-			//LOGGER.fine("- Skipped: '" + currentTitle + "'");
+			LOGGER.fine("- Skipped: '" + currentTitle + "'");
 			//LOGGER.info("- Skipped: '" + currentTitle + "'");
 			
 			return;
@@ -908,7 +901,7 @@ public class ReadStripped {
 					sense.setDataField(unwikifiedStr);
 					senseNbr++;
 					sense.setId(new Integer(senseNbr));
-					senses.add(sense);
+					sense.setWordEntry(wordEntry);
 					
 					String unwikifiedStrStart = unwikifiedStr;
 					if (unwikifiedStrStart.length() > 80)
@@ -1000,6 +993,7 @@ public class ReadStripped {
 								//Example example = new Example(egSource);
 								Example example = new Example();
 								example.setDataField(unwikifiedContentStr);
+								example.setSense(sense);
 								examples.add(example);
 							} else { // This is the source for the last example
 								String unwikifiedContentStr = unwikifyStr(content, outputType);
@@ -1025,7 +1019,7 @@ public class ReadStripped {
 								//Example example = new Example(unwikifiedContentStr);
 								Example example = new Example();
 								example.setDataField(unwikifiedContentStr);
-						
+								example.setSense(sense);
 								examples.add(example);
 							} else { // last example only has a source, thus add it's content now
 								String unwikifiedContentStr = unwikifyStr(content, outputType);
@@ -1043,14 +1037,11 @@ public class ReadStripped {
 					
 					// Convert from LinkedList
 					Set<Example> examplesSet = new LinkedHashSet<Example>(0);
-//					for (Example e : examples) {
-//						examplesSet.add(e);
-//					}
-					// TODO Not sure if works OK and examples aren't used yet
-//					examplesSet.addAll(examples);
-//					
-//					sense.setExamples(examplesSet);
+					examplesSet.addAll(examples);
 					
+					sense.setExamples(examplesSet);
+					sense.setWordEntry(wordEntry);
+					senses.add(sense);
 				} else {
 					// was last line
 					String senseStr = sLangSect.substring(i);
@@ -1066,6 +1057,7 @@ public class ReadStripped {
 					sense.setDataField(unwikifiedStr);
 					senseNbr++;
 					sense.setId(new Integer(senseNbr));
+					sense.setWordEntry(wordEntry);
 					senses.add(sense);
 				}
 				

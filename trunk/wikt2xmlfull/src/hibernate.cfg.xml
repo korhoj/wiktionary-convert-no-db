@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">org.gjt.mm.mysql.Driver</property>
+        <property name="connection.password">abcdef</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/wikt</property>
+        <property name="connection.username">root</property>
+        <!-- <property name="default_schema">wikt</property> -->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		
+		<!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+		
+		 <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+		
+		<mapping resource="wiktionary/to/xml/full/jpa/Etym.hbm.xml"/>
+		<mapping resource="wiktionary/to/xml/full/jpa/Example.hbm.xml"/>
+		<mapping resource="wiktionary/to/xml/full/jpa/Lang.hbm.xml"/>
+		<mapping resource="wiktionary/to/xml/full/jpa/Sense.hbm.xml"/>
+		<mapping resource="wiktionary/to/xml/full/jpa/Word.hbm.xml"/>
+		<mapping resource="wiktionary/to/xml/full/jpa/WordEntry.hbm.xml"/>
+		<mapping resource="wiktionary/to/xml/full/jpa/WordEtym.hbm.xml"/>
+		<mapping resource="wiktionary/to/xml/full/jpa/WordLang.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>
