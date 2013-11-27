@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="wikt" match-name="etym"/>
+  <table-filter match-catalog="wikt" match-name="example"/>
+  <table-filter match-catalog="wikt" match-name="lang"/>
+  <table-filter match-catalog="wikt" match-name="sense"/>
+  <table-filter match-catalog="wikt" match-name="word"/>
+  <table-filter match-catalog="wikt" match-name="wordentry"/>
+  <table-filter match-catalog="wikt" match-name="wordetym"/>
+  <table-filter match-catalog="wikt" match-name="wordlang"/>
+</hibernate-reverse-engineering>

@@ -41,6 +41,9 @@ public class StardictStorer implements Storer, Runnable {
 	private static FileOutputStream fos = null;
 	private static PrintWriter out = null;
 	
+	private final static Object latch = new Object();
+	private static int threadsAmount = 0;
+	
 	public StardictStorer(LinkedList<Word> words, String lang, String langID, String target) {
 		LinkedList<Word> kopio = null;
 		
@@ -125,15 +128,31 @@ public class StardictStorer implements Storer, Runnable {
 	}
 
 	public static synchronized void closeOutput() throws IOException {
-		if (StardictStorer.out != null) {
-			// close output file
-			StardictStorer.out.close();
-			StardictStorer.out = null;
+		synchronized(latch) {
+			if (threadsAmount == 0) {
+				if (StardictStorer.out != null) {
+					// close output file
+					StardictStorer.out.close();
+					StardictStorer.out = null;
+				}
+		
+				if (StardictStorer.fos != null) {
+					StardictStorer.fos.close();
+					StardictStorer.fos = null;
+				}
+			} else {
+				System.out.println("Warning: " + threadsAmount + " threads existed at closeOutput()");
+			}
 		}
-
-		if (StardictStorer.fos != null) {
-			StardictStorer.fos.close();
-			StardictStorer.fos = null;
+	}
+	
+	public static synchronized void flushOutput() throws IOException {
+		if (out != null) {
+			out.flush();
+		}
+		
+		synchronized(latch) {
+			threadsAmount--;
 		}
 	}
 	
@@ -317,6 +336,12 @@ public class StardictStorer implements Storer, Runnable {
 	@Override
 	public void run() {
 		if (target != null) {
+			synchronized(latch) {
+				threadsAmount++;
+				if (threadsAmount > 0)
+					System.out.println("Created thread #" + threadsAmount);
+			}
+			
 			try {
 				openFile();
 				
@@ -329,6 +354,12 @@ public class StardictStorer implements Storer, Runnable {
 				}
 				
 				words = null;
+				
+				synchronized(latch) {
+					if (threadsAmount > 0)
+						System.out.println("Ended thread #" + threadsAmount);
+				}
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
