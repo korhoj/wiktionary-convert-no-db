@@ -4,24 +4,23 @@ import static wiktionary.to.xml.full.data.OutputTypes.OutputType;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 import org.hibernate.Session;
 
@@ -56,6 +55,7 @@ import wiktionary.to.xml.full.util.StringUtils;
  * 2012-07-31 Outputs result concurrently with reading, in another thread
  * 2013-11-25 Changed to use Hibernate (JPA)
  * 2013-11-27 Auto-adds missing languages during processing (not to DB though)
+ * 2013-11-28 Write missing languages to a separate file (even if output is JPA)
  */
 public class ReadStripped {
 	private static int STORE_INTERVAL = 1000; // Store entries after this many read
@@ -72,6 +72,11 @@ public class ReadStripped {
 	private static FileHandler fileHandler;
 	private static SimpleFormatter formatterTxt;
 	
+	public final static String LF_LIN = "\n";
+	public final static String LF_WIN = "\r\n";
+	public final static String LF_TAB_LIN = "\t\n"; // Some e.g. Middle Chinese entries have this
+	public final static String LF_TAB_WIN = "\t\r\n"; // Some e.g. Middle Chinese entries have this
+	
 	public final static String LF = System.getProperty("line.separator");
 	public final static int LF_LEN = LF.length();
 	
@@ -79,6 +84,11 @@ public class ReadStripped {
 	
 	public Set<Lang> langs = new HashSet<Lang>();
 	private int langsCount = 0;
+	private int newLangsCount = 0;
+	
+	private static FileOutputStream newLangsFos = null;
+	private static PrintWriter newLangsOut = null;
+	private final String NEWLANGSFILENAME = "new language codes.csv";
 	
 	private int wordLangNbr = 0;
 	private int wordEtymsNbr = 0;
@@ -175,7 +185,7 @@ public class ReadStripped {
 		String inFileName = null; // = "WiktionaryTest.txt";
 		String outFileName = null; // = "WiktionaryTestOut.xml";
 		String lang = "English"; // English, "Old English" etc.
-		String langID = "en"; // en, oe etc.
+		String langID = "ALL"; // en, oe etc. or ALL for all
 		
 		try {
 			if (args.length != 5) {
@@ -214,7 +224,7 @@ public class ReadStripped {
 			
 			LOGGER.log(Level.INFO, "Input: " + inFileName);
 			LOGGER.log(Level.INFO, "Output: " + outFileName);
-			LOGGER.log(Level.INFO, "Language: " + (lang != null ? lang : "(all)") + ", ID: " + (langID != null ? langID : ""));
+			LOGGER.log(Level.INFO, "Language: " + (lang != null ? lang : "(all)") + (langID != null ? ", ID: " + langID : ""));
 			LOGGER.log(Level.INFO, "Output type: " + OutputType.valueOf(outputType));
 			
 			ReadStripped readStripped = new ReadStripped();
@@ -273,6 +283,10 @@ public class ReadStripped {
 					if (entryNbr % STORE_INTERVAL == 0 && entryNbr > 0 && evenThousand) {
 						LOGGER.info("Processed entry " + entryNbr);
 						
+						if (newLangsFos != null) {
+							newLangsOut.flush();
+						}
+						
 						callStorer(outputType, lang, langID, outFileName);
 						
 						evenThousand = false; // otherwise prints until finds new entry
@@ -302,12 +316,13 @@ public class ReadStripped {
 							
 							LOGGER.fine("To parse: '" + currentTitle + "'");
 							//LOGGER.info("To parse: '" + currentTitle + "'");
+							
 							if (lang != null) {
 								// TODO
 								throw new Exception("TODO single lang processing");
 								//parseEntry(outStr, currentTitle, lang);
 							} else {
-								parseEntryAllLangs(outStr, currentTitle, outputType, session);
+								parseEntryAllLangs(outStr, currentTitle, outputType, entryNbr, session);
 							}
 							
 							outStr = null;
@@ -356,7 +371,7 @@ public class ReadStripped {
 					}
 				} catch (Exception e) {
 					String titleStart = currentTitle;
-					if (currentTitle.length() > 100)
+					if (currentTitle != null && currentTitle.length() > 100)
 						titleStart = currentTitle.substring(0, 100);
 					
 					String msg = "Problem at entryNbr: " + entryNbr + ", title: '" + titleStart + "'";
@@ -382,7 +397,7 @@ public class ReadStripped {
 					throw new Exception("TODO single lang processing");
 					//parseEntry(outStr, currentTitle, lang);
 				} else {
-					parseEntryAllLangs(outStr, currentTitle, outputType, session);
+					parseEntryAllLangs(outStr, currentTitle, outputType, entryNbr, session);
 				}
 				
 				callStorer(outputType, lang, langID, outFileName);
@@ -412,6 +427,11 @@ public class ReadStripped {
 				StardictStorer.closeOutput();
 				//session.getTransaction().rollback();
 			}
+
+			if (newLangsFos != null) {
+				newLangsFos.close();
+				newLangsFos = null;
+			}
 			
 			session = null;
 		} catch (Exception e) {
@@ -428,6 +448,10 @@ public class ReadStripped {
         	if (session != null) {
         		try { session.getTransaction().rollback(); } catch (Exception e) {}
         	}
+        	if (newLangsFos != null) {
+				try { newLangsFos.close(); } catch (Exception e) {}
+				newLangsFos = null;
+			}
         }
 	}
 	
@@ -537,7 +561,7 @@ public class ReadStripped {
 	 * Loops all languages in input and outputs all.
 	 * The output modules output all languages passed to them.
 	 */
-	private void parseEntryAllLangs(String s, String currentTitle, OutputType outputType, Session session) throws Exception {
+	private void parseEntryAllLangs(String s, String currentTitle, OutputType outputType, long entryNbr, Session session) throws Exception {
 		
 		if ( currentTitle.startsWith("Appendix:") ||
 			 currentTitle.startsWith("Help:") ||
@@ -558,8 +582,32 @@ public class ReadStripped {
 		int langStart = s.indexOf("==");
 		int LOOP_MAX = 10;
 		while (langStart > -1 && i < LOOP_MAX) {
-			// TODO Maybe we should check for both Windows and Linux style linefeeds
-			int langNameEnd = s.indexOf("==" + LF);
+			int lfMode = 0;
+			// Find and use first such index where char at index-1 isn't =
+			int[] langNameEnds = new int[8];
+			langNameEnds[0] = s.indexOf("==" + LF_WIN);
+			langNameEnds[1] = s.indexOf("== " + LF_WIN);
+			langNameEnds[2] = s.indexOf("==" + LF_LIN);
+			langNameEnds[3] = s.indexOf("== " + LF_LIN);
+			langNameEnds[4] = s.indexOf("==" + LF_TAB_LIN);
+			langNameEnds[5] = s.indexOf("== " + LF_TAB_LIN);
+			langNameEnds[6] = s.indexOf("==" + LF_TAB_WIN);
+			langNameEnds[7] = s.indexOf("== " + LF_TAB_WIN);
+			int langNameEnd = -1;
+			for (int j = 0; j < langNameEnds.length; j++) {
+				if (langNameEnds[j] > -1) {
+					char c = s.charAt(langNameEnds[j]-1);
+					//System.out.println("C = " + c);
+				}
+				if (langNameEnds[j] > -1 &&
+					(langNameEnd == -1 ||
+					 (s.charAt(langNameEnds[j]-1) != '=' && 
+					 langNameEnds[j] < langNameEnd))) {
+					langNameEnd = langNameEnds[j];
+					lfMode = (j + 1);
+				}
+			}
+			
 			if (langNameEnd == -1) {
 				String msg = "Language end not found in string '" + s + "'";
 				LOGGER.severe(msg);
@@ -575,7 +623,7 @@ public class ReadStripped {
 			String langName = null;
 			
 			// Happens at 'scalaidhean' at entryNbr: 3016741 in 2012-06-15 en-Wiki
-			if (langNameEnd - langStart > 30) {
+			if (langNameEnd - langStart > 50) { // There is at least a 29 chars long lang, "Broome Pearling Lugger Pidgin" 
 				String msg = "Error parsing language name from: '" + s + "'";
 				LOGGER.warning(msg);
 				langNameEnd = -1; // Flag to stop processing but output what has been processed
@@ -584,9 +632,6 @@ public class ReadStripped {
 			if (langNameEnd > -1) {
 				langName = s.substring(langStart + 2, langNameEnd);
 				langName = langName.trim();
-				if (langName != null) {
-					langName = langName.trim();
-				}
 				
 				// An alternative markup is [[LanguageName]]
 				
@@ -606,27 +651,74 @@ public class ReadStripped {
 			if (langName != null && langName.indexOf("=") == -1 && !langs.contains(lookupLang)) {
 				String msg = "Adding language: '" + langName + "', langsCount=" + (langsCount+1);
 				LOGGER.info(msg);
-				// TODO Write separate output file of new language candidates?
+				
+				// Write separate output file of new language candidates
+				if (newLangsFos == null) {
+					newLangsFos = new FileOutputStream(NEWLANGSFILENAME);
+
+					newLangsOut = new PrintWriter(new BufferedWriter(
+						new OutputStreamWriter(newLangsFos, "UTF-8")));
+				}
+				// 1;Afar;aa;\N
+				newLangsOut.println((++newLangsCount) + ";" + langName + ";" + langName + "\\N");
+				newLangsOut.flush();
 				
 				Lang addLang = new Lang();
 				addLang.setId(++langsCount);
 				addLang.setName(langName);
 				addLang.setCode(langName);
 				langs.add(addLang);
-				
 			}
 			
 			if (langName == null || !langs.contains(lookupLang)) {
-				String msg = "Unknown language: '" + langName + "'";
+				//String msg = "Unknown language: '" + langName + "' at title='" + currentTitle + "', entryNbr=" + entryNbr + ", lfMode=" + lfMode + ", '" + s + "'";
+				String msg = "Unknown language: '" + langName + "' at title='" + currentTitle + "', lfMode=" + lfMode;
 				LOGGER.warning(msg);
-				//throw new Exception(msg);
+				
+				if (FAIL_AT_FIRST_PROBLEM) {
+					LOGGER.info("s: '" + s + "'");
+					throw new Exception(msg);
+				}
 			} else {			
 				String sFullSect = s.substring(langStart + 2); // 2: skip ==
-				int posLF = sFullSect.indexOf(LF);
-				// This is just s without the language part
-				String sLangSect = sFullSect.substring(posLF + LF_LEN);
-			
-				LOGGER.fine("Before parseWord: '" + sLangSect + "'");
+				int posLF = -1;
+				switch(lfMode) {
+				case 0:
+				case 1: posLF = sFullSect.indexOf(LF_WIN);
+					break;
+				case 2:
+				case 3: posLF = sFullSect.indexOf(LF_LIN);
+					break;
+				case 4:
+				case 5: posLF = sFullSect.indexOf(LF_TAB_LIN);
+					break;
+				case 6:
+				case 7: posLF = sFullSect.indexOf(LF_TAB_WIN);
+				}
+				
+				// This is just s without the current language part
+				if (posLF == -1)
+					throw new Exception("Problem refinding linefeed");
+				String sLangSect = null;
+				switch(lfMode) {
+				case 0: 
+				case 1: sLangSect = sFullSect.substring(posLF + 2);
+					break;
+				case 2:
+				case 3: sLangSect = sFullSect.substring(posLF + 1);
+					break;
+				case 4:
+				case 5: sLangSect = sFullSect.substring(posLF + 2);
+				    break;
+				case 6:
+				case 7: sLangSect = sFullSect.substring(posLF + 3);
+					break;
+				default:
+					throw new Exception("Error in sLangSect case");
+				}
+				
+				//LOGGER.fine("Before parseWord: '" + sLangSect + "'");
+				//LOGGER.info("Before parseWord: '" + sLangSect + "'");
 				
 				boolean foundLang = false;
 				for (Lang lang : langs) {
@@ -668,11 +760,31 @@ public class ReadStripped {
 			}
 			
 			if (langNameEnd > -1) {
-				s = s.substring(langNameEnd + 2 + LF_LEN);
-				langStart = StringUtils.findNextLang(s); // finds next ---
+				switch(lfMode) {
+				case 0: s = s.substring(langNameEnd + 2 + 2); 
+					break;
+				case 1: s = s.substring(langNameEnd + 2 + 3);
+					break;
+				case 2: s = s.substring(langNameEnd + 2 + 1);
+					break;
+				case 3: s = s.substring(langNameEnd + 2 + 2);
+					break;
+				case 4: s = s.substring(langNameEnd + 2 + 2);
+					break;
+				case 5: s = s.substring(langNameEnd + 2 + 3);
+				    break;
+				case 6: s = s.substring(langNameEnd + 2 + 3);
+			    	break;
+				case 7: s = s.substring(langNameEnd + 2 + 4);
+				}
+				
+				LOGGER.fine("Before findNextLang: '" + s + "'");
+				langStart = StringUtils.findNextLang(s); // finds next ----
 				
 				if (langStart > -1) {
 					s = s.substring(langStart);
+					
+					LOGGER.fine("After findNextLang: '" + s + "'");
 					
 					langStart = s.indexOf("==");
 				}
@@ -1130,7 +1242,7 @@ public class ReadStripped {
 	private Set<Lang> loadLanguages() throws IOException {
 		String inFileName = "language codes.csv";
 		
-		LOGGER.info("Reading languages file");
+		LOGGER.fine("Reading languages file");
 		
 		ClassLoader cl = ReadStripped.class.getClassLoader();
 		
@@ -1146,8 +1258,11 @@ public class ReadStripped {
 			s = in.readLine();
 			while (s != null) {
 				String[] langArr = s.split(";");
-						
+				
 				Lang addLang = new Lang();
+				/* Doesn't care about the id in the file. It is wrong anyway if one has directly copied the
+				 * entries from the new language file of a previous run into the main language file
+				 */
 				addLang.setId(++langsCount);
 				addLang.setName(langArr[1]);
 				addLang.setCode(langArr[2]);
@@ -1161,7 +1276,7 @@ public class ReadStripped {
 			throw new IOException("Unable to read languages file: " + e.getMessage());
 		}
 		
-		LOGGER.info("Ended reading languages file");
+		LOGGER.fine("Ended reading languages file");
 		
 		return langs;
 	}
