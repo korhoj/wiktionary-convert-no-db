@@ -56,12 +56,16 @@ import wiktionary.to.xml.full.util.StringUtils;
  * 2013-11-25 Changed to use Hibernate (JPA)
  * 2013-11-27 Auto-adds missing languages during processing (not to DB though)
  * 2013-11-28 Write missing languages to a separate file (even if output is JPA)
+ * 2013-11-29 Don't spawn threads for storers, it is much slower and uses up all memory.
+ * Also forced max entries to 1 000 000 due to mem constraints, and implemented restart:
+ * put line to restart from into param 6
  */
 public class ReadStripped {
 	private static int STORE_INTERVAL = 1000; // Store entries after this many read
 	//private static int STORE_INTERVAL = 200; // Store entries after this many read
 	//private static int STORE_INTERVAL = 5; // Store entries after this many read
-	private static long MAXENTRIES_TOPROCESS = 10000000;
+	//private static long MAXENTRIES_TOPROCESS = 10000000;
+	private static long MAXENTRIES_TOPROCESS = 1000000;
 	//private static long MAXENTRIES_TOPROCESS = 4000;
 	//private static long MAXENTRIES_TOPROCESS = 10;
 	
@@ -81,6 +85,9 @@ public class ReadStripped {
 	public final static int LF_LEN = LF.length();
 	
 	private Session session = null; // JPA session
+	
+	// Used for informing the user whereabout to restart
+	private long linesRead = 0;
 	
 	public Set<Lang> langs = new HashSet<Lang>();
 	private int langsCount = 0;
@@ -186,10 +193,11 @@ public class ReadStripped {
 		String outFileName = null; // = "WiktionaryTestOut.xml";
 		String lang = "English"; // English, "Old English" etc.
 		String langID = "ALL"; // en, oe etc. or ALL for all
+		long restartLine = 0;
 		
 		try {
-			if (args.length != 5) {
-				LOGGER.log(Level.SEVERE, "Wrong number of arguments, expected 5, got " + args.length);
+			if (args.length < 5 || args.length > 6) {
+				LOGGER.log(Level.SEVERE, "Wrong number of arguments, expected 5 - 6, got " + args.length);
 				LOGGER.log(Level.SEVERE, "Arg[max] = '" + args[args.length-1] + "'");
 				System.exit(255);
 			}
@@ -217,19 +225,27 @@ public class ReadStripped {
 			
 			String outputType = args[4];
 			
+			if (args.length == 6) {
+				String restartLineStr = args[5];
+				Long l = Long.parseLong(restartLineStr);
+				restartLine = l.longValue();
+			}
+			
 			// Throws error if wrong argument used
 			switch(OutputType.valueOf(outputType)) {
 				default:
 			}
 			
-			LOGGER.log(Level.INFO, "Input: " + inFileName);
-			LOGGER.log(Level.INFO, "Output: " + outFileName);
-			LOGGER.log(Level.INFO, "Language: " + (lang != null ? lang : "(all)") + (langID != null ? ", ID: " + langID : ""));
-			LOGGER.log(Level.INFO, "Output type: " + OutputType.valueOf(outputType));
+			LOGGER.info("Input: " + inFileName);
+			LOGGER.info("Output: " + outFileName);
+			LOGGER.info("Language: " + (lang != null ? lang : "(all)") + (langID != null ? ", ID: " + langID : ""));
+			LOGGER.info("Output type: " + OutputType.valueOf(outputType));
+			if (restartLine > 0)
+				LOGGER.info("Restarting at line " + restartLine);
 			
 			ReadStripped readStripped = new ReadStripped();
 		
-			readStripped.process(OutputType.valueOf(outputType), inFileName, outFileName, lang, langID);
+			readStripped.process(OutputType.valueOf(outputType), inFileName, outFileName, lang, langID, restartLine);
 			
 			LOGGER.log(Level.INFO, "***FINISHED***");
 			
@@ -242,7 +258,7 @@ public class ReadStripped {
 		}
 	}
 
-	private void process (OutputType outputType, String inFileName, String outFileName, String lang, String langID) throws Exception {
+	private void process (OutputType outputType, String inFileName, String outFileName, String lang, String langID, long restartLine) throws Exception {
 		//boolean isSame = false;
 		long entryNbr = 0;
 		boolean evenThousand = true; // log every thousand entries
@@ -266,7 +282,7 @@ public class ReadStripped {
 				LOGGER.fine("Lang list size: " + langResult.size());
 				if (langResult.size() == 0) {
 					throw new Exception("Language db hasn't been initialized. Run CreateDatabase.sql." +
-				     " Currently you need to change table lang to allow nulls for column abr");
+				     " Currently afterwards you need to change table lang to allow nulls for column abr");
 				}
 				
 				langs.addAll(langResult);
@@ -277,11 +293,23 @@ public class ReadStripped {
         	}
 			
 			String s = in.readLine();
+			linesRead++;
+			
+			if (restartLine > 0) {
+				for (long l = 0; l < restartLine; l++) {
+					if (l % 10000000 == 0)
+						LOGGER.info("At line " + l);
+					s = in.readLine();
+				}
+				LOGGER.info("Seeked to line " + restartLine);
+			}
+			
 			outStr = "";
 			while (s != null && entryNbr < MAXENTRIES_TOPROCESS) {
 				try {
 					if (entryNbr % STORE_INTERVAL == 0 && entryNbr > 0 && evenThousand) {
-						LOGGER.info("Processed entry " + entryNbr);
+						LOGGER.info("Processed entry " + entryNbr + ", lines read: " + (restartLine > 0 ?
+							(linesRead + " (" + (linesRead + restartLine) + ")") : ""));
 						
 						if (newLangsFos != null) {
 							newLangsOut.flush();
@@ -312,7 +340,7 @@ public class ReadStripped {
 						
 						if (outStr.length() > 0) { // Not first time
 							//LOGGER.info("Processed entry " + entryNbr);
-							LOGGER.fine("Processed entry " + entryNbr);
+							LOGGER.fine("Processed entry " + entryNbr + ", lines read: " + linesRead);
 							
 							LOGGER.fine("To parse: '" + currentTitle + "'");
 							//LOGGER.info("To parse: '" + currentTitle + "'");
@@ -386,6 +414,7 @@ public class ReadStripped {
 				}
 	
 				s = in.readLine();
+				linesRead++;
 			}
 			
 			// Handle last entry if any
@@ -408,6 +437,10 @@ public class ReadStripped {
 			}
 			
 			in.close();
+			
+			if (entryNbr == MAXENTRIES_TOPROCESS) {
+				LOGGER.warning("Reached maximum lines to read in one run, please restart at " + (linesRead + restartLine) + " and combine results");
+			}
 			
 			switch(outputType) {
 			case Kindle:
@@ -459,6 +492,7 @@ public class ReadStripped {
 		try {
 			LOGGER.fine("Storing " + words.size() + " entries");
 			
+			// Don't spawn threads, it makes at least StardictStorer MUCH slower and uses up memory
 			switch(outputType) {
 			case Kindle:
 				// TODO Fix
@@ -473,17 +507,23 @@ public class ReadStripped {
 //				jThread = null;
 				break;
 			case JPA:
-				JPAStorer jpaStorer = new JPAStorer(words, lang, langID);
-				Thread jThread = new Thread(jpaStorer, "jpaThread");
-				jThread.run();
-				jThread = null;
+				//JPAStorer jpaStorer = new JPAStorer(words, lang, langID);
+				JPAStorer jpaStorer = new JPAStorer(null, lang, langID);
+//				Thread jThread = new Thread(jpaStorer, "jpaThread");
+//				jThread.run();
+//				jThread = null;
+				jpaStorer.run(words);
+				jpaStorer = null;
 			    break;
 			case Stardict:
 				StardictStorer.flushOutput();
-				StardictStorer storer = new StardictStorer(words, lang, langID, outFileName);
-				Thread sThread = new Thread(storer, "sThread");
-				sThread.run();
-				sThread = null;
+				//StardictStorer storer = new StardictStorer(words, lang, langID, outFileName);
+				StardictStorer storer = new StardictStorer(null, lang, langID, outFileName);
+//				Thread sThread = new Thread(storer, "sThread");
+//				sThread.run();
+//				sThread = null;
+				storer.run(words);
+				storer = null;
 			}
 			
 			words = new LinkedList<Word>();
@@ -580,8 +620,8 @@ public class ReadStripped {
 		
 		int i = 0;
 		int langStart = s.indexOf("==");
-		int LOOP_MAX = 10;
-		while (langStart > -1 && i < LOOP_MAX) {
+		int MAX_LANGS = 100;
+		while (langStart > -1 && i < MAX_LANGS) {
 			int lfMode = 0;
 			// Find and use first such index where char at index-1 isn't =
 			int[] langNameEnds = new int[8];
@@ -595,10 +635,10 @@ public class ReadStripped {
 			langNameEnds[7] = s.indexOf("== " + LF_TAB_WIN);
 			int langNameEnd = -1;
 			for (int j = 0; j < langNameEnds.length; j++) {
-				if (langNameEnds[j] > -1) {
-					char c = s.charAt(langNameEnds[j]-1);
-					//System.out.println("C = " + c);
-				}
+//				if (langNameEnds[j] > -1) {
+//					char c = s.charAt(langNameEnds[j]-1);
+//					System.out.println("C = " + c);
+//				}
 				if (langNameEnds[j] > -1 &&
 					(langNameEnd == -1 ||
 					 (s.charAt(langNameEnds[j]-1) != '=' && 
@@ -673,10 +713,17 @@ public class ReadStripped {
 			if (langName == null || !langs.contains(lookupLang)) {
 				//String msg = "Unknown language: '" + langName + "' at title='" + currentTitle + "', entryNbr=" + entryNbr + ", lfMode=" + lfMode + ", '" + s + "'";
 				String msg = "Unknown language: '" + langName + "' at title='" + currentTitle + "', lfMode=" + lfMode;
-				LOGGER.warning(msg);
+				
+				if (langName.startsWith("=")) {
+					LOGGER.warning(msg);
+				} else {
+					LOGGER.info(msg);
+				}
 				
 				if (FAIL_AT_FIRST_PROBLEM) {
-					LOGGER.info("s: '" + s + "'");
+					if (!(langName.startsWith("="))) {
+						LOGGER.info("s: '" + s + "'");
+					}
 					throw new Exception(msg);
 				}
 			} else {			

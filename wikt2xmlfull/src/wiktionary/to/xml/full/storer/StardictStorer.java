@@ -1,18 +1,13 @@
 package wiktionary.to.xml.full.storer;
 
 import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.util.LinkedHashSet;
 import java.util.LinkedList;
-import java.util.Set;
 
 import wiktionary.to.xml.full.jpa.Example;
-import wiktionary.to.xml.full.data.POSType;
 import wiktionary.to.xml.full.jpa.Lang;
 import wiktionary.to.xml.full.jpa.Sense;
 import wiktionary.to.xml.full.jpa.Word;
@@ -80,10 +75,11 @@ public class StardictStorer implements Storer, Runnable {
 //			}
 //		}
 		
-		
-		kopio = (LinkedList<Word>)DeepCopy.copy(words);
+		if (words != null)
+			kopio = (LinkedList<Word>)DeepCopy.copy(words);
 		
 		setWords(kopio);
+		kopio = null;
 		
 		setLang(lang);
 		
@@ -331,6 +327,12 @@ public class StardictStorer implements Storer, Runnable {
 				}
 			}
 		}
+	}
+	
+	public void run(LinkedList<Word> wordsParam) {
+		words = wordsParam;
+		
+		run();
 	}
 	
 	@Override

@@ -7,18 +7,12 @@ import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.util.LinkedList;
-import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 /**
  * @author Joel Korhonen
@@ -32,9 +26,7 @@ public class StripNamespaces {
 	private final static Logger LOGGER = Logger.getLogger(StripNamespaces.class
 			.getName());
 	private static FileHandler fileHandler;
-	private static ConsoleHandler consoleHandler;
 	private static SimpleFormatter formatterTxt;
-	//private static DocumentBuilder db;
 	
 	private boolean SHOW_PROGRESS = true; // log every n entries
 	private int SHOW_PROGRESS_EVERY = 10000;
@@ -112,17 +104,6 @@ public class StripNamespaces {
 	// private LinkedList<String> nonvalid;
 	
 	static {
-//		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-//		dbf.setNamespaceAware(true);
-//		try {
-//			db = dbf.newDocumentBuilder();
-//		} catch (ParserConfigurationException e1) {
-//			String msg = "Parser config error: '" + e1.getMessage() + "'";
-//			System.err.println(msg);
-//			e1.printStackTrace();
-//			System.exit(255);
-//		}
-		
 		try {
 			fileHandler = new FileHandler(StripNamespaces.class.getName() + ".log");
 		} catch (Exception e) {
@@ -132,8 +113,6 @@ public class StripNamespaces {
 			System.exit(255);
 		}
 
-		consoleHandler = new ConsoleHandler();
-
 		//LOGGER.setLevel(Level.ALL);
 		LOGGER.setLevel(Level.INFO);
 
@@ -141,11 +120,6 @@ public class StripNamespaces {
 		formatterTxt = new SimpleFormatter();
 		fileHandler.setFormatter(formatterTxt);
 		LOGGER.addHandler(fileHandler);
-
-		// Default: java.util.logging.SimpleFormatter
-		// consoleHandler.setFormatter(formatterTxt);
-		// TODO If added, writes twice to console?!
-		//LOGGER.addHandler(consoleHandler);
 	}	
 	
 	/**
