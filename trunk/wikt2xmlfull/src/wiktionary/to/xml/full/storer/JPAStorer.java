@@ -1,8 +1,5 @@
 package wiktionary.to.xml.full.storer;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.Set;
 
@@ -27,13 +24,20 @@ public class JPAStorer  implements Storer, Runnable {
 	public JPAStorer(LinkedList<Word> words, String lang, String langID) {
 		LinkedList<Word> kopio = null;
 		
-		kopio = (LinkedList<Word>)DeepCopy.copy(words);
+		if (words != null)
+			kopio = (LinkedList<Word>)DeepCopy.copy(words);
 		
 		setWords(kopio);
 		
 		setLang(lang);
 		
 		setLangID(langID);
+	}
+
+	public void run(LinkedList<Word> wordsParam) {
+		words = wordsParam;
+		
+		run();
 	}
 	
 	@Override
@@ -91,19 +95,6 @@ public class JPAStorer  implements Storer, Runnable {
 		}
 	}
 	
-	public static synchronized void closeOutput() throws IOException {
-//		if (JPAStorer.out != null) {
-//			// close output file
-//			JPAStorer.out.close();
-//			JPAStorer.out = null;
-//		}
-//
-//		if (JPAStorer.fos != null) {
-//			JPAStorer.fos.close();
-//			JPAStorer.fos = null;
-//		}
-	}
-	
 	@Override
 	public void addWord(Word word) {
 		words.add(word);
@@ -135,8 +126,6 @@ public class JPAStorer  implements Storer, Runnable {
 
 	@Override
 	public void storeWords(boolean writeHeader, String target) throws Exception {
-		// TODO Auto-generated method stub
 		throw new Exception("storeWords() is unimplemented for JPAStorer");
 	}
-
 }
