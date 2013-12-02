@@ -26,8 +26,7 @@ DROP TABLE IF EXISTS `wikt`.`lang` ;
 CREATE TABLE IF NOT EXISTS `wikt`.`lang` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `code` CHAR(6) NOT NULL,
-  `abr` CHAR(6) NOT NULL,
+  `abr` CHAR(6) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 

@@ -59,6 +59,7 @@ import wiktionary.to.xml.full.util.StringUtils;
  * 2013-11-29 Don't spawn threads for storers, it is much slower and uses up all memory.
  * Also forced max entries to 1 000 000 due to mem constraints, and implemented restart:
  * put line to restart from into param 6
+ * 2013-12-02 Language csv files contain only the language name for now
  */
 public class ReadStripped {
 	private static int STORE_INTERVAL = 1000; // Store entries after this many read
@@ -91,7 +92,6 @@ public class ReadStripped {
 	
 	public Set<Lang> langs = new HashSet<Lang>();
 	private int langsCount = 0;
-	private int newLangsCount = 0;
 	
 	private static FileOutputStream newLangsFos = null;
 	private static PrintWriter newLangsOut = null;
@@ -259,12 +259,10 @@ public class ReadStripped {
 	}
 
 	private void process (OutputType outputType, String inFileName, String outFileName, String lang, String langID, long restartLine) throws Exception {
-		//boolean isSame = false;
 		long entryNbr = 0;
 		boolean evenThousand = true; // log every thousand entries
 		boolean textSection = false; // true when have reached <text> of a new entry and are in it
 		boolean hadTextSection = false; // had reached <text> section of a new term and it ended with </text>
-		//String prevTitle = null;
 		String currentTitle = null;
 		String outStr = null;
 		
@@ -281,8 +279,7 @@ public class ReadStripped {
 				List<Lang> langResult = session.createQuery("from Lang").list();
 				LOGGER.fine("Lang list size: " + langResult.size());
 				if (langResult.size() == 0) {
-					throw new Exception("Language db hasn't been initialized. Run CreateDatabase.sql." +
-				     " Currently afterwards you need to change table lang to allow nulls for column abr");
+					throw new Exception("Language db hasn't been initialized. Run CreateDatabase.sql and InsertLangs.sql.");
 				}
 				
 				langs.addAll(langResult);
@@ -309,7 +306,7 @@ public class ReadStripped {
 				try {
 					if (entryNbr % STORE_INTERVAL == 0 && entryNbr > 0 && evenThousand) {
 						LOGGER.info("Processed entry " + entryNbr + ", lines read: " + (restartLine > 0 ?
-							(linesRead + " (" + (linesRead + restartLine) + ")") : ""));
+							(linesRead + " (" + (linesRead + restartLine) + ")") : linesRead));
 						
 						if (newLangsFos != null) {
 							newLangsOut.flush();
@@ -358,8 +355,6 @@ public class ReadStripped {
 							evenThousand = true; // restart logging every 1000 entries
 						}
 					} else if (s.indexOf("<title>") > -1) {
-						//prevTitle = currentTitle;
-						
 						int beginIndex = s.indexOf("<title>") + 7;
 						int endIndex = s.indexOf("</title>");
 						
@@ -368,7 +363,7 @@ public class ReadStripped {
 						} else {
 							currentTitle = s; // leaks purposefully
 							String msg = "Bad title end section at entryNbr: " + entryNbr + ", " +
-							 "SECTION = '" + currentTitle + "'";
+							 "SECTION = '" + currentTitle + "', linesRead=" + linesRead;
 							LOGGER.warning(msg);
 						}
 					} else if (s.indexOf("<text") > -1) {
@@ -380,7 +375,7 @@ public class ReadStripped {
 						} else {
 							outStr = s; // leaks purposefully
 							String msg = "Bad text section at entryNbr: " + entryNbr + ", " +
-							 "title = '" + currentTitle + "'";
+							 "title = '" + currentTitle + "', linesRead=" + linesRead;
 							LOGGER.warning(msg);
 						}
 					} else if (s.indexOf("</text>") > -1) {
@@ -402,7 +397,7 @@ public class ReadStripped {
 					if (currentTitle != null && currentTitle.length() > 100)
 						titleStart = currentTitle.substring(0, 100);
 					
-					String msg = "Problem at entryNbr: " + entryNbr + ", title: '" + titleStart + "'";
+					String msg = "Problem at entryNbr: " + entryNbr + ", title: '" + titleStart + "', linesRead=" + linesRead;
 					LOGGER.warning(msg);
 					LOGGER.finer(outStr);
 					//LOGGER.info(outStr);
@@ -446,19 +441,16 @@ public class ReadStripped {
 			case Kindle:
 				// TODO Fix
 				//KindleStorer.closeOutput();
-				//session.getTransaction().rollback();
 				break;
 			case JDBC:
 				// TODO Fix
 				//JDBCStorer.closeOutput();
-				//session.getTransaction().rollback();
 				break;
 			case JPA:
 				session.getTransaction().commit();
 				break;
 			case Stardict:
 				StardictStorer.closeOutput();
-				//session.getTransaction().rollback();
 			}
 
 			if (newLangsFos != null) {
@@ -517,11 +509,7 @@ public class ReadStripped {
 			    break;
 			case Stardict:
 				StardictStorer.flushOutput();
-				//StardictStorer storer = new StardictStorer(words, lang, langID, outFileName);
 				StardictStorer storer = new StardictStorer(null, lang, langID, outFileName);
-//				Thread sThread = new Thread(storer, "sThread");
-//				sThread.run();
-//				sThread = null;
 				storer.run(words);
 				storer = null;
 			}
@@ -699,20 +687,19 @@ public class ReadStripped {
 					newLangsOut = new PrintWriter(new BufferedWriter(
 						new OutputStreamWriter(newLangsFos, "UTF-8")));
 				}
-				// 1;Afar;aa;\N
-				newLangsOut.println((++newLangsCount) + ";" + langName + ";" + langName + "\\N");
+				newLangsOut.println(langName); // no ABR field for now
 				newLangsOut.flush();
 				
 				Lang addLang = new Lang();
 				addLang.setId(++langsCount);
 				addLang.setName(langName);
-				addLang.setCode(langName);
 				langs.add(addLang);
 			}
 			
 			if (langName == null || !langs.contains(lookupLang)) {
 				//String msg = "Unknown language: '" + langName + "' at title='" + currentTitle + "', entryNbr=" + entryNbr + ", lfMode=" + lfMode + ", '" + s + "'";
-				String msg = "Unknown language: '" + langName + "' at title='" + currentTitle + "', lfMode=" + lfMode;
+				String msg = "Unknown language: '" + langName + "' at title='" + currentTitle + "', entryNbr=" + entryNbr + ", linesRead=" + linesRead +
+					", lfMode=" + lfMode + ", '" + s + "'";
 				
 				if (langName.startsWith("=")) {
 					LOGGER.warning(msg);
@@ -1304,16 +1291,16 @@ public class ReadStripped {
 			String s = in.readLine(); // skip csv headers
 			s = in.readLine();
 			while (s != null) {
-				String[] langArr = s.split(";");
+				//String[] langArr = s.split(";");
 				
 				Lang addLang = new Lang();
-				/* Doesn't care about the id in the file. It is wrong anyway if one has directly copied the
+				/* No id in the file. It would be wrong anyway if one has directly copied the
 				 * entries from the new language file of a previous run into the main language file
 				 */
 				addLang.setId(++langsCount);
-				addLang.setName(langArr[1]);
-				addLang.setCode(langArr[2]);
-				// TODO Abr is unused for now, it would be an official, well-known abbreviation put in the output
+				addLang.setName(s);//langArr[1]);
+				//addLang.setAbr(langArr[2]);
+				// TODO Abr is unused for now, it would be an official, well-known abbreviation for such langs where such exists, put in the output
 				langs.add(addLang);
 				
 				s = in.readLine();
@@ -1323,7 +1310,7 @@ public class ReadStripped {
 			throw new IOException("Unable to read languages file: " + e.getMessage());
 		}
 		
-		LOGGER.fine("Ended reading languages file");
+		LOGGER.info("Ended reading languages file, read " + langsCount + " languages");
 		
 		return langs;
 	}
