@@ -1,1250 +1,1067 @@
-id;name;code;abr
-1;Afar;aa;\N
-2;Abkhazian;ab;\N
-3;Afrikaans;af;\N
-4;Akan;ak;\N
-5;Alemannic;als;\N
-6;Amharic;am;\N
-7;Aragonese;an;\N
-8;Anglo-Saxon;ang;\N
-9;Arabic;ar;\N
-10;Assamese;as;\N
-11;Asturian;ast;\N
-12;Avar;av;\N
-13;Aymar;ay;\N
-14;Azerbaijani;az;\N
-15;Belarusian;be;\N
-16;Bulgarian;bg;\N
-17;Bihari;bh;\N
-18;Bislama;bi;\N
-19;Bambara;bm;\N
-20;Bengali;bn;\N
-21;Tibetan;bo;\N
-22;Breton;br;\N
-23;Bosnian;bs;\N
-24;Catalan;ca;\N
-25;Chamorro;cha;\N
-26;Cherokee;chr;\N
-27;Corsican;co;\N
-28;Cree;cr;\N
-29;Czech;cs;\N
-30;Kashubian;csb;\N
-31;Welsh;cy;\N
-32;Danish;da;\N
-33;German;de;\N
-34;Divehi;di;\N
-35;Dzongkha;dz;\N
-36;Greek;el;\N
-37;English;en;\N
-38;Esperanto;eo;\N
-39;Spanish;es;\N
-40;Estonian;et;\N
-41;Basque;eu;\N
-42;Persian;fa;\N
-43;Finnish;fi;\N
-44;Fijian;fj;\N
-45;Faroese;fo;\N
-46;French;fr;\N
-47;West Frisian;fy;\N
-48;Gaelic;gd;\N
-49;Galician;gl;\N
-50;Guarani;gn;\N
-51;Gujarati;gu;\N
-52;Manx;gv;\N
-53;Hausa;ha;\N
-54;Hebrew;he;\N
-55;Hindi;hi;\N
-56;Croatian;hr;\N
-57;Upper Sorbian;hsb;\N
-58;Hungarian;hu;\N
-59;Armenian;hy;\N
-60;Interlingua;ia;\N
-61;Indonesian;id;\N
-62;Interlingue;ie;\N
-63;Inupiak;ik;\N
-64;Ido;io;\N
-65;Irish;iri;\N
-66;Icelandic;is;\N
-67;Italian;it;\N
-68;Inuktitut;iu;\N
-69;Japanese;ja;\N
-70;Lojban;jbo;\N
-71;Javenese;jv;\N
-72;Georgian;ka;\N
-73;Kazakh;kk;\N
-74;Greenlandic;kl;\N
-75;Cambodian;km;\N
-76;Kannada;kn;\N
-77;Korean;ko;\N
-78;Kashmiri;ks;\N
-79;Kurdish;ku;\N
-80;Cornish;kw;\N
-81;Kirghiz;ky;\N
-82;Latin;la;\N
-83;Luxembourgish;lb;\N
-84;Limburgian;li;\N
-85;Lingala;ln;\N
-86;Lao;lo;\N
-87;Lithuanian;lt;\N
-88;Latvian;lv;\N
-89;Malagasy;mg;\N
-90;Marshallese;mh;\N
-91;Maori;mi;\N
-92;Macedonian;mk;\N
-93;Malayalam;ml;\N
-94;Mongolian;mn;\N
-95;Moldovan;mo;\N
-96;Marathi;mr;\N
-97;Malay;ms;\N
-98;Burmese;my;\N
-99;Nauruan;na;\N
-100;Nahuatl;nah;\N
-101;Norwegian Bokm�l;nb;\N
-102;Low Saxon;nds;\N
-103;Nepali;ne;\N
-104;Dutch;nl;\N
-105;Norwegian Nynorsk;nn;\N
-106;Norwegian;no;\N
-107;Occitan;oc;\N
-108;Oromo;om;\N
-109;Oriya;or;\N
-110;Panjabi;pa;\N
-111;Pali;pi;\N
-112;Polish;pl;\N
-113;Western Panjabi;pnb;\N
-114;Pashto;ps;\N
-115;Portuguese;pt;\N
-116;Quechua;qu;\N
-117;Raeto Romance;rm;\N
-118;Kirundi;rn;\N
-119;Romanian;ro;\N
-120;Aromanian;roa;\N
-121;Russian;ru;\N
-122;Rwandi;rw;\N
-123;Sanskrit;sa;\N
-124;Sardinian;sc;\N
-125;Sicilian;scn;\N
-126;Sindhi;sd;\N
-127;Sango;sg;\N
-128;Serbo-Croatian;sh;\N
-129;Sinhalese;si;\N
-130;Slovak;sk;\N
-131;Slovenian;sl;\N
-132;Samoan;sm;\N
-133;Shona;sn;\N
-134;Somali;so;\N
-135;Albanian;SQ;\N
-136;Serbian;sr;\N
-137;Swati;ss;\N
-138;Southern Sotho;ST;\N
-139;Sundanese;su;\N
-140;Swedish;sv;\N
-141;Swahili;sw;\N
-142;Tamil;ta;\N
-143;Telugu;te;\N
-144;Tajik;TG;\N
-145;Thai;th;\N
-146;Tigrinya;ti;\N
-147;Turkmen;tk;\N
-148;Tagalog;tl;\N
-149;Setswana;tn;\N
-150;Tonga;to;\N
-151;Tok Pisin;tpi;\N
-152;Turkish;tr;\N
-153;Tsonga;ts;\N
-154;Tatar;tt;\N
-155;Twi;tw;\N
-156;Uyghur;ug;\N
-157;Ukrainian;uk;\N
-158;Urdu;ur;\N
-159;Uzbek;uz;\N
-160;Vietnamese;vi;\N
-161;Volap�k;vo;\N
-162;Walloon;wa;\N
-163;Wolof;wo;\N
-164;Xhosan;xh;\N
-165;Yiddish;yi;\N
-166;Yoruba;yo;\N
-167;Zhuang;za;\N
-168;Chinese;zh;\N
-169;Min Nan;zhm;\N
-170;Zulu;zu;\N
-171;Ancient Greek;agr;\N
-172;Anglo-Norman;ann;\N
-173;Classical Nahuatl;cn;\N
-174;Gothic;go;\N
-175;Low German;lg;\N
-176;Middle Dutch;md;\N
-177;Middle English;me;\N
-178;Middle French;MF;\N
-179;Middle High German;mhg;\N
-180;Middle Low German;mlg;\N
-181;Norman;NMA;\N
-182;Old Dutch;od;\N
-183;Old English;oe;\N
-184;Old French;of;\N
-185;Old Frisian;ofi;\N
-186;Old High German;ohg;\N
-187;Old Irish;oi;\N
-188;Old Norse;on;\N
-189;Old Portuguese;opo;\N
-190;Old Proven�al;opr;\N
-191;Old Saxon;osa;\N
-192;Old Swedish;osv;\N
-193;Old Welsh;ow;\N
-194;Sumerian;sume;\N
-195;Ancient Macedonian;amc;\N
-196;Assyrian Neo-Aramaic;ana;\N
-197;Classical Syriac;cls;\N
-198;Central Melanau;cme;\N
-199;Dutch Low Saxon;dls;\N
-200;Hittite;hit;\N
-201;Late Middle Chinese;lmc;\N
-202;Middle Chinese;mci;\N
-203;Middle Korean;mik;\N
-204;Middle Persian;mip;\N
-205;Middle Irish;mir;\N
-206;Middle Welsh;miw;\N
-207;Northern Dagara;nda;\N
-208;North Levantine Arabic;nla;\N
-209;Northern Ohlone;noh;\N
-210;Northern Sotho;nso;\N
-211;Northern Thai;nth;\N
-212;Northern Yukaghir;nyu;\N
-213;Old Armenian;oar;\N
-214;Old Chinese;och;\N
-215;Old Church Slavonic;ocs;\N
-216;Old East Slavic;oes;\N
-217;Old Georgian;oge;\N
-218;Old Japanese;ojp;\N
-219;Old Javanese;ojv;\N
-220;Old Korean;oko;\N
-221;Old Lithuanian;oli;\N
-222;Old Persian;ope;\N
-223;Old Polish;opl;\N
-224;Old Prussian;opu;\N
-225;Old Spanish;osp;\N
-226;Old South Arabian;osr;\N
-227;Old Tupi;otu;\N
-228;Primitive Irish;pri;\N
-229;Proto-Norse;prn;\N
-230;Southern Altai;sal;\N
-231;Southeastern Tepehuan;set;\N
-232;Southern Hindko;shi;\N
-233;South Levantine Arabic;sla;\N
-234;Southern Ohlone;soh;\N
-235;South Marquesan;som;\N
-236;South Picene;spi;\N
-237;Southern Sama;ssa;\N
-238;Southern Sami;ssi;\N
-239;South Slavey;ssl;\N
-240;Southern Yukaghir;syu;\N
-241;Western Kayah;wka;\N
-242;Western Mari;wma;\N
-243;Western Arrernte;wrr;\N
-244;Aari;aar;\N
-245;Abau;aba;\N
-246;Abenaki;abe;\N
-247;Abkhaz;abk;\N
-248;Abanyom;abn;\N
-249;Abu;abu;\N
-250;Abaza;abz;\N
-251;Acehnese;ace;\N
-252;Acholi;ach;\N
-253;Achuar-Shiwiar;acr;\N
-254;Achumawi;acu;\N
-255;Adangme;ada;\N
-256;Adele;ade;\N
-257;Adioukrou;adi;\N
-258;Adnyamathanha;adn;\N
-259;Adyghe;ady;\N
-260;Adzera;adz;\N
-261;Alemannic German;ag;\N
-262;Aghul;agh;\N
-263;Aguaruna;agu;\N
-264;Ainu;ain;\N
-265;Akawaio;aka;\N
-266;Akkadian;akk;\N
-267;Aklanon;akl;\N
-268;Akkala Sami;aks;\N
-269;Alabama;al;\N
-270;Alcozauca Mixtec;alc;\N
-271;Aleut;ale;\N
-272;Alamblak;alm;\N
-273;Alutiiq;alt;\N
-274;Alutor;alu;\N
-275;Alviri-Vidari;alv;\N
-276;Ama;ama;\N
-277;Ambai;amb;\N
-278;Amaimon;ami;\N
-279;Ambonese Malay;amm;\N
-280;Amanab;amn;\N
-281;Ammonite;amo;\N
-282;American Sign Language;ams;\N
-283;Ambulas;amu;\N
-284;Amuzgo;amz;\N
-285;Annobonese;anb;\N
-286;Antillean Creole;anc;\N
-287;Angaataha;anga;\N
-288;Angolar;angl;\N
-289;Angor;angr;\N
-290;Ankave;ank;\N
-291;Angloromani;anr;\N
-292;Ansus;ans;\N
-293;Anuta;anu;\N
-294;Aneme Wake;anw;\N
-295;Apala�;apa;\N
-296;Aramaic;aram;\N
-297;Arapaho;arap;\N
-298;Arawak;araw;\N
-299;Arabela;arb;\N
-300;Archi;arc;\N
-301;'Are'are;are;\N
-302;Argobba;arg;\N
-303;Arin;ari;\N
-304;Assan;ass;\N
-305;Atayal;ata;\N
-306;Auhelawa;auh;\N
-307;'Auhelawa;auhe;\N
-308;Avestan;ave;\N
-309;Awabakal;awab;\N
-310;Awadhi;awad;\N
-311;Aymara;aym;\N
-312;Aynu;ayn;\N
-313;Azeri;aze;\N
-314;Bactrian;bac;\N
-315;Baekje;bae;\N
-316;Balinese;bali;\N
-317;Balti;balt;\N
-318;Baluchi;balu;\N
-319;Bandjalang;band;\N
-320;Banjarese;banj;\N
-321;Banyumasan;bany;\N
-322;Baruga;bar;\N
-323;Bashkir;bas;\N
-324;Batak Toba;bat;\N
-325;Baure;bau;\N
-326;Bavarian;bav;\N
-327;Berbice Creole Dutch;bcd;\N
-328;Beja;bej;\N
-329;Betawi;bet;\N
-330;Bhojpuri;bho;\N
-331;Biak;bia;\N
-332;Bikol Central;bic;\N
-333;Bikol;bik;\N
-334;Bintulu;bin;\N
-335;Bishnupriya Manipuri;bis;\N
-336;Blackfoot;bl;\N
-337;Bondei;bon;\N
-338;Bor�ro;bor;\N
-339;Broome Pearling Lugger Pidgin;bplp;\N
-340;Brahui;bra;\N
-341;Bribri;bri;\N
-342;Bube;bub;\N
-343;Buginese;bug;\N
-344;Buhid;buh;\N
-345;Bulgarian;bul;\N
-346;Bunurong;bun;\N
-347;Buryat;bur;\N
-348;Buyeo;buy;\N
-349;Cal�;cal;\N
-350;Cantonese;can;\N
-351;Carian;car;\N
-352;Campidanese Sardinian;cas;\N
-353;Catawba;cat;\N
-354;Cebuano;ceb;\N
-355;Cappadocian Greek;cgr;\N
-356;Chagatai;chag;\N
-357;Chickasaw;chc;\N
-358;Chechen;chec;\N
-359;Cheyenne;chey;\N
-360;Chichewa;chic;\N
-361;Chinook;chin;\N
-362;Chiquitano;chiq;\N
-363;Chiricahua;chir;\N
-364;Chinook Jargon;chj;\N
-365;Chamicuro;chmi;\N
-366;Choctaw;choc;\N
-367;Chol;chol;\N
-368;Ch'orti';chor;\N
-369;Chinese Pidgin English;chpe;\N
-370;Chru;chru;\N
-371;Chukchi;chuk;\N
-372;Chuvash;chuv;\N
-373;Cia-Cia;cia;\N
-374;Cimbrian;cim;\N
-375;Coastal Kadazan;cka;\N
-376;Classical Nahuatl;cna;\N
-377;Comanche;coma;\N
-378;Coatl�n Mixe;comi;\N
-379;Comorian;como;\N
-380;Comox;comx;\N
-381;Coptic;copt;\N
-382;Cowlitz;cowl;\N
-383;Creek;cre;\N
-384;Crimean tatar;crt;\N
-385;Crimean Tatar;ct;\N
-386;Central Tarahumara;cta;\N
-387;Central Atlas Tamazight;ctat;\N
-388;Central Dusun;ctdu;\N
-389;Central Siberian Yupik;ctsy;\N
-390;Central Tagbanwa;ctta;\N
-391;Cuiba;cui;\N
-392;Dacian;dac;\N
-393;Dadibi;dad;\N
-394;Dakota;dak;\N
-395;Dalmatian;dal;\N
-396;Dargwa;darg;\N
-397;Darling;darl;\N
-398;Dhivehi;dhi;\N
-399;Dhuwal;dhu;\N
-400;Dieri;die;\N
-401;Diitidaht;dii;\N
-402;Dinka;din;\N
-403;Darkinjung;dki;\N
-404;Dena'ina;dni;\N
-405;Dogrib;dog;\N
-406;Dolgan;dol;\N
-407;Dorze;dor;\N
-408;Drents;dre;\N
-409;Dungan;dun;\N
-410;Dyirbal;dyi;\N
-411;Eastern Arrernte;ear;\N
-412;Eblaite;ebl;\N
-413;Eastern Cham;ech;\N
-414;Eastern Canadian Inuktitut;eci;\N
-415;Eteocretan;ecr;\N
-416;Edo;edo;\N
-417;Edomite;edom;\N
-418;East Futuna;efu;\N
-419;Egyptian;eg;\N
-420;Egyptian Arabic;ega;\N
-421;Elfdalian;elfd;\N
-422;Erzya;erz;\N
-423;Esan;esa;\N
-424;Etruscan;etr;\N
-425;Evenki;eve;\N
-426;Ewe;ewe;\N
-427;Extremaduran;ext;\N
-428;Faliscan;fal;\N
-429;Fiji Hindi;fh;\N
-430;Flemish;fle;\N
-431;Fon;fon;\N
-432;Frankish;fra;\N
-433;Friulian;fri;\N
-434;Franco-Proven�al;frp;\N
-435;Fula;ful;\N
-436;Ga;ga;\N
-437;Gabi;gab;\N
-438;Gagauz;gag;\N
-439;Gallo;gal;\N
-440;Gamilaraay;gam;\N
-441;Gan;gan;\N
-442;Garifuna;gar;\N
-443;Gallurese Sardinian;gas;\N
-444;Gaulish;gau;\N
-445;Gayo;gay;\N
-446;Gazi;gaz;\N
-447;Ge'ez;gee;\N
-448;Georgia;geo;\N
-449;Greenlandic Eskimo Pidgin;gep;\N
-450;Gheg Albanian;gha;\N
-451;Gilbertese;gil;\N
-452;Goguryeo;gog;\N
-453;Golin;gol;\N
-454;Goonivandi;goo;\N
-455;Gooniyandi;goy;\N
-456;Gronings;gro;\N
-457;German Sign Language;gsl;\N
-458;Guaran�;gua;\N
-459;Guern�siais;gue;\N
-460;Gullah;gul;\N
-461;Gunai;gun;\N
-462;Gusii;gus;\N
-463;Guugu Yimidhirr;guu;\N
-464;Haida;hai;\N
-465;Hakka;hak;\N
-466;Haamer-Banna;ham;\N
-467;Hamer-Banna;hame;\N
-468;Harari;har;\N
-469;Hassaniya;has;\N
-470;Haitian Creole;hc;\N
-471;Hiligaynon;hil;\N
-472;Hiri Motu;hir;\N
-473;Hmong;hmo;\N
-474;Hmong Daw;hmod;\N
-475;Hopi;hop;\N
-476;Hunsrik;hun;\N
-477;Hurrian;hur;\N
-478;Haitian Vodoun Culture Language;hvl;\N
-479;Hawaiian;hw;\N
-480;Hawaiian Pidgin;hwp;\N
-481;Iban;iba;\N
-482;Ida'an;ida;\N
-483;Igbo;igb;\N
-484;Ilocano;il;\N
-485;Isthmus-Mecayapan Nahuatl;imn;\N
-486;Indonesian;indo;\N
-487;Inese�o;ine;\N
-488;Ingrian;ingr;\N
-489;Ingush;ingu;\N
-490;Inari Sami;ins;\N
-491;Istro-Romanian;ir;\N
-492;Iranun;iran;\N
-493;Istriot;ist;\N
-494;Italia;ita;\N
-495;Itelmen;ite;\N
-496;Isthmus Zapotec;iza;\N
-497;Jarai;jar;\N
-498;Javanese;jav;\N
-499;Jamaican Creole;jc;\N
-500;J�rriais;je;\N
-501;Jingpho;jin;\N
-502;Jurchen;jur;\N
-503;Kabardian;kaba;\N
-504;Kabuverdianu;kabu;\N
-505;Kabyle;kaby;\N
-506;Kadiw�u;kad;\N
-507;Kalanga;kalg;\N
-508;Kalispel-Pend d'Oreille;kali;\N
-509;Kalami;kalm;\N
-510;Kalenjin;kaln;\N
-511;Kalmyk;kaly;\N
-512;Kamassian;kama;\N
-513;Kamba;kamb;\N
-514;Kanjobal;kanj;\N
-515;Kanuri;kanu;\N
-516;Kapampangan;kapa;\N
-517;Kapingamarangi;kapi;\N
-518;Karachay-Balkar;kara;\N
-519;Karelian;kare;\N
-520;Kariti�na;kari;\N
-521;Karakalpak;kark;\N
-522;Karamojong;karm;\N
-523;Kashaya;kas;\N
-524;Kaurna;kau;\N
-525;Kelabit;kel;\N
-526;Kedah Malay;kem;\N
-527;Kemi Sami;kesa;\N
-528;Ket;ket;\N
-529;Kalo Finnish Romani;kfr;\N
-530;Khakas;khak;\N
-531;Khanty;khan;\N
-532;Khazar;khaz;\N
-533;Khitan;khi;\N
-534;Khmer;khme;\N
-535;Khmu;khmu;\N
-536;Khowar;kho;\N
-537;Khvarshi;khv;\N
-538;K'iche';kic;\N
-539;Kikuyu;kik;\N
-540;Kilivila;kil;\N
-541;Kinyarwanda;kin;\N
-542;Kiput;kip;\N
-543;Kildin Sami;kisa;\N
-544;!Kung;kng;\N
-545;K�lsch;kol;\N
-546;Komi-Peryak;kom;\N
-547;Kongo;kon;\N
-548;Komi-Permyak;kope;\N
-549;Korean;kor;\N
-550;Koryak;kory;\N
-551;Kott;kot;\N
-552;Komi-Zyrian;kozy;\N
-553;kril;kri;\N
-554;Krio;KRIL;\N
-555;Krisa;krs;\N
-556;Kuanua;kua;\N
-557;Kumyk;kum;\N
-558;Kuna;kun;\N
-559;Kurudu;kur;\N
-560;Kusunda;kus;\N
-561;Kuvi;kuv;\N
-562;Kven;kv;\N
-563;Kwanyama;kwa;\N
-564;Kyrgyz;kyr;\N
-565;Laal;laa;\N
-566;Ladin;lad;\N
-567;Lak;lak;\N
-568;Laki;laki;\N
-569;Lakota;lako;\N
-570;Latgalian;lat;\N
-571;Laurentian;lau;\N
-572;Lavukaleve;lav;\N
-573;Laz;laz;\N
-574;Literary Chinese;lci;\N
-575;Louisiana Creole French;lcr;\N
-576;Ladino;ldi;\N
-577;Lemnian;lem;\N
-578;Lenape;len;\N
-579;Leonese;leo;\N
-580;Lepontic;lep;\N
-581;Lezgi;lez;\N
-582;Libyan Arabic;lia;\N
-583;Limbu;lim;\N
-584;Livonian;liv;\N
-585;Limburgish;lm;\N
-586;Lombard;lom;\N
-587;Lozi;loz;\N
-588;Logudorese Sardinian;lsa;\N
-589;Lower Sorbian;lso;\N
-590;Luganda;lug;\N
-591;Luhya;luh;\N
-592;Lubuagan Kalinga;luka;\N
-593;Luba-Katanga;lukt;\N
-594;Lunda;lun;\N
-595;Luo;luo;\N
-596;Lule Sami;lusa;\N
-597;Lusitanian;lusi;\N
-598;Luwian;luw;\N
-599;Lycian;lyc;\N
-600;Lydian;lyd;\N
-601;Maasai;maas;\N
-602;Maay;maay;\N
-603;Mauritian Creole;mac;\N
-604;Madurese;mad;\N
-605;Makah;maka;\N
-606;Makhuwa;makh;\N
-607;Makasar;maks;\N
-608;Malecite-Passamaquoddy;malc;\N
-609;Mal�ku Ja�ka;male;\N
-610;Maltese;malt;\N
-611;Manchu;manc;\N
-612;Mandarin;mand;\N
-613;Mangarevan;mang;\N
-614;Mandinka;mani;\N
-615;Mandari;manr;\N
-616;Mansi;mans;\N
-617;Mapudungun;map;\N
-618;Marau;mara;\N
-619;Mara Chin;marc;\N
-620;Mari;mari;\N
-621;Maricopa;maro;\N
-622;Marti Ke;mark;\N
-623;Marrucinian;marr;\N
-624;Marsian;mars;\N
-625;Martuthunira;mart;\N
-626;Marwari;marw;\N
-627;Massachusett;mas;\N
-628;Mayangna;may;\N
-629;Mazanderani;maz;\N
-630;Mbabaram;mba;\N
-631;Me�nkieli;mea;\N
-632;Median;med;\N
-633;Megleno-Romanian;meg;\N
-634;Mende;men;\N
-635;Meriam;meri;\N
-636;Meru;meru;\N
-637;Miami;mia;\N
-638;Michif;mic;\N
-639;Mi'kmaq;mikm;\N
-640;Minangkabau;mina;\N
-641;Min Dong;mind;\N
-642;Mingrelian;ming;\N
-643;Minoan;mino;\N
-644;Mirandese;mira;\N
-645;Miskito;mis;\N
-646;Miyako;miy;\N
-647;Mizo;mizo;\N
-648;Mainstream Kenyah;mke;\N
-649;Moabite;moa;\N
-650;Mobilian;mob;\N
-651;Mohawk;moh;\N
-652;Moksah;mok;\N
-653;Moksha;moks;\N
-654;Mon;mon;\N
-655;Monguor;mong;\N
-656;Montagnais;mont;\N
-657;Mop�n;mop;\N
-658;Moroccan Arabic;mora;\N
-659;Motu;motu;\N
-660;Muduapa;mud;\N
-661;Mungaka;MUGA;\N
-662;Munggui;mugg;\N
-663;Murrinh-Patha;mur;\N
-664;Mycenaean Greek;myg;\N
-665;Nage;nage;\N
-666;Ndali;ndal;\N
-667;Ndonga;ndo;\N
-668;Neapolitan;nea;\N
-669;Nenets;nen;\N
-670;Newari;new;\N
-671;North Frisian;nf;\N
-672;Ngaanyatjarra;ngaa;\N
-673;Ngaju;ngaj;\N
-674;Nganasan;ngan;\N
-675;Ngarrindjeri;ngar;\N
-676;Ngawun;ngaw;\N
-677;Navajo;nh;\N
-678;Nhanda;nha;\N
-679;Nias;nias;\N
-680;Niuean;niu;\N
-681;Nivkh;niv;\N
-682;Nogai;nog;\N
-683;Nootka;noo;\N
-684;Novial;nov;\N
-685;Norfuk;norf;\N
-686;Nigerian Pidgin;np;\N
-687;Norn;nrn;\N
-688;Northern Sami;ns;\N
-689;Nyankole;nya;\N
-690;Nyunga;nyun;\N
-691;Ojibwe;oj;\N
-692;Okinawan;oki;\N
-693;Omaha-Ponca;oma;\N
-694;O'odham;ns;\N
-695;Osage;osag;\N
-696;Oscan;osc;\N
-697;Ossetian;oss;\N
-698;Ottoman Turkish;ott;\N
-699;Paelignian;pae;\N
-700;Pahoun;pah;\N
-701;Pahouin;paho;\N
-702;Paiwan;pai;\N
-703;Palauan;pala;\N
-704;Palu'e;palu;\N
-705;Pangasinan;pang;\N
-706;Panyjima;pany;\N
-707;Papiamentu;papi;\N
-708;Papuma;papu;\N
-709;Parthian;par;\N
-710;Paumar�;pau;\N
-711;Penobscot;pen;\N
-712;Pennsylvania German;pg;\N
-713;Phoenician;pho;\N
-714;Phrygian;phr;\N
-715;Picard;pic;\N
-716;Piedmontese;pie;\N
-717;Pijin;pij;\N
-718;Pinyin;pin;\N
-719;Pipil;pip;\N
-720;Pirah�;pir;\N
-721;Pite Sami;pisa;\N
-722;Pitjantjatjara;pit;\N
-723;Pochutec;poc;\N
-724;Pohnpeian;poh;\N
-725;Polabian;polb;\N
-726;Polari;polr;\N
-727;Portugal;por;\N
-728;Potawatomi;pota;\N
-729;Pulaar;pul;\N
-730;Pumpokol;pum;\N
-731;Punic;puni;\N
-732;Punjabi;punj;\N
-733;Puyuma;puy;\N
-734;Rade;rad;\N
-735;Rajasthani;raj;\N
-736;Rapa Nui;rap;\N
-737;Rarotongan;rar;\N
-738;Rejang;rej;\N
-739;Rhymes;rhy;\N
-740;Romani;rma;\N
-741;Rohingya;roh;\N
-742;Romansch;rom;\N
-743;Rotokas;roto;\N
-744;Rotuman;rotu;\N
-745;Russenorsk;runo;\N
-746;Russia Buryat;ruby;\N
-747;Rusyn;rusy;\N
-748;Rutul;rutu;\N
-749;Saanich;saa;\N
-750;Saterland Frisian;saf;\N
-751;Samogitian;sam;\N
-752;Santali;san;\N
-753;Samoan Plantation Pidgin;sap;\N
-754;Sarcee;sar;\N
-755;Sasak;sasa;\N
-756;Sassarese Sardinian;sass;\N
-757;Sawi;saw;\N
-758;Sayula Popoluca;say;\N
-759;Scottish Gaelic;scg;\N
-760;Scots;sco;\N
-761;Sebat Bet Gurage;seb;\N
-762;Seneca;sen;\N
-763;Seraiki;sera;\N
-764;Seri;seri;\N
-765;Serui-Laut;seru;\N
-766;Shabo;sha;\N
-767;Shan;shan;\N
-768;Shel;shel;\N
-769;Sherpa;sher;\N
-770;Shelta;shet;\N
-771;Shor;shor;\N
-772;Shoshone;shos;\N
-773;Shuar;shu;\N
-774;Silesian;sil;\N
-775;Sichuan Yi;siy;\N
-776;Skolt Sami;sks;\N
-777;Slovincian;slo;\N
-778;Slovene;slv;\N
-779;Soqotri;soq;\N
-780;Sotho;sot;\N
-781;Sranan Tongo;srt;\N
-782;Sumbawa;sumb;\N
-783;Sursurunga;sur;\N
-784;Svan;sva;\N
-785;Swabian;swa;\N
-786;Sydney;syd;\N
-787;Syriac;syr;\N
-788;Tabassaran;tab;\N
-789;Tacana;taca;\N
-790;Tachelhit;tach;\N
-791;Tai Dam;tad;\N
-792;Tahitian;tah;\N
-793;Tamashek;tama;\N
-794;Tambora;tamb;\N
-795;Taos;taos;\N
-796;Tarantino;tar;\N
-797;Tasmanian;tas;\N
-798;Tausug;tau;\N
-799;Ter Sami;tesa;\N
-800;Tetum;tet;\N
-801;Tigre;tig;\N
-802;Tiwi;tiwi;\N
-803;Tocharian A;toa;\N
-804;Tocharian B;tob;\N
-805;Tongan;ton;\N
-806;Taimyr Pidgin Russian;tpr;\N
-807;Translingual;tra;\N
-808;Tsakhur;tsa;\N
-809;Torres Strait Creole;tsc;\N
-810;Tshiluba;tsh;\N
-811;Tswana;tsw;\N
-812;Tuamotuan;tuam;\N
-813;Tunisian Arabic;tuar;\N
-814;Tulu;tul;\N
-815;Tumbuka;tum;\N
-816;Tupinamb�;tup;\N
-817;Tuvaluan;tuvl;\N
-818;Tuvan;tuvn;\N
-819;Twents;twe;\N
-820;Tz'utujil;tz;\N
-821;Ubykh;uby;\N
-822;Udi;udi;\N
-823;Udmurt;udmz;\N
-824;Ugaritic;uga;\N
-825;Uab Meto;um;\N
-826;Umbrian;umbr;\N
-827;Umbundu;umbu;\N
-828;Ume Sami;umsa;\N
-829;Unami;una;\N
-830;Undetermined;und;\N
-831;Unserdeutsch;uns;\N
-832;Urum;uru;\N
-833;Vai;vai;\N
-834;Vandalic;van;\N
-835;Venda;vend;\N
-836;Venetian;vene;\N
-837;Venetic;vent;\N
-838;Veps;vep;\N
-839;Vestinian;vest;\N
-840;Vilamovian;vil;\N
-841;Vinza;vin;\N
-842;Volscian;vol;\N
-843;V�ro;vor;\N
-844;Votic;vot;\N
-845;Wabo;wa�bo;\N
-846;Wageman;wag;\N
-847;Wallisian;wal;\N
-848;Wandamen;wand;\N
-849;Wangaaybuwan-Ngiyambaa;wang;\N
-850;Western Apache;wap;\N
-851;Wari';wari;\N
-852;Warao;waro;\N
-853;Waropen;warp;\N
-854;Waray-Waray;wary;\N
-855;Wawa;wawa;\N
-856;West Coast Bajau;wcb;\N
-857;Wemba-Wemba;wem;\N
-858;Weyewa;wey;\N
-859;Wik-Mungkan;wik;\N
-860;Winnebago;win;\N
-861;Wiradhuri;wir;\N
-862;Woi;woi;\N
-863;Worimi;wor;\N
-864;Warlpiri;WRL;\N
-865;Wu;wu;\N
-866;Woiwurrung;wwu;\N
-867;Xavante;xa;\N
-868;Xhosa;xho;\N
-869;!X��;xoo;\N
-870;Yaeyama;yae;\N
-871;Yagnobi;yag;\N
-872;Yakut;yak;\N
-873;Yami;yam;\N
-874;Yankunytjatjara;yank;\N
-875;Yanyuwa;yany;\N
-876;Yapese;yap;\N
-877;Yidiny;yid;\N
-878;Yindjibarndi;yin;\N
-879;Yola;yol;\N
-880;Yosond�a Mixtec;yom;\N
-881;Yonaguni;yon;\N
-882;Yopno;yop;\N
-883;Yucatec Maya;yum;\N
-884;Yup'ik;yup;\N
-885;Yurok;yur;\N
-886;Yatzachi Zapotec;yza;\N
-887;Zenaga;ze;\N
-888;Zimba;zi;\N
-889;Zoogocho Zapotec;zoz;\N
-890;Zulgo-Gemzek;zug;\N
-891;Zuni;zuni;\N
-1;Guernésiais;Guernésiais\N
-2;Jèrriais;Jèrriais\N
-3;Norwegian Bokmål;Norwegian Bokmål\N
-4;Volapük;Volapük\N
-5;Zazaki;Zazaki\N
-6;Fala;Fala\N
-7;Guaraní;Guaraní\N
-8;Crimean Gothic;Crimean Gothic\N
-9;Old Provençal;Old Provençal\N
-10;German Low German;German Low German\N
-11;Borôro;Borôro\N
-12;Kaingang;Kaingang\N
-13;Indo-Portuguese;Indo-Portuguese\N
-14;Cahuilla;Cahuilla\N
-15;Jersey Dutch;Jersey Dutch\N
-16;Roro;Roro\N
-17;Apalaí;Apalaí\N
-18;Araki;Araki\N
-19;Baluan-Pam;Baluan-Pam\N
-20;Lou;Lou\N
-21;Bakung;Bakung\N
-22;Fwâi;Fwâi\N
-23;Haeke;Haeke\N
-24;Haveke;Haveke\N
-25;Jawe;Jawe\N
-26;Nemi;Nemi\N
-27;Tupinambá;Tupinambá\N
-28;Nalca;Nalca\N
-29;Baram Kayan;Baram Kayan\N
-30;Batak Dairi;Batak Dairi\N
-31;Batak Karo;Batak Karo\N
-32;Irarutu;Irarutu\N
-33;Onin;Onin\N
-34;Uruangnirin;Uruangnirin\N
-35;Karipúna Creole French;Karipúna Creole French\N
-36;Franco-Provençal;Franco-Provençal\N
-37;Kriol;Kriol\N
-38;Amis;Amis\N
-39;Taroko;Taroko\N
-40;Bilba;Bilba\N
-41;Malaccan Creole Portuguese;Malaccan Creole Portuguese\N
-42;Zay;Zay\N
-43;Achuar;Achuar\N
-44;Lampung Api;Lampung Api\N
-1;Palenquero;Palenquero\N
-2;Karitiâna;Karitiâna\N
-3;Võro;Võro\N
-4;Bunun;Bunun\N
-5;Yamdena;Yamdena\N
-6;Mopan Maya;Mopan Maya\N
-7;Ghotuo;Ghotuo\N
-8;Ineseño;Ineseño\N
-9;Tukudede;Tukudede\N
-10;Yosondúa Mixtec;Yosondúa Mixtec\N
-11;Casiguran Dumagat Agta;Casiguran Dumagat Agta\N
-12;Kanakanabu;Kanakanabu\N
-13;Mansaka;Mansaka\N
-14;Havasupai-Walapai-Yavapai;Havasupai-Walapai-Yavapai\N
-15;Batak;Batak\N
-16;Mentawai;Mentawai\N
-17;Rembong;Rembong\N
-18;Komodo;Komodo\N
-19;Berawan;Berawan\N
-20;Isan;Isan\N
-21;Mòcheno;Mòcheno\N
-22;Arosi;Arosi\N
-23;Hano;Hano\N
-24;Kambera;Kambera\N
-25;Tolai;Tolai\N
-26;Ontong Java;Ontong Java\N
-27;Pitcairn-Norfolk;Pitcairn-Norfolk\N
-28;Alu;Alu\N
-29;Bontoc;Bontoc\N
-30;Bughotu;Bughotu\N
-31;Ligurian;Ligurian\N
-32;Bau Bidayuh;Bau Bidayuh\N
-33;Tagal Murut;Tagal Murut\N
-34;Warrgamay;Warrgamay\N
-35;Kaytetye;Kaytetye\N
-36;Isnag;Isnag\N
-37;Dharug;Dharug\N
-38;Romagnol;Romagnol\N
-39;Chaap Wuurong;Chaap Wuurong\N
-40;Baba Malay;Baba Malay\N
-41;Paumarí;Paumarí\N
-42;Maroon Spirit Language;Maroon Spirit Language\N
-43;Kankanaey;Kankanaey\N
-44;Maranao;Maranao\N
-45;Manggarai;Manggarai\N
-46;Kölsch;Kölsch\N
-47;Algonquin;Algonquin\N
-48;Vurës;Vurës\N
-49;Caló;Caló\N
-50;Plautdietsch;Plautdietsch\N
-51;Emilian;Emilian\N
-52;Koasati;Koasati\N
-53;Coatlán Mixe;Coatlán Mixe\N
-54;Pirahã;Pirahã\N
-55;Alune;Alune\N
-56;Banda (Indonesia);Banda (Indonesia)\N
-57;Banggai;Banggai\N
-58;Brunei Bisaya;Brunei Bisaya\N
-59;Eritai;Eritai\N
-60;Emae;Emae\N
-61;Futuna-Aniwa;Futuna-Aniwa\N
-62;Kamarian;Kamarian\N
-63;Tokelauan;Tokelauan\N
-64;Dobu;Dobu\N
-65;Mussau-Emira;Mussau-Emira\N
-66;Numbami;Numbami\N
-67;Ende;Ende\N
-68;Mohegan-Pequot;Mohegan-Pequot\N
-69;Kimaragang;Kimaragang\N
-70;Hanunoo;Hanunoo\N
-71;Meänkieli;Meänkieli\N
-72;Central Kurdish;Central Kurdish\N
-73;Xiang;Xiang\N
-74;Lamaholot;Lamaholot\N
-75;Bima;Bima\N
-76;Sangir;Sangir\N
-77;Asilulu;Asilulu\N
-78;Itawit;Itawit\N
-79;Maléku Jaíka;Maléku Jaíka\N
-80;Kadiwéu;Kadiwéu\N
-81;Kurnai;Kurnai\N
-82;Tlingit;Tlingit\N
-83;Dhudhuroa;Dhudhuroa\N
-84;Middle Armenian;Middle Armenian\N
-85;ǃXóõ;ǃXóõ\N
-1;Palenquero;Palenquero\N
-2;Karitiâna;Karitiâna\N
-3;Võro;Võro\N
-4;Bunun;Bunun\N
-5;Yamdena;Yamdena\N
-6;Mopan Maya;Mopan Maya\N
-7;Ghotuo;Ghotuo\N
-8;Ineseño;Ineseño\N
-9;Tukudede;Tukudede\N
-10;Yosondúa Mixtec;Yosondúa Mixtec\N
-11;Casiguran Dumagat Agta;Casiguran Dumagat Agta\N
-12;Kanakanabu;Kanakanabu\N
-13;Mansaka;Mansaka\N
-14;Havasupai-Walapai-Yavapai;Havasupai-Walapai-Yavapai\N
-15;Livvi;Livvi\N
-16;Batak;Batak\N
-17;Mentawai;Mentawai\N
-18;Rembong;Rembong\N
-19;Komodo;Komodo\N
-20;Berawan;Berawan\N
-21;Romagnol;Romagnol\N
-22;Isan;Isan\N
-23;Mòcheno;Mòcheno\N
-24;Arosi;Arosi\N
-25;Hano;Hano\N
-26;Kambera;Kambera\N
-27;Tolai;Tolai\N
-28;Ontong Java;Ontong Java\N
-29;Pitcairn-Norfolk;Pitcairn-Norfolk\N
-30;Alu;Alu\N
-31;Bontoc;Bontoc\N
-32;Bughotu;Bughotu\N
-33;Ligurian;Ligurian\N
-34;Bau Bidayuh;Bau Bidayuh\N
-35;Judeo-Arabic;Judeo-Arabic\N
-36;Tagal Murut;Tagal Murut\N
-37;Warrgamay;Warrgamay\N
-38;Kaytetye;Kaytetye\N
-39;Isnag;Isnag\N
-40;Dharug;Dharug\N
-41;Lule;Lule\N
-42;Chaap Wuurong;Chaap Wuurong\N
-43;Baba Malay;Baba Malay\N
-44;Paumarí;Paumarí\N
-45;Maroon Spirit Language;Maroon Spirit Language\N
-46;Kankanaey;Kankanaey\N
-47;Maranao;Maranao\N
-48;Manggarai;Manggarai\N
-49;Kölsch;Kölsch\N
-50;Algonquin;Algonquin\N
-51;Vurës;Vurës\N
-52;Caló;Caló\N
-53;Plautdietsch;Plautdietsch\N
-54;Emilian;Emilian\N
-55;Koasati;Koasati\N
-56;Swazi;Swazi\N
-57;Coatlán Mixe;Coatlán Mixe\N
-58;Pirahã;Pirahã\N
-59;Alune;Alune\N
-60;Banda (Indonesia);Banda (Indonesia)\N
-61;Banggai;Banggai\N
-62;Brunei Bisaya;Brunei Bisaya\N
-63;Eritai;Eritai\N
-64;Emae;Emae\N
-65;Futuna-Aniwa;Futuna-Aniwa\N
-66;Kamarian;Kamarian\N
-67;Tokelauan;Tokelauan\N
-68;Dobu;Dobu\N
-69;Mussau-Emira;Mussau-Emira\N
-70;Numbami;Numbami\N
-71;Ende;Ende\N
-72;Mohegan-Pequot;Mohegan-Pequot\N
-73;Kimaragang;Kimaragang\N
-74;Hanunoo;Hanunoo\N
-75;Meänkieli;Meänkieli\N
-76;Central Kurdish;Central Kurdish\N
-77;Xiang;Xiang\N
-78;Lamaholot;Lamaholot\N
-79;Bima;Bima\N
-80;Sangir;Sangir\N
-81;Asilulu;Asilulu\N
-82;Itawit;Itawit\N
-83;Maléku Jaíka;Maléku Jaíka\N
-84;Kadiwéu;Kadiwéu\N
-85;Kurnai;Kurnai\N
-86;Tlingit;Tlingit\N
-87;Dhudhuroa;Dhudhuroa\N
-88;Middle Armenian;Middle Armenian\N
-89;ǃXóõ;ǃXóõ\N
-90;Central Nahuatl;Central Nahuatl\N
-91;Mandar;Mandar\N
-92;Tae';Tae'\N
-93;ǃKung;ǃKung\N
-1;Wuvulu-Aua;Wuvulu-Aua\N
-2;Tikopia;Tikopia\N
-3;Sirionó;Sirionó\N
-4;Selaru;Selaru\N
-5;Simeulue;Simeulue\N
-6;Rennellese;Rennellese\N
-7;Wiyot;Wiyot\N
-8;Nyâlayu;Nyâlayu\N
-9;Pije;Pije\N
-10;Yuaga;Yuaga\N
-11;Mori Bawah;Mori Bawah\N
-12;Moronene;Moronene\N
-13;Totoli;Totoli\N
-14;Sonsorolese;Sonsorolese\N
-15;Waskia;Waskia\N
-16;Kedang;Kedang\N
-17;Sabu;Sabu\N
-18;Rejang Kayan;Rejang Kayan\N
-19;Wolio;Wolio\N
-20;Mongondow;Mongondow\N
-21;Sika;Sika\N
-22;Tiruray;Tiruray\N
-23;Mayoyao Ifugao;Mayoyao Ifugao\N
-24;Tontemboan;Tontemboan\N
-25;Western Bukidnon Manobo;Western Bukidnon Manobo\N
-26;Haroi;Haroi\N
-27;Northern Roglai;Northern Roglai\N
-28;Western Cham;Western Cham\N
-29;Owa;Owa\N
-30;Tangoa;Tangoa\N
-31;Dupaninan Agta;Dupaninan Agta\N
-32;Gela;Gela\N
-33;Ivatan;Ivatan\N
-34;Lau;Lau\N
-35;Lusi;Lusi\N
-36;Manam;Manam\N
-37;Nakanai;Nakanai\N
-38;Nukuoro;Nukuoro\N
-39;Papora;Papora\N
-40;Roviana;Roviana\N
-41;To'abaita;To'abaita\N
-42;Woleaian;Woleaian\N
-43;Pitta-Pitta;Pitta-Pitta\N
-44;Réunion Creole French;Réunion Creole French\N
-45;Kemak;Kemak\N
-46;Leti;Leti\N
-47;Pamona;Pamona\N
-48;Paulohi;Paulohi\N
-49;Siraya;Siraya\N
-50;Yakan;Yakan\N
-51;Niuafo'ou;Niuafo'ou\N
-52;North Marquesan;North Marquesan\N
-53;Penrhyn;Penrhyn\N
-54;Takuu;Takuu\N
-55;Kulon-Pazeh;Kulon-Pazeh\N
-56;Nauna;Nauna\N
-57;Ngad'a;Ngad'a\N
-58;Saisiyat;Saisiyat\N
-59;Old Turkic;Old Turkic\N
-60;Tuwali Ifugao;Tuwali Ifugao\N
-61;Rungus;Rungus\N
-62;Lahu;Lahu\N
-63;Ilongot;Ilongot\N
-64;Thao;Thao\N
-65;Epigraphic Mayan;Epigraphic Mayan\N
-66;Montana Salish;Montana Salish\N
-67;Sabah Bisaya;Sabah Bisaya\N
-68;Powhatan;Powhatan\N
-69;Buli (Indonesia);Buli (Indonesia)\N
-70;Kowiai;Kowiai\N
-71;Tboli;Tboli\N
-72;Mambae;Mambae\N
-73;Nanai;Nanai\N
-1;Nama;Nama\N
-2;Timugon Murut;Timugon Murut\N
-3;Urartian;Urartian\N
-4;Lacandon;Lacandon\N
-5;Atikamekw;Atikamekw\N
-6;Rusian;Rusian\N
-7;Muna;Muna\N
-8;Agutaynen;Agutaynen\N
-9;Andi;Andi\N
-10;Knaanic;Knaanic\N
-11;Q'anjob'al;Q'anjob'al\N
-1;Padoe;Padoe\N
-2;West Flemish;West Flemish\N
-3;Lotud;Lotud\N
-4;Kisar;Kisar\N
-5;Embaloh;Embaloh\N
-6;Masbatenyo;Masbatenyo\N
-1;Kavalan;Kavalan\N
-2;Tsou;Tsou\N
-3;Rukai;Rukai\N
-4;Saaroa;Saaroa\N
-5;Brunei;Brunei\N
-6;Masaaba;Masaaba\N
-7;Tsat;Tsat\N
-8;Masiwang;Masiwang\N
-9;Lun Bawang;Lun Bawang\N
-10;Tomadino;Tomadino\N
-11;Tolaki;Tolaki\N
-12;Komering;Komering\N
-13;Babuza;Babuza\N
-14;Kosraean;Kosraean\N
-15;Tambunan Dusun;Tambunan Dusun\N
-16;Calamian Tagbanwa;Calamian Tagbanwa\N
-17;Gorontalo;Gorontalo\N
-18;Uma;Uma\N
-19;Klamath-Modoc;Klamath-Modoc\N
-20;Eyak;Eyak\N
-21;Bisaya;Bisaya\N
-22;Taliabu;Taliabu\N
-23;Huaorani;Huaorani\N
-24;Sekar;Sekar\N
-25;Yaqui;Yaqui\N
-26;Wintu;Wintu\N
-27;Pictish;Pictish\N
-28;Bella Coola;Bella Coola\N
-29;Burushaski;Burushaski\N
-30;Bura Mabang;Bura Mabang\N
-31;Krongo;Krongo\N
-32;Chakma;Chakma\N
-33;Pawnee;Pawnee\N
-34;Mokpwe;Mokpwe\N
-35;Karok;Karok\N
-36;Mandaic;Mandaic\N
-37;Noric;Noric\N
-38;Purepecha;Purepecha\N
-39;Gofa;Gofa\N
-40;Northern Kurdish;Northern Kurdish\N
-41;Austronesian Mor;Austronesian Mor\N
-42;Silt'e;Silt'e\N
-43;Pamlico;Pamlico\N
-44;Maykulan;Maykulan\N
-45;Sauraseni Prakrit;Sauraseni Prakrit\N
-46;Talysh;Talysh\N
+id;name;abr
+English
+Latin
+German
+Scots
+Guernésiais
+Indonesian
+Irish
+Jèrriais
+Lojban
+Malay
+Romanian
+Scottish Gaelic
+Dutch
+Afrikaans
+Catalan
+Danish
+Italian
+Norwegian
+Spanish
+Swedish
+French
+Old English
+Old Saxon
+Portuguese
+Limburgish
+Middle English
+Middle French
+Old French
+Cornish
+Polish
+Esperanto
+Latvian
+Mandarin
+Translingual
+American Sign Language
+Azeri
+Finnish
+German Sign Language
+Luxembourgish
+Norwegian Bokmål
+Norwegian Nynorsk
+Slovene
+Somali
+Turkish
+Vietnamese
+Welsh
+Ewe
+Maltese
+Crimean Tatar
+Kurdish
+Mapudungun
+Tagalog
+Tatar
+Uzbek
+Walloon
+Estonian
+Faroese
+Interlingua
+Interlingue
+Serbo-Croatian
+Slovak
+Sundanese
+Occitan
+Lithuanian
+Volapük
+Zazaki
+Gothic
+Hungarian
+Japanese
+Manx
+Novial
+South Marquesan
+Swahili
+Venetian
+Wuvulu-Aua
+Zulu
+Navajo
+Old Irish
+Aynu
+Livonian
+Old High German
+Old Provençal
+Pumpokol
+Romani
+Ido
+Hiligaynon
+Marshallese
+Sardinian
+Lombard
+Cantonese
+Hakka
+Korean
+Min Nan
+Wu
+Okinawan
+Czech
+Dutch Low Saxon
+German Low German
+Romansch
+Turkmen
+Wik-Mungkan
+Greek
+Albanian
+Ama
+Aromanian
+Dalmatian
+Elfdalian
+Mauritian Creole
+Neapolitan
+Old Dutch
+Saterland Frisian
+Sicilian
+Tok Pisin
+Galician
+West Frisian
+Aragonese
+Asturian
+Fala
+Guaraní
+Ladin
+Old Tupi
+Papiamentu
+Georgian
+Crimean Gothic
+Murrinh-Patha
+Kiput
+Yola
+Haitian Creole
+Jersey Dutch
+Ladino
+Low German
+Old Portuguese
+Sranan Tongo
+Tarantino
+ǃKung
+Breton
+Icelandic
+Kott
+Middle Dutch
+Old Frisian
+Old Swedish
+Kven
+Gallo
+Basque
+Classical Nahuatl
+Lower Sorbian
+Maori
+Meriam
+Rapa Nui
+Tahitian
+Tongan
+Tuvaluan
+Nigerian Pidgin
+Rohingya
+Tolai
+Mirandese
+Baure
+Istriot
+Mohegan-Pequot
+Pennsylvania German
+Middle High German
+Afar
+Borôro
+Extremaduran
+Hawaiian
+Middle Low German
+Samoan
+Norman
+Mangarevan
+Niuean
+Rarotongan
+Tikopia
+Tokelauan
+Tuamotuan
+Adangme
+Bislama
+Friulian
+Latgalian
+Pijin
+Sirionó
+Tupinambá
+Alemannic German
+Inari Sami
+Kaingang
+Chinook Jargon
+Torres Strait Creole
+Ancient Greek
+Amuzgo
+Balinese
+Old Prussian
+Vilamovian
+Istro-Romanian
+Russian
+Ukrainian
+Karelian
+Votic
+Ingrian
+Middle Irish
+Hindi
+Sanskrit
+Ilocano
+Malagasy
+Hebrew
+Picard
+Biak
+Tocharian B
+Adnyamathanha
+Luhya
+Luo
+Western Apache
+Hmong
+Kanuri
+Indo-Portuguese
+Old Norse
+Gilbertese
+Silesian
+Tachelhit
+Buginese
+Egyptian
+Ga
+Gaulish
+Jamaican Creole
+Palenquero
+Tacana
+Warao
+Assan
+Greenlandic
+Lavukaleve
+Old Welsh
+Cahuilla
+Tetum
+Tocharian A
+Inuktitut
+Kedah Malay
+Quechua
+Pipil
+Selaru
+Simeulue
+Acholi
+Arin
+Cimbrian
+Chickasaw
+Louisiana Creole French
+Fijian
+Upper Sorbian
+Wiradhuri
+Middle Chinese
+Mayangna
+Northern Sami
+Skolt Sami
+Mandinka
+Chiricahua
+Kashubian
+Abau
+Alabama
+Zay
+Ojibwe
+North Frisian
+Roro
+Apalaí
+Araki
+Hiri Motu
+Kriol
+Kuna
+Piedmontese
+Pitjantjatjara
+Seri
+Baluan-Pam
+Lou
+Aymara
+Middle Welsh
+Bakung
+Palauan
+Rennellese
+Yucatec Maya
+O'odham
+Ainu
+Wiyot
+Tz'utujil
+Fwâi
+Haeke
+Haveke
+Jawe
+Nemi
+Nyâlayu
+Pije
+Yuaga
+Annobonese
+Nauruan
+Mizo
+Nias
+Serui-Laut
+Wandamen
+Zhuang
+Chamicuro
+Miskito
+Iban
+Yami
+Nalca
+Jarai
+Vandalic
+Tswana
+Banjarese
+Javanese
+Kapampangan
+Mori Bawah
+Moronene
+Old Javanese
+Sasak
+Totoli
+Central Melanau
+Betawi
+Wangaaybuwan-Ngiyambaa
+Baram Kayan
+Batak Dairi
+Batak Karo
+Batak Toba
+Bintulu
+Cebuano
+Kelabit
+Ngaju
+Fiji Hindi
+Shona
+West Coast Bajau
+Yoruba
+Yankunytjatjara
+Krisa
+Panyjima
+Amanab
+Veps
+Irarutu
+Onin
+Uruangnirin
+Wolof
+Dogrib
+Northern Sotho
+Sotho
+Hausa
+Catawba
+Karipúna Creole French
+Franco-Provençal
+Belarusian
+Bulgarian
+Macedonian
+Michif
+Amis
+Taroko
+Ngarrindjeri
+Luganda
+Minangkabau
+Isthmus Zapotec
+Gagauz
+Dena'ina
+Angolar
+Corsican
+Garifuna
+Ch'orti'
+Cuiba
+Taos
+Sonsorolese
+Tai Dam
+Old Chinese
+Old Church Slavonic
+Adyghe
+Chechen
+Ingush
+Itelmen
+Mari
+Tajik
+Buyeo
+Samoan Plantation Pidgin
+Literary Chinese
+Khitan
+Marathi
+Min Dong
+Bilba
+Old Spanish
+Malaccan Creole Portuguese
+Chamorro
+Golin
+Abenaki
+Rotuman
+Arabela
+Ambonese Malay
+Gan
+Achuar
+Aguaruna
+Waskia
+Yup'ik
+Romagnol
+Cia-Cia
+Kedang
+Nahuatl
+Choctaw
+Yatzachi Zapotec
+Yiddish
+Anuta
+Dakota
+Palu'e
+Sawi
+Arabic
+Lampung Api
+Akkala Sami
+Sabu
+Karitiâna
+Võro
+Bunun
+Lamaholot
+Manggarai
+Maranao
+Puyuma
+Rejang Kayan
+Rembong
+Yamdena
+Yurok
+Rusyn
+Mopan Maya
+Akawaio
+Dieri
+Western Arrernte
+Ter Sami
+Ghotuo
+Tamil
+Ineseño
+Tukudede
+Shabo
+Khmer
+Pitcairn-Norfolk
+Tambora
+Burmese
+Thai
+Urdu
+Persian
+Evenki
+Mongolian
+Yosondúa Mixtec
+Yakut
+Ottoman Turkish
+Adzera
+Maay
+Yagnobi
+Kapingamarangi
+Pali
+Baluchi
+Pashto
+Gooniyandi
+Etruscan
+Wolio
+Campidanese Sardinian
+Acehnese
+Casiguran Dumagat Agta
+Kanakanabu
+Yindjibarndi
+Mansaka
+Mongondow
+Sika
+Tiruray
+Havasupai-Walapai-Yavapai
+Egyptian Arabic
+Broome Pearling Lugger Pidgin
+Guugu Yimidhirr
+Batak
+Coastal Kadazan
+Gayo
+Hanunoo
+Itawit
+Kankanaey
+Mayoyao Ifugao
+Pangasinan
+Tontemboan
+Western Bukidnon Manobo
+Mentawai
+Komodo
+Haroi
+Northern Roglai
+Rade
+Western Cham
+Nenets
+Uab Meto
+Berawan
+Tunisian Arabic
+Aramaic
+Muduapa
+Norn
+Bambara
+Angor
+Dacian
+Isan
+Wallisian
+Old East Slavic
+Mòcheno
+Xhosa
+Cherokee
+Karachay-Balkar
+Khakas
+Kabardian
+Old Polish
+Akan
+Warlpiri
+'Are'are
+Arosi
+Central Tagbanwa
+Hano
+Kambera
+Owa
+Tae'
+Tangoa
+Dhuwal
+Tuvan
+Woi
+Aneme Wake
+Gamilaraay
+Tibetan
+Central Tarahumara
+Lingala
+Hunsrik
+Dorze
+Gujarati
+Bengali
+Ontong Java
+Lao
+Amharic
+Alu
+Bontoc
+Bughotu
+Dupaninan Agta
+East Futuna
+Gela
+Isnag
+Ivatan
+Lau
+Lusi
+Manam
+Mussau-Emira
+Nakanai
+Nukuoro
+Paiwan
+Papora
+Roviana
+To'abaita
+Woleaian
+Nepali
+Ligurian
+Ugaritic
+Assamese
+Punjabi
+Oriya
+Telugu
+Kazakh
+Madurese
+Bau Bidayuh
+Alcozauca Mixtec
+Kannada
+Tagal Murut
+Ngaanyatjarra
+Warrgamay
+Kaytetye
+Darkinjung
+Sinhalese
+Rajasthani
+Newari
+Nogai
+Woiwurrung
+Darling
+Martuthunira
+Pitta-Pitta
+Armenian
+Old Armenian
+Aleut
+Bavarian
+Sindhi
+Shelta
+Ossetian
+Avar
+Libyan Arabic
+Chol
+Megleno-Romanian
+Bandjalang
+Kalanga
+Kinyarwanda
+Kusunda
+Dharug
+Kaurna
+Uyghur
+Laki
+Awadhi
+Bhojpuri
+Polabian
+Chaap Wuurong
+Kamassian
+Baba Malay
+Aklanon
+Angloromani
+Inupiak
+Igbo
+Kongo
+Komi-Zyrian
+Esan
+Sherpa
+Paumarí
+Old Japanese
+Maroon Spirit Language
+Potawatomi
+Primitive Irish
+Abkhaz
+Kyrgyz
+Comanche
+Zulgo-Gemzek
+Kabyle
+Eastern Cham
+Gullah
+Oscan
+Sarcee
+Kölsch
+Algonquin
+Abaza
+Kashmiri
+Eastern Arrernte
+Wari'
+Unserdeutsch
+Malayalam
+Iranun
+Vurës
+Pulaar
+Fula
+Caló
+Plautdietsch
+Pahouin
+Lezgi
+Antillean Creole
+Réunion Creole French
+Bashkir
+Emilian
+Saanich
+Koasati
+Chuvash
+Swati
+Makhuwa
+Twi
+Cheyenne
+Mansi
+Coatlán Mixe
+Pirahã
+Alune
+Banda (Indonesia)
+Banggai
+Brunei Bisaya
+Eritai
+Kemak
+Leti
+Makasar
+Mandar
+Pamona
+Paulohi
+Sangir
+Siraya
+Sumbawa
+Yakan
+Samogitian
+Tsakhur
+Dolgan
+Kildin Sami
+Wageman
+Logudorese Sardinian
+Moksha
+Emae
+Futuna-Aniwa
+Niuafo'ou
+North Marquesan
+Penrhyn
+Takuu
+Aari
+Kamarian
+Erzya
+Motu
+Kwanyama
+Ndonga
+Nganasan
+Mobilian
+Ida'an
+Rotokas
+Tabassaran
+Unami
+Udi
+Lakota
+Dobu
+Numbami
+Ende
+Coptic
+Alviri-Vidari
+Dyirbal
+Cree
+Shoshone
+Southern Sami
+Kimaragang
+Pochutec
+Tigrinya
+Central Atlas Tamazight
+Meänkieli
+Zoogocho Zapotec
+Central Kurdish
+Kikuyu
+Meru
+Lule Sami
+Old Georgian
+Kabuverdianu
+Abu
+Xiang
+Marwari
+Yanyuwa
+Awabakal
+Classical Syriac
+Tsonga
+Nyunga
+Isthmus-Mecayapan Nahuatl
+Sayula Popoluca
+Oromo
+Bihari
+Bima
+Minoan
+Asilulu
+Bikol
+Kulon-Pazeh
+Nauna
+Ngad'a
+Saisiyat
+Kirundi
+Chichewa
+Marti Ke
+Maléku Jaíka
+Tiwi
+Nage
+Fon
+Wemba-Wemba
+Ansus
+Papuma
+Marau
+Munggui
+Ambai
+Waropen
+Kurudu
+Wabo
+Vinza
+Xavante
+Kadiwéu
+Laal
+Worimi
+Kurnai
+Tlingit
+Kalenjin
+Udmurt
+Amaimon
+'Auhelawa
+Baruga
+Mazanderani
+Blackfoot
+Tasmanian
+Yidiny
+Gabi
+Moroccan Arabic
+Dhudhuroa
+Phrygian
+Dadibi
+Shuar
+Mi'kmaq
+Arapaho
+Middle Armenian
+Chinese Pidgin English
+Avestan
+Nhanda
+ǃXóõ
+Northern Dagara
+Aghul
+Rutul
+Lak
+Dargwa
+Shor
+Kumyk
+Urum
+Nootka
+Russenorsk
+Achumawi
+Khowar
+Chiquitano
+Tausug
+Central Nahuatl
+Miyako
+Sumerian
+Penobscot
+Akkadian
+Hittite
+Mycenaean Greek
+Creek
+Luwian
+Seraiki
+Kamba
+Bunurong
+Northern Ohlone
+K'iche'
+North Levantine Arabic
+Tamashek
+Waray-Waray
+Tumbuka
+Montagnais
+Yapese
+Mon
+Southern Altai
+Jurchen
+Adele
+Dinka
+Berbice Creole Dutch
+Abanyom
+Mende
+Comorian
+Bube
+Umbundu
+Arawak
+Tshiluba
+Old Persian
+Khanty
+Southern Ohlone
+Greenlandic Eskimo Pidgin
+Taimyr Pidgin Russian
+Old Turkic
+Zuni
+Zenaga
+Tuwali Ifugao
+Pohnpeian
+Brahui
+Ankave
+Middle Korean
+Lunda
+Rungus
+Lahu
+Bishnupriya Manipuri
+Hopi
+Jingpho
+Kalmyk
+Buryat
+Alutiiq
+Ilongot
+Thao
+Dungan
+Epigraphic Mayan
+Slovincian
+Phoenician
+Southeastern Tepehuan
+South Slavey
+Gallurese Sardinian
+Ngawun
+Winnebago
+Chinook
+Bondei
+Zimba
+Montana Salish
+Laz
+Rejang
+Sabah Bisaya
+Eblaite
+Lycian
+Dzongkha
+Ket
+Svan
+Mingrelian
+Ammonite
+Edomite
+Moabite
+Punic
+Ge'ez
+Sichuan Yi
+Baekje
+Harari
+Tigre
+Argobba
+Powhatan
+Umbrian
+Buli (Indonesia)
+Kowiai
+Tboli
+Lydian
+Massachusett
+Carian
+Bactrian
+Santali
+Western Kayah
+Kalami
+Dhivehi
+Buhid
+Vai
+Chukchi
+Alutor
+Mambae
+Manchu
+South Levantine Arabic
+Laurentian
+Hassaniya
+Old Korean
+Seneca
+Balti
+Nanai
+Atayal
+Nama
+Timugon Murut
+Lozi
+Cowlitz
+Shan
+Old Lithuanian
+Haida
+Ndali
+Koryak
+Tulu
+Ancient Macedonian
+Southern Yukaghir
+Central Siberian Yupik
+Mohawk
+Nivkh
+Limbu
+Mungaka
+Urartian
+Lacandon
+Leonese
+Paelignian
+Ubykh
+Venda
+Pite Sami
+Khmu
+Kashaya
+Bikol Central
+Atikamekw
+Miami
+Maasai
+Archi
+Cappadocian Greek
+Hurrian
+Khvarshi
+Chagatai
+Karakalpak
+Weyewa
+Rusian
+Muna
+Agutaynen
+Undetermined
+Beja
+Lubuagan Kalinga
+Andi
+Central Dusun
+Maricopa
+Yopno
+Monguor
+Malecite-Passamaquoddy
+Bribri
+Swabian
+Vestinian
+Makah
+South Picene
+Knaanic
+Marsian
+Northern Thai
+Soqotri
+Comox
+Q'anjob'al
+Gheg Albanian
+Yonaguni
+Northern Yukaghir
+Adioukrou
+Padoe
+Frankish
+West Flemish
+Venetic
+Faliscan
+Volscian
+Lusitanian
+Khazar
+Southern Sama
+Mara Chin
+Southern Hindko
+Gusii
+Kuvi
+Sursurunga
+Wawa
+Omaha-Ponca
+Osage
+Proto-Norse
+Kalo Finnish Romani
+Median
+Assyrian Neo-Aramaic
+Haitian Vodoun Culture Language
+Ume Sami
+Kilivila
+Lemnian
+Marrucinian
+Luba-Katanga
+Lotud
+Angaataha
+Pinyin
+Lepontic
+Alamblak
+Ambulas
+Kisar
+Old South Arabian
+Sebat Bet Gurage
+Kemi Sami
+Komi-Permyak
+Gazi
+Diitidaht
+Krio
+Embaloh
+Masbatenyo
+Sassarese Sardinian
+Eteocretan
+Yaeyama
+Nyankole
+Middle Persian
+Karamojong
+Parthian
+Banyumasan
+Western Mari
+Chru
+Kavalan
+Tsou
+Rukai
+Saaroa
+Brunei
+Mbabaram
+Masaaba
+Tsat
+Masiwang
+Lun Bawang
+Tomadino
+Tolaki
+Komering
+Babuza
+Kosraean
+Tambunan Dusun
+Calamian Tagbanwa
+Gorontalo
+Uma
+Klamath-Modoc
+Eyak
+Bisaya
+Taliabu
+Huaorani
+Sekar
+Yaqui
+Wintu
+Pictish
+Bella Coola
+Burushaski
+Bura Mabang
+Krongo
+Chakma
+Pawnee
+Mokpwe
+Karok
+Chinese
+Mandaic
+Noric
+Purepecha
+Gofa
+Northern Kurdish
+Austronesian Mor
+Silt'e
+Pamlico
+Maykulan
+Sauraseni Prakrit
+Talysh

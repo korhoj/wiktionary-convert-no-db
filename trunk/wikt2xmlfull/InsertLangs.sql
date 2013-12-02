@@ -1,1784 +1,1068 @@
 use wikt;
 
-insert into lang (name, code)
-values ("Afar", "aa");
-insert into lang (name, code)
-values ("Abkhazian", "ab");
-insert into lang (name, code)
-values ("Afrikaans", "af");
-insert into lang (name, code)
-values ("Akan", "ak");
-insert into lang (name, code)
-values ("Alemannic", "als");
-insert into lang (name, code)
-values ("Amharic", "am");
-insert into lang (name, code)
-values ("Aragonese", "an");
-insert into lang (name, code)
-values ("Anglo-Saxon", "ang");
-insert into lang (name, code)
-values ("Arabic", "ar");
-insert into lang (name, code)
-values ("Assamese", "as");
-insert into lang (name, code)
-values ("Asturian", "ast");
-insert into lang (name, code)
-values ("Avar", "av");
-insert into lang (name, code)
-values ("Aymar", "ay");
-insert into lang (name, code)
-values ("Azerbaijani", "az");
-insert into lang (name, code)
-values ("Belarusian", "be");
-insert into lang (name, code)
-values ("Bulgarian", "bg");
-insert into lang (name, code)
-values ("Bihari", "bh");
-insert into lang (name, code)
-values ("Bislama", "bi");
-insert into lang (name, code)
-values ("Bambara", "bm");
-insert into lang (name, code)
-values ("Bengali", "bn");
-insert into lang (name, code)
-values ("Tibetan", "bo");
-insert into lang (name, code)
-values ("Breton", "br");
-insert into lang (name, code)
-values ("Bosnian", "bs");
-insert into lang (name, code)
-values ("Catalan", "ca");
-insert into lang (name, code)
-values ("Chamorro", "cha");
-insert into lang (name, code)
-values ("Cherokee", "chr");
-insert into lang (name, code)
-values ("Corsican", "co");
-insert into lang (name, code)
-values ("Cree", "cr");
-insert into lang (name, code)
-values ("Czech", "cs");
-insert into lang (name, code)
-values ("Kashubian", "csb");
-insert into lang (name, code)
-values ("Welsh", "cy");
-insert into lang (name, code)
-values ("Danish", "da");
-insert into lang (name, code)
-values ("German", "de");
-insert into lang (name, code)
-values ("Divehi", "di");
-insert into lang (name, code)
-values ("Dzongkha", "dz");
-insert into lang (name, code)
-values ("Greek", "el");
-insert into lang (name, code)
-values ("English", "en");
-insert into lang (name, code)
-values ("Esperanto", "eo");
-insert into lang (name, code)
-values ("Spanish", "es");
-insert into lang (name, code)
-values ("Estonian", "et");
-insert into lang (name, code)
-values ("Basque", "eu");
-insert into lang (name, code)
-values ("Persian", "fa");
-insert into lang (name, code)
-values ("Finnish", "fi");
-insert into lang (name, code)
-values ("Fijian", "fj");
-insert into lang (name, code)
-values ("Faroese", "fo");
-insert into lang (name, code)
-values ("French", "fr");
-insert into lang (name, code)
-values ("West Frisian", "fy");
-insert into lang (name, code)
-values ("Gaelic", "gd");
-insert into lang (name, code)
-values ("Galician", "gl");
-insert into lang (name, code)
-values ("Guarani", "gn");
-insert into lang (name, code)
-values ("Gujarati", "gu");
-insert into lang (name, code)
-values ("Manx", "gv");
-insert into lang (name, code)
-values ("Hausa", "ha");
-insert into lang (name, code)
-values ("Hebrew", "he");
-insert into lang (name, code)
-values ("Hindi", "hi");
-insert into lang (name, code)
-values ("Croatian", "hr");
-insert into lang (name, code)
-values ("Upper Sorbian", "hsb");
-insert into lang (name, code)
-values ("Hungarian", "hu");
-insert into lang (name, code)
-values ("Armenian", "hy");
-insert into lang (name, code)
-values ("Interlingua", "ia");
-insert into lang (name, code)
-values ("Indonesian", "id");
-insert into lang (name, code)
-values ("Interlingue", "ie");
-insert into lang (name, code)
-values ("Inupiak", "ik");
-insert into lang (name, code)
-values ("Ido", "io");
-insert into lang (name, code)
-values ("Irish", "iri");
-insert into lang (name, code)
-values ("Icelandic", "is");
-insert into lang (name, code)
-values ("Italian", "it");
-insert into lang (name, code)
-values ("Inuktitut", "iu");
-insert into lang (name, code)
-values ("Japanese", "ja");
-insert into lang (name, code)
-values ("Lojban", "jbo");
-insert into lang (name, code)
-values ("Javenese", "jv");
-insert into lang (name, code)
-values ("Georgian", "ka");
-insert into lang (name, code)
-values ("Kazakh", "kk");
-insert into lang (name, code)
-values ("Greenlandic", "kl");
-insert into lang (name, code)
-values ("Cambodian", "km");
-insert into lang (name, code)
-values ("Kannada", "kn");
-insert into lang (name, code)
-values ("Korean", "ko");
-insert into lang (name, code)
-values ("Kashmiri", "ks");
-insert into lang (name, code)
-values ("Kurdish", "ku");
-insert into lang (name, code)
-values ("Cornish", "kw");
-insert into lang (name, code)
-values ("Kirghiz", "ky");
-insert into lang (name, code)
-values ("Latin", "la");
-insert into lang (name, code)
-values ("Luxembourgish", "lb");
-insert into lang (name, code)
-values ("Limburgian", "li");
-insert into lang (name, code)
-values ("Lingala", "ln");
-insert into lang (name, code)
-values ("Lao", "lo");
-insert into lang (name, code)
-values ("Lithuanian", "lt");
-insert into lang (name, code)
-values ("Latvian", "lv");
-insert into lang (name, code)
-values ("Malagasy", "mg");
-insert into lang (name, code)
-values ("Marshallese", "mh");
-insert into lang (name, code)
-values ("Maori", "mi");
-insert into lang (name, code)
-values ("Macedonian", "mk");
-insert into lang (name, code)
-values ("Malayalam", "ml");
-insert into lang (name, code)
-values ("Mongolian", "mn");
-insert into lang (name, code)
-values ("Moldovan", "mo");
-insert into lang (name, code)
-values ("Marathi", "mr");
-insert into lang (name, code)
-values ("Malay", "ms");
-insert into lang (name, code)
-values ("Burmese", "my");
-insert into lang (name, code)
-values ("Nauruan", "na");
-insert into lang (name, code)
-values ("Nahuatl", "nah");
-insert into lang (name, code)
-values ("Norwegian Bokm�l", "nb");
-insert into lang (name, code)
-values ("Low Saxon", "nds");
-insert into lang (name, code)
-values ("Nepali", "ne");
-insert into lang (name, code)
-values ("Dutch", "nl");
-insert into lang (name, code)
-values ("Norwegian Nynorsk", "nn");
-insert into lang (name, code)
-values ("Norwegian", "no");
-insert into lang (name, code)
-values ("Occitan", "oc");
-insert into lang (name, code)
-values ("Oromo", "om");
-insert into lang (name, code)
-values ("Oriya", "or");
-insert into lang (name, code)
-values ("Panjabi", "pa");
-insert into lang (name, code)
-values ("Pali", "pi");
-insert into lang (name, code)
-values ("Polish", "pl");
-insert into lang (name, code)
-values ("Western Panjabi", "pnb");
-insert into lang (name, code)
-values ("Pashto", "ps");
-insert into lang (name, code)
-values ("Portuguese", "pt");
-insert into lang (name, code)
-values ("Quechua", "qu");
-insert into lang (name, code)
-values ("Raeto Romance", "rm");
-insert into lang (name, code)
-values ("Kirundi", "rn");
-insert into lang (name, code)
-values ("Romanian", "ro");
-insert into lang (name, code)
-values ("Aromanian", "roa");
-insert into lang (name, code)
-values ("Russian", "ru");
-insert into lang (name, code)
-values ("Rwandi", "rw");
-insert into lang (name, code)
-values ("Sanskrit", "sa");
-insert into lang (name, code)
-values ("Sardinian", "sc");
-insert into lang (name, code)
-values ("Sicilian", "scn");
-insert into lang (name, code)
-values ("Sindhi", "sd");
-insert into lang (name, code)
-values ("Sango", "sg");
-insert into lang (name, code)
-values ("Serbo-Croatian", "sh");
-insert into lang (name, code)
-values ("Sinhalese", "si");
-insert into lang (name, code)
-values ("Slovak", "sk");
-insert into lang (name, code)
-values ("Slovenian", "sl");
-insert into lang (name, code)
-values ("Samoan", "sm");
-insert into lang (name, code)
-values ("Shona", "sn");
-insert into lang (name, code)
-values ("Somali", "so");
-insert into lang (name, code)
-values ("Albanian", "SQ");
-insert into lang (name, code)
-values ("Serbian", "sr");
-insert into lang (name, code)
-values ("Swati", "ss");
-insert into lang (name, code)
-values ("Southern Sotho", "ST");
-insert into lang (name, code)
-values ("Sundanese", "su");
-insert into lang (name, code)
-values ("Swedish", "sv");
-insert into lang (name, code)
-values ("Swahili", "sw");
-insert into lang (name, code)
-values ("Tamil", "ta");
-insert into lang (name, code)
-values ("Telugu", "te");
-insert into lang (name, code)
-values ("Tajik", "TG");
-insert into lang (name, code)
-values ("Thai", "th");
-insert into lang (name, code)
-values ("Tigrinya", "ti");
-insert into lang (name, code)
-values ("Turkmen", "tk");
-insert into lang (name, code)
-values ("Tagalog", "tl");
-insert into lang (name, code)
-values ("Setswana", "tn");
-insert into lang (name, code)
-values ("Tonga", "to");
-insert into lang (name, code)
-values ("Tok Pisin", "tpi");
-insert into lang (name, code)
-values ("Turkish", "tr");
-insert into lang (name, code)
-values ("Tsonga", "ts");
-insert into lang (name, code)
-values ("Tatar", "tt");
-insert into lang (name, code)
-values ("Twi", "tw");
-insert into lang (name, code)
-values ("Uyghur", "ug");
-insert into lang (name, code)
-values ("Ukrainian", "uk");
-insert into lang (name, code)
-values ("Urdu", "ur");
-insert into lang (name, code)
-values ("Uzbek", "uz");
-insert into lang (name, code)
-values ("Vietnamese", "vi");
-insert into lang (name, code)
-values ("Volap�k", "vo");
-insert into lang (name, code)
-values ("Walloon", "wa");
-insert into lang (name, code)
-values ("Wolof", "wo");
-insert into lang (name, code)
-values ("Xhosan", "xh");
-insert into lang (name, code)
-values ("Yiddish", "yi");
-insert into lang (name, code)
-values ("Yoruba", "yo");
-insert into lang (name, code)
-values ("Zhuang", "za");
-insert into lang (name, code)
-values ("Chinese", "zh");
-insert into lang (name, code)
-values ("Min Nan", "zhm");
-insert into lang (name, code)
-values ("Zulu", "zu");
-insert into lang (name, code)
-values ("Ancient Greek", "agr");
-insert into lang (name, code)
-values ("Anglo-Norman", "ann");
-insert into lang (name, code)
-values ("Classical Nahuatl", "cn");
-insert into lang (name, code)
-values ("Gothic", "go");
-insert into lang (name, code)
-values ("Low German", "lg");
-insert into lang (name, code)
-values ("Middle Dutch", "md");
-insert into lang (name, code)
-values ("Middle English", "me");
-insert into lang (name, code)
-values ("Middle French", "MF");
-insert into lang (name, code)
-values ("Middle High German", "mhg");
-insert into lang (name, code)
-values ("Middle Low German", "mlg");
-insert into lang (name, code)
-values ("Norman", "NMA");
-insert into lang (name, code)
-values ("Old Dutch", "od");
-insert into lang (name, code)
-values ("Old English", "oe");
-insert into lang (name, code)
-values ("Old French", "of");
-insert into lang (name, code)
-values ("Old Frisian", "ofi");
-insert into lang (name, code)
-values ("Old High German", "ohg");
-insert into lang (name, code)
-values ("Old Irish", "oi");
-insert into lang (name, code)
-values ("Old Norse", "on");
-insert into lang (name, code)
-values ("Old Portuguese", "opo");
-insert into lang (name, code)
-values ("Old Proven�al", "opr");
-insert into lang (name, code)
-values ("Old Saxon", "osa");
-insert into lang (name, code)
-values ("Old Swedish", "osv");
-insert into lang (name, code)
-values ("Old Welsh", "ow");
-insert into lang (name, code)
-values ("Sumerian", "sume");
-insert into lang (name, code)
-values ("Ancient Macedonian", "amc");
-insert into lang (name, code)
-values ("Assyrian Neo-Aramaic", "ana");
-insert into lang (name, code)
-values ("Classical Syriac", "cls");
-insert into lang (name, code)
-values ("Central Melanau", "cme");
-insert into lang (name, code)
-values ("Dutch Low Saxon", "dls");
-insert into lang (name, code)
-values ("Hittite", "hit");
-insert into lang (name, code)
-values ("Late Middle Chinese", "lmc");
-insert into lang (name, code)
-values ("Middle Chinese", "mci");
-insert into lang (name, code)
-values ("Middle Korean", "mik");
-insert into lang (name, code)
-values ("Middle Persian", "mip");
-insert into lang (name, code)
-values ("Middle Irish", "mir");
-insert into lang (name, code)
-values ("Middle Welsh", "miw");
-insert into lang (name, code)
-values ("Northern Dagara", "nda");
-insert into lang (name, code)
-values ("North Levantine Arabic", "nla");
-insert into lang (name, code)
-values ("Northern Ohlone", "noh");
-insert into lang (name, code)
-values ("Northern Sotho", "nso");
-insert into lang (name, code)
-values ("Northern Thai", "nth");
-insert into lang (name, code)
-values ("Northern Yukaghir", "nyu");
-insert into lang (name, code)
-values ("Old Armenian", "oar");
-insert into lang (name, code)
-values ("Old Chinese", "och");
-insert into lang (name, code)
-values ("Old Church Slavonic", "ocs");
-insert into lang (name, code)
-values ("Old East Slavic", "oes");
-insert into lang (name, code)
-values ("Old Georgian", "oge");
-insert into lang (name, code)
-values ("Old Japanese", "ojp");
-insert into lang (name, code)
-values ("Old Javanese", "ojv");
-insert into lang (name, code)
-values ("Old Korean", "oko");
-insert into lang (name, code)
-values ("Old Lithuanian", "oli");
-insert into lang (name, code)
-values ("Old Persian", "ope");
-insert into lang (name, code)
-values ("Old Polish", "opl");
-insert into lang (name, code)
-values ("Old Prussian", "opu");
-insert into lang (name, code)
-values ("Old Spanish", "osp");
-insert into lang (name, code)
-values ("Old South Arabian", "osr");
-insert into lang (name, code)
-values ("Old Tupi", "otu");
-insert into lang (name, code)
-values ("Primitive Irish", "pri");
-insert into lang (name, code)
-values ("Proto-Norse", "prn");
-insert into lang (name, code)
-values ("Southern Altai", "sal");
-insert into lang (name, code)
-values ("Southeastern Tepehuan", "set");
-insert into lang (name, code)
-values ("Southern Hindko", "shi");
-insert into lang (name, code)
-values ("South Levantine Arabic", "sla");
-insert into lang (name, code)
-values ("Southern Ohlone", "soh");
-insert into lang (name, code)
-values ("South Marquesan", "som");
-insert into lang (name, code)
-values ("South Picene", "spi");
-insert into lang (name, code)
-values ("Southern Sama", "ssa");
-insert into lang (name, code)
-values ("Southern Sami", "ssi");
-insert into lang (name, code)
-values ("South Slavey", "ssl");
-insert into lang (name, code)
-values ("Southern Yukaghir", "syu");
-insert into lang (name, code)
-values ("Western Kayah", "wka");
-insert into lang (name, code)
-values ("Western Mari", "wma");
-insert into lang (name, code)
-values ("Western Arrernte", "wrr");
-insert into lang (name, code)
-values ("Aari", "aar");
-insert into lang (name, code)
-values ("Abau", "aba");
-insert into lang (name, code)
-values ("Abenaki", "abe");
-insert into lang (name, code)
-values ("Abkhaz", "abk");
-insert into lang (name, code)
-values ("Abanyom", "abn");
-insert into lang (name, code)
-values ("Abu", "abu");
-insert into lang (name, code)
-values ("Abaza", "abz");
-insert into lang (name, code)
-values ("Acehnese", "ace");
-insert into lang (name, code)
-values ("Acholi", "ach");
-insert into lang (name, code)
-values ("Achuar-Shiwiar", "acr");
-insert into lang (name, code)
-values ("Achumawi", "acu");
-insert into lang (name, code)
-values ("Adangme", "ada");
-insert into lang (name, code)
-values ("Adele", "ade");
-insert into lang (name, code)
-values ("Adioukrou", "adi");
-insert into lang (name, code)
-values ("Adnyamathanha", "adn");
-insert into lang (name, code)
-values ("Adyghe", "ady");
-insert into lang (name, code)
-values ("Adzera", "adz");
-insert into lang (name, code)
-values ("Alemannic German", "ag");
-insert into lang (name, code)
-values ("Aghul", "agh");
-insert into lang (name, code)
-values ("Aguaruna", "agu");
-insert into lang (name, code)
-values ("Ainu", "ain");
-insert into lang (name, code)
-values ("Akawaio", "aka");
-insert into lang (name, code)
-values ("Akkadian", "akk");
-insert into lang (name, code)
-values ("Aklanon", "akl");
-insert into lang (name, code)
-values ("Akkala Sami", "aks");
-insert into lang (name, code)
-values ("Alabama", "al");
-insert into lang (name, code)
-values ("Alcozauca Mixtec", "alc");
-insert into lang (name, code)
-values ("Aleut", "ale");
-insert into lang (name, code)
-values ("Alamblak", "alm");
-insert into lang (name, code)
-values ("Alutiiq", "alt");
-insert into lang (name, code)
-values ("Alutor", "alu");
-insert into lang (name, code)
-values ("Alviri-Vidari", "alv");
-insert into lang (name, code)
-values ("Ama", "ama");
-insert into lang (name, code)
-values ("Ambai", "amb");
-insert into lang (name, code)
-values ("Amaimon", "ami");
-insert into lang (name, code)
-values ("Ambonese Malay", "amm");
-insert into lang (name, code)
-values ("Amanab", "amn");
-insert into lang (name, code)
-values ("Ammonite", "amo");
-insert into lang (name, code)
-values ("American Sign Language", "ams");
-insert into lang (name, code)
-values ("Ambulas", "amu");
-insert into lang (name, code)
-values ("Amuzgo", "amz");
-insert into lang (name, code)
-values ("Annobonese", "anb");
-insert into lang (name, code)
-values ("Antillean Creole", "anc");
-insert into lang (name, code)
-values ("Angaataha", "anga");
-insert into lang (name, code)
-values ("Angolar", "angl");
-insert into lang (name, code)
-values ("Angor", "angr");
-insert into lang (name, code)
-values ("Ankave", "ank");
-insert into lang (name, code)
-values ("Angloromani", "anr");
-insert into lang (name, code)
-values ("Ansus", "ans");
-insert into lang (name, code)
-values ("Anuta", "anu");
-insert into lang (name, code)
-values ("Aneme Wake", "anw");
-insert into lang (name, code)
-values ("Apala�", "apa");
-insert into lang (name, code)
-values ("Aramaic", "aram");
-insert into lang (name, code)
-values ("Arapaho", "arap");
-insert into lang (name, code)
-values ("Arawak", "araw");
-insert into lang (name, code)
-values ("Arabela", "arb");
-insert into lang (name, code)
-values ("Archi", "arc");
-insert into lang (name, code)
-values ("'Are'are", "are");
-insert into lang (name, code)
-values ("Argobba", "arg");
-insert into lang (name, code)
-values ("Arin", "ari");
-insert into lang (name, code)
-values ("Assan", "ass");
-insert into lang (name, code)
-values ("Atayal", "ata");
-insert into lang (name, code)
-values ("Auhelawa", "auh");
-insert into lang (name, code)
-values ("'Auhelawa", "auhe");
-insert into lang (name, code)
-values ("Avestan", "ave");
-insert into lang (name, code)
-values ("Awabakal", "awab");
-insert into lang (name, code)
-values ("Awadhi", "awad");
-insert into lang (name, code)
-values ("Aymara", "aym");
-insert into lang (name, code)
-values ("Aynu", "ayn");
-insert into lang (name, code)
-values ("Azeri", "aze");
-insert into lang (name, code)
-values ("Bactrian", "bac");
-insert into lang (name, code)
-values ("Baekje", "bae");
-insert into lang (name, code)
-values ("Balinese", "bali");
-insert into lang (name, code)
-values ("Balti", "balt");
-insert into lang (name, code)
-values ("Baluchi", "balu");
-insert into lang (name, code)
-values ("Bandjalang", "band");
-insert into lang (name, code)
-values ("Banjarese", "banj");
-insert into lang (name, code)
-values ("Banyumasan", "bany");
-insert into lang (name, code)
-values ("Baruga", "bar");
-insert into lang (name, code)
-values ("Bashkir", "bas");
-insert into lang (name, code)
-values ("Batak Toba", "bat");
-insert into lang (name, code)
-values ("Baure", "bau");
-insert into lang (name, code)
-values ("Bavarian", "bav");
-insert into lang (name, code)
-values ("Berbice Creole Dutch", "bcd");
-insert into lang (name, code)
-values ("Beja", "bej");
-insert into lang (name, code)
-values ("Betawi", "bet");
-insert into lang (name, code)
-values ("Bhojpuri", "bho");
-insert into lang (name, code)
-values ("Biak", "bia");
-insert into lang (name, code)
-values ("Bikol Central", "bic");
-insert into lang (name, code)
-values ("Bikol", "bik");
-insert into lang (name, code)
-values ("Bintulu", "bin");
-insert into lang (name, code)
-values ("Bishnupriya Manipuri", "bis");
-insert into lang (name, code)
-values ("Blackfoot", "bl");
-insert into lang (name, code)
-values ("Bondei", "bon");
-insert into lang (name, code)
-values ("Bor�ro", "bor");
-insert into lang (name, code)
-values ("Broome Pearling Lugger Pidgin", "bplp");
-insert into lang (name, code)
-values ("Brahui", "bra");
-insert into lang (name, code)
-values ("Bribri", "bri");
-insert into lang (name, code)
-values ("Bube", "bub");
-insert into lang (name, code)
-values ("Buginese", "bug");
-insert into lang (name, code)
-values ("Buhid", "buh");
-insert into lang (name, code)
-values ("Bulgarian", "bul");
-insert into lang (name, code)
-values ("Bunurong", "bun");
-insert into lang (name, code)
-values ("Buryat", "bur");
-insert into lang (name, code)
-values ("Buyeo", "buy");
-insert into lang (name, code)
-values ("Cal�", "cal");
-insert into lang (name, code)
-values ("Cantonese", "can");
-insert into lang (name, code)
-values ("Carian", "car");
-insert into lang (name, code)
-values ("Campidanese Sardinian", "cas");
-insert into lang (name, code)
-values ("Catawba", "cat");
-insert into lang (name, code)
-values ("Cebuano", "ceb");
-insert into lang (name, code)
-values ("Cappadocian Greek", "cgr");
-insert into lang (name, code)
-values ("Chagatai", "chag");
-insert into lang (name, code)
-values ("Chickasaw", "chc");
-insert into lang (name, code)
-values ("Chechen", "chec");
-insert into lang (name, code)
-values ("Cheyenne", "chey");
-insert into lang (name, code)
-values ("Chichewa", "chic");
-insert into lang (name, code)
-values ("Chinook", "chin");
-insert into lang (name, code)
-values ("Chiquitano", "chiq");
-insert into lang (name, code)
-values ("Chiricahua", "chir");
-insert into lang (name, code)
-values ("Chinook Jargon", "chj");
-insert into lang (name, code)
-values ("Chamicuro", "chmi");
-insert into lang (name, code)
-values ("Choctaw", "choc");
-insert into lang (name, code)
-values ("Chol", "chol");
-insert into lang (name, code)
-values ("Ch'orti'", "chor");
-insert into lang (name, code)
-values ("Chinese Pidgin English", "chpe");
-insert into lang (name, code)
-values ("Chru", "chru");
-insert into lang (name, code)
-values ("Chukchi", "chuk");
-insert into lang (name, code)
-values ("Chuvash", "chuv");
-insert into lang (name, code)
-values ("Cia-Cia", "cia");
-insert into lang (name, code)
-values ("Cimbrian", "cim");
-insert into lang (name, code)
-values ("Coastal Kadazan", "cka");
-insert into lang (name, code)
-values ("Classical Nahuatl", "cna");
-insert into lang (name, code)
-values ("Comanche", "coma");
-insert into lang (name, code)
-values ("Coatl�n Mixe", "comi");
-insert into lang (name, code)
-values ("Comorian", "como");
-insert into lang (name, code)
-values ("Comox", "comx");
-insert into lang (name, code)
-values ("Coptic", "copt");
-insert into lang (name, code)
-values ("Cowlitz", "cowl");
-insert into lang (name, code)
-values ("Creek", "cre");
-insert into lang (name, code)
-values ("Crimean tatar", "crt");
-insert into lang (name, code)
-values ("Crimean Tatar", "ct");
-insert into lang (name, code)
-values ("Central Tarahumara", "cta");
-insert into lang (name, code)
-values ("Central Atlas Tamazight", "ctat");
-insert into lang (name, code)
-values ("Central Dusun", "ctdu");
-insert into lang (name, code)
-values ("Central Siberian Yupik", "ctsy");
-insert into lang (name, code)
-values ("Central Tagbanwa", "ctta");
-insert into lang (name, code)
-values ("Cuiba", "cui");
-insert into lang (name, code)
-values ("Dacian", "dac");
-insert into lang (name, code)
-values ("Dadibi", "dad");
-insert into lang (name, code)
-values ("Dakota", "dak");
-insert into lang (name, code)
-values ("Dalmatian", "dal");
-insert into lang (name, code)
-values ("Dargwa", "darg");
-insert into lang (name, code)
-values ("Darling", "darl");
-insert into lang (name, code)
-values ("Dhivehi", "dhi");
-insert into lang (name, code)
-values ("Dhuwal", "dhu");
-insert into lang (name, code)
-values ("Dieri", "die");
-insert into lang (name, code)
-values ("Diitidaht", "dii");
-insert into lang (name, code)
-values ("Dinka", "din");
-insert into lang (name, code)
-values ("Darkinjung", "dki");
-insert into lang (name, code)
-values ("Dena'ina", "dni");
-insert into lang (name, code)
-values ("Dogrib", "dog");
-insert into lang (name, code)
-values ("Dolgan", "dol");
-insert into lang (name, code)
-values ("Dorze", "dor");
-insert into lang (name, code)
-values ("Drents", "dre");
-insert into lang (name, code)
-values ("Dungan", "dun");
-insert into lang (name, code)
-values ("Dyirbal", "dyi");
-insert into lang (name, code)
-values ("Eastern Arrernte", "ear");
-insert into lang (name, code)
-values ("Eblaite", "ebl");
-insert into lang (name, code)
-values ("Eastern Cham", "ech");
-insert into lang (name, code)
-values ("Eastern Canadian Inuktitut", "eci");
-insert into lang (name, code)
-values ("Eteocretan", "ecr");
-insert into lang (name, code)
-values ("Edo", "edo");
-insert into lang (name, code)
-values ("Edomite", "edom");
-insert into lang (name, code)
-values ("East Futuna", "efu");
-insert into lang (name, code)
-values ("Egyptian", "eg");
-insert into lang (name, code)
-values ("Egyptian Arabic", "ega");
-insert into lang (name, code)
-values ("Elfdalian", "elfd");
-insert into lang (name, code)
-values ("Erzya", "erz");
-insert into lang (name, code)
-values ("Esan", "esa");
-insert into lang (name, code)
-values ("Etruscan", "etr");
-insert into lang (name, code)
-values ("Evenki", "eve");
-insert into lang (name, code)
-values ("Ewe", "ewe");
-insert into lang (name, code)
-values ("Extremaduran", "ext");
-insert into lang (name, code)
-values ("Faliscan", "fal");
-insert into lang (name, code)
-values ("Fiji Hindi", "fh");
-insert into lang (name, code)
-values ("Flemish", "fle");
-insert into lang (name, code)
-values ("Fon", "fon");
-insert into lang (name, code)
-values ("Frankish", "fra");
-insert into lang (name, code)
-values ("Friulian", "fri");
-insert into lang (name, code)
-values ("Franco-Proven�al", "frp");
-insert into lang (name, code)
-values ("Fula", "ful");
-insert into lang (name, code)
-values ("Ga", "ga");
-insert into lang (name, code)
-values ("Gabi", "gab");
-insert into lang (name, code)
-values ("Gagauz", "gag");
-insert into lang (name, code)
-values ("Gallo", "gal");
-insert into lang (name, code)
-values ("Gamilaraay", "gam");
-insert into lang (name, code)
-values ("Gan", "gan");
-insert into lang (name, code)
-values ("Garifuna", "gar");
-insert into lang (name, code)
-values ("Gallurese Sardinian", "gas");
-insert into lang (name, code)
-values ("Gaulish", "gau");
-insert into lang (name, code)
-values ("Gayo", "gay");
-insert into lang (name, code)
-values ("Gazi", "gaz");
-insert into lang (name, code)
-values ("Ge'ez", "gee");
-insert into lang (name, code)
-values ("Georgia", "geo");
-insert into lang (name, code)
-values ("Greenlandic Eskimo Pidgin", "gep");
-insert into lang (name, code)
-values ("Gheg Albanian", "gha");
-insert into lang (name, code)
-values ("Gilbertese", "gil");
-insert into lang (name, code)
-values ("Goguryeo", "gog");
-insert into lang (name, code)
-values ("Golin", "gol");
-insert into lang (name, code)
-values ("Goonivandi", "goo");
-insert into lang (name, code)
-values ("Gooniyandi", "goy");
-insert into lang (name, code)
-values ("Gronings", "gro");
-insert into lang (name, code)
-values ("German Sign Language", "gsl");
-insert into lang (name, code)
-values ("Guaran�", "gua");
-insert into lang (name, code)
-values ("Guern�siais", "gue");
-insert into lang (name, code)
-values ("Gullah", "gul");
-insert into lang (name, code)
-values ("Gunai", "gun");
-insert into lang (name, code)
-values ("Gusii", "gus");
-insert into lang (name, code)
-values ("Guugu Yimidhirr", "guu");
-insert into lang (name, code)
-values ("Haida", "hai");
-insert into lang (name, code)
-values ("Hakka", "hak");
-insert into lang (name, code)
-values ("Haamer-Banna", "ham");
-insert into lang (name, code)
-values ("Hamer-Banna", "hame");
-insert into lang (name, code)
-values ("Harari", "har");
-insert into lang (name, code)
-values ("Hassaniya", "has");
-insert into lang (name, code)
-values ("Haitian Creole", "hc");
-insert into lang (name, code)
-values ("Hiligaynon", "hil");
-insert into lang (name, code)
-values ("Hiri Motu", "hir");
-insert into lang (name, code)
-values ("Hmong", "hmo");
-insert into lang (name, code)
-values ("Hmong Daw", "hmod");
-insert into lang (name, code)
-values ("Hopi", "hop");
-insert into lang (name, code)
-values ("Hunsrik", "hun");
-insert into lang (name, code)
-values ("Hurrian", "hur");
-insert into lang (name, code)
-values ("Haitian Vodoun Culture Language", "hvl");
-insert into lang (name, code)
-values ("Hawaiian", "hw");
-insert into lang (name, code)
-values ("Hawaiian Pidgin", "hwp");
-insert into lang (name, code)
-values ("Iban", "iba");
-insert into lang (name, code)
-values ("Ida'an", "ida");
-insert into lang (name, code)
-values ("Igbo", "igb");
-insert into lang (name, code)
-values ("Ilocano", "il");
-insert into lang (name, code)
-values ("Isthmus-Mecayapan Nahuatl", "imn");
-insert into lang (name, code)
-values ("Indonesian", "indo");
-insert into lang (name, code)
-values ("Inese�o", "ine");
-insert into lang (name, code)
-values ("Ingrian", "ingr");
-insert into lang (name, code)
-values ("Ingush", "ingu");
-insert into lang (name, code)
-values ("Inari Sami", "ins");
-insert into lang (name, code)
-values ("Istro-Romanian", "ir");
-insert into lang (name, code)
-values ("Iranun", "iran");
-insert into lang (name, code)
-values ("Istriot", "ist");
-insert into lang (name, code)
-values ("Italia", "ita");
-insert into lang (name, code)
-values ("Itelmen", "ite");
-insert into lang (name, code)
-values ("Isthmus Zapotec", "iza");
-insert into lang (name, code)
-values ("Jarai", "jar");
-insert into lang (name, code)
-values ("Javanese", "jav");
-insert into lang (name, code)
-values ("Jamaican Creole", "jc");
-insert into lang (name, code)
-values ("J�rriais", "je");
-insert into lang (name, code)
-values ("Jingpho", "jin");
-insert into lang (name, code)
-values ("Jurchen", "jur");
-insert into lang (name, code)
-values ("Kabardian", "kaba");
-insert into lang (name, code)
-values ("Kabuverdianu", "kabu");
-insert into lang (name, code)
-values ("Kabyle", "kaby");
-insert into lang (name, code)
-values ("Kadiw�u", "kad");
-insert into lang (name, code)
-values ("Kalanga", "kalg");
-insert into lang (name, code)
-values ("Kalispel-Pend d'Oreille", "kali");
-insert into lang (name, code)
-values ("Kalami", "kalm");
-insert into lang (name, code)
-values ("Kalenjin", "kaln");
-insert into lang (name, code)
-values ("Kalmyk", "kaly");
-insert into lang (name, code)
-values ("Kamassian", "kama");
-insert into lang (name, code)
-values ("Kamba", "kamb");
-insert into lang (name, code)
-values ("Kanjobal", "kanj");
-insert into lang (name, code)
-values ("Kanuri", "kanu");
-insert into lang (name, code)
-values ("Kapampangan", "kapa");
-insert into lang (name, code)
-values ("Kapingamarangi", "kapi");
-insert into lang (name, code)
-values ("Karachay-Balkar", "kara");
-insert into lang (name, code)
-values ("Karelian", "kare");
-insert into lang (name, code)
-values ("Kariti�na", "kari");
-insert into lang (name, code)
-values ("Karakalpak", "kark");
-insert into lang (name, code)
-values ("Karamojong", "karm");
-insert into lang (name, code)
-values ("Kashaya", "kas");
-insert into lang (name, code)
-values ("Kaurna", "kau");
-insert into lang (name, code)
-values ("Kelabit", "kel");
-insert into lang (name, code)
-values ("Kedah Malay", "kem");
-insert into lang (name, code)
-values ("Kemi Sami", "kesa");
-insert into lang (name, code)
-values ("Ket", "ket");
-insert into lang (name, code)
-values ("Kalo Finnish Romani", "kfr");
-insert into lang (name, code)
-values ("Khakas", "khak");
-insert into lang (name, code)
-values ("Khanty", "khan");
-insert into lang (name, code)
-values ("Khazar", "khaz");
-insert into lang (name, code)
-values ("Khitan", "khi");
-insert into lang (name, code)
-values ("Khmer", "khme");
-insert into lang (name, code)
-values ("Khmu", "khmu");
-insert into lang (name, code)
-values ("Khowar", "kho");
-insert into lang (name, code)
-values ("Khvarshi", "khv");
-insert into lang (name, code)
-values ("K'iche'", "kic");
-insert into lang (name, code)
-values ("Kikuyu", "kik");
-insert into lang (name, code)
-values ("Kilivila", "kil");
-insert into lang (name, code)
-values ("Kinyarwanda", "kin");
-insert into lang (name, code)
-values ("Kiput", "kip");
-insert into lang (name, code)
-values ("Kildin Sami", "kisa");
-insert into lang (name, code)
-values ("!Kung", "kng");
-insert into lang (name, code)
-values ("K�lsch", "kol");
-insert into lang (name, code)
-values ("Komi-Peryak", "kom");
-insert into lang (name, code)
-values ("Kongo", "kon");
-insert into lang (name, code)
-values ("Komi-Permyak", "kope");
-insert into lang (name, code)
-values ("Korean", "kor");
-insert into lang (name, code)
-values ("Koryak", "kory");
-insert into lang (name, code)
-values ("Kott", "kot");
-insert into lang (name, code)
-values ("Komi-Zyrian", "kozy");
-insert into lang (name, code)
-values ("kril", "kri");
-insert into lang (name, code)
-values ("Krio", "KRIL");
-insert into lang (name, code)
-values ("Krisa", "krs");
-insert into lang (name, code)
-values ("Kuanua", "kua");
-insert into lang (name, code)
-values ("Kumyk", "kum");
-insert into lang (name, code)
-values ("Kuna", "kun");
-insert into lang (name, code)
-values ("Kurudu", "kur");
-insert into lang (name, code)
-values ("Kusunda", "kus");
-insert into lang (name, code)
-values ("Kuvi", "kuv");
-insert into lang (name, code)
-values ("Kven", "kv");
-insert into lang (name, code)
-values ("Kwanyama", "kwa");
-insert into lang (name, code)
-values ("Kyrgyz", "kyr");
-insert into lang (name, code)
-values ("Laal", "laa");
-insert into lang (name, code)
-values ("Ladin", "lad");
-insert into lang (name, code)
-values ("Lak", "lak");
-insert into lang (name, code)
-values ("Laki", "laki");
-insert into lang (name, code)
-values ("Lakota", "lako");
-insert into lang (name, code)
-values ("Latgalian", "lat");
-insert into lang (name, code)
-values ("Laurentian", "lau");
-insert into lang (name, code)
-values ("Lavukaleve", "lav");
-insert into lang (name, code)
-values ("Laz", "laz");
-insert into lang (name, code)
-values ("Literary Chinese", "lci");
-insert into lang (name, code)
-values ("Louisiana Creole French", "lcr");
-insert into lang (name, code)
-values ("Ladino", "ldi");
-insert into lang (name, code)
-values ("Lemnian", "lem");
-insert into lang (name, code)
-values ("Lenape", "len");
-insert into lang (name, code)
-values ("Leonese", "leo");
-insert into lang (name, code)
-values ("Lepontic", "lep");
-insert into lang (name, code)
-values ("Lezgi", "lez");
-insert into lang (name, code)
-values ("Libyan Arabic", "lia");
-insert into lang (name, code)
-values ("Limbu", "lim");
-insert into lang (name, code)
-values ("Livonian", "liv");
-insert into lang (name, code)
-values ("Limburgish", "lm");
-insert into lang (name, code)
-values ("Lombard", "lom");
-insert into lang (name, code)
-values ("Lozi", "loz");
-insert into lang (name, code)
-values ("Logudorese Sardinian", "lsa");
-insert into lang (name, code)
-values ("Lower Sorbian", "lso");
-insert into lang (name, code)
-values ("Luganda", "lug");
-insert into lang (name, code)
-values ("Luhya", "luh");
-insert into lang (name, code)
-values ("Lubuagan Kalinga", "luka");
-insert into lang (name, code)
-values ("Luba-Katanga", "lukt");
-insert into lang (name, code)
-values ("Lunda", "lun");
-insert into lang (name, code)
-values ("Luo", "luo");
-insert into lang (name, code)
-values ("Lule Sami", "lusa");
-insert into lang (name, code)
-values ("Lusitanian", "lusi");
-insert into lang (name, code)
-values ("Luwian", "luw");
-insert into lang (name, code)
-values ("Lycian", "lyc");
-insert into lang (name, code)
-values ("Lydian", "lyd");
-insert into lang (name, code)
-values ("Maasai", "maas");
-insert into lang (name, code)
-values ("Maay", "maay");
-insert into lang (name, code)
-values ("Mauritian Creole", "mac");
-insert into lang (name, code)
-values ("Madurese", "mad");
-insert into lang (name, code)
-values ("Makah", "maka");
-insert into lang (name, code)
-values ("Makhuwa", "makh");
-insert into lang (name, code)
-values ("Makasar", "maks");
-insert into lang (name, code)
-values ("Malecite-Passamaquoddy", "malc");
-insert into lang (name, code)
-values ("Mal�ku Ja�ka", "male");
-insert into lang (name, code)
-values ("Maltese", "malt");
-insert into lang (name, code)
-values ("Manchu", "manc");
-insert into lang (name, code)
-values ("Mandarin", "mand");
-insert into lang (name, code)
-values ("Mangarevan", "mang");
-insert into lang (name, code)
-values ("Mandinka", "mani");
-insert into lang (name, code)
-values ("Mandari", "manr");
-insert into lang (name, code)
-values ("Mansi", "mans");
-insert into lang (name, code)
-values ("Mapudungun", "map");
-insert into lang (name, code)
-values ("Marau", "mara");
-insert into lang (name, code)
-values ("Mara Chin", "marc");
-insert into lang (name, code)
-values ("Mari", "mari");
-insert into lang (name, code)
-values ("Maricopa", "maro");
-insert into lang (name, code)
-values ("Marti Ke", "mark");
-insert into lang (name, code)
-values ("Marrucinian", "marr");
-insert into lang (name, code)
-values ("Marsian", "mars");
-insert into lang (name, code)
-values ("Martuthunira", "mart");
-insert into lang (name, code)
-values ("Marwari", "marw");
-insert into lang (name, code)
-values ("Massachusett", "mas");
-insert into lang (name, code)
-values ("Mayangna", "may");
-insert into lang (name, code)
-values ("Mazanderani", "maz");
-insert into lang (name, code)
-values ("Mbabaram", "mba");
-insert into lang (name, code)
-values ("Me�nkieli", "mea");
-insert into lang (name, code)
-values ("Median", "med");
-insert into lang (name, code)
-values ("Megleno-Romanian", "meg");
-insert into lang (name, code)
-values ("Mende", "men");
-insert into lang (name, code)
-values ("Meriam", "meri");
-insert into lang (name, code)
-values ("Meru", "meru");
-insert into lang (name, code)
-values ("Miami", "mia");
-insert into lang (name, code)
-values ("Michif", "mic");
-insert into lang (name, code)
-values ("Mi'kmaq", "mikm");
-insert into lang (name, code)
-values ("Minangkabau", "mina");
-insert into lang (name, code)
-values ("Min Dong", "mind");
-insert into lang (name, code)
-values ("Mingrelian", "ming");
-insert into lang (name, code)
-values ("Minoan", "mino");
-insert into lang (name, code)
-values ("Mirandese", "mira");
-insert into lang (name, code)
-values ("Miskito", "mis");
-insert into lang (name, code)
-values ("Miyako", "miy");
-insert into lang (name, code)
-values ("Mizo", "mizo");
-insert into lang (name, code)
-values ("Mainstream Kenyah", "mke");
-insert into lang (name, code)
-values ("Moabite", "moa");
-insert into lang (name, code)
-values ("Mobilian", "mob");
-insert into lang (name, code)
-values ("Mohawk", "moh");
-insert into lang (name, code)
-values ("Moksah", "mok");
-insert into lang (name, code)
-values ("Moksha", "moks");
-insert into lang (name, code)
-values ("Mon", "mon");
-insert into lang (name, code)
-values ("Monguor", "mong");
-insert into lang (name, code)
-values ("Montagnais", "mont");
-insert into lang (name, code)
-values ("Mop�n", "mop");
-insert into lang (name, code)
-values ("Moroccan Arabic", "mora");
-insert into lang (name, code)
-values ("Motu", "motu");
-insert into lang (name, code)
-values ("Muduapa", "mud");
-insert into lang (name, code)
-values ("Mungaka", "MUGA");
-insert into lang (name, code)
-values ("Munggui", "mugg");
-insert into lang (name, code)
-values ("Murrinh-Patha", "mur");
-insert into lang (name, code)
-values ("Mycenaean Greek", "myg");
-insert into lang (name, code)
-values ("Nage", "nage");
-insert into lang (name, code)
-values ("Ndali", "ndal");
-insert into lang (name, code)
-values ("Ndonga", "ndo");
-insert into lang (name, code)
-values ("Neapolitan", "nea");
-insert into lang (name, code)
-values ("Nenets", "nen");
-insert into lang (name, code)
-values ("Newari", "new");
-insert into lang (name, code)
-values ("North Frisian", "nf");
-insert into lang (name, code)
-values ("Ngaanyatjarra", "ngaa");
-insert into lang (name, code)
-values ("Ngaju", "ngaj");
-insert into lang (name, code)
-values ("Nganasan", "ngan");
-insert into lang (name, code)
-values ("Ngarrindjeri", "ngar");
-insert into lang (name, code)
-values ("Ngawun", "ngaw");
-insert into lang (name, code)
-values ("Navajo", "nh");
-insert into lang (name, code)
-values ("Nhanda", "nha");
-insert into lang (name, code)
-values ("Nias", "nias");
-insert into lang (name, code)
-values ("Niuean", "niu");
-insert into lang (name, code)
-values ("Nivkh", "niv");
-insert into lang (name, code)
-values ("Nogai", "nog");
-insert into lang (name, code)
-values ("Nootka", "noo");
-insert into lang (name, code)
-values ("Novial", "nov");
-insert into lang (name, code)
-values ("Norfuk", "norf");
-insert into lang (name, code)
-values ("Nigerian Pidgin", "np");
-insert into lang (name, code)
-values ("Norn", "nrn");
-insert into lang (name, code)
-values ("Northern Sami", "ns");
-insert into lang (name, code)
-values ("Nyankole", "nya");
-insert into lang (name, code)
-values ("Nyunga", "nyun");
-insert into lang (name, code)
-values ("Ojibwe", "oj");
-insert into lang (name, code)
-values ("Okinawan", "oki");
-insert into lang (name, code)
-values ("Omaha-Ponca", "oma");
-insert into lang (name, code)
-values ("O'odham", "ns");
-insert into lang (name, code)
-values ("Osage", "osag");
-insert into lang (name, code)
-values ("Oscan", "osc");
-insert into lang (name, code)
-values ("Ossetian", "oss");
-insert into lang (name, code)
-values ("Ottoman Turkish", "ott");
-insert into lang (name, code)
-values ("Paelignian", "pae");
-insert into lang (name, code)
-values ("Pahoun", "pah");
-insert into lang (name, code)
-values ("Pahouin", "paho");
-insert into lang (name, code)
-values ("Paiwan", "pai");
-insert into lang (name, code)
-values ("Palauan", "pala");
-insert into lang (name, code)
-values ("Palu'e", "palu");
-insert into lang (name, code)
-values ("Pangasinan", "pang");
-insert into lang (name, code)
-values ("Panyjima", "pany");
-insert into lang (name, code)
-values ("Papiamentu", "papi");
-insert into lang (name, code)
-values ("Papuma", "papu");
-insert into lang (name, code)
-values ("Parthian", "par");
-insert into lang (name, code)
-values ("Paumar�", "pau");
-insert into lang (name, code)
-values ("Penobscot", "pen");
-insert into lang (name, code)
-values ("Pennsylvania German", "pg");
-insert into lang (name, code)
-values ("Phoenician", "pho");
-insert into lang (name, code)
-values ("Phrygian", "phr");
-insert into lang (name, code)
-values ("Picard", "pic");
-insert into lang (name, code)
-values ("Piedmontese", "pie");
-insert into lang (name, code)
-values ("Pijin", "pij");
-insert into lang (name, code)
-values ("Pinyin", "pin");
-insert into lang (name, code)
-values ("Pipil", "pip");
-insert into lang (name, code)
-values ("Pirah�", "pir");
-insert into lang (name, code)
-values ("Pite Sami", "pisa");
-insert into lang (name, code)
-values ("Pitjantjatjara", "pit");
-insert into lang (name, code)
-values ("Pochutec", "poc");
-insert into lang (name, code)
-values ("Pohnpeian", "poh");
-insert into lang (name, code)
-values ("Polabian", "polb");
-insert into lang (name, code)
-values ("Polari", "polr");
-insert into lang (name, code)
-values ("Portugal", "por");
-insert into lang (name, code)
-values ("Potawatomi", "pota");
-insert into lang (name, code)
-values ("Pulaar", "pul");
-insert into lang (name, code)
-values ("Pumpokol", "pum");
-insert into lang (name, code)
-values ("Punic", "puni");
-insert into lang (name, code)
-values ("Punjabi", "punj");
-insert into lang (name, code)
-values ("Puyuma", "puy");
-insert into lang (name, code)
-values ("Rade", "rad");
-insert into lang (name, code)
-values ("Rajasthani", "raj");
-insert into lang (name, code)
-values ("Rapa Nui", "rap");
-insert into lang (name, code)
-values ("Rarotongan", "rar");
-insert into lang (name, code)
-values ("Rejang", "rej");
-insert into lang (name, code)
-values ("Rhymes", "rhy");
-insert into lang (name, code)
-values ("Romani", "rma");
-insert into lang (name, code)
-values ("Rohingya", "roh");
-insert into lang (name, code)
-values ("Romansch", "rom");
-insert into lang (name, code)
-values ("Rotokas", "roto");
-insert into lang (name, code)
-values ("Rotuman", "rotu");
-insert into lang (name, code)
-values ("Russenorsk", "runo");
-insert into lang (name, code)
-values ("Russia Buryat", "ruby");
-insert into lang (name, code)
-values ("Rusyn", "rusy");
-insert into lang (name, code)
-values ("Rutul", "rutu");
-insert into lang (name, code)
-values ("Saanich", "saa");
-insert into lang (name, code)
-values ("Saterland Frisian", "saf");
-insert into lang (name, code)
-values ("Samogitian", "sam");
-insert into lang (name, code)
-values ("Santali", "san");
-insert into lang (name, code)
-values ("Samoan Plantation Pidgin", "sap");
-insert into lang (name, code)
-values ("Sarcee", "sar");
-insert into lang (name, code)
-values ("Sasak", "sasa");
-insert into lang (name, code)
-values ("Sassarese Sardinian", "sass");
-insert into lang (name, code)
-values ("Sawi", "saw");
-insert into lang (name, code)
-values ("Sayula Popoluca", "say");
-insert into lang (name, code)
-values ("Scottish Gaelic", "scg");
-insert into lang (name, code)
-values ("Scots", "sco");
-insert into lang (name, code)
-values ("Sebat Bet Gurage", "seb");
-insert into lang (name, code)
-values ("Seneca", "sen");
-insert into lang (name, code)
-values ("Seraiki", "sera");
-insert into lang (name, code)
-values ("Seri", "seri");
-insert into lang (name, code)
-values ("Serui-Laut", "seru");
-insert into lang (name, code)
-values ("Shabo", "sha");
-insert into lang (name, code)
-values ("Shan", "shan");
-insert into lang (name, code)
-values ("Shel", "shel");
-insert into lang (name, code)
-values ("Sherpa", "sher");
-insert into lang (name, code)
-values ("Shelta", "shet");
-insert into lang (name, code)
-values ("Shor", "shor");
-insert into lang (name, code)
-values ("Shoshone", "shos");
-insert into lang (name, code)
-values ("Shuar", "shu");
-insert into lang (name, code)
-values ("Silesian", "sil");
-insert into lang (name, code)
-values ("Sichuan Yi", "siy");
-insert into lang (name, code)
-values ("Skolt Sami", "sks");
-insert into lang (name, code)
-values ("Slovincian", "slo");
-insert into lang (name, code)
-values ("Slovene", "slv");
-insert into lang (name, code)
-values ("Soqotri", "soq");
-insert into lang (name, code)
-values ("Sotho", "sot");
-insert into lang (name, code)
-values ("Sranan Tongo", "srt");
-insert into lang (name, code)
-values ("Sumbawa", "sumb");
-insert into lang (name, code)
-values ("Sursurunga", "sur");
-insert into lang (name, code)
-values ("Svan", "sva");
-insert into lang (name, code)
-values ("Swabian", "swa");
-insert into lang (name, code)
-values ("Sydney", "syd");
-insert into lang (name, code)
-values ("Syriac", "syr");
-insert into lang (name, code)
-values ("Tabassaran", "tab");
-insert into lang (name, code)
-values ("Tacana", "taca");
-insert into lang (name, code)
-values ("Tachelhit", "tach");
-insert into lang (name, code)
-values ("Tai Dam", "tad");
-insert into lang (name, code)
-values ("Tahitian", "tah");
-insert into lang (name, code)
-values ("Tamashek", "tama");
-insert into lang (name, code)
-values ("Tambora", "tamb");
-insert into lang (name, code)
-values ("Taos", "taos");
-insert into lang (name, code)
-values ("Tarantino", "tar");
-insert into lang (name, code)
-values ("Tasmanian", "tas");
-insert into lang (name, code)
-values ("Tausug", "tau");
-insert into lang (name, code)
-values ("Ter Sami", "tesa");
-insert into lang (name, code)
-values ("Tetum", "tet");
-insert into lang (name, code)
-values ("Tigre", "tig");
-insert into lang (name, code)
-values ("Tiwi", "tiwi");
-insert into lang (name, code)
-values ("Tocharian A", "toa");
-insert into lang (name, code)
-values ("Tocharian B", "tob");
-insert into lang (name, code)
-values ("Tongan", "ton");
-insert into lang (name, code)
-values ("Taimyr Pidgin Russian", "tpr");
-insert into lang (name, code)
-values ("Translingual", "tra");
-insert into lang (name, code)
-values ("Tsakhur", "tsa");
-insert into lang (name, code)
-values ("Torres Strait Creole", "tsc");
-insert into lang (name, code)
-values ("Tshiluba", "tsh");
-insert into lang (name, code)
-values ("Tswana", "tsw");
-insert into lang (name, code)
-values ("Tuamotuan", "tuam");
-insert into lang (name, code)
-values ("Tunisian Arabic", "tuar");
-insert into lang (name, code)
-values ("Tulu", "tul");
-insert into lang (name, code)
-values ("Tumbuka", "tum");
-insert into lang (name, code)
-values ("Tupinamb�", "tup");
-insert into lang (name, code)
-values ("Tuvaluan", "tuvl");
-insert into lang (name, code)
-values ("Tuvan", "tuvn");
-insert into lang (name, code)
-values ("Twents", "twe");
-insert into lang (name, code)
-values ("Tz'utujil", "tz");
-insert into lang (name, code)
-values ("Ubykh", "uby");
-insert into lang (name, code)
-values ("Udi", "udi");
-insert into lang (name, code)
-values ("Udmurt", "udmz");
-insert into lang (name, code)
-values ("Ugaritic", "uga");
-insert into lang (name, code)
-values ("Uab Meto", "um");
-insert into lang (name, code)
-values ("Umbrian", "umbr");
-insert into lang (name, code)
-values ("Umbundu", "umbu");
-insert into lang (name, code)
-values ("Ume Sami", "umsa");
-insert into lang (name, code)
-values ("Unami", "una");
-insert into lang (name, code)
-values ("Undetermined", "und");
-insert into lang (name, code)
-values ("Unserdeutsch", "uns");
-insert into lang (name, code)
-values ("Urum", "uru");
-insert into lang (name, code)
-values ("Vai", "vai");
-insert into lang (name, code)
-values ("Vandalic", "van");
-insert into lang (name, code)
-values ("Venda", "vend");
-insert into lang (name, code)
-values ("Venetian", "vene");
-insert into lang (name, code)
-values ("Venetic", "vent");
-insert into lang (name, code)
-values ("Veps", "vep");
-insert into lang (name, code)
-values ("Vestinian", "vest");
-insert into lang (name, code)
-values ("Vilamovian", "vil");
-insert into lang (name, code)
-values ("Vinza", "vin");
-insert into lang (name, code)
-values ("Volscian", "vol");
-insert into lang (name, code)
-values ("V�ro", "vor");
-insert into lang (name, code)
-values ("Votic", "vot");
-insert into lang (name, code)
-values ("Wabo", "wa�bo");
-insert into lang (name, code)
-values ("Wageman", "wag");
-insert into lang (name, code)
-values ("Wallisian", "wal");
-insert into lang (name, code)
-values ("Wandamen", "wand");
-insert into lang (name, code)
-values ("Wangaaybuwan-Ngiyambaa", "wang");
-insert into lang (name, code)
-values ("Western Apache", "wap");
-insert into lang (name, code)
-values ("Wari'", "wari");
-insert into lang (name, code)
-values ("Warao", "waro");
-insert into lang (name, code)
-values ("Waropen", "warp");
-insert into lang (name, code)
-values ("Waray-Waray", "wary");
-insert into lang (name, code)
-values ("Wawa", "wawa");
-insert into lang (name, code)
-values ("West Coast Bajau", "wcb");
-insert into lang (name, code)
-values ("Wemba-Wemba", "wem");
-insert into lang (name, code)
-values ("Weyewa", "wey");
-insert into lang (name, code)
-values ("Wik-Mungkan", "wik");
-insert into lang (name, code)
-values ("Winnebago", "win");
-insert into lang (name, code)
-values ("Wiradhuri", "wir");
-insert into lang (name, code)
-values ("Woi", "woi");
-insert into lang (name, code)
-values ("Worimi", "wor");
-insert into lang (name, code)
-values ("Warlpiri", "WRL");
-insert into lang (name, code)
-values ("Wu", "wu");
-insert into lang (name, code)
-values ("Woiwurrung", "wwu");
-insert into lang (name, code)
-values ("Xavante", "xa");
-insert into lang (name, code)
-values ("Xhosa", "xho");
-insert into lang (name, code)
-values ("!X��", "xoo");
-insert into lang (name, code)
-values ("Yaeyama", "yae");
-insert into lang (name, code)
-values ("Yagnobi", "yag");
-insert into lang (name, code)
-values ("Yakut", "yak");
-insert into lang (name, code)
-values ("Yami", "yam");
-insert into lang (name, code)
-values ("Yankunytjatjara", "yank");
-insert into lang (name, code)
-values ("Yanyuwa", "yany");
-insert into lang (name, code)
-values ("Yapese", "yap");
-insert into lang (name, code)
-values ("Yidiny", "yid");
-insert into lang (name, code)
-values ("Yindjibarndi", "yin");
-insert into lang (name, code)
-values ("Yola", "yol");
-insert into lang (name, code)
-values ("Yosond�a Mixtec", "yom");
-insert into lang (name, code)
-values ("Yonaguni", "yon");
-insert into lang (name, code)
-values ("Yopno", "yop");
-insert into lang (name, code)
-values ("Yucatec Maya", "yum");
-insert into lang (name, code)
-values ("Yup'ik", "yup");
-insert into lang (name, code)
-values ("Yurok", "yur");
-insert into lang (name, code)
-values ("Yatzachi Zapotec", "yza");
-insert into lang (name, code)
-values ("Zenaga", "ze");
-insert into lang (name, code)
-values ("Zimba", "zi");
-insert into lang (name, code)
-values ("Zoogocho Zapotec", "zoz");
-insert into lang (name, code)
-values ("Zulgo-Gemzek", "zug");
-insert into lang (name, code)
-values ("Zuni", "zuni");
+INSERT INTO `lang` (`name`, `abr`) VALUES ('English', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Latin', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('German', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Scots', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Guernésiais', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Indonesian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Irish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Jèrriais', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lojban', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Malay', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Romanian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Scottish Gaelic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dutch', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Afrikaans', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Catalan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Danish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Italian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Norwegian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Spanish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Swedish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('French', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old English', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Saxon', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Portuguese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Limburgish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Middle English', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Middle French', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old French', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Cornish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Polish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Esperanto', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Latvian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mandarin', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Translingual', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('American Sign Language', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Azeri', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Finnish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('German Sign Language', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Luxembourgish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Norwegian Bokmål', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Norwegian Nynorsk', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Slovene', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Somali', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Turkish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Vietnamese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Welsh', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ewe', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Maltese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Crimean Tatar', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kurdish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mapudungun', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tagalog', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tatar', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Uzbek', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Walloon', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Estonian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Faroese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Interlingua', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Interlingue', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Serbo-Croatian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Slovak', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sundanese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Occitan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lithuanian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Volapük', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Zazaki', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Gothic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Hungarian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Japanese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Manx', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Novial', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('South Marquesan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Swahili', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Venetian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Wuvulu-Aua', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Zulu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Navajo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Irish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Aynu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Livonian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old High German', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Provençal', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pumpokol', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Romani', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ido', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Hiligaynon', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Marshallese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sardinian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lombard', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Cantonese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Hakka', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Korean', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Min Nan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Wu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Okinawan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Czech', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dutch Low Saxon', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('German Low German', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Romansch', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Turkmen', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Wik-Mungkan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Greek', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Albanian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ama', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Aromanian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dalmatian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Elfdalian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mauritian Creole', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Neapolitan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Dutch', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Saterland Frisian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sicilian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tok Pisin', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Galician', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('West Frisian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Aragonese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Asturian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Fala', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Guaraní', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ladin', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Tupi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Papiamentu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Georgian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Crimean Gothic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Murrinh-Patha', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kiput', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yola', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Haitian Creole', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Jersey Dutch', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ladino', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Low German', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Portuguese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sranan Tongo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tarantino', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('ǃKung', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Breton', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Icelandic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kott', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Middle Dutch', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Frisian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Swedish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kven', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Gallo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Basque', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Classical Nahuatl', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lower Sorbian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Maori', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Meriam', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Rapa Nui', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tahitian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tongan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tuvaluan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nigerian Pidgin', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Rohingya', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tolai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mirandese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Baure', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Istriot', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mohegan-Pequot', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pennsylvania German', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Middle High German', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Afar', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Borôro', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Extremaduran', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Hawaiian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Middle Low German', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Samoan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Norman', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mangarevan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Niuean', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Rarotongan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tikopia', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tokelauan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tuamotuan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Adangme', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bislama', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Friulian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Latgalian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pijin', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sirionó', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tupinambá', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Alemannic German', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Inari Sami', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kaingang', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Chinook Jargon', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Torres Strait Creole', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ancient Greek', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Amuzgo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Balinese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Prussian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Vilamovian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Istro-Romanian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Russian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ukrainian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Karelian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Votic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ingrian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Middle Irish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Hindi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sanskrit', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ilocano', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Malagasy', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Hebrew', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Picard', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Biak', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tocharian B', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Adnyamathanha', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Luhya', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Luo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Western Apache', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Hmong', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kanuri', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Indo-Portuguese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Norse', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Gilbertese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Silesian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tachelhit', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Buginese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Egyptian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ga', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Gaulish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Jamaican Creole', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Palenquero', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tacana', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Warao', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Assan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Greenlandic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lavukaleve', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Welsh', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Cahuilla', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tetum', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tocharian A', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Inuktitut', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kedah Malay', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Quechua', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pipil', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Selaru', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Simeulue', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Acholi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Arin', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Cimbrian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Chickasaw', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Louisiana Creole French', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Fijian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Upper Sorbian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Wiradhuri', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Middle Chinese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mayangna', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Northern Sami', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Skolt Sami', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mandinka', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Chiricahua', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kashubian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Abau', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Alabama', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Zay', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ojibwe', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('North Frisian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Roro', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Apalaí', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Araki', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Hiri Motu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kriol', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kuna', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Piedmontese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pitjantjatjara', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Seri', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Baluan-Pam', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lou', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Aymara', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Middle Welsh', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bakung', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Palauan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Rennellese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yucatec Maya', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('O\'odham', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ainu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Wiyot', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tz\'utujil', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Fwâi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Haeke', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Haveke', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Jawe', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nemi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nyâlayu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pije', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yuaga', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Annobonese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nauruan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mizo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nias', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Serui-Laut', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Wandamen', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Zhuang', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Chamicuro', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Miskito', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Iban', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yami', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nalca', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Jarai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Vandalic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tswana', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Banjarese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Javanese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kapampangan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mori Bawah', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Moronene', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Javanese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sasak', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Totoli', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Central Melanau', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Betawi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Wangaaybuwan-Ngiyambaa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Baram Kayan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Batak Dairi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Batak Karo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Batak Toba', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bintulu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Cebuano', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kelabit', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ngaju', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Fiji Hindi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Shona', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('West Coast Bajau', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yoruba', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yankunytjatjara', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Krisa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Panyjima', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Amanab', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Veps', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Irarutu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Onin', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Uruangnirin', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Wolof', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dogrib', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Northern Sotho', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sotho', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Hausa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Catawba', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Karipúna Creole French', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Franco-Provençal', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Belarusian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bulgarian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Macedonian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Michif', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Amis', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Taroko', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ngarrindjeri', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Luganda', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Minangkabau', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Isthmus Zapotec', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Gagauz', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dena\'ina', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Angolar', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Corsican', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Garifuna', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ch\'orti\'', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Cuiba', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Taos', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sonsorolese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tai Dam', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Chinese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Church Slavonic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Adyghe', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Chechen', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ingush', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Itelmen', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mari', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tajik', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Buyeo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Samoan Plantation Pidgin', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Literary Chinese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Khitan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Marathi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Min Dong', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bilba', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Spanish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Malaccan Creole Portuguese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Chamorro', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Golin', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Abenaki', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Rotuman', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Arabela', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ambonese Malay', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Gan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Achuar', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Aguaruna', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Waskia', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yup\'ik', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Romagnol', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Cia-Cia', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kedang', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nahuatl', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Choctaw', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yatzachi Zapotec', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yiddish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Anuta', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dakota', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Palu\'e', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sawi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Arabic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lampung Api', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Akkala Sami', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sabu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Karitiâna', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Võro', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bunun', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lamaholot', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Manggarai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Maranao', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Puyuma', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Rejang Kayan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Rembong', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yamdena', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yurok', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Rusyn', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mopan Maya', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Akawaio', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dieri', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Western Arrernte', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ter Sami', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ghotuo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tamil', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ineseño', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tukudede', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Shabo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Khmer', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pitcairn-Norfolk', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tambora', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Burmese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Thai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Urdu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Persian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Evenki', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mongolian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yosondúa Mixtec', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yakut', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ottoman Turkish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Adzera', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Maay', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yagnobi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kapingamarangi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pali', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Baluchi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pashto', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Gooniyandi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Etruscan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Wolio', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Campidanese Sardinian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Acehnese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Casiguran Dumagat Agta', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kanakanabu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yindjibarndi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mansaka', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mongondow', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sika', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tiruray', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Havasupai-Walapai-Yavapai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Egyptian Arabic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Broome Pearling Lugger Pidgin', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Guugu Yimidhirr', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Batak', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Coastal Kadazan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Gayo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Hanunoo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Itawit', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kankanaey', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mayoyao Ifugao', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pangasinan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tontemboan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Western Bukidnon Manobo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mentawai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Komodo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Haroi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Northern Roglai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Rade', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Western Cham', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nenets', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Uab Meto', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Berawan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tunisian Arabic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Aramaic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Muduapa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Norn', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bambara', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Angor', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dacian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Isan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Wallisian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old East Slavic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mòcheno', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Xhosa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Cherokee', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Karachay-Balkar', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Khakas', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kabardian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Polish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Akan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Warlpiri', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('\'Are\'are', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Arosi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Central Tagbanwa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Hano', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kambera', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Owa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tae\'', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tangoa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dhuwal', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tuvan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Woi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Aneme Wake', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Gamilaraay', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tibetan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Central Tarahumara', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lingala', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Hunsrik', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dorze', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Gujarati', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bengali', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ontong Java', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lao', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Amharic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Alu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bontoc', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bughotu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dupaninan Agta', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('East Futuna', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Gela', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Isnag', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ivatan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lau', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lusi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Manam', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mussau-Emira', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nakanai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nukuoro', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Paiwan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Papora', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Roviana', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('To\'abaita', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Woleaian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nepali', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ligurian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ugaritic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Assamese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Punjabi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Oriya', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Telugu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kazakh', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Madurese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bau Bidayuh', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Alcozauca Mixtec', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kannada', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tagal Murut', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ngaanyatjarra', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Warrgamay', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kaytetye', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Darkinjung', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sinhalese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Rajasthani', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Newari', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nogai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Woiwurrung', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Darling', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Martuthunira', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pitta-Pitta', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Armenian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Armenian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Aleut', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bavarian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sindhi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Shelta', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ossetian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Avar', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Libyan Arabic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Chol', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Megleno-Romanian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bandjalang', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kalanga', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kinyarwanda', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kusunda', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dharug', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kaurna', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Uyghur', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Laki', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Awadhi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bhojpuri', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Polabian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Chaap Wuurong', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kamassian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Baba Malay', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Aklanon', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Angloromani', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Inupiak', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Igbo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kongo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Komi-Zyrian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Esan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sherpa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Paumarí', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Japanese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Maroon Spirit Language', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Potawatomi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Primitive Irish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Abkhaz', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kyrgyz', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Comanche', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Zulgo-Gemzek', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kabyle', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Eastern Cham', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Gullah', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Oscan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sarcee', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kölsch', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Algonquin', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Abaza', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kashmiri', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Eastern Arrernte', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Wari\'', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Unserdeutsch', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Malayalam', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Iranun', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Vurës', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pulaar', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Fula', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Caló', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Plautdietsch', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pahouin', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lezgi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Antillean Creole', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Réunion Creole French', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bashkir', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Emilian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Saanich', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Koasati', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Chuvash', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Swati', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Makhuwa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Twi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Cheyenne', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mansi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Coatlán Mixe', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pirahã', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Alune', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Banda (Indonesia)', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Banggai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Brunei Bisaya', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Eritai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kemak', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Leti', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Makasar', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mandar', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pamona', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Paulohi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sangir', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Siraya', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sumbawa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yakan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Samogitian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tsakhur', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dolgan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kildin Sami', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Wageman', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Logudorese Sardinian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Moksha', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Emae', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Futuna-Aniwa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Niuafo\'ou', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('North Marquesan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Penrhyn', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Takuu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Aari', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kamarian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Erzya', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Motu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kwanyama', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ndonga', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nganasan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mobilian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ida\'an', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Rotokas', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tabassaran', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Unami', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Udi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lakota', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dobu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Numbami', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ende', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Coptic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Alviri-Vidari', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dyirbal', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Cree', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Shoshone', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Southern Sami', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kimaragang', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pochutec', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tigrinya', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Central Atlas Tamazight', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Meänkieli', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Zoogocho Zapotec', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Central Kurdish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kikuyu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Meru', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lule Sami', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Georgian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kabuverdianu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Abu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Xiang', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Marwari', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yanyuwa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Awabakal', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Classical Syriac', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tsonga', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nyunga', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Isthmus-Mecayapan Nahuatl', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sayula Popoluca', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Oromo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bihari', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bima', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Minoan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Asilulu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bikol', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kulon-Pazeh', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nauna', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ngad\'a', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Saisiyat', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kirundi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Chichewa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Marti Ke', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Maléku Jaíka', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tiwi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nage', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Fon', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Wemba-Wemba', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ansus', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Papuma', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Marau', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Munggui', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ambai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Waropen', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kurudu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Wabo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Vinza', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Xavante', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kadiwéu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Laal', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Worimi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kurnai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tlingit', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kalenjin', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Udmurt', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Amaimon', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('\'Auhelawa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Baruga', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mazanderani', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Blackfoot', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tasmanian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yidiny', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Gabi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Moroccan Arabic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dhudhuroa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Phrygian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dadibi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Shuar', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mi\'kmaq', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Arapaho', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Middle Armenian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Chinese Pidgin English', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Avestan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nhanda', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('ǃXóõ', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Northern Dagara', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Aghul', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Rutul', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lak', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dargwa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Shor', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kumyk', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Urum', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nootka', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Russenorsk', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Achumawi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Khowar', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Chiquitano', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tausug', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Central Nahuatl', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Miyako', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sumerian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Penobscot', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Akkadian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Hittite', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mycenaean Greek', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Creek', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Luwian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Seraiki', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kamba', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bunurong', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Northern Ohlone', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('K\'iche\'', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('North Levantine Arabic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tamashek', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Waray-Waray', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tumbuka', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Montagnais', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yapese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mon', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Southern Altai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Jurchen', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Adele', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dinka', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Berbice Creole Dutch', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Abanyom', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mende', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Comorian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bube', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Umbundu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Arawak', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tshiluba', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Persian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Khanty', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Southern Ohlone', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Greenlandic Eskimo Pidgin', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Taimyr Pidgin Russian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Turkic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Zuni', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Zenaga', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tuwali Ifugao', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pohnpeian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Brahui', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ankave', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Middle Korean', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lunda', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Rungus', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lahu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bishnupriya Manipuri', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Hopi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Jingpho', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kalmyk', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Buryat', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Alutiiq', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ilongot', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Thao', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dungan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Epigraphic Mayan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Slovincian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Phoenician', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Southeastern Tepehuan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('South Slavey', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Gallurese Sardinian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ngawun', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Winnebago', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Chinook', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bondei', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Zimba', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Montana Salish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Laz', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Rejang', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sabah Bisaya', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Eblaite', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lycian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dzongkha', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ket', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Svan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mingrelian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ammonite', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Edomite', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Moabite', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Punic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ge\'ez', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sichuan Yi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Baekje', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Harari', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tigre', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Argobba', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Powhatan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Umbrian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Buli (Indonesia)', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kowiai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tboli', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lydian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Massachusett', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Carian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bactrian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Santali', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Western Kayah', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kalami', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Dhivehi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Buhid', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Vai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Chukchi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Alutor', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mambae', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Manchu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('South Levantine Arabic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Laurentian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Hassaniya', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Korean', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Seneca', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Balti', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nanai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Atayal', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nama', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Timugon Murut', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lozi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Cowlitz', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Shan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old Lithuanian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Haida', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ndali', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Koryak', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tulu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ancient Macedonian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Southern Yukaghir', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Central Siberian Yupik', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mohawk', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nivkh', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Limbu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mungaka', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Urartian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lacandon', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Leonese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Paelignian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ubykh', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Venda', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pite Sami', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Khmu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kashaya', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bikol Central', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Atikamekw', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Miami', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Maasai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Archi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Cappadocian Greek', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Hurrian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Khvarshi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Chagatai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Karakalpak', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Weyewa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Rusian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Muna', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Agutaynen', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Undetermined', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Beja', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lubuagan Kalinga', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Andi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Central Dusun', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Maricopa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yopno', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Monguor', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Malecite-Passamaquoddy', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bribri', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Swabian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Vestinian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Makah', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('South Picene', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Knaanic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Marsian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Northern Thai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Soqotri', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Comox', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Q\'anjob\'al', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Gheg Albanian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yonaguni', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Northern Yukaghir', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Adioukrou', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Padoe', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Frankish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('West Flemish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Venetic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Faliscan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Volscian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lusitanian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Khazar', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Southern Sama', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mara Chin', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Southern Hindko', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Gusii', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kuvi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sursurunga', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Wawa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Omaha-Ponca', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Osage', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Proto-Norse', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kalo Finnish Romani', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Median', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Assyrian Neo-Aramaic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Haitian Vodoun Culture Language', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ume Sami', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kilivila', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lemnian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Marrucinian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Luba-Katanga', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lotud', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Angaataha', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pinyin', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lepontic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Alamblak', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Ambulas', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kisar', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Old South Arabian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sebat Bet Gurage', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kemi Sami', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Komi-Permyak', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Gazi', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Diitidaht', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Krio', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Embaloh', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Masbatenyo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sassarese Sardinian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Eteocretan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yaeyama', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Nyankole', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Middle Persian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Karamojong', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Parthian', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Banyumasan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Western Mari', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Chru', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kavalan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tsou', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Rukai', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Saaroa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Brunei', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mbabaram', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Masaaba', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tsat', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Masiwang', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Lun Bawang', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tomadino', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tolaki', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Komering', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Babuza', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Kosraean', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Tambunan Dusun', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Calamian Tagbanwa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Gorontalo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Uma', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Klamath-Modoc', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Eyak', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bisaya', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Taliabu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Huaorani', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sekar', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Yaqui', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Wintu', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pictish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bella Coola', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Burushaski', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Bura Mabang', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Krongo', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Chakma', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pawnee', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mokpwe', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Karok', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Chinese', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Mandaic', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Noric', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Purepecha', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Gofa', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Northern Kurdish', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Austronesian Mor', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Silt\'e', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Pamlico', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Maykulan', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Sauraseni Prakrit', NULL);
+INSERT INTO `lang` (`name`, `abr`) VALUES ('Talysh', NULL);
