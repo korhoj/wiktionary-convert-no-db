@@ -1,0 +1,132 @@
+  <page>
+    <title>trill</title>
+    <ns>0</ns>
+    <id>46215</id>
+    <revision>
+      <id>23559704</id>
+      <parentid>23430745</parentid>
+      <timestamp>2013-10-17T14:08:02Z</timestamp>
+      <contributor>
+        <ip>202.160.35.196</ip>
+      </contributor>
+      <comment>/* Verb */</comment>
+      <text xml:space="preserve">==English==
+{{wikipedia|Trill (music)}}
+{{wikipedia|Trill consonant}}
+
+===Pronunciation===
+* {{IPA|/tÉ¹Éªl/}}
+* {{rhymes|Éªl}}
+
+===Etymology===
+From {{etyl|enm|en}} {{term|trillen|lang=enm}}. Compare Norwegian {{term|trille|lang=no}}, Swedish {{term|trilla|lang=sv}}.
+
+===Noun===
+{{en-noun}}
+
+# {{context|music|lang=en}} A rapid alternation between an indicated note and the one above it, in musical notation usually indicated with the letters ''tr'' written above the staff.
+# {{context|phonetics|lang=en}} A type of consonantal sound that is produced by vibrations of the tongue against the place of articulation, for example, Spanish ''rr''.
+
+====Derived terms====
+* [[trilly]]
+
+====Translations====
+{{trans-top|rapid alternation of notes}}
+* Arabic: {{t|ar|ØªÙƒØ±ÙŠØ±|m|tr=takrÄ«r|sc=Arab}}
+* Catalan: {{t|ca|trinat|m}}
+* Chinese:
+*: Mandarin: {{t|cmn|é¡«éŸ³|sc=Hani}}, {{t+|cmn|é¢¤éŸ³|tr=chÃ nyÄ«n|sc=Hani}}
+* Dutch: {{t+|nl|triller|m}}
+* Finnish: {{t+|fi|trilli}}
+* French: {{t+|fr|trille|m}}
+* German: {{t|de|Triller|m}}
+* Icelandic: {{t|is|trilla|f}}
+{{trans-mid}}
+* Italian: {{t|it|trillo|m}}
+* Japanese: {{t|ja|ãƒˆãƒªãƒ«|tr=toriru|sc=Jpan}}
+* Korean: {{t|ko|íŠ¸ë¦´|tr=teuril|sc=Kore}}
+* Maori: {{t|mi|whakawanawana}}
+* Polish: {{t|pl|tryl|m}}
+* Russian: {{t+|ru|Ñ‚Ñ€ÐµÐ»ÑŒ|f|tr=trelÊ¹|sc=Cyrl}}
+* Spanish: {{t|es|trino|m}}
+* Swedish: {{t+|sv|drill|c}}
+* Vietnamese: {{t|vi|lÃ¡y rá»n}}
+{{trans-bottom}}
+
+{{trans-top|vibrating consonant}}
+* Chinese:
+*: Mandarin: {{t|cmn|é¡«éŸ³|sc=Hani}}, {{t+|cmn|é¢¤éŸ³|tr=chÃ nyÄ«n|sc=Hani}}
+* Finnish: {{t+|fi|tremulantti}}, {{t|fi|tÃ¤ryÃ¤Ã¤nne}}
+* French: {{t|fr|consonne roulÃ©e|f}}
+* German: {{t+|de|Vibrant|m}}
+* Hebrew: {{t|he|×¢×™×¦×•×¨×™× ×ž×•×¨×¢×“×™×|p|sc=Hebr}}
+* Icelandic: {{t|is|sveifluhljÃ³Ã°|n}}
+* Italian: {{t|it|consonante vibrante|f}}, {{t|it|trillo|m}}
+{{trans-mid}}
+* Japanese: {{t|ja|ãµã‚‹ãˆéŸ³|tr=ãµã‚‹ãˆãŠã‚“, furueon|sc=Jpan}}
+* Korean: {{t|ko|ì „ë™ìŒ|tr=jeondong-eum|sc=Kore}} ({{t|ko|é¡«å‹•éŸ³|sc=Kore}})
+* Polish: {{t|pl|spÃ³Å‚gÅ‚oska drÅ¼Ä…ca|f}}
+* Portuguese: {{t+|pt|vibrante}}
+* Romanian: {{t|ro|consoanÄƒ vibrantÄƒ|f}}
+* Russian: {{t|ru|Ð²Ð¸Ð±Ñ€Ð¸Ñ€ÑƒÑŽÑ‰Ð¸Ð¹ ÑÐ¾Ð³Ð»Ð°ÑÐ½Ñ‹Ð¹|m|tr=vibrÃ­rujuÅ¡Äij soglÃ¡snyj|sc=Cyrl}}
+* Swedish: {{t+|sv|tremulant|c}}, {{t+|sv|vibrant|c}}
+{{trans-bottom}}
+
+===Verb===
+{{en-verb}}
+
+# {{context|intransitive|lang=en}} To create a trill sound; to utter trills or a trill; to play or sing in tremulous vibrations of sound; to have a trembling sound; to quaver.
+#* Dryden
+#*: To judge of '''trilling''' notes and tripping feet.
+# {{context|transitive|lang=en}} To impart the quality of a trill to; to utter as, or with, a trill.
+#: ''to '''trill''' a note, or the letter r''
+#* Thomson
+#*: The sober-suited songstress '''trills''' her lay.
+# {{context|intransitive|obsolete|lang=en}} To [[trickle]].
+#* '''1603''', {{w|John Florio}}, translating Michel de Montaigne, ''Essays'', II.30:
+#*: I come now from seeing of a shepheard at ''Medoc'' [...] who had no signe at all of genitorie parts: But where they should be, are three little holes, by which his water doth continually '''tril''' from him.
+#* Shakespeare
+#*: And now and then an ample tear '''trilled''' down / Her delicate cheek.
+#* Glover
+#*: Whispered sounds / Of waters, '''trilling''' from the riven stone.
+
+===Translations===
+{{trans-top|to make a tremulous sound}}
+* Maori: {{t|mi|wanawana}}
+{{trans-mid}}
+{{trans-bottom}}
+
+====Derived terms====
+* [[triller]]
+
+[[et:trill]]
+[[fr:trill]]
+[[ko:trill]]
+[[io:trill]]
+[[kn:trill]]
+[[ml:trill]]
+[[my:trill]]
+[[pl:trill]]
+[[simple:trill]]
+[[fi:trill]]
+[[ta:trill]]
+[[te:trill]]
+[[tr:trill]]
+[[vi:trill]]
+[[zh:trill]]
+
+----
+
+==Albanian== 
+
+===Noun===
+{{sq-noun|f/m|trillime|trilli|trillimet}}
+
+# [[whim]], [[tantrum]], [[bizarre]] [[fantasy]]
+
+[[Category:Albanian nouns]]</text>
+      <sha1>rnkk4jdnlo520ggtcdte814s82u68sc</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>

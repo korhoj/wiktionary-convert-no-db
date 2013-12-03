@@ -1,0 +1,108 @@
+  <page>
+    <title>International Phonetic Alphabet</title>
+    <ns>0</ns>
+    <id>7913</id>
+    <revision>
+      <id>23421509</id>
+      <parentid>20058855</parentid>
+      <timestamp>2013-10-06T01:37:39Z</timestamp>
+      <contributor>
+        <username>Rukhabot</username>
+        <id>45268</id>
+      </contributor>
+      <minor />
+      <comment>updating {{t}}/{{t+}}, including {{t-}} &amp;rarr; {{t}} (see [[Wiktionary:Votes/2013-09/Translation-links to other Wiktionaries]])</comment>
+      <text xml:space="preserve">{{wikipedia}}
+==English==
+
+===Pronunciation===
+* {{a|UK}} {{IPA|/ËŒÉªntÉ™ËˆnÃ¦Êƒ(É™)n(É™)l fÉ™ËˆnÉ›tÉªk ËˆÃ¦lfÉ™ËŒbÉ›t/|[ËŒÉªntÉ™ËˆnÃ¦Êƒ(É™)n(É™)É« fÉ™ËˆnÉ›tÉªk ËˆÃ¦É«fÉ™ËŒbÉ›t]}}
+* {{a|US}} {{IPA|/ËŒÉªntÉšËˆnÃ¦Êƒ(É™)n(É™)l fÉ™ËˆnÉ›tÉªk ËˆÃ¦lfÉ™ËŒbÉ›t/|[ËŒÉªntÉšËˆnÃ¦Êƒ(É™)n(É™)É« fÉ™ËˆnÉ›É¾Éªk ËˆÃ¦É«fÉ™ËŒbÉ›t]|[ËŒÉªÉ¾ÌƒÉš-]}}
+
+===Proper noun===
+{{en-proper noun|head=[[international|International]] [[phonetic|Phonetic]] [[alphabet|Alphabet]]}}
+
+# A [[standardize]]d [[set]] of [[symbol]]s for [[represent]]ing the [[sound]]s of human [[speech]].
+#: ''It doesn't take long to learn the '''International Phonetic Alphabet''' when one really wants to.''
+
+====Abbreviation====
+* [[IPA]]
+
+====Translations====
+{{trans-top|standardized symbols for speech}}
+* Arabic: {{t|ar|Ø£Ù„ÙØ¨Ø§Ø¦ÙŠØ© ØµÙˆØªÙŠØ© Ø¯ÙˆÙ„ÙŠØ©|tr=Ê¾alifbaÊ¾Ã­yya á¹£autÃ­yya daulÃ­yya|f}}
+* Armenian: {{t|hy|Õ„Õ«Õ»Õ¡Õ¦Õ£Õ¡ÕµÕ«Õ¶ Õ€Õ¶Õ¹ÕµÕ¸Ö‚Õ¶Õ¡Õ¯Õ¡Õ¶ Ô±ÕµÕ¢Õ¸Ö‚Õ¢Õ¥Õ¶|tr=MiÇ°azgayin HnÄâ€˜yunakan Aybuben}}
+* Asturian: {{t+|ast|Alfabetu FonÃ©ticu Internacional|m}}
+* Basque: {{t|eu|Nazioarteko Alfabeto Fonetikoa}}
+* Bengali: {{t|bn|à¦†à¦¨à§à¦¤à¦°à§à¦œà¦¾à¦¤à¦¿à¦• à¦§à§à¦¬à¦¨à¦¿à¦®à§‚à¦²à¦• à¦¬à¦°à§à¦£à¦®à¦¾à¦²à¦¾|tr=}}
+* Bulgarian: {{t|bg|Ð¼ÐµÐ¶Ð´ÑƒÐ½Ð°Ñ€Ð¾Ð´Ð½Ð° Ñ„Ð¾Ð½ÐµÑ‚Ð¸Ñ‡Ð½Ð° Ð°Ð·Ð±ÑƒÐºÐ°|f}}
+* Catalan: {{t|ca|Alfabet FonÃ¨tic Internacional|m}}
+* Chinese:
+*: Mandarin: {{zh-tsp|åœ‹éš›éŸ³æ¨™|å›½é™…éŸ³æ ‡|guÃ³jÃ¬ yÄ«nbiÄo yÄ«n}}
+* Chuvash: [[Ð¢Ä•Ð½Ñ‡Ðµ Ð¤Ð¾Ð½ÐµÑ‚Ð¸ÐºÄƒÐ»Ð»Äƒ ÐÐ»Ñ„Ð°Ð²Ð¸Ñ‡Ä•]]
+* Croatian: [[meÄ‘unarodna fonetska abeceda]] {{f}}
+* Czech: {{t+|cs|mezinÃ¡rodnÃ­ fonetickÃ¡ abeceda|f}}
+* Dutch: {{t|nl|Internationaal Fonetisch Alfabet}}
+* Esperanto: {{t|eo|Internacia Fonetika Alfabeto}}
+* Finnish: {{t+|fi|kansainvÃ¤linen}} {{t+|fi|foneettinen}} {{t+|fi|aakkosto}}
+* French: {{t|fr|Alphabet phonÃ©tique international|m}}
+* Galician: {{t+|gl|Alfabeto FonÃ©tico Internacional|m}}
+* German: {{t+|de|Internationales Phonetisches Alphabet|n}}
+* Greek: {{t+|el|Î”Î¹ÎµÎ¸Î½Î­Ï‚ Î¦Ï‰Î½Î·Ï„Î¹ÎºÏŒ Î‘Î»Ï†Î¬Î²Î·Ï„Î¿|n|tr=DiethnÃ©s FonitikÃ³ AlfÃ¡vito}}
+* Hebrew: {{t|he|××œ×¤×‘×™×ª ×¤×•× ×˜×™ ×‘×™× ×œ××•×ž×™|f}}
+* Hindi: {{t|hi|à¤…à¤¨à¥à¤¤à¤°à¥à¤°à¤¾à¤·à¥à¤Ÿà¥à¤°à¥€à¤¯ à¤§à¥à¤µà¤¨à¥à¤¯à¤¾à¤¤à¥à¤®à¤• à¤²à¤¿à¤ªà¤¿|f|tr=antarrÄá¹£á¹­rÄ«ya dhvanyÄtmak lipi}}
+* Hungarian: {{t|hu|nemzetkÃ¶zi fonetikai Ã¡bÃ©cÃ©}}
+* Icelandic: {{t|is|alÃ¾jÃ³Ã°lega hljÃ³Ã°stafrÃ³fiÃ°|n}}
+* Irish: {{t|ga|AibÃ­tir IdirnÃ¡isiÃºnta FoghraÃ­ochta|f|alt=An AibÃ­tir IdirnÃ¡isiÃºnta FoghraÃ­ochta}}
+{{trans-mid}}
+* Italian: {{t|it|alfabeto fonetico internazionale|m}}
+* Japanese: {{t|ja|å›½éš›éŸ³å£°è¨˜å·|tr=kokusai onsei kigÅ}}
+* Khmer: {{t|km|áž¢áž€áŸ’ážŸážšáž€áŸ’ážšáž˜ážŸáž–áŸ’áž‘áž¢áž“áŸ’ážážšáž‡áž¶ážáž·|tr=ak sor krom sab on tak rak jeat |sc=Khmr}}
+* Korean: {{t|ko|êµ­ì œ ìŒì„± ê¸°í˜¸|tr=gukje eumseong giho}}
+* Latvian: {{t|lv|starptautiskais fonÄ“tiskais alfabÄ“ts}}
+* Lithuanian: {{t+|lt|tarptautinÄ— fonetinÄ— abÄ—cÄ—lÄ—|f}}
+* Luxembourgish: {{t|lb|Internationaalt Phonetescht Alphabet|n}}
+* Macedonian: {{t|mk|Ð¼ÐµÑ“ÑƒÐ½Ð°Ñ€Ð¾Ð´Ð½Ð° Ñ„Ð¾Ð½ÐµÑ‚ÑÐºÐ° Ð°Ð·Ð±ÑƒÐºÐ°|f|tr=meÇµunÃ¡rodna fÃ³netska Ã¡zbuka}}
+* Malay: {{t|ms|Abjad Fonetik Antarabangsa}}
+* Polish: {{t|pl|miÄ™dzynarodowy alfabet fonetyczny|m}}
+* Portuguese: {{t|pt|alfabeto fonÃ©tico internacional|m}}
+* Romanian: {{t|ro|alfabetul fonetic internaÈ›ional|n}}
+* Russian: {{t|ru|Ð¼ÐµÐ¶Ð´ÑƒÐ½Ð°Ñ€Ð¾Ð´Ð½Ñ‹Ð¹ Ñ„Ð¾Ð½ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ¸Ð¹ Ð°Ð»Ñ„Ð°Ð²Ð¸Ñ‚|m|tr=meÅ¾dunarÃ³dnyj fonetÃ­Äeskij alfavÃ­t}}
+* Sami: [[riikkaidgaskasaÅ¡ fonetihkalaÅ¡ transkriberenvuogÃ¡dat]]
+* Scottish Gaelic: {{t|gd|Aibidil Fhogharach Eadar-NÃ iseanta|f}}
+* Spanish: {{t+|es|Alfabeto FonÃ©tico Internacional|m}}
+* Swedish: {{t|sv|internationella fonetiska alfabetet}}
+* Tatar: [[XalÄ±qara YaÃ±ÄŸÄ±rÄ±ÅŸ Ã„lifbasÄ±]]
+* Thai: {{t|th|à¸ªà¸±à¸—à¸­à¸±à¸à¸©à¸£à¸ªà¸²à¸à¸¥|tr=sÃ tÃ ksÅn sÄƒagon}}
+* Turkish: {{t|tr|UluslararasÄ± Fonetik Alfabesi}}
+* Ukrainian: {{t+|uk|Ð¼Ñ–Ð¶Ð½Ð°Ñ€Ð¾Ð´Ð½Ð¸Ð¹ Ñ„Ð¾Ð½ÐµÑ‚Ð¸Ñ‡Ð½Ð¸Ð¹ Ð°Ð»Ñ„Ð°Ð²Ñ–Ñ‚|tr=miÅ¾narodnyj fonetyÄnyj alfavit|m}}
+* VolapÃ¼k: {{t+|vo|Lafab Fonetik BevÃ¼netik}}
+* Walloon: [[alfabet fonetike eternÃ¥cionÃ¥]]
+{{trans-bottom}}
+
+===See also===
+* [[Wiktionary:Pronunciation|Wiktionary: Pronunciation Key]]
+* Template {{temp|IPA}}
+* [[Wiktionary:IPA pronunciation key|Appendix: IPA examples]]
+
+[[Category:en:Alphabets]]
+
+[[af:International Phonetic Alphabet]]
+[[ast:International Phonetic Alphabet]]
+[[dv:International Phonetic Alphabet]]
+[[es:International Phonetic Alphabet]]
+[[eu:International Phonetic Alphabet]]
+[[fr:International Phonetic Alphabet]]
+[[ku:International Phonetic Alphabet]]
+[[lt:International Phonetic Alphabet]]
+[[ja:International Phonetic Alphabet]]
+[[pl:International Phonetic Alphabet]]
+[[pt:International Phonetic Alphabet]]
+[[ta:International Phonetic Alphabet]]
+[[te:International Phonetic Alphabet]]
+[[th:International Phonetic Alphabet]]</text>
+      <sha1>e13f7fd911pkkg5fgfo421ibwga7ryj</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
