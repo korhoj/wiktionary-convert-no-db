@@ -1,0 +1,125 @@
+  <page>
+    <title>portmanteau</title>
+    <ns>0</ns>
+    <id>29</id>
+    <revision>
+      <id>23417965</id>
+      <parentid>23115715</parentid>
+      <timestamp>2013-10-05T18:40:54Z</timestamp>
+      <contributor>
+        <username>Rukhabot</username>
+        <id>45268</id>
+      </contributor>
+      <minor />
+      <comment>updating {{t}}/{{t+}}, including {{t-}} &amp;rarr; {{t}} (see [[Wiktionary:Votes/2013-09/Translation-links to other Wiktionaries]])</comment>
+      <text xml:space="preserve">==English==
+{{was wotd|2007|March|8}}
+{{wikipedia}}
+
+===Alternative forms===
+* {{sense|travelling case}} [[portmantua]]
+
+===Pronunciation===
+* {{a|RP}} {{IPA|/pÉ”ËtËˆmÃ¦n.tÉ™ÊŠ/}}, {{X-SAMPA|/pO:t&quot;m{nt@U/}}
+* {{a|US}} {{enPR|pÃ´rtmÄƒ'ntÅ}}, {{IPA|/pÉ”rtËˆmÃ¦ntoÊŠ/}}, {{X-SAMPA|/pOrt&quot;m{ntou/}}; {{enPR|pÃ´'rtmÄƒntÅÊ¹}}, {{IPA|/ËŒpÉ”rtmÃ¦nËˆtoÊŠ/}}, {{X-SAMPA|/%pOrtm{n&quot;tou/}}
+* {{audio|en-us-portmanteau-1.ogg|Audio 1 (US)}}
+* {{audio|en-us-portmanteau-2.ogg|Audio 2 (US)}}
+
+===Etymology 1===
+From {{etyl|fr|en}} {{term|portemanteau|lang=fr}}, literally {{term|porte|lang=fr||carry}} + {{term|manteau|lang=fr||coat}}
+
+====Noun====
+{{en-noun|s|portmanteaux}}
+
+# A large [[travel]]ling [[case]] usually made of [[leather]], and opening into two equal sections.
+#* '''1667''', Charles Croke, ''Fortune's Uncertainty'':
+#*: Rodolphus therefore finding such an earnest Invitation, embrac'd it with thanks, and with his Servant and '''Portmanteau''', went to Don Juan's; where they first found good Stabling for their Horses, and afterwards as good Provision for themselves.
+# {{context|Australia|dated|lang=en}} A school bag; often shortened to ''port'' or ''school port''
+
+=====Translations=====
+{{trans-top|case}}
+* Albanian: {{t+|sq|baule|f}}
+* Arabic: {{t|ar|Ø­Ù‚ÙŠØ¨Ø© Ø³ÙØ±}}
+* Breton: {{t+|br|mal|f}}, {{t|br|malizenn|f}}
+* Bulgarian: {{t+|bg|Ð³Ð¾Ð»ÑÐ¼}} {{t|bg|ÐºÐ¾Ð¶ÐµÐ½}} {{t+|bg|ÐºÑƒÑ„Ð°Ñ€|m}}
+* Czech: {{t|cs|kontaminace}}
+* Dutch: {{t+|nl|koffer|f}}, {{t|nl|valies|f}}
+* Finnish: {{t+|fi|matkalaukku}}
+* French: {{t+|fr|portemanteau|m}}, {{t+|fr|valise|f}}, {{t+|fr|malle|f}}
+* German: {{t+|de|Koffer|m}}
+* Interlingua: [[valise#Interlingua|valise]]
+* Norwegian:
+*: BokmÃ¥l: {{t|no|koffert|m}}
+*: Nynorsk: {{t|nn|koffert|m}}
+{{trans-mid}}
+* Persian: {{t+|fa|Ú†Ù…Ø¯Ø§Ù†|tr=chamedan}}
+* Polish: {{t|pl|waliza|f}}
+* Portuguese: {{t|pt|maleta|f}}, {{t+|pt|valise|f}}
+* Russian: {{t+|ru|Ñ‡ÐµÐ¼Ð¾Ð´Ð°Ð½|m|tr=Äemodan}}, {{t+|ru|Ð±Ð°ÑƒÐ»|m|tr=baÃºl}}, Ð´Ð¾Ñ€Ð¾Ð¶Ð½Ð°Ñ {{t+|ru|ÑÑƒÐ¼ÐºÐ°|f}}
+* Serbo-Croatian:
+*: Cyrillic: {{t|sh|ÐºÐ¾Ð¶Ð½Ð¸ ÐºÐ¾Ñ„ÐµÑ€|m|tr=koÅ¾ni kofer|sc=Cyrl}}
+* Spanish: {{t+|es|maleta|f}}, {{t|es|valija|f}}
+* Vietnamese: {{t+|vi|va li}}
+{{trans-bottom}}
+
+===Etymology 2===
+Coined by [[w:Lewis Carroll|Lewis Carroll]] in [[s:Through The Looking Glass (And What Alice Found There)|Through The Looking Glass]] to describe the words he coined in [[w:Jabberwocky|Jabberwocky]].
+
+====Noun====
+{{en-noun|s|portmanteaux}}
+
+# {{context|linguistics|lang=en}} A [[portmanteau word]].
+#* '''1872''', Lewis Carroll, ''[[s:Through The Looking Glass (And What Alice Found There)|Through The Looking Glass]]'' ([[s:Through the Looking Glass (And What Alice Found There)/Chapter VI|Chapter VI. Humpty Dumpty]]), the first usage in this sense:
+#*: Well, â€œ[[slithy]]â€ means â€œ[[lithe]] and [[slimy]].â€ â€œLitheâ€ is the same as â€œactiveâ€. You see itâ€™s like a '''[[portmanteau]]'''â€“there are two meanings packed up into one word.
+
+=====Synonyms=====
+* {{sense|portmanteau word}} [[blend]], [[frankenword]], [[portmanteau word]]
+
+=====Translations=====
+{{trans-see|portmanteau word}}
+
+====Adjective====
+{{en-adj|-}}
+
+# {{context|used only before a noun|of a word, story, etc.|lang=en}} Made by combining two (or more) words, stories, etc., in the manner of a linguistic portmanteau.
+#* '''2002''', Nicholas Lezard, ''Spooky tales by the master and friends'' in ''The Guardian'' (London) (December 14, 2002) page 30:
+#*: The overall narrator of this '''portmanteau''' story - for Dickens co-wrote it with five collaborators on his weekly periodical, ''All the Year Round'' - expresses deep, rational scepticism about the whole business of haunting.
+#* '''2002''', Nick Bradshaw, ''One day in September'' in ''Time Out'' (December 11, 2002) Page 71:
+#*: We're so bombarded with images, it's a struggle to preserve our imaginations.' In response, he's turned to cinema, commissioning 11 film-makers to contribute to a '''portmanteau''' film, entitled '11'09&quot;01' and composed of short films each running 11 minutes, nine seconds and one frame.
+
+====Derived terms====
+* [[portmanteau film]]
+* [[portmanteau word]]
+
+===See also===
+* [[:Category:English blends|List of portmanteau words defined in Wiktionary]]
+* [[w:Portmanteau|Wikipedia article on portmanteaus (cases and words)]]
+
+[[Category:en:Lewis Carroll]]
+
+[[cs:portmanteau]]
+[[fr:portmanteau]]
+[[ko:portmanteau]]
+[[io:portmanteau]]
+[[kn:portmanteau]]
+[[ku:portmanteau]]
+[[ml:portmanteau]]
+[[my:portmanteau]]
+[[nl:portmanteau]]
+[[ja:portmanteau]]
+[[no:portmanteau]]
+[[pl:portmanteau]]
+[[ru:portmanteau]]
+[[simple:portmanteau]]
+[[fi:portmanteau]]
+[[sv:portmanteau]]
+[[tl:portmanteau]]
+[[ta:portmanteau]]
+[[te:portmanteau]]
+[[vi:portmanteau]]
+[[zh:portmanteau]]</text>
+      <sha1>8bj6o7yye23naooh5j2k0ruavej6712</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>

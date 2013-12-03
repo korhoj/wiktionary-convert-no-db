@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" /><title>Module:languages/datax - Wiktionary</title>
+<meta name="generator" content="MediaWiki 1.23wmf4" />
+<link rel="apple-touch-icon" href="//bits.wikimedia.org/apple-touch/wiktionary/en.png" />
+<link rel="shortcut icon" href="//bits.wikimedia.org/favicon/wiktionary/en.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wiktionary (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="//en.wiktionary.org/w/api.php?action=rsd" />
+<link rel="copyright" href="//creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="Wiktionary Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="canonical" href="http://en.wiktionary.org/wiki/Module:languages/datax" />
+<link rel="stylesheet" href="//bits.wikimedia.org/en.wiktionary.org/load.php?debug=false&amp;lang=en&amp;modules=ext.echo.badge%7Cext.uls.nojs%7Cext.wikihiero%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmw.PopUpMediaTransform%7Cskins.vector&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="//bits.wikimedia.org/en.wiktionary.org/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(ckb),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: enwiktionary:resourceloader:filter:minify-css:7:15e1d2005e653faee1ae49f5f824f07a */</style>
+
+<script src="//bits.wikimedia.org/en.wiktionary.org/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"Module","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":828,"wgPageName":"Module:languages/datax","wgTitle":"languages/datax","wgCurRevisionId":24031085,"wgRevisionId":24031085,"wgArticleId":4206186,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":"Korhoj","wgUserGroups":["*","user","autoconfirmed"],"wgCategories":["Data modules","Language data modules"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"Scribunto","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Module:languages/datax","wgUserId":480807,"wgUserEditCount":45,"wgUserRegistration":1300941777000,"wgUserNewMsgRevisionId":null,"wgIsProbablyEditable":false,"wgRestrictionEdit":["sysop"],"wgRestrictionMove":["sysop"],"wgGlobalGroups":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"templateEditor":false,"templates":false,"preview":false,"previewDialog":false,"publish":false,"toc":false},"wgBetaFeaturesFeatures":[],"wgEchoOverlayConfiguration":{"notification-count":"0","max-notification-count":99},"wgEchoHelpPage":"//www.mediawiki.org/wiki/Special:MyLanguage/Help:Notifications","wgEchoConfig":{"version":"1.5","eventlogging":{"Echo":{"enabled":true,"revision":6081131},"EchoMail":{"enabled":true,"revision":5467650},"EchoInteraction":{"enabled":true,"revision":5539940}}},"wgCodeEditorCurrentLanguage":"lua","wgULSAcceptLanguageList":["en-us","en"],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","Geo":{"city":"","country":""},"wgNoticeProject":"wiktionary","wgNoticeUserData":{"registration":"20110324044257","editcount":45,"pastyearseditcount":19},"wgSiteNoticeId":"2.0"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function(){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"fancysig":0,"forceeditsummary":0,"gender":"male","hideminor":0,"hidepatrolled":0,"imagesize":2,"justify":0,"math":0,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"rcdays":7,"rclimit":50,"rememberpassword":"1","rows":25,"searchlimit":20,"showhiddencats":false,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":4,"underline":2,"uselivepreview":0,"usenewrc":0,"vector-simplesearch":1,"watchcreations":1,"watchdefault":0,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":
+0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"useeditwarning":1,"prefershttps":1,"usebetatoolbar":1,"usebetatoolbar-cgd":1,"lqtnotifytalk":"1","lqtdisplaydepth":5,"lqtdisplaycount":25,"lqtcustomsignatures":true,"lqt-watch-threads":true,"echo-notify-show-link":true,"echo-show-alert":true,"echo-email-frequency":0,"echo-email-format":"html","echo-subscriptions-email-system":true,"echo-subscriptions-web-system":true,"echo-subscriptions-email-other":false,"echo-subscriptions-web-other":true,"echo-subscriptions-email-edit-user-talk":1,"echo-subscriptions-web-edit-user-talk":true,"echo-subscriptions-email-reverted":false,"echo-subscriptions-web-reverted":true,"echo-subscriptions-email-article-linked":false,"echo-subscriptions-web-article-linked":false,"echo-subscriptions-email-mention":false,"echo-subscriptions-web-mention":true,"echo-subscriptions-web-edit-thank":true,"echo-subscriptions-email-edit-thank":false,
+"uls-preferences":"{\"ime\":{\"isDirty\":true,\"language\":\"en\",\"previousLanguages\":[\"en\"],\"imes\":{\"en\":\"system\"}}}","language":"en","variant-gan":"gan","variant-iu":"iu","variant-kk":"kk","variant-ku":"ku","variant-shi":"shi","variant-sr":"sr","variant-tg":"tg","variant-uz":"uz","variant-zh":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"searchNs90":false,"searchNs91":false,"searchNs92":false,"searchNs93":false,"searchNs100":false,"searchNs101":false,"searchNs102":false,"searchNs103":false,"searchNs104":false,"searchNs105":false,"searchNs106":false,"searchNs107":false,"searchNs108":false,"searchNs109":false,"searchNs110":false,"searchNs111":false,"searchNs114":false,"searchNs115":false,"searchNs116":false,"searchNs117":false,
+"searchNs828":false,"searchNs829":false,"gadget-PatrollingEnhancements":1,"nickname":"","timecorrection":"Offset|0","watchlisttoken":"147a478a80b0847fb3cbe0803c4fd97c6345af6b"});},{},{});mw.loader.implement("user.tokens",function(){mw.user.tokens.set({"editToken":"6ec9b5193c76e794b71a5012a8b366cd+\\","patrolToken":false,"watchToken":"66a6ee0f288dc0826bd99f2b4b8b4b13+\\"});},{},{});
+/* cache key: enwiktionary:resourceloader:filter:minify-js:7:c9a126df8ea87346754ad22b29537575 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","ext.centralauth.centralautologin.clearcookie","ext.uls.init","ext.uls.interface","ext.centralNotice.bannerController","skins.vector.js","ext.dismissableSiteNotice"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-lua {line-height: normal;}
+.source-lua li, .source-lua pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for lua
+ * CSS class: source-lua, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.lua.source-lua .de1, .lua.source-lua .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.lua.source-lua  {font-family:monospace;}
+.lua.source-lua .imp {font-weight: bold; color: red;}
+.lua.source-lua li, .lua.source-lua .li1 {font-weight: normal; vertical-align:top;}
+.lua.source-lua .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.lua.source-lua .li2 {font-weight: bold; vertical-align:top;}
+.lua.source-lua .kw1 {color: #aa9900; font-weight: bold;}
+.lua.source-lua .kw2 {color: #aa9900; font-weight: bold;}
+.lua.source-lua .kw3 {color: #0000aa;}
+.lua.source-lua .kw4 {color: #aa9900;}
+.lua.source-lua .kw5 {color: #aa9900;}
+.lua.source-lua .co1 {color: #808080; font-style: italic;}
+.lua.source-lua .co2 {color: #ff0000;}
+.lua.source-lua .coMULTI {color: #808080; font-style: italic;}
+.lua.source-lua .es0 {color: #000099; font-weight: bold;}
+.lua.source-lua .es1 {color: #000099; font-weight: bold;}
+.lua.source-lua .es2 {color: #000099; font-weight: bold;}
+.lua.source-lua .br0 {color: #66cc66;}
+.lua.source-lua .sy0 {color: #66cc66;}
+.lua.source-lua .st0 {color: #ff6666;}
+.lua.source-lua .nu0 {color: #cc66cc;}
+.lua.source-lua .me0 {color: #aa9900;}
+.lua.source-lua .ln-xtra, .lua.source-lua li.ln-xtra, .lua.source-lua div.ln-xtra {background-color: #ffc;}
+.lua.source-lua span.xtra { display:block; }
+
+/*]]>*/
+</style><script src="//bits.wikimedia.org/geoiplookup"></script><link rel="dns-prefetch" href="//meta.wikimedia.org" /><!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/static-1.23wmf4/skins/vector/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-828 ns-subject page-Module_languages_datax skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<div id="siteNotice"><!-- CentralNotice --><div class="mw-dismissable-notice"><div class="mw-dismissable-notice-close">[<a href="#">dismiss</a>]</div><div class="mw-dismissable-notice-body"><div id="localNotice" lang="en" dir="ltr"><p><a href="/wiki/Wiktionary:News_for_editors" title="Wiktionary:News for editors">News for editors</a>
+</p></div></div></div></div>
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Module:languages/datax</span></h1>
+			<div id="bodyContent">
+								<div id="siteSub">Definition from Wiktionary, the free dictionary</div>
+								<div id="contentSub"><span class="subpages">&lt; <a href="/wiki/Module:languages" title="Module:languages">Module:languages</a></span></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-navigation">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div lang="en" dir="ltr" xml:lang="en">
+<div class="documentation" style="display:block; clear:both">
+<dl>
+<dd><i>The following <a href="/wiki/Help:Documenting_templates_and_modules" title="Help:Documenting templates and modules">documentation</a> is located at</i> <a href="/wiki/Module:languages/datax/documentation" title="Module:languages/datax/documentation">Module:languages/datax/documentation</a>. <sup class="plainlinks">[<a class="external text" href="//en.wiktionary.org/w/index.php?title=Module:languages/datax/documentation&amp;action=edit">edit</a>]</sup></dd>
+</dl>
+<p>This module contains definitions and metadata for exceptional language codes on Wiktionary. See <a href="/wiki/Wiktionary:Languages" title="Wiktionary:Languages">Wiktionary:Languages</a> for more information.</p>
+<p>This module <b>must not</b> be used directly in other modules or templates. The data should be accessed through <a href="/wiki/Module:languages" title="Module:languages">Module:languages</a>.</p>
+<hr /></div>
+</div>
+
+
+<!-- 
+NewPP limit report
+Parsed by mw1109
+CPU time usage: 0.016 seconds
+Real time usage: 0.021 seconds
+Preprocessor visited node count: 8/1000000
+Preprocessor generated node count: 44/1500000
+Post‐expand include size: 425/2048000 bytes
+Template argument size: 0/2048000 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/500
+-->
+<pre class="lua source-lua"><span class="co1">-- UTF-8 encoded strings for some commonly-used diacritics</span>
+<span class="kw1">local</span> GRAVE	    <span class="sy0">=</span> <span class="st0">&quot;<span class="es2">\204</span><span class="es2">\128</span>&quot;</span> <span class="co1">-- U+0300</span>
+<span class="kw1">local</span> ACUTE	    <span class="sy0">=</span> <span class="st0">&quot;<span class="es2">\204</span><span class="es2">\129</span>&quot;</span> <span class="co1">-- U+0301</span>
+<span class="kw1">local</span> CIRC	    <span class="sy0">=</span> <span class="st0">&quot;<span class="es2">\204</span><span class="es2">\130</span>&quot;</span> <span class="co1">-- U+0302</span>
+<span class="kw1">local</span> TILDE	    <span class="sy0">=</span> <span class="st0">&quot;<span class="es2">\204</span><span class="es2">\131</span>&quot;</span> <span class="co1">-- U+0303</span>
+<span class="kw1">local</span> MACRON    <span class="sy0">=</span> <span class="st0">&quot;<span class="es2">\204</span><span class="es2">\132</span>&quot;</span> <span class="co1">-- U+0304</span>
+<span class="kw1">local</span> BREVE	    <span class="sy0">=</span> <span class="st0">&quot;<span class="es2">\204</span><span class="es2">\134</span>&quot;</span> <span class="co1">-- U+0306</span>
+<span class="kw1">local</span> DOTABOVE  <span class="sy0">=</span> <span class="st0">&quot;<span class="es2">\204</span><span class="es2">\135</span>&quot;</span> <span class="co1">-- U+0307</span>
+<span class="kw1">local</span> DIAER     <span class="sy0">=</span> <span class="st0">&quot;<span class="es2">\204</span><span class="es2">\136</span>&quot;</span> <span class="co1">-- U+0308</span>
+<span class="kw1">local</span> CARON     <span class="sy0">=</span> <span class="st0">&quot;<span class="es2">\204</span><span class="es2">\140</span>&quot;</span> <span class="co1">-- U+030C</span>
+<span class="kw1">local</span> DGRAVE    <span class="sy0">=</span> <span class="st0">&quot;<span class="es2">\204</span><span class="es2">\143</span>&quot;</span> <span class="co1">-- U+030F</span>
+<span class="kw1">local</span> INVBREVE  <span class="sy0">=</span> <span class="st0">&quot;<span class="es2">\204</span><span class="es2">\145</span>&quot;</span> <span class="co1">-- U+0311</span>
+<span class="kw1">local</span> DOTBELOW  <span class="sy0">=</span> <span class="st0">&quot;<span class="es2">\204</span><span class="es2">\163</span>&quot;</span> <span class="co1">-- U+0323</span>
+<span class="kw1">local</span> RINGBELOW <span class="sy0">=</span> <span class="st0">&quot;<span class="es2">\204</span><span class="es2">\165</span>&quot;</span> <span class="co1">-- U+0325</span>
+<span class="kw1">local</span> CEDILLA   <span class="sy0">=</span> <span class="st0">&quot;<span class="es2">\204</span><span class="es2">\167</span>&quot;</span> <span class="co1">-- U+0327</span>
+&nbsp;
+<span class="kw1">local</span> m <span class="sy0">=</span> <span class="br0">&#123;</span><span class="br0">&#125;</span>
+&nbsp;
+m<span class="br0">&#91;</span><span class="st0">&quot;aav-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Austro-Asiatic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;aav&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;afa-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Afro-Asiatic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;afa&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;alg-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Algonquian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;alg&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;aql-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Algic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;aql&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;art-blk&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Bolak&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;appendix-constructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;art&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;art-com&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Communicationssprache&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;appendix-constructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;art&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;art-elo&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Eloi&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;appendix-constructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;art&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;art-gld&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Goa'uld&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;appendix-constructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Egyp&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Mero&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;art&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;art-lap&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Lapine&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;appendix-constructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;art&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;art-man&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Mandalorian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;appendix-constructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;art&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;art-mun&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Mundolinco&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;appendix-constructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;art&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;art-nav&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Na'vi&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;appendix-constructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;art&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;art-nox&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Noxilo&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;appendix-constructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;art&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;art-top&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Toki Pona&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;appendix-constructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;art&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;art-una&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Unas&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;appendix-constructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;art&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;ath-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Athabaskan&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;ath&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;aus-bun&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Bunurong&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;None&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;aus-pam&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;aus-cww-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Central New South Wales&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;aus-cww&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;aus-dar&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Darkinjung&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;aus-yuk&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;aus-gab&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Gabi&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;aus-pam&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;aus-pam-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Pama-Nyungan&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;aus-pam&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;azc-nah-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Nahuan&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;azc-nah&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;azc-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Uto-Aztecan&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;azc&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;bat-olt&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Old Lithuanian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;None&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;bat&quot;</span><span class="sy0">,</span>
+	entry_name <span class="sy0">=</span> <span class="br0">&#123;</span>
+		from <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;[áãà]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[éẽè]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[íĩì]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[ýỹ]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ñ&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[óõò]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[úù]&quot;</span><span class="sy0">,</span> ACUTE<span class="sy0">,</span> GRAVE<span class="sy0">,</span> TILDE<span class="br0">&#125;</span><span class="sy0">,</span>
+		to   <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;a&quot;</span>    <span class="sy0">,</span> <span class="st0">&quot;e&quot;</span>    <span class="sy0">,</span> <span class="st0">&quot;i&quot;</span><span class="sy0">,</span> <span class="st0">&quot;y&quot;</span>   <span class="sy0">,</span> <span class="st0">&quot;n&quot;</span><span class="sy0">,</span> <span class="st0">&quot;o&quot;</span>	   <span class="sy0">,</span> <span class="st0">&quot;u&quot;</span>   <span class="br0">&#125;</span><span class="br0">&#125;</span> <span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;bat-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Baltic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;bat&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;ber-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Berber&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;None&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;ber&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;bnt-phu&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Phuthi&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;None&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;bnt&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;bnt-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Bantu&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;bnt&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;cau-nec-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Northeast Caucasian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;cau-nec&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;cbk-zam&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Zamboanga Chavacano&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;None&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;crp&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;ccn-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-North Caucasian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;ccn&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;ccs-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Kartvelian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;ccs&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;cel-bry-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Brythonic&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Proto-Brittonic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;cel-bry&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;cel-gau&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Gaulish&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Grek&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;cel&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;cel-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Celtic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;cel&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;cmc-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Chamic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;cmc&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;cpe-mar&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Maroon Spirit Language&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Jamaican Maroon Spirit Possession Language&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;crp&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;cpe-spp&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Samoan Plantation Pidgin&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;crp&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;crp-gep&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Greenlandic Eskimo Pidgin&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;crp&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;crp-rsn&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Russenorsk&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Cyrl&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;crp&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;crp-tpr&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Taimyr Pidgin Russian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Cyrl&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;crp&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;dra-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Dravidian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;dra&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;dru-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Rukai&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;map&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;esx-esk-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Eskimo&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;esx-esk&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;esx-inu-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Inupik&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;esx-inu&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;esx-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Eskimo-Aleut&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;esx&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;euq-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Basque&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;euq&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;fiu-fin-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Finnic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;fiu-fin&quot;</span><span class="sy0">,</span>
+	sort_key <span class="sy0">=</span> <span class="br0">&#123;</span>
+		from <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;ä&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ö&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ü&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+		to   <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;a&quot;</span><span class="sy0">,</span> <span class="st0">&quot;o&quot;</span><span class="sy0">,</span> <span class="st0">&quot;u&quot;</span><span class="br0">&#125;</span><span class="br0">&#125;</span> <span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;fiu-fpr-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Finno-Permic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;fiu-fpr&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;fiu-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Finno-Ugric&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;fiu&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;fiu-ugr-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Ugric&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;fiu-ugr&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;fra-aca&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Acadian French&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;roa&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;gem-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Germanic&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Common Germanic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;gem&quot;</span><span class="sy0">,</span>
+	sort_key <span class="sy0">=</span> <span class="br0">&#123;</span>
+		from <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;ā&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[ēê]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ī&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[ōô]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ū&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ą&quot;</span> <span class="sy0">,</span> <span class="st0">&quot;į&quot;</span> <span class="sy0">,</span> <span class="st0">&quot;ǫ&quot;</span> <span class="sy0">,</span> <span class="st0">&quot;ų&quot;</span> <span class="sy0">,</span> CIRC<span class="sy0">,</span> MACRON<span class="br0">&#125;</span><span class="sy0">,</span>
+		to   <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;a&quot;</span> <span class="sy0">,</span> <span class="st0">&quot;e&quot;</span>  <span class="sy0">,</span> <span class="st0">&quot;i&quot;</span><span class="sy0">,</span> <span class="st0">&quot;o&quot;</span>   <span class="sy0">,</span> <span class="st0">&quot;u&quot;</span><span class="sy0">,</span> <span class="st0">&quot;an&quot;</span><span class="sy0">,</span> <span class="st0">&quot;in&quot;</span><span class="sy0">,</span> <span class="st0">&quot;on&quot;</span><span class="sy0">,</span> <span class="st0">&quot;un&quot;</span><span class="br0">&#125;</span><span class="br0">&#125;</span> <span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;gme-cgo&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Crimean Gothic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;gme&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;gmq-gut&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Gutnish&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;gmq&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;gmq-mno&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Middle Norwegian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;gmq&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;gmq-oda&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Old Danish&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;gmq&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;gmq-osw&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Old Swedish&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;gmq&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;gmq-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Norse&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Runr&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;gmq&quot;</span><span class="sy0">,</span>
+	translit_module <span class="sy0">=</span> <span class="st0">&quot;Runr-translit&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;gmw-jdt&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Jersey Dutch&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;gmw&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;grk-cal&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Calabrian Greek&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Italian Greek&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Bova&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;grk&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;grk-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Hellenic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;grk&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;hmn-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Hmong&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;hmn&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;hmx-mie-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Mien&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;hmx-mie&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;hmx-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Hmong-Mien&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;hmx&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;hyx-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Armenian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;hyx&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;iir-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Indo-Iranian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;iir&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;inc-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Indo-Aryan&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;inc&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;ine-ana-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Anatolian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;ine-ana&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;ine-bsl-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Balto-Slavic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;ine-bsl&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;ine-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Indo-European&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;ine&quot;</span><span class="sy0">,</span>
+	sort_key <span class="sy0">=</span> <span class="br0">&#123;</span>
+		from <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;[áā]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[éēḗ]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[íī]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[óōṓ]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[úū]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ĺ&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ḿ&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ń&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ŕ&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ǵ&quot;</span> <span class="sy0">,</span> <span class="st0">&quot;ḱ&quot;</span> <span class="sy0">,</span> <span class="st0">&quot;ʰ&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ʷ&quot;</span><span class="sy0">,</span> <span class="st0">&quot;₁&quot;</span><span class="sy0">,</span> <span class="st0">&quot;₂&quot;</span><span class="sy0">,</span> <span class="st0">&quot;₃&quot;</span><span class="sy0">,</span> RINGBELOW<span class="sy0">,</span> ACUTE<span class="sy0">,</span> MACRON<span class="br0">&#125;</span><span class="sy0">,</span>
+		to   <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;a&quot;</span>   <span class="sy0">,</span> <span class="st0">&quot;e&quot;</span>	<span class="sy0">,</span> <span class="st0">&quot;i&quot;</span>   <span class="sy0">,</span> <span class="st0">&quot;o&quot;</span>	<span class="sy0">,</span> <span class="st0">&quot;u&quot;</span>   <span class="sy0">,</span> <span class="st0">&quot;l&quot;</span><span class="sy0">,</span> <span class="st0">&quot;m&quot;</span><span class="sy0">,</span> <span class="st0">&quot;n&quot;</span><span class="sy0">,</span> <span class="st0">&quot;r&quot;</span><span class="sy0">,</span> <span class="st0">&quot;g'&quot;</span><span class="sy0">,</span> <span class="st0">&quot;k'&quot;</span><span class="sy0">,</span> <span class="st0">&quot;h&quot;</span><span class="sy0">,</span> <span class="st0">&quot;w&quot;</span><span class="sy0">,</span> <span class="st0">&quot;1&quot;</span><span class="sy0">,</span> <span class="st0">&quot;2&quot;</span><span class="sy0">,</span> <span class="st0">&quot;3&quot;</span><span class="br0">&#125;</span><span class="br0">&#125;</span> <span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;ine-toc-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Tocharian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;ine-toc&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;ira-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Iranian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;ira&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;iro-min&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Mingo&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;iro&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;itc-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Italic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;itc&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;jpx-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Japonic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;jpx&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;khi-kun&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;ǃKung&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ǃOǃKung&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ǃ'OǃKung&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Kung&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Ekoka ǃKung&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Ekoka Kung&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Sekele&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;khi&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;map-ata-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Atayalic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;map-ata&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;map-bms&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Banyumasan&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;None&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;qfa-und&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;map-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Austronesian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;map&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;mkh-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Mon-Khmer&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;mkh&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;mkh-vie-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Vietic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;mkh-vie&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;nai-pic&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Picuris&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;qfa-kta&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;nds-de&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;German Low German&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;gmw&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;nds-nl&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Dutch Low Saxon&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;gmw&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;phi-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Philippine&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;phi&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;plf-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Central Malayo-Polynesian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;plf&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;poz-btk-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Bungku-Tolaki&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;poz-btk&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;poz-cet-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Central-Eastern Malayo-Polynesian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;poz&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;poz-hce-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Halmahera-Cenderawasih&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Proto-South Halmahera - West New Guinea&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;poz-hce&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;poz-lgx-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Lampungic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;poz-lgx&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;poz-mcm-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Malayo-Chamic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;poz-msa&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;poz-mly-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Malayic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;poz-mly&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;poz-msa-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Malayo-Sumbawan&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;poz-msa&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;poz-oce-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Oceanic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;poz-oce&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;poz-pep-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Eastern Polynesian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;poz-pol&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;poz-pnp-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Nuclear Polynesian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;poz-pol&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;poz-pol-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Polynesian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;poz-pol&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;poz-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Malayo-Polynesian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;poz&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;poz-ssw-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-South Sulawesi&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;poz-ssw&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;poz-sus-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Sunda-Sulawesi&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;poz-sus&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;poz-swa-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-North Sarawak&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;poz-swa&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;pqe-pol-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-East-Polynesian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;pqe-pol&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;pqe-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Eastern Malayo-Polynesian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;pqe&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;pqw-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Western Malayo-Polynesian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;pqw&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;qfa-cka-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Chukotko-Kamchatkan&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;qfa-cka&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;qfa-kor-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Korean&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;None&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;qfa-kor&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;qfa-yen-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Yeniseian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;qfa-yen&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;roa-gal&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Gallo&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;roa&quot;</span><span class="sy0">,</span>
+	sort_key <span class="sy0">=</span> <span class="br0">&#123;</span>
+		from <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;[áàâä]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[éèêë]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[íìîï]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[óòôö]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[úùûü]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[ýỳŷÿ]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ç&quot;</span><span class="sy0">,</span> <span class="st0">&quot;'&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+		to   <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;a&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;e&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;i&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;o&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;u&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;y&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;c&quot;</span><span class="br0">&#125;</span><span class="br0">&#125;</span> <span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;roa-grn&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Guernésiais&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Dgèrnésiais&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Guernsey French&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Guernsey Norman French&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;roa&quot;</span><span class="sy0">,</span>
+	sort_key <span class="sy0">=</span> <span class="br0">&#123;</span>
+		from <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;[áàâä]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[éèêë]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[íìîï]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[óòôö]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[úùûü]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[ýỳŷÿ]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ç&quot;</span><span class="sy0">,</span> <span class="st0">&quot;'&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+		to   <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;a&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;e&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;i&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;o&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;u&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;y&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;c&quot;</span><span class="br0">&#125;</span><span class="br0">&#125;</span> <span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;roa-jer&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Jèrriais&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Jersey French&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Jersey Norman&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Jersey Norman French&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;roa&quot;</span><span class="sy0">,</span>
+	sort_key <span class="sy0">=</span> <span class="br0">&#123;</span>
+		from <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;[áàâä]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[éèêë]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[íìîï]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[óòôö]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[úùûü]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[ýỳŷÿ]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ç&quot;</span><span class="sy0">,</span> <span class="st0">&quot;'&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+		to   <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;a&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;e&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;i&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;o&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;u&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;y&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;c&quot;</span><span class="br0">&#125;</span><span class="br0">&#125;</span> <span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;roa-leo&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Leonese&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;roa&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;roa-nor&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Norman&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;roa&quot;</span><span class="sy0">,</span>
+	sort_key <span class="sy0">=</span> <span class="br0">&#123;</span>
+		from <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;[áàâä]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[éèêë]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[íìîï]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[óòôö]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[úùûü]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;[ýỳŷÿ]&quot;</span><span class="sy0">,</span> <span class="st0">&quot;ç&quot;</span><span class="sy0">,</span> <span class="st0">&quot;'&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+		to   <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;a&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;e&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;i&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;o&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;u&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;y&quot;</span>	 <span class="sy0">,</span> <span class="st0">&quot;c&quot;</span><span class="br0">&#125;</span><span class="br0">&#125;</span> <span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;roa-oit&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Old Italian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;roa&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;roa-ptg&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Old Portuguese&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Galician-Portuguese&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Galician Portuguese&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;roa&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;roa-tar&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Tarantino&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;roa&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;sca-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span> <span class="co1">-- the family is called Siouan, but sio-pro Proto-Siouan is the proto-lang of Western Sioun only</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Siouan-Catawban&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;qfa-sca&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;sem-amm&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Ammonite&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Phnx&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;sem-can&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;sem-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Semitic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;sem&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;sem-srb&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Old South Arabian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Sarb&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;sem&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;sem-syr&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Syrian Arabic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Arab&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;sem-arb&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;sio-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span> <span class="co1">-- though the whole family is called Siouan, this is the proto-lang of Western Sioun only; compare sca-pro </span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Siouan&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;sio&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;sit-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Sino-Tibetan&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;sit&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;sla-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Slavic&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Common Slavic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;sla&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;smi-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Samic&quot;</span><span class="sy0">,</span> <span class="st0">&quot;Proto-Sami&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;smi&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;sqj-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Albanian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;sqj&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;syd-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Samoyedic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;None&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;syd&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;tai-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Tai&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;tai&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;tai-swe-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Southwestern Tai&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;tai-swe&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;trk-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Turkic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;trk&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;tut-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Altaic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;tut&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;und-ibe&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;pre-Roman (Iberia)&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;qfa-not&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;und-bal&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;pre-Roman (Balkans)&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;qfa-not&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;urj-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Uralic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;urj&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;xgn-pro&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Proto-Mongolic&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;reconstructed&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;unicode&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;xgn&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;zhx-mid&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Middle Chinese&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Hani&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;qfa-und&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;zlw-opl&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Old Polish&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;zlw&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;zlw-pom&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Pomeranian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;None&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;qfa-und&quot;</span><span class="br0">&#125;</span>
+m<span class="br0">&#91;</span><span class="st0">&quot;zlw-slv&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="br0">&#123;</span>
+	names <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Slovincian&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	<span class="kw3">type</span> <span class="sy0">=</span> <span class="st0">&quot;regular&quot;</span><span class="sy0">,</span>
+	scripts <span class="sy0">=</span> <span class="br0">&#123;</span><span class="st0">&quot;Latn&quot;</span><span class="br0">&#125;</span><span class="sy0">,</span>
+	family <span class="sy0">=</span> <span class="st0">&quot;zlw&quot;</span><span class="br0">&#125;</span>
+&nbsp;
+<span class="kw1">return</span> m</pre></div>								<div class="printfooter">
+				Retrieved from "<a href="http://en.wiktionary.org/w/index.php?title=Module:languages/datax&amp;oldid=24031085">http://en.wiktionary.org/w/index.php?title=Module:languages/datax&amp;oldid=24031085</a>"				</div>
+												<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:Data_modules" title="Category:Data modules">Data modules</a></li><li><a href="/wiki/Category:Language_data_modules" title="Category:Language data modules">Language data modules</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+			<div id="mw-head">
+				<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+	<h3 id="p-personal-label">Personal tools</h3>
+	<ul>
+<li id="pt-userpage"><a href="/wiki/User:Korhoj" class="new" title="Your user page [.]" accesskey=".">Korhoj</a></li><li id="pt-notifications"><a href="/wiki/Special:Notifications" class="mw-echo-notifications-badge" title="Your notifications">0</a></li><li id="pt-mytalk"><a href="/wiki/User_talk:Korhoj" title="Your talk page [n]" accesskey="n">Talk</a></li><li id="pt-preferences"><a href="/wiki/Special:Preferences" title="Your preferences">Preferences</a></li><li id="pt-betafeatures"><a href="/wiki/Special:Preferences#mw-prefsection-betafeatures">Beta</a></li><li id="pt-watchlist"><a href="/wiki/Special:Watchlist" title="A list of pages you are monitoring for changes [l]" accesskey="l">Watchlist</a></li><li id="pt-newmessages"><a href="/wiki/Special:NewMessages" title="Shows new posts to threads or on threaded talk pages you are watching">New messages (none)</a></li><li id="pt-mycontris"><a href="/wiki/Special:Contributions/Korhoj" title="A list of your contributions [y]" accesskey="y">Contributions</a></li><li id="pt-logout"><a href="/w/index.php?title=Special:UserLogout&amp;returnto=Module%3Alanguages%2Fdatax" title="Log out">Log out</a></li>	</ul>
+</div>
+				<div id="left-navigation">
+					<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+	<h3 id="p-namespaces-label">Namespaces</h3>
+	<ul>
+					<li  id="ca-nstab-module" class="selected"><span><a href="/wiki/Module:languages/datax"  title="[c]" accesskey="c">Module</a></span></li>
+					<li  id="ca-talk" class="new"><span><a href="/w/index.php?title=Module_talk:languages/datax&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+			</ul>
+</div>
+<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+	<h3 id="mw-vector-current-variant">
+		</h3>
+	<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+				</div>
+				<div id="right-navigation">
+					<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+	<h3 id="p-views-label">Views</h3>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="/wiki/Module:languages/datax" >Read</a></span></li>
+					<li id="ca-viewsource"><span><a href="/w/index.php?title=Module:languages/datax&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=Module:languages/datax&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">History</a></span></li>
+					<li id="ca-watch" class="icon"><span><a href="/w/index.php?title=Module:languages/datax&amp;action=watch&amp;token=a2fb856fea578533cfeb013f22322fdc%2B%5C"  title="Add this page to your watchlist [w]" accesskey="w">Watch</a></span></li>
+			</ul>
+</div>
+<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+	<h3 id="p-cactions-label"><span>Actions</span><a href="#"></a></h3>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+<div id="p-search" role="search">
+	<h3><label for="searchInput">Search</label></h3>
+	<form action="/w/index.php" id="searchform">
+				<div id="simpleSearch">
+						<input name="search" placeholder="Search" title="Search Wiktionary [f]" accesskey="f" id="searchInput" />						<button type="submit" name="button" title="Search the pages for this text" id="searchButton"><img src="//bits.wikimedia.org/static-1.23wmf4/skins/vector/images/search-ltr.png?303-4" alt="Search" width="12" height="13" /></button>								<input type='hidden' name="title" value="Special:Search"/>
+		</div>
+	</form>
+</div>
+				</div>
+			</div>
+			<div id="mw-panel">
+					<div id="p-logo" role="banner"><a style="background-image: url(//upload.wikimedia.org/wiktionary/en/b/bc/Wiki.png);" href="/wiki/Wiktionary:Main_Page"  title="Visit the main page"></a></div>
+				<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+	<h3 id='p-navigation-label'>Navigation</h3>
+	<div class="body">
+		<ul>
+			<li id="n-mainpage-text"><a href="/wiki/Wiktionary:Main_Page">Main Page</a></li>
+			<li id="n-portal"><a href="/wiki/Wiktionary:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+			<li id="n-wiktprefs"><a href="/wiki/Wiktionary:Per-browser_preferences">Preferences</a></li>
+			<li id="n-requestedarticles"><a href="/wiki/Wiktionary:Requested_entries">Requested entries</a></li>
+			<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+			<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random entry</a></li>
+			<li id="n-help"><a href="/wiki/Help:Contents" title="The place to find out">Help</a></li>
+			<li id="n-sitesupport"><a href="//donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wiktionary.org&amp;uselang=en" title="Support us">Donations</a></li>
+			<li id="n-contact"><a href="/wiki/Wiktionary:Contact_us">Contact us</a></li>
+		</ul>
+	</div>
+</div>
+<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+	<h3 id='p-tb-label'>Tools</h3>
+	<div class="body">
+		<ul>
+			<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Module:languages/datax" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+			<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Module:languages/datax" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+			<li id="t-upload"><a href="//commons.wikimedia.org/wiki/Special:UploadWizard" title="Upload files [u]" accesskey="u">Upload file</a></li>
+			<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+			<li id="t-print"><a href="/w/index.php?title=Module:languages/datax&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+			<li id="t-permalink"><a href="/w/index.php?title=Module:languages/datax&amp;oldid=24031085" title="Permanent link to this revision of the page">Permanent link</a></li>
+			<li id="t-info"><a href="/w/index.php?title=Module:languages/datax&amp;action=info">Page information</a></li>
+		</ul>
+	</div>
+</div>
+<div class="portal" role="navigation" id='p-lang' aria-labelledby='p-lang-label'>
+	<h3 id='p-lang-label'>In other languages</h3>
+	<div class="body">
+		<ul>
+			<li class="uls-p-lang-dummy"><a href="#"></a></li>
+		</ul>
+	</div>
+</div>
+			</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 20 November 2013, at 00:55.</li>
+											<li id="footer-info-copyright">Text is available under the <a href="//creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution/Share-Alike License</a>; additional terms may apply.  By using this site, you agree to the <a href="//wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//wikimediafoundation.org/wiki/Privacy_policy">Privacy Policy.</a></li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="//wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/Wiktionary:About" title="Wiktionary:About">About Wiktionary</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/Wiktionary:General_disclaimer" title="Wiktionary:General disclaimer">Disclaimers</a></li>
+											<li id="footer-places-developers"><a class="external" href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+											<li id="footer-places-mobileview"><a href="//en.m.wiktionary.org/w/index.php?title=Module:languages/datax&amp;title=Module%3Alanguages%2Fdatax" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+					<li id="footer-copyrightico">
+						<a href="//wikimediafoundation.org/"><img src="//bits.wikimedia.org/images/wikimedia-button.png" width="88" height="31" alt="Wikimedia Foundation"/></a>
+					</li>
+					<li id="footer-poweredbyico">
+						<a href="//www.mediawiki.org/"><img src="//bits.wikimedia.org/static-1.23wmf4/skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>
+					</li>
+				</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"loading","user.groups":"loading"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mobile.desktop","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","mediawiki.page.watch.ajax","mw.MwEmbedSupport.style","ext.echo.overlay","ext.echo.alert","ext.wikimediaEvents.moduleStorage","ext.navigationTiming","schema.UniversalLanguageSelector","ext.uls.eventlogger","mw.PopUpMediaTransform","skins.vector.collapsibleNav"],null,true);
+}</script>
+<script src="//bits.wikimedia.org/en.wiktionary.org/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.loader.state({"user":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.state({"user.groups":"ready"});
+}</script>
+<!-- Served by mw1109 in 0.366 secs. -->
+	</body>
+</html>

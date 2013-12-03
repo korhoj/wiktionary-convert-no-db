@@ -1,0 +1,338 @@
+  <page>
+    <title>dictionary</title>
+    <ns>0</ns>
+    <id>16</id>
+    <revision>
+      <id>23422582</id>
+      <parentid>23417961</parentid>
+      <timestamp>2013-10-06T03:40:45Z</timestamp>
+      <contributor>
+        <username>Rukhabot</username>
+        <id>45268</id>
+      </contributor>
+      <minor />
+      <comment>updating {{t}}/{{t+}}</comment>
+      <text xml:space="preserve">==English==
+{{wikipedia|dab=Dictionary (disambiguation)|Dictionary}}
+[[Image:Latin dictionary.jpg|thumb|250px|A multi-volume Latin dictionary in the [[w:University Library of Graz|University Library of Graz]].]]
+
+===Etymology===
+{{etyl|ML.|en}} {{term|dictionarium|lang=la}}, from {{etyl|la|en}} {{term|dictionarius|lang=la}}, from {{term|dictio||speaking|lang=la}}, from {{term|dictus|lang=la}}, perfect past participle of {{term/t|la|dÄ«cÅ||speak}} + {{term|-arium||room, place|lang=la}}.
+
+===Pronunciation===
+* {{a|UK}} {{IPA|/ËˆdÉªkÊƒÉ™n(É™)É¹i/}}, {{X-SAMPA|/&quot;dIkS@n(@)ri/}}
+* {{a|North America}} {{enPR|dÄ­k'shÉ™-nÄ•r-Ä“}}, {{IPA|/ËˆdÉªkÊƒÉ™nÉ›É¹i/}}, {{X-SAMPA|/&quot;dIkS@nEri/}}
+* {{audio|en-us-dictionary.ogg|Audio (US)}}
+* {{audio|en-uk-dictionary.ogg|Audio (UK)}}
+
+===Noun===
+{{en-noun|dictionaries}}
+
+# A [[reference work]] with a list of [[word]]s from one or more languages, normally ordered [[alphabetical]]ly and explaining each word's meaning and sometimes containing information on its etymology, usage, translations{{,}} and other data.
+# By extension, any work that has a list of material organized alphabetically; e.g. biographical dictionary, encyclopedic dictionary.
+# {{label|en|computing}} An [[associative array]], a data structure where each value is referenced by a particular key, analogous to words and definitions in a physical dictionary.
+
+* {{seeCites}}
+
+====Synonyms====
+* [[wordbook]]
+
+====Derived terms====
+* [[encyclopedic dictionary]]
+* [[explanatory dictionary]]
+* [[fictionary]]
+* [[pedagogical dictionary]]
+* [[Pictionary]]
+* [[pronunciation dictionary]]
+* [[subdictionary]]
+* [[translating dictionary]]
+* [[translationary]]
+
+====See also====
+* [[lexicon]]
+* [[encyclopedia]]
+* [[vocabulary]]
+
+====Translations====
+{{trans-top|publication that explains the meanings of an ordered list of words}}
+* Abkhaz: {{t|ab|Ð°Ð¶Ó™Ð°Ñ€|tr=aÅ¾war|sc=Cyrl}}
+* Adyghe: {{t|ady|Ð³ÑƒÑ‰Ñ‹ÓÐ°Ð»ÑŠ|tr=gwÅ¡'yÊ•aÉ¬|sc=Cyrl}}
+* Afrikaans: {{t+|af|woordeboek}}
+* {{trreq|ak}}
+* Albanian: {{t+|sq|fjalor}}
+* American Sign Language: {{t|ase|D@NearPalm-PalmDown-OpenB@CenterChesthigh-PalmUp CirclesMidlineContact}}
+* Amharic: {{t|am|áˆ˜á‹áŒˆá‰  á‰ƒáˆ‹á‰µ|tr=mÃ¤zgÃ¤bÃ¤ qalat|sc=Ethi}}
+* Amuzgo: {{t|amu|tzoâ¿ 'tzÃ­tyui' jÃ±'o}}
+* Arabic: {{t+|ar|Ù‚Ø§Ù…ÙˆØ³|m|tr=qÄmÅ«s}}, {{t+|ar|Ù…Ø¹Ø¬Ù…|m|tr=mÃºÊ¿jam}}
+*: Egyptian Arabic: {{t|arz|Ù‚Ø§Ù…ÙˆØ³|m|tr= qamwus|sc=Arab}}
+* Aragonese: {{t|an|diccionario|m}}
+* Armenian: {{t+|hy|Õ¢Õ¡Õ¼Õ¡Ö€Õ¡Õ¶|tr=baá¹™aran}}
+*: Old Armenian: {{t|xcl|Õ¢Õ¡Õ¼Õ£Õ«Ö€Ö„|tr=baá¹™girkÊ¿|sc=Armn}}
+* Asturian: {{t|ast|diccionariu|m}}
+* {{trreq|av}}
+* Aymara: {{t|ay|aru pirwa}}
+* Azeri: {{t+|az|lÃ¼ÄŸÉ™t}}
+* Bashkir: {{t|ba|Ò»Ò¯Ò™Ð»ÐµÐº|tr=hÃ¼Ã°lek|sc=Cyrl}}
+* Basque: {{t+|eu|hiztegi}}
+* Belarusian: {{t|be|ÑÐ»Ð¾ÑžÐ½Ñ–Ðº|m|tr=slÃ³Å­nik|sc=Cyrl}} (Å‚acinka: {{t|be|sÅ‚oÅ­nik|m|sc=Latn}})
+* Bengali: {{t+|bn|à¦…à¦­à¦¿à¦§à¦¾à¦¨|tr=Ã´bhidhan|sc=Beng}}, {{t|bn|à¦¡à¦¿à¦•à¦¶à¦¨à¦¾à¦°à§€|tr=á¸ikshÃ´nari|sc=Beng}}, {{t|bn|à¦¡à¦¿à¦•à¦¶à¦¨à¦¾à¦°à¦¿|tr=á¸ikshÃ´nari|sc=Beng}}
+* {{ttbc|BinisayÃ¢}}&lt;!-- name not recognised by xte: update [[Template:langrev]] and [[Module:languages]] appropriately or report to [[User talk:Kephir/gadgets/xte]] --&gt;: [[pagpurulungan]]
+* Breton: {{t+|br|geriadur|m}}
+* Bulgarian: {{t+|bg|Ñ€ÐµÑ‡Ð½Ð¸Ðº|m|tr=rÃ©Änik}}, {{t|bg|ÑÐ»Ð¾Ð²Ð°Ñ€|m|tr=slovÃ¡r}}
+* Burmese: {{t+|my|á€¡á€˜á€­á€“á€¬á€”á€º|tr=Äƒbeitdan|sc=Mymr}}
+* Catalan: {{t+|ca|diccionari|m}}
+* Chechen: {{t|ce|ÑÐ»Ð¾Ð²Ð°Ñ€ÑŒ|tr=slovarÊ¹}}, {{t|ce|Ð´Ð¾ÑˆÐ°Ð¼|tr=doÅ¡am}}, {{t|ce|Ð»ÑƒÐ³ÓÐ°Ñ‚|tr=luÄ¡at}}
+* Chinese:
+*: Dungan: {{t|dng|Ñ…ÑƒÐ°Ð´ÑÐ½|tr=huadyan|sc=Cyrl}}
+*: Mandarin: {{t+|cmn|å­—å…¸|tr=zÃ¬diÇŽn|sc=Hani}} {{qualifier|character dictionary}}, {{t+|cmn|è©žå…¸|sc=Hani}}, {{t+|cmn|è¯å…¸|tr=cÃ­diÇŽn|sc=Hani}}
+*: {{ttbc|Wu (Suzhou dialect)}}&lt;!-- name not recognised by xte: update [[Template:scriptrev]] or [[Template:langrev]] and [[Module:languages]] appropriately or report to [[User talk:Kephir/gadgets/xte]] --&gt;: [[zÃ¯tip]]
+* Chuvash: {{t|cv|ÑÐ»Ð¾Ð²Ð°Ñ€ÑŒ|sc=Cyrl}}, {{t|cv|ÑÄƒÐ¼Ð°Ñ…ÑÐµÐ½ ÐºÄ•Ð½ÐµÐºÐ¸|tr=sÄƒmaxsan kÄ•neki|sc=Cyrl}}
+* Cornish: {{t|kw|gerlyver|m}}
+* Crimean Tatar: {{t|crh|luÄŸat}}
+* Czech: {{t+|cs|slovnÃ­k|m}}
+* Danish: {{t+|da|ordbog|c}}
+* Dutch: {{t+|nl|woordenboek|n}}
+* Erzya: {{t|myv|Ð²Ð°Ð»ÐºÑ}}
+* Esperanto: {{t+|eo|vortaro}}
+* Estonian: {{t+|et|sÃµnaraamat}}, {{t|et|sÃµnastik}}
+* Faroese: {{t+|fo|orÃ°abÃ³k|f}}
+* Finnish: {{t+|fi|sanakirja}}
+* French: {{t+|fr|dictionnaire|m}}
+* Fula: {{t|ff|saggitorde}}
+* Galician: {{t+|gl|dicionario|m}}
+* Georgian: {{t+|ka|áƒšáƒ”áƒ¥áƒ¡áƒ˜áƒ™áƒáƒœáƒ˜|sc=Geor}}
+* German: {{t+|de|WÃ¶rterbuch|n}}
+* Greek: {{t+|el|Î»ÎµÎ¾Î¹ÎºÏŒ|n|tr=lexikÃ³}}
+* Gujarati: {{t|gu|àª¶àª¬à«àª¦àª•à«‹àª¶|tr=Å›abdkoÅ›|sc=Gujr}}
+* Haitian Creole: {{t|ht|diksyonÃ¨}}
+* Hausa: {{t|ha|Æ™amus|m}}
+* Hawaiian: {{t|haw|puke wehewehe â€˜Ålelo}}
+* Hebrew: {{t+|he|×ž×™×œ×•×Ÿ|m|tr=milÃ³n}}
+* Hiligaynon: {{t|hil|diksonaryo}}, {{t|hil|kapulungan}}
+* Hindi: {{t+|hi|à¤¶à¤¬à¥à¤¦à¤•à¥‹à¤¶|m|tr=Å›abdkoÅ›}}, {{t|hi|à¤•à¥‹à¤¶|m|tr=koÅ›}}, {{t|hi|à¤¡à¤¿à¤•à¥à¤¶à¤¨à¤°à¥€|tr=á¸ikÅ›anrÄ«}}
+* Hopi: {{t|hop|lavaytutuveni}}
+* Hungarian: {{t+|hu|szÃ³tÃ¡r}}
+* Icelandic: {{t+|is|orÃ°abÃ³k|f}}
+* Ido: {{t+|io|vortaro}}
+* Igbo: {{t|ig|nkowaokwu}}
+* Indonesian: {{t+|id|kamus}}
+* Interlingua: {{t|ia|dictionario}}
+* {{trreq|ie}}
+* Inuktitut: {{t|iu|á•¿á’¥á•á•ˆáŠá‘¦ á…á“á“‚á–…á‘á–… á’¥á‘¦á“¯ á‘á‘­áŠ|tr=qimirruat unniqtuq mitsi tukia|sc=Cans}}
+* Irish: {{t+|ga|foclÃ³ir|m}}
+* Italian: {{t+|it|dizionario|m}}
+* Japanese: {{t+|ja|è¾žæ›¸|tr=[[ã˜ã—ã‚‡]], jisho}}, {{t|ja|å­—æ›¸|tr=[[ã˜ã—ã‚‡]], jisho}}, {{t+|ja|è¾žå…¸|tr=[[ã˜ã¦ã‚“]], jiten}}, {{t+|ja|å­—å…¸|tr=[[ã˜ã¦ã‚“]], jiten}}, {{t|ja|å­—å¼•|tr=[[ã˜ã³ã]], jibiki}}
+* Javanese: {{t|jv|bausastra}}
+* JÃ¨rriais: {{t|roa-jer|dictionnaithe|m}}
+* Kannada: {{t+|kn|à²¨à²¿à²˜à²‚à²Ÿà³|tr=nighangá¹­u|sc=Knda}}, {{t+|kn|à²…à²°à³à²¥à²•à³‹à²¶|tr=arthakÅsh|sc=Knda}}
+* Kapampangan: {{t|pam|talabaldugan}}
+* Karachay-Balkar: {{t|krc|ÑÑ‘Ð·Ð»ÑŽÐº}}
+* Kashubian: {{t|csb|sÅ‚owÃ´rz}}
+* Kazakh: {{t+|kk|ÑÓ©Ð·Ð´Ñ–Ðº|tr=sÃ¶zdik|sc=Cyrl}}
+* Khmer: {{t+|km|ážœáž…áž“áž¶áž“áž»áž€áŸ’ážšáž˜|tr=wachanÄnÅ«grom|sc=Khmr}}
+* Kikuyu: {{t|ki|kamusi}}
+* {{trreq|rw}}
+* {{trreq|rn}}
+* Korean: {{t+|ko|ì‚¬ì „|tr=sajeon}} ({{t+|ko|è¾­å…¸|sc=Hani}}), {{t+|ko|ìžì„œ|tr=jaseo}} ({{t+|ko|å­—æ›¸|sc=Hani}})
+* Kurdish: {{t+|ku|ferheng|f}}, {{t+|ku|peyvname|f}}, {{t+|ku|bÃªjename|f}}, {{t+|ku|qamÃ»s|f}}, {{t+|ku|ÙÛ•Ø±Ù‡Û•Ù†Ú¯|sc=ku-Arab}}
+* Kyrgyz: {{t|ky|ÑÓ©Ð·Ð´Ò¯Ðº|tr=sÃ¶zdÃ¼k|sc=Cyrl}}
+* Lao: {{t+|lo|àº§àº±àº”àºˆàº°àº™àº²àº™àº¸àºàº»àº¡|tr=vatchanÄnukom|sc=Laoo}} &lt;!-- {{t|lo|àº›àº°àº—àº²àº™àº¸àºàº»àº¡|tr=pÃ¡ tÊ°Ã¡Ë nÅ« kom|sc=Laoo}}) --&gt;
+* Latin: {{t|la|dictionarium|n}}, {{t|la|glossarium|n}}, {{t|la|index verborum}}
+* Latvian: {{t+|lv|vÄrdnÄ«ca|f}}
+* Ligurian: {{t|lij|dizionario|m}}
+* Limburgish: {{t+|li|diksjenaer}}, {{t|li|waordebook}}
+* Lithuanian: {{t+|lt|Å¾odynas|m}}
+* Low German: {{t|nds|WÃ¶Ã¶rbook|n}}, {{t|nds|Weerderbook|n}}
+{{trans-mid}}
+* Luhya: {{t|luy|ekamusi}}
+* Luxembourgish: {{t+|lb|Dictionnaire|m}}, {{t+|lb|Wierderbuch|n}}
+* Macedonian: {{t|mk|Ñ€ÐµÑ‡Ð½Ð¸Ðº|m|tr=rÃ©Änik}}
+* Malagasy: {{t+|mg|rakibolana}}
+* Malay: {{t+|ms|kamus}}
+* Malayalam: {{t+|ml|à´¨à´¿à´˜à´£àµà´Ÿàµ|tr=nighaá¹‡á¹­u|sc=Mlym}}
+* Maltese: {{t+|mt|dizzjunarju|m}}
+* Manchu: (buleku bithe)
+* Manx: {{t|gv|fockleyr|m}}
+* Maori: {{t|mi|pukapuka taki kupu}}
+* Marathi: {{t|mr|à¤¶à¤¬à¥à¤¦à¤•à¥‹à¤·|m|tr=Å›abdkoÅ›|sc=Deva}}, {{t|mr|à¤µà¤¿à¤¶à¥à¤µà¤•à¥‹à¤·|m|tr=viÅ›vakoá¹£|sc=Deva}}
+* Mauritian Creole: {{t|mfe|diksioner}}
+* Meru: {{t|mer|kamusi}}
+* Middle Persian: {{t|pal|ð­¯ð­¥ð­§ð­­ð­¢|tr=frahang}}
+* Mongolian: {{t|mn|Ñ‚Ð¾Ð»ÑŒ Ð±Ð¸Ñ‡Ð¸Ð³|sc=Cyrl}}
+* Nahuatl: {{t+|nah|tlahtÅltecpantiliztli}}
+* Navajo: {{t|nv|naaltsoos saad bee siÊ¼Ã¡nÃ­gÃ­Ã­}}
+* Neapolitan: {{t|nap|dezziunario}}
+* Nepali: {{t+|ne|à¤¶à¤¬à¥à¤¦à¤•à¥‹à¤¶|tr=Å›abdkoÅ›|sc=Deva}}
+* Norman: {{t|roa-nor|dictionnaithe}}
+* Northern Sami: {{t|se|sÃ¡tnegirji}}
+* Norwegian:
+*: BokmÃ¥l: {{t+|no|ordbok|m|f}}
+*: Nynorsk: {{t|nn|ordbok|f}}
+* Novial: {{t|nov|lexike}}
+* Occitan: {{t+|oc|diccionari|m}}
+* Ossetian:
+*: {{ttbc|Digor}}&lt;!-- name not recognised by xte: update [[Template:scriptrev]] or [[Template:langrev]] and [[Module:languages]] appropriately or report to [[User talk:Kephir/gadgets/xte]] --&gt;: {{t|os|Ð´Ð·ÑƒÑ€Ð´ÑƒÐ°Ñ‚|tr=dzurduat|sc=Cyrl}}
+*: {{ttbc|Iron}}&lt;!-- name not recognised by xte: update [[Template:scriptrev]] or [[Template:langrev]] and [[Module:languages]] appropriately or report to [[User talk:Kephir/gadgets/xte]] --&gt;: {{t|os|Ð´Ð·Ñ‹Ñ€Ð´ÑƒÐ°Ñ‚|tr=dzyrduat|sc=Cyrl}}
+* Papiamentu: {{t|pap|dictionario}}
+* Persian: {{t|fa|Ù„ØºØªâ€ŒÙ†Ø§Ù…Ù‡|tr=loÄŸat-nÃ¢me}}, {{t+|fa|ÙØ±Ù‡Ù†Ú¯|tr=farhang}}, {{t+|fa|ÙˆØ§Ú˜Ù‡â€ŒÙ†Ø§Ù…Ù‡|tr=vÃ¢Å¾e-nÃ¢me|sc=fa-Arab}}
+* Plautdietsch: {{t|pdt|WeadbÃ¼ak}}
+* Polish: {{t+|pl|sÅ‚ownik|m}}
+* Portuguese: {{t+|pt|dicionÃ¡rio|m}}
+* Punjabi: {{t|pa|à¨¸à¨¼à¨¬à¨¦à¨•à©‹à¨¸à¨¼|tr=Å›abdkoÅ›|sc=Guru}}, {{t|pa|à¨¡à¨¿à¨•à¨¸à¨¼à¨¨à¨°à©€|tr=á¸ikÅ›anrÄ«|sc=Guru}}
+* Quechua: {{t|qu|simi qullqa}}
+* Romanian: {{t+|ro|dicÈ›ionar|n}}
+* Romansch: {{t|rm|pledari|m}}, {{t|rm|dicziunari|m}}, {{t|rm|vocabulari|m}}, {{t|rm|glossari|m}}
+* Russian: {{t+|ru|ÑÐ»Ð¾Ð²Ð°Ñ€ÑŒ|m|tr=slovÃ¡rÊ¹}}
+* Sanskrit: {{t|sa|à¤¶à¤¬à¥à¤¦à¤•à¥‹à¤¶|m|tr=Å›Ã¡bda-koÅ›a}}, {{t|sa|à¤¨à¤¿à¤˜à¤£à¥à¤Ÿà¥|m|tr=nighaá¹‡á¹­u}}, {{t|sa|à¤…à¤­à¤¿à¤§à¤¾à¤¨|n|tr=abhi-dhÄna}}
+* Sardinian: {{t|sc|dizionariu|m}}
+* Scots: {{t|sco|dictionar}}
+* Scottish Gaelic: {{t|gd|faclair|m}}
+* Serbo-Croatian:
+*: Cyrillic: {{t|sh|Ñ€ÐµÑ‡Ð½Ð¸Ðº|m|sc=Cyrl}}, {{t|sh|Ñ€Ñ˜ÐµÑ‡Ð½Ð¸Ðº|m|sc=Cyrl}}
+*: Roman: {{t|sh|reÄnik|m}}, {{t|sh|rjeÄnik|m}}
+* Sicilian: {{t+|scn|dizziunariu|m}}, {{t|scn|vocabbulariu|m}}
+* {{trreq|sd}}
+* Sinhalese: {{t|si|à·à¶¶à·Šà¶¯ à¶šà·à·‚à¶º|tr=shabda koshaya|sc=Sinh}}, {{t|si|à·à¶¶à·Šà¶¯à¶šà·à·‚à¶º|tr=shabdakoshaya|sc=Sinh}}
+* Skolt Sami: {{t|sms|sÃ¤Ã¤Â´nnÇ©erjj}}
+* Slovak: {{t+|sk|slovnÃ­k|m}}
+* Slovene: {{t+|sl|slovar|m}}
+* Somali: {{t|so|qaamuus}}, {{t|so|abwan-ka}}
+* Sotho: {{t+|st|bukantswe}}
+* Spanish: {{t+|es|diccionario|m}}
+* Swahili: {{t+|sw|kamusi|c5}}
+* Swedish: {{t+|sv|ordbok|c}}, {{t+|sv|lexikon|n}}
+* Tagalog: {{t+|tl|diksyunaryo}}, {{t+|tl|talahuluganan}}, {{t+|tl|talasalitaan}}, {{t+|tl|talatinigan}}
+* Tajik: {{t+|tg|Ð»ÑƒÒ“Ð°Ñ‚|tr=luÄ¡at|sc=Cyrl}}, {{t+|tg|Ñ„Ð°Ñ€Ò³Ð°Ð½Ð³|tr=farhang|sc=Cyrl}}, {{t|tg|Ò›Ð¾Ð¼ÑƒÑ|tr=qomus|sc=Cyrl}}
+* Tamil: {{t+|ta|à®…à®•à®°à®®à¯à®¤à®²à®¿|tr=akaramutali}}
+* Tatar: {{t+|tt|ÑÒ¯Ð·Ð»ÐµÐº|tr=sÃ¼zlek|sc=Cyrl}}
+* Telugu: {{t+|te|à°¨à°¿à°˜à°‚à°Ÿà±à°µà±|tr=nighamtuvu}}, {{t+|te|à°ªà°¦à°•à±‹à°¶à°®à±|tr=padakosamu}}
+* Thai: {{t+|th|à¸žà¸ˆà¸™à¸²à¸™à¸¸à¸à¸£à¸¡|tr=pÃ³tjÃ naanÃºgrom}}
+* Tibetan: {{t|bo|à½šà½²à½‚à¼‹à½˜à½›à½¼à½‘|tr=tshig mdzod}}
+* Tok Pisin: {{t+|tpi|dikseneri}}
+* Turkish: {{t+|tr|sÃ¶zlÃ¼k}}, {{t+|tr|lÃ¼gat}} {{qualifier|obsolete}}
+* Turkmen: {{t|tk|sÃ¶zlÃ¼k}}
+* {{trreq|tyv}}
+* Ukrainian: {{t+|uk|ÑÐ»Ð¾Ð²Ð½Ð¸Ðº|m|tr=slovnÃ½k}}
+* Upper Sorbian: {{t|hsb|sÅ‚ownik|m}}
+* Urdu: {{t+|ur|Ù„ØºØª|f|tr=luÄ¡at}}, {{t|ur|ÚˆÚ©Ø´Ù†Ø±ÛŒ|tr=á¸ikÅ›anrÄ«}}, {{t|ur|ÙØ±ÛÙ†Ú¯|tr=farhang}}, {{t|ur|Ø´Ø¨Ø¯Ú©ÙˆØ´|m|tr=Å›abdkoÅ›|sc=ur-Arab}}
+* Uyghur: {{t+|ug|Ù„Û‡ØºÛ•Øª|tr=lughet|sc=ug-Arab}}
+* Uzbek: {{t+|uz|lugÊ»at}}
+*: Cyrillic: {{t|uz|Ð»ÑƒÒ“Ð°Ñ‚|sc=Cyrl}}
+* Venda: {{t|ve|á¹±halusamaipfi}}
+* Vietnamese: {{t+|vi|tá»« Ä‘iá»ƒn}}, {{t+|vi|tá»± Ä‘iá»ƒn}} ({{t+|vi|å­—å…¸|sc=Hani}}) {{qualifier|outdated; now refers specifically to ideographic dictionaries}}
+* VolapÃ¼k: {{t+|vo|vÃ¶dabuk}}, {{t|vo|vÃ¶dasbuk}} {{qualifier|older term, compare {{l/de|WÃ¶rterbuch}}}}
+* VÃµro: {{t|vro|sÃµnaraamat}}
+* Walloon: {{t+|wa|motÃ®}}
+* Welsh: {{t+|cy|geiriadur|m}}
+* West Frisian: {{t+|fy|wurdboek|n}}
+* {{trreq|wo}}
+* Xhosa: {{t|xh|idikshinari|c5}}
+* Yiddish: {{t+|yi|×•×•×¢×¨×˜×¢×¨×‘×•×š|tr=verterbukh|m}}
+* {{trreq|yo}}
+* Zazaki: {{t|zza|vatebend|m}}
+* Zulu: {{t|zu|isichazimazwi|c4}}
+{{trans-bottom}}
+
+{{trans-top|an associative array}}
+* French: {{t|fr|tableau associatif|m}}, {{t+|fr|dictionnaire|m}}, {{t|fr|table d'association|f}}
+* German: {{t|de|assoziatives Datenfeld|n}}
+* Japanese: {{t+|ja|è¾žæ›¸|tr=[[ã˜ã—ã‚‡]], jisho}}
+* Latin: {{t|la|glossarium|n}}, {{t|la|index verborum}}
+{{trans-mid}}
+* Polish: {{t+|pl|sÅ‚ownik|m}}
+* Portuguese: {{t+|pt|dicionÃ¡rio|m}}, {{t|pt|array associativo|m}}
+* Swahili: {{t+|sw|kamusi}}
+{{trans-bottom}}
+
+===Anagrams===
+* [[indicatory#English|indicatory]]
+
+===Verb===
+{{en-verb|dictionar|i|ed}}
+
+# {{label|en|transitive}} To look up in a dictionary
+# {{label|en|transitive}} To add to a dictionary
+# {{label|en|intransitive}} To appear in a dictionary
+
+[[Category:en:Reference works]]
+
+[[ar:dictionary]]
+[[az:dictionary]]
+[[zh-min-nan:dictionary]]
+[[bg:dictionary]]
+[[bs:dictionary]]
+[[br:dictionary]]
+[[ca:dictionary]]
+[[cs:dictionary]]
+[[cy:dictionary]]
+[[da:dictionary]]
+[[de:dictionary]]
+[[dv:dictionary]]
+[[et:dictionary]]
+[[el:dictionary]]
+[[es:dictionary]]
+[[eo:dictionary]]
+[[eu:dictionary]]
+[[fa:dictionary]]
+[[fr:dictionary]]
+[[fy:dictionary]]
+[[gl:dictionary]]
+[[ko:dictionary]]
+[[hy:dictionary]]
+[[hi:dictionary]]
+[[io:dictionary]]
+[[id:dictionary]]
+[[zu:dictionary]]
+[[is:dictionary]]
+[[it:dictionary]]
+[[kn:dictionary]]
+[[ka:dictionary]]
+[[kk:dictionary]]
+[[sw:dictionary]]
+[[ku:dictionary]]
+[[lo:dictionary]]
+[[lv:dictionary]]
+[[lb:dictionary]]
+[[lt:dictionary]]
+[[li:dictionary]]
+[[hu:dictionary]]
+[[mk:dictionary]]
+[[mg:dictionary]]
+[[ml:dictionary]]
+[[ms:dictionary]]
+[[my:dictionary]]
+[[nl:dictionary]]
+[[ja:dictionary]]
+[[no:dictionary]]
+[[oc:dictionary]]
+[[uz:dictionary]]
+[[km:dictionary]]
+[[tpi:dictionary]]
+[[pl:dictionary]]
+[[pt:dictionary]]
+[[ro:dictionary]]
+[[ru:dictionary]]
+[[sq:dictionary]]
+[[simple:dictionary]]
+[[sl:dictionary]]
+[[so:dictionary]]
+[[sr:dictionary]]
+[[su:dictionary]]
+[[fi:dictionary]]
+[[sv:dictionary]]
+[[tl:dictionary]]
+[[ta:dictionary]]
+[[te:dictionary]]
+[[th:dictionary]]
+[[tg:dictionary]]
+[[tr:dictionary]]
+[[uk:dictionary]]
+[[ur:dictionary]]
+[[ug:dictionary]]
+[[vi:dictionary]]
+[[zh:dictionary]]</text>
+      <sha1>tdt76ae3849jpvwq2n9i3huva1tji41</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>

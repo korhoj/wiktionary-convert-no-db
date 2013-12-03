@@ -1,0 +1,182 @@
+  <page>
+    <title>livre</title>
+    <ns>0</ns>
+    <id>46</id>
+    <revision>
+      <id>22596284</id>
+      <parentid>21839153</parentid>
+      <timestamp>2013-09-09T21:11:32Z</timestamp>
+      <contributor>
+        <username>MewBot</username>
+        <id>345682</id>
+      </contributor>
+      <minor />
+      <comment>Add {{g| to gender templates</comment>
+      <text xml:space="preserve">==English==
+{{wikipedia|dab=livre}}
+===Etymology===
+From {{etyl|fr|en}} {{term|livre|lang=fr}}.
+
+===Noun===
+{{en-noun}}
+
+# {{context|historical|lang=en}} A unit of [[currency]] formerly used in France, divided into 20 [[sol]]s or [[sou]]s.
+#* '''1992''', {{w|Hilary Mantel}}, ''A Place of Greater Safety'', Harper Perennial 2007, p. 115:
+#*: They like to see them awarded comfortable pensions. Is it 700,000 '''livres''' a year to the Polignac family?
+#*'''2002''', {{w|Colin Jones (historian)|Colin Jones}}, ''The Great Nation'', Penguin 2003, p. 30:
+#*:He never, it should be noted, totally renounced his inheritance: a critic of the court round, he benefited to the tune of a cool two million '''livres''' a year from royal largesse [...].
+
+===Anagrams===
+* [[liver#English|liver]], [[rivel#English|rivel]], [[viler#English|viler]]
+
+----
+
+==French==
+
+===Pronunciation===
+* {{audio|Fr-un livre-fr-ouest.ogg|audio (un livre)}}
+* {{IPA|lang=fr|/livÊ/}}, {{X-SAMPA|lang=fr|/livR/}}
+
+===Etymology 1===
+From {{etyl|la|fr}} {{term|liber|lang=la}}
+
+====Noun====
+{{fr-noun|m}}
+
+# [[book]]
+
+=====Related terms=====
+* [[librairie]] {{g|f}}
+
+===Etymology 2===
+From {{etyl|la|fr}} {{term|libra|lang=la}}.
+
+====Noun====
+{{fr-noun|f}}
+
+# [[pound]] (''unit of weight'')
+# [[pound]] (''unit of currency'')
+
+=====See also=====
+* {{sense|currency}} [[franc]], [[sou]], [[chelin]]
+
+===Etymology 3===
+====Verb====
+{{fr-verb-form}}
+
+# {{conjugation of|livrer||1|s|pres|ind|lang=fr}}
+# {{conjugation of|livrer||3|s|pres|ind|lang=fr}}
+# {{conjugation of|livrer||1|s|pres|sub|lang=fr}}
+# {{conjugation of|livrer||3|s|pres|sub|lang=fr}}
+# {{conjugation of|livrer||2|s|imp|lang=fr}}
+
+[[Category:French verb forms]]
+[[Category:fr:Currency]]
+
+----
+
+==JÃ¨rriais==
+
+===Etymology 1===
+From {{etyl|la|roa-jer}} {{term|liber|lang=la}}
+
+====Noun====
+{{fr-noun|m}}
+
+# [[book]]
+
+=====Derived terms=====
+{{der-top}}
+* {{l|roa-jer|garder les livres|gloss=to keep books, book-keep}}
+* {{l|roa-jer|livre d'exÃ¨rcice|gloss=exercise book}}
+{{der-mid}}
+* {{l|roa-jer|livre d'priÃ©thes|gloss=prayer book}}
+{{der-bottom}}
+
+===Etymology 2===
+From {{etyl|la|roa-jer}} {{term|libra|lang=la}}.
+
+====Noun====
+{{roa-jer-noun|f}}
+
+# {{qualifier|unit of measure}} [[pound]]
+
+[[Category:roa-jer:Units of measure]]
+
+----
+
+==Portuguese==
+
+===Etymology===
+From {{etyl|roa-ptg|pt}} {{term|livre|lang=roa-ptg}}, {{term|libre|lang=roa-ptg}}, from {{etyl|la|pt}} {{term/t|la|lÄ«ber}}, from {{etyl|ine-pro|pt}} {{term/t|ine-pro|*hâ‚lewdÊ°-||people}}.
+
+===Pronunciation===
+* {{audio|Pt-livre.ogg|Audio}}
+* {{a|PT}} {{IPA|/Ëˆli.vÉ¾É¨/|lang=pt}}
+* {{hyphenation|li|vre}}
+
+===Adjective===
+{{head|pt|adjective}}
+
+# [[free]]
+# [[unoccupied]]
+# [[clear]], [[open]]
+
+[[af:livre]]
+[[ar:livre]]
+[[az:livre]]
+[[zh-min-nan:livre]]
+[[cs:livre]]
+[[cy:livre]]
+[[da:livre]]
+[[de:livre]]
+[[et:livre]]
+[[el:livre]]
+[[es:livre]]
+[[eo:livre]]
+[[eu:livre]]
+[[fa:livre]]
+[[fr:livre]]
+[[gl:livre]]
+[[ko:livre]]
+[[hy:livre]]
+[[hr:livre]]
+[[io:livre]]
+[[id:livre]]
+[[iu:livre]]
+[[it:livre]]
+[[kn:livre]]
+[[ku:livre]]
+[[lt:livre]]
+[[li:livre]]
+[[hu:livre]]
+[[mk:livre]]
+[[mg:livre]]
+[[fj:livre]]
+[[nl:livre]]
+[[ja:livre]]
+[[no:livre]]
+[[nn:livre]]
+[[oc:livre]]
+[[km:livre]]
+[[pl:livre]]
+[[pt:livre]]
+[[ro:livre]]
+[[ru:livre]]
+[[fi:livre]]
+[[sv:livre]]
+[[ta:livre]]
+[[te:livre]]
+[[th:livre]]
+[[chr:livre]]
+[[tr:livre]]
+[[uk:livre]]
+[[ur:livre]]
+[[vi:livre]]
+[[wa:livre]]
+[[zh:livre]]</text>
+      <sha1>d0tav7mbmglmquyptgi51xbmnfga97w</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>

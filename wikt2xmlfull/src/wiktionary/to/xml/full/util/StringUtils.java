@@ -2,11 +2,13 @@ package wiktionary.to.xml.full.util;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Set;
 
 import com.google.api.client.util.escape.CharEscapers;
 
 import wiktionary.to.xml.full.data.OutputTypes.OutputType;
 import wiktionary.to.xml.full.data.TokenWithPos;
+import wiktionary.to.xml.full.jpa.Lang;
 
 /**
  * @author Joel Korhonen
@@ -17,7 +19,11 @@ import wiktionary.to.xml.full.data.TokenWithPos;
  * 2012-07-25 Fixed javadoc comment of findNextLang
  */
 public class StringUtils {
-	public final static String LF = System.getProperty("line.separator");
+	public final static String LF_LIN = "\n";
+	public final static String LF_WIN = "\r\n";
+	public final static String LF_TAB_LIN = "\t\n"; // Some e.g. Middle Chinese entries have this
+	
+	public static Set<Lang> langs = null; // ReadStripped.loadLanguages() assigns value to this
 	
 	/**
 	 * Returns the position inside s where the
@@ -29,14 +35,34 @@ public class StringUtils {
 		int len = 0;
 		
 		//String regex = "==[a-zA-Z]*==" + LF;
-		String regex = "----" + LF;
+		
+		// TODO Fix to support various kinds of LF
+		String regex = "----" + LF_LIN;
 		
 		String[] rest = s.split(regex);
+		
+		//System.out.println("len: " + rest.length);
+		if (rest.length == 1) {
+			regex = "----" + LF_WIN;
+			rest = s.split(regex);
+			
+			//System.out.println("len: " + rest.length);
+		}
+		
+		if (rest.length == 1) {
+			regex = "----" + LF_TAB_LIN;
+			rest = s.split(regex);
+			
+			//System.out.println("len: " + rest.length);
+		}
 		
 		if (rest.length == 1) {
 			return -1;
 		} else {
 			len = rest[0].length();
+			
+//			System.out.println("0: '" + rest[0] + "'");
+//			System.out.println("1: '" + rest[1] + "'");
 			
 			return len;
 		}
@@ -556,5 +582,54 @@ public class StringUtils {
 		result = rest.substring(0, postfixPos);
 
 		return result;
+	}
+	
+	public static String replaceLangs(String s) {
+		String res = s;
+
+		// Assume string is in form of "lang=xx)"
+		// TODO Sometimes is in other order, e.g. in "may": "(usex lang=en you '''may''' smoke outside;&amp;nbsp; '''may''' I sit there?)"
+		int pos = res.indexOf("lang=");
+		
+		int i = 0;
+		while (pos > -1 && i < 1000) {
+			i++;
+			
+			int parPos = res.substring(pos).indexOf(')');
+			if (parPos > -1) {
+				String langAbr = res.substring(pos+5, pos+parPos);
+				
+				//System.out.println("abr: '" + langAbr + "'");
+
+				for (Lang lang : langs) {
+					if (lang.getAbr() != null &&
+						lang.getAbr().equals(langAbr)) {
+						String langName = lang.getName();
+						
+						if (pos > 0) {
+							if (pos+parPos < res.length())
+								res = res.substring(0,pos) + langName + res.substring(pos+parPos);
+							else
+								res = res.substring(0,pos) + langName;
+						} else {
+							if (parPos < res.length())
+								res = langName + res.substring(parPos);
+							else
+								res = langName;
+						}
+						
+						break;
+					}
+				}
+			
+			}
+			
+			int prevPos = pos + 1;
+	        pos = res.indexOf("lang=", prevPos);
+		}
+		if (i == 1000)
+			throw new RuntimeException("Parse error in StringUtils.replaceLangs()");
+		
+		return res;
 	}
 }

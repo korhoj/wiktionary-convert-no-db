@@ -59,15 +59,18 @@ import wiktionary.to.xml.full.util.StringUtils;
  * 2013-11-29 Don't spawn threads for storers, it is much slower and uses up all memory.
  * Also forced max entries to 1 000 000 due to mem constraints, and implemented restart:
  * put line to restart from into param 6
- * 2013-12-02 Language csv files contain only the language name for now
+ * 2013-12-02 Language csv files contain only the language name for now. Take
+ * all etymologies into account. Reduced max entries to 900 000 as uses more mem now.
+ * Added more wordEntry types
+ * 2013-12-03 Put abr for some languages into language file and replace lang=xx) with them
+ * in definitions (not yet if lang=xx in middle of clause)
  */
 public class ReadStripped {
 	private static int STORE_INTERVAL = 1000; // Store entries after this many read
 	//private static int STORE_INTERVAL = 200; // Store entries after this many read
 	//private static int STORE_INTERVAL = 5; // Store entries after this many read
-	//private static long MAXENTRIES_TOPROCESS = 10000000;
-	private static long MAXENTRIES_TOPROCESS = 1000000;
-	//private static long MAXENTRIES_TOPROCESS = 4000;
+	private static long MAXENTRIES_TOPROCESS = 900000;
+	//private static long MAXENTRIES_TOPROCESS = 50000;
 	//private static long MAXENTRIES_TOPROCESS = 10;
 	
 	private static boolean FAIL_AT_FIRST_PROBLEM = false;
@@ -81,7 +84,8 @@ public class ReadStripped {
 	public final static String LF_WIN = "\r\n";
 	public final static String LF_TAB_LIN = "\t\n"; // Some e.g. Middle Chinese entries have this
 	public final static String LF_TAB_WIN = "\t\r\n"; // Some e.g. Middle Chinese entries have this
-	
+
+	// Don't use these unless you really want to use the current platform's line separator
 	public final static String LF = System.getProperty("line.separator");
 	public final static int LF_LEN = LF.length();
 	
@@ -101,64 +105,6 @@ public class ReadStripped {
 	private int wordEtymsNbr = 0;
 	private int wordEntriesNbr = 0;
 	private int senseNbr = 0;
-	
-	// TODO Since we only include NS 0, should we define any others below?
-	private final static String HEADER =
-			"<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.6/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSch" +
-			"ema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.6/ http://www.mediawiki.org/" +
-			"xml/export-0.6.xsd\" version=\"0.6\" xml:lang=\"en\">" + LF;
-	// siteinfo is already in the input document
-	/*
-			  "<siteinfo>" + LF +
-			    "<sitename>Wiktionary</sitename>" + LF +
-			    "<base>http://en.wiktionary.org/wiki/Wiktionary:Main_Page</base>" + LF +
-			    "<generator>MediaWiki 1.19wmf1</generator>" + LF +
-			    "<case>case-sensitive</case>" + LF +
-			    "<namespaces>" + LF +
-			      "<namespace key=\"-2\" case=\"case-sensitive\">Media</namespace>" + LF +
-			      "<namespace key=\"-1\" case=\"first-letter\">Special</namespace>" + LF +
-			      "<namespace key=\"0\" case=\"case-sensitive\" />" + LF +
-			      "<namespace key=\"1\" case=\"case-sensitive\">Talk</namespace>" + LF +
-			      "<namespace key=\"2\" case=\"first-letter\">User</namespace>" + LF +
-			      "<namespace key=\"3\" case=\"first-letter\">User talk</namespace>" + LF +
-			      "<namespace key=\"4\" case=\"case-sensitive\">Wiktionary</namespace>" + LF +
-			      "<namespace key=\"5\" case=\"case-sensitive\">Wiktionary talk</namespace>" + LF +
-			      "<namespace key=\"6\" case=\"case-sensitive\">File</namespace>" + LF +
-			      "<namespace key=\"7\" case=\"case-sensitive\">File talk</namespace>" + LF +
-			      "<namespace key=\"8\" case=\"first-letter\">MediaWiki</namespace>" + LF +
-			      "<namespace key=\"9\" case=\"first-letter\">MediaWiki talk</namespace>" + LF +
-			      "<namespace key=\"10\" case=\"case-sensitive\">Template</namespace>" + LF +
-			      "<namespace key=\"11\" case=\"case-sensitive\">Template talk</namespace>" + LF +
-			      "<namespace key=\"12\" case=\"case-sensitive\">Help</namespace>" + LF +
-			      "<namespace key=\"13\" case=\"case-sensitive\">Help talk</namespace>" + LF +
-			      "<namespace key=\"14\" case=\"case-sensitive\">Category</namespace>" + LF +
-			      "<namespace key=\"15\" case=\"case-sensitive\">Category talk</namespace>" + LF +
-			      "<namespace key=\"90\" case=\"case-sensitive\">Thread</namespace>" + LF +
-			      "<namespace key=\"91\" case=\"case-sensitive\">Thread talk</namespace>" + LF +
-			      "<namespace key=\"92\" case=\"case-sensitive\">Summary</namespace>" + LF +
-			      "<namespace key=\"93\" case=\"case-sensitive\">Summary talk</namespace>" + LF +
-			      "<namespace key=\"100\" case=\"case-sensitive\">Appendix</namespace>" + LF +
-			      "<namespace key=\"101\" case=\"case-sensitive\">Appendix talk</namespace>" + LF +
-			      "<namespace key=\"102\" case=\"case-sensitive\">Concordance</namespace>" + LF +
-			      "<namespace key=\"103\" case=\"case-sensitive\">Concordance talk</namespace>" + LF +
-			      "<namespace key=\"104\" case=\"case-sensitive\">Index</namespace>" + LF +
-			      "<namespace key=\"105\" case=\"case-sensitive\">Index talk</namespace>" + LF +
-			      "<namespace key=\"106\" case=\"case-sensitive\">Rhymes</namespace>" + LF +
-			      "<namespace key=\"107\" case=\"case-sensitive\">Rhymes talk</namespace>" + LF +
-			      "<namespace key=\"108\" case=\"case-sensitive\">Transwiki</namespace>" + LF +
-			      "<namespace key=\"109\" case=\"case-sensitive\">Transwiki talk</namespace>" + LF +
-			      "<namespace key=\"110\" case=\"case-sensitive\">Wikisaurus</namespace>" + LF +
-			      "<namespace key=\"111\" case=\"case-sensitive\">Wikisaurus talk</namespace>" + LF +
-			      "<namespace key=\"114\" case=\"case-sensitive\">Citations</namespace>" + LF +
-			      "<namespace key=\"115\" case=\"case-sensitive\">Citations talk</namespace>" + LF +
-			      "<namespace key=\"116\" case=\"case-sensitive\">Sign gloss</namespace>" + LF +
-			      "<namespace key=\"117\" case=\"case-sensitive\">Sign gloss talk</namespace>" + LF +
-			    "</namespaces>" + LF +
-			  "</siteinfo>";*/
-	
-	// Only needed if not whole file is processed
-	private final static String FOOTER =
-			"</mediawiki>";
 	
 	// Invalid entries, could be written to their own file, now just to the log as warnings
 	// private LinkedList<String> nonvalid;
@@ -385,10 +331,10 @@ public class ReadStripped {
 						int endPos = s.indexOf("</text>");
 						if (endPos > 0) {
 							String substr = s.substring(0, endPos);
-							outStr = outStr + LF + substr;
+							outStr = outStr + LF + substr; // TODO Should this always be the same, or the platform LF like now?
 						}
 					} else if (textSection) {
-						outStr = outStr + LF + s;
+						outStr = outStr + LF + s; // TODO Should this always be the same, or the platform LF like now?
 					} else {
 						// skip other tags
 					}
@@ -836,179 +782,753 @@ public class ReadStripped {
 	
 	// wordLang is just a link back
 	private Set<WordEtym> parseWord(Word word, String sLangSect, String currentTitle, OutputType outputType,
-		WordLang wordLang) {
+		WordLang wordLang) throws Exception {
 
-		/* TODO Doesn't take etymologies into account currently.
-		 * All word entries are processed as if there was just one etymology.
-		 * Should parse:
+		/* Parse etymologies first. E.g.:
 		 * 
 		 * ===Etymology 1===
+		 * ...
+		 * ====Noun====
 		 * ...
          * ====Verb====
          * ...
          * ===Etymology 2===
          * ...
+         * (in effect, if etymologies aren't taken into account, there may be multiple
+         * ====Noun=== etc. headers)
+         * 
+         * or
+         * 
+         * ===Etymology===
+         * From {{etyl|enm|en}} {{term|trillen|lang=enm}}. Compare Norwegian {{term|trille|lang=no}}, Swedish {{term|trilla|lang=sv}}.
+         * ...
+         * ====Noun====
+         * ...
+         * ====Verb====
+         * ... 
+         * 
+         * or no Etymology defined
 		 */
 		Set<WordEtym> wordEtymologies = new LinkedHashSet<WordEtym>();
 
-		WordEtym wordEtym = new WordEtym();
-		wordEtymsNbr++;
-		wordEtym.setId(wordEtymsNbr);
-		wordEtym.setWordLang(wordLang); // Just a link back
-		Set<WordEntry> wordEntries = wordEtym.getWordEntries();
-		
-		int nounStart = sLangSect.indexOf("===Noun===");
-		if (nounStart > -1) {
-			WordEntry entry = processPOS(POSType.NOUN, currentTitle, sLangSect, nounStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		int prNounStart = sLangSect.indexOf("===Proper noun===");
-		if (prNounStart > -1) {
-			WordEntry entry = processPOS(POSType.PRNOUN, currentTitle, sLangSect, prNounStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		// TODO Pickup the comparative and superlative: {{en-adj|freer|freest}}
-		int adjStart = sLangSect.indexOf("===Adjective===");
-		if (adjStart > -1) {
-			WordEntry entry = processPOS(POSType.ADJ, currentTitle, sLangSect, adjStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		int vbStart = sLangSect.indexOf("===Verb===");
-		if (vbStart > -1) {
-			WordEntry entry = processPOS(POSType.VERBGEN, currentTitle, sLangSect, vbStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		int advStart = sLangSect.indexOf("===Adverb===");
-		if (advStart > -1) {
-			WordEntry entry = processPOS(POSType.ADV, currentTitle, sLangSect, advStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		int conjStart = sLangSect.indexOf("===Conjunction===");
-		if (conjStart > -1) {
-			WordEntry entry = processPOS(POSType.CONJ, currentTitle, sLangSect, conjStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		int initStart = sLangSect.indexOf("==={{initialism}}===");
-		if (initStart > -1) {
-			WordEntry entry = processPOS(POSType.INIT, currentTitle, sLangSect, initStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		initStart = sLangSect.indexOf("===Initialism===");
-		if (initStart > -1) {
-			WordEntry entry = processPOS(POSType.INIT, currentTitle, sLangSect, initStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		int acronStart = sLangSect.indexOf("==={{acronym}}===");
-		if (acronStart > -1) {
-			WordEntry entry = processPOS(POSType.ACRON, currentTitle, sLangSect, acronStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		// e.g. EU, the Swedish section
-		acronStart = sLangSect.indexOf("===Acronym===");
-		if (acronStart > -1) {
-			WordEntry entry = processPOS(POSType.ACRON, currentTitle, sLangSect, acronStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		int abbrStart = sLangSect.indexOf("==={{abbreviation}}===");
-		if (abbrStart > -1) {
-			WordEntry entry = processPOS(POSType.ABBR, currentTitle, sLangSect, abbrStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		/*
-		 * Some have this, e.g. "ppl"
-		 */
-		abbrStart = sLangSect.indexOf("===Abbreviation===");
-		if (abbrStart > -1) {
-			WordEntry entry = processPOS(POSType.ABBR, currentTitle, sLangSect, abbrStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
+		String[] etymsArr = sLangSect.split("===Etymology[ 0-9]*===");
+		LOGGER.fine("Etymologies: " + etymsArr.length);
+		int etymNbr = 0;
+		for (String etymSect : etymsArr) {
+			etymNbr++;
+			
+			if (etymsArr.length == 1 || // no etymologies
+				(etymsArr.length > 1 && etymNbr > 1)) { // in this case etymNbr is 2 for the first real etymology
+				//LOGGER.info("Etymology " + etymNbr + ": '" + etymSect + "'");
+				LOGGER.fine("Etymology " + etymNbr);
+				
+				WordEtym wordEtym = new WordEtym();
+				wordEtymsNbr++; // etyms for all words
+				wordEtym.setId(wordEtymsNbr);
+				wordEtym.setWordLang(wordLang); // Just a link back
+				Set<WordEntry> wordEntries = wordEtym.getWordEntries();
+				
+				// TODO Store next line as the content of the etymology. Now just etym #
+				if (etymsArr.length > 1) {
+					if (etymsArr.length == 2) { // there is just one etymology
+						//wordEtym.setDataField("Etymology"); // TODO Only write when enhanced to write the real content of the etymology 
+					}
+					else {
+						wordEtym.setDataField("Etymology " + (etymNbr-1));
+					}
+				}
+				
+				boolean foundDefin = false;
+				/* TODO Some terms, e.g. <title>klama</title> in line 22862 ff. in edition 20131017, don't have info on the
+				 * entry classification (noun etc.) but just contain various senses denoted by #'s
+				 */
+				
+				int abbrStart = etymSect.indexOf("==={{abbreviation}}===");
+				if (abbrStart > -1) {
+					WordEntry entry = processPOS(POSType.ABBR, currentTitle, etymSect, abbrStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				abbrStart = etymSect.indexOf("==={{abbreviation-old|");
+				if (abbrStart > -1) {
+					WordEntry entry = processPOS(POSType.ABBR, currentTitle, etymSect, abbrStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				/*
+				 * Some have this, e.g. "ppl"
+				 */
+				abbrStart = etymSect.indexOf("===Abbreviation===");
+//				if (abbrStart > 0) { // So not to pickup ====Abbreviation==== definitions
+//					if (etymSect.charAt(abbrStart-1) == '=')
+//						abbrStart = -1;
+//				}
+				if (abbrStart > -1) {
+					WordEntry entry = processPOS(POSType.ABBR, currentTitle, etymSect, abbrStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
 
-		int letterStart = sLangSect.indexOf("===Letter===");
-		if (letterStart > -1) {
-			WordEntry entry = processPOS(POSType.LETTER, currentTitle, sLangSect, letterStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		int prefixStart = sLangSect.indexOf("===Prefix===");
-		if (prefixStart > -1) {
-			WordEntry entry = processPOS(POSType.PREFIX, currentTitle, sLangSect, prefixStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		int suffixStart = sLangSect.indexOf("===Suffix===");
-		if (suffixStart > -1) {
-			WordEntry entry = processPOS(POSType.SUFFIX, currentTitle, sLangSect, suffixStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		int pronounStart = sLangSect.indexOf("===Pronoun===");
-		if (pronounStart > -1) {
-			WordEntry entry = processPOS(POSType.PRON, currentTitle, sLangSect, pronounStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		int detStart = sLangSect.indexOf("===Determiner===");
-		if (detStart > -1) {
-			WordEntry entry = processPOS(POSType.DET, currentTitle, sLangSect, detStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		int cardStart = sLangSect.indexOf("===Cardinal number===");
-		if (cardStart > -1) {
-			WordEntry entry = processPOS(POSType.CARD, currentTitle, sLangSect, cardStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		int numerStart = sLangSect.indexOf("===Numeral===");
-		if (numerStart > -1) {
-			WordEntry entry = processPOS(POSType.NUM, currentTitle, sLangSect, numerStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		int interStart = sLangSect.indexOf("===Interjection===");
-		if (interStart > -1) {
-			WordEntry entry = processPOS(POSType.INT, currentTitle, sLangSect, interStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		int contrStart = sLangSect.indexOf("===Contraction===");
-		if (contrStart > -1) {
-			WordEntry entry = processPOS(POSType.CONT, currentTitle, sLangSect, contrStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		int phrStart = sLangSect.indexOf("===Phrase===");
-		if (phrStart > -1) {
-			WordEntry entry = processPOS(POSType.PHRASE, currentTitle, sLangSect, phrStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		int provStart = sLangSect.indexOf("===Proverb===");
-		if (provStart > -1) {
-			WordEntry entry = processPOS(POSType.PROVERB, currentTitle, sLangSect, provStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		int vbFormStart = sLangSect.indexOf("===Verb form===");
-		if (vbFormStart > -1) {
-			WordEntry entry = processPOS(POSType.VERBFORM, currentTitle, sLangSect, vbFormStart, outputType, wordEtym);
-			wordEntries.add(entry);
-		}
-		
-		wordEtym.setWordEntries(wordEntries);
+				int acronStart = etymSect.indexOf("==={{acronym}}===");
+				if (acronStart > -1) {
+					WordEntry entry = processPOS(POSType.ACRON, currentTitle, etymSect, acronStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				acronStart = etymSect.indexOf("==={{acronym-old|");
+				if (acronStart > -1) {
+					WordEntry entry = processPOS(POSType.ACRON, currentTitle, etymSect, acronStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				// e.g. EU, the Swedish section
+				acronStart = etymSect.indexOf("===Acronym===");
+				if (acronStart > 0) { // So not to pickup ====Acronym==== definitions
+					if (etymSect.charAt(acronStart-1) == '=')
+						acronStart = -1;
+				}
+				if (acronStart > -1) {
+					WordEntry entry = processPOS(POSType.ACRON, currentTitle, etymSect, acronStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
 
-		wordEtymologies.add( wordEtym );
+				// TODO Pickup the comparative and superlative: {{en-adj|freer|freest}}
+				int adjStart = etymSect.indexOf("===Adjective===");
+				if (adjStart > -1) {
+					WordEntry entry = processPOS(POSType.ADJ, currentTitle, etymSect, adjStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int adposStart = etymSect.indexOf("===Adposition===");
+				if (adposStart > -1) {
+					WordEntry entry = processPOS(POSType.ADPOS, currentTitle, etymSect, adposStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int advStart = etymSect.indexOf("===Adverb===");
+				if (advStart > -1) {
+					WordEntry entry = processPOS(POSType.ADV, currentTitle, etymSect, advStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				advStart = etymSect.indexOf("===adverb===");
+				if (advStart > -1) {
+					WordEntry entry = processPOS(POSType.ADV, currentTitle, etymSect, advStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int affixStart = etymSect.indexOf("===Affix===");
+				if (affixStart > -1) {
+					WordEntry entry = processPOS(POSType.ARTICLE, currentTitle, etymSect, affixStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				// This is usually an addition to the main type, e.g. Verb
+				int altStart = etymSect.indexOf("===Alternative forms==="); // e.g. "afterborn"
+				if (altStart > -1) {
+					WordEntry entry = processPOS(POSType.ALT, currentTitle, etymSect, altStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int articleStart = etymSect.indexOf("===Article===");
+				if (articleStart > -1) {
+					WordEntry entry = processPOS(POSType.ARTICLE, currentTitle, etymSect, articleStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+
+				int brivlaStart = etymSect.indexOf("===Brivla===");
+				if (brivlaStart > -1) {
+					WordEntry entry = processPOS(POSType.BRIVLA, currentTitle, etymSect, brivlaStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int cardStart = etymSect.indexOf("===Cardinal number===");
+				if (cardStart > -1) {
+					WordEntry entry = processPOS(POSType.CARD, currentTitle, etymSect, cardStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				cardStart = etymSect.indexOf("===Cardinal Number===");
+				if (cardStart > -1) {
+					WordEntry entry = processPOS(POSType.CARD, currentTitle, etymSect, cardStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				cardStart = etymSect.indexOf("===Cardinal numeral===");
+				if (cardStart > -1) {
+					WordEntry entry = processPOS(POSType.CARD, currentTitle, etymSect, cardStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int circumfStart = etymSect.indexOf("===Circumfix===");
+				if (circumfStart > -1) {
+					WordEntry entry = processPOS(POSType.CIRCUMF, currentTitle, etymSect, circumfStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int circumpStart = etymSect.indexOf("===Circumposition===");
+				if (circumpStart > -1) {
+					WordEntry entry = processPOS(POSType.CIRCUMP, currentTitle, etymSect, circumpStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int classifStart = etymSect.indexOf("===Classifier===");
+				if (classifStart > -1) {
+					WordEntry entry = processPOS(POSType.CLASSIF, currentTitle, etymSect, classifStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int cmavoStart = etymSect.indexOf("===Cmavo===");
+				if (cmavoStart > -1) {
+					WordEntry entry = processPOS(POSType.CMAVO, currentTitle, etymSect, cmavoStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int compStart = etymSect.indexOf("===Compound===");
+				if (compStart > -1) {
+					WordEntry entry = processPOS(POSType.COMP, currentTitle, etymSect, compStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int conjStart = etymSect.indexOf("===Conjunction===");
+//				if (conjStart > 0) { // So not to pickup ====Conjunction==== definitions
+//					if (etymSect.charAt(conjStart-1) == '=')
+//						conjStart = -1;
+//				}
+				if (conjStart > -1) {
+					WordEntry entry = processPOS(POSType.CONJ, currentTitle, etymSect, conjStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				// TODO If ====Conjunction==== shouldn't be picked up, should ====Conjunction 1==== always be picked up?
+				conjStart = etymSect.indexOf("===Conjunction 1===");
+				if (conjStart > -1) {
+					WordEntry entry = processPOS(POSType.CONJ, currentTitle, etymSect, conjStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				conjStart = etymSect.indexOf("===Conjunction 2===");
+				if (conjStart > -1) {
+					WordEntry entry = processPOS(POSType.CONJ, currentTitle, etymSect, conjStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int contrStart = etymSect.indexOf("===Contraction===");
+				if (contrStart > -1) {
+					WordEntry entry = processPOS(POSType.CONT, currentTitle, etymSect, contrStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int corStart = etymSect.indexOf("===Correlative===");
+				if (corStart > -1) {
+					WordEntry entry = processPOS(POSType.COR, currentTitle, etymSect, corStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int couStart = etymSect.indexOf("===Counter===");
+				if (couStart > -1) {
+					WordEntry entry = processPOS(POSType.COU, currentTitle, etymSect, couStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+
+				int demStart = etymSect.indexOf("===Demonstrative pronoun===");
+				if (demStart > -1) {
+					WordEntry entry = processPOS(POSType.DEM, currentTitle, etymSect, demStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int detStart = etymSect.indexOf("===Determiner===");
+				if (detStart > -1) {
+					WordEntry entry = processPOS(POSType.DET, currentTitle, etymSect, detStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int diacStart = etymSect.indexOf("===Diacritical mark===");
+				if (diacStart > -1) {
+					WordEntry entry = processPOS(POSType.DIAC, currentTitle, etymSect, diacStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int encStart = etymSect.indexOf("===Enclitic===");
+				if (encStart > -1) {
+					WordEntry entry = processPOS(POSType.ENC, currentTitle, etymSect, encStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int expStart = etymSect.indexOf("===Expression===");
+				if (expStart > -1) {
+					WordEntry entry = processPOS(POSType.EXP, currentTitle, etymSect, expStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				//  This is a Lojban language term
+				int gismuStart = etymSect.indexOf("===Gismu===");
+				if (gismuStart > -1) {
+					WordEntry entry = processPOS(POSType.GISMU, currentTitle, etymSect, gismuStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int idiomStart = etymSect.indexOf("===Idiom===");
+				if (idiomStart > 0) { // So not to pickup ====Idiom==== definitions
+					if (etymSect.charAt(idiomStart-1) == '=')
+						idiomStart = -1;
+				}
+				if (idiomStart > -1) {
+					WordEntry entry = processPOS(POSType.IDIOM, currentTitle, etymSect, idiomStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int infixStart = etymSect.indexOf("===Infix===");
+				if (infixStart > -1) {
+					WordEntry entry = processPOS(POSType.INFIX, currentTitle, etymSect, infixStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int initStart = etymSect.indexOf("==={{initialism}}===");
+				if (initStart > -1) {
+					WordEntry entry = processPOS(POSType.INIT, currentTitle, etymSect, initStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				initStart = etymSect.indexOf("==={{initialism-old|");
+				if (initStart > -1) {
+					WordEntry entry = processPOS(POSType.INIT, currentTitle, etymSect, initStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				initStart = etymSect.indexOf("===Initialism===");
+//				if (initStart > 0) { // So not to pickup ====Initialism==== definitions
+//					if (etymSect.charAt(initStart-1) == '=')
+//						initStart = -1;
+//				}
+				if (initStart > -1) {
+					WordEntry entry = processPOS(POSType.INIT, currentTitle, etymSect, initStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+
+				int interfStart = etymSect.indexOf("===Interfix===");
+				if (interfStart > -1) {
+					WordEntry entry = processPOS(POSType.INTERF, currentTitle, etymSect, interfStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int interjStart = etymSect.indexOf("===Interjection===");
+				if (interjStart > -1) {
+					WordEntry entry = processPOS(POSType.INTERJ, currentTitle, etymSect, interjStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+
+				int letterStart = etymSect.indexOf("===Letter===");
+				if (letterStart > -1) {
+					WordEntry entry = processPOS(POSType.LETTER, currentTitle, etymSect, letterStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int ligatStart = etymSect.indexOf("===Ligature===");
+				if (ligatStart > -1) {
+					WordEntry entry = processPOS(POSType.LIGAT, currentTitle, etymSect, ligatStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int logogStart = etymSect.indexOf("===Logogram===");
+				if (logogStart > -1) {
+					WordEntry entry = processPOS(POSType.LOGOG, currentTitle, etymSect, logogStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int lujvoStart = etymSect.indexOf("===Lujvo===");
+				if (lujvoStart > -1) {
+					WordEntry entry = processPOS(POSType.LUJVO, currentTitle, etymSect, lujvoStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int nounStart = etymSect.indexOf("===Noun===");
+				if (nounStart > -1) {
+					WordEntry entry = processPOS(POSType.NOUN, currentTitle, etymSect, nounStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				nounStart = etymSect.indexOf("===noun===");
+				if (nounStart > -1) {
+					WordEntry entry = processPOS(POSType.NOUN, currentTitle, etymSect, nounStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				nounStart = etymSect.indexOf("=== Noun ==="); // e.g. "girandine" and many other Malagasy nouns
+				if (nounStart > -1) {
+					WordEntry entry = processPOS(POSType.NOUN, currentTitle, etymSect, nounStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				nounStart = etymSect.indexOf("==={{{pos|Noun}}}==="); // e.g. "web browsers"
+				if (nounStart > -1) {
+					WordEntry entry = processPOS(POSType.NOUN, currentTitle, etymSect, nounStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				nounStart = etymSect.indexOf("===Noun form===");
+				if (nounStart > -1) {
+					WordEntry entry = processPOS(POSType.NOUN, currentTitle, etymSect, nounStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				// TODO These follow "===Alternative forms===" which should also be parsed
+				nounStart = etymSect.indexOf("===Noun 1==="); // e.g. "papa"
+				if (nounStart > -1) {
+					WordEntry entry = processPOS(POSType.NOUN, currentTitle, etymSect, nounStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				nounStart = etymSect.indexOf("===Noun 2==="); // e.g. "recht"
+				if (nounStart > -1) {
+					WordEntry entry = processPOS(POSType.NOUN, currentTitle, etymSect, nounStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int numerStart = etymSect.indexOf("===Number===");
+				if (numerStart > -1) {
+					WordEntry entry = processPOS(POSType.NUM, currentTitle, etymSect, numerStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				numerStart = etymSect.indexOf("===Numeral===");
+				if (numerStart > -1) {
+					WordEntry entry = processPOS(POSType.NUM, currentTitle, etymSect, numerStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int ordNumerStart = etymSect.indexOf("===Ordinal number===");
+				if (ordNumerStart > -1) {
+					WordEntry entry = processPOS(POSType.ORD_NUM, currentTitle, etymSect, ordNumerStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				ordNumerStart = etymSect.indexOf("===Ordinal numeral===");
+				if (ordNumerStart > -1) {
+					WordEntry entry = processPOS(POSType.ORD_NUM, currentTitle, etymSect, ordNumerStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+
+				int participleStart = etymSect.indexOf("===Participle===");
+				if (participleStart > -1) {
+					WordEntry entry = processPOS(POSType.PARTICIPLE, currentTitle, etymSect, participleStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int particleStart = etymSect.indexOf("===Particle===");
+				if (particleStart > -1) {
+					WordEntry entry = processPOS(POSType.PARTICLE, currentTitle, etymSect, particleStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int phrStart = etymSect.indexOf("===Phrase===");
+				if (phrStart > -1) {
+					WordEntry entry = processPOS(POSType.PHRASE, currentTitle, etymSect, phrStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int postpositionStart = etymSect.indexOf("===Postposition===");
+				if (postpositionStart > -1) {
+					WordEntry entry = processPOS(POSType.POSTPOSITION, currentTitle, etymSect, postpositionStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int predStart = etymSect.indexOf("===Predicative===");
+				if (predStart > -1) {
+					WordEntry entry = processPOS(POSType.PRED, currentTitle, etymSect, predStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int prefixStart = etymSect.indexOf("===Prefix===");
+//				if (prefixStart > 0) { // So not to pickup ====Prefix==== definitions
+//					if (etymSect.charAt(prefixStart-1) == '=')
+//						prefixStart = -1;
+//				}
+				if (prefixStart > -1) {
+					WordEntry entry = processPOS(POSType.PREFIX, currentTitle, etymSect, prefixStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int prepositionStart = etymSect.indexOf("===Preposition===");
+				if (prepositionStart > -1) {
+					WordEntry entry = processPOS(POSType.PREPOSITION, currentTitle, etymSect, prepositionStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int prepositionPhraseStart = etymSect.indexOf("===Prepositional phrase===");
+				if (prepositionPhraseStart > -1) {
+					WordEntry entry = processPOS(POSType.PREPOSITION_PHRASE, currentTitle, etymSect, prepositionPhraseStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int prepositionPronStart = etymSect.indexOf("===Prepositional pronoun===");
+				if (prepositionPronStart > -1) {
+					WordEntry entry = processPOS(POSType.PREPOSITION_PRONOUN, currentTitle, etymSect, prepositionPronStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int prevStart = etymSect.indexOf("===Preverb===");
+				if (prevStart > -1) {
+					WordEntry entry = processPOS(POSType.PREV, currentTitle, etymSect, prevStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int pronounStart = etymSect.indexOf("===Pronoun===");
+				if (pronounStart > -1) {
+					WordEntry entry = processPOS(POSType.PRON, currentTitle, etymSect, pronounStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int pronounAdvStart = etymSect.indexOf("===Pronoun or adverb===");
+				if (pronounAdvStart > -1) {
+					WordEntry entry = processPOS(POSType.PRONADV, currentTitle, etymSect, pronounAdvStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int prNounStart = etymSect.indexOf("===Proper noun===");
+				if (prNounStart > -1) {
+					WordEntry entry = processPOS(POSType.PRNOUN, currentTitle, etymSect, prNounStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				prNounStart = etymSect.indexOf("===Proper Noun===");
+				if (prNounStart > -1) {
+					WordEntry entry = processPOS(POSType.PRNOUN, currentTitle, etymSect, prNounStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				prNounStart = etymSect.indexOf("=== Proper Noun ===");
+				if (prNounStart > -1) {
+					WordEntry entry = processPOS(POSType.PRNOUN, currentTitle, etymSect, prNounStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+
+				// TODO These follow "===Alternative forms===" which should also be parsed
+				prNounStart = etymSect.indexOf("===Proper noun 1===");
+				if (prNounStart > -1) {
+					WordEntry entry = processPOS(POSType.PRNOUN, currentTitle, etymSect, prNounStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				prNounStart = etymSect.indexOf("===Proper noun 2===");
+				if (prNounStart > -1) {
+					WordEntry entry = processPOS(POSType.PRNOUN, currentTitle, etymSect, prNounStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				prNounStart = etymSect.indexOf("===Proper noun 3===");
+				if (prNounStart > -1) {
+					WordEntry entry = processPOS(POSType.PRNOUN, currentTitle, etymSect, prNounStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int provStart = etymSect.indexOf("===Proverb===");
+				if (provStart > -1) {
+					WordEntry entry = processPOS(POSType.PROVERB, currentTitle, etymSect, provStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int puncStart = etymSect.indexOf("===Punctuation mark===");
+				if (puncStart > -1) {
+					WordEntry entry = processPOS(POSType.PUNC, currentTitle, etymSect, puncStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int rafsiStart = etymSect.indexOf("===Rafsi===");
+				if (rafsiStart > -1) {
+					WordEntry entry = processPOS(POSType.RAFSI, currentTitle, etymSect, rafsiStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int relStart = etymSect.indexOf("===Relative===");
+				if (relStart > -1) {
+					WordEntry entry = processPOS(POSType.REL, currentTitle, etymSect, relStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int romanStart = etymSect.indexOf("===Romanization===");
+				if (romanStart > -1) {
+					WordEntry entry = processPOS(POSType.ROMAN, currentTitle, etymSect, romanStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int rootStart = etymSect.indexOf("===Root===");
+				if (rootStart > -1) {
+					WordEntry entry = processPOS(POSType.ROOT, currentTitle, etymSect, rootStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int suffixStart = etymSect.indexOf("===Suffix===");
+//				if (suffixStart > 0) { // So not to pickup ====Suffix==== definitions
+//					if (etymSect.charAt(suffixStart-1) == '=')
+//						suffixStart = -1;
+//				}
+				if (suffixStart > -1) {
+					WordEntry entry = processPOS(POSType.SUFFIX, currentTitle, etymSect, suffixStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int syllStart = etymSect.indexOf("===Syllable===");
+				if (syllStart > -1) {
+					WordEntry entry = processPOS(POSType.SYLL, currentTitle, etymSect, syllStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int symbolStart = etymSect.indexOf("===Symbol===");
+//				if (symbolStart > 0) { // So not to pickup ====Symbol==== definitions? For "A" at least should pick them up, have definitions
+//					if (etymSect.charAt(symbolStart-1) == '=')
+//						symbolStart = -1;
+//				}
+				if (symbolStart > -1) {
+					WordEntry entry = processPOS(POSType.SYMBOL, currentTitle, etymSect, symbolStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int vbStart = etymSect.indexOf("===Verb===");
+				if (vbStart > -1) {
+					WordEntry entry = processPOS(POSType.VERBGEN, currentTitle, etymSect, vbStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				// TODO These follow "===Alternative forms===" which should also be parsed
+				vbStart = etymSect.indexOf("===Verb 1===");
+				if (vbStart > -1) {
+					WordEntry entry = processPOS(POSType.VERBGEN, currentTitle, etymSect, vbStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				vbStart = etymSect.indexOf("===Verb 2===");
+				if (vbStart > -1) {
+					WordEntry entry = processPOS(POSType.VERBGEN, currentTitle, etymSect, vbStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int vbFormStart = etymSect.indexOf("===Verb form===");
+				if (vbFormStart > -1) {
+					WordEntry entry = processPOS(POSType.VERBFORM, currentTitle, etymSect, vbFormStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				int vbNounStart = etymSect.indexOf("===Verbal noun===");
+				if (vbNounStart > -1) {
+					WordEntry entry = processPOS(POSType.VERBNOUN, currentTitle, etymSect, vbNounStart, outputType, wordEtym);
+					wordEntries.add(entry);
+					foundDefin = true;
+				}
+				
+				if (foundDefin) {
+					wordEtym.setWordEntries(wordEntries);
+	
+					wordEtymologies.add( wordEtym );
+				} else {
+					String langStr = wordLang.getLang().getName();
+					
+					// TODO Some langs give lots of errors
+					if (langStr != null && !langStr.equals("Korean") &&
+						!langStr.equals("Mandarin") && !langStr.equals("Vietnamese") &&
+						!langStr.equals("Japanese") && !langStr.equals("Middle Chinese") &&
+						!langStr.equals("Cantonese") && !langStr.equals("Hakka") &&
+						!langStr.equals("Wu") && !langStr.equals("Min Nan") &&
+						!langStr.equals("Translingual")) {
+						String msg = "Definition not found at title='" + currentTitle + "', linesRead=" + linesRead +
+								": '" + etymSect + "'";
+						//String msg = "Definition not found, lang=" + langStr;
+	
+						if (FAIL_AT_FIRST_PROBLEM) {
+							throw new Exception(msg);
+						} else {
+							LOGGER.warning(msg);	
+						}
+					}
+				}
+			}
+		}
 
 		return wordEtymologies;
 	}
@@ -1035,18 +1555,60 @@ public class ReadStripped {
 				 * 2012-06-28 Added LF because otherwise the second # in "# [[#English|word]]"
 				 * was detected as a separate entry
 				 */
-				int hashPos = sLangSect.substring(i).indexOf(LF + "#");
-				posSense = i + hashPos;
+				/* Detect various kinds of LF. N.b. if LF_WIN is found, founds also
+				 * LF_LIN, but LF_WIN wins 
+				 */
+				int hashPosWin = sLangSect.substring(i).indexOf(LF_WIN + "#");
+				int hashPosLin = sLangSect.substring(i).indexOf(LF_LIN + "#");
 				
-				i = posSense + 2 + LF.length();
+				int hashPos = hashPosWin;
+				int lfMode = 0; // 0=Win, 1=Lin
+				if (hashPosWin > -1 && hashPosLin == -1)
+					hashPos = hashPosWin;
+				else if (hashPosLin > -1 && hashPosWin == -1) {
+					hashPos = hashPosLin;
+					lfMode = 1;
+				} else if (hashPosLin > hashPosWin) {
+					hashPos = hashPosLin;
+					lfMode = 1;
+				}
 				
-				if (i >= sLangSect.length() ) {
+//				LOGGER.fine("hashPos = " + hashPos + ", lfMode=" + lfMode);
+				
+				if (hashPos > -1) {
+					posSense = i + hashPos;
+					
+					i = posSense + 2 + (lfMode == 0 ? 2 : 1); // +2: "# "
+				}
+				
+				if (hashPos == -1 || i >= sLangSect.length() ) {
+					/* Some terms such as "International Phonetic Alphabet", have a word entry and then ====Abbreviation====
+					 * without a word entry afterwards. However, e.g. "A" has word entries after ====Abbreviation====
+					 */
+					
 					posSense = -1;
-					LOGGER.warning("Entry '" + currentTitle + ": definition not found");
+					String msg = "Sense not found at title='" + currentTitle + "', linesRead=" + linesRead +
+						", wordPos='" + wordPos + "': '" + sLangSect + "'";
+					LOGGER.warning(msg);
 				}
 			}
 			if (posSense > -1) {
-				int lfPos = sLangSect.substring(i).indexOf(LF);
+//				LOGGER.fine("sect = '" + sLangSect.substring(i) + "'");
+				
+				int lfPosWin = sLangSect.substring(i).indexOf(LF_WIN);
+				int lfPosLin = sLangSect.substring(i).indexOf(LF_LIN);
+				
+				int lfPos = lfPosWin;
+				if (lfPosWin > -1 && lfPosLin == -1)
+					lfPos = lfPosWin;
+				else if (lfPosLin > -1 && lfPosWin == -1) {
+					lfPos = lfPosLin;
+				} else if (lfPosLin > lfPosWin) {
+					lfPos = lfPosLin;
+				}
+				
+//				LOGGER.fine("lfPos = " + lfPos);
+				
 				if (lfPos > -1) {
 					String senseStr = sLangSect.substring(i, i + lfPos);
 					String unwikifiedStr = unwikifyStr(senseStr, outputType);
@@ -1058,9 +1620,9 @@ public class ReadStripped {
 					sense.setWordEntry(wordEntry);
 					
 					String unwikifiedStrStart = unwikifiedStr;
-					if (unwikifiedStrStart.length() > 80)
-						unwikifiedStrStart = unwikifiedStrStart.substring(0, 80);
-					LOGGER.fine("Sense #" + senseNbr + ": '" + unwikifiedStrStart + "' at wordEntry " + wordEntriesNbr);
+//					if (unwikifiedStrStart.length() > 80)
+//						unwikifiedStrStart = unwikifiedStrStart.substring(0, 80);
+//					LOGGER.fine("Sense #" + senseNbr + ": '" + unwikifiedStrStart + "' at wordEntry " + wordEntriesNbr);
 					
 					//int hashSpacePos = sLangSect.substring(i).indexOf("# ");
 					
@@ -1069,6 +1631,12 @@ public class ReadStripped {
 					 */
 					int posSrc = sLangSect.substring(i).indexOf("#*");
 					int posQuote = sLangSect.substring(i).indexOf("#:");
+					
+					/* TODO Currently we just output examples as is. E.g.
+					 * 
+					 *  \n2  '''2002''', Nicholas Lezard, ''Spooky tales by the master and friends'' in ''The Guardian'' (London) (December 14, 2002) page 30:
+                     *  \n3 : The overall narrator of this '''portmanteau''' story - for Dickens co-wrote it with five collaborators on his weekly periodical, ''All the Year Round'' - expresses deep, rational scepticism about the whole business of haunting.
+					 */
 					
 					// We use LinkedList temporarily due to it having getLast etc.
 					LinkedList<Example> examples = new LinkedList<Example>();
@@ -1089,7 +1657,18 @@ public class ReadStripped {
 						
 						if (posQuote > -1 &&
 							posQuote == lfPos +2) {
-							int exLFPos = sLangSect.substring(i + posQuote).indexOf(LF);
+							int exLFPosWin = sLangSect.substring(i + posQuote).indexOf(LF_WIN + "#");
+							int exLFPosLin = sLangSect.substring(i + posQuote).indexOf(LF_LIN + "#");
+							
+							int exLFPos = exLFPosWin;
+							if (exLFPosWin > -1 && exLFPosLin == -1)
+								exLFPos = exLFPosWin;
+							else if (exLFPosLin > -1 && exLFPosWin == -1) {
+								exLFPos = exLFPosLin;
+							} else if (exLFPosLin > exLFPosWin) {
+								exLFPos = exLFPosLin;
+							}
+							
 							if (exLFPos > -1) {
 								content = sLangSect.substring(i + posQuote + 2, i + posQuote + exLFPos);
 								
@@ -1108,14 +1687,25 @@ public class ReadStripped {
 								i = i + posQuote + 2;
 							}
 						} else { // posSrc (same code as above but with posSrc instead of posQuote)
-							int exLFPos = sLangSect.substring(i + posSrc).indexOf(LF);
+							int exLFPosWin = sLangSect.substring(i + posSrc).indexOf(LF_WIN + "#");
+							int exLFPosLin = sLangSect.substring(i + posSrc).indexOf(LF_LIN + "#");
+							
+							int exLFPos = exLFPosWin;
+							if (exLFPosWin > -1 && exLFPosLin == -1)
+								exLFPos = exLFPosWin;
+							else if (exLFPosLin > -1 && exLFPosWin == -1) {
+								exLFPos = exLFPosLin;
+							} else if (exLFPosLin > exLFPosWin) {
+								exLFPos = exLFPosLin;
+							}
+							
 							if (exLFPos > -1) {
 								content = sLangSect.substring(i + posSrc + 2, i + posSrc + exLFPos);
 								
 								// These are used below by: 
 								//  String textCont = sLangSect.substring(i + lfPos);
 								//lfPos = posQuote + exLFPos; // n.b. not + i also
-								lfPos = exLFPos; // n.b. not + i also. not posQuote as we just add it next
+								lfPos = exLFPos; // n.b. not + i also. not posSrc as we just add it next
 								i = i + posSrc + 2;
 								
 								// if you want to debug:
@@ -1184,7 +1774,18 @@ public class ReadStripped {
 							}
 						}
 						
-						lfPos = sLangSect.substring(i).indexOf(LF);
+						lfPosWin = sLangSect.substring(i).indexOf(LF_WIN); // + "#");
+						lfPosLin = sLangSect.substring(i).indexOf(LF_LIN); // + "#");
+						
+						lfPos = lfPosWin;
+						if (lfPosWin > -1 && lfPosLin == -1)
+							lfPos = lfPosWin;
+						else if (lfPosLin > -1 && lfPosWin == -1) {
+							lfPos = lfPosLin;
+						} else if (lfPosLin > lfPosWin) {
+							lfPos = lfPosLin;
+						}
+						
 						posSrc = sLangSect.substring(i).indexOf("#*");
 						posQuote = sLangSect.substring(i).indexOf("#:");
 					}
@@ -1198,14 +1799,31 @@ public class ReadStripped {
 					senses.add(sense);
 				} else {
 					// was last line
+					
 					String senseStr = sLangSect.substring(i);
+					
+					lfPosWin = senseStr.indexOf(LF_WIN);
+					lfPosLin = senseStr.indexOf(LF_LIN);
+					
+					lfPos = lfPosWin;
+					if (lfPosWin > -1 && lfPosLin == -1)
+						lfPos = lfPosWin;
+					else if (lfPosLin > -1 && lfPosWin == -1) {
+						lfPos = lfPosLin;
+					} else if (lfPosLin > lfPosWin) {
+						lfPos = lfPosLin;
+					}
+					
+					if (lfPos > -1) {
+						senseStr = senseStr.substring(0,lfPos);
+					}
 					
 					String unwikifiedStr = unwikifyStr(senseStr, outputType);
 					
-					String unwikifiedStrStart = unwikifiedStr;
-					if (unwikifiedStrStart.length() > 80)
-						unwikifiedStrStart = unwikifiedStrStart.substring(0, 80);
-					LOGGER.fine("Sense #" + senseNbr + ": '" + unwikifiedStrStart + "' at wordEntry " + wordEntriesNbr);
+//					String unwikifiedStrStart = unwikifiedStr;
+//					if (unwikifiedStrStart.length() > 80)
+//						unwikifiedStrStart = unwikifiedStrStart.substring(0, 80);
+//					LOGGER.fine("Last sense, #" + (senseNbr+1) + ": '" + unwikifiedStrStart + "' at wordEntry " + wordEntriesNbr);
 					
 					Sense sense = new Sense();
 					sense.setDataField(unwikifiedStr);
@@ -1224,9 +1842,9 @@ public class ReadStripped {
 						i + lfPos < sLangSect.length() &&
 						(
 						textCont.startsWith("#") ||
-						textCont.startsWith(LF + "#") ||
-						textCont.startsWith("\\r\\n#")
-						           )
+						textCont.startsWith(LF_WIN + "#") ||
+						textCont.startsWith(LF_LIN + "#")
+			            )
 					) {
 					//sensesCont = true;
 				} else {
@@ -1270,6 +1888,8 @@ public class ReadStripped {
 		 */
 		s = StringUtils.formatSquareTags(s);
 		
+		s = StringUtils.replaceLangs(s);
+		
 		return s;
 	}
 	
@@ -1291,16 +1911,16 @@ public class ReadStripped {
 			String s = in.readLine(); // skip csv headers
 			s = in.readLine();
 			while (s != null) {
-				//String[] langArr = s.split(";");
+				String[] langArr = s.split(";");
 				
 				Lang addLang = new Lang();
 				/* No id in the file. It would be wrong anyway if one has directly copied the
 				 * entries from the new language file of a previous run into the main language file
 				 */
 				addLang.setId(++langsCount);
-				addLang.setName(s);//langArr[1]);
-				//addLang.setAbr(langArr[2]);
-				// TODO Abr is unused for now, it would be an official, well-known abbreviation for such langs where such exists, put in the output
+				addLang.setName(langArr[0]);
+				if (!langArr[1].equals("\\N"))
+					addLang.setAbr(langArr[1]);
 				langs.add(addLang);
 				
 				s = in.readLine();
@@ -1311,6 +1931,8 @@ public class ReadStripped {
 		}
 		
 		LOGGER.info("Ended reading languages file, read " + langsCount + " languages");
+		
+		StringUtils.langs = langs;
 		
 		return langs;
 	}
