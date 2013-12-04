@@ -25,6 +25,18 @@ public class StringUtils {
 	
 	public static Set<Lang> langs = null; // ReadStripped.loadLanguages() assigns value to this
 	
+	public static String[] splitIntoLangs (String s) {
+		String regex = "----\\r??\\t??\\n";
+		
+		String[] langs = s.split(regex);
+		
+//		for (String lang : langs) {
+//			System.out.println("Lang: '" + lang + "'");
+//		}
+		
+		return langs;
+	}
+	
 	/**
 	 * Returns the position inside s where the
 	 * next language starts (where the next ---- is)
@@ -36,7 +48,7 @@ public class StringUtils {
 		
 		//String regex = "==[a-zA-Z]*==" + LF;
 		
-		// TODO Fix to support various kinds of LF
+		// Support various kinds of LF
 		String regex = "----" + LF_LIN;
 		
 		String[] rest = s.split(regex);
@@ -179,7 +191,7 @@ public class StringUtils {
 	 *  --> (context: now poetic) The high seas. (from 16th c.)'
 	 * {{chiefly|_|UK}} --> (chiefly UK)
 	 * {{Cockney rhyming slang}} --> (Cockney rhyming slang)
-	 * TODO should handle cites, either here or by the removeTAgs method. E.g.
+	 * TODO should handle cites, either here or by the removeTags method. E.g.
 	 * {{cite web | title = Corn (emotion) | publisher = Cambridge University Press | work = Cambridge Advanced Learner's Dictionary | url=http://dictionary.cambridge.org/define.asp?key=17186&amp;dict=CALD}}
 	 * {{quote-book|year=1853|author=Herman Melville, Herman|title=Bartleby, the Scrivener|quoted_in=Billy Budd, Sailor and Other Stories|publisher=New York: Penguin Books|year_published=1968; reprint 1995 as ''Bartleby|isbn=0 14 60.0012 9|page=2|passage= {{...}} I consider the sudden and violent '''abrogation''' of the office of Master in Chancery, by the new Constitution, as a __ premature act; inasmuch as I had counted on a life-lease of the profits, whereas I only received those of a few short years.}}
 	 */
@@ -588,7 +600,6 @@ public class StringUtils {
 		String res = s;
 
 		// Assume string is in form of "lang=xx)"
-		// TODO Sometimes is in other order, e.g. in "may": "(usex lang=en you '''may''' smoke outside;&amp;nbsp; '''may''' I sit there?)"
 		int pos = res.indexOf("lang=");
 		
 		int i = 0;
@@ -621,7 +632,6 @@ public class StringUtils {
 						break;
 					}
 				}
-			
 			}
 			
 			int prevPos = pos + 1;
@@ -629,6 +639,12 @@ public class StringUtils {
 		}
 		if (i == 1000)
 			throw new RuntimeException("Parse error in StringUtils.replaceLangs()");
+		
+		/* TODO Commonly in various contexts, e.g. (before formatCurlyTags()): "methacrylic acid" has "{{context|organic compound|lang=en}}"
+		 * Sometimes such lang=xx is found as in "may": "(usex lang=en you '''may''' smoke outside;&amp;nbsp; '''may''' I sit there?)"
+		 * (if checked after calling formatCurlyTags())
+		 * or rather the original, from an example section: #: {{usex|lang=en|you '''may''' smoke outside;&nbsp; '''may''' I sit there?}}
+		 */
 		
 		return res;
 	}

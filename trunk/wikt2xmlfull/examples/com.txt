@@ -1,0 +1,182 @@
+  <page>
+    <title>com</title>
+    <ns>0</ns>
+    <id>98668</id>
+    <revision>
+      <id>23231689</id>
+      <parentid>22660544</parentid>
+      <timestamp>2013-09-23T11:10:51Z</timestamp>
+      <contributor>
+        <username>Angr</username>
+        <id>4237</id>
+      </contributor>
+      <comment>/* Lower Sorbian */ use {{dsb-inflection of}}</comment>
+      <text xml:space="preserve">{{also|COM|com-|Com.|.com|cÆ¡m|ÑÐ¾Ð¼}}
+==English==
+
+==={{abbreviation-old|en}}===
+'''com'''
+
+# [[committee]]
+# [[communication]]
+# {{context|Internet|lang=en}} [[commercial]] as in [[.com]] (the most known Internet [[TLD]]).
+
+====Derived terms====
+* [[intercom]]
+* [[telecom]]
+
+===Anagrams===
+* [[CMO#English|CMO]], [[MCO#English|MCO]]
+
+[[Category:English three-letter words]]
+
+----
+
+==Catalan==
+
+===Pronunciation===
+* {{IPA|/kÉ”m/|lang=ca}}, {{X-SAMPA|/kOm/}}
+
+===Etymology===
+From {{etyl|VL.|ca}} ''quomo'', from classical {{etyl|la|ca}} {{term|quomodo|lang=la}}. Cognate with Spanish {{term|como|lang=es}}. See also French {{term|comme|lang=fr}} and Italian {{term|come|lang=it}}.
+
+===Adverb===
+{{ca-adv}}
+
+# {{context|interrogative|lang=ca}} [[how]]
+# [[like]]
+# {{context|in comparisons|{{l|ca|tan}} ... com|lang=ca}} [[as]] ... as
+
+[[Category:Catalan interrogative adverbs]]
+
+----
+
+==Lojban==
+
+===Rafsi===
+{{jbo-rafsi}}
+
+# {{jbo-rafsi of|co'e}}
+
+----
+
+==Lower Sorbian==
+
+===Alternative forms===
+* {{l/dsb|cu}}
+
+===Pronunciation===
+* {{IPA|[tsÉ”m]|lang=dsb}}
+
+===Verb===
+{{head|dsb}}
+
+# {{dsb-inflection of|v|kÅ›Ä›Å›|1|s|pres}}
+
+----
+
+==Old English==
+
+===Pronunciation===
+* {{IPA|/koËm/|lang=ang}}
+
+===Verb===
+{{head|ang|verb form|head=cÅm}}
+
+# {{form of|first-person preterite|cuman|lang=ang}}
+# {{form of|third-person preterite|cuman|lang=ang}}
+
+----
+
+==Portuguese==
+
+===Etymology===
+From {{etyl|roa-ptg|pt}} {{term|con|lang=roa-ptg}}, from {{etyl|la|pt}} {{term|cum||with|lang=la}}, from {{etyl|ine-pro|pt}} {{term/t|ine-pro|*á¸±Ã³m-||next to, at, with, along}}.
+
+===Pronunciation===
+* {{a|PT}} {{IPA|/kÃµ/|lang=pt}}
+* {{a|BR}} {{IPA|/kÉ”Ìƒ/|/kÃµ/|/kÅ©/|lang=pt}}
+
+===Preposition===
+{{head|pt|preposition}}
+
+# [[with]]; [[against]]
+#* {{RQ:Harry Potter|6|pt-BR|page=282}}
+#*: Tenho coisas mais importantes a discutir '''com''' vocÃª hoje Ã  noite.
+#*:: I have more important things to discuss with you tonight.
+# [[with]]; [[alongside]] {{gloss|in the company of}}
+# [[with]] {{gloss|as an accessory to}}
+# [[with]] {{gloss|in support of}}
+# [[with]] {{gloss|by means of}}
+
+====Antonyms====
+* {{l|pt|sem}}
+
+====Derived terms====
+{{top2}}
+* {{l|pt|ca}} (nonstandard, ''com'' + {{l|pt|a}})
+* {{l|pt|co}} (nonstandard, ''com'' + {{l|pt|o}})
+* {{l|pt|comigo}}
+* {{l|pt|conosco}}
+{{mid2}}
+* {{l|pt|consigo}}
+* {{l|pt|contigo}}
+* {{l|pt|convosco}}
+{{bottom}}
+
+----
+
+==Scottish Gaelic==
+
+===Noun===
+{{gd-noun|g=m|gen=cuim|pl=cuim}}
+
+# [[bosom]], [[breast]], [[chest]]
+# [[trunk]] {{gloss|body}}
+# [[stomach]]
+
+====Derived terms====
+* {{l|gd|teanntachd-cuim}}
+
+[[Category:gd:Anatomy]]
+
+----
+
+==Wari'==
+
+===Noun===
+{{head|pav|noun}}
+
+# [[water]]
+
+====References====
+* {{R:pav:Everett}}
+
+[[ar:com]]
+[[ca:com]]
+[[cs:com]]
+[[de:com]]
+[[el:com]]
+[[es:com]]
+[[eo:com]]
+[[fr:com]]
+[[gl:com]]
+[[io:com]]
+[[id:com]]
+[[ku:com]]
+[[lt:com]]
+[[hu:com]]
+[[mg:com]]
+[[fj:com]]
+[[nl:com]]
+[[pl:com]]
+[[pt:com]]
+[[fi:com]]
+[[ta:com]]
+[[chr:com]]
+[[zh:com]]</text>
+      <sha1>20pkax35u3azhjzbjasxejw3kfjxtc7</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>
