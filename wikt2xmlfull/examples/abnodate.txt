@@ -1,0 +1,32 @@
+<page>
+    <title>abnodate</title>
+    <ns>0</ns>
+    <id>467</id>
+    <revision>
+      <id>21840917</id>
+      <parentid>20627687</parentid>
+      <timestamp>2013-08-26T20:59:44Z</timestamp>
+      <contributor>
+        <username>MewBot</username>
+        <id>345682</id>
+      </contributor>
+      <minor />
+      <comment>Remove redundant alternative form from links</comment>
+      <text xml:space="preserve">==English==
+{{only-in|[[Appendix:English dictionary-only terms]]|lang=en}}
+
+----
+
+==Latin==
+
+===Verb===
+{{la-verb-form|abnōdāte}}
+
+# {{conjugation of|abnōdō||1|p|pres|act|imp|lang=la}}
+
+[[mg:abnodate]]</text>
+      <sha1>84ywqdshk5tdxlstw5wz7pxy5dpzieq</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>

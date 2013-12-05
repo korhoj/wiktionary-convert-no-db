@@ -648,4 +648,10 @@ public class StringUtils {
 		
 		return res;
 	}
+	
+	public static String replaceBackslashes(String s) {
+		String res = s.replace("\\", ""); // stardict-editor.exe doesn't allow most escapes
+		
+		return res;
+	}
 }

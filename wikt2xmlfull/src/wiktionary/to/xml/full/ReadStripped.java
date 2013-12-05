@@ -65,6 +65,8 @@ import wiktionary.to.xml.full.util.StringUtils;
  * 2013-12-03 Put abr for some languages into language file and replace lang=xx) with them
  * in definitions (not yet if lang=xx in middle of clause)
  * 2013-12-04 Fixed splitting into language sections
+ * 2013-12-05 Fixed empty entries and remove backslashes since stardict-editor.exe doesn't
+ * allow most escapes
  */
 public class ReadStripped {
 	private static int STORE_INTERVAL = 1000; // Store entries after this many read
@@ -654,19 +656,24 @@ public class ReadStripped {
 						// Each wordlang has 1-n etymologies (wordetym)
 						
 						Set<WordEtym> wordEtyms = parseWord(word, sLangSect, currentTitle, outputType, wordLang);
-						wordLang.setWordEtyms( wordEtyms );
-						
-						wordLang.setWord(word);
-						
-						Set<WordLang> langWordLangs = null;
-						langWordLangs = lang.getWordLangs();
-						langWordLangs.add(wordLang);
-						lang.setWordLangs(langWordLangs);
-
-						Set<WordLang> wordWordLangs = null;
-						wordWordLangs = word.getWordLangs();
-						wordWordLangs.add(wordLang);
-						word.setWordLangs(wordWordLangs);
+						if (wordEtyms != null) {
+							wordLang.setWordEtyms( wordEtyms );
+							
+							wordLang.setWord(word);
+							
+							Set<WordLang> langWordLangs = null;
+							langWordLangs = lang.getWordLangs();
+							langWordLangs.add(wordLang);
+							lang.setWordLangs(langWordLangs);
+	
+							Set<WordLang> wordWordLangs = null;
+							wordWordLangs = word.getWordLangs();
+							wordWordLangs.add(wordLang);
+							word.setWordLangs(wordWordLangs);
+						} else {
+							wordLangNbr--;
+							wordLang = null;
+						}
 						
 						break;
 					}
@@ -1587,6 +1594,8 @@ public class ReadStripped {
 				} else {
 					String langStr = wordLang.getLang().getName();
 					
+					wordEtymsNbr--;
+					
 					// TODO Some langs give lots of errors
 					if (langStr != null && !langStr.equals("Korean") &&
 						!langStr.equals("Mandarin") && !langStr.equals("Vietnamese") &&
@@ -1610,6 +1619,10 @@ public class ReadStripped {
 			}
 		}
 
+		if (wordEtymologies.size() == 0) {
+			wordEtymologies = null;
+		}
+		
 		return wordEtymologies;
 	}
 	
@@ -1995,6 +2008,8 @@ public class ReadStripped {
 		s = StringUtils.formatSquareTags(s);
 		
 		s = StringUtils.replaceLangs(s);
+		
+		s = StringUtils.replaceBackslashes(s);
 		
 		return s;
 	}
