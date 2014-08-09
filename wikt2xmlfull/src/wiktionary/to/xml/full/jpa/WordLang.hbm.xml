@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 28, 2013 1:41:56 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="wiktionary.to.xml.full.jpa.WordLang" table="wordlang">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="word" class="wiktionary.to.xml.full.jpa.Word" fetch="select">
+            <column name="word_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="lang" class="wiktionary.to.xml.full.jpa.Lang" fetch="select">
+            <column name="lang_id" not-null="true" />
+        </many-to-one>
+        <property name="dataField" type="string">
+            <column name="dataField" length="45" />
+        </property>
+        <set name="wordEtyms" table="wordEtym" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="wordlang_id" not-null="true" />
+            </key>
+            <one-to-many class="wiktionary.to.xml.full.jpa.WordEtym" />
+        </set>
+    </class>
+</hibernate-mapping>
