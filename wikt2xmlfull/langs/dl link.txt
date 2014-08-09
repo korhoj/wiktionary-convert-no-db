@@ -1,0 +1,10 @@
+https://en.wiktionary.org/wiki/Category:Language_data_modules
+-->
+https://en.wiktionary.org/wiki/Module:languages/data2
+https://en.wiktionary.org/wiki/Module:languages/data3/a
+..
+https://en.wiktionary.org/wiki/Module:languages/data3/z
+https://en.wiktionary.org/wiki/Module:languages/datax
+
+https://en.wiktionary.org/wiki/Appendix:List_of_Latin_phrases
+https://en.wiktionary.org/wiki/Category:English_appendices
