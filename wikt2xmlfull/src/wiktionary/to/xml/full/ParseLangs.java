@@ -19,10 +19,12 @@ import java.util.logging.SimpleFormatter;
  * 
  * Parses languages from pre-downloaded Wiktionary language pages and stores into language file
  * to be used by ReadStripped.java
+ * 
+ * See https://en.wiktionary.org/wiki/Category:Language_data_modules
  */
 public class ParseLangs {
 
-	private final static Logger LOGGER = Logger.getLogger(StripNamespaces.class
+	private final static Logger LOGGER = Logger.getLogger(ParseLangs.class
 			.getName());
 	private static FileHandler fileHandler;
 	private static SimpleFormatter formatterTxt;
@@ -31,7 +33,7 @@ public class ParseLangs {
 
 	static {
 		try {
-			fileHandler = new FileHandler(StripNamespaces.class.getName() + ".log");
+			fileHandler = new FileHandler(ParseLangs.class.getName() + ".log");
 		} catch (Exception e) {
 			System.err.println(""
 					+ "LOGGING ERROR, CANNOT INITIALIZE FILEHANDLER");

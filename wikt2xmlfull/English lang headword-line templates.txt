@@ -1,0 +1,167 @@
+https://en.wiktionary.org/wiki/Wiktionary:About_English
+
+Headword-line templates
+
+{{en-noun}}
+{{en-noun|es}}
+{{en-noun|belfries}}
+etc.
+
+https://en.wiktionary.org/wiki/Wiktionary:Glossary#H
+  headword line – At the core of each entry is a headword line, which lists the headword in bold,
+  often followed by basic grammar and orthography details, e.g. gender, inflected forms, alternate
+  orthography in languages with multiple orthographies like Japanese, Korean and Serbian. Some editors
+  use the phrase inflection line instead.
+
+https://en.wiktionary.org/wiki/Wiktionary:ELE
+
+A simple example:
+
+-------------------
+==English==
+
+===Noun===
+{{en-noun}}
+
+# A piece of [[furniture]] to [[sleep]] on.
+
+===References===         
+* ''The Oxford Paperback Dictionary''  
+-------------------
+
+https://en.wiktionary.org/wiki/Category:Wiktionary:Language_considerations
+  https://en.wiktionary.org/wiki/Wiktionary:About_Finnish
+  https://en.wiktionary.org/wiki/Wiktionary:About_Latin
+    Words may have many "Pronunciation x" headings, and after each the POS, e.g. "Noun"
+    https://en.wiktionary.org/wiki/Wiktionary:Latin_inflection_templates
+  https://en.wiktionary.org/wiki/Wiktionary:About_German
+
+https://en.wiktionary.org/wiki/Category:Language_data_modules
+
+https://en.wiktionary.org/wiki/Wiktionary:Entry_layout_explained/POS_headers
+  The headers in an entry (or nested within an etymology section) should always be in (English) alphabetical order,
+  except that non-POS headers describing characters or syllables should come first.
+
+  Standard POS headers
+Header 	Category 	Notes
+Adjective 	(language) adjectives 	
+Adjective 	(language) adjective forms 	For languages that decline adjectives, e.g. Japanese.
+Adverb 	(language) adverbs 	
+Article 	(language) articles 	
+Conjunction 	(language) conjunctions 	
+Interjection 	(language) interjections 	
+Noun 	(language) nouns 	
+Noun 	(language) noun forms 	For languages, such as Russian, with noun declension.
+Noun 	(language) plurals 	In languages, such as English, which do not decline nouns other than the plural form.
+Proper noun 	(language) proper nouns 	
+Preposition 	(language) prepositions 	
+Prepositional phrase 	(language) prepositional phrases 	
+Pronoun 	(language) pronouns 	
+Verb 	(language) verbs 	Verbs in the infinitive. (Or the standard lemmata form, in e.g. Latin)
+Verb 	(language) verb forms 	Conjugated forms of verbs.
+Standard non-POS level 3 headers
+Header 	Category 	Notes
+Abbreviation 		
+Acronym 		
+Contraction 		
+Diacritical mark 	(language) diacritical marks 	
+Idiom 	(language) idioms 	It appears that English idioms are categorized in (just) Idioms.
+Initialism 		
+Letter 	(language) letters 	
+Ligature 		
+Phrase 	(language) phrasebook, phrases 	category "(language) phrasebook" is for the sort of thing that appears in tourist translation phrasebooks: var är toaletten?, all others go in "(language) phrases"
+Prefix 	(language) prefixes 	
+Punctuation mark 	(language) punctuation marks 	
+Suffix 	(language) suffixes 	
+Symbol 		
+Debated POS level 3 headers
+Header 	Category 	Notes
+Number 	(e.g.) Kurdish numbers 	No consensus has been reached on which of these six headers should be used or the category names.
+Cardinal number 	(e.g.) French cardinal numbers 	Should be Number or Numeral with {{cardinal}} on the definition lines as appropriate. (?)
+Ordinal number 	(e.g.) French ordinal numbers 	Should be Number or Numeral with {{ordinal}} on the definition lines as appropriate. (?)
+Numeral 	(e.g.) German numerals 	
+Cardinal numeral 	(e.g.) French cardinal numbers 	
+Ordinal numeral 	(e.g.) French ordinal numbers 	
+
+Note that a number of languages have these categories named inconsistently. Not all cardinal numbers function grammatically as cardinal numbers, and not all forms of ordinal numbers are words (some are abbreviations or symbols), hence the topical categories as subcategories under Mathematics. The safest route is to use Category:fr:Cardinal numbers as a topical category, with Category:French numerals or Category:French numbers as the POS category containing the subcategories for specific kinds of numbers.
+Other headers in use
+
+These headers are usually language specific. (Some may be moved to standard or deprecated later, or left here as language specific.) Mostly these are not POS, but other level 3 headers used as is Symbol for individual letters, characters, or for CJKV languages, syllables and readings. (Other headers in use may be added to this table regardless of the warning above note to modify this policy page without a vote; the appearance of a header in this table is not strict policy.)
+Header 	Category 	Notes
+Abstract pronoun 		used (only?) in same
+Adjectival noun 	?-Adjectives 	Japanese "quasi-adjective", probably should be Adjective.
+Adjective or Adverb 		E.g. quite.
+Adnominal 		e.g. in ?
+Affix 		
+Brivla 		Lojban
+Circumfix 		
+Circumposition 		
+Classifier 		Thai
+Clitic 		E.g. 'm 'd 's 't
+Combined-kana character 		Japanese
+Combining form 	(might not be used at all?)
+Conjunction particle 		Latin que and ve only
+Correlative 		Esperanto
+Counter 	Japanese counters 	Count word, used for plural forms. (should also be other languages that use count words)
+Determiner 		E.g. all, each, little, most, whichever.
+Demonstrative determiner 	Czech demonstrative determiners 	
+Expression 		Used variously; should probably be Phrase, Idiom, or Proverb
+Gerund 		Used in Latin only.
+Gismu 		Lojban
+Han character 	Han characters 	Used in Translingual and Vietnamese for single characters
+Hanja 		Used in Korean for single characters
+Hanja reading 		Used in ?#Korean
+Hanzi 		Used in Chinese languages for single characters
+Hiragana character 		
+Hiragana letter 	Japanese kana 	
+Infinitive particle 	Icelandic particles 	Used once, in að
+Infix 		E.g. -bloody-.
+Interfix 		
+Interrogative auxiliary verb 		e.g. have
+Jyutping syllable 		
+Kanji 	Japanese kanji 	Used for the single character entries, gives the readings and compounds.
+Kanji reading 		Used in hiragana entries that are readings of single kanji.
+Katakana character 		
+Katakana letter 	Japanese kana 	
+Lujvo 		Lojban
+Measure word 		Mandarin
+Noun class 		Only m#Swahili
+Noun stem 		Taos
+Participle 		Used in some Russian, Lithuanian, and many Latin entries.
+Particle 	(language) particles 	CJKV languages, and some others; see tok, ne.
+Personal pronoun 		E.g. moai.
+Phrasal verb 		And even Intransitive phrasal verb (go away) or Transitive phrasal verb (churn out).
+Pinyin 	Mandarin pinyin 	Used for individual character syllables. Never for words.
+Pinyin syllable 		
+Possessive adjective 	Russian possessive adjectives 	
+Postposition 	Postpositions 	Has the same function as preposition, but comes after the main word: in Estonian, Hindi, Finnish, Urdu, Turkish ...
+Predicative 		Russian
+Prenoun 		Ojibwe
+Prepositional article 		not used?
+Preverb 		Ojibwe
+Pronominal adverb 		e.g. daarna
+Proverb 	(language) proverbs 	Used in Chinese languages and one Spanish entry.
+Quasi-adjective 	?-Adjectives 	Japanese, probably should be Adjective.
+Root 		Used in Hebrew, may be useful in others (Arabic)
+Syllable 		
+Verb prefix 	Russian verbal prefixes 	Should be Prefix with verbal on the definition lines as appropriate.
+Non-standard, deprecated headers
+
+These headers are deprecated, but are in use. Note that deprecated does not necessarily mean they were wrong in the past, only that they should not be used now.
+Header 	Category 	Notes
+Adjective form 		Should be Adjective
+Noun form 		Should be Noun
+Verb form 		Should be Verb
+Nominal phrase 		Should be Noun, or in some cases Phrase or Idiom
+Noun phrase 		Should be Noun, or in some cases Phrase or Idiom
+Verb phrase 		Should be Verb, or in some cases Phrase or Idiom
+Intransitive verb 		Should be Verb with (intransitive) on the definition lines as appropriate.
+Reflexive verb 		Should be Verb with (reflexive) on the definition lines as appropriate. Used in some French and Spanish verbs.
+Transitive verb 		Should be Verb with (transitive) on the definition lines as appropriate.
+Cmavo 		This is a Lojban word, should probably be Particle
+Romaji 	Romaji, Japanese romaji 	Should be replaced with the POS header(s).
+Hiragana 	Hiragana, Japanese hiragana 	Should be replaced with the POS header(s).
+Furigana 	Hiragana, Japanese hiragana 	(not even a script form) Should be replaced with the POS header(s).
+Compounds 		Appears in single character CJKV entries as a level 3 heading, probably in most cases because an appropriate level 3 heading (e.g. Kanji or a standard POS) is missing. If used, should be level 4, under the character heading.
+Kun-reading of: 		Japanese (including colon, see WT:AJA)
+On-reading of: 		Japanese (including colon, see WT:AJA)

@@ -67,9 +67,13 @@ import wiktionary.to.xml.full.util.StringUtils;
  * 2013-12-04 Fixed splitting into language sections
  * 2013-12-05 Fixed empty entries and remove backslashes since stardict-editor.exe doesn't
  * allow most escapes
+ * 2013-12-10 Reimplemented single-language processing option
+ * 2013-12-12 Initial Finnish wiktionary support
+ * 2014-01-11 Initial Swedish wiktionary support
+ * 2014-05-18 Fix reading language specific language lists. Still needs a fix in StardictStorer
  */
 public class ReadStripped {
-	private static int STORE_INTERVAL = 1000; // Store entries after this many read
+	private static int STORE_INTERVAL = 10000; // Store entries after this many read
 	//private static int STORE_INTERVAL = 200; // Store entries after this many read
 	//private static int STORE_INTERVAL = 5; // Store entries after this many read
 	private static long MAXENTRIES_TOPROCESS = 900000;
@@ -92,6 +96,8 @@ public class ReadStripped {
 	// Don't use these unless you really want to use the current platform's line separator
 	public final static String LF = System.getProperty("line.separator");
 	public final static int LF_LEN = LF.length();
+	
+	public final static String CONTINFO_FILENAME = "continfo.txt";
 	
 	private Session session = null; // JPA session
 	
@@ -142,12 +148,11 @@ public class ReadStripped {
 		String inFileName = null; // = "WiktionaryTest.txt";
 		String outFileName = null; // = "WiktionaryTestOut.xml";
 		String lang = "English"; // English, "Old English" etc.
-		String langID = "ALL"; // en, oe etc. or ALL for all
 		long restartLine = 0;
 		
 		try {
-			if (args.length < 5 || args.length > 6) {
-				LOGGER.log(Level.SEVERE, "Wrong number of arguments, expected 5 - 6, got " + args.length);
+			if (args.length < 4 || args.length > 5) {
+				LOGGER.log(Level.SEVERE, "Wrong number of arguments, expected 4 - 5, got " + args.length);
 				LOGGER.log(Level.SEVERE, "Arg[max] = '" + args[args.length-1] + "'");
 				System.exit(255);
 			}
@@ -167,16 +172,12 @@ public class ReadStripped {
 			// ALL == parse all languages
 			if (lang.equals("ALL")) {
 				lang = null;
-				langID = null;
-			} else {
-				langID = args[3];
-				langID = langID.trim();
 			}
 			
-			String outputType = args[4];
+			String outputType = args[3];
 			
-			if (args.length == 6) {
-				String restartLineStr = args[5];
+			if (args.length == 5) {
+				String restartLineStr = args[4];
 				Long l = Long.parseLong(restartLineStr);
 				restartLine = l.longValue();
 			}
@@ -188,14 +189,14 @@ public class ReadStripped {
 			
 			LOGGER.info("Input: " + inFileName);
 			LOGGER.info("Output: " + outFileName);
-			LOGGER.info("Language: " + (lang != null ? lang : "(all)") + (langID != null ? ", ID: " + langID : ""));
+			LOGGER.info("Language: " + (lang != null ? lang : "(all)"));
 			LOGGER.info("Output type: " + OutputType.valueOf(outputType));
 			if (restartLine > 0)
 				LOGGER.info("Restarting at line " + restartLine);
 			
 			ReadStripped readStripped = new ReadStripped();
 		
-			readStripped.process(OutputType.valueOf(outputType), inFileName, outFileName, lang, langID, restartLine);
+			readStripped.process(OutputType.valueOf(outputType), inFileName, outFileName, lang, restartLine);
 			
 			LOGGER.log(Level.INFO, "***FINISHED***");
 			
@@ -208,7 +209,7 @@ public class ReadStripped {
 		}
 	}
 
-	private void process (OutputType outputType, String inFileName, String outFileName, String lang, String langID, long restartLine) throws Exception {
+	private void process (OutputType outputType, String inFileName, String outFileName, String lang, long restartLine) throws Exception {
 		long entryNbr = 0;
 		boolean evenThousand = true; // log every thousand entries
 		boolean textSection = false; // true when have reached <text> of a new entry and are in it
@@ -236,7 +237,7 @@ public class ReadStripped {
         	} else {
 	        	// Load languages from csv file to avoid JPA processing
 	        	
-	        	langs = loadLanguages();
+	        	langs = loadLanguages(lang);
         	}
 			
 			String s = in.readLine();
@@ -262,7 +263,7 @@ public class ReadStripped {
 							newLangsOut.flush();
 						}
 						
-						callStorer(outputType, lang, langID, outFileName);
+						callStorer(outputType, outFileName);
 						
 						evenThousand = false; // otherwise prints until finds new entry
 					}
@@ -292,13 +293,7 @@ public class ReadStripped {
 							LOGGER.fine("To parse: '" + currentTitle + "'");
 							//LOGGER.info("To parse: '" + currentTitle + "'");
 							
-							if (lang != null) {
-								// TODO
-								throw new Exception("TODO single lang processing");
-								//parseEntry(outStr, currentTitle, lang);
-							} else {
-								parseEntryAllLangs(outStr, currentTitle, outputType, entryNbr, session);
-							}
+							parseEntry(outStr, currentTitle, outputType, entryNbr, session, lang);
 							
 							outStr = null;
 							entryNbr++;
@@ -366,15 +361,9 @@ public class ReadStripped {
 			if (outStr != null && outStr.length() > 0 && // this should always be true if there is any input
 				hadTextSection) { // had reached <text> section of a new term and it ended with <text>
 				
-				if (lang != null) {
-					// TODO
-					throw new Exception("TODO single lang processing");
-					//parseEntry(outStr, currentTitle, lang);
-				} else {
-					parseEntryAllLangs(outStr, currentTitle, outputType, entryNbr, session);
-				}
+				parseEntry(outStr, currentTitle, outputType, entryNbr, session, lang);
 				
-				callStorer(outputType, lang, langID, outFileName);
+				callStorer(outputType, outFileName);
 				
 				outStr = null;
 				entryNbr++;
@@ -385,6 +374,14 @@ public class ReadStripped {
 			
 			if (entryNbr == MAXENTRIES_TOPROCESS) {
 				LOGGER.warning("Reached maximum lines to read in one run, please restart at " + (linesRead + restartLine) + " and combine results");
+				
+				FileOutputStream contInfoFos = new FileOutputStream(CONTINFO_FILENAME);
+				PrintWriter contInfoOut = null;
+				contInfoOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(contInfoFos, "UTF-8")));
+				contInfoOut.println((linesRead + restartLine));
+				contInfoOut.flush();
+				contInfoOut.close();
+				contInfoFos.close();
 			}
 			
 			switch(outputType) {
@@ -430,7 +427,7 @@ public class ReadStripped {
         }
 	}
 	
-	private void callStorer(OutputType outputType, String lang, String langID, String outFileName) throws Exception {
+	private void callStorer(OutputType outputType, String outFileName) throws Exception {
 		try {
 			LOGGER.fine("Storing " + words.size() + " entries");
 			
@@ -438,19 +435,19 @@ public class ReadStripped {
 			switch(outputType) {
 			case Kindle:
 				// TODO Fix
-				//KindleStorer storer = new KindleStorer(words, lang, langID);
+				//KindleStorer storer = new KindleStorer(words);
 				//storer.storeWords(false, outFileName);
 				break;
 			case JDBC:
 				// TODO Fix
-//				JDBCStorer storer = new JDBCStorer(words, lang, langID);
+//				JDBCStorer storer = new JDBCStorer(words);
 //				Thread jThread = new Thread(storer, "jThread");
 //				jThread.run();
 //				jThread = null;
 				break;
 			case JPA:
-				//JPAStorer jpaStorer = new JPAStorer(words, lang, langID);
-				JPAStorer jpaStorer = new JPAStorer(null, lang, langID);
+				//JPAStorer jpaStorer = new JPAStorer(words);
+				JPAStorer jpaStorer = new JPAStorer(null);
 //				Thread jThread = new Thread(jpaStorer, "jpaThread");
 //				jThread.run();
 //				jThread = null;
@@ -459,7 +456,7 @@ public class ReadStripped {
 			    break;
 			case Stardict:
 				StardictStorer.flushOutput();
-				StardictStorer storer = new StardictStorer(null, lang, langID, outFileName);
+				StardictStorer storer = new StardictStorer(null, outFileName);
 				storer.run(words);
 				storer = null;
 			}
@@ -472,80 +469,19 @@ public class ReadStripped {
 		}
 	}
 	
-	// TODO Fix
-	private void parseEntry(String s, String currentTitle, String lang) throws Exception {
-		String langStr = null;
-		
-		if ( currentTitle.startsWith("Appendix:") ||
-			 currentTitle.startsWith("Help:") ||
-			 currentTitle.startsWith("Wiktionary:")
-			) {
-//			LOGGER.fine("- Skipped: '" + currentTitle + "'");
-			
-			return;
-		}
-
-		Word word = new Word();
-		word.setDataField(currentTitle);
-		
-		/**
-		 * Handle only the section of the specified language langStr as
-		 * an entry may have many languages, e.g. ==English== and ==French== 
-		 */
-		langStr = "==" + lang + "=="; // e.g.: English --> ==English==
-		int langStart = s.indexOf(langStr);
-		if (langStart == -1) {
-			String msg = "Language not found: '" + langStr + "' in string '" + s + "'";
-			LOGGER.severe(msg);
-//			throw new Exception(msg);
-			
-			//return;
-		} else {
-			String sFullSect = s.substring(langStart + 2);
-			int posLF = sFullSect.indexOf(LF);
-			String sLangSect = sFullSect.substring(posLF + LF_LEN);
-	//		LOGGER.info("Before findNextLang: '" + sLangSect + "'");
-			int langEnd = StringUtils.findNextLang(sLangSect);
-			if (langEnd > -1) {
-				sLangSect = sLangSect.substring(0, langEnd);
-			}
-	//		LOGGER.info("ToParse: '" + sLangSect + "'");
-	
-//			LanguageID langID = LanguageIDList.langIDs_Desc.get(lang);
-//			if (langID == null) {
-//				String msg = "Unknown language: '" + lang + "'";
-//				LOGGER.warning(msg);
-//				//throw new Exception(msg);
-//			}
-			
-			// TODO Fix
-			//WordLang wordLang = parseWord(word, sLangSect, currentTitle, langID);
-			
-//			LinkedList<WordLang> langs = new LinkedList<WordLang>();
-//			langs.add(wordLang);
-			// --> private List<WordLang> wordlangs;
-			// TODO Fix
-			//word.getWordlangs().add(wordLang);
-			//word.setWordLanguages(langs);
-			
-			words.add(word);
-		}
-		//LOGGER.info("Parsed: '" + currentTitle + "'");
-	}
-	
 	/*
-	 * This version of the method parses and stores all languages for the entry.
+	 * Parse (and store into memory) either all languages or a given language for the entry.
 	 * 
-	 * Loops all languages in input and outputs all.
-	 * The output modules output all languages passed to them.
+	 * @param onlyLang The language to process or null to process all languages
 	 */
-	private void parseEntryAllLangs(String s, String currentTitle, OutputType outputType, long entryNbr, Session session) throws Exception {
+	private void parseEntry(String s, String currentTitle, OutputType outputType, long entryNbr, Session session, String onlyLang) throws Exception {
 		
+		// TODO StripNamespaces removes these if run first. If not, the list here should be longer
 		if ( currentTitle.startsWith("Appendix:") ||
 			 currentTitle.startsWith("Help:") ||
 			 currentTitle.startsWith("Wiktionary:")
 			) {
-			LOGGER.fine("- Skipped: '" + currentTitle + "'");
+			LOGGER.warning("- Skipped: '" + currentTitle + "'");
 			//LOGGER.info("- Skipped: '" + currentTitle + "'");
 			
 			return;
@@ -632,7 +568,7 @@ public class ReadStripped {
 				if (FAIL_AT_FIRST_PROBLEM) {
 					throw new Exception(msg);
 				}
-			} else {			
+			} else if (onlyLang == null || onlyLang.equals(langName)) {			
 				String sLangSect = langSect.substring(langStart + 2); // 2: skip ==
 				
 				//LOGGER.fine("Before parseWord: '" + sLangSect + "'");
@@ -747,6 +683,91 @@ public class ReadStripped {
 					}
 				}
 				
+				/* Swedish terms
+				 * http://sv.wiktionary.org/wiki/Wiktionary:Stilguide
+				 * 
+				 * ===Substantiv===
+                 * ===Adjektiv===
+                 * ===Verb===
+                 * ===Adverb===
+                 * ===Räkneord===
+                 * ===Preposition===
+                 * ===Konjunktion===
+                 * 	
+                 * ===Interjektion===
+                 * ===Pronomen===
+                 * ===Artikel===
+                 * ===Verbpartikel===
+                 * ===Partikel===
+                 * 
+                 * ===Förkortning===
+                 *
+                 * ===Affix===
+                 * ===Förled===
+                 * ===Efterled===
+                 * ===Fras===
+                 * ===Tecken===
+                 * ===Kod===
+                 * ===Cirkumposition===
+                 * ===Postposition===
+                 * ===Räknemarkör===
+                 * ===Infinitivmärke===
+                 * ===Transkription===
+                 * 
+                 * TODO
+                 * 
+                 * ===Efterled===
+                 * ===Kod===
+                 * ===Infinitivmärke===
+                 * ===Transkription===
+				 */
+				
+				/*
+				 * German terms
+				 * 
+				 * === {{Wortart|Abkürzung|International}} ===
+				 * === {{Wortart|Adjektiv|Deutsch}} ===
+				 * === {{Wortart|Adverb|Plattdeutsch}}, {{Wortart|Partikel|Plattdeutsch}}, {{Wortart|Konjunktion|Plattdeutsch}} ===
+				 * === {{Wortart|Antwortpartikel|Deutsch}} ===
+				 * === {{Wortart|Artikel|Englisch}} ===
+				 * === {{Wortart|Deklinierte Form|Deutsch}} ===
+				 * === {{Wortart|Demonstrativpronomen|Deutsch}} ===
+				 * === {{Wortart|Eigenname|Deutsch}} ===
+				 * === {{Wortart|Grußformel|Polnisch}}, {{Wortart|Interjektion|Polnisch}} ===
+				 * === {{Wortart|Indefinitpronomen|Deutsch}} ===
+				 * === {{Wortart|Interjektion|Englisch}} ===
+				 * === {{Wortart|Interrogativpronomen|Westfriesisch}} ===
+				 * ===  {{Wortart|Kontraktion|Deutsch}} ===
+				 * === {{Wortart|Modalpartikel|Deutsch}} ===
+				 * === {{Wortart|Nachname|Deutsch}} ===
+				 * === {{Wortart|Negationspartikel|Färöisch}} ===
+				 * === {{Wortart|Numerale|Japanisch}} (いち, いつ) ===
+				 * === {{Wortart|Partikel|Deutsch}} ===
+				 * === {{Wortart|Partizip II|Deutsch}} ===
+				 * === {{Wortart|Personalpronomen|Deutsch}} ==
+				 * === {{Wortart|Possessivpronomen|Deutsch}}, 3. Person {{f}} ===
+				 * === {{Wortart|Pronomen|Schwedisch}} ===
+				 * === {{Wortart|Präfix|Deutsch}} ===
+				 * === {{Wortart|Präposition|Altnordisch}} ===
+				 * === {{Wortart|Redewendung|Deutsch}} ===
+				 *   Expression, figure of speech, idiom, phrase
+				 * === {{Wortart|Relativpronomen|Westfriesisch}}, {{n}} ===
+				 * === {{Wortart|Schriftzeichen|Chinesisch}} ===
+				 * === {{Wortart|Substantiv|Lateinisch}}, {{f}} ===
+				 * === {{Wortart|Substantiv|Chinesisch}}, {{Wortart|Toponym|Chinesisch}} ===
+				 * === {{Wortart|Substantiv|Norwegisch}}, {{m}}, {{Wortart|Vorname|Norwegisch}} ===
+				 * === {{Wortart|Substantiv|Deutsch}}, {{n}}, {{Wortart|Buchstabe|Deutsch}} ===
+				 * === {{Wortart|Symbol|International}} ===
+				 * === {{Wortart|Temporaladverb|Deutsch}} ===
+				 * === {{Wortart|Verb|Deutsch}} ===
+				 * === {{Wortart|Verb|Deutsch}}, {{unreg.}} ===
+				 * === {{Wortart|Wortverbindung|Deutsch}}, {{Wortart|Adverb|Deutsch}} ===
+				 *   Compound term
+				 * === {{Wortart|Zahlklassifikator|Japanisch}} ===
+				 * === {{Wortart|Zahlzeichen|International}} ===
+				 * 
+				 */
+				
 				boolean foundDefin = false;
 				/* TODO Some terms, e.g. <title>klama</title> in line 22862 ff. in edition 20131017, don't have info on the
 				 * entry classification (noun etc.) but just contain various senses denoted by #'s
@@ -774,6 +795,10 @@ public class ReadStripped {
 				 * Some have this, e.g. "ppl"
 				 */
 				abbrStart = etymSect.indexOf("===Abbreviation===");
+				if (abbrStart == -1)
+					abbrStart = etymSect.indexOf("===Lyhenne==="); // fi
+				if (abbrStart == -1)
+					abbrStart = etymSect.indexOf("===Förkortning==="); // sv
 //				if (abbrStart > 0) { // So not to pickup ====Abbreviation==== definitions
 //					if (etymSect.charAt(abbrStart-1) == '=')
 //						abbrStart = -1;
@@ -806,6 +831,8 @@ public class ReadStripped {
 				
 				// e.g. EU, the Swedish section
 				acronStart = etymSect.indexOf("===Acronym===");
+				if (acronStart == -1)
+					acronStart = etymSect.indexOf("===Akronyymi==="); // fi
 				if (acronStart > 0) { // So not to pickup ====Acronym==== definitions
 					if (etymSect.charAt(acronStart-1) == '=')
 						acronStart = -1;
@@ -820,6 +847,10 @@ public class ReadStripped {
 
 				// TODO Pickup the comparative and superlative: {{en-adj|freer|freest}}
 				int adjStart = etymSect.indexOf("===Adjective===");
+				if (adjStart == -1)
+					adjStart = etymSect.indexOf("===Adjektiivi==="); // fi
+				if (adjStart == -1)
+					adjStart = etymSect.indexOf("===Adjektiv==="); // sv
 				if (adjStart > -1) {
 					WordEntry entry = processPOS(POSType.ADJ, currentTitle, etymSect, adjStart, outputType, wordEtym);
 					if (entry != null) {
@@ -829,6 +860,8 @@ public class ReadStripped {
 				}
 				
 				int adposStart = etymSect.indexOf("===Adposition===");
+				if (adposStart == -1)
+					adposStart = etymSect.indexOf("===Adpositio==="); // fi
 				if (adposStart > -1) {
 					WordEntry entry = processPOS(POSType.ADPOS, currentTitle, etymSect, adposStart, outputType, wordEtym);
 					if (entry != null) {
@@ -837,7 +870,9 @@ public class ReadStripped {
 					}
 				}
 				
-				int advStart = etymSect.indexOf("===Adverb===");
+				int advStart = etymSect.indexOf("===Adverb==="); // en, sv
+				if (advStart == -1)
+					advStart = etymSect.indexOf("===Adverbi==="); // fi
 				if (advStart > -1) {
 					WordEntry entry = processPOS(POSType.ADV, currentTitle, etymSect, advStart, outputType, wordEtym);
 					if (entry != null) {
@@ -875,6 +910,10 @@ public class ReadStripped {
 				}
 				
 				int articleStart = etymSect.indexOf("===Article===");
+				if (articleStart == -1)
+					articleStart = etymSect.indexOf("===Artikkeli==="); // fi
+				if (articleStart == -1)
+					articleStart = etymSect.indexOf("===Artikel==="); // sv
 				if (articleStart > -1) {
 					WordEntry entry = processPOS(POSType.ARTICLE, currentTitle, etymSect, articleStart, outputType, wordEtym);
 					if (entry != null) {
@@ -893,6 +932,10 @@ public class ReadStripped {
 				}
 				
 				int cardStart = etymSect.indexOf("===Cardinal number===");
+				if (cardStart == -1)
+					cardStart = etymSect.indexOf("===Kardinaaliluku==="); // fi // TODO Is this correct?
+				if (cardStart == -1)
+					cardStart = etymSect.indexOf("===Räkneord==="); // sv // TODO Is this correct?
 				if (cardStart > -1) {
 					WordEntry entry = processPOS(POSType.CARD, currentTitle, etymSect, cardStart, outputType, wordEtym);
 					if (entry != null) {
@@ -929,6 +972,8 @@ public class ReadStripped {
 				}
 				
 				int circumpStart = etymSect.indexOf("===Circumposition===");
+				if (circumpStart == -1)
+					circumpStart = etymSect.indexOf("===Cirkumposition==="); // sv
 				if (circumpStart > -1) {
 					WordEntry entry = processPOS(POSType.CIRCUMP, currentTitle, etymSect, circumpStart, outputType, wordEtym);
 					if (entry != null) {
@@ -965,6 +1010,10 @@ public class ReadStripped {
 				}
 				
 				int conjStart = etymSect.indexOf("===Conjunction===");
+				if (conjStart == -1)
+					conjStart = etymSect.indexOf("===Konjunktio==="); // fi
+				if (conjStart == -1)
+					conjStart = etymSect.indexOf("===Konjunktion==="); // sv
 //				if (conjStart > 0) { // So not to pickup ====Conjunction==== definitions
 //					if (etymSect.charAt(conjStart-1) == '=')
 //						conjStart = -1;
@@ -1024,6 +1073,8 @@ public class ReadStripped {
 				}
 
 				int demStart = etymSect.indexOf("===Demonstrative pronoun===");
+				if (demStart == -1)
+					demStart = etymSect.indexOf("===Demonstratiivipronomini==="); // fi
 				if (demStart > -1) {
 					WordEntry entry = processPOS(POSType.DEM, currentTitle, etymSect, demStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1042,6 +1093,8 @@ public class ReadStripped {
 				}
 				
 				int diacStart = etymSect.indexOf("===Diacritical mark===");
+				if (diacStart == -1)
+					diacStart = etymSect.indexOf("===Diakriittinen merkki==="); // fi // TODO Is this correct?
 				if (diacStart > -1) {
 					WordEntry entry = processPOS(POSType.DIAC, currentTitle, etymSect, diacStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1060,6 +1113,10 @@ public class ReadStripped {
 				}
 				
 				int expStart = etymSect.indexOf("===Expression===");
+				if (expStart == -1)
+					expStart = etymSect.indexOf("===Ilmaus==="); // fi
+				if (expStart == -1)
+					expStart = etymSect.indexOf("===Ilmaisu==="); // fi
 				if (expStart > -1) {
 					WordEntry entry = processPOS(POSType.EXP, currentTitle, etymSect, expStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1079,6 +1136,8 @@ public class ReadStripped {
 				}
 				
 				int idiomStart = etymSect.indexOf("===Idiom===");
+				if (idiomStart == -1)
+					idiomStart = etymSect.indexOf("===Idiomi==="); // fi // TODO Is this correct?
 				if (idiomStart > 0) { // So not to pickup ====Idiom==== definitions
 					if (etymSect.charAt(idiomStart-1) == '=')
 						idiomStart = -1;
@@ -1119,6 +1178,8 @@ public class ReadStripped {
 				}
 				
 				initStart = etymSect.indexOf("===Initialism===");
+				if (initStart == -1)
+					initStart = etymSect.indexOf("===Initialismi==="); // fi // TODO Is this correct?
 //				if (initStart > 0) { // So not to pickup ====Initialism==== definitions
 //					if (etymSect.charAt(initStart-1) == '=')
 //						initStart = -1;
@@ -1141,6 +1202,10 @@ public class ReadStripped {
 				}
 				
 				int interjStart = etymSect.indexOf("===Interjection===");
+				if (interjStart == -1)
+					interjStart = etymSect.indexOf("===Interjektio==="); // fi
+				if (interjStart == -1)
+					interjStart = etymSect.indexOf("===Interjektion==="); // sv
 				if (interjStart > -1) {
 					WordEntry entry = processPOS(POSType.INTERJ, currentTitle, etymSect, interjStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1150,6 +1215,8 @@ public class ReadStripped {
 				}
 
 				int letterStart = etymSect.indexOf("===Letter===");
+				if (letterStart == -1)
+					letterStart = etymSect.indexOf("===Aakkonen==="); // fi // TODO Is this correct?
 				if (letterStart > -1) {
 					WordEntry entry = processPOS(POSType.LETTER, currentTitle, etymSect, letterStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1159,6 +1226,8 @@ public class ReadStripped {
 				}
 				
 				int ligatStart = etymSect.indexOf("===Ligature===");
+				if (ligatStart == -1)
+					ligatStart = etymSect.indexOf("===Ligatuuuri==="); // fi // TODO Is this correct?
 				if (ligatStart > -1) {
 					WordEntry entry = processPOS(POSType.LIGAT, currentTitle, etymSect, ligatStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1168,6 +1237,8 @@ public class ReadStripped {
 				}
 				
 				int logogStart = etymSect.indexOf("===Logogram===");
+				if (logogStart == -1)
+					logogStart = etymSect.indexOf("===Logogrammi==="); // fi // TODO Is this correct?
 				if (logogStart > -1) {
 					WordEntry entry = processPOS(POSType.LOGOG, currentTitle, etymSect, logogStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1185,7 +1256,20 @@ public class ReadStripped {
 					}
 				}
 				
+				int mathSymbolStart = etymSect.indexOf("===Räknemarkör==="); // sv
+				if (mathSymbolStart > -1) {
+					WordEntry entry = processPOS(POSType.MATHSYMBOL, currentTitle, etymSect, mathSymbolStart, outputType, wordEtym);
+					if (entry != null) {
+						wordEntries.add(entry);
+						foundDefin = true;
+					}
+				}
+				
 				int nounStart = etymSect.indexOf("===Noun===");
+				if (nounStart == -1)
+					nounStart = etymSect.indexOf("===Substantiivi==="); // fi
+				if (nounStart == -1)
+					nounStart = etymSect.indexOf("===Substantiv==="); // sv
 				if (nounStart > -1) {
 					WordEntry entry = processPOS(POSType.NOUN, currentTitle, etymSect, nounStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1195,6 +1279,8 @@ public class ReadStripped {
 				}
 				
 				nounStart = etymSect.indexOf("===noun===");
+				if (nounStart == -1)
+					nounStart = etymSect.indexOf("===substantiivi==="); // fi
 				if (nounStart > -1) {
 					WordEntry entry = processPOS(POSType.NOUN, currentTitle, etymSect, nounStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1250,6 +1336,8 @@ public class ReadStripped {
 				}
 				
 				int numerStart = etymSect.indexOf("===Number===");
+				if (numerStart == -1)
+					numerStart = etymSect.indexOf("===Numero==="); // fi
 				if (numerStart > -1) {
 					WordEntry entry = processPOS(POSType.NUM, currentTitle, etymSect, numerStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1259,6 +1347,8 @@ public class ReadStripped {
 				}
 				
 				numerStart = etymSect.indexOf("===Numeral===");
+				if (numerStart == -1)
+					numerStart = etymSect.indexOf("===Numeraali===");
 				if (numerStart > -1) {
 					WordEntry entry = processPOS(POSType.NUM, currentTitle, etymSect, numerStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1268,6 +1358,8 @@ public class ReadStripped {
 				}
 				
 				int ordNumerStart = etymSect.indexOf("===Ordinal number===");
+				if (ordNumerStart == -1)
+					ordNumerStart = etymSect.indexOf("===Järjestysluku==="); // fi // TODO Is this correct?
 				if (ordNumerStart > -1) {
 					WordEntry entry = processPOS(POSType.ORD_NUM, currentTitle, etymSect, ordNumerStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1286,6 +1378,8 @@ public class ReadStripped {
 				}
 
 				int participleStart = etymSect.indexOf("===Participle===");
+				if (participleStart == -1)
+					participleStart = etymSect.indexOf("===Partisiippi==="); // fi
 				if (participleStart > -1) {
 					WordEntry entry = processPOS(POSType.PARTICIPLE, currentTitle, etymSect, participleStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1295,6 +1389,10 @@ public class ReadStripped {
 				}
 				
 				int particleStart = etymSect.indexOf("===Particle===");
+				if (particleStart == -1)
+					particleStart = etymSect.indexOf("===Partikkeli==="); // fi
+				if (particleStart == -1)
+					particleStart = etymSect.indexOf("===Partikel==="); // sv
 				if (particleStart > -1) {
 					WordEntry entry = processPOS(POSType.PARTICLE, currentTitle, etymSect, particleStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1304,6 +1402,10 @@ public class ReadStripped {
 				}
 				
 				int phrStart = etymSect.indexOf("===Phrase===");
+				if (phrStart == -1)
+					phrStart = etymSect.indexOf("===Fraasi==="); // fi
+				if (phrStart == -1)
+					phrStart = etymSect.indexOf("===Fras==="); // sv
 				if (phrStart > -1) {
 					WordEntry entry = processPOS(POSType.PHRASE, currentTitle, etymSect, phrStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1312,7 +1414,9 @@ public class ReadStripped {
 					}
 				}
 				
-				int postpositionStart = etymSect.indexOf("===Postposition===");
+				int postpositionStart = etymSect.indexOf("===Postposition==="); // en, sv
+				if (postpositionStart == -1)
+					postpositionStart = etymSect.indexOf("===Postpositio==="); // fi
 				if (postpositionStart > -1) {
 					WordEntry entry = processPOS(POSType.POSTPOSITION, currentTitle, etymSect, postpositionStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1322,6 +1426,8 @@ public class ReadStripped {
 				}
 				
 				int predStart = etymSect.indexOf("===Predicative===");
+				if (predStart == -1)
+					predStart = etymSect.indexOf("===Predikatiivi==="); // fi
 				if (predStart > -1) {
 					WordEntry entry = processPOS(POSType.PRED, currentTitle, etymSect, predStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1331,6 +1437,10 @@ public class ReadStripped {
 				}
 				
 				int prefixStart = etymSect.indexOf("===Prefix===");
+				if (prefixStart == -1)
+					prefixStart = etymSect.indexOf("===Prefiksi==="); // fi
+				if (prefixStart == -1)
+					prefixStart = etymSect.indexOf("===Förled==="); // sv
 //				if (prefixStart > 0) { // So not to pickup ====Prefix==== definitions
 //					if (etymSect.charAt(prefixStart-1) == '=')
 //						prefixStart = -1;
@@ -1343,7 +1453,9 @@ public class ReadStripped {
 					}
 				}
 				
-				int prepositionStart = etymSect.indexOf("===Preposition===");
+				int prepositionStart = etymSect.indexOf("===Preposition==="); // en, sv
+				if (prepositionStart == -1)
+					prepositionStart = etymSect.indexOf("===Prepositio==="); // fi
 				if (prepositionStart > -1) {
 					WordEntry entry = processPOS(POSType.PREPOSITION, currentTitle, etymSect, prepositionStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1380,6 +1492,10 @@ public class ReadStripped {
 				}
 				
 				int pronounStart = etymSect.indexOf("===Pronoun===");
+				if (pronounStart == -1)
+					pronounStart = etymSect.indexOf("===Pronomini==="); // fi
+				if (pronounStart == -1)
+					pronounStart = etymSect.indexOf("===Pronomen==="); // sv
 				if (pronounStart > -1) {
 					WordEntry entry = processPOS(POSType.PRON, currentTitle, etymSect, pronounStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1407,6 +1523,8 @@ public class ReadStripped {
 				}
 				
 				prNounStart = etymSect.indexOf("===Proper Noun===");
+				if (prNounStart == -1)
+					prNounStart = etymSect.indexOf("===Erisnimi==="); //fi
 				if (prNounStart > -1) {
 					WordEntry entry = processPOS(POSType.PRNOUN, currentTitle, etymSect, prNounStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1453,6 +1571,10 @@ public class ReadStripped {
 				}
 				
 				int provStart = etymSect.indexOf("===Proverb===");
+				if (provStart == -1)
+					provStart = etymSect.indexOf("===Sanonta==="); // fi // TODO Is this correct?
+				if (provStart == -1)
+					provStart = etymSect.indexOf("===Ordspråk==="); // sv
 				if (provStart > -1) {
 					WordEntry entry = processPOS(POSType.PROVERB, currentTitle, etymSect, provStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1462,6 +1584,8 @@ public class ReadStripped {
 				}
 				
 				int puncStart = etymSect.indexOf("===Punctuation mark===");
+				if (puncStart == -1)
+					puncStart = etymSect.indexOf("===Välimerkki==="); // fi // TODO Is this correct?
 				if (puncStart > -1) {
 					WordEntry entry = processPOS(POSType.PUNC, currentTitle, etymSect, puncStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1489,6 +1613,8 @@ public class ReadStripped {
 				}
 				
 				int romanStart = etymSect.indexOf("===Romanization===");
+				if (romanStart == -1)
+					romanStart = etymSect.indexOf("===Romanisaatio==="); // fi // TODO Is this correct?
 				if (romanStart > -1) {
 					WordEntry entry = processPOS(POSType.ROMAN, currentTitle, etymSect, romanStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1498,6 +1624,8 @@ public class ReadStripped {
 				}
 				
 				int rootStart = etymSect.indexOf("===Root===");
+				if (rootStart == -1)
+					rootStart = etymSect.indexOf("===Juuri==="); // fi // TODO Is this correct?
 				if (rootStart > -1) {
 					WordEntry entry = processPOS(POSType.ROOT, currentTitle, etymSect, rootStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1506,7 +1634,18 @@ public class ReadStripped {
 					}
 				}
 				
+				int adageStart = etymSect.indexOf("===Talesätt==="); // sv: an adage or old saying
+				if (adageStart > -1) {
+					WordEntry entry = processPOS(POSType.ADAGE, currentTitle, etymSect, adageStart, outputType, wordEtym);
+					if (entry != null) {
+						wordEntries.add(entry);
+						foundDefin = true;
+					}
+				}
+				
 				int suffixStart = etymSect.indexOf("===Suffix===");
+				if (suffixStart == -1)
+					suffixStart = etymSect.indexOf("===Suffiksi==="); // fi // TODO Is this correct?
 //				if (suffixStart > 0) { // So not to pickup ====Suffix==== definitions
 //					if (etymSect.charAt(suffixStart-1) == '=')
 //						suffixStart = -1;
@@ -1520,6 +1659,8 @@ public class ReadStripped {
 				}
 				
 				int syllStart = etymSect.indexOf("===Syllable===");
+				if (syllStart == -1)
+					syllStart = etymSect.indexOf("===Tavu==="); // fi // TODO Is this correct?
 				if (syllStart > -1) {
 					WordEntry entry = processPOS(POSType.SYLL, currentTitle, etymSect, syllStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1529,6 +1670,10 @@ public class ReadStripped {
 				}
 				
 				int symbolStart = etymSect.indexOf("===Symbol===");
+				if (symbolStart == -1)
+					symbolStart = etymSect.indexOf("===Symboli==="); // fi
+				if (symbolStart == -1)
+					symbolStart = etymSect.indexOf("===Tecken==="); // sv
 //				if (symbolStart > 0) { // So not to pickup ====Symbol==== definitions? For "A" at least should pick them up, have definitions
 //					if (etymSect.charAt(symbolStart-1) == '=')
 //						symbolStart = -1;
@@ -1541,7 +1686,9 @@ public class ReadStripped {
 					}
 				}
 				
-				int vbStart = etymSect.indexOf("===Verb===");
+				int vbStart = etymSect.indexOf("===Verb==="); // en, sv
+				if (vbStart == -1)
+					vbStart = etymSect.indexOf("===Verbi==="); // fi
 				if (vbStart > -1) {
 					WordEntry entry = processPOS(POSType.VERBGEN, currentTitle, etymSect, vbStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1572,6 +1719,15 @@ public class ReadStripped {
 				int vbFormStart = etymSect.indexOf("===Verb form===");
 				if (vbFormStart > -1) {
 					WordEntry entry = processPOS(POSType.VERBFORM, currentTitle, etymSect, vbFormStart, outputType, wordEtym);
+					if (entry != null) {
+						wordEntries.add(entry);
+						foundDefin = true;
+					}
+				}
+				
+				int vbParticleStart = etymSect.indexOf("===Verb partikel==="); // sv
+				if (vbParticleStart > -1) {
+					WordEntry entry = processPOS(POSType.VERBPARTICLE, currentTitle, etymSect, vbParticleStart, outputType, wordEtym);
 					if (entry != null) {
 						wordEntries.add(entry);
 						foundDefin = true;
@@ -2014,10 +2170,14 @@ public class ReadStripped {
 		return s;
 	}
 	
-	private Set<Lang> loadLanguages() throws IOException {
+	private Set<Lang> loadLanguages(String langCode) throws IOException {
 		String inFileName = "language codes.csv";
 		
-		LOGGER.fine("Reading languages file");
+		if (langCode != null) {
+			inFileName += (langCode + "-"); // e.g. "fi-language_codes.csv"; 
+		}
+		
+		LOGGER.fine("Reading languages file for " + (langCode == null ? "English" : langCode));
 		
 		ClassLoader cl = ReadStripped.class.getClassLoader();
 		

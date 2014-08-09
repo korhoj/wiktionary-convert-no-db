@@ -7,13 +7,10 @@ import wiktionary.to.xml.full.jpa.Word;
  * @author Joel Korhonen
  * v.0.10 2012-05-03
  * v.0.11 2012-06-21 Support other languages than English
+ * v.0.12 2013-12-10 Remove lang and langID
  */
 public interface Storer {
 	public void addWord(Word word);
-	
-	public void setLang(String lang);
-	
-	public void setLangID(String langID);
 	
 	/**
 	 * @param writeHeader Only used for XML
