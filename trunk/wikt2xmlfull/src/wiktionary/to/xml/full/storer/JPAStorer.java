@@ -14,24 +14,25 @@ import wiktionary.to.xml.full.jpa.WordLang;
 import wiktionary.to.xml.full.util.DeepCopy;
 import wiktionary.to.xml.full.util.HibernateUtil;
 
+/**
+ * Stores entries to a database using JPA. Database must
+ * be preinitialized by running CreateDB.sql.
+ * 
+ * @author Joel Korhonen
+ * 2013-12-10 Remove lang and langID
+ */
 public class JPAStorer  implements Storer, Runnable {
 	private LinkedList<Word> words = new LinkedList<Word>();
-	private String lang = null; // Storer interface requires, unused
-	private String langID = null; // Storer interface requires, unused
 	
 	// thread shared objects
 	
-	public JPAStorer(LinkedList<Word> words, String lang, String langID) {
+	public JPAStorer(LinkedList<Word> words) {
 		LinkedList<Word> kopio = null;
 		
 		if (words != null)
 			kopio = (LinkedList<Word>)DeepCopy.copy(words);
 		
 		setWords(kopio);
-		
-		setLang(lang);
-		
-		setLangID(langID);
 	}
 
 	public void run(LinkedList<Word> wordsParam) {
@@ -98,16 +99,6 @@ public class JPAStorer  implements Storer, Runnable {
 	@Override
 	public void addWord(Word word) {
 		words.add(word);
-	}
-	
-	@Override
-	public void setLang(String lang) {
-		this.lang = lang; 
-	}
-	
-	@Override
-	public void setLangID(String langID) {
-		this.langID = langID; 
 	}
 	
 	/**

@@ -29,12 +29,15 @@ public class DeepCopy {
             out.writeObject(orig);
             out.flush();
             out.close();
+            out = null;
 
             // Retrieve an input stream from the byte array and read
             // a copy of the object back in.
             ObjectInputStream in =
                 new ObjectInputStream(fbos.getInputStream());
             obj = in.readObject();
+            in = null;
+            fbos = null;
         }
         catch(IOException e) {
             e.printStackTrace();
@@ -43,8 +46,7 @@ public class DeepCopy {
         catch(ClassNotFoundException cnfe) {
             cnfe.printStackTrace();
             throw new RuntimeException("DeepCopy failed: " + cnfe.getMessage());
-        }
+        } 
         return obj;
     }
-
 }

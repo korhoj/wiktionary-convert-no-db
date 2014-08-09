@@ -8,7 +8,6 @@ import java.io.PrintWriter;
 import java.util.LinkedList;
 
 import wiktionary.to.xml.full.jpa.Example;
-import wiktionary.to.xml.full.jpa.Lang;
 import wiktionary.to.xml.full.jpa.Sense;
 import wiktionary.to.xml.full.jpa.Word;
 import wiktionary.to.xml.full.jpa.WordEntry;
@@ -25,11 +24,10 @@ import wiktionary.to.xml.full.util.DeepCopy;
  * 2012-07-04 First version, based on KindleStorer.java
  * 2012-07-26 Support outputting all language codes in LanguageID
  * 2013-11-25 Get data from JPA entities
+ * 2013-12-10 Remove lang and langID
  */
 public class StardictStorer implements Storer, Runnable {
 	private LinkedList<Word> words = new LinkedList<Word>();
-	private String lang = null; // Storer interface requires, unused
-	private String langID = null; // Storer interface requires, unused
 	private String target = null;
 	
 	// thread shared objects
@@ -39,9 +37,8 @@ public class StardictStorer implements Storer, Runnable {
 	private final static Object latch = new Object();
 	private static int threadsAmount = 0;
 	
-	public StardictStorer(LinkedList<Word> words, String lang, String langID, String target) {
+	public StardictStorer(LinkedList<Word> words, String target) {
 		LinkedList<Word> kopio = null;
-		
 		
 //		int w = 0;
 //		for (Word word : words) {
@@ -81,10 +78,6 @@ public class StardictStorer implements Storer, Runnable {
 		setWords(kopio);
 		kopio = null;
 		
-		setLang(lang);
-		
-		setLangID(langID);
-		
 		setTarget(target);
 	}
 	
@@ -93,16 +86,6 @@ public class StardictStorer implements Storer, Runnable {
 		words.add(word);
 	}
 	
-	@Override
-	public void setLang(String lang) {
-		this.lang = lang; 
-	}
-	
-	@Override
-	public void setLangID(String langID) {
-		this.langID = langID; 
-	}
-
 	/**
 	 * @param writeHeader Unused
 	 * @param target Filename
@@ -157,7 +140,7 @@ public class StardictStorer implements Storer, Runnable {
 	 */	
 	private void outputWord (Word word, WordLang wordLang) throws Exception {
 		StringBuilder sb = new StringBuilder();
-		boolean isEnglish = true;
+		boolean isMainLanguage = true;
 		//LanguageID langID = null;
 		String langID_ID = null;
 		boolean isFirstPOS = true;
@@ -168,10 +151,13 @@ public class StardictStorer implements Storer, Runnable {
 //		
 //		langID_ID = langID.getLangID();
 //		
-		if ( ! ( langID_ID.equals("English")
+		// TODO Should be passed param which is main language
+		final String MAIN_LANGUAGE = "English";
+		//final String MAIN_LANGUAGE = "Suomi";
+		if ( ! ( langID_ID.equals(MAIN_LANGUAGE)
 			   )
 		   ) {
-			isEnglish = false;
+			isMainLanguage = false;
 		}
 		
 		sb.append(word.getDataField() + "\t");
@@ -188,8 +174,11 @@ public class StardictStorer implements Storer, Runnable {
 			/*
 			 * There are two levels here:
 			 * Etymologies and WordEntries
-			 * We don't print etyms here yet as aren't most relevant
+			 * Currently etym contains just the text "Etymology x"
 			 */
+			if (etym.getDataField() != null) {
+				sb.append("\\n" + etym.getDataField() + "\\n");
+			}
 			
 			// loop WordEntries
 			for ( WordEntry wordEntry : etym.getWordEntries() ) {
@@ -200,12 +189,12 @@ public class StardictStorer implements Storer, Runnable {
 					sb.append("\\n");
 				}
 				
-				if (isEnglish) {
+				if (isMainLanguage) {
 					sb.append(posStr); // e.g. "v.t." or "n."
 				} else {
 					String langStr = null;
 					
-					// TODO
+					// TODO Could use ABR for such languages where it's well-known
 					//langStr = langID.getLangStr();
 					langStr = langID_ID;
 					
@@ -213,20 +202,18 @@ public class StardictStorer implements Storer, Runnable {
 				}
 				
 				int senseNbr = 0;
-				//int sensesSize = entries.getSenses().size();
+				int sensesSize = wordEntry.getSenses().size();
 				// loop Senses
 				for ( Sense sense : wordEntry.getSenses() ) {
 					String content = sense.getDataField();
 					senseNbr++;
 					
-					// TODO Fix
-//					if (sensesSize > 1) {
-//						// We write "\n" to file, not a newline
-//						sb.append("\\n" + senseNbr + " " + content); // e.g. 1 To coat with zinc; to galvanize.
-//					} else {
-//						sb.append("\\n" + content); // e.g. To coat with zinc; to galvanize.
-//					}
-					sb.append("\\n" + senseNbr + " " + content); // e.g. 1 To coat with zinc; to galvanize.
+					if (sensesSize > 1) {
+						// We write "\n" to file, not a newline
+						sb.append("\\n" + senseNbr + " " + content); // e.g. 1 To coat with zinc; to galvanize.
+					} else {
+						sb.append("\\n" + content); // e.g. To coat with zinc; to galvanize.
+					}
 					
 //					for ( Example example : sense.getExamples() ) {
 //						String egContent = example.getDataField();

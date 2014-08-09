@@ -20,6 +20,7 @@ import java.util.regex.Pattern;
  * 2012-06-21 Language may be passed as parameter
  * 2012-07-27 If language isn't passed as parameter, include
  * all languages in output
+ * 2013-12-10 Explicitly skip Appendix:, Help: and Wiktionary: pages
  */
 public class StripNamespaces {
 
@@ -37,6 +38,10 @@ public class StripNamespaces {
 	private final Pattern LANG_PATTERN = Pattern.compile("==[a-zA-ZåÅ\\Q'-\\E íôõçéè]*==");
 	// The 1st language may also start like this:       <text xml:space="preserve">==English==
 	private final Pattern LANG_PATTERN2 = Pattern.compile(".*>==[a-zA-ZåÅ\\Q'-\\E íôõçéè]*==");
+	
+	// For German Wiktionary: <text xml:space="preserve">== speciēs ({{Sprache|Lateinisch}}) ==
+	private final Pattern LANG_PATTERN_DE = Pattern.compile(".*==.*\\{\\{.*\\}\\}.*==");
+	
 	/*
 ==[a-zA-ZÃ¥Ã¤Ã¶Ã…Ã„Ã–'- Ã­Ã´ÃµÃ§Ã©Ã¨]*==
                  ^
@@ -203,6 +208,7 @@ public class StripNamespaces {
 			while (s != null) {
 				if (SHOW_PROGRESS && entryNbr % SHOW_PROGRESS_EVERY == 0 && entryNbr > 0 && !waitingNew) {
 					LOGGER.log(Level.INFO, "Processed entry " + entryNbr);
+					out.flush();
 					
 					// To stop here:
 //					out.println(FOOTER);
@@ -255,6 +261,11 @@ public class StripNamespaces {
 								Matcher matcher2 = LANG_PATTERN2.matcher(s);
 								isLanguage = matcher2.matches();	
 							}
+
+							if (!isLanguage) {
+								Matcher matcher_de = LANG_PATTERN_DE.matcher(s);
+								isLanguage = matcher_de.matches();	
+							}
 						}
 						// Lang was not specified and any lang was found
 						if ( langStr == null && isLanguage ) {
@@ -275,11 +286,19 @@ public class StripNamespaces {
 						s.indexOf("<sha1") == -1 && // xml2sql doesn't understand these, often <sha1 />
 						// These aren't genuine word entries. Not in ns 0 though?
 						s.indexOf("<title>Category:") == -1 &&
+						s.indexOf("<title>Kategorie:") == -1 && // German wikt
 						s.indexOf("<title>Index:") == -1 &&
 						s.indexOf("<title>Citations:") == -1 &&
 						s.indexOf("<title>Template:") == -1 &&
 						s.indexOf("<title>Thread:") == -1 &&
 						s.indexOf("<title>File:") == -1 &&
+						s.indexOf("<title>Appendix:") == -1 &&
+						s.indexOf("<title>Help:") == -1 &&
+						s.indexOf("<title>MediaWiki:") == -1 && // At least German wikt uses
+						s.indexOf("<title>Spezial:") == -1 && // German wikt
+						s.indexOf("<title>Verzeichnis:") == -1 && // German wikt
+						s.indexOf("<title>Vorlage:") == -1 && // German wikt
+						s.indexOf("<title>Wiktionary:") == -1 &&
 						notRedirect) { 
 						outStr = outStr + LF + s;
 						
@@ -305,6 +324,7 @@ public class StripNamespaces {
 			
 			//out.println(FOOTER); // Not needed, is in end of input file
 			in.close();
+			out.flush();
 			out.close();
 		} catch (Exception e) {
 			String msg = "Failed at entryNbr: " + entryNbr;

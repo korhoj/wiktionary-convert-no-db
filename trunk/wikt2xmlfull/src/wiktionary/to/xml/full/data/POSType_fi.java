@@ -4,9 +4,10 @@ import java.io.Serializable;
 
 /**
  * @author Joel Korhonen
- * v.0.11 2012-06-21 Added proverb and verb form
+ * Finnish wiktionary POSTypes
+ * TODO Translate these
  */
-public class POSType implements Serializable {
+public class POSType_fi implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private String posType = null;
@@ -15,8 +16,6 @@ public class POSType implements Serializable {
 	public static String ABBR_STR = "abbreviation";
 	public static String ACRON = "acr.";
 	public static String ACRON_STR = "acronym";
-	public static String ADAGE = "adage"; // sv
-	public static String ADAGE_STR = "adage"; // sv
 	public static String ADJ = "a.";
 	public static String ADJ_STR = "adjective";
 	public static String ADPOS = "adposition";
@@ -81,8 +80,6 @@ public class POSType implements Serializable {
 	public static String LOGOG_STR = "logogram";
 	public static String LUJVO = "lujvo";
 	public static String LUJVO_STR = "lujvo";
-	public static String MATHSYMBOL = "math symbol";
-	public static String MATHSYMBOL_STR = "math symbol";
 	public static String NOUN = "n.";
 	public static String NOUN_STR = "noun";
 	public static String NUM = "num."; // e.g. "googolplex"
@@ -141,15 +138,13 @@ public class POSType implements Serializable {
 	public static String VERBINTRAN_STR = "verb intransitive";
 	public static String VERBNOUN = "verbal noun";
 	public static String VERBNOUN_STR = "verbal noun";
-	public static String VERBPARTICLE = "verb particle"; // sv
-	public static String VERBPARTICLE_STR = "verb particle"; // sv
 	public static String VERBTRAN = "v.t.";
 	public static String VERBTRAN_STR = "verb transitive";
 	
 	/**
 	 * @param pos String, one of POSTypes
 	 */
-	public POSType(String pos) {
+	public POSType_fi(String pos) {
 		if (pos != null) {
 			this.setPosType(pos);
 		} else {
