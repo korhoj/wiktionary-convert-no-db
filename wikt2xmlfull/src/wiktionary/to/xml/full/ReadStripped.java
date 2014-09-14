@@ -71,6 +71,8 @@ import wiktionary.to.xml.full.util.StringUtils;
  * 2013-12-12 Initial Finnish wiktionary support
  * 2014-01-11 Initial Swedish wiktionary support
  * 2014-05-18 Fix reading language specific language lists. Still needs a fix in StardictStorer
+ * 2014-09-13 New 3rd argument: whether language metadata (language codes) are in English or are read from separate csv file
+ * 2014-09-14 Java 8 build. Still JPA 2.0, not 2.1 yet
  */
 public class ReadStripped {
 	private static int STORE_INTERVAL = 10000; // Store entries after this many read
@@ -148,11 +150,14 @@ public class ReadStripped {
 		String inFileName = null; // = "WiktionaryTest.txt";
 		String outFileName = null; // = "WiktionaryTestOut.xml";
 		String lang = "English"; // English, "Old English" etc.
+		// Is metadata in English or another language such as Finnish
+		boolean metadataInEnglish = true;
+		
 		long restartLine = 0;
 		
 		try {
-			if (args.length < 4 || args.length > 5) {
-				LOGGER.log(Level.SEVERE, "Wrong number of arguments, expected 4 - 5, got " + args.length);
+			if (args.length < 5 || args.length > 6) {
+				LOGGER.log(Level.SEVERE, "Wrong number of arguments, expected 5 - 6, got " + args.length);
 				LOGGER.log(Level.SEVERE, "Arg[max] = '" + args[args.length-1] + "'");
 				System.exit(255);
 			}
@@ -174,10 +179,14 @@ public class ReadStripped {
 				lang = null;
 			}
 			
-			String outputType = args[3];
-			
-			if (args.length == 5) {
-				String restartLineStr = args[4];
+			String metadataInEnglishStr = args[3];
+			if (metadataInEnglishStr.equals("false"))
+				metadataInEnglish = false;
+
+			String outputType = args[4];
+
+			if (args.length == 6) {
+				String restartLineStr = args[5];
 				Long l = Long.parseLong(restartLineStr);
 				restartLine = l.longValue();
 			}
@@ -196,7 +205,7 @@ public class ReadStripped {
 			
 			ReadStripped readStripped = new ReadStripped();
 		
-			readStripped.process(OutputType.valueOf(outputType), inFileName, outFileName, lang, restartLine);
+			readStripped.process(OutputType.valueOf(outputType), inFileName, outFileName, lang, metadataInEnglish, restartLine);
 			
 			LOGGER.log(Level.INFO, "***FINISHED***");
 			
@@ -209,7 +218,8 @@ public class ReadStripped {
 		}
 	}
 
-	private void process (OutputType outputType, String inFileName, String outFileName, String lang, long restartLine) throws Exception {
+	private void process (OutputType outputType, String inFileName, String outFileName, String lang, 
+			boolean metadataInEnglish, long restartLine) throws Exception {
 		long entryNbr = 0;
 		boolean evenThousand = true; // log every thousand entries
 		boolean textSection = false; // true when have reached <text> of a new entry and are in it
@@ -237,7 +247,7 @@ public class ReadStripped {
         	} else {
 	        	// Load languages from csv file to avoid JPA processing
 	        	
-	        	langs = loadLanguages(lang);
+	        	langs = loadLanguages(lang, metadataInEnglish);
         	}
 			
 			String s = in.readLine();
@@ -2170,10 +2180,10 @@ public class ReadStripped {
 		return s;
 	}
 	
-	private Set<Lang> loadLanguages(String langCode) throws IOException {
+	private Set<Lang> loadLanguages(String langCode, boolean metadataInEnglish) throws IOException {
 		String inFileName = "language codes.csv";
 		
-		if (langCode != null) {
+		if (langCode != null && !metadataInEnglish) {
 			inFileName += (langCode + "-"); // e.g. "fi-language_codes.csv"; 
 		}
 		
