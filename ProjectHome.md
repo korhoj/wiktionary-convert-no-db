@@ -1,0 +1,3 @@
+Convert Wiktionary entries to various formats such as StarDict or DB (MariaDB/MySQL). Main programs are Java based with some additional Win/Linux shell scripts. The projects are best edited via Eclipse.
+
+N.b. the current sources don't include the Kindle targeted epub/mobi as output format as I changed the entity classes to support JPA and haven't reimplemented the Kindle output yet due to having little use for it nowadays.
