@@ -73,6 +73,8 @@ import wiktionary.to.xml.full.util.StringUtils;
  * 2014-05-18 Fix reading language specific language lists. Still needs a fix in StardictStorer
  * 2014-09-13 New 3rd argument: whether language metadata (language codes) are in English or are read from separate csv file
  * 2014-09-14 Java 8 build. Still JPA 2.0, not 2.1 yet
+ * 2014-11-13 Initial support for German genders. Output f/m/n in front of each sense of the word now
+ * 2014-11-16 Initial support for Swedish genders. Output c for "en" and n for "ett" nouns
  */
 public class ReadStripped {
 	private static int STORE_INTERVAL = 10000; // Store entries after this many read
@@ -151,13 +153,14 @@ public class ReadStripped {
 		String outFileName = null; // = "WiktionaryTestOut.xml";
 		String lang = "English"; // English, "Old English" etc.
 		// Is metadata in English or another language such as Finnish
+		String langCode = null; // e.g. fi for Finnish or null for ALL
 		boolean metadataInEnglish = true;
 		
 		long restartLine = 0;
 		
 		try {
-			if (args.length < 5 || args.length > 6) {
-				LOGGER.log(Level.SEVERE, "Wrong number of arguments, expected 5 - 6, got " + args.length);
+			if (args.length < 5 || args.length > 7) {
+				LOGGER.log(Level.SEVERE, "Wrong number of arguments, expected 5 - 7, got " + args.length);
 				LOGGER.log(Level.SEVERE, "Arg[max] = '" + args[args.length-1] + "'");
 				System.exit(255);
 			}
@@ -185,10 +188,15 @@ public class ReadStripped {
 
 			String outputType = args[4];
 
-			if (args.length == 6) {
+			if (args.length >= 6) {
 				String restartLineStr = args[5];
 				Long l = Long.parseLong(restartLineStr);
-				restartLine = l.longValue();
+				restartLine = l.longValue(); // if 0 --> NOP
+			}
+			
+			if (args.length == 7) {
+				langCode = args[6];
+				langCode = langCode.trim();
 			}
 			
 			// Throws error if wrong argument used
@@ -198,14 +206,15 @@ public class ReadStripped {
 			
 			LOGGER.info("Input: " + inFileName);
 			LOGGER.info("Output: " + outFileName);
-			LOGGER.info("Language: " + (lang != null ? lang : "(all)"));
+			LOGGER.info("Language: " + (lang != null ? lang : "(all)") + (langCode != null ? (", code=" + langCode) : ""));
 			LOGGER.info("Output type: " + OutputType.valueOf(outputType));
 			if (restartLine > 0)
 				LOGGER.info("Restarting at line " + restartLine);
 			
 			ReadStripped readStripped = new ReadStripped();
 		
-			readStripped.process(OutputType.valueOf(outputType), inFileName, outFileName, lang, metadataInEnglish, restartLine);
+			readStripped.process(OutputType.valueOf(outputType), inFileName, outFileName, lang, metadataInEnglish, restartLine,
+					langCode);
 			
 			LOGGER.log(Level.INFO, "***FINISHED***");
 			
@@ -219,7 +228,7 @@ public class ReadStripped {
 	}
 
 	private void process (OutputType outputType, String inFileName, String outFileName, String lang, 
-			boolean metadataInEnglish, long restartLine) throws Exception {
+			boolean metadataInEnglish, long restartLine, String langCode) throws Exception {
 		long entryNbr = 0;
 		boolean evenThousand = true; // log every thousand entries
 		boolean textSection = false; // true when have reached <text> of a new entry and are in it
@@ -247,7 +256,7 @@ public class ReadStripped {
         	} else {
 	        	// Load languages from csv file to avoid JPA processing
 	        	
-	        	langs = loadLanguages(lang, metadataInEnglish);
+	        	langs = loadLanguages(langCode, metadataInEnglish);
         	}
 			
 			String s = in.readLine();
@@ -747,7 +756,7 @@ public class ReadStripped {
 				 * === {{Wortart|Indefinitpronomen|Deutsch}} ===
 				 * === {{Wortart|Interjektion|Englisch}} ===
 				 * === {{Wortart|Interrogativpronomen|Westfriesisch}} ===
-				 * ===  {{Wortart|Kontraktion|Deutsch}} ===
+				 * === {{Wortart|Kontraktion|Deutsch}} ===
 				 * === {{Wortart|Modalpartikel|Deutsch}} ===
 				 * === {{Wortart|Nachname|Deutsch}} ===
 				 * === {{Wortart|Negationspartikel|Färöisch}} ===
@@ -776,6 +785,21 @@ public class ReadStripped {
 				 * === {{Wortart|Zahlklassifikator|Japanisch}} ===
 				 * === {{Wortart|Zahlzeichen|International}} ===
 				 * 
+				 */
+				
+				/*
+				 * French terms
+				 * 
+				 * === {{S|adverbe|fr}} ===
+				 *   Adverb
+				 * === {{S|interjection|fi}} ===
+				 *   Interjection
+				 * === {{S|nom|fr}} ===
+				 *   Noun
+				 * === {{S|pronom personnel|fr}} ===
+				 *   Personal pronoun
+				 * === {{S|symbole|conv}} ===
+				 *   Symbol
 				 */
 				
 				boolean foundDefin = false;
@@ -1794,11 +1818,42 @@ public class ReadStripped {
 	
 	private WordEntry processPOS ( String wordPos, String currentTitle, String sLangSect, int start, OutputType outputType,
 			WordEtym wordEtym) {
+		String gender = null;
+		
 		WordEntry wordEntry = new WordEntry();
 		wordEntriesNbr++;
 		wordEntry.setId(new Integer(wordEntriesNbr));
 		wordEntry.setPos(wordPos);
 		wordEntry.setWordEtym(wordEtym); // a link back
+		
+		/* Find German gender if any
+		 * 
+		 * German term "Katze":
+		 * 
+		 * ===Noun===
+		 * {{de-noun|f|Katze|Katzen|Kätzchen}}
+		 * 
+		 * # [[cat]]
+		 * 
+		 * ====Declension====
+		 * {{de-decl-noun-f|n}}
+		 */
+		// --> f (genitive Katze, plural Katzen, diminutive Kätzchen n)		
+		int genderPos = sLangSect.indexOf("{{de-noun|");
+		/* Swedish genders
+		 * tröja: {{sv-noun|c}}
+		 *   common gender ("en")
+		 * hus: {{sv-noun|n}}
+		 *   neuter ("ett")
+		 */
+		if (genderPos == -1) {
+			genderPos = sLangSect.indexOf("{{sv-noun|");
+		}
+		if (genderPos > -1) {
+			gender = sLangSect.substring(genderPos+10, genderPos+11);
+			// TODO Set gender in wordEntry?
+			//LOGGER.warning("Gender for '" + currentTitle + "': '" + gender + "'");
+		}
 		
 		Set<Sense> senses = new LinkedHashSet<Sense>(0);
 		
@@ -1885,6 +1940,11 @@ public class ReadStripped {
 					if (senseStr.charAt(0) != '*' &&
 						senseStr.charAt(0) != ':') {
 						String unwikifiedStr = unwikifyStr(senseStr, outputType);
+						
+						// TODO Hack: set gender
+						if (gender != null) {
+							unwikifiedStr = gender + " " + unwikifiedStr;
+						}
 						
 						sense = new Sense();
 						sense.setDataField(unwikifiedStr);
@@ -2104,6 +2164,11 @@ public class ReadStripped {
 	//					LOGGER.fine("Last sense, #" + (senseNbr+1) + ": '" + unwikifiedStrStart + "' at wordEntry " + wordEntriesNbr);
 						//LOGGER.info("Last sense, #" + (senseNbr+1) + ": '" + unwikifiedStr + "' at wordEntry " + wordEntriesNbr);
 						
+						// TODO Hack: set gender
+						if (gender != null) {
+							unwikifiedStr = gender + " " + unwikifiedStr;
+						}
+						
 						Sense sense = new Sense();
 						sense.setDataField(unwikifiedStr);
 						senseNbr++;
@@ -2184,10 +2249,11 @@ public class ReadStripped {
 		String inFileName = "language codes.csv";
 		
 		if (langCode != null && !metadataInEnglish) {
-			inFileName += (langCode + "-"); // e.g. "fi-language_codes.csv"; 
+			inFileName = (langCode + "-") + inFileName; // e.g. "fi-language_codes.csv"; 
 		}
 		
-		LOGGER.fine("Reading languages file for " + (langCode == null ? "English" : langCode));
+		LOGGER.info("Reading languages file for " + (langCode == null ? "English" : langCode) + " from '" +
+		 inFileName + "'");
 		
 		ClassLoader cl = ReadStripped.class.getClassLoader();
 		
