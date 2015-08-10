@@ -75,6 +75,7 @@ import wiktionary.to.xml.full.util.StringUtils;
  * 2014-09-14 Java 8 build. Still JPA 2.0, not 2.1 yet
  * 2014-11-13 Initial support for German genders. Output f/m/n in front of each sense of the word now
  * 2014-11-16 Initial support for Swedish genders. Output c for "en" and n for "ett" nouns
+ * 2015-07-17 Fixed resource leaks. Compile with JDK8.0.51
  */
 public class ReadStripped {
 	private static int STORE_INTERVAL = 10000; // Store entries after this many read
