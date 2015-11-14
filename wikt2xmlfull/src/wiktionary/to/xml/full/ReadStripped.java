@@ -76,6 +76,7 @@ import wiktionary.to.xml.full.util.StringUtils;
  * 2014-11-13 Initial support for German genders. Output f/m/n in front of each sense of the word now
  * 2014-11-16 Initial support for Swedish genders. Output c for "en" and n for "ett" nouns
  * 2015-07-17 Fixed resource leaks. Compile with JDK8.0.51
+ * 2015-11-14 Initial Norwegian wiktionary support. Compile with JDK8.0.66
  */
 public class ReadStripped {
 	private static int STORE_INTERVAL = 10000; // Store entries after this many read
@@ -742,6 +743,36 @@ public class ReadStripped {
                  * ===Transkription===
 				 */
 				
+				/* Norwegian terms
+				 * https://no.wiktionary.org/wiki/Wiktionary:Stilmanual
+				 * 
+				 ** Substantiv –Noun
+				   {{no-sub|n}}
+				 ** Adjektiv – Adjective
+				 ** Pronomen – Pronoun
+				 ** Determinativ – Determiner
+				 ** Verb –Verb
+				 ** Adverb – Adverb
+				 ** Preposisjon – Preposition
+				 ** Konjunksjon – Conjunction
+				 ** Subjunksjon – Subjunction
+				 ** Interjeksjon – Interjection
+				 * 
+				 ** ===Forkortelse=== - abbreviation (shortened or contracted form of a word or phrase)
+				 ** ===Affiks=== - affix
+				 ** ===Frase===
+				 ** ===Tecken===
+				 * ===Transkripsjon===
+				 * ===Infinitivmärke===
+                 * ===Transkription===
+                 * 
+                 * Not officially considered word groups in Norwegian anymore:
+                 * 
+                 ** ===Tallord=== - numeral
+                 ** ===Artikkel===
+                 * ===Infinitivsmerke===
+                 */
+				
 				/*
 				 * German terms
 				 * 
@@ -834,6 +865,8 @@ public class ReadStripped {
 					abbrStart = etymSect.indexOf("===Lyhenne==="); // fi
 				if (abbrStart == -1)
 					abbrStart = etymSect.indexOf("===Förkortning==="); // sv
+				if (abbrStart == -1)
+					abbrStart = etymSect.indexOf("===Forkortelse==="); // no
 //				if (abbrStart > 0) { // So not to pickup ====Abbreviation==== definitions
 //					if (etymSect.charAt(abbrStart-1) == '=')
 //						abbrStart = -1;
@@ -885,7 +918,7 @@ public class ReadStripped {
 				if (adjStart == -1)
 					adjStart = etymSect.indexOf("===Adjektiivi==="); // fi
 				if (adjStart == -1)
-					adjStart = etymSect.indexOf("===Adjektiv==="); // sv
+					adjStart = etymSect.indexOf("===Adjektiv==="); // sv, no
 				if (adjStart > -1) {
 					WordEntry entry = processPOS(POSType.ADJ, currentTitle, etymSect, adjStart, outputType, wordEtym);
 					if (entry != null) {
@@ -905,7 +938,7 @@ public class ReadStripped {
 					}
 				}
 				
-				int advStart = etymSect.indexOf("===Adverb==="); // en, sv
+				int advStart = etymSect.indexOf("===Adverb==="); // en, sv, no
 				if (advStart == -1)
 					advStart = etymSect.indexOf("===Adverbi==="); // fi
 				if (advStart > -1) {
@@ -926,6 +959,8 @@ public class ReadStripped {
 				}
 				
 				int affixStart = etymSect.indexOf("===Affix===");
+				if (affixStart == -1)
+					affixStart = etymSect.indexOf("===Affiks==="); // no
 				if (affixStart > -1) {
 					WordEntry entry = processPOS(POSType.ARTICLE, currentTitle, etymSect, affixStart, outputType, wordEtym);
 					if (entry != null) {
@@ -949,6 +984,8 @@ public class ReadStripped {
 					articleStart = etymSect.indexOf("===Artikkeli==="); // fi
 				if (articleStart == -1)
 					articleStart = etymSect.indexOf("===Artikel==="); // sv
+				if (articleStart == -1)
+					articleStart = etymSect.indexOf("===Artikkel==="); // no
 				if (articleStart > -1) {
 					WordEntry entry = processPOS(POSType.ARTICLE, currentTitle, etymSect, articleStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1049,6 +1086,8 @@ public class ReadStripped {
 					conjStart = etymSect.indexOf("===Konjunktio==="); // fi
 				if (conjStart == -1)
 					conjStart = etymSect.indexOf("===Konjunktion==="); // sv
+				if (conjStart == -1)
+					conjStart = etymSect.indexOf("===Konjunksjon==="); // no
 //				if (conjStart > 0) { // So not to pickup ====Conjunction==== definitions
 //					if (etymSect.charAt(conjStart-1) == '=')
 //						conjStart = -1;
@@ -1119,6 +1158,8 @@ public class ReadStripped {
 				}
 				
 				int detStart = etymSect.indexOf("===Determiner===");
+				if (detStart == -1)
+					detStart = etymSect.indexOf("===Determinativ==="); // no
 				if (detStart > -1) {
 					WordEntry entry = processPOS(POSType.DET, currentTitle, etymSect, detStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1241,6 +1282,8 @@ public class ReadStripped {
 					interjStart = etymSect.indexOf("===Interjektio==="); // fi
 				if (interjStart == -1)
 					interjStart = etymSect.indexOf("===Interjektion==="); // sv
+				if (interjStart == -1)
+					interjStart = etymSect.indexOf("===Interjeksjon==="); // no
 				if (interjStart > -1) {
 					WordEntry entry = processPOS(POSType.INTERJ, currentTitle, etymSect, interjStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1304,7 +1347,7 @@ public class ReadStripped {
 				if (nounStart == -1)
 					nounStart = etymSect.indexOf("===Substantiivi==="); // fi
 				if (nounStart == -1)
-					nounStart = etymSect.indexOf("===Substantiv==="); // sv
+					nounStart = etymSect.indexOf("===Substantiv==="); // sv, no
 				if (nounStart > -1) {
 					WordEntry entry = processPOS(POSType.NOUN, currentTitle, etymSect, nounStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1383,7 +1426,9 @@ public class ReadStripped {
 				
 				numerStart = etymSect.indexOf("===Numeral===");
 				if (numerStart == -1)
-					numerStart = etymSect.indexOf("===Numeraali===");
+					numerStart = etymSect.indexOf("===Numeraali==="); // fi
+				if (numerStart == -1)
+					numerStart = etymSect.indexOf("===Tallord==="); // no
 				if (numerStart > -1) {
 					WordEntry entry = processPOS(POSType.NUM, currentTitle, etymSect, numerStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1441,6 +1486,8 @@ public class ReadStripped {
 					phrStart = etymSect.indexOf("===Fraasi==="); // fi
 				if (phrStart == -1)
 					phrStart = etymSect.indexOf("===Fras==="); // sv
+				if (phrStart == -1)
+					phrStart = etymSect.indexOf("===Frase==="); // no
 				if (phrStart > -1) {
 					WordEntry entry = processPOS(POSType.PHRASE, currentTitle, etymSect, phrStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1491,6 +1538,8 @@ public class ReadStripped {
 				int prepositionStart = etymSect.indexOf("===Preposition==="); // en, sv
 				if (prepositionStart == -1)
 					prepositionStart = etymSect.indexOf("===Prepositio==="); // fi
+				if (prepositionStart == -1)
+					prepositionStart = etymSect.indexOf("===Preposisjon==="); // no
 				if (prepositionStart > -1) {
 					WordEntry entry = processPOS(POSType.PREPOSITION, currentTitle, etymSect, prepositionStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1530,7 +1579,7 @@ public class ReadStripped {
 				if (pronounStart == -1)
 					pronounStart = etymSect.indexOf("===Pronomini==="); // fi
 				if (pronounStart == -1)
-					pronounStart = etymSect.indexOf("===Pronomen==="); // sv
+					pronounStart = etymSect.indexOf("===Pronomen==="); // sv, no
 				if (pronounStart > -1) {
 					WordEntry entry = processPOS(POSType.PRON, currentTitle, etymSect, pronounStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1669,9 +1718,13 @@ public class ReadStripped {
 					}
 				}
 				
-				int adageStart = etymSect.indexOf("===Talesätt==="); // sv: an adage or old saying
-				if (adageStart > -1) {
-					WordEntry entry = processPOS(POSType.ADAGE, currentTitle, etymSect, adageStart, outputType, wordEtym);
+				int subjunctionStart = etymSect.indexOf("===Subjunction===");
+				if (subjunctionStart == -1)
+					subjunctionStart = etymSect.indexOf("===Subjunksjon==="); // no
+				if (subjunctionStart == -1)
+					subjunctionStart = etymSect.indexOf("===Subjunktiivi==="); // fi
+				if (subjunctionStart > -1) {
+					WordEntry entry = processPOS(POSType.SUBJUNCTION, currentTitle, etymSect, subjunctionStart, outputType, wordEtym);
 					if (entry != null) {
 						wordEntries.add(entry);
 						foundDefin = true;
@@ -1708,7 +1761,7 @@ public class ReadStripped {
 				if (symbolStart == -1)
 					symbolStart = etymSect.indexOf("===Symboli==="); // fi
 				if (symbolStart == -1)
-					symbolStart = etymSect.indexOf("===Tecken==="); // sv
+					symbolStart = etymSect.indexOf("===Tecken==="); // sv, no
 //				if (symbolStart > 0) { // So not to pickup ====Symbol==== definitions? For "A" at least should pick them up, have definitions
 //					if (etymSect.charAt(symbolStart-1) == '=')
 //						symbolStart = -1;
@@ -1720,8 +1773,17 @@ public class ReadStripped {
 						foundDefin = true;
 					}
 				}
+
+				int adageStart = etymSect.indexOf("===Talesätt==="); // sv: an adage or old saying
+				if (adageStart > -1) {
+					WordEntry entry = processPOS(POSType.ADAGE, currentTitle, etymSect, adageStart, outputType, wordEtym);
+					if (entry != null) {
+						wordEntries.add(entry);
+						foundDefin = true;
+					}
+				}
 				
-				int vbStart = etymSect.indexOf("===Verb==="); // en, sv
+				int vbStart = etymSect.indexOf("===Verb==="); // en, sv, no
 				if (vbStart == -1)
 					vbStart = etymSect.indexOf("===Verbi==="); // fi
 				if (vbStart > -1) {
@@ -2250,7 +2312,7 @@ public class ReadStripped {
 		String inFileName = "language codes.csv";
 		
 		if (langCode != null && !metadataInEnglish) {
-			inFileName = (langCode + "-") + inFileName; // e.g. "fi-language_codes.csv"; 
+			inFileName = (langCode + "-") + inFileName; // e.g. "fi-language codes.csv"; 
 		}
 		
 		LOGGER.info("Reading languages file for " + (langCode == null ? "English" : langCode) + " from '" +

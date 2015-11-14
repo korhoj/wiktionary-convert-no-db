@@ -127,6 +127,8 @@ public class POSType implements Serializable {
 	public static String ROMAN_STR = "romanization";
 	public static String ROOT = "root";
 	public static String ROOT_STR = "root";
+	public static String SUBJUNCTION = "subj.";
+	public static String SUBJUNCTION_STR = "subjunction";
 	public static String SUFFIX = "suf.";
 	public static String SUFFIX_STR = "suffix";
 	public static String SYLL = "syllable";
