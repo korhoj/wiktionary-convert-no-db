@@ -154,6 +154,7 @@ public class StardictStorer implements Storer, Runnable {
 		// TODO Should be passed param which is main language
 		final String MAIN_LANGUAGE = "English";
 		//final String MAIN_LANGUAGE = "Suomi";
+		//final String MAIN_LANGUAGE = "Norsk";
 		if ( ! ( langID_ID.equals(MAIN_LANGUAGE)
 			   )
 		   ) {

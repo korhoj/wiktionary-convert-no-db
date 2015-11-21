@@ -77,6 +77,7 @@ import wiktionary.to.xml.full.util.StringUtils;
  * 2014-11-16 Initial support for Swedish genders. Output c for "en" and n for "ett" nouns
  * 2015-07-17 Fixed resource leaks. Compile with JDK8.0.51
  * 2015-11-14 Initial Norwegian wiktionary support. Compile with JDK8.0.66
+ * 2015-11-21 Fix outputing in the end if processed less entries than STORE_INTERVAL (currently 10000)
  */
 public class ReadStripped {
 	private static int STORE_INTERVAL = 10000; // Store entries after this many read
@@ -171,7 +172,7 @@ public class ReadStripped {
 			outFileName = args[1];
 			
 			lang = args[2];
-					
+			
 			// Strip " in beginning and end, e.g. from "Old English"
 			if (lang.startsWith("\"")) {
 				lang = lang.substring(1);
@@ -229,12 +230,24 @@ public class ReadStripped {
 		}
 	}
 
+	/**
+	 * Main method for processing dictionary data
+	 * @param outputType
+	 * @param inFileName
+	 * @param outFileName
+	 * @param lang Null if all langs should be parsed or code of only lang to be parsed
+	 * @param metadataInEnglish
+	 * @param restartLine 0 if not a restart
+	 * @param langCode Which language's csv file to use for loading languages info
+	 * @throws Exception
+	 */
 	private void process (OutputType outputType, String inFileName, String outFileName, String lang, 
 			boolean metadataInEnglish, long restartLine, String langCode) throws Exception {
 		long entryNbr = 0;
 		boolean evenThousand = true; // log every thousand entries
 		boolean textSection = false; // true when have reached <text> of a new entry and are in it
 		boolean hadTextSection = false; // had reached <text> section of a new term and it ended with </text>
+		boolean haveEverOutputed = false;
 		String currentTitle = null;
 		String outStr = null;
 		
@@ -285,7 +298,8 @@ public class ReadStripped {
 						}
 						
 						callStorer(outputType, outFileName);
-						
+				
+						haveEverOutputed = true;
 						evenThousand = false; // otherwise prints until finds new entry
 					}
 	
@@ -389,6 +403,10 @@ public class ReadStripped {
 				outStr = null;
 				entryNbr++;
 				evenThousand = true; // restart logging every 1000 entries
+			} else {
+				if (entryNbr > 0 && !haveEverOutputed) {
+					callStorer(outputType, outFileName);
+				}
 			}
 			
 			in.close();
@@ -556,13 +574,14 @@ public class ReadStripped {
 					langName = langName.substring(0, langName.length()-2);
 				}
 				
-				//LOGGER.finer("langName to look for: '" + langName + "'");
+				//LOGGER.info("langName to look for: '" + langName + "'");
 				
 				lookupLang.setName(langName);
 			}
 			
 			if (langName != null && !langs.contains(lookupLang)) {
-				String msg = "Adding language: '" + langName + "', langsCount=" + (langsCount+1);
+				String msg = "Adding language: '" + langName + "', langsCount=" + (langsCount+1) +
+						" at title='" + currentTitle + "'";
 				LOGGER.info(msg);
 				
 				// Write separate output file of new language candidates
@@ -2311,6 +2330,11 @@ public class ReadStripped {
 	private Set<Lang> loadLanguages(String langCode, boolean metadataInEnglish) throws IOException {
 		String inFileName = "language codes.csv";
 		
+		/*
+		 * Norwegian: https://no.wiktionary.org/wiki/Kategori:Spr%C3%A5k
+		 *   Also see https://no.wiktionary.org/wiki/Bahamas,
+		 *   https://no.wiktionary.org/wiki/India
+		 */
 		if (langCode != null && !metadataInEnglish) {
 			inFileName = (langCode + "-") + inFileName; // e.g. "fi-language codes.csv"; 
 		}
@@ -2333,15 +2357,22 @@ public class ReadStripped {
 			while (s != null) {
 				String[] langArr = s.split(";");
 				
-				Lang addLang = new Lang();
-				/* No id in the file. It would be wrong anyway if one has directly copied the
-				 * entries from the new language file of a previous run into the main language file
-				 */
-				addLang.setId(++langsCount);
-				addLang.setName(langArr[0]);
-				if (!langArr[1].equals("\\N"))
-					addLang.setAbr(langArr[1]);
-				langs.add(addLang);
+				if (!langArr[1].equals("?")) { /* skip languages with lang. code marked as unknown (Norwegian
+					                              file has these */
+					Lang addLang = new Lang();
+					/* No id in the file. It would be wrong anyway if one has directly copied the
+					 * entries from the new language file of a previous run into the main language file
+					 */
+					addLang.setId(++langsCount);
+					addLang.setName(langArr[0]);
+					if (!langArr[1].equals("\\N"))
+						addLang.setAbr(langArr[1]);
+					langs.add(addLang);
+					
+					//LOGGER.info(" Adding lang '" + addLang.getName() + "', code '" + addLang.getAbr() + "'");
+					
+					//LOGGER.info(" read " + langsCount + " languages");
+				}
 				
 				s = in.readLine();
 			}
