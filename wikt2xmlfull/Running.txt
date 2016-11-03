@@ -57,6 +57,9 @@ StripNamespaces fiwiktionary.cmd.
 
 Run StripNamespaces fiwiktionary.cmd. It doesn't take many minutes on a fast computer.
 
+Change EDITION to match with the Wiktionary edition you have downloaded in 
+ReadStripped SD fiwiktionary.cmd and run it.
+
 C. UPDATING SUPPORTED LANGUAGES DURING ReadStripped RUNS
 
 While running, ReadStripped reads in lang\language codes.csv, which get packaged in the main
