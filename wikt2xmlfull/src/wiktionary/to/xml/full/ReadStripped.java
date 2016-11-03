@@ -164,7 +164,7 @@ public class ReadStripped {
 		try {
 			if (args.length < 5 || args.length > 7) {
 				LOGGER.log(Level.SEVERE, "Wrong number of arguments, expected 5 - 7, got " + args.length);
-				LOGGER.log(Level.SEVERE, "Arg[max] = '" + args[args.length-1] + "'");
+				if (args.length > 0) LOGGER.log(Level.SEVERE, "Arg[max] = '" + args[args.length-1] + "'");
 				System.exit(255);
 			}
 			
