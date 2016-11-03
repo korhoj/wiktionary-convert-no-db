@@ -1,5 +1,5 @@
  Download Eclipse Neon 1A or later and JDK 1.8.
-   Building works also with Eclipse Mars 2
+   Building works also with Eclipse Mars 2 with JDK 1.7
  Download JBoss Tools, currently 4.4.1 Final, from http://tools.jboss.org/downloads/
 	  When installing, uncheck all and select only Hibernate Tools
 	Download Hibernate ORM 4.3.6
