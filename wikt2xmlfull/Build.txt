@@ -1,0 +1,34 @@
+ Download Eclipse Neon 1A or later and JDK 1.8.
+   Building works also with Eclipse Mars 2
+ Download JBoss Tools, currently 4.4.1 Final, from http://tools.jboss.org/downloads/
+	  When installing, uncheck all and select only Hibernate Tools
+	Download Hibernate ORM 4.3.6
+	(latest v.5.2.4 is untested, available at https://sourceforge.net/projects/hibernate/files/hibernate-orm/5.2.4.Final/hibernate-release-5.2.4.Final.zip/download)
+	Unarchive hibernate-release-4.3.6.Final.zip to a folder where you want to keep it, outside of the project
+	Window > Preferences > Java > Build Path > User Libraries > New
+	  User library name = Hibernate
+	  Add External JARs
+	  Select all JARs under lib\required and press OK
+	  Do the same for lib\envers, lib\jpa and lib\jpa-metamodel-generator
+	Right-click wikt2xmlfull project > Properties
+	  Check that Project Facets > JPA shows 2.0 (not 2.1). If not, check it and press Further configuration
+	  If it is selected already, select JPA (under Javadoc Location)
+	    Platform = Hibernate (JPA 2.0)
+		JPA implementation = User Library
+		[x] Hibernate
+		You don't need to configure a Connection
+	    [x] Discover annotated classes automatically
+	The project should now compile
+
+Right click StripNamespaces.java > Run As > Java Applications
+  Eclipse runs the program, which outputs in the Console tab, that it got 0 arguments and it quits
+Right click StripNamespaces.java > Run As > Run Configurations
+  Java Application > StripNamespaces should be selected automatically. If not, select it
+Right click StripNamespaces.java > Export > Java > Runnable JAR file
+  Launch configuration = StripNamespaces - wikt2xmlfull
+  Export destination: Choose path where you want to keep the runnable JAR
+  [x] Package required libraries into generated JAR
+Perform the Run As and Export steps also for ReadStripped.java
+The two runnable JARs really only differ in the Rsrc-Main-Class in META-INF\MANIFEST.MF
+
+See Running.txt for instructions on running the JARs
