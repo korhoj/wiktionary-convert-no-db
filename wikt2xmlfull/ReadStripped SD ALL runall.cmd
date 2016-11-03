@@ -18,4 +18,9 @@ cd /D %WIKT%\Scripts
 for /F %%i in (..\continfo.txt) do @set RESTARTATLINE=%%i
 call "ReadStripped SD ALL restart.cmd" %RESTARTATLINE% ALL ALL true
 
+cd /D %WIKT%\Scripts
+
+for /F %%i in (..\continfo.txt) do @set RESTARTATLINE=%%i
+call "ReadStripped SD ALL restart.cmd" %RESTARTATLINE% ALL ALL true
+
 pause
