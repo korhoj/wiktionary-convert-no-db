@@ -1,0 +1,85 @@
+You need to first compile the program in Eclipse, see Build.txt
+The example scripts for compiling are for Windows, but Linux could also be used
+Linux with a desktop GUI (window manager) is needed for converting the output into StarDict or dictd
+compatible file. I use a virtual Ubuntu image in VMware WS. You can also use another virtualizer such
+as DropBox, or a machine running Linux.
+
+Download one of the supported Wiktionary article dumps:
+
+English, Finnish, Norwegian, Swedish
+
+English Wiktionary is at
+https://dumps.wikimedia.org/enwiktionary/
+Find the latest directory and download enwiktionary-yyyymmdd-pages-articles.xml.bz2 from it
+You can also download the latest one from 
+http://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-articles.xml.bz2
+but I prefer to have the directory and unarchived file name show the edition (yyyymmdd) in it. The sample
+cmd script assumes such a naming scheme.
+
+Other Wiktionaries are at http://dumps.wikimedia.org/backup-index.html
+
+Extract the bz2 file into a subfolder. I use 7-Zip. You don't need the bz2 file after extracting it.
+
+A. COMPILING THE ENGLISH WIKTIONARY, WITH ENTRIES FOR ALL LANGUAGES
+
+Change EDITION to match with the Wiktionary edition you have downloaded in
+StripNamespaces ALL.cmd.
+Run StripNamespaces ALL.cmd. I like to due it via going to cmd.exe.
+It prints progress every 10 000 entries.
+Stripping the English Wiktionary takes long even on a fast computer. Takes currently
+(2016-11) about 20 mins. Stripping the English entries is slower at first than after about
+150 000 entries. There are currently about 4 960 000 entries!
+
+Running ReadStripped for large Wiktionaries such as the English one is clumsy at the moment. To produce
+StarDict files as output, it uses three script files (SD = StarDict):
+ 1) ReadStripped SD ALL runall.cmd
+ 2) ReadStripped SD ALL.cmd
+ 3) ReadStripped SD ALL restart.cmd
+The first script calls the two others. It currently needs to perform 4 restarts to handle all
+English Wiktionary entries. If a lot of new entries have been added, another restart may need
+to be added.
+
+The MEM and/or STCK variables in ReadStripped SD ALL.cmd script file have been set as
+-Xmx2600M and -Xss400M which should suffice for one pass. The reason for restarts is indeed
+that not so much memory is required. Each restart continues processing where the previous
+run left off.
+
+Change EDITION to match with the Wiktionary edition you have downloaded in both
+ReadStripped SD ALL runall.cmd and ReadStripped SD ALL.cmd.
+
+B. COMPILING A WIKTIONARY OF ANOTHER LANGUAGE
+
+There is a sample script file for each supported language. They really only differ in having
+a different LANG variable set. I use the Finnish Wiktionary as an example.
+
+Change EDITION to match with the Wiktionary edition you have downloaded in
+StripNamespaces fiwiktionary.cmd.
+
+Run StripNamespaces fiwiktionary.cmd. It doesn't take many minutes on a fast computer.
+
+C. UPDATING SUPPORTED LANGUAGES DURING ReadStripped RUNS
+
+While running, ReadStripped reads in lang\language codes.csv, which get packaged in the main
+folder of the runnable JAR when you export it in Eclipse. It is a list of language names with
+unique abbreviations.
+
+The program rejects any unknown language names and outputs them into new language codes.csv.
+You can check that file and insert any new languages into language codes.csv.
+
+If you don't want entries of some languages to be included, you can remove them from your
+copy of language codes.csv. Just don't commit it :) E.g. I don't need entries for various
+Asian languages, since I can't even read their scripts.
+
+N.b. this has nothing to do with which language's Wiktionaries the program supports, which
+is currently hard coded in the program.
+
+All Wiktionaries have entries for numerous other languages. Just that e.g. the English
+Wiktionary has the definitions of the entries in the English language.
+
+D. COMBINING THE OUTPUT FILES
+
+TBD
+
+E. PARSING THE STARDICT ENTRIES
+
+TBD
