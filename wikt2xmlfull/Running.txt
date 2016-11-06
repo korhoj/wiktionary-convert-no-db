@@ -81,8 +81,20 @@ Wiktionary has the definitions of the entries in the English language.
 
 D. COMBINING THE OUTPUT FILES
 
-TBD
+I perform the steps in D and E in Linux running Ubuntu 15.04. I run it inside VMware WOrkstation.
+
+You need to have dos2unix installed. If not:
+
+apt install dos2unix
+
+Copy conv2unix.sh and sort-ALL.sh to Linux. I do it using the shared folders feature of VMware Workstation.
+
+By default, conv2unix.sh processes wikt-en-ALL-YYYY-MM-DD, where YYYY-MM-DD is
+the current date. Change this if necessary by editing with e.g. vi.
+
+Run conv2unix.sh. The script produces wikt-en-ALL.txt which needs to be sorted.
+
+Run sort-ALL.sh. It produces wikt-en-ALL-sorted.txt.
 
 E. PARSING THE STARDICT ENTRIES
 
-TBD
