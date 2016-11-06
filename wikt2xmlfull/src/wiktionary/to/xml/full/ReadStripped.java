@@ -158,12 +158,13 @@ public class ReadStripped {
 		// Is metadata in English or another language such as Finnish
 		String langCode = null; // e.g. fi for Finnish or null for ALL
 		boolean metadataInEnglish = true;
+		boolean onlyLanguages = true; // true if only languages supplied in a language file are to be processed
 		
 		long restartLine = 0;
 		
 		try {
-			if (args.length < 5 || args.length > 7) {
-				LOGGER.log(Level.SEVERE, "Wrong number of arguments, expected 5 - 7, got " + args.length);
+			if (args.length < 5 || args.length > 8) {
+				LOGGER.log(Level.SEVERE, "Wrong number of arguments, expected 6 - 8, got " + args.length);
 				if (args.length > 0) LOGGER.log(Level.SEVERE, "Arg[max] = '" + args[args.length-1] + "'");
 				System.exit(255);
 			}
@@ -197,9 +198,16 @@ public class ReadStripped {
 				restartLine = l.longValue(); // if 0 --> NOP
 			}
 			
-			if (args.length == 7) {
+			if (args.length >= 7) {
 				langCode = args[6];
 				langCode = langCode.trim();
+			}
+			
+			if (args.length == 8) {
+				String onlyLanguagesStr = args[7];
+				if (onlyLanguagesStr.equals("false")) {
+					onlyLanguages = false;
+				}
 			}
 			
 			// Throws error if wrong argument used
@@ -210,6 +218,8 @@ public class ReadStripped {
 			LOGGER.info("Input: " + inFileName);
 			LOGGER.info("Output: " + outFileName);
 			LOGGER.info("Language: " + (lang != null ? lang : "(all)") + (langCode != null ? (", code=" + langCode) : ""));
+			if (onlyLanguages)
+				LOGGER.info("Processing only entries in languages which are included in the supplied language CSV file");
 			LOGGER.info("Output type: " + OutputType.valueOf(outputType));
 			if (restartLine > 0)
 				LOGGER.info("Restarting at line " + restartLine);
@@ -217,7 +227,7 @@ public class ReadStripped {
 			ReadStripped readStripped = new ReadStripped();
 		
 			readStripped.process(OutputType.valueOf(outputType), inFileName, outFileName, lang, metadataInEnglish, restartLine,
-					langCode);
+					langCode, onlyLanguages);
 			
 			LOGGER.log(Level.INFO, "***FINISHED***");
 			
@@ -239,10 +249,11 @@ public class ReadStripped {
 	 * @param metadataInEnglish
 	 * @param restartLine 0 if not a restart
 	 * @param langCode Which language's csv file to use for loading languages info
+	 * @param onlyLanguages Only languages supplied in a language file are to be processed
 	 * @throws Exception
 	 */
 	private void process (OutputType outputType, String inFileName, String outFileName, String lang, 
-			boolean metadataInEnglish, long restartLine, String langCode) throws Exception {
+			boolean metadataInEnglish, long restartLine, String langCode, boolean onlyLanguages) throws Exception {
 		long entryNbr = 0;
 		boolean evenThousand = true; // log every thousand entries
 		boolean textSection = false; // true when have reached <text> of a new entry and are in it
@@ -271,7 +282,7 @@ public class ReadStripped {
         	} else {
 	        	// Load languages from csv file to avoid JPA processing
 	        	
-	        	langs = loadLanguages(langCode, metadataInEnglish);
+	        	langs = loadLanguages(langCode, metadataInEnglish, onlyLanguages);
         	}
 			
 			String s = in.readLine();
@@ -328,11 +339,12 @@ public class ReadStripped {
 							LOGGER.fine("To parse: '" + currentTitle + "'");
 							//LOGGER.info("To parse: '" + currentTitle + "'");
 							
-							parseEntry(outStr, currentTitle, outputType, entryNbr, session, lang);
+							if (parseEntry(outStr, currentTitle, outputType, entryNbr, session, lang, onlyLanguages)) {
+								entryNbr++;
+								evenThousand = true; // restart logging every 1000 entries
+							}
 							
 							outStr = null;
-							entryNbr++;
-							evenThousand = true; // restart logging every 1000 entries
 						}
 					} else if (s.indexOf("<title>") > -1) {
 						int beginIndex = s.indexOf("<title>") + 7;
@@ -379,6 +391,7 @@ public class ReadStripped {
 					
 					String msg = "Problem at entryNbr: " + entryNbr + ", title: '" + titleStart + "', linesRead=" + linesRead;
 					LOGGER.warning(msg);
+					LOGGER.warning(e.getMessage());
 					LOGGER.finer(outStr);
 					//LOGGER.info(outStr);
 					
@@ -396,7 +409,10 @@ public class ReadStripped {
 			if (outStr != null && outStr.length() > 0 && // this should always be true if there is any input
 				hadTextSection) { // had reached <text> section of a new term and it ended with <text>
 				
-				parseEntry(outStr, currentTitle, outputType, entryNbr, session, lang);
+				if (parseEntry(outStr, currentTitle, outputType, entryNbr, session, lang, onlyLanguages)) {
+					entryNbr++;
+					evenThousand = true; // restart logging every 1000 entries
+				}
 				
 				callStorer(outputType, outFileName);
 				
@@ -512,8 +528,12 @@ public class ReadStripped {
 	 * Parse (and store into memory) either all languages or a given language for the entry.
 	 * 
 	 * @param onlyLang The language to process or null to process all languages
+	 * @param onlyLanguages If true, unknown languages are not added to language list i.e.
+	 * only languages that were supplied in the language specific CVS file are processed
 	 */
-	private void parseEntry(String s, String currentTitle, OutputType outputType, long entryNbr, Session session, String onlyLang) throws Exception {
+	private boolean parseEntry(String s, String currentTitle, OutputType outputType, long entryNbr, Session session,
+			String onlyLang, boolean onlyLanguages) throws Exception {
+		boolean foundAnyLang = false;
 		
 		// TODO StripNamespaces removes these if run first. If not, the list here should be longer
 		if ( currentTitle.startsWith("Appendix:") ||
@@ -523,7 +543,7 @@ public class ReadStripped {
 			LOGGER.warning("- Skipped: '" + currentTitle + "'");
 			//LOGGER.info("- Skipped: '" + currentTitle + "'");
 			
-			return;
+			return false;
 		}
 
 		Word word = new Word();
@@ -579,7 +599,7 @@ public class ReadStripped {
 				lookupLang.setName(langName);
 			}
 			
-			if (langName != null && !langs.contains(lookupLang)) {
+			if (!onlyLanguages && langName != null && !langs.contains(lookupLang)) {
 				String msg = "Adding language: '" + langName + "', langsCount=" + (langsCount+1) +
 						" at title='" + currentTitle + "'";
 				LOGGER.info(msg);
@@ -608,7 +628,7 @@ public class ReadStripped {
 				if (FAIL_AT_FIRST_PROBLEM) {
 					throw new Exception(msg);
 				}
-			} else if (onlyLang == null || onlyLang.equals(langName)) {			
+			} else if (onlyLanguages || onlyLang == null || onlyLang.equals(langName)) {			
 				String sLangSect = langSect.substring(langStart + 2); // 2: skip ==
 				
 				//LOGGER.fine("Before parseWord: '" + sLangSect + "'");
@@ -646,6 +666,8 @@ public class ReadStripped {
 							wordWordLangs = word.getWordLangs();
 							wordWordLangs.add(wordLang);
 							word.setWordLangs(wordWordLangs);
+							
+							foundAnyLang = true;
 						} else {
 							wordLangNbr--;
 							wordLang = null;
@@ -654,15 +676,27 @@ public class ReadStripped {
 						break;
 					}
 				}
-				if (!foundLang)
-					throw new Exception("Lang not found");
+				if (!foundLang && !onlyLanguages) {
+					//throw new Exception("Lang not found"); // go through whole loop we are inside
+					
+					String titleStart = currentTitle;
+					if (currentTitle != null && currentTitle.length() > 100)
+						titleStart = currentTitle.substring(0, 100);
+					
+					String msg = "Problem at entryNbr: " + entryNbr + ", title: '" + titleStart + "', linesRead=" + linesRead;
+					LOGGER.warning(msg);
+				}
 			}
 		}
 		
-		// Outputed in callStorer()
-		words.add(word);
+		if (foundAnyLang) {
+			// Outputed in callStorer()
+			words.add(word);
+			
+			//LOGGER.fine("Parsed: '" + currentTitle + "'");
+		}
 		
-		//LOGGER.fine("Parsed: '" + currentTitle + "'");
+		return foundAnyLang;
 	}
 	
 	// wordLang is just a link back
@@ -2327,7 +2361,16 @@ public class ReadStripped {
 		return s;
 	}
 	
-	private Set<Lang> loadLanguages(String langCode, boolean metadataInEnglish) throws IOException {
+	/**
+	 * 
+	 * @param langCode
+	 * @param metadataInEnglish
+	 * @param onlyLanguages Only languages supplied in a language file are to be processed
+	 * @return
+	 * @throws IOException
+	 */
+	private Set<Lang> loadLanguages(String langCode, boolean metadataInEnglish, boolean
+			onlyLanguages) throws IOException {
 		String inFileName = "language codes.csv";
 		
 		/*
@@ -2335,7 +2378,7 @@ public class ReadStripped {
 		 *   Also see https://no.wiktionary.org/wiki/Bahamas,
 		 *   https://no.wiktionary.org/wiki/India
 		 */
-		if (langCode != null && !metadataInEnglish) {
+		if (langCode != null && (!metadataInEnglish || onlyLanguages))  {
 			inFileName = (langCode + "-") + inFileName; // e.g. "fi-language codes.csv"; 
 		}
 		
@@ -2355,23 +2398,25 @@ public class ReadStripped {
 			String s = in.readLine(); // skip csv headers
 			s = in.readLine();
 			while (s != null) {
-				String[] langArr = s.split(";");
-				
-				if (!langArr[1].equals("?")) { /* skip languages with lang. code marked as unknown (Norwegian
-					                              file has these */
-					Lang addLang = new Lang();
-					/* No id in the file. It would be wrong anyway if one has directly copied the
-					 * entries from the new language file of a previous run into the main language file
-					 */
-					addLang.setId(++langsCount);
-					addLang.setName(langArr[0]);
-					if (!langArr[1].equals("\\N"))
-						addLang.setAbr(langArr[1]);
-					langs.add(addLang);
+				if (!(s.trim().equals("")) && s.charAt(0) != ';' ) {
+					String[] langArr = s.split(";");
 					
-					//LOGGER.info(" Adding lang '" + addLang.getName() + "', code '" + addLang.getAbr() + "'");
-					
-					//LOGGER.info(" read " + langsCount + " languages");
+					if (!langArr[1].equals("?")) { /* skip languages with lang. code marked as unknown (Norwegian
+						                              file has these */
+						Lang addLang = new Lang();
+						/* No id in the file. It would be wrong anyway if one has directly copied the
+						 * entries from the new language file of a previous run into the main language file
+						 */
+						addLang.setId(++langsCount);
+						addLang.setName(langArr[0]);
+						if (!langArr[1].equals("\\N"))
+							addLang.setAbr(langArr[1]);
+						langs.add(addLang);
+						
+						//LOGGER.info(" Adding lang '" + addLang.getName() + "', code '" + addLang.getAbr() + "'");
+						
+						//LOGGER.info(" read " + langsCount + " languages");
+					}
 				}
 				
 				s = in.readLine();
