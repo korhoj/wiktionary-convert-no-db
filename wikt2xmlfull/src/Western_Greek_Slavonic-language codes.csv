@@ -1,0 +1,232 @@
+name;abr
+
+; English, British, Saxon etc.
+English;en
+Middle English;enm
+Old English;ang
+Antigua and Barbuda Creole English;aig
+Haitian Creole;ht
+Jamaican Creole;jam
+Nicaragua Creole English;bzk
+Tobagonian Creole English;tgh
+Vincentian Creole English;svc
+Samoan Plantation Pidgin;cpe-spp
+Virgin Islands Creole;vic
+Nigerian Pidgin;pcm
+
+Old Saxon;osx
+Upper Saxon;sxu
+
+Cornish;kw
+Middle Cornish;cnx
+Old Cornish;oco
+
+Scottish Gaelic;gd
+Galician;gl
+
+Welsh;cy
+Middle Welsh;wlm
+Old Welsh;owl
+Welsh Romani;rmw
+
+Irish;ga
+Middle Irish;mga
+Old Irish;sga
+Primitive Irish;pgl
+
+Proto-Celtic;cel-pro
+
+; Nordic
+Danish;da
+Old Danish;gmq-oda
+Faroese;fo
+Greenlandic;kl
+Icelandic;is
+Norwegian Bokmål;nb
+Norwegian Nynorsk;nn
+Norwegian;no
+Russenorsk;crp-rsn
+Middle Norwegian;gmq-mno
+Proto-Norse;gmq-pro
+; Runic
+Old Norse;non
+
+Swedish;sv
+Old Swedish;gmq-osw
+
+Akkala Sami;sia
+Inari Sami;smn
+Kemi Sami;sjk
+Kildin Sami;sjd
+Skolt Sami;sms
+Southern Sami;sma
+Ume Sami;sju
+Proto-Samic;smi-pro
+
+; Fenno-Ugrian and related
+Eastern Mari;chm
+Finnish;fi
+Kalo Finnish Romani;rmf
+Hungarian;hu
+Livvi;olo
+Udmurt;udm
+Urali;url
+Votic;vot
+Proto-Finnic;fiu-fin-pro
+Proto-Finno-Permic;fiu-fpr-pro
+Proto-Finno-Ugric;fiu-pro
+Proto-Ugric;fiu-ugr-pro
+
+; Baltic
+Estonian;et
+Latvian;lv
+Lithuanian;lt
+Old Lithuanian;bat-olt
+Livonian;liv
+Sudovian;xsv
+Proto-Baltic;bat-pro
+Proto-Balto-Slavic;ine-bsl-pro
+
+; German, Germanic
+German;de
+German Low German;nds-de
+Low German;nds
+Middle High German;gmh
+Middle Low German;gml
+Old High German;goh
+Alemannic German;gsw
+Pennsylvania German;pdc
+Kölsch;ksh
+Silesian German;sli
+Proto-Germanic;gem-pro
+
+Czech;cs
+Dutch;nl
+Jersey Dutch;gmw-jdt
+Middle Dutch;dum
+
+West Flemish;vls
+
+West Frisian;fy
+North Frisian;frr
+Eastern Frisian;frs
+Old Frisian;ofs
+Saterland Frisian;stq
+
+Luxembourgish;lb
+
+Lower Sorbian;dsb
+Upper Sorbian;hsb
+
+Lusitanian;xls
+
+Esperanto;eo
+
+Translingual;mul
+
+Breton;br
+Middle Breton;xbm
+Old Breton;obt
+Franco-Provençal;frp
+Frankish;frk
+French;fr
+Middle French;frm
+Old French;fro
+Karipúna Creole French;kmv
+Louisiana Creole French;lou
+
+; Italy
+Italian;it
+Old Italian;roa-oit
+Latin;la
+Proto-Italic;itc-pro
+
+Venetian;vec
+
+Neapolitan;nap
+
+Maltese;mt
+
+Sardinian;sc
+
+; Spain and Portugal
+Aragonese;an
+
+Portuguese;pt
+Old Portuguese;roa-ptg
+Indo-Portuguese;idbs
+Korlai Creole Portuguese;vkp
+Malaccan Creole Portuguese;mcm
+
+Spanish;es
+Old Spanish;osp
+
+Basque;eu
+Proto-Basque;euq-pro
+
+Catalan;ca
+
+pre-Roman (Iberia);und-ibe
+
+Vandalic;xvn
+
+Polish;pl
+Old Polish;zlw-opl
+
+Silesian;szl
+
+Turkish;tr
+Proto-Turkic;trk-pro
+Ottoman Turkish;ota
+
+Proto-Indo-European;ine-pro
+
+pre-Roman (Balkans);und-bal
+
+; Greek and Slavic
+Greek;el
+Ancient Greek;grc
+Byzantine Greek;gkm
+Cappadocian Greek;cpg
+Pontic Greek;pnt
+
+Romani Greek;rge
+Romani;rom
+
+Russian;ru
+
+Belarusian;be
+Bulgarian;bg
+Georgian;ka
+Old Georgian;oge
+Illyrian;xil
+Northern Altai;atv
+Old Church Slavonic;cu
+Romanian;ro
+Istro-Romanian;ruo
+Megleno-Romanian;ruq
+Romano-Serbian;rsb
+Serbo-Croatian;sh
+Slovak;sk
+Slovene;sl
+Ukrainian;uk
+Southern Uzbek;uzs
+Proto-Slavic;sla-pro
+
+Southern Altai;alt
+
+Moksha;mdf
+
+; Located near Russia
+Albanian;sq
+Arbëreshë Albanian;aae
+Proto-Albanian;sqj-pro
+Armenian;hy
+Old Armenian;xcl
+Chechen;ce
+Molise Croatian;svm
+North Azerbaijani;azj
+South Azerbaijani;azb
+Uzbek;uz
+
+Proto-Uralic;urj-pro
