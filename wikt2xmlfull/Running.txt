@@ -119,6 +119,10 @@ Install libraries needed for building:
   libxml-2.0
   zlib
 
+./autogen.sh
+./configure --disable-dict
+make
+  
 cd tools/src
 ./stardic-editor
 In the default Compile tab, press Browse and select wikt-en-ALL-sorted.txt
