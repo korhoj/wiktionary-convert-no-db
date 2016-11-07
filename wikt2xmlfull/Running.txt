@@ -85,7 +85,7 @@ I perform the steps in D and E in Linux running Ubuntu 15.04. I run it inside VM
 
 You need to have dos2unix installed. If not:
 
-apt install dos2unix
+sudo apt install dos2unix
 
 Copy conv2unix.sh and sort-ALL.sh to Linux. I do it using the shared folders feature of VMware Workstation.
 
@@ -120,6 +120,10 @@ sudo apt install libxml2-dev
 (sudo apt install libglib2.0-dev - installed already as dependency of libtk2.0-dev)
 (sudo apt install zlib1g-dev - installed already as dependency of libtk2.0-dev)
 sudo apt install libmysqlclient-dev
+
+Also install dictzip, which is used to produce the .dict.dz file:
+
+sudo apt install dictzip
 
 ./autogen.sh
 ./configure --disable-dict
