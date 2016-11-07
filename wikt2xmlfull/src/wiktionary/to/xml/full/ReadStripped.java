@@ -1920,6 +1920,8 @@ public class ReadStripped {
 				int vbStart = etymSect.indexOf("===Verb==="); // en, sv, no
 				if (vbStart == -1)
 					vbStart = etymSect.indexOf("===Verbi==="); // fi
+				if (vbStart == -1)
+					vbStart = etymSect.indexOf("===Folje==="); // sq
 				if (vbStart > -1) {
 					WordEntry entry = processPOS(POSType.VERBGEN, currentTitle, etymSect, vbStart, outputType, wordEtym);
 					if (entry != null) {
