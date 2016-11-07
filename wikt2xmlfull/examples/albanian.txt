@@ -1,0 +1,42 @@
+<page>
+    <title>çajnik</title>
+    <id>3442</id>
+    <revision>
+      <id>22061</id>
+      <parentid>7903</parentid>
+      <timestamp>2008-12-06T15:40:22Z</timestamp>
+      <contributor>
+        <username>Zeke</username>
+        <id>35</id>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve">==Shqip==
+'''Çajnik''' ''m.sh.'' - Enë me [[lëfyt]], me kapak dhe me dorezë që shërben për të zier çaj a për të përvëluar çajin; [[ibrik]] çaji. ''Çajnik alumini. Çajnik porcelani. Vë çajnikun në zjarr. Shtie me çajnik.''&lt;ref&gt;Fjalori elektronik shpjegues FESH 1.0&lt;/ref&gt;
+==Etimologjia==
+
+==Shqiptimi==
+
+==Sinonime==
+
+==Antonime==
+
+==Fjalë të prejardhura==
+
+==Në gjuhë tjera==
+{{kre}}
+*{{en}}: {{përk|en|teapot}}
+*{{simple}}:
+*{{ar}}:
+{{fund}}
+
+[[Category:Me ç]]
+[[Category:Shqip]]
+[[Category:Emra shqip]]
+== Referencat ==
+
+&lt;div class=&quot;references-small&quot;&gt;
+&lt;references/&gt;
+&lt;/div&gt;</text>
+    </revision>
+  </page>
