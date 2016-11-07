@@ -28,7 +28,7 @@ SET DATE.SECOND=%X:~12,2%
 SET NOW=%DATE.YEAR%-%DATE.MONTH%-%DATE.DAY%-%DATE.HOUR%-%DATE.MINUTE%-%DATE.SECOND%
 
 SET PROGDIR=%WIKT%
-SET PROG=%PROGDIR%\ReadStripped Western.jar
+SET PROG=%PROGDIR%\ReadStripped.jar
 SET JCLASS=wiktionary\to\xml\full\ReadStripped
 SET JAVA="%JAVA_HOME%\bin\java.exe"
 SET INFILE=%DICT%\enwiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml
