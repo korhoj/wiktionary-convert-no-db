@@ -141,7 +141,7 @@ The conversion process produces files like:
 wikt-en-ALL.dict.dz
   The dictd and Stardict compatible dictionary file
 wikt-en-ALL.idx
-  The index file needed by Stardict
+  The index file needed by Stardict and dictd
 wikt-en-ALL.ifo
   Description file, can be edited in a text editor
   
@@ -161,19 +161,60 @@ wikt-en-ALL.ifo
 You may copy wikt-en-ALL.dict.dz and wikt-en-ALL.idx to e.g. your phone and use it with a Stardict compatible
 GUI such as Colordict, or if you have installed the Stardict GUI in your PC, you can use the file with it.
 
-F. VALIDATING AND INSTALLING A DICTD COMPATIBLE ARCHIVE
+F. CREATING AND INSTALLING A DICTD COMPATIBLE ARCHIVE
 
-Step E. needs to be performed first.
+Step D. needs to be performed first.
 
-cd ~/Downloads/stardict_3.0.6/tools/src/
-./stardict_verify /mnt/hgfs/tmp-OwnStarDict/x/wikt-en-ALL.ifo
-  (see X:\Dropbox\Dictionary\StarDict\HowToCreateDictionary.txt)
-sudo cp wikt-en-ALL.dict.dz /usr/share/dictd/
+Perform the following steps in Linux.
 
+Install dictd and dictfmt if they are not installed:
+
+sudo apt install dictd dictfmt
+
+Run conv2unix.sh. The script produces wikt-en-ALL.txt which needs to be sorted.
+
+Run	join-dupls-dictfmt.cmd in Windows
+  Produces dictfmt-dupls-joined.txt. Uses JoinDefinitions.jar
+  
+    toformat.txt - an example in F.O.L.D.O.C. format
+	\n's should be replaced by real Unix-linefeeds (real \n's) + tab (\t)
+	  sed 's/\\n/\n\t/g' > sed-test.txt < headi-nodupls.txt
+
+cp pd-header.txt wikt-en-ALL-2016-11-07-dict.txt
+  This joins a copyright header, public domain + CC-SA-BY in this case
+  This could be done by JoinDefinitions.jar already
+cat wikt-en-ALL-dictfmt-dupls-joined.txt | tee -a wikt-en-ALL-2016-11-07-dict.txt > /dev/null
+
+Run dictfmt which creates .dict and .index for dictd by running one of the dictfmt scripts:
+
+dictfmt-en-ALL.sh
+dictfmt-Western.sh
+dictfmt-Western_Greek_Slavonic.sh
+dictfmt-sq-ALL.sh
+
+Or create a new script like this and run it:
+
+dictfmt -f --utf8 --allchars wikt-en-ALL-2016-11-07 -u http://dictinfo.com -s wikt-en-ALL-2016-11-07 < wikt-en-ALL-2016-11-07-dict.txt
+	    -f: FILE  is  formatted  with  the headwords starting in column 0, with the definition
+            indented at least one space (or tab character) on  subsequent  lines.   The  third
+            line starting in column 0 is taken as the first headword , and the first two lines
+            starting in column 0 are treated as part of  the  00-database-info  header.   This
+            option was written to format the F.O.L.D.O.C.
+
+/Downloads/stardict_3.0.6/tools/src/stardict-verify wikt-en-ALL.ifo
+  Run this if you have done step E and want to verify the dictionary files. The ifo isn't needed for dictd as such
+dictzip wikt-en-ALL-2016-11-07.dict
+  produces the .dict.dz file. N.b. it overwrites any existing one such as one created in step E
+sudo cp wikt-en-ALL-2016-11-07.dict.dz /usr/share/dictd/
+sudo cp wikt-en-ALL-2016-11-07.index /usr/share/dictd/
 dictdconfig -l
-  lists current dictionary entries entries
+  lists current dictionary entries
 sudo dictdconfig -w
-  --> /var/lib/dictd/db.list
+  updates /var/lib/dictd/db.list
 sudo /etc/init.d/dictd restart
 dictdconfig -l
   confirm the new dictionary is installed
+dict -i wikt-en-ALL-2016-11-07
+  Confirm that the header info shows OK. The copyright from pd-header.txt should be in the last paragraph
+dict Linux
+  test looking up a word from the new dictionary
