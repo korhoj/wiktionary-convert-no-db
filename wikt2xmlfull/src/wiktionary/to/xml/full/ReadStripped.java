@@ -757,43 +757,35 @@ public class ReadStripped {
 					}
 				}
 				
-				/* Swedish terms
-				 * http://sv.wiktionary.org/wiki/Wiktionary:Stilguide
+				// TODO Change code to read term lists from a config file
+				
+				/* Albanian terms
+				 * See the Albanian Wiktionary: https://sq.wiktionary.org/wiki/Faqja_kryesore
 				 * 
-				 * ===Substantiv===
-                 * ===Adjektiv===
-                 * ===Verb===
-                 * ===Adverb===
-                 * ===Räkneord===
-                 * ===Preposition===
-                 * ===Konjunktion===
-                 * 	
-                 * ===Interjektion===
-                 * ===Pronomen===
-                 * ===Artikel===
-                 * ===Verbpartikel===
-                 * ===Partikel===
-                 * 
-                 * ===Förkortning===
-                 *
-                 * ===Affix===
-                 * ===Förled===
-                 * ===Efterled===
-                 * ===Fras===
-                 * ===Tecken===
-                 * ===Kod===
-                 * ===Cirkumposition===
-                 * ===Postposition===
-                 * ===Räknemarkör===
-                 * ===Infinitivmärke===
-                 * ===Transkription===
-                 * 
-                 * TODO
-                 * 
-                 * ===Efterled===
-                 * ===Kod===
-                 * ===Infinitivmärke===
-                 * ===Transkription===
+				 * Language tag: ==Shqip==
+				 * 
+				 * ===Emër=== - Noun
+				 * ===Folje=== - Verb
+				 * ===Mbiemër=== - Adjective
+				 * ===Ndajfolje=== - Adverb
+				 * (===Përemri=== - Pronoun - not used)
+				 * (===Lidhëz=== - Conjunction - not used)
+				 * (===Pasthirrmë=== - Interjection - not used)
+				 * ===Numër=== - Numeral
+				 */
+				
+				/* Hebrew terms (list not ready)
+				 * 
+				 * שֵׁם עֶצֶם (he) m ‎(shem étsem) - Noun (narrow sense)
+				 * שֵׁם (he) m ‎(shem) - Noun (broad sense)
+				 * פועל (he) ‎(pô'al) - Verb
+				 * שם תואר m ‎(shem to'ar) - Adjective
+				 * כינוי גוף (he) m ‎(kinoi guf) - Pronoun
+				 * תֹּאַר הַפֹּעַל \ תואר הפועל (he) ‎(toar ha'pô'al) - Adverb
+				 *   תֹּאַר הַפֹּעַל • ‎(toʾar hapóʿal) m
+				 *   תואר הפועל
+				 * ראשי תיבות (he) m pl ‎(rashei teivot) - Abbreviation
+				 * 
 				 */
 				
 				/* Norwegian terms
@@ -825,6 +817,21 @@ public class ReadStripped {
                  ** ===Artikkel===
                  * ===Infinitivsmerke===
                  */
+				
+				/*
+				 * French terms (list not ready)
+				 * 
+				 * === {{S|adverbe|fr}} ===
+				 *   Adverb
+				 * === {{S|interjection|fi}} ===
+				 *   Interjection
+				 * === {{S|nom|fr}} ===
+				 *   Noun
+				 * === {{S|pronom personnel|fr}} ===
+				 *   Personal pronoun
+				 * === {{S|symbole|conv}} ===
+				 *   Symbol
+				 */
 				
 				/*
 				 * German terms
@@ -872,19 +879,43 @@ public class ReadStripped {
 				 * 
 				 */
 				
-				/*
-				 * French terms
+				/* Swedish terms
+				 * http://sv.wiktionary.org/wiki/Wiktionary:Stilguide
 				 * 
-				 * === {{S|adverbe|fr}} ===
-				 *   Adverb
-				 * === {{S|interjection|fi}} ===
-				 *   Interjection
-				 * === {{S|nom|fr}} ===
-				 *   Noun
-				 * === {{S|pronom personnel|fr}} ===
-				 *   Personal pronoun
-				 * === {{S|symbole|conv}} ===
-				 *   Symbol
+				 * ===Substantiv===
+                 * ===Adjektiv===
+                 * ===Verb===
+                 * ===Adverb===
+                 * ===Räkneord===
+                 * ===Preposition===
+                 * ===Konjunktion===
+                 * 	
+                 * ===Interjektion===
+                 * ===Pronomen===
+                 * ===Artikel===
+                 * ===Verbpartikel===
+                 * ===Partikel===
+                 * 
+                 * ===Förkortning===
+                 *
+                 * ===Affix===
+                 * ===Förled===
+                 * ===Efterled===
+                 * ===Fras===
+                 * ===Tecken===
+                 * ===Kod===
+                 * ===Cirkumposition===
+                 * ===Postposition===
+                 * ===Räknemarkör===
+                 * ===Infinitivmärke===
+                 * ===Transkription===
+                 * 
+                 * TODO
+                 * 
+                 * ===Efterled===
+                 * ===Kod===
+                 * ===Infinitivmärke===
+                 * ===Transkription===
 				 */
 				
 				boolean foundDefin = false;
@@ -972,6 +1003,8 @@ public class ReadStripped {
 					adjStart = etymSect.indexOf("===Adjektiivi==="); // fi
 				if (adjStart == -1)
 					adjStart = etymSect.indexOf("===Adjektiv==="); // sv, no
+				if (adjStart == -1)
+					adjStart = etymSect.indexOf("===Mbiemër==="); // sq
 				if (adjStart > -1) {
 					WordEntry entry = processPOS(POSType.ADJ, currentTitle, etymSect, adjStart, outputType, wordEtym);
 					if (entry != null) {
@@ -994,6 +1027,8 @@ public class ReadStripped {
 				int advStart = etymSect.indexOf("===Adverb==="); // en, sv, no
 				if (advStart == -1)
 					advStart = etymSect.indexOf("===Adverbi==="); // fi
+				if (advStart == -1)
+					advStart = etymSect.indexOf("===Ndajfolje==="); // sq
 				if (advStart > -1) {
 					WordEntry entry = processPOS(POSType.ADV, currentTitle, etymSect, advStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1482,6 +1517,8 @@ public class ReadStripped {
 					numerStart = etymSect.indexOf("===Numeraali==="); // fi
 				if (numerStart == -1)
 					numerStart = etymSect.indexOf("===Tallord==="); // no
+				if (numerStart == -1)
+					numerStart = etymSect.indexOf("===Numër==="); // sq
 				if (numerStart > -1) {
 					WordEntry entry = processPOS(POSType.NUM, currentTitle, etymSect, numerStart, outputType, wordEtym);
 					if (entry != null) {
