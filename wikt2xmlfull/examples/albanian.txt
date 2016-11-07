@@ -40,3 +40,43 @@
 &lt;/div&gt;</text>
     </revision>
   </page>
+<page>
+    <title>breshkë</title>
+    <id>2996</id>
+    <revision>
+      <id>95592</id>
+      <parentid>41133</parentid>
+      <timestamp>2015-06-29T23:50:18Z</timestamp>
+      <contributor>
+        <username>HydrizBot</username>
+        <id>2700</id>
+      </contributor>
+      <minor />
+      <comment>roboti shtoj: [[chr:breshkë]]</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve">[[Figura:Lightmatter tortoise.jpg|thumb|150px|'''Një breshkë''']]
+==Shqip==
+===Emër===
+'''breshkë''' ''f.sh.'' -
+# ''zool.'' [[kafshë|Kafshë]] e vogël zvarranike, që e ka trupin të futur në një [[guaskë]] kockore pulla-pulla, të rrum
+bullakët lart dhe të sheshtë poshtë, që ka katër këmbë të shkurtra dhe ecën shumë ngadalë. ''Breshkë toke. Breshkë uji b
+reshkujëse. Breshkë kënete (deti). Gropë breshkë. Vezë breshkë. Samar (guaskë) breshkë. Me hapin e breshkës shumë ngadal
+ë. Ecën si breshkë ecën shumë ngadalë. Si kokë breshke.''
+# ''zool.'' shih [[breshkëz]],~a 2.
+# ''bot.'' shih [[breshkëz]],~a 4.
+# ''krahin.'' Lëvozhga e fortë, [[gujavë|gujava]] e lëndës së lisit, e valanidhit etj.
+* Hirrë breshkë thjeshtligj. shumë i hollë (për lëngun e gjellës, për qumështin etj.). Duket breshka është rrafshuar, ës
+htë sheshuar krejt; shihet, dallohet çdo gjë shumë qartë, s'ka asnjë pengesë për pamjen. I ka hipur breshkës iron.
+:a) ecën shumë ngadalë, vonohet shumë;
+:b) punon shumë ngadalë. Si breshka nëpër plisa me mundim të madh, me vështirësi. S'ka fushë pa breshkë fj. u. s'ka gjë
+fare pa të meta. E ruan (e mban) si breshka dheun e ruan me kujdes të madh, nuk ndahet asnjë çast prej një sendi, s'e lë
+shon kurrë nga duart. E do (e kërkon) si breshka gozhdën e kërkon vetë të keqen. E kërkoi (e pësoi, vajti) si breshka te
+ nallbani e kërkoi vetë të keqen, vajti vetë tek e keqja; ç'kërkoi gjeti. S`qëndron breshri mbi breshkë fj. u. shih te [
+[breshër]]~ri. Grurë breshke bot. shih te [[grurë]],~i. Liri i breshkës bot. liri i egër. Lule breshke bot. shih te [[lu
+le]],~ja. Trëndafil breshke bot. balkrocë.&lt;ref&gt;Fjalori elektronik shpjegues FESH 1.0&lt;/ref&gt;
+==Etimologjia==
+
+[ru:breshkë]]</text>
+    </revision>
+  </page>
