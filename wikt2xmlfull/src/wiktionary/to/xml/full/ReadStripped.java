@@ -765,13 +765,26 @@ public class ReadStripped {
 				 * Language tag: ==Shqip==
 				 * 
 				 * ===Emër=== - Noun
+				 * ''m.sh.'' - male noun?
+				 * ''f.sh.'' - female noun?
 				 * ===Folje=== - Verb
 				 * ===Mbiemër=== - Adjective
+				 * ''mb.'' - Adjective
 				 * ===Ndajfolje=== - Adverb
 				 * (===Përemri=== - Pronoun - not used)
 				 * (===Lidhëz=== - Conjunction - not used)
 				 * (===Pasthirrmë=== - Interjection - not used)
+				 * ''pasth.'' - Interjection
 				 * ===Numër=== - Numeral
+				 * jokal. = past participle of a verb? (e.g. ”abdikoi” == ”abdicated”)
+				 * f.libr.keq. = female noun, uncountable? (word ”bobole”, boiled corn grains??)
+				 * 
+				 * Albanian has definitions without Etymology-tag
+				 * 
+				 * It also has definitions like this (Çajnik = teapot, m. = male sh. = ?
+				 * '''Çajnik''' ''m.sh.'' - Enë me [[lëfyt]], me kapak dhe me dorezë që shërben për të zier çaj a për të përvëluar çajin; 
+				 * [[ibrik]] çaji. ''Çajnik alumini. Çajnik porcelani. Vë çajnikun në zjarr. Shtie me çajnik.''&lt;ref&gt;Fjalori elektronik
+				 * shpjegues FESH 1.0&lt;/ref&gt;
 				 */
 				
 				/* Hebrew terms (list not ready)
@@ -1005,6 +1018,8 @@ public class ReadStripped {
 					adjStart = etymSect.indexOf("===Adjektiv==="); // sv, no
 				if (adjStart == -1)
 					adjStart = etymSect.indexOf("===Mbiemër==="); // sq
+				if (adjStart == -1)
+					adjStart = etymSect.indexOf("''mb.''"); // sq
 				if (adjStart > -1) {
 					WordEntry entry = processPOS(POSType.ADJ, currentTitle, etymSect, adjStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1372,6 +1387,8 @@ public class ReadStripped {
 					interjStart = etymSect.indexOf("===Interjektion==="); // sv
 				if (interjStart == -1)
 					interjStart = etymSect.indexOf("===Interjeksjon==="); // no
+				if (interjStart == -1)
+					interjStart = etymSect.indexOf("''pasth.''"); // sq
 				if (interjStart > -1) {
 					WordEntry entry = processPOS(POSType.INTERJ, currentTitle, etymSect, interjStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1465,6 +1482,33 @@ public class ReadStripped {
 				}
 				
 				nounStart = etymSect.indexOf("==={{{pos|Noun}}}==="); // e.g. "web browsers"
+				if (nounStart > -1) {
+					WordEntry entry = processPOS(POSType.NOUN, currentTitle, etymSect, nounStart, outputType, wordEtym);
+					if (entry != null) {
+						wordEntries.add(entry);
+						foundDefin = true;
+					}
+				}
+				
+				nounStart = etymSect.indexOf("===Emër==="); // Albanian
+				if (nounStart > -1) {
+					WordEntry entry = processPOS(POSType.NOUN, currentTitle, etymSect, nounStart, outputType, wordEtym);
+					if (entry != null) {
+						wordEntries.add(entry);
+						foundDefin = true;
+					}
+				}
+				
+				nounStart = etymSect.indexOf("''m.sh.''"); // male noun. Many Albanian Wikt entries
+				if (nounStart > -1) {
+					WordEntry entry = processPOS(POSType.NOUN, currentTitle, etymSect, nounStart, outputType, wordEtym);
+					if (entry != null) {
+						wordEntries.add(entry);
+						foundDefin = true;
+					}
+				}
+				
+				nounStart = etymSect.indexOf("''f.sh.''"); // Female noun. Many Albanian Wikt entries
 				if (nounStart > -1) {
 					WordEntry entry = processPOS(POSType.NOUN, currentTitle, etymSect, nounStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1973,6 +2017,10 @@ public class ReadStripped {
 			WordEtym wordEtym) {
 		String gender = null;
 		
+		WordLang wordLang = wordEtym.getWordLang();
+		Lang lang = wordLang.getLang();
+		String langName = lang.getName();
+		
 		WordEntry wordEntry = new WordEntry();
 		wordEntriesNbr++;
 		wordEntry.setId(new Integer(wordEntriesNbr));
@@ -2048,20 +2096,65 @@ public class ReadStripped {
 					i = posSense + 1 + (lfMode == 0 ? 2 : 1); // +1: "#"
 				}
 				
-				if (hashPos == -1 || i >= sLangSect.length() ) {
+				if ( (hashPos == -1 || i >= sLangSect.length()) && !langName.equals("Shqip") ) {
 					/* Some terms such as "International Phonetic Alphabet", have a word entry and then ====Abbreviation====
 					 * without a word entry afterwards (it has * [[IPA]], not a # def.), in which case it shouldn't be picked up (and isn't, but gives warning).
 					 * However, e.g. "A" has word entries after ====Abbreviation====, which should be.
 					 */
-					
-					posSense = -1;
-//					String msg = "Sense not found at title='" + currentTitle + "', linesRead=" + linesRead +
-//						", wordPos='" + wordPos + "': '" + sLangSect + "'";
 					String msg = "Sense not found at title='" + currentTitle + "', linesRead=" + linesRead +
 							", wordPos='" + wordPos + "'";
 					LOGGER.warning(msg);
+					
+					posSense = -1;
 				}
 			}
+			if (posSense == -1 && langName.equals("Shqip")) {
+				//LOGGER.info("Albanian, parsing differently");
+				
+				// Definition starts with " - ", e.g.:
+				// ''m.sh.'' - Enë me [[lëfyt]], me kapak
+				
+				/* Some definitions however have #, at least when there are many, e.g.:
+				 * '''afërt''' ''mb.''
+                 * # Që ndodhet në [[largësi]] të [[vogël]] nga [[diçka]] [[tjetër]], që [[është]] pranë, [[afër]] diçkaje; fqinjë;...
+				 * # Që e ndan pak
+				 */
+				if (i + 4 < sLangSect.length() ) { // +4: must have at least 1 char after " - "
+					// no LF checks, these don't start from the beginning of a line
+					int dashPosWin = sLangSect.substring(i).indexOf(" - ");
+					int dashPosLin = sLangSect.substring(i).indexOf(" - ");
+					
+					int dashPos = dashPosWin;
+					int lfMode = 0; // 0=Win, 1=Lin
+					if (dashPosWin > -1 && dashPosLin == -1)
+						dashPos = dashPosWin;
+					else if (dashPosLin > -1 && dashPosWin == -1) {
+						dashPos = dashPosLin;
+						lfMode = 1;
+					} else if (dashPosLin > dashPosWin) {
+						dashPos = dashPosLin;
+						lfMode = 1;
+					}
+					
+					//LOGGER.fine("dashPos = " + dashPos + ", lfMode=" + lfMode + ",i="+i);
+					
+					if (dashPos > -1) {
+						posSense = i + dashPos;
+						
+						i = posSense + 1 + (lfMode == 0 ? 2 : 1); // +1: "-"
+					}
+					
+					if (dashPos == -1 || i >= sLangSect.length() ) {
+						String msg = "Sense not found at Albanian title='" + currentTitle + "', linesRead=" + linesRead +
+								", wordPos='" + wordPos + "'";
+						LOGGER.warning(msg);
+						
+						posSense = -1;
+					}
+				}
+				
+			}
+			
 			if (posSense > -1) {
 //				LOGGER.fine("sect = '" + sLangSect.substring(i) + "'");
 				
