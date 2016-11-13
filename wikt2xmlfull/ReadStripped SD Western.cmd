@@ -16,6 +16,7 @@ set LANGID=%2
 rem SET LANGID=ALL
 set METADATAENGLISH=%3
 set LANGCODE=Western
+set ONLYLANGUAGES=%4
 
 SET X=
 FOR /F "skip=1 delims=" %%x IN ('wmic os get localdatetime') DO IF NOT DEFINED X SET X=%%x
@@ -49,7 +50,7 @@ echo MET: %METADATAENGLISH%
 echo OUTTYPE: %OUTTYPE%
 
 rem -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit 
-%JAVA% %UTF8% %MEM% %STCK% -jar "%PROG%" %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% 0 %LANGCODE% true
+%JAVA% %UTF8% %MEM% %STCK% -jar "%PROG%" %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% 0 %LANGCODE% %ONLYLANGUAGES%
 if %ERRORLEVEL% GTR 0 goto :virhe
 echo Ready
 

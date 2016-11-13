@@ -11,8 +11,7 @@ set LANG=%1
 rem set LANGCODE=sq
 set LANGCODE=%2
 set METADATAENGLISH=%3
-
-CD /D %WIKT%
+set ONLYLANGUAGES=%4
 
 SET X=
 FOR /F "skip=1 delims=" %%x IN ('wmic os get localdatetime') DO IF NOT DEFINED X SET X=%%x
@@ -28,8 +27,8 @@ SET PROGDIR=%WIKT%
 SET PROG=%PROGDIR%\ReadStripped.jar
 SET JCLASS=wiktionary\to\xml\full\ReadStripped
 SET JAVA="%JAVA_HOME%\bin\java.exe"
-SET INFILE=%DICT%\enwiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml
-SET OUTFILE=%WIKT%\StarDict\OwnStardict\wikt-sq-%LANG%-%NOW%.txt
+SET INFILE=%DICT%\%LANGCODE%wiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml
+SET OUTFILE=%WIKT%\StarDict\OwnStardict\wikt-%LANGCODE%-%LANG%-%NOW%.txt
 SET UTF8=-Dfile.encoding=UTF-8
 SET MEM=-Xmx2600M
 SET STCK=-Xss400M
@@ -46,7 +45,7 @@ echo MET: %METADATAENGLISH%
 echo OUTTYPE: %OUTTYPE%
 
 rem -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit 
-%JAVA% %UTF8% %MEM% %STCK% -jar "%PROG%" %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% 0 %LANGCODE% false
+%JAVA% %UTF8% %MEM% %STCK% -jar "%PROG%" %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% 0 %LANGCODE% %ONLYLANGUAGES%
 if %ERRORLEVEL% GTR 0 goto :virhe
 echo Ready
 
