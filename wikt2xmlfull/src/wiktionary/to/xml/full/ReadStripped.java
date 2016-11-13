@@ -1976,6 +1976,24 @@ public class ReadStripped {
 					}
 				}
 				
+				/*
+				 * Untranslated Albanian entries
+				 */
+				int unknownStart = etymSect.indexOf("''m.sh.''");
+				if (abbrStart == -1)
+					unknownStart = etymSect.indexOf("''f.sh.''");
+				if (abbrStart == -1)
+					unknownStart = etymSect.indexOf("''pasth.''");
+				if (abbrStart == -1)
+					unknownStart = etymSect.indexOf("jokal.");
+				if (unknownStart > -1) {
+					WordEntry entry = processPOS(POSType.UNKNOWN, currentTitle, etymSect, unknownStart, outputType, wordEtym);
+					if (entry != null) {
+						wordEntries.add(entry);
+						foundDefin = true;
+					}
+				}
+				
 				if (foundDefin) {
 					wordEtym.setWordEntries(wordEntries);
 	

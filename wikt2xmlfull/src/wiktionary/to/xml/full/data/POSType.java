@@ -147,6 +147,8 @@ public class POSType implements Serializable {
 	public static String VERBPARTICLE_STR = "verb particle"; // sv
 	public static String VERBTRAN = "v.t.";
 	public static String VERBTRAN_STR = "verb transitive";
+	public static String UNKNOWN = ""; // untranslated tags, some Albanian for now
+	public static String UNKNOWN_STR = ""; 
 	
 	/**
 	 * @param pos String, one of POSTypes
