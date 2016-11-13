@@ -8,12 +8,10 @@ rem set JAVA_HOME=C:\PROGRA~1\Java\jdk1.8.0_102
 rem
 rem Change EDITION to match with the Wiktionary edition you have downloaded
 set EDITION=20161101
-set LANG=Norsk
-rem set LANG=ALL
-rem set LANGID=ALL
-set LANGID=no
-set METADATAENGLISH=false
-set LANGCODE=no
+set LANG=%1
+set LANGCODE=%2
+set METADATAENGLISH=%3
+set ONLYLANGUAGES=%4
 
 SET X=
 FOR /F "skip=1 delims=" %%x IN ('wmic os get localdatetime') DO IF NOT DEFINED X SET X=%%x
@@ -39,7 +37,8 @@ SET OUTTYPE=Stardict
 cd %PROGDIR%
 chcp 65001
 
-%JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% 0 %LANGCODE%
+%JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% 0 %LANGCODE% %ONLYLANGUAGES%
+if %ERRORLEVEL% GTR 0 goto :virhe
 if %ERRORLEVEL% GTR 0 goto :virhe
 echo Ready
 
