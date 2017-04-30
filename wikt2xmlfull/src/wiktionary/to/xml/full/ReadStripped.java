@@ -892,6 +892,26 @@ public class ReadStripped {
 				 * 
 				 */
 				
+				/* Greek terms (code el)
+				 * ==={{κύριο όνομα|en}}===
+				 *   Proper noun
+				 * ==={{αριθμητικό|el}}===
+				 *   Numeral
+				 * ==={{ρήμα|el}}===
+				 *   Verb
+				 * ==={{ουσιαστικό|el}}===
+                 *   Noun
+                 * ==={{επίθετο|el}}===
+                 *   Adjective
+                 * Pronoun = αντωνυμία
+                 * Participle = μετοχή
+                 * Adverb = επίρρημα
+                 * Preposition = πρόθεση
+                 * Interjection = επιφώνημα
+                 * Article = άρθρο
+                 * Conjunction = σύνδεσμος
+				 */
+				
 				/* Swedish terms
 				 * http://sv.wiktionary.org/wiki/Wiktionary:Stilguide
 				 * 
@@ -1017,6 +1037,8 @@ public class ReadStripped {
 				if (adjStart == -1)
 					adjStart = etymSect.indexOf("===Adjektiv==="); // sv, no
 				if (adjStart == -1)
+					adjStart = etymSect.indexOf("==={{επίθετο|"); // el
+				if (adjStart == -1)
 					adjStart = etymSect.indexOf("===Mbiemër==="); // sq
 				if (adjStart == -1)
 					adjStart = etymSect.indexOf("''mb.''"); // sq
@@ -1042,6 +1064,8 @@ public class ReadStripped {
 				int advStart = etymSect.indexOf("===Adverb==="); // en, sv, no
 				if (advStart == -1)
 					advStart = etymSect.indexOf("===Adverbi==="); // fi
+				if (advStart == -1)
+					advStart = etymSect.indexOf("==={{επίρρημα|"); // el
 				if (advStart == -1)
 					advStart = etymSect.indexOf("===Ndajfolje==="); // sq
 				if (advStart > -1) {
@@ -1089,6 +1113,8 @@ public class ReadStripped {
 					articleStart = etymSect.indexOf("===Artikel==="); // sv
 				if (articleStart == -1)
 					articleStart = etymSect.indexOf("===Artikkel==="); // no
+				if (articleStart == -1)
+					articleStart = etymSect.indexOf("==={{άρθρο|"); // el
 				if (articleStart > -1) {
 					WordEntry entry = processPOS(POSType.ARTICLE, currentTitle, etymSect, articleStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1191,6 +1217,8 @@ public class ReadStripped {
 					conjStart = etymSect.indexOf("===Konjunktion==="); // sv
 				if (conjStart == -1)
 					conjStart = etymSect.indexOf("===Konjunksjon==="); // no
+				if (conjStart == -1)
+					conjStart = etymSect.indexOf("==={{σύνδεσμος|"); // no
 //				if (conjStart > 0) { // So not to pickup ====Conjunction==== definitions
 //					if (etymSect.charAt(conjStart-1) == '=')
 //						conjStart = -1;
@@ -1388,6 +1416,8 @@ public class ReadStripped {
 				if (interjStart == -1)
 					interjStart = etymSect.indexOf("===Interjeksjon==="); // no
 				if (interjStart == -1)
+					interjStart = etymSect.indexOf("==={{επιφώνημα|"); // el
+				if (interjStart == -1)
 					interjStart = etymSect.indexOf("''pasth.''"); // sq
 				if (interjStart > -1) {
 					WordEntry entry = processPOS(POSType.INTERJ, currentTitle, etymSect, interjStart, outputType, wordEtym);
@@ -1453,6 +1483,8 @@ public class ReadStripped {
 					nounStart = etymSect.indexOf("===Substantiivi==="); // fi
 				if (nounStart == -1)
 					nounStart = etymSect.indexOf("===Substantiv==="); // sv, no
+				if (nounStart == -1)
+					nounStart = etymSect.indexOf("==={{ουσιαστικό|"); // el
 				if (nounStart > -1) {
 					WordEntry entry = processPOS(POSType.NOUN, currentTitle, etymSect, nounStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1563,6 +1595,8 @@ public class ReadStripped {
 					numerStart = etymSect.indexOf("===Tallord==="); // no
 				if (numerStart == -1)
 					numerStart = etymSect.indexOf("===Numër==="); // sq
+				if (numerStart == -1)
+					numerStart = etymSect.indexOf("==={{αριθμητικό|"); // el
 				if (numerStart > -1) {
 					WordEntry entry = processPOS(POSType.NUM, currentTitle, etymSect, numerStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1594,6 +1628,8 @@ public class ReadStripped {
 				int participleStart = etymSect.indexOf("===Participle===");
 				if (participleStart == -1)
 					participleStart = etymSect.indexOf("===Partisiippi==="); // fi
+				if (participleStart == -1)
+					participleStart = etymSect.indexOf("==={{μετοχή|"); // el
 				if (participleStart > -1) {
 					WordEntry entry = processPOS(POSType.PARTICIPLE, currentTitle, etymSect, participleStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1674,6 +1710,8 @@ public class ReadStripped {
 					prepositionStart = etymSect.indexOf("===Prepositio==="); // fi
 				if (prepositionStart == -1)
 					prepositionStart = etymSect.indexOf("===Preposisjon==="); // no
+				if (prepositionStart == -1)
+					prepositionStart = etymSect.indexOf("==={{πρόθεση"); // el
 				if (prepositionStart > -1) {
 					WordEntry entry = processPOS(POSType.PREPOSITION, currentTitle, etymSect, prepositionStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1714,6 +1752,8 @@ public class ReadStripped {
 					pronounStart = etymSect.indexOf("===Pronomini==="); // fi
 				if (pronounStart == -1)
 					pronounStart = etymSect.indexOf("===Pronomen==="); // sv, no
+				if (pronounStart == -1)
+					pronounStart = etymSect.indexOf("==={{αντωνυμία|"); // el
 				if (pronounStart > -1) {
 					WordEntry entry = processPOS(POSType.PRON, currentTitle, etymSect, pronounStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1743,6 +1783,8 @@ public class ReadStripped {
 				prNounStart = etymSect.indexOf("===Proper Noun===");
 				if (prNounStart == -1)
 					prNounStart = etymSect.indexOf("===Erisnimi==="); //fi
+				if (prNounStart == -1)
+					prNounStart = etymSect.indexOf("==={{κύριο όνομα|"); //el
 				if (prNounStart > -1) {
 					WordEntry entry = processPOS(POSType.PRNOUN, currentTitle, etymSect, prNounStart, outputType, wordEtym);
 					if (entry != null) {
@@ -1922,6 +1964,8 @@ public class ReadStripped {
 					vbStart = etymSect.indexOf("===Verbi==="); // fi
 				if (vbStart == -1)
 					vbStart = etymSect.indexOf("===Folje==="); // sq
+				if (vbStart == -1)
+					vbStart = etymSect.indexOf("==={{ρήμα|"); // el
 				if (vbStart > -1) {
 					WordEntry entry = processPOS(POSType.VERBGEN, currentTitle, etymSect, vbStart, outputType, wordEtym);
 					if (entry != null) {
