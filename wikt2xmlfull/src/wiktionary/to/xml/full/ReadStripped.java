@@ -13,6 +13,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -339,7 +340,8 @@ public class ReadStripped {
 							LOGGER.fine("To parse: '" + currentTitle + "'");
 							//LOGGER.info("To parse: '" + currentTitle + "'");
 							
-							if (parseEntry(outStr, currentTitle, outputType, entryNbr, session, lang, onlyLanguages)) {
+							if (parseEntry(outStr, currentTitle, outputType, entryNbr, session, lang, onlyLanguages,
+									langCode)) {
 								entryNbr++;
 								evenThousand = true; // restart logging every 1000 entries
 							}
@@ -409,7 +411,8 @@ public class ReadStripped {
 			if (outStr != null && outStr.length() > 0 && // this should always be true if there is any input
 				hadTextSection) { // had reached <text> section of a new term and it ended with <text>
 				
-				if (parseEntry(outStr, currentTitle, outputType, entryNbr, session, lang, onlyLanguages)) {
+				if (parseEntry(outStr, currentTitle, outputType, entryNbr, session, lang, onlyLanguages,
+						langCode)) {
 					entryNbr++;
 					evenThousand = true; // restart logging every 1000 entries
 				}
@@ -530,10 +533,16 @@ public class ReadStripped {
 	 * @param onlyLang The language to process or null to process all languages
 	 * @param onlyLanguages If true, unknown languages are not added to language list i.e.
 	 * only languages that were supplied in the language specific CVS file are processed
+	 * @param langCode Used to detect whether input is the Greek Wiktionary or not
+	 * (normally used for deciding which language's csv file to use for loading languages info)
 	 */
 	private boolean parseEntry(String s, String currentTitle, OutputType outputType, long entryNbr, Session session,
-			String onlyLang, boolean onlyLanguages) throws Exception {
+			String onlyLang, boolean onlyLanguages, String langCode) throws Exception {
 		boolean foundAnyLang = false;
+		// true if lang name should be looked up by lang code, not vice versa like normally
+		boolean lookByLangCode = false;
+		// if lookByLangCode == true, was the lang found from the Set?
+		boolean wasFoundByCode = false;
 		
 		// TODO StripNamespaces removes these if run first. If not, the list here should be longer
 		if ( currentTitle.startsWith("Appendix:") ||
@@ -594,17 +603,52 @@ public class ReadStripped {
 					langName = langName.substring(0, langName.length()-2);
 				}
 				
-				//LOGGER.info("langName to look for: '" + langName + "'");
+				/*
+				 * Another alternative, used at least in the Greek Wiktionary, is like:
+				 * =={{-el-}}==
+				 */
+				if (langName.startsWith("{{-")) {
+					langName = langName.substring(3);
+				}
 				
-				lookupLang.setName(langName);
+				if (langName.endsWith("-}}")) {
+					/* This is actually the code and is replaced by the real name below if found from the
+					 * language list */
+					langName = langName.substring(0, langName.length()-3);
+					lookByLangCode = true;
+				}
+				
+				if (!lookByLangCode) {
+					LOGGER.info("langName to look for: '" + langName + "'");
+					lookupLang.setName(langName);
+				} else {
+					LOGGER.info("langCode to look for: '" + langName + "'");
+					lookupLang.setAbr(langName);
+					
+					/* Usually we search by using langs.contains below, but in this
+					 * case we only know the language abbreviation code, so we search by it
+					 */
+					for (Iterator<Lang> iter = langs.iterator(); iter.hasNext() && !wasFoundByCode;) {
+						Lang l = iter.next();
+						// l.getAbr may be null, if language code is \N in the csv file (i.e. unknown)
+						if (l.getAbr() != null && l.getAbr().equals(langName)) {
+							wasFoundByCode = true;
+							langName = l.getName();
+							lookupLang.setName(langName);
+						}
+					}
+				}
 			}
 			
-			if (!onlyLanguages && langName != null && !langs.contains(lookupLang)) {
+			if (
+			     (!onlyLanguages && langName != null && !langs.contains(lookupLang)) ||
+				 (!onlyLanguages && lookByLangCode && langName != null && wasFoundByCode)
+			   ) {
 				String msg = "Adding language: '" + langName + "', langsCount=" + (langsCount+1) +
 						" at title='" + currentTitle + "'";
 				LOGGER.info(msg);
 				
-				// Write separate output file of new language candidates
+				// Write separate output file for new language candidates
 				if (newLangsFos == null) {
 					newLangsFos = new FileOutputStream(NEWLANGSFILENAME);
 
@@ -614,15 +658,21 @@ public class ReadStripped {
 				newLangsOut.println(langName); // no ABR field for now
 				newLangsOut.flush();
 				
-				Lang addLang = new Lang();
-				addLang.setId(++langsCount);
-				addLang.setName(langName);
-				langs.add(addLang);
+				/* If we know only the code, we can't really add the language to be processed now.
+				 * We could however still print it above to the list of new languages, so the
+				 * user can decide the language name and add it to the language list csv file
+				 */
+				if (!lookByLangCode) {
+					Lang addLang = new Lang();
+					addLang.setId(++langsCount);
+					addLang.setName(langName);
+					langs.add(addLang);
+				}
 			}
 			
-			if (langName == null) {
-				String msg = "Unknown language: '" + langName + "' at title='" + currentTitle + "', entryNbr=" + entryNbr + ", linesRead=" + linesRead +
-					", '" + langSect + "'";
+			if (langName == null || (lookByLangCode && !wasFoundByCode)) {
+				String msg = "Unknown language: '" + langName + "' at title='" + currentTitle + "', " +
+					"entryNbr=" + entryNbr + ", linesRead=" + linesRead + ", '" + langSect + "'";
 				LOGGER.warning(msg);
 				
 				if (FAIL_AT_FIRST_PROBLEM) {
@@ -651,7 +701,8 @@ public class ReadStripped {
 						wordLang.setDataField(lang.getName());
 						// Each wordlang has 1-n etymologies (wordetym)
 						
-						Set<WordEtym> wordEtyms = parseWord(word, sLangSect, currentTitle, outputType, wordLang);
+						Set<WordEtym> wordEtyms = parseWord(word, sLangSect, currentTitle, outputType, wordLang,
+								langCode);
 						if (wordEtyms != null) {
 							wordLang.setWordEtyms( wordEtyms );
 							
@@ -699,9 +750,19 @@ public class ReadStripped {
 		return foundAnyLang;
 	}
 	
-	// wordLang is just a link back
+	/**
+	 * 
+	 * @param word
+	 * @param sLangSect
+	 * @param currentTitle
+	 * @param outputType
+	 * @param wordLang Just a link back
+	 * @param langCode Used to detect whether input is the Greek Wiktionary or not
+	 * (normally used for deciding which language's csv file to use for loading languages info)
+	 * @return
+	 */
 	private Set<WordEtym> parseWord(Word word, String sLangSect, String currentTitle, OutputType outputType,
-		WordLang wordLang) throws Exception {
+		WordLang wordLang, String langCode) throws Exception {
 
 		/* Parse etymologies first. E.g.:
 		 * 
@@ -727,10 +788,21 @@ public class ReadStripped {
          * ... 
          * 
          * or no Etymology defined
+         * 
+         * or for the Greek Wiktionary:
+         * 
+         * ==={{ετυμολογία}}===
 		 */
 		Set<WordEtym> wordEtymologies = new LinkedHashSet<WordEtym>();
 
-		String[] etymsArr = sLangSect.split("===Etymology[ 0-9]*===");
+		String[] etymsArr = null;
+		if (langCode.equals("el")) { // Greek
+			etymsArr = sLangSect.split("===\\{\\{ετυμολογία\\}\\}===");
+			LOGGER.fine("Greek etymology entry detected");
+		} else {
+			etymsArr = sLangSect.split("===Etymology[ 0-9]*===");
+			System.out.println("*** LANG == '"+langCode+"'***");
+		}
 		LOGGER.fine("Etymologies: " + etymsArr.length);
 		int etymNbr = 0;
 		for (String etymSect : etymsArr) {
