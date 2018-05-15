@@ -24,7 +24,7 @@ A. COMPILING THE ENGLISH WIKTIONARY, WITH ENTRIES FOR ALL LANGUAGES
 
 Change EDITION to match with the Wiktionary edition you have downloaded in
 StripNamespaces ALL.cmd.
-Run StripNamespaces ALL.cmd. I like to due it via going to cmd.exe.
+Run StripNamespaces ALL.cmd. I like to do it via going to cmd.exe.
 It prints progress every 10 000 entries.
 Stripping the English Wiktionary takes long even on a fast computer. Takes currently
 (2016-11) about 20 mins. Stripping the English entries is slower at first than after about
@@ -81,7 +81,7 @@ Wiktionary has the definitions of the entries in the English language.
 
 D. COMBINING THE OUTPUT FILES
 
-I perform the steps in D and E in Linux running Ubuntu 15.04. I run it inside VMware WOrkstation.
+I perform the steps in D and E in Linux running Ubuntu 16.04 LTS. I run it inside VMware Workstation.
 
 You need to have dos2unix installed. If not:
 
@@ -89,16 +89,16 @@ sudo apt install dos2unix
 
 Copy conv2unix.sh and sort-ALL.sh to Linux. I do it using the shared folders feature of VMware Workstation.
 
-By default, conv2unix.sh processes wikt-en-ALL-YYYY-MM-DD, where YYYY-MM-DD is
+By default, conv2unix.sh processes wikt-en-ALL-yyyy-mm-dd, where yyyy-mm-dd is
 the current date. Change this if necessary by editing with e.g. vi.
 
-Run conv2unix.sh. The script produces wikt-en-ALL.txt which needs to be sorted.
+Run conv2unix.sh. The script produces wikt-en-ALL-unsorted.txt which needs to be sorted.
 
-Run sort-ALL.sh. It produces wikt-en-ALL-sorted.txt.
+Run sort-ALL.sh. It produces wikt-en-ALL-yyyy-mm-dd.txt.
 
 E. PARSING THE ENTRIES AND CREATING STARDICT FILES
 
-The Ubuntu repo package in 16.04 LTS doesn't work since it doesn't support multiple lines having the
+The Ubuntu repo Stardict package in 16.04 LTS doesn't work since it doesn't support multiple lines having the
 same entry name.
 
 You can try to download and install (dpkg -i for the deb)
@@ -132,17 +132,17 @@ make
   
 cd tools/src
 ./stardict-editor
-In the default Compile tab, press Browse and select wikt-en-ALL-sorted.txt
+In the default Compile tab, press Browse and select the sorted file, wikt-en-ALL-yyyy-mm-dd.txt
 Press Compile. The window is greyed out until processing is ready.
 The program says "Done!" if the conversion worked. It gives warnings for some lines but that should be ok.
 
 The conversion process produces files like:
 
-wikt-en-ALL.dict.dz
+wikt-en-ALL-yyyy-mm-dd.dict.dz
   The dictd and Stardict compatible dictionary file
-wikt-en-ALL.idx
+wikt-en-ALL-yyyy-mm-dd.idx
   The index file needed by Stardict and dictd
-wikt-en-ALL.ifo
+wikt-en-ALL-yyyy-mm-dd.ifo
   Description file, can be edited in a text editor
   
 ~/Downloads/stardict-tools-3.0.2/src/example.ifo:
@@ -158,7 +158,7 @@ wikt-en-ALL.ifo
   date=2003.05.10
   sametypesequence=m
 
-You may copy wikt-en-ALL.dict.dz and wikt-en-ALL.idx to e.g. your phone and use it with a Stardict compatible
+You may copy wikt-en-ALL-yyyy-mm-dd.dict.dz and wikt-en-ALL-yyyy-mm-dd.idx to e.g. your phone and use it with a Stardict compatible
 GUI such as Colordict, or if you have installed the Stardict GUI in your PC, you can use the file with it.
 
 F. CREATING AND INSTALLING A DICTD COMPATIBLE ARCHIVE
@@ -171,19 +171,19 @@ Install dictd and dictfmt if they are not installed:
 
 sudo apt install dictd dictfmt
 
-Run conv2unix.sh. The script produces wikt-en-ALL.txt which needs to be sorted.
+Run conv2unix.sh. The script produces wikt-en-ALL-unsorted.txt which needs to be sorted.
 
 Run	join-dupls-dictfmt.cmd in Windows
-  Produces dictfmt-dupls-joined.txt. Uses JoinDefinitions.jar
+  Produces wikt-en-ALL-dictfmt-dupls-joined.txt. Uses JoinDefinitions.jar
   
     toformat.txt - an example in F.O.L.D.O.C. format
 	\n's should be replaced by real Unix-linefeeds (real \n's) + tab (\t)
 	  sed 's/\\n/\n\t/g' > sed-test.txt < headi-nodupls.txt
 
-cp pd-header.txt wikt-en-ALL-2016-11-07-dict.txt
+cp pd-header.txt wikt-en-ALL-yyyy-mm-dd-dict.txt
   This joins a copyright header, public domain + CC-SA-BY in this case
   This could be done by JoinDefinitions.jar already
-cat wikt-en-ALL-dictfmt-dupls-joined.txt | tee -a wikt-en-ALL-2016-11-07-dict.txt > /dev/null
+cat wikt-en-ALL-dictfmt-dupls-joined.txt | tee -a wikt-en-ALL-yyyy-mm-dd-dict.txt > /dev/null
 
 Run dictfmt which creates .dict and .index for dictd by running one of the dictfmt scripts:
 
@@ -194,7 +194,7 @@ dictfmt-sq-ALL.sh
 
 Or create a new script like this and run it:
 
-dictfmt -f --utf8 --allchars wikt-en-ALL-2016-11-07 -u http://dictinfo.com -s wikt-en-ALL-2016-11-07 < wikt-en-ALL-2016-11-07-dict.txt
+dictfmt -f --utf8 --allchars wikt-en-ALL-yyyy-mm-dd -u http://dictinfo.com -s wikt-en-ALL-yyyy-mm-dd < wikt-en-ALL-yyyy-mm-dd-dict.txt
 	    -f: FILE  is  formatted  with  the headwords starting in column 0, with the definition
             indented at least one space (or tab character) on  subsequent  lines.   The  third
             line starting in column 0 is taken as the first headword , and the first two lines
@@ -203,18 +203,23 @@ dictfmt -f --utf8 --allchars wikt-en-ALL-2016-11-07 -u http://dictinfo.com -s wi
 
 /Downloads/stardict_3.0.6/tools/src/stardict-verify wikt-en-ALL.ifo
   Run this if you have done step E and want to verify the dictionary files. The ifo isn't needed for dictd as such
-dictzip wikt-en-ALL-2016-11-07.dict
+dictzip wikt-en-ALL-yyyy-mm-dd.dict
   produces the .dict.dz file. N.b. it overwrites any existing one such as one created in step E
-sudo cp wikt-en-ALL-2016-11-07.dict.dz /usr/share/dictd/
-sudo cp wikt-en-ALL-2016-11-07.index /usr/share/dictd/
+sudo cp -vi wikt-en-ALL-yyyy-mm-dd.dict.dz /usr/share/dictd/
+sudo cp -vi wikt-en-ALL-yyyy-mm-dd.index /usr/share/dictd/
 dictdconfig -l
-  lists current dictionary entries
+  lists current dictionary entries. It should now show your new dictionary, e.g.:
+  database wikt-en-ALL-2018-05-15
+  {
+   data  /usr/share/dictd/wikt-en-ALL-2018-05-15.dict.dz
+   index /usr/share/dictd/wikt-en-ALL-2018-05-15.index
+  }
 sudo dictdconfig -w
   updates /var/lib/dictd/db.list
-sudo /etc/init.d/dictd restart
+sudo service dictd restart
 dictdconfig -l
   confirm the new dictionary is installed
-dict -i wikt-en-ALL-2016-11-07
+dict -i wikt-en-ALL-yyyy-mm-dd
   Confirm that the header info shows OK. The copyright from pd-header.txt should be in the last paragraph
 dict Linux
   test looking up a word from the new dictionary
