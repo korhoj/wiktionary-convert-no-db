@@ -82,6 +82,7 @@ import wiktionary.to.xml.full.util.StringUtils;
  */
 public class ReadStripped {
 	private static int STORE_INTERVAL = 10000; // Store entries after this many read
+	
 	//private static int STORE_INTERVAL = 200; // Store entries after this many read
 	//private static int STORE_INTERVAL = 5; // Store entries after this many read
 	private static long MAXENTRIES_TOPROCESS = 900000;
@@ -140,8 +141,8 @@ public class ReadStripped {
 		}
 
 		//LOGGER.setLevel(Level.ALL);
-		LOGGER.setLevel(Level.INFO);
-		//LOGGER.setLevel(Level.WARNING);
+		//LOGGER.setLevel(Level.INFO);
+		LOGGER.setLevel(Level.WARNING);
 
 		// Create txt Formatter
 		formatterTxt = new SimpleFormatter();
@@ -171,7 +172,10 @@ public class ReadStripped {
 			}
 			
 			inFileName = args[0];
+			LOGGER.info("Input: " + inFileName);
+			
 			outFileName = args[1];
+			LOGGER.info("Output: " + outFileName);
 			
 			lang = args[2];
 			
@@ -186,18 +190,24 @@ public class ReadStripped {
 			if (lang.equals("ALL")) {
 				lang = null;
 			}
+			LOGGER.info("Language: " + (lang != null ? lang : "(all)") + (langCode != null ? (", code=" + langCode) : ""));
 			
 			String metadataInEnglishStr = args[3];
 			if (metadataInEnglishStr.equals("false"))
 				metadataInEnglish = false;
+			LOGGER.info("Metadata in english: " + (metadataInEnglish ? "yes" : "no"));
 
 			String outputType = args[4];
-
+			LOGGER.info("Output type (str): " + outputType);
+			LOGGER.info("Output type: " + OutputType.valueOf(outputType));
+			
 			if (args.length >= 6) {
 				String restartLineStr = args[5];
 				Long l = Long.parseLong(restartLineStr);
 				restartLine = l.longValue(); // if 0 --> NOP
 			}
+			if (restartLine > 0)
+				LOGGER.info("Restarting at line " + restartLine);
 			
 			if (args.length >= 7) {
 				langCode = args[6];
@@ -216,14 +226,14 @@ public class ReadStripped {
 				default:
 			}
 			
-			LOGGER.info("Input: " + inFileName);
-			LOGGER.info("Output: " + outFileName);
+//			LOGGER.info("Input: " + inFileName);
+//			LOGGER.info("Output: " + outFileName);
 			LOGGER.info("Language: " + (lang != null ? lang : "(all)") + (langCode != null ? (", code=" + langCode) : ""));
 			if (onlyLanguages)
 				LOGGER.info("Processing only entries in languages which are included in the supplied language CSV file");
-			LOGGER.info("Output type: " + OutputType.valueOf(outputType));
-			if (restartLine > 0)
-				LOGGER.info("Restarting at line " + restartLine);
+//			LOGGER.info("Output type: " + OutputType.valueOf(outputType));
+//			if (restartLine > 0)
+//				LOGGER.info("Restarting at line " + restartLine);
 			
 			ReadStripped readStripped = new ReadStripped();
 		
@@ -801,7 +811,7 @@ public class ReadStripped {
 			LOGGER.fine("Greek etymology entry detected");
 		} else {
 			etymsArr = sLangSect.split("===Etymology[ 0-9]*===");
-			System.out.println("*** LANG == '"+langCode+"'***");
+			LOGGER.fine("*** LANG == '"+langCode+"'***");
 		}
 		LOGGER.fine("Etymologies: " + etymsArr.length);
 		int etymNbr = 0;
