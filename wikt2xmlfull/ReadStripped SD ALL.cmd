@@ -4,16 +4,21 @@ rem 2012-Sep-29 Use sysvar in paths
 rem 2013-Nov-27 Add EDITION and STCK 
 rem 2013-Dec-10 LANGID not relayed to program
 rem 2014-08-09 Java 8
-rem set JAVA_HOME=C:\PROGRA~1\Java\jdk1.8.0_102
+set JAVA_HOME=C:\PROGRA~1\Java\jdk1.8.0_172
 rem
 rem Change EDITION to match with the Wiktionary edition you have downloaded
-set EDITION=20161101
+rem set EDITION=20170420
+set EDITION=%1
 
-set LANG=%1
+set LANG=%2
 rem SET LANG="ALL"
-set LANGID=%2
+rem SET LANGCODE=ALL
+set LANGCODE=%3
+rem set LANGID=%2
 rem SET LANGID=ALL
-set METADATAENGLISH=%3
+set METADATAENGLISH=%4
+rem Only languages supplied in a language file are to be processed
+set ONLYLANGS=%5
 
 SET X=
 FOR /F "skip=1 delims=" %%x IN ('wmic os get localdatetime') DO IF NOT DEFINED X SET X=%%x
@@ -26,11 +31,13 @@ SET DATE.SECOND=%X:~12,2%
 SET NOW=%DATE.YEAR%-%DATE.MONTH%-%DATE.DAY%-%DATE.HOUR%-%DATE.MINUTE%-%DATE.SECOND%
 
 SET PROGDIR=%WIKT%
-SET PROG=%PROGDIR%\ReadStripped.jar
+SET PROG="%PROGDIR%\ReadStripped.jar"
+rem SET PROG="%PROGDIR%\ReadStripped.20161113.jar"
 SET JCLASS=wiktionary\to\xml\full\ReadStripped
 SET JAVA="%JAVA_HOME%\bin\java.exe"
-SET INFILE=%DICT%\enwiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml
-SET OUTFILE=%WIKT%\StarDict\OwnStardict\wikt-en-%LANGID%-%NOW%.txt
+rem SET INFILE="%DICT%\%LANGID%wiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
+SET INFILE="%DICT%\enwiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
+SET OUTFILE="%WIKT%\StarDict\OwnStardict\wikt-en-%LANGCODE%-%NOW%.txt"
 SET UTF8=-Dfile.encoding=UTF-8
 SET MEM=-Xmx2600M
 SET STCK=-Xss400M
@@ -40,7 +47,11 @@ cd %PROGDIR%
 chcp 65001
 
 rem -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit 
-%JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE%
+rem echo %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE%
+echo %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% 0 %LANGCODE% %ONLYLANGS%
+%JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% 0 %LANGCODE% %ONLYLANGS%
+pause
+
 if %ERRORLEVEL% GTR 0 goto :virhe
 echo Ready
 
