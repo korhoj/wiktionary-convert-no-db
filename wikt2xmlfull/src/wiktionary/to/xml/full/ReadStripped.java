@@ -5,6 +5,7 @@ import static wiktionary.to.xml.full.data.OutputTypes.OutputType;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -12,6 +13,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.nio.file.Files;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -79,6 +81,8 @@ import wiktionary.to.xml.full.util.StringUtils;
  * 2015-07-17 Fixed resource leaks. Compile with JDK8.0.51
  * 2015-11-14 Initial Norwegian wiktionary support. Compile with JDK8.0.66
  * 2015-11-21 Fix outputing in the end if processed less entries than STORE_INTERVAL (currently 10000)
+ * See SVN for further changes.
+ * 2018-10-03 Fix parsing only entries of a specified language
  */
 public class ReadStripped {
 	private static int STORE_INTERVAL = 10000; // Store entries after this many read
@@ -172,10 +176,10 @@ public class ReadStripped {
 			}
 			
 			inFileName = args[0];
-			LOGGER.info("Input: " + inFileName);
+			LOGGER.warning("Input: " + inFileName);
 			
 			outFileName = args[1];
-			LOGGER.info("Output: " + outFileName);
+			LOGGER.warning("Output: " + outFileName);
 			
 			lang = args[2];
 			
@@ -190,16 +194,16 @@ public class ReadStripped {
 			if (lang.equals("ALL")) {
 				lang = null;
 			}
-			LOGGER.info("Language: " + (lang != null ? lang : "(all)") + (langCode != null ? (", code=" + langCode) : ""));
+			LOGGER.warning("Language: " + (lang != null ? lang : "(all)") + (langCode != null ? (", code=" + langCode) : ""));
 			
 			String metadataInEnglishStr = args[3];
 			if (metadataInEnglishStr.equals("false"))
 				metadataInEnglish = false;
-			LOGGER.info("Metadata in english: " + (metadataInEnglish ? "yes" : "no"));
+			LOGGER.warning("Metadata in english: " + (metadataInEnglish ? "yes" : "no"));
 
 			String outputType = args[4];
-			LOGGER.info("Output type (str): " + outputType);
-			LOGGER.info("Output type: " + OutputType.valueOf(outputType));
+			LOGGER.warning("Output type (str): " + outputType);
+			LOGGER.warning("Output type: " + OutputType.valueOf(outputType));
 			
 			if (args.length >= 6) {
 				String restartLineStr = args[5];
@@ -207,7 +211,7 @@ public class ReadStripped {
 				restartLine = l.longValue(); // if 0 --> NOP
 			}
 			if (restartLine > 0)
-				LOGGER.info("Restarting at line " + restartLine);
+				LOGGER.warning("Restarting at line " + restartLine);
 			
 			if (args.length >= 7) {
 				langCode = args[6];
@@ -228,9 +232,9 @@ public class ReadStripped {
 			
 //			LOGGER.info("Input: " + inFileName);
 //			LOGGER.info("Output: " + outFileName);
-			LOGGER.info("Language: " + (lang != null ? lang : "(all)") + (langCode != null ? (", code=" + langCode) : ""));
+			LOGGER.warning("Language: " + (lang != null ? lang : "(all)") + (langCode != null ? (", code=" + langCode) : ""));
 			if (onlyLanguages)
-				LOGGER.info("Processing only entries in languages which are included in the supplied language CSV file");
+				LOGGER.warning("Processing only entries in languages which are included in the supplied language CSV file");
 //			LOGGER.info("Output type: " + OutputType.valueOf(outputType));
 //			if (restartLine > 0)
 //				LOGGER.info("Restarting at line " + restartLine);
@@ -240,7 +244,7 @@ public class ReadStripped {
 			readStripped.process(OutputType.valueOf(outputType), inFileName, outFileName, lang, metadataInEnglish, restartLine,
 					langCode, onlyLanguages);
 			
-			LOGGER.log(Level.INFO, "***FINISHED***");
+			LOGGER.warning("***FINISHED***");
 			
 			System.exit(0);
 		} catch (Exception e) {
@@ -450,6 +454,9 @@ public class ReadStripped {
 				contInfoOut.flush();
 				contInfoOut.close();
 				contInfoFos.close();
+			} else { // tell calling script not to restart
+				File file = new File(CONTINFO_FILENAME);
+				boolean result = Files.deleteIfExists(file.toPath());
 			}
 			
 			switch(outputType) {
@@ -688,7 +695,7 @@ public class ReadStripped {
 				if (FAIL_AT_FIRST_PROBLEM) {
 					throw new Exception(msg);
 				}
-			} else if (onlyLanguages || onlyLang == null || onlyLang.equals(langName)) {			
+			} else if (onlyLanguages || onlyLang == null || onlyLang.equals(langCode)) {
 				String sLangSect = langSect.substring(langStart + 2); // 2: skip ==
 				
 				//LOGGER.fine("Before parseWord: '" + sLangSect + "'");
