@@ -1,6 +1,11 @@
  Download Eclipse Neon 1A or later and JDK 1.8.
    Building works also with Eclipse Mars 2 with JDK 1.7
- Download JBoss Tools, currently 4.4.1 Final, from http://tools.jboss.org/downloads/
+ Download JBoss Tools for your Eclipse version from http://tools.jboss.org/downloads/
+      Eclipse Oxygen: http://tools.jboss.org/downloads/jbosstools/oxygen/4.5.3.Final.html
+      Eclipse Neon: http://tools.jboss.org/downloads/jbosstools/neon/4.4.4.Final.html
+      Eclipse Mars: http://tools.jboss.org/downloads/jbosstools/mars/4.3.1.Final.html
+      (links updated 2018-05-15)
+      Drag & drop the Install icon to your Eclipse workspace
 	  When installing, uncheck all and select only Hibernate Tools
 	Download Hibernate ORM 4.3.6
 	(latest v.5.2.4 is untested, available at https://sourceforge.net/projects/hibernate/files/hibernate-orm/5.2.4.Final/hibernate-release-5.2.4.Final.zip/download)
@@ -30,5 +35,19 @@ Right click StripNamespaces.java > Export > Java > Runnable JAR file
   [x] Package required libraries into generated JAR
 Perform the Run As and Export steps also for ReadStripped.java
 The two runnable JARs really only differ in the Rsrc-Main-Class in META-INF\MANIFEST.MF
+
+Running tests in Eclipse
+
+Right click ReadStripped.java > Run As > Run Configurations
+  Select Java Application and press the New Launch Configuration icon
+  Enter a Name for the configuration, e.g. apples.txt ALL languages test
+  Enter into Arguments tab:
+    examples\apples.txt examples\out\apples-out.txt ALL true Stardict 0 ALL false
+  Press Run
+  
+  Enter a Name for the configuration, e.g. apples.txt English only test
+  Enter into Arguments tab:
+    examples\apples.txt examples\out\apples-out.txt en true Stardict 0 en false
+  Press Run
 
 See Running.txt for instructions on running the JARs
