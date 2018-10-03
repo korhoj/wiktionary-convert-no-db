@@ -7,12 +7,13 @@ set EDITION=20181001
 rem This param is currently unused
 rem set LANGNAME=English
 
-set LANG=ALL
-rem set LANGCODE=en
-set LANGCODE=ALL
+set LANG=en
+set LANGCODE=en
 set METADATAENGLISH=true
 rem Only languages supplied in a language file are to be processed
 set ONLYLANGS=false
+
+cd /D %WIKT%\Scripts
 
 echo "Starting after this pause"
 pause
