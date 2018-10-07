@@ -11,14 +11,14 @@ set LANG=en
 set LANGCODE=en
 set METADATAENGLISH=true
 rem Only languages supplied in a language file are to be processed
-set ONLYLANGS=false
+set ONLYLANGS=true
 
 cd /D %WIKT%\Scripts
 
 echo "Starting after this pause"
 pause
 
-rem Remove this normally
+rem Keep the following line commented out normally
 rem goto mainloop
 
 cd /D %WIKT%\Scripts

@@ -1,0 +1,47 @@
+<page>
+    <title>apples and pears</title>
+    <ns>0</ns>
+    <id>204</id>
+    <revision>
+      <id>21098493</id>
+      <parentid>20753427</parentid>
+      <timestamp>2013-06-16T18:15:07Z</timestamp>
+      <contributor>
+        <username>MewBot</username>
+        <id>345682</id>
+      </contributor>
+      <minor />
+      <comment>Add lang= to context</comment>
+      <text xml:space="preserve">==English==
+
+===Noun===
+{{en-noun|head=[[apples]] and [[pears]]|-}}
+
+# {{context|Cockney rhyming slang|lang=en}} [[stairs]]</text>
+      <sha1>rkwknqj0fe6fvodlfirr0fzla5vg1nu</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+</page>
+  <page>
+    <title>word</title>
+    <id>45</id>
+    <revision>
+      <id>16927608</id>
+      <timestamp>2012-06-07T15:48:43Z</timestamp>
+      <contributor>
+        <username>Leasnam</username>
+        <id>220495</id>
+      </contributor>
+      <comment>/* Etymology */</comment>
+      <text xml:space="preserve">
+==Old English==
+
+===Noun===
+{{ang-noun|g=n|pl=word}}
+
+# [[#English|word]]
+# [[speech]], [[utterance]], [[statement]]
+# {{context|grammar}} [[verb]]</text>
+    </revision>
+</page>
