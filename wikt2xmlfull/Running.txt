@@ -35,9 +35,7 @@ StarDict files as output, it uses three script files (SD = StarDict):
  1) ReadStripped SD ALL runall.cmd
  2) ReadStripped SD ALL.cmd
  3) ReadStripped SD ALL restart.cmd
-The first script calls the two others. It currently needs to perform 4 restarts to handle all
-English Wiktionary entries. If a lot of new entries have been added, another restart may need
-to be added.
+The first script calls the two others as many times as required in a loop.
 
 The MEM and/or STCK variables in ReadStripped SD ALL.cmd script file have been set as
 -Xmx2600M and -Xss400M which should suffice for one pass. The reason for restarts is indeed
@@ -129,7 +127,7 @@ sudo apt install dictzip
 ./configure --disable-dict
   This tells make we want to compile only the stardict-tools portion of the code
 make
-  
+
 cd tools/src
 ./stardict-editor
 In the default Compile tab, press Browse and select the sorted file, wikt-en-ALL-yyyy-mm-dd.txt
@@ -185,6 +183,7 @@ cp pd-header.txt wikt-en-ALL-yyyy-mm-dd-dict.txt
   This could be done by JoinDefinitions.jar already
 cat wikt-en-ALL-dictfmt-dupls-joined.txt | tee -a wikt-en-ALL-yyyy-mm-dd-dict.txt > /dev/null
 
+N.b. the next step overwrites any .dz file created in step E, e.g. wikt-en-ALL-yyyy-mm-dd.dict.dz
 Run dictfmt which creates .dict and .index for dictd by running one of the dictfmt scripts:
 
 dictfmt-en-ALL.sh
