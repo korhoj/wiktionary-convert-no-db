@@ -4,18 +4,15 @@ rem 2012-Sep-29 Use sysvar in paths
 rem 2013-Nov-27 Add EDITION and STCK 
 rem 2013-Dec-10 LANGID not relayed to program
 rem 2014-08-09 Java 8
-set JAVA_HOME=C:\PROGRA~1\Java\jdk1.8.0_172
+rem 2018-09-14 Java 8 u 181
+set JAVA_HOME=C:\PROGRA~1\Java\jdk1.8.0_181
 rem
 rem Change EDITION to match with the Wiktionary edition you have downloaded
 rem set EDITION=20170420
 set EDITION=%1
 
 set LANG=%2
-rem SET LANG="ALL"
-rem SET LANGCODE=ALL
 set LANGCODE=%3
-rem set LANGID=%2
-rem SET LANGID=ALL
 set METADATAENGLISH=%4
 rem Only languages supplied in a language file are to be processed
 set ONLYLANGS=%5
@@ -35,9 +32,10 @@ SET PROG="%PROGDIR%\ReadStripped.jar"
 rem SET PROG="%PROGDIR%\ReadStripped.20161113.jar"
 SET JCLASS=wiktionary\to\xml\full\ReadStripped
 SET JAVA="%JAVA_HOME%\bin\java.exe"
-rem SET INFILE="%DICT%\%LANGID%wiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
-SET INFILE="%DICT%\enwiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
-SET OUTFILE="%WIKT%\StarDict\OwnStardict\wikt-en-%LANGCODE%-%NOW%.txt"
+SET INFILE="%DICT%\%LANGCODE%wiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
+if LANG == "ALL" SET INFILE="%DICT%\enwiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
+SET OUTFILE="%WIKT%\StarDict\OwnStardict\wikt-%LANG%-%LANGCODE%-%NOW%.txt"
+if LANG == "ALL" SET OUTFILE="%WIKT%\StarDict\OwnStardict\wikt-en-%LANGCODE%-%NOW%.txt"
 SET UTF8=-Dfile.encoding=UTF-8
 SET MEM=-Xmx2600M
 SET STCK=-Xss400M
@@ -50,7 +48,6 @@ rem -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit
 rem echo %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE%
 echo %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% 0 %LANGCODE% %ONLYLANGS%
 %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% 0 %LANGCODE% %ONLYLANGS%
-pause
 
 if %ERRORLEVEL% GTR 0 goto :virhe
 echo Ready

@@ -6,18 +6,15 @@ rem 2013-Nov-29 Add RESTARTATLINE
 rem 2013-Dec-04 Call from "ReadStripped SD ALL runall.cmd" with argument to pass line to start from
 rem 2013-Dec-10 LANG and LANGID passed as param. LANGID not relayed to program
 rem 2014-08-09 Java 8
-set JAVA_HOME=C:\PROGRA~1\Java\jdk1.8.0_172
+rem 2018-09-14 Java 8 u 181
+set JAVA_HOME=C:\PROGRA~1\Java\jdk1.8.0_181
 rem
 rem Change EDITION to match with the Wiktionary edition you have downloaded
 rem set EDITION=20170420
 set EDITION=%1
 
 set RESTARTATLINE=%2%
-rem SET LANG=ALL
 set LANG=%3
-rem set LANGID=%3
-rem SET LANGID=ALL
-rem SET LANGCODE=no
 set LANGCODE=%4
 set METADATAENGLISH=%5
 rem Only languages supplied in a language file are to be processed
@@ -39,9 +36,10 @@ rem SET PROG="%PROGDIR%\ReadStripped.20161113.jar"
 SET JCLASS=wiktionary\to\xml\full\ReadStripped
 SET JAVA="%JAVA_HOME%\bin\java.exe"
 rem SET INFILE=%DICT%\General\wiktionary\enwiktionary-%EDITION%-pages-articles.xml\stripped-%LANGID%.xml
-rem SET INFILE="%DICT%\%LANGID%wiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
-SET INFILE="%DICT%\enwiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
-SET OUTFILE="%WIKT%\StarDict\OwnStardict\wikt-en-%LANGCODE%-%NOW%.txt"
+SET INFILE="%DICT%\%LANGCODE%wiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
+if LANG == "ALL" SET INFILE="%DICT%\enwiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
+SET OUTFILE="%WIKT%\StarDict\OwnStardict\wikt-%LANG%-%LANGCODE%-%NOW%.txt"
+if LANG == "ALL" SET OUTFILE="%WIKT%\StarDict\OwnStardict\wikt-en-%LANGCODE%-%NOW%.txt"
 SET UTF8=-Dfile.encoding=UTF-8
 SET MEM=-Xmx2600M
 SET STCK=-Xss400M
