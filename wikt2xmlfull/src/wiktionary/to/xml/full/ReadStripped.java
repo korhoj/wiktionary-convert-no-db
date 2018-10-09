@@ -276,6 +276,7 @@ public class ReadStripped {
 		boolean haveEverOutputed = false;
 		String currentTitle = null;
 		String outStr = null;
+		boolean onlyOneLang = false; // true if only one language is being processed (language list has only one language)
 		
         try (BufferedReader in = new BufferedReader(new InputStreamReader(
 				new FileInputStream(inFileName), "UTF-8"))) {
@@ -299,6 +300,9 @@ public class ReadStripped {
 	        	
 	        	langs = loadLanguages(langCode, metadataInEnglish, onlyLanguages);
         	}
+        	
+        	if (langs.size() == 1)
+        		onlyOneLang = true;
 			
 			String s = in.readLine();
 			linesRead++;
@@ -323,7 +327,7 @@ public class ReadStripped {
 							newLangsOut.flush();
 						}
 						
-						callStorer(outputType, outFileName);
+						callStorer(outputType, outFileName, onlyOneLang);
 				
 						haveEverOutputed = true;
 						evenThousand = false; // otherwise prints until finds new entry
@@ -431,14 +435,14 @@ public class ReadStripped {
 					evenThousand = true; // restart logging every 1000 entries
 				}
 				
-				callStorer(outputType, outFileName);
+				callStorer(outputType, outFileName, onlyOneLang);
 				
 				outStr = null;
 				entryNbr++;
 				evenThousand = true; // restart logging every 1000 entries
 			} else {
 				if (entryNbr > 0 && !haveEverOutputed) {
-					callStorer(outputType, outFileName);
+					callStorer(outputType, outFileName, onlyOneLang);
 				}
 			}
 			
@@ -502,7 +506,12 @@ public class ReadStripped {
         }
 	}
 	
-	private void callStorer(OutputType outputType, String outFileName) throws Exception {
+	/*
+	 * Store the words read so far by calling a storer
+	 * 
+	 * @param onlyOneLang True if only one language is being processed (language list has only one language)
+	 */
+	private void callStorer(OutputType outputType, String outFileName, boolean onlyOneLang) throws Exception {
 		try {
 			LOGGER.fine("Storing " + words.size() + " entries");
 			
@@ -531,7 +540,7 @@ public class ReadStripped {
 			    break;
 			case Stardict:
 				StardictStorer.flushOutput();
-				StardictStorer storer = new StardictStorer(null, outFileName);
+				StardictStorer storer = new StardictStorer(null, outFileName, onlyOneLang);
 				storer.run(words);
 				storer = null;
 			}

@@ -29,6 +29,8 @@ import wiktionary.to.xml.full.util.DeepCopy;
 public class StardictStorer implements Storer, Runnable {
 	private LinkedList<Word> words = new LinkedList<Word>();
 	private String target = null;
+	// True if only one language is being processed (language list has only one language)
+	private boolean onlyOneLang = false;
 	
 	// thread shared objects
 	private static FileOutputStream fos = null;
@@ -37,8 +39,16 @@ public class StardictStorer implements Storer, Runnable {
 	private final static Object latch = new Object();
 	private static int threadsAmount = 0;
 	
-	public StardictStorer(LinkedList<Word> words, String target) {
+	/**
+	 * 
+	 * @param words
+	 * @param target
+	 * @param onlyOneLang True if only one language is being processed (language list has only one language)
+	 */
+	public StardictStorer(LinkedList<Word> words, String target, boolean onlyOneLang) {
 		LinkedList<Word> kopio = null;
+		
+		this.onlyOneLang = onlyOneLang;
 		
 //		int w = 0;
 //		for (Word word : words) {
@@ -151,15 +161,16 @@ public class StardictStorer implements Storer, Runnable {
 //		
 //		langID_ID = langID.getLangID();
 //		
-		// TODO Should be passed param which is main language
+		// TODO Should be passed param which is main language in case there are many languages being outputed
 		final String MAIN_LANGUAGE = "English";
-		//final String MAIN_LANGUAGE = "Suomi";
-		//final String MAIN_LANGUAGE = "Norsk";
 		if ( ! ( langID_ID.equals(MAIN_LANGUAGE)
 			   )
 		   ) {
 			isMainLanguage = false;
 		}
+		// If only words of one language are being outputed, never output the language name in the beginning of words
+		if (onlyOneLang)
+			isMainLanguage = true;
 		
 		sb.append(word.getDataField() + "\t");
 		
@@ -192,7 +203,7 @@ public class StardictStorer implements Storer, Runnable {
 				
 				if (isMainLanguage) {
 					sb.append(posStr); // e.g. "v.t." or "n."
-				} else {
+				} else { // Output the language name in the beginning of words
 					String langStr = null;
 					
 					// TODO Could use ABR for such languages where it's well-known
