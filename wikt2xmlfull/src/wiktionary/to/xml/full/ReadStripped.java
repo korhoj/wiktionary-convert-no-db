@@ -18,29 +18,22 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Set;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-import org.hibernate.Session;
-
-import wiktionary.to.xml.full.jpa.Example;
+import wiktionary.to.xml.full.data.Example;
+import wiktionary.to.xml.full.data.Lang;
 //import wiktionary.to.xml.full.data.ExampleSource;
 import wiktionary.to.xml.full.data.POSType;
-import wiktionary.to.xml.full.jpa.Lang;
-import wiktionary.to.xml.full.jpa.Sense;
-import wiktionary.to.xml.full.jpa.Word;
-import wiktionary.to.xml.full.jpa.WordEntry;
-import wiktionary.to.xml.full.jpa.WordEtym;
-import wiktionary.to.xml.full.jpa.WordLang;
-import wiktionary.to.xml.full.storer.JPAStorer;
-//import wiktionary.to.xml.full.storer.JDBCStorer;
-//import wiktionary.to.xml.full.storer.KindleStorer;
+import wiktionary.to.xml.full.data.Sense;
+import wiktionary.to.xml.full.data.Word;
+import wiktionary.to.xml.full.data.WordEntry;
+import wiktionary.to.xml.full.data.WordEtym;
+import wiktionary.to.xml.full.data.WordLang;
 import wiktionary.to.xml.full.storer.StardictStorer;
-import wiktionary.to.xml.full.util.HibernateUtil;
 import wiktionary.to.xml.full.util.StringUtils;
 
 /**
@@ -83,6 +76,7 @@ import wiktionary.to.xml.full.util.StringUtils;
  * 2015-11-21 Fix outputing in the end if processed less entries than STORE_INTERVAL (currently 10000)
  * See SVN for further changes.
  * 2018-10-03 Fix parsing only entries of a specified language
+ * 2019-11-09 Support only the Stardict output format, no database processing.
  */
 public class ReadStripped {
 	private static int STORE_INTERVAL = 10000; // Store entries after this many read
@@ -111,8 +105,6 @@ public class ReadStripped {
 	public final static int LF_LEN = LF.length();
 	
 	public final static String CONTINFO_FILENAME = "continfo.txt";
-	
-	private Session session = null; // JPA session
 	
 	// Used for informing the user whereabout to restart
 	private long linesRead = 0;
@@ -281,25 +273,8 @@ public class ReadStripped {
         try (BufferedReader in = new BufferedReader(new InputStreamReader(
 				new FileInputStream(inFileName), "UTF-8"))) {
         	
-        	if (outputType == OutputType.JPA) {
-	        	// Session is needed whilst processing languages later too since it currently lazy loads languages
-				session = HibernateUtil.getSessionFactory().getCurrentSession();
-				session.beginTransaction();
-				
-	        	// Load languages from DB
-				@SuppressWarnings("unchecked")
-				List<Lang> langResult = session.createQuery("from Lang").list();
-				LOGGER.fine("Lang list size: " + langResult.size());
-				if (langResult.size() == 0) {
-					throw new Exception("Language db hasn't been initialized. Run CreateDatabase.sql and InsertLangs.sql.");
-				}
-				
-				langs.addAll(langResult);
-        	} else {
-	        	// Load languages from csv file to avoid JPA processing
-	        	
-	        	langs = loadLanguages(langCode, metadataInEnglish, onlyLanguages);
-        	}
+        	// Load languages from csv file
+        	langs = loadLanguages(langCode, metadataInEnglish, onlyLanguages);
         	
         	if (langs.size() == 1)
         		onlyOneLang = true;
@@ -358,7 +333,7 @@ public class ReadStripped {
 							LOGGER.fine("To parse: '" + currentTitle + "'");
 							//LOGGER.info("To parse: '" + currentTitle + "'");
 							
-							if (parseEntry(outStr, currentTitle, outputType, entryNbr, session, lang, onlyLanguages,
+							if (parseEntry(outStr, currentTitle, outputType, entryNbr, lang, onlyLanguages,
 									langCode)) {
 								entryNbr++;
 								evenThousand = true; // restart logging every 1000 entries
@@ -429,7 +404,7 @@ public class ReadStripped {
 			if (outStr != null && outStr.length() > 0 && // this should always be true if there is any input
 				hadTextSection) { // had reached <text> section of a new term and it ended with <text>
 				
-				if (parseEntry(outStr, currentTitle, outputType, entryNbr, session, lang, onlyLanguages,
+				if (parseEntry(outStr, currentTitle, outputType, entryNbr, lang, onlyLanguages,
 						langCode)) {
 					entryNbr++;
 					evenThousand = true; // restart logging every 1000 entries
@@ -464,17 +439,7 @@ public class ReadStripped {
 			}
 			
 			switch(outputType) {
-			case Kindle:
-				// TODO Fix
-				//KindleStorer.closeOutput();
-				break;
-			case JDBC:
-				// TODO Fix
-				//JDBCStorer.closeOutput();
-				break;
-			case JPA:
-				session.getTransaction().commit();
-				break;
+			// Only Stardict is supported at least for now
 			case Stardict:
 				StardictStorer.closeOutput();
 			}
@@ -483,8 +448,6 @@ public class ReadStripped {
 				newLangsFos.close();
 				newLangsFos = null;
 			}
-			
-			session = null;
 		} catch (Exception e) {
 			String titleStart = currentTitle;
 			if (currentTitle != null && currentTitle.length() > 100)
@@ -496,9 +459,6 @@ public class ReadStripped {
 			LOGGER.fine(outStr);
 			throw e;
 		} finally {
-        	if (session != null) {
-        		try { session.getTransaction().rollback(); } catch (Exception e) {}
-        	}
         	if (newLangsFos != null) {
 				try { newLangsFos.close(); } catch (Exception e) {}
 				newLangsFos = null;
@@ -517,27 +477,7 @@ public class ReadStripped {
 			
 			// Don't spawn threads, it makes at least StardictStorer MUCH slower and uses up memory
 			switch(outputType) {
-			case Kindle:
-				// TODO Fix
-				//KindleStorer storer = new KindleStorer(words);
-				//storer.storeWords(false, outFileName);
-				break;
-			case JDBC:
-				// TODO Fix
-//				JDBCStorer storer = new JDBCStorer(words);
-//				Thread jThread = new Thread(storer, "jThread");
-//				jThread.run();
-//				jThread = null;
-				break;
-			case JPA:
-				//JPAStorer jpaStorer = new JPAStorer(words);
-				JPAStorer jpaStorer = new JPAStorer(null);
-//				Thread jThread = new Thread(jpaStorer, "jpaThread");
-//				jThread.run();
-//				jThread = null;
-				jpaStorer.run(words);
-				jpaStorer = null;
-			    break;
+			// At least for now this Git repository version of this project supports only Stardict output
 			case Stardict:
 				StardictStorer.flushOutput();
 				StardictStorer storer = new StardictStorer(null, outFileName, onlyOneLang);
@@ -562,7 +502,7 @@ public class ReadStripped {
 	 * @param langCode Used to detect whether input is the Greek Wiktionary or not
 	 * (normally used for deciding which language's csv file to use for loading languages info)
 	 */
-	private boolean parseEntry(String s, String currentTitle, OutputType outputType, long entryNbr, Session session,
+	private boolean parseEntry(String s, String currentTitle, OutputType outputType, long entryNbr, 
 			String onlyLang, boolean onlyLanguages, String langCode) throws Exception {
 		boolean foundAnyLang = false;
 		// true if lang name should be looked up by lang code, not vice versa like normally

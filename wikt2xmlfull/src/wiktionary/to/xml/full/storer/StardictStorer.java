@@ -7,12 +7,12 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.LinkedList;
 
-import wiktionary.to.xml.full.jpa.Example;
-import wiktionary.to.xml.full.jpa.Sense;
-import wiktionary.to.xml.full.jpa.Word;
-import wiktionary.to.xml.full.jpa.WordEntry;
-import wiktionary.to.xml.full.jpa.WordEtym;
-import wiktionary.to.xml.full.jpa.WordLang;
+import wiktionary.to.xml.full.data.Example;
+import wiktionary.to.xml.full.data.Sense;
+import wiktionary.to.xml.full.data.Word;
+import wiktionary.to.xml.full.data.WordEntry;
+import wiktionary.to.xml.full.data.WordEtym;
+import wiktionary.to.xml.full.data.WordLang;
 import wiktionary.to.xml.full.util.DeepCopy;
 
 /**

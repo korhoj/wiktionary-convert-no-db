@@ -1,6 +1,6 @@
 package wiktionary.to.xml.full.storer;
 
-import wiktionary.to.xml.full.jpa.Word;
+import wiktionary.to.xml.full.data.Word;
 
 /**
  * 

@@ -7,8 +7,8 @@ import java.util.Set;
 import com.google.api.client.util.escape.CharEscapers;
 
 import wiktionary.to.xml.full.data.OutputTypes.OutputType;
+import wiktionary.to.xml.full.data.Lang;
 import wiktionary.to.xml.full.data.TokenWithPos;
-import wiktionary.to.xml.full.jpa.Lang;
 
 /**
  * @author Joel Korhonen
@@ -375,20 +375,7 @@ public class StringUtils {
 						defValue = termResult.substring(posBar+1);
 					}
 					
-					switch(outputType) {
-					case Kindle:
-						String newLink = "<a href=\"" + linkValue + "\">";
-					
-						if (defValue != null) {
-							termResult = newLink + defValue + "</a>";
-						} else {
-							termResult = newLink + "</a>";
-						}
-						break;
-					default:
-						// JDBC and StarDict: use no HTML
-						termResult = linkValue;
-					}
+					termResult = linkValue;
 					
 					//System.out.println(" --> " + definSkipped);
 				} catch (Exception URISyntaxException) {

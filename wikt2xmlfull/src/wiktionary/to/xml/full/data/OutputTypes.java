@@ -2,6 +2,7 @@ package wiktionary.to.xml.full.data;
 
 public class OutputTypes {
 	public enum OutputType {
-		Kindle, Stardict, JPA, JDBC;
+		Stardict;
+		//Kindle, Stardict, JPA, JDBC;
 	}
 }
