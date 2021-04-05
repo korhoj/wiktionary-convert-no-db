@@ -66,6 +66,7 @@ echo %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAE
 %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% %RESTARTATLINE% %LANGCODE% %ONLYLANGUAGES%
 if %ERRORLEVEL% GTR 0 goto :virhe
 echo Ready
+goto end
 
 :errEnd
 echo Ended in error
