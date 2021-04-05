@@ -135,11 +135,11 @@ public class ReadStripped {
 			e.printStackTrace();
 			System.exit(255);
 		}
-
+		
 		//LOGGER.setLevel(Level.ALL);
 		//LOGGER.setLevel(Level.INFO);
 		LOGGER.setLevel(Level.WARNING);
-
+		
 		// Create txt Formatter
 		formatterTxt = new SimpleFormatter();
 		fileHandler.setFormatter(formatterTxt);
@@ -363,7 +363,7 @@ public class ReadStripped {
 							outStr = s; // leaks purposefully
 							String msg = "Bad text section at entryNbr: " + entryNbr + ", " +
 							 "title = '" + currentTitle + "', linesRead=" + linesRead;
-							LOGGER.warning(msg);
+							//LOGGER.warning(msg);
 						}
 					} else if (s.indexOf("</text>") > -1) {
 						hadTextSection = true;

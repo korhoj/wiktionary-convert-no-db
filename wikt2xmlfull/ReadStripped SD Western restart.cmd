@@ -9,16 +9,28 @@ rem 2013-Dec-10 LANG and LANGID passed as param. LANGID not relayed to program
 rem 2014-08-09 Java 8
 rem set JAVA_HOME=C:\PROGRA~1\Java\jdk1.8.0_102
 rem
-rem Change EDITION to match with the Wiktionary edition you have downloaded
-set EDITION=20161101
+set DICT=F:\Temp\wiktionary-dumps
+set JAVA_HOME=C:\Usr\openjdk-16_windows-x64_bin\jdk-16
+set JAR_DIR=G:\Dropbox\Dictionary\wikt
+set OUT_DIR=G:\Dropbox\Dictionary\wikt\Stardict\OwnStarDict
+set WIKT=C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
+rem
+rem Pass as param the EDITION of the Wiktionary edition you have downloaded
+set EDITION=%1
 
-set RESTARTATLINE=%1%
-set LANG=%2
+set RESTARTATLINE=%2
+
 rem SET LANG="ALL"
-set LANGID=%3
+set LANG=%3
+
+rem set LANGCODE=Western
+set LANGCODE=%3
+
 rem SET LANGID=ALL
+rem set LANGID=%4
+
 set METADATAENGLISH=%4
-set LANGCODE=Western
+rem Only languages supplied in a language file are to be processed
 set ONLYLANGUAGES=%5
 
 SET X=
@@ -31,20 +43,26 @@ SET DATE.MINUTE=%X:~10,2%
 SET DATE.SECOND=%X:~12,2%
 SET NOW=%DATE.YEAR%-%DATE.MONTH%-%DATE.DAY%-%DATE.HOUR%-%DATE.MINUTE%-%DATE.SECOND%
 
-SET PROGDIR=%WIKT%
-SET PROG=%PROGDIR%\ReadStripped Western.jar
+SET PROG=%JAR_DIR%\ReadStripped.jar
+if "%LANGCODE%" == "Western" SET PROG="%PROGDIR%\ReadStripped_%LANGCODE%.jar"
 SET JCLASS=wiktionary\to\xml\full\ReadStripped
 SET JAVA="%JAVA_HOME%\bin\java.exe"
 SET INFILE=%DICT%\enwiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml
-SET OUTFILE=%WIKT%\StarDict\OwnStardict\wikt-en-Western-%NOW%.txt
+rem SET INFILE="%DICT%\%LANGCODE%wiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
+if "%LANG%" == "ALL" SET INFILE="%DICT%\enwiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
+
+SET OUTFILE="%OUT_DIR%\wikt-%LANG%-%LANGCODE%-%NOW%.txt"
+if "%LANG%" == "ALL" SET OUTFILE="%OUT_DIR%\wikt-en-%LANGCODE%-%NOW%.txt"
+
 SET UTF8=-Dfile.encoding=UTF-8
 SET MEM=-Xmx2600M
 SET STCK=-Xss400M
 SET OUTTYPE=Stardict
 
-cd %PROGDIR%
+cd %JAR_DIR%
 chcp 65001
 
+echo %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% %RESTARTATLINE% %LANGCODE% %ONLYLANGUAGES%
 %JAVA% %UTF8% %MEM% %STCK% -jar "%PROG%" %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% %RESTARTATLINE% %LANGCODE% %ONLYLANGUAGES%
 if %ERRORLEVEL% GTR 0 goto :virhe
 echo Ready

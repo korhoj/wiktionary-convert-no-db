@@ -1,29 +1,4 @@
- Download Eclipse Neon 1A or later and JDK 1.8.
-   Building works also with Eclipse Mars 2 with JDK 1.7
- Download JBoss Tools for your Eclipse version from http://tools.jboss.org/downloads/
-      Eclipse Oxygen: http://tools.jboss.org/downloads/jbosstools/oxygen/4.5.3.Final.html
-      Eclipse Neon: http://tools.jboss.org/downloads/jbosstools/neon/4.4.4.Final.html
-      Eclipse Mars: http://tools.jboss.org/downloads/jbosstools/mars/4.3.1.Final.html
-      (links updated 2018-05-15)
-      Drag & drop the Install icon to your Eclipse workspace
-	  When installing, uncheck all and select only Hibernate Tools
-	Download Hibernate ORM 4.3.6
-	(latest v.5.2.4 is untested, available at https://sourceforge.net/projects/hibernate/files/hibernate-orm/5.2.4.Final/hibernate-release-5.2.4.Final.zip/download)
-	Unarchive hibernate-release-4.3.6.Final.zip to a folder where you want to keep it, outside of the project
-	Window > Preferences > Java > Build Path > User Libraries > New
-	  User library name = Hibernate
-	  Add External JARs
-	  Select all JARs under lib\required and press OK
-	  Do the same for lib\envers, lib\jpa and lib\jpa-metamodel-generator
-	Right-click wikt2xmlfull project > Properties
-	  Check that Project Facets > JPA shows 2.0 (not 2.1). If not, check it and press Further configuration
-	  If it is selected already, select JPA (under Javadoc Location)
-	    Platform = Hibernate (JPA 2.0)
-		JPA implementation = User Library
-		[x] Hibernate
-		You don't need to configure a Connection
-	    [x] Discover annotated classes automatically
-	The project should now compile
+Download and install Eclipse 2021-03 and openjdk-16.
 
 Right click StripNamespaces.java > Run As > Java Applications
   Eclipse runs the program, which outputs in the Console tab, that it got 0 arguments and it quits
@@ -38,16 +13,35 @@ The two runnable JARs really only differ in the Rsrc-Main-Class in META-INF\MANI
 
 Running tests in Eclipse
 
-Right click ReadStripped.java > Run As > Run Configurations
-  Select Java Application and press the New Launch Configuration icon
-  Enter a Name for the configuration, e.g. apples.txt ALL languages test
-  Enter into Arguments tab:
-    examples\apples.txt examples\out\apples-out.txt ALL true Stardict 0 ALL false
-  Press Run
-  
-  Enter a Name for the configuration, e.g. apples.txt English only test
-  Enter into Arguments tab:
-    examples\apples.txt examples\out\apples-out.txt en true Stardict 0 en false
-  Press Run
+For running Wiktionary conversion tests in Eclipse, you need to create a run (or debug) configuration. They
+unfortunately can't easily be shared in Git.
 
-See Running.txt for instructions on running the JARs
+To define a test for e.g. ReadStripped.java (can also be done for StripNamespaces.java), right click
+ ReadStripped.java > Run As > Run Configurations.
+Select Java Application and press the New Launch Configuration icon.
+Enter a Name for the configuration.
+
+1) Test for the English Wiktionary, processing all languages.
+Input in examples/apples.txt
+
+Right click ReadStripped.java > Run As > Run Configurations
+Select Java Application and press the New Launch Configuration icon
+Enter a Name for the configuration, e.g.: apples.txt ALL languages test
+Enter into the Arguments tab:
+  examples\apples.txt examples\out\apples-out.txt ALL true Stardict 0 ALL false
+Or with full folder path:
+  examples/apples.txt G:\Dropbox\Dictionary\wikt\Stardict\OwnStarDict\wikt-en-ALL-debug.txt ALL true Stardict 0 ALL false
+To run the test, press Run (or Debug)
+
+2) Test for the English Wiktionary, processing definitions in English only.
+Input in examples/apples.txt
+
+Enter a Name for the configuration, e.g.: apples.txt English only test
+Enter into the Arguments tab:
+  examples\apples.txt examples\out\apples-out.txt en true Stardict 0 en false
+Press Run
+
+See Running.txt for instructions on running the JARs via dedicated Win batch scripts,
+e.g. "ReadStripped SD ALL runall.cmd". Running that way does not use Eclipse, just the JDK.
+For producing real builds it's probably clearest to use the scripts, not Eclipse. At least it requires less RAM.
+If you want, you can of course also run tests outside of Ecipse, but I haven't written batch scripts for that.

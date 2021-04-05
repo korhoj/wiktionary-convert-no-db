@@ -1,40 +1,30 @@
 @echo off
 rem Process only Western languages (western alphabet)
-rem Joel Korhonen 2014-May-17
-SET LANG="Western"
-SET SCRIPTDIR=C:\Usr\WiktionaryConvert\wikt2xmlfull
-SET PROGDIR=%WIKT%
-cd /D %PROGDIR%
-call "%SCRIPTDIR%\ReadStripped SD Western.cmd" %LANG% ALL true true
+rem Joel Korhonen 2021-03-28
+set EDITION=20210320
+set WIKT=C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
+set SCRIPTS=%WIKT%
+set CONTINFO_DIR=%WIKT%
 
+set LANG=Western
+set LANGCODE=ALL
+
+set METADATAENGLISH=true
+rem Only languages supplied in a language file are to be processed
+set ONLYLANGUAGES=true
+
+echo "Starting after this pause"
 pause
 
-cd /D %PROGDIR%
-for /F %%i in (%PROGDIR%\continfo.txt) do @set RESTARTATLINE=%%i
-call "%SCRIPTDIR%\ReadStripped SD Western restart.cmd" %RESTARTATLINE% %LANG% ALL true true
-
+cd /D %SCRIPTS%
+call "ReadStripped SD Western.cmd" %EDITION% %LANG% %LANGCODE% %METADATAENGLISH% %ONLYLANGUAGES%
 pause
 
-cd /D %PROGDIR%
-for /F %%i in (%PROGDIR%\continfo.txt) do @set RESTARTATLINE=%%i
-call "%SCRIPTDIR%\ReadStripped SD Western restart.cmd" %RESTARTATLINE% %LANG% ALL true true
+:mainloop
+cd /D %SCRIPTS%
+if not exist %CONTINFO_DIR%\continfo.txt goto ending
+for /F %%i in (%CONTINFO_DIR%\continfo.txt) do @set RESTARTATLINE=%%i
+call "ReadStripped SD Western restart.cmd" %EDITION% %RESTARTATLINE% %LANG% %LANGCODE% %METADATAENGLISH% %ONLYLANGUAGES%
+goto mainloop
 
-pause
-
-cd /D %PROGDIR%
-for /F %%i in (%PROGDIR%\continfo.txt) do @set RESTARTATLINE=%%i
-call "%SCRIPTDIR%\ReadStripped SD Western restart.cmd" %RESTARTATLINE% %LANG% ALL true true
-
-pause
-
-cd /D %PROGDIR%
-for /F %%i in (%PROGDIR%\continfo.txt) do @set RESTARTATLINE=%%i
-call "%SCRIPTDIR%\ReadStripped SD Western restart.cmd" %RESTARTATLINE% %LANG% ALL true true
-
-pause
-
-rem cd /D %PROGDIR%
-rem for /F %%i in (%PROGDIR%\continfo.txt) do @set RESTARTATLINE=%%i
-rem call "%SCRIPTDIR%\ReadStripped SD Western restart.cmd" %RESTARTATLINE% %LANG% ALL true true
-
-rem pause
+:ending

@@ -1,8 +1,8 @@
 @echo off
 rem Joel Korhonen 2018-May-15
 rem Change EDITION to match with the Wiktionary edition you have downloaded
-rem 2018-10-03 Updated edition
-set EDITION=20181001
+rem 2021-03-20 Updated edition
+set EDITION=20210320
 
 rem This param is currently unused
 rem set LANGNAME=English
