@@ -1,8 +1,8 @@
 @echo off
 rem Joel Korhonen 2018-May-15
 rem Change EDITION to match with the Wiktionary edition you have downloaded
-rem 2021-03-27 Updated edition
-set EDITION=20210320
+rem 2021-04-07 Updated edition
+set EDITION=20210401
 
 rem This param is currently unused
 rem set LANGNAME=English
@@ -18,10 +18,12 @@ set METADATAENGLISH=true
 rem Only languages supplied in a language file are to be processed
 set ONLYLANGUAGES=false
 
-echo "Starting after this pause"
-pause
+chcp 65001
 
-rem Remove this normally
+rem echo "Starting after this pause"
+rem pause
+
+rem Normally the following line is kept in comments. Uncommented mainly when testing restarting
 rem goto mainloop
 
 cd /D %SCRIPTS%

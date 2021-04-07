@@ -59,6 +59,7 @@ echo Ready
 goto end
 
 :errEnd
+echo .
 echo Ended in error
 pause
 exit 8
