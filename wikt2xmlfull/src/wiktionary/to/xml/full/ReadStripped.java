@@ -762,7 +762,9 @@ public class ReadStripped {
 		Set<WordEtym> wordEtymologies = new LinkedHashSet<WordEtym>();
 
 		String[] etymsArr = null;
-		if (wordLang.getLang().getAbr().equals("el")) { // Greek
+		if (wordLang.getLang().getAbr().equals("el") || // Greek 
+			wordLang.getLang().getAbr().equals("grc") // Ancient Greek
+			) {
 			etymsArr = sLangSect.split("===\\{\\{ετυμολογία\\}\\}===");
 			LOGGER.fine("Greek etymology entry detected");
 		} else {
@@ -930,8 +932,8 @@ public class ReadStripped {
 				 * 
 				 */
 				
-				/* Greek terms (code el)
-				 * ==={{κύριο όνομα|en}}===
+				/* Greek terms (code el, or grc for Ancient Greek)
+				 * ==={{κύριο όνομα|el}}===
 				 *   Proper noun
 				 * ==={{αριθμητικό|el}}===
 				 *   Numeral
@@ -1822,7 +1824,7 @@ public class ReadStripped {
 				if (prNounStart == -1)
 					prNounStart = etymSect.indexOf("===Erisnimi==="); //fi
 				if (prNounStart == -1)
-					prNounStart = etymSect.indexOf("==={{κύριο όνομα|"); //el
+					prNounStart = etymSect.indexOf("==={{κύριο όνομα|"); //el or grc
 				if (prNounStart > -1) {
 					WordEntry entry = processPOS(POSType.PRNOUN, currentTitle, etymSect, prNounStart, outputType, wordEtym);
 					if (entry != null) {
@@ -2185,7 +2187,9 @@ public class ReadStripped {
          * (rendered as: κόκκινος, -η, -ο)
          * 
 		 */
-		if (wordLang.getLang().getAbr().equals("el")) { // Greek
+		if (wordLang.getLang().getAbr().equals("el") || // Greek
+			wordLang.getLang().getAbr().equals("grc") // Ancient Greek
+				) { 
 			genderPos = sLangSect.indexOf("'''{{PAGENAME}}''' {{α}}");
 			if (genderPos > -1)
 				gender = "ο";
@@ -2230,7 +2234,9 @@ public class ReadStripped {
 				 * '''{{PAGENAME}}''' {{ο}}
 				 * * definition_here 
 				 */
-				if (wordLang.getLang().getAbr().equals("el")) {
+				if (wordLang.getLang().getAbr().equals("el") ||
+					wordLang.getLang().getAbr().equals("grc")
+						) {
 					if (hashPosWin == -1 && hashPosLin == -1) {
 						hashPosWin = sLangSect.substring(i).indexOf(LF_WIN + "*");
 						hashPosLin = sLangSect.substring(i).indexOf(LF_LIN + "*");

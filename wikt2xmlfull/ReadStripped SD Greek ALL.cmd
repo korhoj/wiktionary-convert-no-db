@@ -34,7 +34,7 @@ SET DATE.SECOND=%X:~12,2%
 SET NOW=%DATE.YEAR%-%DATE.MONTH%-%DATE.DAY%-%DATE.HOUR%-%DATE.MINUTE%-%DATE.SECOND%
 
 SET PROG="%JAR_DIR%\ReadStripped.jar"
-if "%LANGCODE%" == "el" SET PROG="%PROGDIR%\ReadStripped_%LANGCODE%.jar"
+if "%LANGCODE%" == "el" SET PROG="%JAR_DIR%\ReadStripped_%LANGCODE%.jar"
 SET JCLASS=wiktionary\to\xml\full\ReadStripped
 SET JAVA="%JAVA_HOME%\bin\java.exe"
 SET INFILE="%DICT%\%LANGCODE%wiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
@@ -51,7 +51,6 @@ chcp 65001
 
 rem -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit 
 echo %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% 0 %LANGCODE% %ONLYLANGUAGES%
-pause
 %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% 0 %LANGCODE% %ONLYLANGUAGES%
 if %ERRORLEVEL% GTR 0 goto :errEnd
 echo Ready

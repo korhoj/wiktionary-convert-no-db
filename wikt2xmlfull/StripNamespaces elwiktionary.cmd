@@ -16,7 +16,7 @@ set DICT=F:\Temp\wiktionary-dumps
 set JAR_DIR=G:\Dropbox\Dictionary\wikt
 set JAVA_HOME=C:\Usr\openjdk-16_windows-x64_bin\jdk-16
 
-set EDITION=20210420
+set EDITION=20210501
 set LANG=el
 
 SET PROGDIR=%JAR_DIR%

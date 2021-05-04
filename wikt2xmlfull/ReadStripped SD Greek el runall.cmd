@@ -11,11 +11,15 @@ set SCRIPTS=%WIKT%
 SET CONTINFO_DIR=%WIKT%
 
 set LANG=ALL
-rem set LANGCODE=el
-set LANGCODE=ALL
+set LANGCODE=el
+rem set LANGCODE=ALL
 set METADATAENGLISH=true
 rem True if only languages supplied in a language file are to be processed
-set ONLYLANGUAGES=false
+rem set ONLYLANGUAGES=false
+set ONLYLANGUAGES=true
+
+echo "Starting after this pause"
+pause
 
 rem Uncomment only when testing
 rem goto mainloop

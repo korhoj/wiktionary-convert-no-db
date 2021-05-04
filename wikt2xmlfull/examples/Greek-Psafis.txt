@@ -1,0 +1,33 @@
+<page>
+    <title>Ψαφίς</title>
+    <id>874</id>
+    <revision>
+      <id>3173916</id>
+      <parentid>2957484</parentid>
+      <timestamp>2013-06-11T14:31:19Z</timestamp>
+      <contributor>
+        <username>Flyax</username>
+        <id>233</id>
+      </contributor>
+      <minor />
+      <comment>απλοποίηση του προτύπου el-κλίσ-'όμορφος'</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve">{=={{-grc-}}==
+{{grc-κλισ-'πατρίς'|Ψαφί|Ψαφίδ|παρατήρηση=Στον ενικό}}
+==={{ετυμολογία}}===
+: '''{{PAGENAME}}''' < {{λείπει η ετυμολογία|grc}}
+
+==={{κύριο όνομα|grc}}===
+'''{{PAGENAME}}''' {{θ}}
+* {{τόπος|grc|πόλη|Ελλάδα}}, στην [[Ωρωπία]]
+
+===={{βλέπε}}====
+{{enWP|Psaphis}}
+
+==={{πηγές}}===
+* Smith, William. (1854–1857). "Attica". Dictionary of Greek and Roman Geography. London: John Murray.
+
+{{κλείδα-ελλ}}</text>
+    </revision>
+  </page>

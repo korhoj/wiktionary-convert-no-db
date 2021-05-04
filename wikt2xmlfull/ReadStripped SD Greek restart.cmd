@@ -37,7 +37,7 @@ SET NOW=%DATE.YEAR%-%DATE.MONTH%-%DATE.DAY%-%DATE.HOUR%-%DATE.MINUTE%-%DATE.SECO
 
 SET PROGDIR=%JAR_DIR%
 SET PROG="%PROGDIR%\ReadStripped.jar"
-if "%LANGCODE%" == "Western" SET PROG="%PROGDIR%\ReadStripped_%LANGCODE%.jar"
+if "%LANGCODE%" == "el" SET PROG="%JAR_DIR%\ReadStripped_%LANGCODE%.jar"
 SET JCLASS=wiktionary\to\xml\full\ReadStripped
 SET JAVA="%JAVA_HOME%\bin\java.exe"
 SET INFILE="%DICT%\%LANGCODE%wiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
