@@ -2,7 +2,7 @@
 rem Joel Korhonen 2018-May-15
 rem Change EDITION to match with the Wiktionary edition you have downloaded
 rem 2021-04-07 Updated edition
-set EDITION=20210401
+set EDITION=20210420
 
 rem This param is currently unused
 rem set LANGNAME=English

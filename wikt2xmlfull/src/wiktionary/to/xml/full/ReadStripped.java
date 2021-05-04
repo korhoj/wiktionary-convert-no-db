@@ -762,7 +762,7 @@ public class ReadStripped {
 		Set<WordEtym> wordEtymologies = new LinkedHashSet<WordEtym>();
 
 		String[] etymsArr = null;
-		if (langCode.equals("el")) { // Greek
+		if (wordLang.getLang().getAbr().equals("el")) { // Greek
 			etymsArr = sLangSect.split("===\\{\\{ετυμολογία\\}\\}===");
 			LOGGER.fine("Greek etymology entry detected");
 		} else {
@@ -2158,6 +2158,54 @@ public class ReadStripped {
 			//LOGGER.warning("Gender for '" + currentTitle + "': '" + gender + "'");
 		}
 		
+		/* Find Greek gender for nouns
+		 * άνδρας
+		 * ==={{ουσιαστικό|el}}===
+         * '''{{PAGENAME}}''' {{α}}
+         * --> αρσενικό (masculine)
+         * 
+         * αυτοκίνητο
+         * '''{{PAGENAME}}''' {{ο}}
+         * --> neutral (ουδέτερο)
+         *
+         * χρόνια
+         * '''{{PAGENAME}}''' {{θ}}
+         * --> feminine (θηλυκό)
+         */
+		
+		/** Adjectives can be used with various genders but it's the noun that they are
+		 * used with that matters, so they don't concern us. Examples:
+         * ουδέτερος
+         * ==={{επίθετο|el}}===
+         * '''{{PAGENAME}} -η -ο'''
+         *
+         *  κόκκινος
+         * ==={{επίθετο|el}}===
+         * '''{{PAGENAME}}, [[κόκκινη|-η]], [[κόκκινο|-ο]]'''
+         * (rendered as: κόκκινος, -η, -ο)
+         * 
+		 */
+		if (wordLang.getLang().getAbr().equals("el")) { // Greek
+			genderPos = sLangSect.indexOf("'''{{PAGENAME}}''' {{α}}");
+			if (genderPos > -1)
+				gender = "ο";
+			
+			if (gender == null) {
+				genderPos = sLangSect.indexOf("'''{{PAGENAME}}''' {{ο}}");
+				if (genderPos > -1)
+					gender = "το";
+			}
+			
+			if (gender == null) {
+				genderPos = sLangSect.indexOf("'''{{PAGENAME}}''' {{θ}}");
+				if (genderPos > -1)
+					gender = "η";
+			}
+			
+			if (gender != null)
+				LOGGER.fine("Greek gender detected: '" + gender + "'");
+		}
+		
 		Set<Sense> senses = new LinkedHashSet<Sense>(0);
 		
 		boolean sensesCont = true;
@@ -2177,6 +2225,17 @@ public class ReadStripped {
 				 */
 				int hashPosWin = sLangSect.substring(i).indexOf(LF_WIN + "#");
 				int hashPosLin = sLangSect.substring(i).indexOf(LF_LIN + "#");
+				
+				/* Some Greek definitions are defined like this:
+				 * '''{{PAGENAME}}''' {{ο}}
+				 * * definition_here 
+				 */
+				if (wordLang.getLang().getAbr().equals("el")) {
+					if (hashPosWin == -1 && hashPosLin == -1) {
+						hashPosWin = sLangSect.substring(i).indexOf(LF_WIN + "*");
+						hashPosLin = sLangSect.substring(i).indexOf(LF_LIN + "*");
+					}
+				}
 				
 				int hashPos = hashPosWin;
 				int lfMode = 0; // 0=Win, 1=Lin

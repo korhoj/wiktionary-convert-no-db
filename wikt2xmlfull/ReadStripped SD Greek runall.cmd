@@ -1,7 +1,7 @@
 @echo off
 rem Greek Wikt main script, run this to start the conversion
 rem Joel Korhonen 2021-Apr-05
-set EDITION=20210401
+set EDITION=20210420
 
 rem This param is currently unused
 rem set LANGNAME=Greek
