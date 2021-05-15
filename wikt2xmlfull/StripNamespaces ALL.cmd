@@ -1,13 +1,14 @@
 @echo off
-rem Process the English Wiktionary
-rem Joel Korhonen 2012-Jul-27
-rem 2021-04-07 Changed to use variables given in the script, and updated edition
-
+rem Joel Korhonen 2021-May-15
+rem Strips comments etc. namespaces not containing Wiktionary entries from the input file
+rem Processes the Wiktionary given as parameter or by default the English Wiktionary
+rem Optionally the edition may be specified as the second parameter
+rem
 rem Before running, change the variables below as needed:
 rem Set JAVA_HOME to point to JDK main dir, e.g. C:\Usr\openjdk-16_windows-x64_bin\jdk-16
 rem Set JAR_DIR to the location of the runnable JAR file
 rem Set DICT to the location under which you uncompressed the Wiktionary edition you have downloaded
-rem e.g. DICT=C:\Temp\enwiktionary\
+rem e.g. DICT=C:\Temp\wiktionary-dumps
 rem   having uncompressed enwiktionary-%EDITION%-pages-articles.xml.bz2 to
 rem   C:\Temp\enwiktionary-%EDITION%-pages-articles.xml
 rem Then change EDITION to match the Wiktionary edition you have downloaded
@@ -16,8 +17,12 @@ set DICT=F:\Temp\wiktionary-dumps
 set JAR_DIR=G:\Dropbox\Dictionary\wikt
 set JAVA_HOME=C:\Usr\openjdk-16_windows-x64_bin\jdk-16
 
-set EDITION=20210420
+set EDITION=20210501
 set LANG=en
+
+rem Language specific scripts, e.g. "StripNamespaces elwiktionary.cmd" call passing LANG as param
+if not "%1"=="" set LANG=%1
+if not "%2"=="" set EDITION=%2
 
 SET PROGDIR=%JAR_DIR%
 SET PROG=%PROGDIR%\StripNamespaces.jar
