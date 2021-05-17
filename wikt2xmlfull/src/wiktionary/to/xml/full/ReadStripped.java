@@ -89,6 +89,7 @@ public class ReadStripped {
 	//private static long MAXENTRIES_TOPROCESS = 10;
 	
 	private static boolean FAIL_AT_FIRST_PROBLEM = false;
+	//private static boolean FAIL_AT_FIRST_PROBLEM = true;
 	
 	public final static Logger LOGGER = Logger.getLogger(ReadStripped.class
 			.getName());
@@ -526,28 +527,17 @@ public class ReadStripped {
 		
 		Lang lookupLang = new Lang();
 		
-		String[] langsArr = StringUtils.splitIntoLangs(s);
+		LinkedList<Integer> langStarts = StringUtils.findLangStartSections(s);
+		LinkedList<String> langSects = StringUtils.splitIntoLangSections(s, langStarts);
 		
-		for (String langSect : langsArr) {
+		for (String langSect : langSects) {
 			String langName = null;
 			
-			int langStart = -1;
-			int i=0;
-			for (; i < 100; i++) {
-				langStart = langSect.indexOf("==");
-				
-				if (langStart == 0 ||
-						(langSect.charAt(langStart-1) != '=' &&
-						 langSect.charAt(langStart+2) != '=') // shouldn't overflow in practice
-					)
-					break;
-			}
-			if (i == 100) {
-				LOGGER.warning("Language end not found in sect '" + langSect + "', title='" + currentTitle + "'");
-				break;
-			}
-			
-			int langNameEnd = langSect.substring(langStart+2).indexOf("==") + langStart+2;
+			/* Currently each section really starts with the language name,
+			 * without the first two "==". E.g.: "English=="
+			 */
+			int langStart = 0;
+			int langNameEnd = langSect.substring(langStart).indexOf("==") + langStart;
 			
 			if (langNameEnd == -1) {
 				String msg = "Language end not found in string '" + langSect + "', title='" + currentTitle + "'";
@@ -556,7 +546,7 @@ public class ReadStripped {
 			}
 			
 			if (langNameEnd > -1) {
-				langName = langSect.substring(langStart + 2, langNameEnd);
+				langName = langSect.substring(langStart, langNameEnd);
 				langName = langName.trim();
 				
 				// An alternative markup is [[LanguageName]]
@@ -645,7 +635,7 @@ public class ReadStripped {
 					throw new Exception(msg);
 				}
 			} else if (onlyLanguages || onlyLang == null || onlyLang.equals(langCode)) {
-				String sLangSect = langSect.substring(langStart + 2); // 2: skip ==
+				String sLangSect = langSect.substring(langStart);
 				
 				//LOGGER.fine("Before parseWord: '" + sLangSect + "'");
 				//LOGGER.info("Before parseWord: '" + sLangSect + "'");
@@ -762,9 +752,11 @@ public class ReadStripped {
 		Set<WordEtym> wordEtymologies = new LinkedHashSet<WordEtym>();
 
 		String[] etymsArr = null;
-		if (wordLang.getLang().getAbr().equals("el") || // Greek 
+		if (wordLang.getLang() != null &&
+			wordLang.getLang().getAbr() != null &&
+			(wordLang.getLang().getAbr().equals("el") || // Greek 
 			wordLang.getLang().getAbr().equals("grc") // Ancient Greek
-			) {
+			)) {
 			etymsArr = sLangSect.split("===\\{\\{ετυμολογία\\}\\}===");
 			LOGGER.fine("Greek etymology entry detected");
 		} else {
@@ -2187,23 +2179,24 @@ public class ReadStripped {
          * (rendered as: κόκκινος, -η, -ο)
          * 
 		 */
-		if (wordLang.getLang().getAbr().equals("el") || // Greek
-			wordLang.getLang().getAbr().equals("grc") // Ancient Greek
+		if (wordLang.getLang().getAbr() != null &&
+			(wordLang.getLang().getAbr().equals("el") || // Greek
+			 wordLang.getLang().getAbr().equals("grc")) // Ancient Greek
 				) { 
 			genderPos = sLangSect.indexOf("'''{{PAGENAME}}''' {{α}}");
 			if (genderPos > -1)
-				gender = "ο";
+				gender = "(ο)";
 			
 			if (gender == null) {
 				genderPos = sLangSect.indexOf("'''{{PAGENAME}}''' {{ο}}");
 				if (genderPos > -1)
-					gender = "το";
+					gender = "(το)";
 			}
 			
 			if (gender == null) {
 				genderPos = sLangSect.indexOf("'''{{PAGENAME}}''' {{θ}}");
 				if (genderPos > -1)
-					gender = "η";
+					gender = "(η)"; // At least "λέξη" and "Ψαφίς" show in the Wiki this spelled out, as "θηλυκό"
 			}
 			
 			if (gender != null)
@@ -2230,18 +2223,24 @@ public class ReadStripped {
 				int hashPosWin = sLangSect.substring(i).indexOf(LF_WIN + "#");
 				int hashPosLin = sLangSect.substring(i).indexOf(LF_LIN + "#");
 				
+				/* TODO Commented the check out, since getAbr doesn't need to be el or grc.
+				 * What is decisive is whether the input is the Greek Wiktionary or not.
+				 * This program doesn't currently know that if "ALL" languages of the
+				 * Greek Wiktionary are parsed, except in that el- is part of the input file name.
+				 */
 				/* Some Greek definitions are defined like this:
 				 * '''{{PAGENAME}}''' {{ο}}
 				 * * definition_here 
 				 */
-				if (wordLang.getLang().getAbr().equals("el") ||
-					wordLang.getLang().getAbr().equals("grc")
-						) {
+//				if (wordLang.getLang().getAbr() != null &&
+//					(wordLang.getLang().getAbr().equals("el") ||
+//					 wordLang.getLang().getAbr().equals("grc")
+//						)) {
 					if (hashPosWin == -1 && hashPosLin == -1) {
 						hashPosWin = sLangSect.substring(i).indexOf(LF_WIN + "*");
 						hashPosLin = sLangSect.substring(i).indexOf(LF_LIN + "*");
 					}
-				}
+//				}
 				
 				int hashPos = hashPosWin;
 				int lfMode = 0; // 0=Win, 1=Lin

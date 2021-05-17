@@ -1,0 +1,96 @@
+  <page>
+    <title>free</title>
+    <id>19</id>
+    <revision>
+      <id>62416793</id>
+      <parentid>62395988</parentid>
+      <timestamp>2021-04-23T20:28:15Z</timestamp>
+      <contributor>
+        <ip>203.211.77.198</ip>
+      </contributor>
+      <comment>t+mi:[[herekore]] ([[WT:EDIT|Assisted]])</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="36221" xml:space="preserve">{{also|-free}}
+==English==
+
+===Etymology===
+{{root|en|ine-pro|*preyH-}}
+From {{inh|en|enm|free}}, {{m|enm|fre}}, {{m|enm|freo}}, from {{inh|en|ang|frēo||free}}, fro
+m {{inh|en|gmw-pro|*frī}}, from {{inh|en|gem-pro|*frijaz||beloved, not in bondage}}, from {{
+inh|en|ine-pro|*priHós||dear, beloved}}, from {{m|ine-pro|*preyH-||to love, please}}. Relate
+d to {{m|en|friend}}. Cognate with {{cog|fy|frij||free}}, {{cog|nl|vrij||free}}, {{cog|nds|f
+ree||free}}, {{cog|de|frei||free}}, {{cog|da|-}}, {{cog|sv|-}} and {{cog|no|fri||free}}, {{c
+og|sa|प्रिय|tr=priyá}}.
+
+Germanic and Celtic are the only Indo-European language branches in which the PIE word with 
+the meaning of &quot;dear, beloved&quot; acquired the additional meaning of &quot;free&quot;
+ in the sense of &quot;not in bondage&quot;. This was an extension of the idea of &quot;char
+acteristic of those who are dear and beloved&quot;, in other words friends and tribe members
+ (in contrast to unfree inhabitants from other tribes and prisoners of war, many of which we
+re among the slaves – compare the Latin use of [[liberi]] to mean both &quot;free persons&qu
+ot; and &quot;children of a family&quot;).&lt;ref&gt;{{R:Etymonline}}&lt;/ref&gt;&lt;ref&gt;
+[https://www.dwds.de/wb/frei &quot;frei&quot;] in Digitales Wörterbuch der deutschen Sprache
+&lt;/ref&gt;
+
+The verb comes from {{inh|en|enm|freen}}, {{m|enm|freoȝen}}, from {{inh|en|ang|frēon}}, {{m|
+ang|frēoġan||to free; make free}}, from {{inh|en|gmw-pro|*frijōn}}, from {{inh|en|gem-pro|*f
+rijōną}}, from {{der|en|ine-pro|*preyH-}}.
+
+===Pronunciation===
+* {{enPR|frē}}, {{IPA|en|/fɹiː/|[fɹɪi̯]}}
+* {{audio|en|en-us-free.ogg|Audio (US)}}
+* {{audio|en|En-uk-free.ogg|Audio (UK)}}
+* {{rhymes|en|iː}}
+* {{homophones|en|three|q1=with [[th-fronting]]}}
+
+[[File:Free Beer.jpg|thumb|A sign advertising '''free''' beer (obtainable without payment), 
+typically with some required purchase/catch.]]
+[[File:Buy one, get one free ^ - geograph.org.uk - 153952.jpg|thumb|A &quot;buy one get one 
+'''free'''&quot; sign at a flower stand (obtainable without additional payment)]]
+[[File:Berkeley Farms Fat-Free Half &amp; Half.jpg|thumb|This food product is labelled &quot
+;fat '''free'''&quot;, meaning it contains no fat]]
+
+===Adjective===
+{{en-adj|er}}
+# {{lb|en|social}} [[unconstrained|Unconstrained]].
+
+===Adverb===
+{{en-adv}}
+
+# Without needing to [[pay]].
+#: {{ux|en|I got this bike '''free'''.}}
+#: {{syn|en|for free|for nothing}}
+# {{lb|en|obsolete}} Freely; willingly.
+#* {{quote-book|en|title=[[w:Henry VIII (play)|Henry VIII]]|authorlink=William Shakespeare|year=c. 1601–1602|year_published=1623|passage=I as '''free''' forgive you / As I would be forgiven.}}
+
+==Galician==
+
+===Verb===
+{{gl-verb-form}}
+
+# {{inflection of|gl|frear||1|s|pres|subj}}
+# {{inflection of|gl|frear||3|s|pres|subj}}
+
+----
+
+==Low German==
+
+===Alternative forms===
+* {{l|nds|frie}} {{q|more common}}
+
+===Etymology===
+From {{inh|nds|gml|vrîe}}, variant of {{m|gml|vrî}}, from {{der|nds|osx|frī}}, from {{der|nds|gem-pro|*frijaz}}, from {{der|nds|ine-pro|*prey||new}}. Compare {{cog|nl|vrij}}, {{cog|fy|frij}}, {{cog|en|free}}, {{cog|de|frei}}.
+
+===Adjective===
+{{head|nds|adjective|comparative|fre'er|superlative|freest}}
+
+# {{lb|nds|rather|_|rare}} [[free]]
+
+====Declension====
+{{nds-decl-adj|head=free|free|fre'|Fre'e|fre'er|freest|Freest}}
+
+====Derived terms====
+* {{l|nds|Freeheit}}</text>
+    </revision>
+  </page>

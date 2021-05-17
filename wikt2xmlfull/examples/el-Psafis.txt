@@ -1,19 +1,18 @@
 <page>
     <title>Ψαφίς</title>
-    <id>874</id>
+    <id>867451</id>
     <revision>
-      <id>3173916</id>
-      <parentid>2957484</parentid>
-      <timestamp>2013-06-11T14:31:19Z</timestamp>
+      <id>5018490</id>
+      <parentid>5018488</parentid>
+      <timestamp>2021-04-30T16:25:16Z</timestamp>
       <contributor>
-        <username>Flyax</username>
-        <id>233</id>
+        <username>Texniths</username>
+        <id>21043</id>
       </contributor>
       <minor />
-      <comment>απλοποίηση του προτύπου el-κλίσ-'όμορφος'</comment>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text xml:space="preserve">{=={{-grc-}}==
+      <text bytes="531" xml:space="preserve">=={{-grc-}}==
 {{grc-κλισ-'πατρίς'|Ψαφί|Ψαφίδ|παρατήρηση=Στον ενικό}}
 ==={{ετυμολογία}}===
 : '''{{PAGENAME}}''' < {{λείπει η ετυμολογία|grc}}

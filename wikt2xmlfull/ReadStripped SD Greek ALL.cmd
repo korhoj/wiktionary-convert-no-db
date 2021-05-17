@@ -34,7 +34,7 @@ SET DATE.SECOND=%X:~12,2%
 SET NOW=%DATE.YEAR%-%DATE.MONTH%-%DATE.DAY%-%DATE.HOUR%-%DATE.MINUTE%-%DATE.SECOND%
 
 SET PROG="%JAR_DIR%\ReadStripped.jar"
-if "%LANGCODE%" == "el" SET PROG="%JAR_DIR%\ReadStripped_%LANGCODE%.jar"
+rem if "%LANGCODE%" == "el" SET PROG="%JAR_DIR%\ReadStripped_%LANGCODE%.jar"
 SET JCLASS=wiktionary\to\xml\full\ReadStripped
 SET JAVA="%JAVA_HOME%\bin\java.exe"
 SET INFILE="%DICT%\%LANGCODE%wiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"

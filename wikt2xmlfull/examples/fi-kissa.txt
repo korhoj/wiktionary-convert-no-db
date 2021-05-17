@@ -1,0 +1,238 @@
+  <page>
+    <title>kissa</title>
+    <id>4034</id>
+    <revision>
+      <id>4153538</id>
+      <parentid>4134702</parentid>
+      <timestamp>2021-01-21T07:28:43Z</timestamp>
+      <contributor>
+        <username>Hartz</username>
+        <id>123</id>
+      </contributor>
+      <comment>/* Idiomit */ +idiomi &quot;kissanpojalle puhkesi silmä&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="6025" xml:space="preserve">{{katso|kissá}}
+
+{{wikipedia}}
+{{Commons|Felis silvestris catus|kissa}}
+
+==Suomi==
+[[Kuva:Cat - Europaeische Kurzhaarkatze - 2.jpg|thumb|[[kotikissa|Kotikissa]]]]
+
+===Substantiivi===
+{{fi-subs|9}}
+
+# kissaeläinlaji ({{takso|Felis|silvestris}}), jossa on useita rotuja; tarkoitetaan tavallisesti maatilojen hyötyeläimenä ja [[lemmikki]]nä pidettyä puolikesyä [[kotieläin]]tä ({{takso|Felis|catus}})
+#: '''''Kissa''' on Euroopan yleisin lemmikkieläin.''
+# [[kissaeläin|kissaeläimistä]] käytetty nimitys
+#: ''Tiikeri on iso '''kissa'''.''
+# {{yhteys|arkikieltä|k=fi}} (seksikäs) [[nainen]]
+#: ''Laura on melkoinen '''kissa'''.''
+
+====Ääntäminen====
+{{IPA|[ˈk̟isːɑ]}}
+
+====Taivutus====
+{{fi-subs-kala|kiss}}
+
+====Käännökset====
+{{kohta|1|eläin|
+*alasorbi: [[kócka]] {{f}}
+*albania: [[mace]] {{f}}
+*asturia: [[gatu]]
+*azeri: [[pişik]] [pišik]
+*bosnia: [[mačka]] {{f}}
+*bulgaria: {{käännös|bg|котка|suku=f}}
+*englanti: [[cat]]
+*ersä: [[псака]] [psaka], [[катка]] [katka]
+*espanja: [[gato]] {{m}}, [[gata]] {{f}}
+*esperanto: [[kato]]
+*eteläsaame: {{käännös|Eteläsaame|gaahtoe}}
+*friisi: [[kat]]
+*fääri: [[kattur]]
+*galego: {{käännös|gl|gato}}
+*heprea: {{käännös|he|חתול}}
+*hollanti: [[kat]] {{m}}, [[poes]] {{f}}
+*inarinsaame: [[kaasi]], [[kissá]]
+*indonesia: [[kucing]]
+*islanti: [[köttur]]
+*italia: [[gatto]] {{m}}, [[gatta]] {{f}}
+*japani: [[猫]] [neko]
+*karjala: kissa
+*katalaani: [[gat]] {{m}}, [[moix]] {{m}}
+*kazakki: [[мысық]] [mysyķ]
+*kiina: [[猫]] [mau]
+*kirgiisi: [[мышык]] [myšyk]
+*koltansaame: [[kaass]]
+*komi: [[кань]]
+*kreikka: [[γάτα]]
+*kroaatti: [[mačka]] {{f}}
+*kurdi: [[pisîk]]
+*latgalli: [[kačs]] {{m}}
+*latvia: [[kaķis]] {{m}}
+*liettua: [[katė]] {{f}}
+*liivi: {{käännös|liv|kaš}}
+*mari: [[пырыс]]
+*mokša: [[ката]]
+*mongoli: [[муур]] [muur]
+*norja: [[katt]]
+*novial: [[kate]] {{m}}, {{f}}, [[kato]] {{m}}, [[kata]] {{f}}
+*pohjoissaame: [[bus'sá]]
+*portugali: [[gato]] {{m}}, [[gata]] {{f}}
+*puola: [[kot]] {{m}}, [[kotka]] {{f}}
+*ranska: [[chat]] {{m}}, [[chatte]] {{f}}
+*romania: [[pisică]] {{f}}
+*ruotsi: [[katt]]
+*saksa: [[Katze]] {{f}}, [[Kater]] {{m}}
+*serbia: [[mačka]], [[мачка]] {{f}}
+*slovakki: [[mačka]] {{f}}
+*sloveeni: [[mačka]] {{f}}
+*somali: [[bisad]]
+*swahili: [[nyau]]
+*tanska: [[kat]]
+*tataari: [[мәче]], [[mәçe]] 
+*tok-pisin: [[pusi]]
+*tšekki: [[kočka]] {{f}}
+*tšuvassi: [[кушак]] [kušak]
+*turkki: [[kedi]]
+*turkmeeni: [[pişik]] [pišik]
+*udmurtti: [[коӵыш]]
+*uiguuri: [[مۈشۈك]]
+*ukraina: {{käännös|uk|кіт|suku=m}}, [[кішка]] {{f}}
+*unkari: [[macska]]
+*uzbekki: {{käännös|uz|mushuk}}, [[мушук]] [mušuk]
+*venäjä: [[кошка]] (koška) {{f}}; {{käännös|ru|кот|suku=m|lat=kot}}
+*vepsä: {{käännös|vep|kaži}}
+*viro: [[kass]]
+*võro: [[kass]]
+*shanghainkiina: [[猫]] [mɔ]
+*yläsorbi: [[kóčka]] {{f}}
+|loppu}}
+
+{{kohta|2|kissaeläin|
+Kts. [[kissaeläin]]
+|loppu}}
+
+{{kohta|3|nainen|
+*englanti: [[chick]]
+|loppu}}
+
+====Liittyvät sanat====
+*[[naukua]]
+*[[karakali]], [[ilves]], [[leijona]], [[gepardi]], [[jaguaari]], [[pantteri]], [[oselotti]], [[servaali]], [[puuma]], [[tiikeri]]
+
+=====Synonyymit=====
+*[[katti]], [[kissimirri]], [[kissi]], [[kisu]], [[kisuli]], [[kolli]], [[mirri]]
+
+=====Johdokset=====
+{{johdokset|fi|a|kissamainen}}
+
+=====Yhdyssanat=====
+[[aasiankultakissa]],
+[[aasianmetsäkissa]],
+[[afrikankultakissa]],
+[[afrikanvillikissa]],
+[[andienkissa]],
+[[angorakissa]],
+[[arokissa]],
+[[borneonkissa]],
+[[emokissa]], 
+[[hietakissa]],
+[[kalastajakissa]],
+[[kesäkissa]], 
+[[kiinanaavikkokissa]],
+[[kissaeläin]], 
+[[kissanhiekka]], 
+[[kissanhäntä]], 
+[[kissankello]], 
+[[kissankulta]], 
+[[kissankuppi]], 
+[[kissankäpälä]], 
+[[kissanluukku]], 
+[[kissanminttu]], 
+[[kissanpentu]], 
+[[kissanpoika]], 
+[[kissanpoikanen]], 
+[[kissanpäivät]], 
+[[kissansilmä]], 
+[[kissanäyttely]], 
+[[kissapeto]], 
+[[kissarotu]], 
+[[kissarutto]], 
+[[kissatappelu]],
+[[kollikissa]], 
+[[kotikissa]], 
+[kulkukissa]], 
+[[laivakissa]], 
+[[leopardikissa]],
+[[litteäpääkissa]],
+[[marmorikissa]],
+[[metsäkissa]],
+[[mustajalkakissa]],
+[[navettakissa]],
+[[naaraskissa]], 
+[[näyttelykissa]], 
+[[pajunkissa]], 
+[[pampakissa]],
+[[persiankissa]], 
+[[pitkähäntäkissa]],
+[[poikakissa]], 
+[[rotukissa]], 
+[[ruostetäpläkissa]],
+[[siaminkissa]], 
+[[sisäkissa]], 
+[[sivettikissa]], 
+[[suurkissa]],
+[[tallikissa]],
+[[tiikerikissa]],
+[[tyttökissa]], 
+[[ulkokissa]],
+[[uroskissa]], 
+[[viidakkokissa]],
+[[villikissa]],
+[[vuorikissa]],
+[[yökissa]],
+
+====Idiomit====
+*''Kissa vieköön!'' (ihmettelevä huudahdus)
+*''Kissan viikset!'' (vähättelevä huudahdus)
+*''nostaa kissa pöydälle'' ottaa esille epämiellyttävä tai hankala asia
+*''etsiä kissojen ja koirien kanssa'' penkoa paikkoja perusteellisesti löytääkseen jotakin
+*(''jollakulla on'') ''kissan päivät'' (jollakulla on) helppoa, lokoisaa, mukavat ja hyvät olot
+*''kiertää kuin kissa kuumaa puuroa'' osoittaa kiinnostusta mutta vältellä jotakin vaikeasti lähestyttävää, olla uskaltamatta mennä asiaan yms.
+*(''olla'') ''kuin kissa ja koira'' tapella aina keskenään, olla vihamielisissä väleissä keskenään
+*''Kissalla on yhdeksän henkeä.'' Kissa selviää kaikenlaisista tilanteista.
+*''Kukas kissan hännän nostaa, jollei kissa itse.'' itsekehusta käytetty puolustus t. kehotus osoittaa arvostavansa saavutustaan yms.
+*''Kun kissa on poissa, hiiret hyppivät pöydällä.'' 'Kun kukaan ei ole vahtimassa, toimitaan oman halun mukaisesti (esim. noudattamatta sääntöjä).'
+*''kuin kissa pistoksissa'' levoton, kärsimätön
+*''kissanpojalle puhkesi silmä''
+
+====Aiheesta muualla====
+*{{muualla-ks}}
+
+[[Luokka:Suomen kielen eläimet]]
+
+==Japani==
+===Latinisointi===
+'''{{PAGENAME}}'''
+# {{ja-transkriptio|きっさ}}
+
+==Karjala==
+===Substantiivi===
+{{substantiivi|krl}}
+
+# {{l|fi}}
+
+====Aiheesta muualla====
+*{{muualla-kks}}
+
+==Ruotsi==
+===Verbi===
+{{sv-verbi1|1}}
+
+# [[pissata]], [[pissiä]]
+
+[[Luokka:Suomen kielen kissaeläimet]]</text>
+    </revision>
+  </page>

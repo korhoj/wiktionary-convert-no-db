@@ -2,6 +2,7 @@ package wiktionary.to.xml.full.util;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Set;
 
 import com.google.api.client.util.escape.CharEscapers;
@@ -25,17 +26,249 @@ public class StringUtils {
 	
 	public static Set<Lang> langs = null; // ReadStripped.loadLanguages() assigns value to this
 	
-	public static String[] splitIntoLangs (String s) {
-		String regex = "----\\r??\\t??\\n";
+	/**
+	 * Language sections are to begin with == followed by the name of the language,
+	 * name being anything else than ==. E.g. the section being "==English==",
+	 * "==E" is detected as the start of the section.
+	 * When such a section is found, the corresponding end tag for the language name is searched for.
+	 * It is assumed to be denoted by the next ==, e.g. the last "==" in "==English==".
+	 * The searching for each new language section then continues after the end tag.
+	 * @param s
+	 * @return A LinkedList of positions where each new language section starts.
+	 */
+	public static LinkedList<Integer> findLangStartSections (String s) {
+		LinkedList<Integer> langStarts = new LinkedList<Integer>(); 
 		
-		String[] langs = s.split(regex);
+//		LinkedList<String> langSects = new LinkedList<String>();
+//		String langName = null;
+
+		int prevStart = -1;
+		int entryLen = s.length();
+		for (int pos = 0; pos < entryLen-2; pos++) {
+			if (s.charAt(pos) == '=' &&
+				s.charAt(pos+1) == '=' &&
+				s.charAt(pos+2) == '=') {
+				pos += 3;
+			} else
+			if (s.charAt(pos) == '=' &&
+				s.charAt(pos+1) == '=' &&
+				s.charAt(pos+2) != '=') {
+				
+				int langNameEnd = s.substring(pos+2).indexOf("==") + pos+2;
+//				langName = s.substring(pos+2,langNameEnd);
+//				System.out.println("langName: '" + langName + "'");
+				
+				if (prevStart > -1) {
+					langStarts.add(new Integer(prevStart));
+				}
+				prevStart = pos+2;
+				
+//				langSects.add(langName);
+				
+				pos = langNameEnd;
+			}
+		}
+		if (prevStart > -1) {
+			langStarts.add(new Integer(prevStart));
+		}
 		
-//		for (String lang : langs) {
+//		System.out.println("langList size: " + langSects.size());
+//		for (String lang : langSects) {
 //			System.out.println("Lang: '" + lang + "'");
 //		}
+//		
+//		for (Integer langStart : langStarts) {
+//			System.out.println("Start: " + langStart);
+//		}
 		
-		return langs;
+		return langStarts;
 	}
+	
+//	public static LinkedList<Integer> findLangStartSectionsOld (String s) {
+//		String prevLangName = null;
+//		String langName = null;
+//		String prevSect = null;
+//		
+//		while (s != null) {
+//		langStart = s.indexOf("==");
+//		
+//		i++;
+//		
+//		if (i == 40) {
+//			System.err.println("ERROR");
+//			break;
+//		}
+//		
+//		if (langStart > -1) {
+//			// if found an opening == tag
+//			if (
+//				(langStart == 0 &&
+//				s.charAt(langStart+2) != '='
+//			   ) ||
+//				(s.charAt(langStart-1) != '=' &&
+//				 s.charAt(langStart+2) != '='
+//				)
+//				) {
+//					j++;
+//					int langNameEnd = s.substring(langStart+2).indexOf("==") + langStart+2;
+//			
+//					if (j > 1) {
+//						prevLangName = langName;
+//						
+//						langSects.add(langName);
+//						langSects.add(prevSect);
+//						
+//						System.out.println("Added langName: '" + langName + "'");
+//						System.out.println("Added prevSect: '" + prevSect + "'");
+//					}
+//					langName = s.substring(langStart+2,langNameEnd);
+//					System.out.println("langName: '" + langName + "'");
+//					
+//					prevSect = s.substring(0,langStart);
+//					
+////					String loppu = s.substring(langNameEnd + 2);
+//					s = s.substring(langNameEnd + 2);
+//					
+////					int nextLangStart = loppu.indexOf("==");
+////					
+////					if (nextLangStart > -1) {
+////						// if found an opening == tag
+////						if (loppu.charAt(nextLangStart-1) != '=' &&
+////							loppu.charAt(nextLangStart+2) != '='
+////							)
+////							{
+////								int nextLangNameEnd = loppu.substring(nextLangStart+2).indexOf("==") + nextLangStart+2;
+////								
+////								String nextLangName = loppu.substring(nextLangStart,nextLangNameEnd);
+////								
+////								System.out.println("nextLangName: '" + nextLangName + "'");
+////								
+////								langSects.add(langName);
+////								langSects.add(loppu);
+////								
+////								prevSect = s.substring(0, nextLangStart);
+////								
+////								s = s.substring(nextLangStart);
+////						    } else {
+////						    	System.out.println("nextLangStart: " + nextLangStart);
+////								s = loppu.substring(nextLangStart+2);
+////							 }
+////					} else {
+////						System.out.println("** nextLangStart == -1");
+////						langSects.add(langName);
+////						langSects.add(loppu);
+////						
+////						s = null;
+////					}
+//			} else {
+//				s = s.substring(langStart+2);
+//				
+//				if (s.charAt(langStart+2) == '=') {
+//					s = s.substring(langStart+2); 
+//				}
+//			}
+//		} else {
+//			s = null;
+//		}
+//	}
+	
+	public static LinkedList<String> splitIntoLangSections (String s, LinkedList<Integer> langStarts) {
+		LinkedList<String> sections = new LinkedList<String>();
+		
+		int prevStart = -1;
+		int i = 0;
+		String sect = null;
+		for (Integer langStart : langStarts) {
+			i++;
+			int startPos = langStart.intValue();
+			
+			if (prevStart > -1) {
+				/* Currently this starts with the language name,
+				 * without the first two "==" but ends with the
+				 * ending tag "==". E.g. "English=="
+				 */
+				sect = s.substring(prevStart, startPos);
+				
+				sections.add(sect);
+				
+//				System.out.println("Sect[" + i + "]: " + sect);
+			} else {
+				// We just skip the section before the very first lang definition
+				//sect = s.substring(0, startPos);
+			}
+			
+			prevStart = startPos;
+		}
+		
+		sect = s.substring(prevStart); 
+		sections.add(sect);
+//		System.out.println("Sect[" + i + "]: " + sect);
+		
+		return sections;
+	}
+	
+//	public static LinkedList<String> splitIntoLangSectionsOld (String entry) {
+		// Usually language entries are separated by a row with only "----" in it
+		//String langRegex = "----\\r??\\t??\\n";
+		//String langRegex = "==[A-Za-z]+==\\r??\\t??\\n";
+		//String langRegex = "==[A-Za-z]+==";
+		//String[] dashesArr = entry.split(langRegex,1);
+		
+		/* At least the Finnish Wiktionary doesn't have ---- for at least some entries such as "kissa".
+		 * It just has lang tags such as ==Suomi==, ==Japani== jne.
+		 */
+		//String langRegex = "\\n==[A-Z][A-Za-z]+==\\r??\\t??\\n";
+		
+		//String langRegex = "(----\\r??\\t??\\n)+(\\n==[A-Z][A-Za-z]+==\\r??\\t??\\n)+";
+		//String langRegex = "==[A-Z][A-Za-z]+==\\r??\\t??\\n";
+		
+		//String[] noDashesArr = s.split(langRegex);
+
+//		LinkedList<String> langSects = new LinkedList<String>(); 
+//		
+//		String s = entry;
+//		while (s != null) {
+//			int dashPos = s.indexOf("----");
+//			if (dashPos > -1) {
+//				String alku = null;
+//				String loppu = null;
+//				
+//				if (dashPos > 0) {
+//					alku = s.substring(0, dashPos);
+//					
+//					langSects.add(alku);
+//					
+//					s = null;
+//				} else {
+//					loppu = s.substring(dashPos+4);
+//					
+//					//langSects.add(loppu);
+//					
+//					s = loppu;
+//				}
+//				
+////				loppu = s.substring(dashPos+4);
+////				
+////				langSects.add(loppu);
+////				
+////				s = loppu;
+//			} else if (s.indexOf("==") > -1) {
+//				System.out.println("!!!!!!!!!!!!!!!!!!!!!");
+//				
+//				langSects.add(s);
+//				
+//				s = null;
+//			} else
+//				s = null;
+//		}
+//		
+//		System.out.println("langList size: " + langSects.size());
+//		for (String lang : langSects) {
+//			System.out.println("Lang: '" + lang + "'");
+//		}
+//	
+//		return langSects;
+//	}
 	
 	/**
 	 * Returns the position inside s where the
