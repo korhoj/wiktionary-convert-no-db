@@ -31,6 +31,14 @@ public class StardictStorer implements Storer, Runnable {
 	private String target = null;
 	// True if only one language is being processed (language list has only one language)
 	private boolean onlyOneLang = false;
+	/* True if the name of each language should be outputed (except if onlyOneLang == true, in
+	 * which case the sole language name is never outputed) 
+	 */
+	private boolean outputLangNames = false;
+	/* Which language the Wikt is in. Affects metadata output. Often same than the langCode
+	 * command line param, but langCode may also be "ALL". Affects metadata output
+	 */ 
+	private String wiktLanguageCode = null;
 	
 	// thread shared objects
 	private static FileOutputStream fos = null;
@@ -44,11 +52,17 @@ public class StardictStorer implements Storer, Runnable {
 	 * @param words
 	 * @param target
 	 * @param onlyOneLang True if only one language is being processed (language list has only one language)
+	 * @param wiktLanguageCode Which language the Wikt is in. Affects metadata output
+	 * @param outputLangNames True if the name of each language should be outputed (except if onlyOneLang == true, in
+	 * which case the sole language name is never outputed)
 	 */
-	public StardictStorer(LinkedList<Word> words, String target, boolean onlyOneLang) {
+	public StardictStorer(LinkedList<Word> words, String target, boolean onlyOneLang,
+			String wiktLanguageCode, boolean outputLangNames) {
 		LinkedList<Word> kopio = null;
 		
 		this.onlyOneLang = onlyOneLang;
+		this.wiktLanguageCode = wiktLanguageCode;
+		this.outputLangNames = outputLangNames;
 		
 //		int w = 0;
 //		for (Word word : words) {
@@ -151,19 +165,11 @@ public class StardictStorer implements Storer, Runnable {
 	private void outputWord (Word word, WordLang wordLang) throws Exception {
 		StringBuilder sb = new StringBuilder();
 		boolean isMainLanguage = true;
-		//LanguageID langID = null;
 		String langID_ID = null;
 		boolean isFirstPOS = true;
 		
-		langID_ID = wordLang.getLang().getName();
-		// TODO
-//		langID = wordLang.getLangID();
-//		
-//		langID_ID = langID.getLangID();
-//		
-		// TODO Should be passed param which is main language in case there are many languages being outputed
-		final String MAIN_LANGUAGE = "English";
-		if ( ! ( langID_ID.equals(MAIN_LANGUAGE)
+		langID_ID = wordLang.getLang().getAbr();
+		if ( ! ( langID_ID.equals(wiktLanguageCode)
 			   )
 		   ) {
 			isMainLanguage = false;
@@ -201,15 +207,13 @@ public class StardictStorer implements Storer, Runnable {
 					sb.append("\\n");
 				}
 				
-				if (isMainLanguage) {
+				if (isMainLanguage || !outputLangNames) {
 					sb.append(posStr); // e.g. "v.t." or "n."
 				} else { // Output the language name in the beginning of words
 					String langStr = null;
 					
-					// TODO Could use ABR for such languages where it's well-known
-					//langStr = langID.getLangStr();
-					langStr = langID_ID;
-					
+					// TODO Could use ABR for such languages where it's well-known?
+					langStr = wordLang.getLang().getName();
 					sb.append(langStr + " " + posStr); // e.g. "Fr. v.t." or "Fr. n."
 				}
 				

@@ -16,18 +16,19 @@ set LANGCODE=ALL
 set METADATAENGLISH=true
 rem True if only languages supplied in a language file are to be processed
 set ONLYLANGUAGES=false
+set WIKTCODE=el
 
 rem Uncomment only when testing
 rem goto mainloop
 
 cd /D %SCRIPTS%
-call "ReadStripped SD Greek ALL.cmd" %EDITION% %LANG% %LANGCODE% %METADATAENGLISH% %ONLYLANGUAGES%
+call "ReadStripped SD Greek ALL.cmd" %EDITION% %LANG% %LANGCODE% %METADATAENGLISH% %ONLYLANGUAGES% %WIKTCODE%
 
 :mainloop
 cd /D %SCRIPTS%
 if not exist %CONTINFO_DIR%\continfo.txt goto ending
 for /F %%i in (%CONTINFO_DIR%\continfo.txt) do @set RESTARTATLINE=%%i
-call "ReadStripped SD Greek restart.cmd" %EDITION% %RESTARTATLINE% %LANG% %LANGCODE% %METADATAENGLISH% %ONLYLANGUAGES%
+call "ReadStripped SD Greek restart.cmd" %EDITION% %RESTARTATLINE% %LANG% %LANGCODE% %METADATAENGLISH% %ONLYLANGUAGES% %WIKTCODE%
 goto mainloop
 
 :ending

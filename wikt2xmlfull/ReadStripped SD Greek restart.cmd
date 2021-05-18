@@ -17,6 +17,7 @@ set LANGCODE=%4
 set METADATAENGLISH=%5
 rem True if only languages supplied in a language file are to be processed
 set ONLYLANGUAGES=%6
+set WIKTCODE=%7
 
 echo "EDITION: %EDITION%"
 echo "RESTARTATLINE: %RESTARTATLINE%"
@@ -24,6 +25,7 @@ echo "LANG: %LANG%"
 echo "LANGCODE: %LANGCODE%"
 echo "METADATAENGLISH: %METADATAENGLISH%"
 echo "ONLYLANGUAGES: %ONLYLANGUAGES%"
+echo "WIKTCODE: %WIKTCODE%"
 
 SET X=
 FOR /F "skip=1 delims=" %%x IN ('wmic os get localdatetime') DO IF NOT DEFINED X SET X=%%x
@@ -40,10 +42,8 @@ SET PROG="%PROGDIR%\ReadStripped.jar"
 if "%LANGCODE%" == "el" SET PROG="%JAR_DIR%\ReadStripped_%LANGCODE%.jar"
 SET JCLASS=wiktionary\to\xml\full\ReadStripped
 SET JAVA="%JAVA_HOME%\bin\java.exe"
-SET INFILE="%DICT%\%LANGCODE%wiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
-if "%LANG%" == "ALL" SET INFILE="%DICT%\elwiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
-SET OUTFILE="%OUT_DIR%\wikt-%LANG%-%LANGCODE%-%NOW%.txt"
-if "%LANG%" == "ALL" SET OUTFILE="%OUT_DIR%\wikt-el-%LANGCODE%-%NOW%.txt"
+SET INFILE="%DICT%\%WIKTCODE%wiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
+SET OUTFILE="%OUT_DIR%\wikt-%WIKTCODE%-%LANGCODE%-%NOW%.txt"
 SET UTF8=-Dfile.encoding=UTF-8
 SET MEM=-Xmx2600M
 SET STCK=-Xss400M
@@ -52,8 +52,8 @@ SET OUTTYPE=Stardict
 cd %PROGDIR%
 chcp 65001
 
-echo %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% %RESTARTATLINE% %LANGCODE% %ONLYLANGUAGES%
-%JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% %RESTARTATLINE% %LANGCODE% %ONLYLANGUAGES%
+echo %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% %RESTARTATLINE% %LANGCODE% %ONLYLANGUAGES% %WIKTCODE%
+%JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% %RESTARTATLINE% %LANGCODE% %ONLYLANGUAGES% %WIKTCODE%
 if %ERRORLEVEL% GTR 0 goto :errEnd
 echo Ready
 goto end

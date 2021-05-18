@@ -1,0 +1,91 @@
+  <page>
+    <title>car</title>
+    <id>20131</id>
+    <revision>
+      <id>4072873</id>
+      <parentid>3990381</parentid>
+      <timestamp>2019-08-26T17:01:44Z</timestamp>
+      <contributor>
+        <username>Vanished user Xorisdtbdfgonugyfs</username>
+        <id>3614</id>
+      </contributor>
+      <minor />
+      <comment>ήχος fr</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="1107" xml:space="preserve">=={{-en-}}==
+
+==={{κλίση|en}}===
+{{en-κλίσ-s}}
+
+==={{ουσιαστικό|en}}===
+{{τ|en|{{PAGENAME}}}}
+* [[αυτοκίνητο]]
+* [[ζώο]]
+
+
+----
+
+=={{-bs-}}==
+
+==={{ουσιαστικό|bs}}===
+{{τ|bs|{{PAGENAME}}}}
+* [[τσάρος]]
+
+
+----
+
+=={{-fr-}}==
+
+==={{προφορά}}===
+:{{ήχος|fr}}
+
+==={{σύνδεσμος|fr}}===
+{{τ|fr|{{PAGENAME}}}}
+* (''αιτιολογικός'') [[επειδή]], [[διότι]]
+
+==={{ουσιαστικό|fr}}===
+{{τ|fr|{{PAGENAME}}}}
+* το (υπεραστικό) [[λεωφορείο]]
+
+
+----
+
+=={{-ca-}}==
+
+==={{σύνδεσμος|ca}}===
+{{τ|ca|{{PAGENAME}}}}
+ (''αιτιολογικός'') [[επειδή]]
+
+
+----
+
+=={{-fro-}}==
+
+==={{σύνδεσμος|fro}}===
+{{τ|fro|{{PAGENAME}}}}
+# [[επειδή]], [[διότι]]
+
+===={{άλλη γραφή}}====
+* [[quar]]
+
+
+----
+
+=={{-pl-}}==
+
+==={{προφορά}}===
+{{ΔΦΑ|ʦar|γλ=pl}}
+:{{ήχος|Pl-car.ogg|Ήχος}}
+
+==={{ουσιαστικό|pl}}===
+{{τ|pl|{{PAGENAME}}}} {{α}}
+# [[τσάρος]]
+
+===={{συγγενικά}}====
+* [[carat]]
+* [[carski]]
+* [[carstwo]]
+* [[caryca]]</text>
+    </revision>
+  </page>

@@ -16,12 +16,14 @@ set LANGCODE=%3
 set METADATAENGLISH=%4
 rem True if only languages supplied in a language file are to be processed
 set ONLYLANGUAGES=%5
+set WIKTCODE=%6
 
 echo "EDITION: %EDITION%"
 echo "LANG: %LANG%"
 echo "LANGCODE: %LANGCODE%"
 echo "METADATAENGLISH: %METADATAENGLISH%"
 echo "ONLYLANGUAGES: %ONLYLANGUAGES%"
+echo "WIKTCODE: %WIKTCODE%"
 
 SET X=
 FOR /F "skip=1 delims=" %%x IN ('wmic os get localdatetime') DO IF NOT DEFINED X SET X=%%x
@@ -34,13 +36,11 @@ SET DATE.SECOND=%X:~12,2%
 SET NOW=%DATE.YEAR%-%DATE.MONTH%-%DATE.DAY%-%DATE.HOUR%-%DATE.MINUTE%-%DATE.SECOND%
 
 SET PROG="%JAR_DIR%\ReadStripped.jar"
-rem if "%LANGCODE%" == "el" SET PROG="%JAR_DIR%\ReadStripped_%LANGCODE%.jar"
+if "%LANGCODE%" == "el" SET PROG="%JAR_DIR%\ReadStripped_%LANGCODE%.jar"
 SET JCLASS=wiktionary\to\xml\full\ReadStripped
 SET JAVA="%JAVA_HOME%\bin\java.exe"
-SET INFILE="%DICT%\%LANGCODE%wiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
-if "%LANG%" == "ALL" SET INFILE="%DICT%\elwiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
-SET OUTFILE="%OUT_DIR%\wikt-%LANG%-%LANGCODE%-%NOW%.txt"
-if "%LANG%" == "ALL" SET OUTFILE="%OUT_DIR%\wikt-el-%LANGCODE%-%NOW%.txt"
+SET INFILE="%DICT%\%WIKTCODE%wiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
+SET OUTFILE="%OUT_DIR%\wikt-%WIKTCODE%-%LANGCODE%-%NOW%.txt"
 SET UTF8=-Dfile.encoding=UTF-8
 SET MEM=-Xmx2600M
 SET STCK=-Xss400M
@@ -50,8 +50,8 @@ cd %JAR_DIR%
 chcp 65001
 
 rem -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit 
-echo %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% 0 %LANGCODE% %ONLYLANGUAGES%
-%JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% 0 %LANGCODE% %ONLYLANGUAGES%
+echo %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% 0 %LANGCODE% %ONLYLANGUAGES% %WIKTCODE%
+%JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% 0 %LANGCODE% %ONLYLANGUAGES% %WIKTCODE%
 if %ERRORLEVEL% GTR 0 goto :errEnd
 echo Ready
 goto end

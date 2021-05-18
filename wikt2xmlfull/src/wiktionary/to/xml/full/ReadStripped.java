@@ -153,17 +153,24 @@ public class ReadStripped {
 	public static void main(String[] args) {
 		String inFileName = null; // = "WiktionaryTest.txt";
 		String outFileName = null; // = "WiktionaryTestOut.xml";
-		String lang = "English"; // English, "Old English" etc.
-		// Is metadata in English or another language such as Finnish
+		String lang = "English"; // English, "Old English" etc. ALL == parse all languages
 		String langCode = null; // e.g. fi for Finnish or null for ALL
-		boolean metadataInEnglish = true;
+		/* True if the name of each language should be outputed (except if onlyOneLang == true, in
+		 * which case the sole language name is never outputed) 
+		 */
+		boolean outputLangNames = true;
 		boolean onlyLanguages = true; // true if only languages supplied in a language file are to be processed
+		/*
+		 * Which language the Wikt is in. Often same than langCode, but
+		 * langCode may also be "ALL". Affects metadata output
+		 */
+		String wiktLanguageCode = null;
 		
 		long restartLine = 0;
 		
 		try {
-			if (args.length < 5 || args.length > 8) {
-				LOGGER.log(Level.SEVERE, "Wrong number of arguments, expected 6 - 8, got " + args.length);
+			if (args.length < 5 || args.length > 9) {
+				LOGGER.log(Level.SEVERE, "Wrong number of arguments, expected 6 - 9, got " + args.length);
 				if (args.length > 0) LOGGER.log(Level.SEVERE, "Arg[max] = '" + args[args.length-1] + "'");
 				System.exit(255);
 			}
@@ -189,10 +196,10 @@ public class ReadStripped {
 			}
 			LOGGER.warning("Language: " + (lang != null ? lang : "(all)") + (langCode != null ? (", code=" + langCode) : ""));
 			
-			String metadataInEnglishStr = args[3];
-			if (metadataInEnglishStr.equals("false"))
-				metadataInEnglish = false;
-			LOGGER.warning("Metadata in english: " + (metadataInEnglish ? "yes" : "no"));
+			String outputLangNamesStr = args[3];
+			if (outputLangNamesStr.equals("false"))
+				outputLangNames = false;
+			LOGGER.warning("Metadata in the Wikt language: " + (outputLangNames ? "yes" : "no"));
 
 			String outputType = args[4];
 			LOGGER.warning("Output type (str): " + outputType);
@@ -211,11 +218,15 @@ public class ReadStripped {
 				langCode = langCode.trim();
 			}
 			
-			if (args.length == 8) {
+			if (args.length >= 8) {
 				String onlyLanguagesStr = args[7];
 				if (onlyLanguagesStr.equals("false")) {
 					onlyLanguages = false;
 				}
+			}
+			
+			if (args.length == 9) {
+				wiktLanguageCode = args[8];
 			}
 			
 			// Throws error if wrong argument used
@@ -225,7 +236,8 @@ public class ReadStripped {
 			
 //			LOGGER.info("Input: " + inFileName);
 //			LOGGER.info("Output: " + outFileName);
-			LOGGER.warning("Language: " + (lang != null ? lang : "(all)") + (langCode != null ? (", code=" + langCode) : ""));
+			LOGGER.warning("Language: " + (lang != null ? lang : "(all)") + (langCode != null ? (", code=" + langCode) : "")
+					 + (wiktLanguageCode != null ? (", wiktLangCode=" + wiktLanguageCode) : ""));
 			if (onlyLanguages)
 				LOGGER.warning("Processing only entries in languages which are included in the supplied language CSV file");
 //			LOGGER.info("Output type: " + OutputType.valueOf(outputType));
@@ -234,8 +246,8 @@ public class ReadStripped {
 			
 			ReadStripped readStripped = new ReadStripped();
 		
-			readStripped.process(OutputType.valueOf(outputType), inFileName, outFileName, lang, metadataInEnglish, restartLine,
-					langCode, onlyLanguages);
+			readStripped.process(OutputType.valueOf(outputType), inFileName, outFileName, lang, outputLangNames, restartLine,
+					langCode, onlyLanguages, wiktLanguageCode);
 			
 			LOGGER.warning("***FINISHED***");
 			
@@ -254,14 +266,20 @@ public class ReadStripped {
 	 * @param inFileName
 	 * @param outFileName
 	 * @param lang Null if all langs should be parsed or code of only lang to be parsed
-	 * @param metadataInEnglish
+	 * @param outputLangNames True if the name of each language should be outputed (except if onlyOneLang == true, in
+	 * which case the sole language name is never outputed)
 	 * @param restartLine 0 if not a restart
 	 * @param langCode Which language's csv file to use for loading languages info
 	 * @param onlyLanguages Only languages supplied in a language file are to be processed
+	 * @param wiktLanguageCode Which language the Wikt is in. Often same than langCode, but
+	 * langCode may also be "ALL". Affects metadata output
+	 * @param outputLangNames True if the name of each language should be outputed (except if onlyOneLang == true, in
+	 * which case the sole language name is never outputed)
 	 * @throws Exception
 	 */
 	private void process (OutputType outputType, String inFileName, String outFileName, String lang, 
-			boolean metadataInEnglish, long restartLine, String langCode, boolean onlyLanguages) throws Exception {
+			boolean outputLangNames, long restartLine, String langCode, boolean onlyLanguages,
+			String wiktLanguageCode) throws Exception {
 		long entryNbr = 0;
 		boolean evenThousand = true; // log every thousand entries
 		boolean textSection = false; // true when have reached <text> of a new entry and are in it
@@ -275,7 +293,7 @@ public class ReadStripped {
 				new FileInputStream(inFileName), "UTF-8"))) {
         	
         	// Load languages from csv file
-        	langs = loadLanguages(langCode, metadataInEnglish, onlyLanguages);
+        	langs = loadLanguages(wiktLanguageCode, outputLangNames, onlyLanguages);
         	
         	if (langs.size() == 1)
         		onlyOneLang = true;
@@ -303,7 +321,7 @@ public class ReadStripped {
 							newLangsOut.flush();
 						}
 						
-						callStorer(outputType, outFileName, onlyOneLang);
+						callStorer(outputType, outFileName, onlyOneLang, wiktLanguageCode, outputLangNames);
 				
 						haveEverOutputed = true;
 						evenThousand = false; // otherwise prints until finds new entry
@@ -335,7 +353,7 @@ public class ReadStripped {
 							//LOGGER.info("To parse: '" + currentTitle + "'");
 							
 							if (parseEntry(outStr, currentTitle, outputType, entryNbr, lang, onlyLanguages,
-									langCode)) {
+									langCode, wiktLanguageCode)) {
 								entryNbr++;
 								evenThousand = true; // restart logging every 1000 entries
 							}
@@ -406,19 +424,19 @@ public class ReadStripped {
 				hadTextSection) { // had reached <text> section of a new term and it ended with <text>
 				
 				if (parseEntry(outStr, currentTitle, outputType, entryNbr, lang, onlyLanguages,
-						langCode)) {
+						langCode, wiktLanguageCode)) {
 					entryNbr++;
 					evenThousand = true; // restart logging every 1000 entries
 				}
 				
-				callStorer(outputType, outFileName, onlyOneLang);
+				callStorer(outputType, outFileName, onlyOneLang, wiktLanguageCode, outputLangNames);
 				
 				outStr = null;
 				entryNbr++;
 				evenThousand = true; // restart logging every 1000 entries
 			} else {
 				if (entryNbr > 0 && !haveEverOutputed) {
-					callStorer(outputType, outFileName, onlyOneLang);
+					callStorer(outputType, outFileName, onlyOneLang, wiktLanguageCode, outputLangNames);
 				}
 			}
 			
@@ -471,8 +489,12 @@ public class ReadStripped {
 	 * Store the words read so far by calling a storer
 	 * 
 	 * @param onlyOneLang True if only one language is being processed (language list has only one language)
+	 * @param wiktLanguageCode Which language the Wikt is in. Affects metadata output
+	 * @param outputLangNames True if the name of each language should be outputed (except if onlyOneLang == true, in
+	 * which case the sole language name is never outputed) 
 	 */
-	private void callStorer(OutputType outputType, String outFileName, boolean onlyOneLang) throws Exception {
+	private void callStorer(OutputType outputType, String outFileName, boolean onlyOneLang,
+			String wiktLanguageCode, boolean outputLangNames) throws Exception {
 		try {
 			LOGGER.fine("Storing " + words.size() + " entries");
 			
@@ -481,7 +503,7 @@ public class ReadStripped {
 			// At least for now this Git repository version of this project supports only Stardict output
 			case Stardict:
 				StardictStorer.flushOutput();
-				StardictStorer storer = new StardictStorer(null, outFileName, onlyOneLang);
+				StardictStorer storer = new StardictStorer(null, outFileName, onlyOneLang, wiktLanguageCode, outputLangNames);
 				storer.run(words);
 				storer = null;
 			}
@@ -500,11 +522,12 @@ public class ReadStripped {
 	 * @param onlyLang The language to process or null to process all languages
 	 * @param onlyLanguages If true, unknown languages are not added to language list i.e.
 	 * only languages that were supplied in the language specific CVS file are processed
-	 * @param langCode Used to detect whether input is the Greek Wiktionary or not
-	 * (normally used for deciding which language's csv file to use for loading languages info)
+	 * @param langCode Code of language to process
+	 * @param wiktLanguageCode Which language the Wikt is in. Often same than langCode, but
+	 * langCode may also be "ALL". Affects metadata output
 	 */
 	private boolean parseEntry(String s, String currentTitle, OutputType outputType, long entryNbr, 
-			String onlyLang, boolean onlyLanguages, String langCode) throws Exception {
+			String onlyLang, boolean onlyLanguages, String langCode, String wiktLanguageCode) throws Exception {
 		boolean foundAnyLang = false;
 		// true if lang name should be looked up by lang code, not vice versa like normally
 		boolean lookByLangCode = false;
@@ -531,6 +554,9 @@ public class ReadStripped {
 		LinkedList<String> langSects = StringUtils.splitIntoLangSections(s, langStarts);
 		
 		for (String langSect : langSects) {
+			wasFoundByCode = false;
+			lookByLangCode = false;
+			
 			String langName = null;
 			
 			/* Currently each section really starts with the language name,
@@ -598,7 +624,7 @@ public class ReadStripped {
 			
 			if (
 			     (!onlyLanguages && langName != null && !langs.contains(lookupLang)) ||
-				 (!onlyLanguages && lookByLangCode && langName != null && wasFoundByCode)
+				 (!onlyLanguages && lookByLangCode && langName != null && !wasFoundByCode)
 			   ) {
 				String msg = "Adding language: '" + langName + "', langsCount=" + (langsCount+1) +
 						" at title='" + currentTitle + "'";
@@ -658,7 +684,7 @@ public class ReadStripped {
 						// Each wordlang has 1-n etymologies (wordetym)
 						
 						Set<WordEtym> wordEtyms = parseWord(word, sLangSect, currentTitle, outputType, wordLang,
-								langCode);
+								wiktLanguageCode);
 						if (wordEtyms != null) {
 							wordLang.setWordEtyms( wordEtyms );
 							
@@ -713,12 +739,12 @@ public class ReadStripped {
 	 * @param currentTitle
 	 * @param outputType
 	 * @param wordLang Just a link back
-	 * @param langCode Used to detect whether input is the Greek Wiktionary or not
-	 * (normally used for deciding which language's csv file to use for loading languages info)
+	 * @param wiktLanguageCode Which language the Wikt is in. Often same than langCode, but
+	 * langCode may also be "ALL". Affects metadata output
 	 * @return
 	 */
 	private Set<WordEtym> parseWord(Word word, String sLangSect, String currentTitle, OutputType outputType,
-		WordLang wordLang, String langCode) throws Exception {
+		WordLang wordLang, String wiktLanguageCode) throws Exception {
 
 		/* Parse etymologies first. E.g.:
 		 * 
@@ -761,7 +787,7 @@ public class ReadStripped {
 			LOGGER.fine("Greek etymology entry detected");
 		} else {
 			etymsArr = sLangSect.split("===Etymology[ 0-9]*===");
-			LOGGER.fine("*** LANG == '"+langCode+"'***");
+			LOGGER.fine("*** wiktLanguageCode == '"+wiktLanguageCode+"'***");
 		}
 		LOGGER.fine("Etymologies: " + etymsArr.length);
 		int etymNbr = 0;
@@ -2659,13 +2685,13 @@ public class ReadStripped {
 	
 	/**
 	 * 
-	 * @param langCode
-	 * @param metadataInEnglish
+	 * @param wiktLanguageCode Which language the Wikt is in. Affects metadata output
+	 * @param outputLangNames
 	 * @param onlyLanguages Only languages supplied in a language file are to be processed
 	 * @return
 	 * @throws IOException
 	 */
-	private Set<Lang> loadLanguages(String langCode, boolean metadataInEnglish, boolean
+	private Set<Lang> loadLanguages(String wiktLanguageCode, boolean outputLangNames, boolean
 			onlyLanguages) throws IOException {
 		String inFileName = "language codes.csv";
 		
@@ -2674,11 +2700,11 @@ public class ReadStripped {
 		 *   Also see https://no.wiktionary.org/wiki/Bahamas,
 		 *   https://no.wiktionary.org/wiki/India
 		 */
-		if (langCode != null && (!metadataInEnglish || onlyLanguages))  {
-			inFileName = (langCode + "-") + inFileName; // e.g. "fi-language codes.csv"; 
+		if (wiktLanguageCode != null && (!outputLangNames || onlyLanguages))  {
+			inFileName = (wiktLanguageCode + "-") + inFileName; // e.g. "fi-language codes.csv"; 
 		}
 		
-		LOGGER.info("Reading languages file for " + (langCode == null ? "English" : langCode) + " from '" +
+		LOGGER.info("Reading languages file for " + (wiktLanguageCode == null ? "English" : wiktLanguageCode) + " from '" +
 		 inFileName + "'");
 		
 		ClassLoader cl = ReadStripped.class.getClassLoader();
