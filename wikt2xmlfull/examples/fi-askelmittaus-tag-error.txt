@@ -1,0 +1,22 @@
+  <page>
+    <title>askelmittaus</title>
+    <ns>0</ns>
+    <id>566373</id>
+    <revision>
+      <id>4189920</id>
+      <parentid>4189919</parentid>
+      <timestamp>2021-04-26T14:11:17Z</timestamp>
+      <contributor>
+        <ip>91.156.24.9</ip>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="141" xml:space="preserve">==Suomi==
+===Subsatntiivi===
+{{substantiivi|fi}}
+# [[askel|askelin]] tehtävä [[mittaus]]
+
+[[Luokka:Suomen kielen mittaustekniikan sanasto]]</text>
+      <sha1>14waf1i5v0gx1gujc1hbeb3gx4fmt1a</sha1>
+    </revision>
+  </page>

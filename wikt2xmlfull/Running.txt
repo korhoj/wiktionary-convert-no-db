@@ -30,33 +30,44 @@ Stripping the English Wiktionary takes long even on a fast computer. Takes curre
 (2016-11) about 20 mins. Stripping the English entries is slower at first than after about
 150 000 entries. There are currently about 4 960 000 entries!
 
-Running ReadStripped for large Wiktionaries such as the English one is clumsy at the moment. To produce
-StarDict files as output, it uses three script files (SD = StarDict):
- 1) ReadStripped SD ALL runall.cmd
- 2) ReadStripped SD ALL.cmd
- 3) ReadStripped SD ALL restart.cmd
-The first script calls the two others as many times as required in a loop.
+Running the ReadStripped program uses a language specific script which calls a
+general script common to all languages. (SD in the script names == StarDict)
+E.g.:
 
-The MEM and/or STCK variables in ReadStripped SD ALL.cmd script file have been set as
+1) ReadStripped SD en-ALL.cmd
+  Process the English Wiktionary, all languages
+2) ReadStripped SD en-en.cmd
+  Process the English Wiktionary, English only
+-->
+3) ReadStripped SD ALL.cmd
+
+The MEM and/or STCK variables in the ReadStripped SD ALL.cmd script file have been set as
 -Xmx2600M and -Xss400M which should suffice for one pass. The reason for restarts is indeed
 that not so much memory is required. Each restart continues processing where the previous
 run left off.
 
 Change EDITION to match with the Wiktionary edition you have downloaded in both
-ReadStripped SD ALL runall.cmd and ReadStripped SD ALL.cmd.
+ReadStripped SD en-ALL.cmd and run it.
 
 B. COMPILING A WIKTIONARY OF ANOTHER LANGUAGE
 
-There is a sample script file for each supported language. They really only differ in having
-a different LANG variable set. I use the Finnish Wiktionary as an example.
+There is one or two sample script files for each supported language. They really only differ in having
+different language specific variables set. I use the Finnish Wiktionary as an example.
 
 Change EDITION to match with the Wiktionary edition you have downloaded in
 StripNamespaces fiwiktionary.cmd.
 
 Run StripNamespaces fiwiktionary.cmd. It doesn't take many minutes on a fast computer.
 
-Change EDITION to match with the Wiktionary edition you have downloaded in 
-ReadStripped SD fiwiktionary.cmd and run it.
+Change EDITION to match with the Wiktionary edition you have downloaded, in either
+
+1) ReadStripped SD fi-ALL.cmd
+  Process the Finnish Wiktionary, all languages
+or
+2) ReadStripped SD fi-fi.cmd
+  Process the Finnish Wiktionary, Finnish only
+
+Then run the script you changed.
 
 C. UPDATING SUPPORTED LANGUAGES DURING ReadStripped RUNS
 
@@ -85,14 +96,14 @@ You need to have dos2unix installed. If not:
 
 sudo apt install dos2unix
 
-Copy conv2unix.sh and sort-ALL.sh to Linux. I do it using the shared folders feature of VMware Workstation.
+Copy conv2unix-en-ALL.sh and sort-en-ALL.sh to Linux. I do it using the shared folders feature of VMware Workstation.
 
-By default, conv2unix.sh processes wikt-en-ALL-yyyy-mm-dd, where yyyy-mm-dd is
+By default, conv2unix-en-ALL.sh processes wikt-en-ALL-yyyy-mm-dd, where yyyy-mm-dd is
 the current date. Change this if necessary by editing with e.g. vi.
 
-Run conv2unix.sh. The script produces wikt-en-ALL-unsorted.txt which needs to be sorted.
+Run conv2unix-en-ALL.sh. The script produces wikt-en-ALL-unsorted.txt which needs to be sorted.
 
-Run sort-ALL.sh. It produces wikt-en-ALL-yyyy-mm-dd.txt.
+Run sort-en-ALL.sh. It produces wikt-en-ALL-yyyy-mm-dd.txt.
 
 E. PARSING THE ENTRIES AND CREATING STARDICT FILES
 
@@ -187,9 +198,9 @@ Install dictd and dictfmt if they are not installed:
 
 sudo apt install dictd dictfmt
 
-Run conv2unix.sh. The script produces wikt-en-ALL-unsorted.txt which needs to be sorted.
+Run conv2unix-en-ALL.sh. The script produces wikt-en-ALL-unsorted.txt which needs to be sorted.
 
-Run	join-dupls-dictfmt.cmd in Windows
+Run	join-dupls-dictfmt-en-ALL.cmd in Windows
   Produces wikt-en-ALL-dictfmt-dupls-joined.txt. Uses JoinDefinitions.jar
   
     toformat.txt - an example in F.O.L.D.O.C. format
@@ -202,9 +213,10 @@ cp pd-header.txt wikt-en-ALL-yyyy-mm-dd-dict.txt
 cat wikt-en-ALL-dictfmt-dupls-joined.txt | tee -a wikt-en-ALL-yyyy-mm-dd-dict.txt > /dev/null
 
 N.b. the next step overwrites any .dz file created in step E, e.g. wikt-en-ALL-yyyy-mm-dd.dict.dz
-Run dictfmt which creates .dict and .index for dictd by running one of the dictfmt scripts:
+Run dictfmt which creates .dict and .index for dictd by running one of the dictfmt scripts, e.g.:
 
 dictfmt-en-ALL.sh
+dictfmt-en-eb.sh
 dictfmt-Western.sh
 dictfmt-Western_Greek_Slavonic.sh
 dictfmt-sq-ALL.sh

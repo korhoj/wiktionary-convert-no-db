@@ -214,7 +214,8 @@ public class StardictStorer implements Storer, Runnable {
 					
 					// TODO Could use ABR for such languages where it's well-known?
 					langStr = wordLang.getLang().getName();
-					sb.append(langStr + " " + posStr); // e.g. "Fr. v.t." or "Fr. n."
+					//sb.append("<i>" + langStr + "</i> " + posStr); // e.g. "<i>French</i> v.t." or "<i>French</i> n."
+					sb.append(langStr + " " + posStr); // e.g. "French v.t." or "French n."
 				}
 				
 				int senseNbr = 0;

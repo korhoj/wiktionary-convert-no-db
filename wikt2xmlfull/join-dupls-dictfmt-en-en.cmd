@@ -1,13 +1,13 @@
 @echo off
-rem Process English  language entries only of English Wiktionary
-rem Joel Korhonen 2016-11-07
-set JAVA_HOME=C:\Program Files\Java\jdk1.8.0_181
+rem Joel Korhonen 2022-05-22
+SET JAVA_HOME=C:\Usr\openjdk-16_windows-x64_bin\jdk-16
 SET JAVA="%JAVA_HOME%\bin\java.exe"
-SET PROGDIR=%WIKT%
-SET PROG=%WIKT%\JoinDefinitions.jar
+SET JAR_DIR=G:\Dropbox\Dictionary\wikt
+SET WIKT=C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
+SET PROG=%JAR_DIR%\JoinDefinitions.jar
 SET JCLASS=wiktionary\to\xml\full\JoinDefinitions
 SET UTF8=-Dfile.encoding=UTF8
-SET INFILE=F:\Users\Joel\OwnStarDict-ready\wikt-en-en-2018-10-03.txt
+SET INFILE=F:\Users\Joel\OwnStarDict-ready\wikt-en-en-2021-05-22.txt
 SET OUTFILE=F:\Users\Joel\OwnStarDict-ready\wikt-en-en-dictfmt-dupls-joined.txt
 %JAVA% %UTF8% -jar %PROG% %INFILE% %OUTFILE%
 pause

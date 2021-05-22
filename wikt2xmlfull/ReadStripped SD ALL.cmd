@@ -1,12 +1,5 @@
 @echo off
-rem Joel Korhonen 2012-Jul-31
-rem 2012-Sep-29 Use sysvar in paths
-rem 2013-Nov-27 Add EDITION and STCK 
-rem 2013-Dec-10 LANGID not relayed to program
-rem 2014-08-09 Java 8
-rem 2018-09-14 Java 8 u 181
-rem 2019-11-09 Java 8 u 231
-rem set JAVA_HOME=C:\PROGRA~1\Java\jdk1.8.0_231
+rem Joel Korhonen 2021-May-22
 set DICT=F:\Temp\wiktionary-dumps
 set JAR_DIR=G:\Dropbox\Dictionary\wikt
 set JAVA_HOME=C:\Usr\openjdk-16_windows-x64_bin\jdk-16
@@ -17,17 +10,21 @@ if "%1"=="" goto errEnd
 
 rem Pass as param the EDITION of the Wiktionary edition you have downloaded
 set EDITION=%1
-set LANG=%2
-set LANGCODE=%3
-set METADATAENGLISH=%4
-rem Only languages supplied in a language file are to be processed
-set ONLYLANGUAGES=%5
+set RESTARTATLINE=%2
+set LANG=%3
+set LANGCODE=%4
+set OUTPUTLANGNAMES=%5
+rem True if only languages supplied in a language file are to be processed
+set ONLYLANGUAGES=%6
+set WIKTCODE=%7
 
 echo "EDITION: %EDITION%"
+echo "RESTARTATLINE: %RESTARTATLINE%"
 echo "LANG: %LANG%"
 echo "LANGCODE: %LANGCODE%"
-echo "METADATAENGLISH: %METADATAENGLISH%"
+echo "OUTPUTLANGNAMES: %OUTPUTLANGNAMES%"
 echo "ONLYLANGUAGES: %ONLYLANGUAGES%"
+echo "WIKTCODE: %WIKTCODE%"
 
 SET X=
 FOR /F "skip=1 delims=" %%x IN ('wmic os get localdatetime') DO IF NOT DEFINED X SET X=%%x
@@ -40,14 +37,10 @@ SET DATE.SECOND=%X:~12,2%
 SET NOW=%DATE.YEAR%-%DATE.MONTH%-%DATE.DAY%-%DATE.HOUR%-%DATE.MINUTE%-%DATE.SECOND%
 
 SET PROG="%JAR_DIR%\ReadStripped.jar"
-rem SET PROG="%JAR_DIR%\ReadStripped.20161113.jar"
-if "%LANGCODE%" == "Western" SET PROG="%PROGDIR%\ReadStripped_%LANGCODE%.jar"
 SET JCLASS=wiktionary\to\xml\full\ReadStripped
 SET JAVA="%JAVA_HOME%\bin\java.exe"
-SET INFILE="%DICT%\%LANGCODE%wiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
-if "%LANG%" == "ALL" SET INFILE="%DICT%\enwiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
-SET OUTFILE="%OUT_DIR%\wikt-%LANG%-%LANGCODE%-%NOW%.txt"
-if "%LANG%" == "ALL" SET OUTFILE="%OUT_DIR%\wikt-en-%LANGCODE%-%NOW%.txt"
+SET INFILE="%DICT%\%WIKTCODE%wiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
+SET OUTFILE="%OUT_DIR%\wikt-%WIKTCODE%-%LANG%-%NOW%.txt"
 SET UTF8=-Dfile.encoding=UTF-8
 SET MEM=-Xmx2600M
 SET STCK=-Xss400M
@@ -57,9 +50,9 @@ cd %JAR_DIR%
 chcp 65001
 
 rem -XX:+UseConcMarkSweepGC -XX:-UseGCOverheadLimit 
-echo %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% 0 %LANGCODE% %ONLYLANGUAGES%
-%JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %METADATAENGLISH% %OUTTYPE% 0 %LANGCODE% %ONLYLANGUAGES%
-if %ERRORLEVEL% GTR 0 goto :virhe
+echo %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %OUTPUTLANGNAMES% %OUTTYPE% %RESTARTATLINE% %LANGCODE% %ONLYLANGUAGES% %WIKTCODE%
+%JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% %LANG% %OUTPUTLANGNAMES% %OUTTYPE% %RESTARTATLINE% %LANGCODE% %ONLYLANGUAGES% %WIKTCODE%
+if %ERRORLEVEL% GTR 0 goto :errEnd
 echo Ready
 goto end
 

@@ -1,3 +1,498 @@
 For Swedish, there is at least this list of language tags in Swedish:
 
 https://sv.wiktionary.org/wiki/Wiktionary:Stilguide/Spr%C3%A5knamn
+
+The "Språknamn och språkkoder" table's source code at 20210522 16:58 UTC+3 was:
+
+https://sv.wiktionary.org/w/index.php?title=Wiktionary:Stilguide/Spr%C3%A5knamn&action=edit&section=1
+
+==Språknamn och språkkoder==
+{{topp|språk: <nowiki>{{språkkod}}</nowiki><sup>(källa för språkkoden)</sup>}}
+{{kolumner|3}}
+{{språk|okänt språk|xx|inget språk, ingen riktig språkkod}}
+{{språk|tvärspråkligt|--|inget språk, ingen riktig språkkod}}
+----
+{{språk|abazinska|abq|ISO 639-3}}
+{{språk|abchaziska|ab|Wiktionary}}
+{{språk|abenakiska|abe|ISO 639-3}}
+{{språk|acehnesiska|ace|Wikimedia}}
+{{språk|adygeiska|ady|ISO 639-3}}
+{{språk|afar|aa|Wiktionary}}
+{{språk|afrikaans|af|Wiktionary}}
+*[[aino]]: använd ''ainu''
+{{språk|ainu|ain|ISO 639-3}}
+{{språk|akan|ak|Wiktionary}}
+{{språk|akkadiska|akk|ISO 639-3}}
+{{språk|akkalasamiska|sia|ISO 639-3}}
+{{språk|albanska|sq|Wiktionary}}
+{{språk|alemanniska|als|Wiktionary}}
+{{språk|aleutiska|ale|ISO 639-3}}
+{{språk|altaiska|tut|ISO 639-2}}
+{{språk|amhariska|am|Wiktionary}}
+{{språk|anglo-normandiska|xno|ISO 639-3}}
+*[[anglonormandiska]]: använd ''anglo-normandiska''
+*[[anglosachsiska]]: använd ''fornengelska''
+*[[anglosaxiska]]: använd ''fornengelska''
+{{språk|arabiska|ar|Wiktionary}}
+{{språk|aragonska|an|Wiktionary}}
+{{språk|arameiska|arc|Wikimedia}}
+*[[arjeplogssamiska]]: använd ''pitesamiska''
+{{språk|armeniska|hy|Wiktionary}}
+{{språk|arumänska|roa-rup|Wiktionary}}
+{{språk|assamesiska|as|Wiktionary}}
+{{språk|asturiska|ast|Wiktionary}}
+*[[atjehnesiska]]: använd ''acehnesiska''
+{{språk|avariska|av|Wiktionary}}
+{{språk|avestiska|ave|ISO 639-3}}
+{{språk|aymara|ay|Wiktionary}}
+{{språk|azerbajdzjanska|az|Wiktionary}}
+*[[azeri]]: använd ''azerbajdzjanska''
+*[[azeriska]]: använd ''azerbajdzjanska''
+{{språk|balinesiska|ban|ISO 639-3}}
+{{språk|baluchiska|bal|ISO 639-2}}
+{{språk|bambara|bm|Wiktionary}}
+{{språk|banjaresiska|bjn|ISO 639-3}}
+{{språk|basjkiriska|ba|Wiktionary}}
+{{språk|baskiska|eu|Wiktionary}}
+{{språk|bats|bbl|ISO 639-3}}
+{{språk|bayerska|bar|ISO 639-3}}
+{{språk|bemba|bem|ISO 639-3}}
+{{språk|bengali|bn|Wiktionary}}
+{{språk|berberspråk|ber|ISO 639-2}} {{?|Berber eller berberspråk? se [[Malldiskussion:ber]] och [[Malldiskussion:oj]]}}
+{{språk|bidjara|bym|ISO 639-3}}
+{{språk|bihari|bh|Wiktionary}}
+{{språk|bikol|bcl|Wikimedia}}
+{{språk|bishnupriya manipuri|bpy|Wikimedia}}
+{{språk|bislama|bi|Wiktionary}}
+{{språk|bokmål|no|Wiktionary}} {{?|Fortfarande en hel del översättningar kvar att fixa där bokmål hanteras som dialekt istället för som eget huvudspråk}}
+{{språk|bosniska|bs|Wiktionary}}
+{{språk|bottniska|gmq-bot|ISO 639-5 / konstruerad}}
+*[[brasilianska]]: använd ''portugisiska''
+{{språk|bretonska|br|Wiktionary}}
+{{språk|buginesiska|bug|Wikimedia}}
+{{språk|bulgariska|bg|Wiktionary}}
+{{språk|burjatiska|bxr|Wikimedia}}
+{{språk|burmesiska|my|Wiktionary}}
+*[[caló]]: använd ''iberisk romani''
+{{språk|cebuano|ceb|Wikimedia}}
+{{språk|centralnahuatl|nhn|ISO 639-3}}‎
+{{språk|chavacano|cbk|ISO 639-3}}
+{{språk|chamorro|ch|Wiktionary}}
+{{språk|chantiska|kca|ISO 639-3}}
+*[[cherokee]]: använd ''cherokesiska''
+{{språk|cherokesiska|chr|Wiktionary}}
+{{språk|cheyenne|chy|Wikimedia}}
+{{språk|chichewa|ny|Wikimedia}}
+{{språk|chinook jargon|chn|ISO 639-3}}
+{{språk|chuukesiska|chk|ISO 639-3}}
+{{språk|cia-cia|cia|ISO 639-3}}
+{{språk|cora|crn|ISO 639-3}}
+{{språk|cree|cr|Wiktionary}}
+{{språk|dairi batak|btd|ISO 639-3}}
+{{språk|danska|da|Wiktionary}}
+{{språk|dari|prs|ISO 639-3}}
+{{språk|demotiska|egy-dem|ISO 639-2 / konstruerad}}
+{{språk|dinka|din|ISO 639-3}}
+{{språk|divehi|dv|Wikimedia}}
+{{språk|dzongkha|dz|Wiktionary}}
+{{språk|enaresamiska|smn|ISO 639-3}}
+{{språk|engelska|en|Wiktionary}}
+{{språk|egyptiska|egy|ISO 639-3}}
+{{språk|erzya|myv|Wikimedia}}
+{{språk|esperanto|eo|Wiktionary}}
+{{språk|estniska|et|Wiktionary}}
+{{språk|etruskiska|ett|ISO 639-3}}
+{{språk|extremaduriska|ext|Wikimedia}}
+{{språk|ewe|ee|ISO 639-3}}
+*[[farsi]]: använd ''persiska''
+{{språk|feniciska|phn|ISO 639-3}}
+{{språk|fiji|fj|Wiktionary}}
+*[[fijianska]]: använd ''fiji''
+{{språk|fijiansk hindi|hif|Wikimedia}}
+{{språk|filipino|fil|ISO 639-3}}
+{{språk|finska|fi|Wiktionary}}
+{{språk|finsk romani|rmf|ISO 639-3}}
+{{språk|forndanska|gmq-fda|ISO 639-5 / konstruerad}}
+{{språk|fornengelska|ang|Wiktionary}}
+{{språk|fornfrankiska|frk|ISO 639-3}}
+{{språk|fornfranska|fro|ISO 639-3}}
+{{språk|fornfrisiska|ofs|ISO 639-3}}
+{{språk|forngeorgiska|oge|ISO 639-3}}
+{{språk|fornhögtyska|goh|ISO 639-3}}
+*[[fornlågtyska]]: använd ''[[fornsaxiska]]''
+*[[fornnederländska]]: använd ''fornlågfrankiska''
+{{språk|forniriska|sga|ISO 639-3}}
+*[[fornisländska]]: använd ''fornnordiska''
+{{språk|fornkymriska|owl|ISO 639-3}}
+{{språk|fornkyrkoslaviska|cu|Wikipedia}}
+{{språk|fornlågfrankiska|odt|ISO 639-3}}
+{{språk|fornnordiska|non|ISO 639-2}}
+{{språk|fornoccitanska|pro|ISO 639-3}}
+{{språk|fornpersiska|peo|ISO 639-3}}
+{{språk|fornportugisiska|roa-fpt|ISO 639-5 / konstruerad}}
+*[[fornpreussiska]]: använd ''preussiska''
+{{språk|fornsaxiska|osx|ISO 639-3}}
+{{språk|fornspanska|osp|ISO 639-3}}
+{{språk|fornsvenska|gmq-fsv|ISO 639-5 / konstruerad}}
+{{språk|fornturkiska|otk|ISO 639-3}}
+{{språk|fornöstslaviska|orv|ISO 639-3}}
+{{språk|frankoprovensalska|frp|Wikimedia}}
+{{språk|franska|fr|Wiktionary}}
+{{språk|frisiska|fy|Wiktionary}}
+{{språk|friuliska|fur|ISO 639-3}}
+{{språk|futuniska|fud|ISO 639-3}}
+{{språk|färöiska|fo|Wiktionary}}
+{{språk|gagauziska|gag|ISO 639-3}}
+{{språk|galiciska|gl|Wiktionary}}
+{{språk|georgiska|ka|Wiktionary}}
+{{språk|gotiska|got|Wikimedia}}
+{{språk|grekiska|el|Wiktionary}}
+{{språk|groningska|gos|ISO 639-3}}
+{{språk|grönländska|kl|Wiktionary}}
+{{språk|guanche|gnc|ISO 639-3}}
+{{språk|guaraní|gn|Wiktionary}}
+{{språk|guerreronahuatl|ngu|ISO 639-3}}
+{{språk|gujarati|gu|Wiktionary}}
+{{språk|gusii|guz|ISO 639-3}} {{?|Behöver verifieras}}
+*[[haitiska]]: använd ''haitisk kreol''
+{{språk|haitisk kreol|ht|Wikimedia}}
+{{språk|hakka|hak|Wikimedia}}
+{{språk|hausa|ha|Wiktionary}}
+*[[hawaiianska]]: använd ''hawaiiska''
+{{språk|hawaiiska|haw|Wikimedia}}
+{{språk|hebreiska|he|Wiktionary}}
+{{språk|hettitiska|hit|ISO 639-3}}
+{{språk|hiligaynon|hil|ISO 639-2}}
+{{språk|hindi|hi|Wiktionary}}
+{{språk|hindko|hnd|ISO 639-3}}
+{{språk|hmong daw|mww|ISO 639-3}}
+*[[holländska]]: använd ''nederländska''
+{{språk|hurritiska|xhu|ISO 639-3}}
+{{språk|högsorbiska|hsb|Wiktionary}}
+{{språk|iberisk romani|rmq|ISO 639-3}}
+*[[ibo]]: använd ''igbo''
+{{språk|ido|io|Wiktionary}}
+{{språk|igbo|ig|Wikimedia}}
+{{språk|ilokano|ilo|Wikimedia}}
+{{språk|indonesiska|id|Wiktionary}}
+{{språk|interlingua|ia|Wiktionary}}
+{{språk|interlingue|ie|Wiktionary}}
+{{språk|inuktitut|iu|Wiktionary}}
+{{språk|iñupiaq|ik|Wiktionary}}
+{{språk|iriska|ga|Wiktionary}}
+*[[irländska]]: använd ''iriska''
+{{språk|isländska|is|Wiktionary}}
+{{språk|istriotiska|ist|ISO 639-3}}
+{{språk|italienska|it|Wiktionary}}
+{{språk|jakutiska|sah|ISO 639-3}}
+{{språk|japanska|ja|Wiktionary}}
+{{språk|javanesiska|jv|Wiktionary}}
+{{språk|jiddisch|yi|Wiktionary}}
+{{språk|kabardinska|kbd|ISO 639-3}}
+{{språk|kabyliska|kab|ISO 639-3}}
+*[[kalaallisut]]: använd ''grönländska''
+*[[kalé]]: använd ''finsk romani''
+{{språk|kalmuckiska|xal|Wikimedia}}
+*[[kalo]]: använd ''finsk romani''
+{{språk|kamba|kam|ISO 639-3}}
+{{språk|kammu|xmu|ISO 639-3}}
+{{språk|kanjobal|kjb|ISO 639-3}}
+{{språk|kannada|kn|Wiktionary}}
+{{språk|kantonesiska|yue|Wikimedia}}
+{{språk|kanuri|kr|Wikimedia}}
+{{språk|kapampangan|pam|Wikimedia}}
+{{språk|kapiz|cps|ISO 639-3}} {{?|Behöver verifieras}}
+{{språk|karakalpakiska|kaa|ISO 639-3}}
+{{språk|karatjajbalkariska|krc|Wikimedia}}
+{{språk|karelska|krl|ISO 639-3}}
+{{språk|kashmiri|ks|Wiktionary}}
+{{språk|kasjubiska|csb|Wiktionary}}
+{{språk|katalanska|ca|Wiktionary}}
+*[[kazakh]]: använd ''kazakiska''
+{{språk|kazakiska|kk|Wiktionary}}
+*[[khakas]]: använd ''khakasiska''
+{{språk|khakasiska|kjh|ISO 639-3}}
+{{språk|khmer|km|Wiktionary}}
+{{språk|kikongo|kg|Wikimedia}}
+{{språk|kikuyu|ki|Wikimedia}}
+{{språk|kildinsamiska|sjd|ISO 639-3}}
+{{språk|kinesiska|zh|Wiktionary}}
+{{språk|kirgiziska|ky|Wiktionary}}
+{{språk|kirundi|rn|Wiktionary}}
+{{språk|klassisk grekiska|grc|ISO 639-3}}
+{{språk|klassisk nahuatl|nci|ISO 639-3}}
+{{språk|klassisk syriska|syc|ISO 639-3}}
+*[[klingon]]: använd ''klingonska''
+{{språk|klingonska|tlh|ISO 639-3}}
+{{språk|komi|kpv|ISO 639-3}}
+*[[komi-syrjänska]]: använd ''komi''
+{{språk|koptiska|cop|ISO 639-3}}
+{{språk|koreanska|ko|Wiktionary}}
+{{språk|korjakiska|ckt|ISO 639-3}}
+{{språk|korniska|kw|Wiktionary}}
+{{språk|korsikanska|co|Wiktionary}}
+{{språk|krimtatariska|crh|Wikimedia}}
+{{språk|krimtjakiska|jct|ISO 639-3}}
+{{språk|kroatiska|hr|Wiktionary}}
+{{språk|kumyk|kum|ISO 639-3}}
+{{språk|kurdiska|ku|Wiktionary}} {{?|kurdiska eller syd-/nordkurdiska är frågan, se diskussion}}
+{{språk|kvänska|fkv|ISO 639-3}}
+{{språk|kymriska|cy|Wiktionary}}
+{{språk|ladino|lad|Wikimedia}}
+{{språk|ladinska|lld|ISO 639-3}}
+{{språk|lak|lbe|ISO 639-3}}
+{{språk|lakandonska|lac|ISO 639-3}}
+{{språk|lakota|lkt|ISO 639-3}}
+{{språk|lao|lo|Wiktionary}}
+*[[laotiska]]: använd ''lao''
+{{språk|latin|la|Wiktionary}}
+{{språk|laziska|lzz|ISO 639-3}}
+{{språk|lettgalliska|ltg|ISO 639-3}}
+{{språk|lettiska|lv|Wiktionary}}
+*[[letzeburgiska]]: använd ''luxemburgiska''
+{{språk|lezginska|lez|ISO 639-3}}
+{{språk|liguriska|lij|Wikimedia}}
+{{språk|limburgiska|li|Wiktionary}}
+{{språk|lingala|ln|Wiktionary}}
+{{språk|litauiska|lt|Wiktionary}}
+{{språk|liviska|liv|ISO 639-3}}
+{{språk|livvi|olo|ISO 639-3}}
+{{språk|lojban|jbo|Wiktionary}}
+{{språk|lombardiska|lmo|Wikimedia}}
+{{språk|luganda|lg|Wikimedia}}
+{{språk|lulesamiska|smj|ISO 639-3}}
+{{språk|luxemburgiska|lb|Wiktionary}}
+{{språk|luhya|luy|ISO 639-3}}
+*[[låglitauiska]]: använd ''žemaitiska''
+{{språk|lågskotska|sco|Wikimedia}} {{?|Diskuteras fortfarande på [[Malldiskussion:sco]]}}
+{{språk|lågsorbiska|dsb|Wikimedia}}
+{{språk|lågtyska|nds|Wiktionary}}
+{{språk|maa|mas|ISO 639-3}}
+{{språk|maduresiska|mad|ISO 639-3}}
+{{språk|maithili|mai|Wikimedia}}
+{{språk|makassariska|mak|ISO 639-3}}
+{{språk|makedonska|mk|Wiktionary}}
+*[[makedoniska]]: använd ''makedonska''
+{{språk|malagassiska|mg|Wiktionary}}
+{{språk|malajiska|ms|Wiktionary}}
+{{språk|malayalam|ml|Wiktionary}}
+*[[maldiviska]]: använd ''divehi''
+{{språk|maltesiska|mt|Wiktionary}}
+{{språk|manchu|mnc|ISO 639-3}}
+*[[mandarin]]: använd ''kinesiska'' {{?|Detta borde nog diskuteras.}}
+{{språk|mansiska|mns|ISO 639-3}}
+{{språk|manx|gv|Wiktionary}}
+{{språk|maori|mi|Wiktionary}}
+{{språk|mapudungun|arn|Wikimedia}}
+{{språk|mara|mrh|ISO 639-3}} {{?|Behöver verifieras}}
+{{språk|marathi|mr|Wiktionary}}
+{{språk|marshallesiska|mh|Wiktionary}}
+*massaj: använd ''maa''
+{{språk|medelengelska|enm|ISO 639-3}}
+{{språk|medelfranska|frm|ISO 639-3}}
+{{språk|medelhögtyska|gmh|ISO 639-3}}
+{{språk|medellågtyska|gml|ISO 639-3}}
+{{språk|medelnederländska|dum|ISO 639-3}}
+{{språk|medelpersiska|pal|ISO 639-3}}
+{{språk|meänkieli|fit|ISO 639-3}}
+{{språk|minangkabau|min|Wikimedia}}
+{{språk|min nan|zh-min-nan|Wiktionary}}
+{{språk|mirandesiska|mwl|ISO 639-3}}
+{{språk|miskito|miq|ISO 639-3}}
+{{språk|moksja|mdf|ISO 639-3}}
+{{språk|moldaviska|mo|Wiktionary}}
+{{språk|mongoliska|mn|Wiktionary}}
+*mòoré: använd ''mossi''
+{{språk|mossi|mos|ISO 639-3}}
+{{språk|mykensk grekiska|gmy|ISO 639-3}}
+{{språk|nahuatl|nah|Wiktionary}}
+{{språk|norfuk|pih|ISO 639-3}}
+{{språk|nauruanska|na|Wiktionary}}
+{{språk|navajo|nv|Wikimedia}}
+{{språk|ndonga|ng|Wikimedia}}
+{{språk|neapolitanska|nap|Wikimedia}}
+{{språk|nederländska|nl|Wiktionary}}
+*[[nepalesiska]]: använd ''nepali''
+{{språk|nepali|ne|Wiktionary}}
+{{språk|ngaju dayak|nij|ISO 639-3}} {{?|Behöver verifieras}}
+*[[nordkoreanska]]: använd ''koreanska''
+{{språk|nordfrisiska|frr|ISO 639-3}}
+{{språk|nordkurdiska|kmr|ISO 639-3}}
+{{språk|nordndebele|nd|ISO 639-1}}
+{{språk|nordsamiska|se|Wikimedia}}
+{{språk|normandiska|nrm|Wiktionary}}
+{{språk|norn|nrn|ISO 639-3}}
+*[[norska]]: använd ''bokmål'' eller ''nynorska''
+{{språk|novial|nov|Wikimedia}}
+*[[nubiska]] {{?|språkgrupp, ej språk}}
+{{språk|nynorska|nn|Wiktionary}}
+{{språk|nyöstsyriska|aii|ISO 639-3}}
+{{språk|occitanska|oc|Wiktionary}}
+{{språk|ojibwe|oj|ISO 639-1}} {{?|ojibwe eller ojibwa eller ojibwaspråk? Se [[Malldiskussion:oj]] och [[Malldiskussion:ber]]}}
+{{språk|okinawianska|ryu|ISO 639-3}}
+{{språk|oriya|or|Wiktionary}}
+{{språk|oromo|om|Wiktionary}}
+{{språk|osmanska|ota|ISO 639-3}}
+{{språk|ossetiska|os|Wikimedia}}
+{{språk|palauiska|pau|ISO 639-3}}
+{{språk|pali|pi|Wiktionary}}
+{{språk|pangasinan|pag|ISO 639-3}}
+{{språk|papiamento|pap|Wikimedia}}
+{{språk|pashto|ps|Wiktionary}}
+{{språk|patwa|jam|ISO 639-3 (och [[incubator:Wp/jam|Wikimedia]]?)}}
+{{språk|pennsylvaniatyska|pdc|SIL}}
+{{språk|persiska|fa|Wiktionary}}
+{{språk|piedmontesiska|pms|Wikimedia}}
+{{språk|pikardiska|pcd|Wikimedia}}
+*[[pilipino]]: använd ''filipino''
+{{språk|pitesamiska|sje|ISO 639-3}}
+{{språk|pitjantjatjara|pjt|ISO 639-3}}
+{{språk|polabiska|pox|ISO 639-3}}
+{{språk|polska|pl|Wiktionary}}
+{{språk|portugisiska|pt|Wiktionary}}
+{{språk|powhatan|pim|ISO 639-3}}
+{{språk|preussiska|prg|ISO 639-3}}
+*[[provensalska]]: använd ''occitanska''
+{{språk|punjabi|pa|Wiktionary}}
+{{språk|quechua|qu|Wiktionary}}
+{{språk|rejang|rej|ISO 639-3}}
+{{språk|romani|rom|ISO 639-2}}
+{{språk|rumänska|ro|Wiktionary}}
+{{språk|rusinska|rue|ISO 639-3}}
+{{språk|rwanda|rw|Wiktionary}}
+{{språk|ryska|ru|Wiktionary}}
+{{språk|rätoromanska|rm|Wiktionary}}
+*[[samiska]]: använd ''akkalasamiska, enaresamiska, kildinsamiska, lulesamiska, nordsamiska, pitesamiska, skoltsamiska, sydsamiska, tersamiska'' eller ''umesamiska''
+{{språk|samoanska|sm|Wiktionary}}
+*[[samogitiska]]: använd ''žemaitiska''
+{{språk|sango|sg|Wiktionary}}
+{{språk|sanskrit|sa|Wiktionary}}
+{{språk|sardiska|sc|Wiktionary}}
+{{språk|sasak|sas|ISO 639-3}}
+{{språk|saterfrisiska|stq|ISO 639-3}}
+{{språk|schlesiska|szl|Wikimedia}}
+{{språk|schwabiska|swg|ISO 639-3}}
+{{språk|selkupiska|sel|ISO 639-3}}
+{{språk|sepedi|nso|ISO 639-3}}
+{{språk|serbiska|sr|Wiktionary}}
+*[[serbokroatiska]]: använd ''serbiska'' eller ''kroatiska''
+{{språk|sesotho|st|Wiktionary}}
+{{språk|shauraseni|psu|ISO 639-3}}
+{{språk|shona|sn|Wiktionary}}
+*[[siamesiska]]: använd ''thai''
+{{språk|sicilianska|scn|Wiktionary}}
+{{språk|sindhi|sd|Wiktionary}}
+{{språk|singalesiska|si|Wiktionary}}
+{{språk|siswati|ss|Wiktionary}}
+{{språk|sjoriska|cjs|ISO 639-3}}
+{{språk|skoltsamiska|sms|ISO 639-3}}
+*[[skotska]]: använd ''lågskotska'' (''eller engelska med taggen skotsk engelska om dialekten avses'')
+*[[skotsk gaeliska]]: använd ''skotsk gäliska''
+{{språk|skotsk gäliska|gd|Wiktionary}}
+{{språk|slovakiska|sk|Wiktionary}}
+{{språk|slovenska|sl|Wiktionary}}
+{{språk|somaliska|so|Wiktionary}}
+{{språk|sorani|ckb|Wikimedia}}
+*[[sorbiska]]: använd ''högsorbiska'' eller ''lågsorbiska''
+{{språk|spanska|es|Wiktionary}}
+{{språk|sumeriska|sux|ISO 639-3}}
+{{språk|sundanesiska|su|Wiktionary}}
+{{språk|surigaonon|sul|ISO 639-3}} {{?|Behöver verifieras}}
+{{språk|svanetiska|sva|ISO 639-3}}
+{{språk|svenska|sv|[[Wiktionary:Huvudsida|Wiktionary]]}}
+{{språk|svenskt teckenspråk|swl|ISO 639-3}}
+{{språk|swahili|sw|Wiktionary}}
+{{språk|sydazerbajdzjanska|azb|ISO 639-3}} {{?|Behöver verifieras}}
+*[[sydkoreanska]]: använd ''koreanska''
+{{språk|sydkurdiska|sdh|ISO 639-3}} {{?|kurdiska eller syd-/nordkurdiska är frågan, se diskussion}}
+{{språk|sydndebele|nr|ISO 639-1}}
+{{språk|sydsamiska|sma|ISO 639-3}}
+* [[syriska]]: använd ''klassisk syriska'' eller ''nysyriska''
+{{språk|tadzjikiska|tg|Wiktionary}}
+* [[tadjikiska]]: använd ''tadzjikiska''
+{{språk|tagalog|tl|Wiktionary}}
+{{språk|tahitiska|ty|Wikimedia}}
+{{språk|tai lü|khb|ISO 639-3}}
+{{språk|tamil|ta|Wiktionary}}
+{{språk|tatariska|tt|Wiktionary}}
+{{språk|telugu|te|Wiktionary}}
+{{språk|tersamiska|sjt|ISO 639-3}}
+{{språk|tetum|tet|ISO 639-3}}
+{{språk|thai|th|Wiktionary}}
+* [[thailändska]]: använd ''thai''
+{{språk|tibetanska|bo|Wiktionary}}
+{{språk|tigrinska|ti|Wiktionary}}
+{{språk|tiwi|tiw|ISO 639-1}}
+{{språk|tjeckiska|cs|Wiktionary}}
+{{språk|tjetjenska|ce|ISO 639-1}}
+{{språk|tjuvasjiska|cv|ISO 639-1}}
+{{språk|tlingit|tli|ISO 639-1}}
+{{språk|toba batak|bbc|ISO 639-3}}
+{{språk|tok pisin|tpi|Wiktionary}}
+{{språk|tonganska|to|Wiktionary}}
+*[[tornedalsfinska]]: använd ''meänkieli''
+{{språk|tsonga|ts|Wiktionary}}
+{{språk|tswana|tn|Wiktionary}}
+{{språk|tumbuka|tum|Wikimedia}}
+{{språk|tupinambá|tpn|ISO 639-3}}
+{{språk|turkiska|tr|Wiktionary}}
+{{språk|turkmeniska|tk|Wiktionary}}
+{{språk|tuvinska|tyv|ISO 639-3}}
+{{språk|twi|tw|Wiktionary}}
+{{språk|tyska|de|Wiktionary}}
+{{språk|udmurtiska|udm|Wikimedia}}
+{{språk|ugaritiska|uga|ISO 639-3}}
+{{språk|uiguriska|ug|Wiktionary}}
+{{språk|ukrainska|uk|Wiktionary}}
+{{språk|umesamiska|sju|ISO 639-3}}
+{{språk|ungerska|hu|Wiktionary}}
+{{språk|uralbanska|sqj-usq|ISO 639-5 / konstruerad}}
+{{språk|urdu|ur|Wiktionary}}
+{{språk|urgermanska|gem-ugm|ISO 639-5 / konstruerad}}
+{{språk|urindoariska|inc-uia|ISO 639-5 / konstruerad}}
+{{språk|urindoeuropeiska|ine-uie|ISO 639-5 / konstruerad}}
+{{språk|urindoiranska|iir-uir|ISO 639-5 / konstruerad}}
+{{språk|uriranska|ira-uir|ISO 639-5 / konstruerad}}
+{{språk|uritaliska|itc-uit|ISO 639-5 / konstruerad}}
+{{språk|urkeltiska|cel-uce|ISO 639-5 / konstruerad}}
+{{språk|ursamiska|smi-usm|ISO 639-2 / konstruerad}}
+{{språk|ursemitiska|sem-use|ISO 639-5 / konstruerad}}
+{{språk|urslaviska|sla-usl|ISO 639-5 / konstruerad}}
+{{språk|urturkiska|trk-utr|ISO 639-5 / konstruerad}}
+{{språk|uzbekiska|uz|Wiktionary}}
+{{språk|vallonska|wa|Wiktionary}}
+{{språk|venda|ve|Wikipedia}}
+{{språk|venetianska|vec|Wikimedia}}
+{{språk|vepsiska|vep|ISO 639-3}}
+{{språk|vietnamesiska|vi|Wiktionary}}
+{{språk|vilamoviska|wym|ISO 639-3}}
+{{språk|vitryska|be|Wiktionary}}
+{{språk|volapük|vo|Wiktionary}}
+*[[volapyk]]: använd ''volapük''
+{{språk|võro|fiu-vro|Wikimedia}}
+{{språk|votiska|vot|ISO 639-3}}
+*[[västflamländska]]: använd ''nederländska'' med dialekttagg
+*[[västerbottniska]]: använd ''bottniska''
+{{språk|västmariska|mrj|Wikimedia}}
+{{språk|västpanjabi|pnb|Wikimedia}} {{?|Västpanjabi eller lahnda?}}
+*[[walesiska]]: använd ''kymriska''
+{{språk|wallisianiska|wls|ISO 639-3}}
+{{språk|waray-waray|war|Wikimedia}}
+{{språk|wolof|wo|Wiktionary}}
+*[[wymysöriska]]: använd ''vilamoviska''
+{{språk|xhosa|xh|Wiktionary}}
+{{språk|yi|ii|Wikimedia}}
+{{språk|yoruba|yo|Wiktionary}}
+{{språk|yukatekiska|yua|ISO 639-3}}
+{{språk|zarma|dje|ISO 639-3}}
+*[[zaza]]: använd ''zazaiska''
+{{språk|zazaiska|diq|Wikimedia}}
+*[[zazaki]]: använd ''zazaiska''
+{{språk|zeeländska|zea|ISO 639-3}}
+{{språk|žemaitiska|sgs|ISO 639-3}}
+{{språk|zhuang|za|Wiktionary}}
+{{språk|zulu|zu|Wiktionary}}
+{{språk|älvdalska|ovd|ISO 639-3}}
+{{språk|östmariska|mhr|Wikimedia}}
+{{kolumner-slut}}
+{{botten}}

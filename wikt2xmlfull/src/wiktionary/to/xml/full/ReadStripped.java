@@ -265,7 +265,7 @@ public class ReadStripped {
 	 * @param outputType
 	 * @param inFileName
 	 * @param outFileName
-	 * @param lang Null if all langs should be parsed or code of only lang to be parsed
+	 * @param lang Null if all langs should be parsed (command line param LANG was "ALL") or code of only lang to be parsed
 	 * @param outputLangNames True if the name of each language should be outputed (except if onlyOneLang == true, in
 	 * which case the sole language name is never outputed)
 	 * @param restartLine 0 if not a restart
@@ -293,7 +293,7 @@ public class ReadStripped {
 				new FileInputStream(inFileName), "UTF-8"))) {
         	
         	// Load languages from csv file
-        	langs = loadLanguages(wiktLanguageCode, outputLangNames, onlyLanguages);
+        	langs = loadLanguages(wiktLanguageCode, outputLangNames, lang, onlyLanguages);
         	
         	if (langs.size() == 1)
         		onlyOneLang = true;
@@ -1042,6 +1042,8 @@ public class ReadStripped {
 					abbrStart = etymSect.indexOf("===Förkortning==="); // sv
 				if (abbrStart == -1)
 					abbrStart = etymSect.indexOf("===Forkortelse==="); // no
+				if (abbrStart == -1)
+					abbrStart = etymSect.indexOf("===συντομομορφή==="); // el
 //				if (abbrStart > 0) { // So not to pickup ====Abbreviation==== definitions
 //					if (etymSect.charAt(abbrStart-1) == '=')
 //						abbrStart = -1;
@@ -2687,12 +2689,13 @@ public class ReadStripped {
 	 * 
 	 * @param wiktLanguageCode Which language the Wikt is in. Affects metadata output
 	 * @param outputLangNames
+	 * @param lang Null if all langs should be parsed (command line param LANG was "ALL") or code of only lang to be parsed
 	 * @param onlyLanguages Only languages supplied in a language file are to be processed
 	 * @return
 	 * @throws IOException
 	 */
-	private Set<Lang> loadLanguages(String wiktLanguageCode, boolean outputLangNames, boolean
-			onlyLanguages) throws IOException {
+	private Set<Lang> loadLanguages(String wiktLanguageCode, boolean outputLangNames, String
+			lang, boolean onlyLanguages) throws IOException {
 		String inFileName = "language codes.csv";
 		
 		/*
@@ -2701,11 +2704,16 @@ public class ReadStripped {
 		 *   https://no.wiktionary.org/wiki/India
 		 */
 		if (wiktLanguageCode != null && (!outputLangNames || onlyLanguages))  {
-			inFileName = (wiktLanguageCode + "-") + inFileName; // e.g. "fi-language codes.csv"; 
+			/* e.g.:
+			 *  "fi-fi-language codes.csv"
+			 * OR
+			 *  "fi-ALL-language codes.csv"
+			 */
+			inFileName = (wiktLanguageCode + "-") + (lang == null ? "ALL" : lang) + "-" + inFileName; 
 		}
 		
-		LOGGER.info("Reading languages file for " + (wiktLanguageCode == null ? "English" : wiktLanguageCode) + " from '" +
-		 inFileName + "'");
+		LOGGER.warning("Reading languages file for " + (wiktLanguageCode == null ? "en" : wiktLanguageCode) + 
+				"-" + (lang == null ? "ALL" : lang) + " from '" + inFileName + "'");
 		
 		ClassLoader cl = ReadStripped.class.getClassLoader();
 		

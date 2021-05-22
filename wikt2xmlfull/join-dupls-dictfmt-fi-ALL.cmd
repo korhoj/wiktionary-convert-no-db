@@ -1,5 +1,4 @@
 @echo off
-rem Process Western language entries of English Wiktionary
 rem Joel Korhonen 2022-05-22
 SET JAVA_HOME=C:\Usr\openjdk-16_windows-x64_bin\jdk-16
 SET JAVA="%JAVA_HOME%\bin\java.exe"
@@ -8,7 +7,7 @@ SET WIKT=C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
 SET PROG=%JAR_DIR%\JoinDefinitions.jar
 SET JCLASS=wiktionary\to\xml\full\JoinDefinitions
 SET UTF8=-Dfile.encoding=UTF8
-SET INFILE=F:\Users\Joel\OwnStarDict-ready\wikt-en-Western-2021-05-22.txt
-SET OUTFILE=F:\Users\Joel\OwnStarDict-ready\wikt-en-Western-dictfmt-dupls-joined.txt
+SET INFILE=F:\Users\Joel\OwnStarDict-ready\wikt-fi-ALL-2021-05-22.txt
+SET OUTFILE=F:\Users\Joel\OwnStarDict-ready\wikt-fi-ALL-dictfmt-dupls-joined.txt
 %JAVA% %UTF8% -jar %PROG% %INFILE% %OUTFILE%
 pause
