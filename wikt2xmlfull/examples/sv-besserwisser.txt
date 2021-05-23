@@ -1,0 +1,38 @@
+  <page>
+    <title>besserwisser</title>
+    <id>775</id>
+    <revision>
+      <id>3504464</id>
+      <parentid>3477777</parentid>
+      <timestamp>2021-05-01T08:29:24Z</timestamp>
+      <contributor>
+        <username>Surkål</username>
+        <id>6186</id>
+      </contributor>
+      <comment>+fr: [[je-sais-tout]] (assisterat)</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="1199" xml:space="preserve">==Svenska==
+===Substantiv===
+{{sv-subst-n-ar|fog=|pluralrot=besserwissr}}
+'''besserwisser'''
+#person som gärna [[märka ord|märker ord]] och [[påpeka]]r andras, ofta språkliga, [[misstag]]
+#:{{citat|Eller kanske '''besserwissern''' Snellman på rak arm levererar en definitiv analys av diverse komplikationer i världspolitiken.|förf=[[w:Henrik Meinander|Henrik Meinander]]|år=2008|titel=Kekkografi och andra historiska spånor}}
+#:{{synonymer|[[bättrevetare]], [[viktigpetter]], [[messerschmitt]] (''skämtsamt'')}}
+#:{{etymologi|{{härledning|de|Besserwisser|bättrevetare}}}}
+#:{{besläktade ord|[[besserwissra]]}}
+
+====Översättningar====
+{{ö-topp|bättrevetare}}
+*danska: {{ö|da|Kloge Åge}}
+*engelska: {{ö+|en|know-it-all}}
+*franska: {{ö+|fr|je-sais-tout|mf}}
+*isländska: {{ö|is|beturviti|m}}, {{ö|is|sjálfviti|m}}
+*nederländska: {{ö+|nl|betweter|m}}
+*polska: {{ö+|pl|besserwisser|m}}, {{ö+|pl|mądrala|mf}}, {{ö|pl|przemądrzalec|m}}
+*portugisiska: {{ö+|pt|sabichão|m}}, {{ö|pt|sabe-tudo}}
+*spanska: {{ö+|es|sabelotodo|m}}, {{ö+|es|sabiondo|m}}, {{ö|es|todólogo|m}}, {{ö+|es|cuñado|m}}
+*tyska: {{ö+|de|Besserwisser|m}},  {{ö|de|Besserwisserin|f}}
+{{ö-botten}}</text>
+    </revision>
+  </page>
