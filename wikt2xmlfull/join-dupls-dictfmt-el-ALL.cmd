@@ -1,6 +1,6 @@
 @echo off
 rem Joel Korhonen 2022-05-23
-SET JAVA_HOME=C:\Usr\openjdk-16_windows-x64_bin\jdk-16
+SET JAVA_HOME=C:\Usr\openjdk-16.0.1_windows-x64_bin\jdk-16
 SET JAVA="%JAVA_HOME%\bin\java.exe"
 SET JAR_DIR=G:\Dropbox\Dictionary\wikt
 SET WIKT=C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull

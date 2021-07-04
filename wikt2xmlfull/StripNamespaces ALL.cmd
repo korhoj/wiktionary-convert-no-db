@@ -15,7 +15,7 @@ rem Then change EDITION to match the Wiktionary edition you have downloaded
 
 set DICT=F:\Temp\wiktionary-dumps
 set JAR_DIR=G:\Dropbox\Dictionary\wikt
-set JAVA_HOME=C:\Usr\openjdk-16_windows-x64_bin\jdk-16
+set JAVA_HOME=C:\Usr\openjdk-16.0.1_windows-x64_bin\jdk-16
 
 set EDITION=20210501
 set LANG=en

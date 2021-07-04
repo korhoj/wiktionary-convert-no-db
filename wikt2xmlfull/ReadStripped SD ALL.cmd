@@ -2,7 +2,7 @@
 rem Joel Korhonen 2021-May-22
 set DICT=F:\Temp\wiktionary-dumps
 set JAR_DIR=G:\Dropbox\Dictionary\wikt
-set JAVA_HOME=C:\Usr\openjdk-16_windows-x64_bin\jdk-16
+set JAVA_HOME=C:\Usr\openjdk-16.0.1_windows-x64_bin\jdk-16
 set OUT_DIR=G:\Dropbox\Dictionary\wikt\Stardict\OwnStarDict
 set WIKT=C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
 
