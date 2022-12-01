@@ -17,9 +17,9 @@ if "%1"=="" goto errEnd
 
 set DICT=F:\Temp\wiktionary-dumps
 set JAR_DIR=G:\Dropbox\Dictionary\wikt
-set JAVA_HOME=C:\Usr\openjdk-16.0.1_windows-x64_bin\jdk-16.0.1
+set JAVA_HOME=C:\Usr\jdk-17.0.5
 
-set EDITION=20210401
+set EDITION=20221120
 set LANG=%1
 
 SET PROGDIR=%JAR_DIR%

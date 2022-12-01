@@ -12,11 +12,11 @@ English Wiktionary is at
 https://dumps.wikimedia.org/enwiktionary/
 Find the latest directory and download enwiktionary-yyyymmdd-pages-articles.xml.bz2 from it
 You can also download the latest one from 
-http://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-articles.xml.bz2
+https://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-articles.xml.bz2
 but I prefer to have the directory and unarchived file name show the edition (yyyymmdd) in it. The sample
 cmd script assumes such a naming scheme.
 
-Other Wiktionaries are at http://dumps.wikimedia.org/backup-index.html
+Other Wiktionaries are at https://dumps.wikimedia.org/backup-index.html
 
 Extract the bz2 file into a subfolder. I use 7-Zip. You don't need the bz2 file after extracting it.
 
@@ -46,7 +46,7 @@ The MEM and/or STCK variables in the ReadStripped SD ALL.cmd script file have be
 that not so much memory is required. Each restart continues processing where the previous
 run left off.
 
-Change EDITION to match with the Wiktionary edition you have downloaded in both
+Change EDITION to match with the Wiktionary edition you have downloaded in
 ReadStripped SD en-ALL.cmd and run it.
 
 B. COMPILING A WIKTIONARY OF ANOTHER LANGUAGE
@@ -111,13 +111,13 @@ The Ubuntu repo Stardict package in 16.04 LTS doesn't work since it doesn't supp
 same entry name.
 
 You can try to download and install (dpkg -i for the deb)
-http://sourceforge.net/projects/stardict-4/files/3.0.6.2/stardict_3.0.6-2-1_all.deb/download
+https://sourceforge.net/projects/stardict-4/files/3.0.6.2/stardict_3.0.6-2-1_all.deb/download
 
 It didn't install in my Ubuntu 64b 16.04 LTS. It needs libsigc++-2.0-0c2a and I have libsigc++-2.0.0-v5.
 
 I was however able to compile the stardict-tools part of the package. Download
 https://sourceforge.net/projects/stardict-4/files/3.0.6.2/stardict-3.0.6.2-github-2.tar.xz/download
- (there is also this link in http://stardict-4.sourceforge.net: http://sourceforge.net/projects/stardict-4/files/3.0.1/stardict-tools-3.0.1.tar.bz2/download)
+ (there is also this link in https://stardict-4.sourceforge.net: https://sourceforge.net/projects/stardict-4/files/3.0.1/stardict-tools-3.0.1.tar.bz2/download)
 
 cd ~/Downloads
 tar xfj stardict-3.0.6.tar.bz2

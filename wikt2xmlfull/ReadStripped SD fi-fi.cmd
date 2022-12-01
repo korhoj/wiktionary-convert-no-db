@@ -2,7 +2,7 @@
 rem Process the Finnish Wiktionary, Finnish only. Run this to start the conversion
 rem Joel Korhonen 2021-May-22
 rem Change EDITION to match with the Wiktionary edition you have downloaded
-set EDITION=20210501
+set EDITION=20221120
 set LANG=fi
 set LANGCODE=fi
 set OUTPUTLANGNAMES=true
