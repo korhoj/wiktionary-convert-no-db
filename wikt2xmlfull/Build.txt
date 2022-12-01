@@ -1,4 +1,4 @@
-Download and install Eclipse 2021-03 and openjdk-16.
+Download and install Eclipse 2022-09 and (e.g. Oracle's) JDK 17.
 
 Right click StripNamespaces.java > Run As > Java Applications
   Eclipse runs the program, which outputs in the Console tab, that it got 0 arguments and it quits
@@ -26,22 +26,28 @@ Input in examples/apples.txt
 
 Right click ReadStripped.java > Run As > Run Configurations
 Select Java Application and press the New Launch Configuration icon
-Enter a Name for the configuration, e.g.: apples.txt ALL languages test
-Enter into the Arguments tab:
-  examples\apples.txt examples\out\apples-out.txt ALL true Stardict 0 ALL false
-Or with full folder path:
-  examples/apples.txt G:\Dropbox\Dictionary\wikt\Stardict\OwnStarDict\wikt-en-ALL-debug.txt ALL true Stardict 0 ALL false
+Enter a Name for the configuration, e.g.: ReadStripped apples.txt ALL languages test
+The arguments are given in this order:
+  INFILE OUTFILE LANG OUTPUTLANGNAMES OUTTYPE RESTARTATLINE LANGCODE ONLYLANGUAGES WIKTCODE
+Enter into the Arguments tab e.g.:
+  examples\apples.txt examples\out\apples-out.txt ALL true Stardict 0 en true en
+Or e.g. with full folder path for the output file:
+  examples/apples.txt G:\Dropbox\Dictionary\wikt\Stardict\OwnStarDict\wikt-en-ALL-debug.txt ALL true Stardict 0 en true en
 To run the test, press Run (or Debug)
+Refresh the workspace. Open examples\out\apples-out.txt. It should contain:
+
+apples and pears	n.\n(context Cockney rhyming slang English) stairs
 
 2) Test for the English Wiktionary, processing definitions in English only.
 Input in examples/apples.txt
 
-Enter a Name for the configuration, e.g.: apples.txt English only test
+Enter a Name for the configuration, e.g.: ReadStripped apples.txt English only test
 Enter into the Arguments tab:
-  examples\apples.txt examples\out\apples-out.txt en true Stardict 0 en false
+  examples\apples.txt examples\out\apples-out-en.txt en true Stardict 0 en true en
 Press Run
+Refresh the workspace. Open examples\out\apples-out.txt. It should contain the same than the previous test.
 
 See Running.txt for instructions on running the JARs via dedicated Win batch scripts,
-e.g. "ReadStripped SD ALL runall.cmd". Running that way does not use Eclipse, just the JDK.
+e.g. "ReadStripped SD en-ALL.cmd". Running that way does not use Eclipse, just the JDK.
 For producing real builds it's probably clearest to use the scripts, not Eclipse. At least it requires less RAM.
 If you want, you can of course also run tests outside of Ecipse, but I haven't written batch scripts for that.
