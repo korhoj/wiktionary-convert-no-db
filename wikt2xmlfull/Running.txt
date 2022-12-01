@@ -2,7 +2,7 @@ You need to first compile the program in Eclipse, see Build.txt
 The example scripts for compiling are for Windows, but Linux could also be used
 Linux with a desktop GUI (window manager) is needed for converting the output into StarDict or dictd
 compatible file. I use a virtual Ubuntu image in VMware WS. You can also use another virtualizer such
-as DropBox, or a machine running Linux.
+as VirtualBox, or a machine running Linux.
 
 Download one of the supported Wiktionary article dumps:
 
@@ -180,7 +180,7 @@ idxfilesize=122996950
 bookname=wikt-en-ALL-2018-10-03
 author=Wiktionary volunteers. Converted by Joel Korhonen
 email=stardict-korhoj@outlook.com
-website=http://dictinfo.com
+website=https://dictinfo.com
 description=Stardict format, English Wiktionary, English only, v.2018-Oct-03 based on entries from 2018-Oct-01
 date=2018.10.03
 sametypesequence=m
@@ -223,7 +223,7 @@ dictfmt-sq-ALL.sh
 
 Or create a new script like this and run it:
 
-dictfmt -f --utf8 --allchars wikt-en-ALL-yyyy-mm-dd -u http://dictinfo.com -s wikt-en-ALL-yyyy-mm-dd < wikt-en-ALL-yyyy-mm-dd-dict.txt
+dictfmt -f --utf8 --allchars wikt-en-ALL-yyyy-mm-dd -u https://dictinfo.com -s wikt-en-ALL-yyyy-mm-dd < wikt-en-ALL-yyyy-mm-dd-dict.txt
 	    -f: FILE  is  formatted  with  the headwords starting in column 0, with the definition
             indented at least one space (or tab character) on  subsequent  lines.   The  third
             line starting in column 0 is taken as the first headword , and the first two lines

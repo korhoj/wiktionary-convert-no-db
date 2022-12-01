@@ -18,7 +18,7 @@ import wiktionary.to.xml.full.util.DeepCopy;
 /**
  * Creates a tabulator file (UTF8) than can be converted to StarDict
  * format by stardict-editor-3.0.1.rar (or its Linux v.).
- * See http://jalasthana.de/?p=828
+ * See http://jalasthana.de/?p=828 [@20221201: dead link]
  * 
  * @author Joel Korhonen
  * 2012-07-04 First version, based on KindleStorer.java
