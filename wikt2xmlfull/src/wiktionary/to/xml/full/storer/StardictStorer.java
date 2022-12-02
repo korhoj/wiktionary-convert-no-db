@@ -5,9 +5,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
+import java.util.Set;
 
+import wiktionary.to.xml.full.data.Etym;
 import wiktionary.to.xml.full.data.Example;
+import wiktionary.to.xml.full.data.Pronunciation;
 import wiktionary.to.xml.full.data.Sense;
 import wiktionary.to.xml.full.data.Word;
 import wiktionary.to.xml.full.data.WordEntry;
@@ -188,18 +192,31 @@ public class StardictStorer implements Storer, Runnable {
 		 */
 		
 		// loop WordEtymologies
-		for ( WordEtym etym : wordLang.getWordEtyms() ) {
+		for ( WordEtym wordEtym : wordLang.getWordEtyms() ) {
 			/*
 			 * There are two levels here:
 			 * Etymologies and WordEntries
 			 * Currently etym contains just the text "Etymology x"
 			 */
-			if (etym.getDataField() != null) {
-				sb.append("\\n" + etym.getDataField() + "\\n");
+			if (wordEtym.getDataField() != null) {
+				
+				sb.append("\\n" + wordEtym.getDataField() + "\\n");
+				
+				for ( Etym em : wordEtym.getEtyms() ) {
+					/*Set<Pronunciation> prons = em.getPronunciations();
+					pron.setEtym(em);*/
+					
+					for ( Pronunciation pron : em.getPronunciations() ) {
+						String pronStr = pron.getDataField();
+						
+						// TODO Fix this to have the real value set in it
+						sb.append("\\n" + pronStr + "\\n");
+					}
+				}
 			}
 			
 			// loop WordEntries
-			for ( WordEntry wordEntry : etym.getWordEntries() ) {
+			for ( WordEntry wordEntry : wordEtym.getWordEntries() ) {
 				String posStr = wordEntry.getPos(); 
 				
 				// e.g. first have defined etym. 1 of "bake" as "n.", now as "vb."

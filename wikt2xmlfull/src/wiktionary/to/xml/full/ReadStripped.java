@@ -24,10 +24,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+import wiktionary.to.xml.full.data.Etym;
 import wiktionary.to.xml.full.data.Example;
 import wiktionary.to.xml.full.data.Lang;
 //import wiktionary.to.xml.full.data.ExampleSource;
 import wiktionary.to.xml.full.data.POSType;
+import wiktionary.to.xml.full.data.Pronunciation;
 import wiktionary.to.xml.full.data.Sense;
 import wiktionary.to.xml.full.data.Word;
 import wiktionary.to.xml.full.data.WordEntry;
@@ -137,9 +139,9 @@ public class ReadStripped {
 			System.exit(255);
 		}
 		
-		//LOGGER.setLevel(Level.ALL);
+		LOGGER.setLevel(Level.ALL);
 		//LOGGER.setLevel(Level.INFO);
-		LOGGER.setLevel(Level.WARNING);
+		//LOGGER.setLevel(Level.WARNING);
 		
 		// Create txt Formatter
 		formatterTxt = new SimpleFormatter();
@@ -301,11 +303,24 @@ public class ReadStripped {
 			String s = in.readLine();
 			linesRead++;
 			
+			/*String sNext = null;
+			if (s != null) {
+				in.mark(1000);
+				sNext = in.readLine();
+				in.reset();
+			}*/
+			
 			if (restartLine > 0) {
 				for (long l = 0; l < restartLine; l++) {
 					if (l % 10000000 == 0)
 						LOGGER.info("At line " + l);
 					s = in.readLine();
+					
+					/*if (s != null) {
+						in.mark(1000);
+						sNext = in.readLine();
+						in.reset();
+					}*/
 				}
 				LOGGER.info("Seeked to line " + restartLine);
 			}
@@ -380,9 +395,9 @@ public class ReadStripped {
 							outStr = s.substring(startIndex);
 						} else {
 							outStr = s; // leaks purposefully
-							String msg = "Bad text section at entryNbr: " + entryNbr + ", " +
+							/*String msg = "Bad text section at entryNbr: " + entryNbr + ", " +
 							 "title = '" + currentTitle + "', linesRead=" + linesRead;
-							//LOGGER.warning(msg);
+							//LOGGER.warning(msg);*/
 						}
 					} else if (s.indexOf("</text>") > -1) {
 						hadTextSection = true;
@@ -417,6 +432,12 @@ public class ReadStripped {
 	
 				s = in.readLine();
 				linesRead++;
+				
+				/*if (s != null) {
+					in.mark(1000);
+					sNext = in.readLine();
+					in.reset();
+				}*/
 			}
 			
 			// Handle last entry if any
@@ -519,6 +540,7 @@ public class ReadStripped {
 	/*
 	 * Parse (and store into memory) either all languages or a given language for the entry.
 	 * 
+	 * @param s The current line to process
 	 * @param onlyLang The language to process or null to process all languages
 	 * @param onlyLanguages If true, unknown languages are not added to language list i.e.
 	 * only languages that were supplied in the language specific CVS file are processed
@@ -526,8 +548,8 @@ public class ReadStripped {
 	 * @param wiktLanguageCode Which language the Wikt is in. Often same than langCode, but
 	 * langCode may also be "ALL". Affects metadata output
 	 */
-	private boolean parseEntry(String s, String currentTitle, OutputType outputType, long entryNbr, 
-			String onlyLang, boolean onlyLanguages, String langCode, String wiktLanguageCode) throws Exception {
+	private boolean parseEntry(String s, String currentTitle, OutputType outputType,
+			long entryNbr, String onlyLang, boolean onlyLanguages, String langCode, String wiktLanguageCode) throws Exception {
 		boolean foundAnyLang = false;
 		// true if lang name should be looked up by lang code, not vice versa like normally
 		boolean lookByLangCode = false;
@@ -676,7 +698,7 @@ public class ReadStripped {
 						
 						WordLang wordLang = new WordLang();
 						wordLangNbr++;
-						wordLang.setId(new Integer(wordLangNbr));
+						wordLang.setId(Integer.valueOf(wordLangNbr));
 						wordLang.setLang(lang);
 						
 						// Informative only
@@ -735,7 +757,7 @@ public class ReadStripped {
 	/**
 	 * 
 	 * @param word
-	 * @param sLangSect
+	 * @param sLangSect The current line (section of it) to process
 	 * @param currentTitle
 	 * @param outputType
 	 * @param wordLang Just a link back
@@ -805,12 +827,55 @@ public class ReadStripped {
 				wordEtym.setWordLang(wordLang); // Just a link back
 				Set<WordEntry> wordEntries = wordEtym.getWordEntries();
 				
-				// TODO Store next line as the content of the etymology. Now just etym #
+				// TODO Store next line as the content of the etymology.
+				/* TODO When the etymology is set, then look for its pronunciation if any.
+				 * If present, it is placed before the POS type (e.g. ===Noun===).
+				 */
 				if (etymsArr.length > 1) {
 					if (etymsArr.length == 2) { // there is just one etymology
-						//wordEtym.setDataField("Etymology"); // TODO Only write when enhanced to write the real content of the etymology 
+//						int nextEqualses = etymsArr[1].indexOf("==");
+//						String etymSubSect = etymsArr[1];
+						int nextEqualses = etymSect.indexOf("==");
+						String etymSubSect = etymSect;
+						if (nextEqualses > -1) {
+							//etymSubSect = etymsArr[1].substring(0,nextEqualses);
+							etymSubSect = etymSect.substring(0,nextEqualses);
+						}
+						/*
+From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period, space of time, season, lifetime, fixed time, favourable time, opportunity}}, from {{inh|en|gem-pro|*tīmô||time}}, from {{der|en|ine-pro|*deh₂imō}}, from {{der|en|ine-pro|*deh₂y-||to divide}}. Cognate with {{cog|sco|tym}}, {{m|sco|tyme||time}}, {{cog|gsw|Zimen}}, {{m|gsw|Zimmän|Zīmmän|time, time of the year, opportune time, opportunity}}, {{cog|da|time||hour, lesson}}, {{cog|sv|timme||hour}}, {{cog|no|time||time, hour}}, {{cog|fo|tími||hour, lesson, time}}, {{cog|is|tími||time, season}}. Cognate with {{m|en|tide}}.
+						 */
+						wordEtym.setDataField("Etymology\\n" + etymSubSect);
+						LOGGER.finest(etymSect);
+						LOGGER.finest(etymSubSect);
+						
+						// TODO Get these
+						/*
+							===Pronunciation===
+							* {{a|RP|Canada|US}} {{enPR|tīm}}, {{IPA|en|/taɪm/|[tʰaɪm]}}
+							* {{audio|en|en-us-time.ogg|Audio (US)}}
+							* {{a|AusE}} {{IPA|en|/tɑem/}}
+							* {{rfv-pron|en}} {{a|Tasmanian}} {{IPA|en|/tɜːm/}}
+							* {{audio|en|en-aus-time.ogg|Audio (AUS, archaic)}}
+							* {{rhymes|en|aɪm}}
+							* {{hyphenation|en|time}}
+							* {{homophones|en|thyme}}
+						 */
+						//public Pronunciation(Etym etym, String dataField)
+						Pronunciation pron = new Pronunciation();
+						//pron.setDataField("Testing pronunciations");
+						pron.setDataField(""); // TODO
+						
+						// public Etym(WordEtym wordEtym, String dataField, Set<Pronunciation> pronunciations)
+						Etym em = new Etym(wordEtym, "testEtym");
+						Set<Etym> etymSet = wordEtym.getEtyms();
+						Set<Pronunciation> prons = em.getPronunciations();
+						pron.setEtym(em);
+						prons.add(pron);
+						em.setPronunciations(prons);
+						etymSet.add(em);
+						wordEtym.setEtyms(etymSet);
 					}
-					else {
+					else { // TODO Fix
 						wordEtym.setDataField("Etymology " + (etymNbr-1));
 					}
 				}
@@ -971,7 +1036,7 @@ public class ReadStripped {
 				 */
 				
 				/* Swedish terms
-				 * http://sv.wiktionary.org/wiki/Wiktionary:Stilguide
+				 * https://sv.wiktionary.org/wiki/Wiktionary:Stilguide
 				 * 
 				 * ===Substantiv===
                  * ===Adjektiv===
@@ -2100,6 +2165,10 @@ public class ReadStripped {
 				
 				if (foundDefin) {
 					wordEtym.setWordEntries(wordEntries);
+					
+					/* TODO At this point at the latest set the new wordEtym.etyms.pronunciations data,
+					 * so it gets added to the wordEtymologies at the next line
+					 */
 	
 					wordEtymologies.add( wordEtym );
 				} else {
@@ -2147,7 +2216,7 @@ public class ReadStripped {
 		
 		WordEntry wordEntry = new WordEntry();
 		wordEntriesNbr++;
-		wordEntry.setId(new Integer(wordEntriesNbr));
+		wordEntry.setId(Integer.valueOf(wordEntriesNbr));
 		wordEntry.setPos(wordPos);
 		wordEntry.setWordEtym(wordEtym); // a link back
 		
@@ -2389,7 +2458,7 @@ public class ReadStripped {
 						sense = new Sense();
 						sense.setDataField(unwikifiedStr);
 						senseNbr++;
-						sense.setId(new Integer(senseNbr));
+						sense.setId(Integer.valueOf(senseNbr));
 						sense.setWordEntry(wordEntry);
 						
 //						String unwikifiedStrStart = unwikifiedStr;
@@ -2612,7 +2681,7 @@ public class ReadStripped {
 						Sense sense = new Sense();
 						sense.setDataField(unwikifiedStr);
 						senseNbr++;
-						sense.setId(new Integer(senseNbr));
+						sense.setId(Integer.valueOf(senseNbr));
 						sense.setWordEntry(wordEntry);
 						senses.add(sense);
 					}

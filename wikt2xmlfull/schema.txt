@@ -20,14 +20,15 @@ WordEtymology
     1) From {{etyl|enm}} {{term|book|lang=enm}}
     2) From {{etyl|enm}} {{term|book|lang=enm}}, from {{etyl|ang}} ...
   Has 1 - n WordEntries
+  Has 1 - n WordPronunciations
 
 Etymology
   Has 1 LanguageID
   Belongs to 1 WordEtymology
   attr. isEtymologySource
-  Has 0 - n Etymologies (which have isEtymologySource==true) - LinkedList 
 
 EtymologySource
+  Has 0 - n Etymologies (which have isEtymologySource==true) - LinkedList
 
 LanguageID
   Each WordLanguage has 1 LanguageID
@@ -38,6 +39,10 @@ LanguageID
     final enum
       English, Middle English, Africaans, Arabic, ...
   ID is key in a hashmap for names
+
+WordPronunciation
+  Belongs to 1 Etymology
+  0 - n WordPronunciations belong to 1 Etymology
 
 WordEntry
   1 - n WordEntries belong to 1 Word

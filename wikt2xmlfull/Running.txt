@@ -8,17 +8,26 @@ Download one of the supported Wiktionary article dumps:
 
 English, Finnish, Norwegian, Swedish
 
-English Wiktionary is at
-https://dumps.wikimedia.org/enwiktionary/
-Find the latest directory and download enwiktionary-yyyymmdd-pages-articles.xml.bz2 from it
-You can also download the latest one from 
-https://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-articles.xml.bz2
+The completed dumps are listed at https://dumps.wikimedia.org/backup-index.html
+Search for the Wiktionary dump you want, e.g. search for "enwiktionary" for the English Wiktionary dump
+It's currently (@20221201) listed like this:
+  2022-11-21 21:53:44 enwiktionary: Dump complete
+    Where "enwiktionary" is a link to https://dumps.wikimedia.org/enwiktionary/20221120/
+However, instead of the aforementioned link, you really should use one of the mirrors,
+so you won't strain the default servers, and downloading is also probably faster.
+I'm currently using a Swedish one:
+  https://mirror.accum.se/mirror/wikimedia.org/dumps/
+  For this mirror, one needs to search for the subdirectory of the wanted Wiktionary, e.g. "enwiktionary/"
+  and click it to open the list of the (about five) latest dumps, and select the latest (complete) one.
+  E.g. https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20221120/
+Download the bzip2 archive for the Wikt you want, e.g. enwiktionary-yyyymmdd-pages-articles.xml.bz2
+  A real link example: https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20221120/enwiktionary-20221120-pages-articles.xml.bz2
+You can also download the "latest" one from e.g. 
+ https://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-articles.xml.bz2
 but I prefer to have the directory and unarchived file name show the edition (yyyymmdd) in it. The sample
 cmd script assumes such a naming scheme.
 
-Other Wiktionaries are at https://dumps.wikimedia.org/backup-index.html
-
-Extract the bz2 file into a subfolder. I use 7-Zip. You don't need the bz2 file after extracting it.
+Extract the bz2 file into a subdirectory. I use 7-Zip. You don't need the bz2 file after extracting it.
 
 A. COMPILING THE ENGLISH WIKTIONARY, WITH ENTRIES FOR ALL LANGUAGES
 
@@ -38,7 +47,7 @@ E.g.:
   Process the English Wiktionary, all languages
 2) ReadStripped SD en-en.cmd
   Process the English Wiktionary, English only
--->
+--> the scripts above call automatically a general script:
 3) ReadStripped SD ALL.cmd
 
 The MEM and/or STCK variables in the ReadStripped SD ALL.cmd script file have been set as
@@ -46,16 +55,15 @@ The MEM and/or STCK variables in the ReadStripped SD ALL.cmd script file have be
 that not so much memory is required. Each restart continues processing where the previous
 run left off.
 
-Change EDITION to match with the Wiktionary edition you have downloaded in
+Change EDITION to match with the Wiktionary edition you have downloaded in e.g.
 ReadStripped SD en-ALL.cmd and run it.
 
 B. COMPILING A WIKTIONARY OF ANOTHER LANGUAGE
 
-There is one or two sample script files for each supported language. They really only differ in having
-different language specific variables set. I use the Finnish Wiktionary as an example.
+There are one or two sample script files for each supported language. They really only differ in having
+different language specific variables set. I use the Finnish Wiktionary as an example:
 
-Change EDITION to match with the Wiktionary edition you have downloaded in
-StripNamespaces fiwiktionary.cmd.
+Change EDITION in "StripNamespaces fiwiktionary.cmd" to match with the Wiktionary edition you have downloaded.
 
 Run StripNamespaces fiwiktionary.cmd. It doesn't take many minutes on a fast computer.
 
@@ -69,23 +77,25 @@ or
 
 Then run the script you changed.
 
-C. UPDATING SUPPORTED LANGUAGES DURING ReadStripped RUNS
+C. UPDATING LANGUAGES SUPPORTED BY ReadStripped
 
-While running, ReadStripped reads in lang\language codes.csv, which get packaged in the main
-folder of the runnable JAR when you export it in Eclipse. It is a list of language names with
-unique abbreviations.
+When you export the runnable JAR in Eclipse, the *.csv files in src/ get packaged
+in the JAR. They are CSV files containing the language codes (unique abbroviations) and names
+used in Wiktionaries of various languages.   
 
-The program rejects any unknown language names and outputs them into new language codes.csv.
-You can check that file and insert any new languages into language codes.csv.
+While running, ReadStripped reads in, based on the parameters, one of the CSV files.
+
+The program rejects any unknown language names and outputs them into "new language codes.csv".
+You can check that file and insert any new languages into the CSV you used.
 
 If you don't want entries of some languages to be included, you can remove them from your
-copy of language codes.csv. Just don't commit it :) E.g. I don't need entries for various
+copy of the CSV file you used. Just don't commit it :) E.g. I don't need entries for various
 Asian languages, since I can't even read their scripts.
 
 N.b. this has nothing to do with which language's Wiktionaries the program supports, which
 is currently hard coded in the program.
 
-All Wiktionaries have entries for numerous other languages. Just that e.g. the English
+All Wiktionaries have entries for numerous languages. Just that e.g. the English
 Wiktionary has the definitions of the entries in the English language.
 
 D. COMBINING THE OUTPUT FILES

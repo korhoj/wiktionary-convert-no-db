@@ -1,0 +1,146 @@
+https://github.com/korhoj/wiktionary-convert-no-db/issues/1
+
+Feature request: option to include ===Pronunciation===/{IPA} #1
+
+superkryodev commented 8 days ago
+
+It's useful for language learning, specially those with irregular pronunciations.
+
+https://en.wiktionary.org/wiki/Wiktionary:Entry_layout#Pronunciation
+
+Examples:
+
+https://en.wiktionary.org/wiki/dictionary
+
+<title>dictionary</title>
+
+==English==
+{{wp|dab=Dictionary (disambiguation)|Dictionary}}
+
+===Alternative forms===
+* {{alter|en|dictionnary||obsolete}}
+
+===Etymology===
+{{root|en|ine-pro|*deyḱ-}}
+Borrowed from {{bor|en|ML.|dictiōnārium}}, from {{der|en|la|dictiōnārius}}, from {{m|la|dictiō||speaking}}, from {{m|la|dictus}}, perfect past participle of {{m|la|dīcō||speak}} + {{m|la|-ārium||room, place}}.
+
+===Pronunciation===
+* {{a|RP}} {{IPA|en|/ˈdɪkʃənəɹi/|/ˈdɪkʃənɹi/|/ˈdɪkʃnəɹi/}}
+* {{a|GenAm|Canada}} {{enPR|dĭk'shə-nĕr-ē}}, {{IPA|en|/ˈdɪkʃəˌnɛɹi/}}
+* {{audio|en|en-us-dictionary.ogg|Audio (US, California)}}
+* {{audio|en|en-uk-dictionary.ogg|Audio (UK)}}
+* {{hyphenation|en|dic|tion|ary}}
+* {{rhymes|en|ɪkʃənɛəɹi}}
+
+Renders in Wiktionary as:
+
+Pronunciation
+* (Received Pronunciation) IPA(key): /ˈdɪkʃənəɹi/, /ˈdɪkʃənɹi/, /ˈdɪkʃnəɹi/
+* (General American, Canada) enPR: dĭk'shə-nĕr-ē, IPA(key): /ˈdɪkʃəˌnɛɹi/
+* Audio (US, California) [audio control]
+* Audio (UK) [audio control]
+* Hyphenation: dic‧tion‧ary
+* Rhymes: -ɪkʃənɛəɹi
+
+https://en.wiktionary.org/wiki/thesaurus
+
+<title>thesaurus</title>
+
+===Pronunciation===
+* {{IPA|en|/θɪˈsɔːɹəs/}}
+* {{audio|en|LL-Q1860 (eng)-Vealhurl-thesaurus.wav|Audio (RP)}}
+* {{rhymes|en|ɔːɹəs}}
+
+Renders in Wiktionary as:
+
+Pronunciation
+* IPA(key): /θɪˈsɔːɹəs/
+* Audio (RP) [audio control]	
+* Rhymes: -ɔːɹəs
+
+https://el.wiktionary.org/wiki/%CE%B6%CF%8E%CE%BF
+ (ζώο)
+
+Προφορά
+  ΔΦΑ : /ˈzo.o/
+  ήχος: (βοήθεια·αρχείο)
+
+https://en.wiktionary.org/wiki/%CE%B2%CE%BF%CE%AE%CE%B8%CE%B5%CE%B9%CE%B1
+ (βοήθεια)
+
+===Pronunciation===
+{{grc-IPA|βοήθειᾰ}}
+
+Renders in Wiktionary as:
+
+Pronunciation
+  IPA(key): /bo.ɛ̌ː.tʰeː.a/ → /βoˈi.θi.a/ → /voˈi.θi.a/
+
+  [when 'more' is pressed:]
+
+  * (5th BCE Attic) IPA(key): /bo.ɛ̌ː.tʰeː.a/
+  * (1st CE Egyptian) IPA(key): /boˈe.tʰi.a/
+  * (4th CE Koine) IPA(key): /βoˈi.θi.a/
+  * (10th CE Byzantine) IPA(key): /voˈi.θi.a/
+  * (15th CE Constantinopolitan) IPA(key): /voˈi.θi.a/
+
+https://en.wiktionary.org/wiki/Wiktionary:Pronunciation#English
+
+A typical pronunciation section comes after the language header and immediately before the first part of speech section, begins
+with === Pronunciation === and may look like the following example based on the word portmanteau:
+
+=== Pronunciation ===
+* {{a|rhotic}} {{IPA|en|/pɔɹtˈmæntəʊ/}}
+* {{a|non-rhotic}} {{IPA|en|/pɔːtˈmæntəʊ/}}
+* {{a|RP}} {{IPA|en|[pɔːtˈmantəʊ]}}
+* {{a|GA}} {{IPA|en|[pɔɹtˈmæntoʊ]}}
+* {{audio|en|En-us-Portmanteau.ogg|Audio (GA)}}
+
+The region or accent [(Received Pronunciation), (General American), (General Australian), et al.] is first if there is regional variation,
+followed by the pronunciation system (such as IPA or enPR), a colon, then the pronunciation; the templates {{a}} and {{IPA}}, and {{enPR}}
+do this automatically.
+
+Phonemic transcriptions are placed between diagonal strokes (/.../), while phonetic transcriptions are placed between square brackets ([...]);
+these must be done manually within the template, since the templates can be used both for phonemic and for phonetic transcriptions. enPR
+pronunciations should not have diagonals or brackets, as their purpose is to be simple, and further, enPR is a phonemic system, so diagonals
+are redundant and brackets incorrect.
+
+Pronunciations should be given in the order: enPR, IPA; enPR is often given only for the US pronunciation, as such systems are more common
+in the US than in the UK.
+
+----------------------
+
+5.6.2021:
+
+The Danish for "time" has a separate Pronunciation for each of the two different Etymologies:
+
+==Danish==
+
+===Etymology 1===
+From {{inh|da|non|tími}}, from {{inh|da|gem-pro|*tīmô||time}}, cognate with {{cog|sv|timme}}, {{cog|en|time}}. From {{der|da|ine-pro|*deh₂y-}}, specifically {{inh|da|ine-pro|*deh₂imō}}. The Germanic noun {{m|gem-pro|*tīdiz||time}} is derived from the same root.
+
+====Pronunciation====
+* {{IPA|da|/tiːmə/|[ˈtˢiːmə]}}
+
+====Noun====
+{{da-noun|n|r}}
+
+# [[hour]]
+# [[lesson]], [[class]]
+
+=====Inflection=====
+{{da-decl|n|r}}
+
+====References====
+* {{R:DDO|time,1}}
+
+===Etymology 2===
+Borrowed from {{bor|da|en|time}}.
+
+====Pronunciation====
+* {{IPA|da|/tajmə/|[ˈtˢɑjmə]}}, {{q|imperative}} {{IPA|da|/tajˀm/|[ˈtˢɑjˀm]}},
+
+====Verb====
+{{head|da|verb|past tense|timede|past participle|timet}}
+
+# to {{l|en|time}}

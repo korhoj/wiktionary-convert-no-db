@@ -1,0 +1,88 @@
+  <page>
+    <title>time</title>
+    <id>2283</id>
+    <revision>
+      <id>62420860</id>
+      <parentid>62240533</parentid>
+      <timestamp>2021-04-24T16:21:50Z</timestamp>
+      <contributor>
+        <ip>2A00:A040:19E:9436:C5D5:5891:EB91:FFE9</ip>
+      </contributor>
+      <comment>/* English */</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="44625" xml:space="preserve">{{also|Time|timé|tìme|-time}}
+==English==
+
+===Alternative forms===
+* {{l|en|tyme}} {{qualifier|obsolete}}
+
+===Etymology===
+From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period, space of time, season, lifetime, fixed time, favourable time, opportunity}}, from {{inh|en|gem-pro|*tīmô||time}}, from {{der|en|ine-pro|*deh₂imō}}, from {{der|en|ine-pro|*deh₂y-||to divide}}. Cognate with {{cog|sco|tym}}, {{m|sco|tyme||time}}, {{cog|gsw|Zimen}}, {{m|gsw|Zimmän|Zīmmän|time, time of the year, opportune time, opportunity}}, {{cog|da|time||hour, lesson}}, {{cog|sv|timme||hour}}, {{cog|no|time||time, hour}}, {{cog|fo|tími||hour, lesson, time}}, {{cog|is|tími||time, season}}. Cognate with {{m|en|tide}}.
+
+===Pronunciation===
+* {{a|RP|Canada|US}} {{enPR|tīm}}, {{IPA|en|/taɪm/|[tʰaɪm]}}
+* {{audio|en|en-us-time.ogg|Audio (US)}}
+* {{a|AusE}} {{IPA|en|/tɑem/}}
+* {{rfv-pron|en}} {{a|Tasmanian}} {{IPA|en|/tɜːm/}}
+* {{audio|en|en-aus-time.ogg|Audio (AUS, archaic)}}
+* {{rhymes|en|aɪm}}
+* {{hyphenation|en|time}}
+* {{homophones|en|thyme}}
+
+===Noun===
+{{en-noun|~}}
+
+# {{lb|en|uncountable}} The inevitable progression into the [[future]] with the passing of [[present]] and [[past]] events.
+
+----
+
+==Danish==
+
+===Etymology 1===
+From {{inh|da|non|tími}}, from {{inh|da|gem-pro|*tīmô||time}}, cognate with {{cog|sv|timme}}, {{cog|en|time}}. From {{der|da|ine-pro|*deh₂y-}}, specifically {{inh|da|ine-pro|*deh₂imō}}. The Germanic noun {{m|gem-pro|*tīdiz||time}} is derived from the same root.
+
+====Pronunciation====
+* {{IPA|da|/tiːmə/|[ˈtˢiːmə]}}
+
+====Noun====
+{{da-noun|n|r}}
+
+# [[hour]]
+# [[lesson]], [[class]]
+
+=====Inflection=====
+{{da-decl|n|r}}
+
+====References====
+* {{R:DDO|time,1}}
+
+===Etymology 2===
+Borrowed from {{bor|da|en|time}}.
+
+====Pronunciation====
+* {{IPA|da|/tajmə/|[ˈtˢɑjmə]}}, {{q|imperative}} {{IPA|da|/tajˀm/|[ˈtˢɑjˀm]}},
+
+====Verb====
+{{head|da|verb|past tense|timede|past participle|timet}}
+
+# to {{l|en|time}}
+
+====Inflection====
+{{da-conj|time||r|timede|h|timet|-|-|times|timedes}}
+
+====References====
+* {{R:DDO|time,2}}
+
+----
+
+==Spanish==
+
+===Verb===
+{{head|es|verb form}}
+
+# {{es-verb form of|ending=ar|mood=subjunctive|tense=present|pers=1|number=singular|timar}}
+# {{es-verb form of|ending=ar|mood=subjunctive|tense=present|pers=2|formal=yes|number=singular|timar}}
+# {{es-verb form of|ending=ar|mood=subjunctive|tense=present|pers=3|number=singular|timar}}</text>
+    </revision>
+  </page>

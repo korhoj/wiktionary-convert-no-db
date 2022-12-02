@@ -59,7 +59,7 @@ public class StringUtils {
 //				System.out.println("langName: '" + langName + "'");
 				
 				if (prevStart > -1) {
-					langStarts.add(new Integer(prevStart));
+					langStarts.add(Integer.valueOf(prevStart));
 				}
 				prevStart = pos+2;
 				
@@ -69,7 +69,7 @@ public class StringUtils {
 			}
 		}
 		if (prevStart > -1) {
-			langStarts.add(new Integer(prevStart));
+			langStarts.add(Integer.valueOf(prevStart));
 		}
 		
 //		System.out.println("langList size: " + langSects.size());
@@ -412,20 +412,20 @@ public class StringUtils {
 	 * -anth - {{biology}} flower --> (biology) flower 
 	 * A - {{context|weaponry}} atom --> atom (weaponry)
 	 * A &amp; E - [[w:Accident and Emergency|'''A'''ccident and '''E'''mergency]] -->
-	 *   http://en.wikipedia.org/Accident%20and%20Emergency - '''A'''ccident and '''E'''mergency 
+	 *   https://en.wikipedia.org/Accident%20and%20Emergency - '''A'''ccident and '''E'''mergency 
 	 *   n.b. [ and ] have been stripped at this point
 	 * A cup - {{context|by synecdoche}} A woman whose breasts fit a A-cup bra. -->
 	 *  (context) by synecdoche: A woman whose breasts fit a A-cup bra.
 	 * Aalenian - {geology|paleontology}} A subdivision of the Middle Jurassic period. -->
 	 *  (geology) paleontology: A subdivision of the Middle Jurassic period.
-	 * {{stock symbol}} AstraZeneca (see <a href="http://en.wikipedia.org/wiki/AstraZeneca">Wikipedia article on "AstraZeneca"</a>)
-	 *  --> (stock symbol) AstraZeneca (see <a href="http://en.wikipedia.org/wiki/AstraZeneca">Wikipedia article on "AstraZeneca"</a>)
+	 * {{stock symbol}} AstraZeneca (see <a href="https://en.wikipedia.org/wiki/AstraZeneca">Wikipedia article on "AstraZeneca"</a>)
+	 *  --> (stock symbol) AstraZeneca (see <a href="https://en.wikipedia.org/wiki/AstraZeneca">Wikipedia article on "AstraZeneca"</a>)
 	 * main - {{context|now|_|poetic}} The [[high seas]]. {{defdate|from 16th c.}}
 	 *  --> (context: now poetic) The high seas. (from 16th c.)'
 	 * {{chiefly|_|UK}} --> (chiefly UK)
 	 * {{Cockney rhyming slang}} --> (Cockney rhyming slang)
 	 * TODO should handle cites, either here or by the removeTags method. E.g.
-	 * {{cite web | title = Corn (emotion) | publisher = Cambridge University Press | work = Cambridge Advanced Learner's Dictionary | url=http://dictionary.cambridge.org/define.asp?key=17186&amp;dict=CALD}}
+	 * {{cite web | title = Corn (emotion) | publisher = Cambridge University Press | work = Cambridge Advanced Learner's Dictionary | url=https://dictionary.cambridge.org/define.asp?key=17186&amp;dict=CALD}}
 	 * {{quote-book|year=1853|author=Herman Melville, Herman|title=Bartleby, the Scrivener|quoted_in=Billy Budd, Sailor and Other Stories|publisher=New York: Penguin Books|year_published=1968; reprint 1995 as ''Bartleby|isbn=0 14 60.0012 9|page=2|passage= {{...}} I consider the sudden and violent '''abrogation''' of the office of Master in Chancery, by the new Constitution, as a __ premature act; inasmuch as I had counted on a life-lease of the profits, whereas I only received those of a few short years.}}
 	 */
 	public static String formatCurlyTags (String s) {
@@ -560,12 +560,12 @@ public class StringUtils {
 	 * [[w:Accident and Emergency|'''A'''ccident and '''E'''mergency]]
 	 * 
 	 * see [[Wikipedia:AstraZeneca|Wikipedia article on "AstraZeneca"]]
-	 * --> see <a href="http://en.wikipedia.org/wiki/AstraZeneca">Wikipedia article on "AstraZeneca"</a>
+	 * --> see <a href="https://en.wikipedia.org/wiki/AstraZeneca">Wikipedia article on "AstraZeneca"</a>
 	 *  
 	 * [[w:A Christmas Carol (disambiguation)]]
-	 * --> <a href="http://en.wikipedia.org/wiki/A%20Christmas%20Carol%20(disambiguation)"></a>
+	 * --> <a href="https://en.wikipedia.org/wiki/A%20Christmas%20Carol%20(disambiguation)"></a>
 	 * 
-	 * TODO Should handle all namespaces mentioned in http://en.wiktionary.org/wiki/Wiktionary:Namespace
+	 * TODO Should handle all namespaces mentioned in https://en.wiktionary.org/wiki/Wiktionary:Namespace
 	 * 
 	 * @param USETYPE 0 == KindleStorer, 1 == JDBCStorer, 2 == StardictStorer 
 	 */
@@ -598,10 +598,10 @@ public class StringUtils {
 	    		
 				//System.out.println("Trying: '" + linkValue + "'");
 				try {
-					// See http://javadoc.google-api-java-client.googlecode.com/hg/1.4.1-beta/com/google/api/client/util/escape/CharEscapers.html
+					// See https://cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.util.escape.CharEscapers
 					linkValue = CharEscapers.escapeUriPath(linkValue);
 					// Add after escaping, otherwise escapes all the : and / chars
-					linkValue = "http://en.wikipedia.org/wiki/" + linkValue;
+					linkValue = "https://en.wikipedia.org/wiki/" + linkValue;
 					
 					String defValue = null;
 					if (posBar > -1) {
@@ -674,10 +674,10 @@ public class StringUtils {
 //					String linkValue = inSquares.substring(0,pos3);
 //					//System.out.println("Trying: '" + linkValue + "'");
 //					try {
-//						// See http://javadoc.google-api-java-client.googlecode.com/hg/1.4.1-beta/com/google/api/client/util/escape/CharEscapers.html
+//						// See https://cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.util.escape.CharEscapers
 //						linkValue = CharEscapers.escapeUriPath(linkValue);
 //						// Add after escaping, otherwise escapes all the : and / chars
-//						linkValue = "http://en.wikipedia.org/wiki/" + linkValue;
+//						linkValue = "https://en.wikipedia.org/wiki/" + linkValue;
 //						
 //						String defValue = inSquares.substring(pos3+1);
 //						

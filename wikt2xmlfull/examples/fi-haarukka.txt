@@ -1,0 +1,137 @@
+<page>
+    <title>haarukka</title>
+    <id>618</id>
+    <revision>
+      <id>4311931</id>
+      <parentid>4311929</parentid>
+      <timestamp>2022-03-05T10:42:22Z</timestamp>
+      <contributor>
+        <ip>84.251.161.164</ip>
+      </contributor>
+      <comment>/* Liittyvät sanat */</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="3412" xml:space="preserve">{{wikipedia}}
+
+==Suomi==
+[[File:Fork6233.jpg|thumb|Haarukka]]
+
+===Substantiivi===
+{{fi-subs|14|A}}
+
+# [[ruokailuväline]], jonka varren päässä on samansuuntaisia piikkejä, tavallisesti kaksi, kolme tai neljä piikkiä
+# {{yhteys|tekniikka|k=fi}} kaksipyöräisten kulkuvälineiden kaksihaarainen tukirakenne, jonka haarojen väliin [[pyörä]] kiinnitetään; ''etuhaarukka'', ''takahaarukka''; myös kaksihaarainen rakenne, jota käytetään etenkin yhdyssanoissa kuten [[haarukkaliitin]]
+# arvojoukko, jonka tietty arvo voi saada, [[mittaväli]]
+#:''Säästö on '''haarukassa''' 2000–2500 euroa.''
+# {{yhteys|shakki|k=fi}} tilanne, jossa nappula uhkaa kahta tai useampaa vastustajan nappulaa samanaikaisesti
+#:'''''Haarukka''' tehdään useimmiten ratsulla tai sotilaalla, mutta muutkin nappulat voivat haarukoida vastustajan nappuloita.''
+
+====Ääntäminen====
+{{IPA|/ˈhɑː.ruk.kɑ/}}
+{{fi-tavutus}}
+
+====Taivutus====
+{{fi-subs-solakka|haaru}}
+
+====Etymologia====
+1670-luvulla käyttöön otettu uudissana&lt;ref name=hakkinen&gt;{{Kirjaviite | Tekijä = Kaisa Häkkinen | Nimeke = Nykysuomen etymologinen sanakirja| Vuosi = 2011 | Sivu = | Selite =5. painos | Julkaisupaikka = Helsinki| Julkaisija = WSOY| Isbn = 978-951-0-27108-7|Viitattu = 18.5.2017 }}&lt;/ref&gt;
+
+====Käännökset====
+{{kohta|1|ruokailuväline|
+*albania: [[pirun]]
+*azeri: {{käännös|az|çəngəl}}
+*bulgaria: [[вилица]]
+*englanti: [[fork]]
+*espanja: [[tenedor]] {{m}}
+*hollanti: [[vork]]
+*italia: [[forchetta]] {{f}}
+*koltansaame: [[velkk]]
+*latvia: {{käännös|lv|dakšiņa}}
+*liivi: {{käännös|liv|gaffõl}}
+*pohjoissaame: {{käännös|sme|gáffal}}
+*portugali: {{käännös|pt|garfo}} {{m}}
+*puola: {{käännös|pl|widelec|suku=m}}
+*ranska: {{käännös|fr|fourchette|suku=f}}
+*romania: [[furculiţă]] {{f}}
+*ruotsi: [[gaffel]]
+*saksa: [[Gabel]] {{f}}
+*slovakki: [[vidlička]] {{f}}
+*somali: [[fargeeto]] 
+*thai: [[ส้อม]]
+*tšekki: [[vidlička]]
+*turkki: {{käännös|tr|çatal}}
+*turkmeeni: {{käännös|tuk|şaryk}}
+*ukraina: {{käännös|uk|виделка|suku=f}}, {{käännös|uk|вилка|suku=f}}
+*uzbekki: {{käännös|uz|sanchqi}}
+*venäjä: [[вилка]]
+*vepsä: [[hangoine]]
+*viro: [[kahvel]]
+|loppu}}
+
+{{kohta|2|pyörän haarukka|
+*englanti: [[fork]]
+*espanja: [[horquilla]]
+*italia: [[forcella]] {{f}}
+*saksa: [[Gabel]] {{f}}
+*turkki: {{käännös|tr|maşa}}
+|loppu}}
+
+{{kohta|3|arvojoukko|
+*englanti: [[range]]
+|loppu}}
+
+{{kohta|4|shakki|
+*englanti: [[fork]]
+*ruotsi: [[gaffel]]
+*saksa: [[Gabel]] {{f}}
+|loppu}}
+
+====Liittyvät sanat====
+*[[haara]]
+*[[kiertokangen haarukka]]
+*[[ääniraudan haarukka]]
+
+=====Synonyymit=====
+* ''(murteellinen)'' [[kahveli]]
+
+=====Vieruskäsitteet=====
+* [[lusikka]], [[veitsi]]
+
+=====Johdokset=====
+{{johdokset|fi|v|haarukoida}}
+
+=====Yhdyssanat=====
+[[asetinhaarukka]], 
+[[etuhaarukka]], 
+[[fondyyhaarukka]],
+[[haarukkapala]],
+[[haarukkapurje]],
+[[haarukkaristi]],
+[[haarukkatrukki]],
+[[haarukkavaunu]],
+[[hintahaarukka]], 
+[[juurihaarukka]], 
+[[kakkuhaarukka]], 
+[[kalahaarukka]], 
+[[kiinnityshaarukka]], 
+[[latvahaarukka]], 
+[[leikkelehaarukka]], 
+[[lusikka-haarukka]], 
+[[ohjaushaarukka]], 
+[[oksanhaarukka]],
+[[paistihaarukka]],
+[[puuhaarukka]], 
+[[virhehaarukka]], 
+[[ylähaarukka]]
+
+====Aiheesta muualla====
+*{{muualla-ks}}
+{{commons|Fork|Haarukka}}
+
+==Viitteet==
+{{viitteet}}
+
+[[Luokka:Suomen kielen ruokailuvälineet]]
+[[Luokka:Suomen kielen uudissanat]]</text>
+    </revision>
+  </page>
