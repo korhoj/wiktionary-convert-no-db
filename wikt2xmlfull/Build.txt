@@ -1,4 +1,4 @@
-Download and install Eclipse 2022-09 and (e.g. Oracle's) JDK 17.
+Download and install Eclipse 2022-09 and OpenJDK 19.
 
 Right click StripNamespaces.java > Run As > Java Applications
   Eclipse runs the program, which outputs in the Console tab, that it got 0 arguments and it quits
