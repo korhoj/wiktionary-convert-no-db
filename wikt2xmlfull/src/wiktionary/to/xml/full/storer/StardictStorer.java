@@ -8,7 +8,11 @@ import java.io.PrintWriter;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Set;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
+import wiktionary.to.xml.full.ReadStripped;
 import wiktionary.to.xml.full.data.Etym;
 import wiktionary.to.xml.full.data.Example;
 import wiktionary.to.xml.full.data.Pronunciation;
@@ -50,6 +54,11 @@ public class StardictStorer implements Storer, Runnable {
 	
 	private final static Object latch = new Object();
 	private static int threadsAmount = 0;
+	
+	private final static String LF_LIN = "\n";
+	
+	//public final static Logger LOGGER = Logger.getLogger(ReadStripped.class.getName());
+	public final static Logger LOGGER = ReadStripped.LOGGER;
 	
 	/**
 	 * 
@@ -148,7 +157,7 @@ public class StardictStorer implements Storer, Runnable {
 					StardictStorer.fos = null;
 				}
 			} else {
-				System.out.println("Warning: " + threadsAmount + " threads existed at closeOutput()");
+				LOGGER.warning("Warning: " + threadsAmount + " threads existed at closeOutput()");
 			}
 		}
 	}
@@ -173,20 +182,16 @@ public class StardictStorer implements Storer, Runnable {
 		boolean isFirstPOS = true;
 		
 		if (wordLang == null) {
-			System.err.println("wordLang == null");
-			
-			System.err.println("word: " + word.getDataField() );
+			LOGGER.info("wordLang == null for word: " + word.getDataField() );
 			return;
 		} else if (wordLang.getLang() == null) {
-			System.err.println("wordLang.getLang() == null");
-			System.err.println("word: " + word.getDataField() );
+			LOGGER.info("wordLang.getLang() == null for word: " + word.getDataField());
 			return;
 		} else if (wordLang.getLang().getAbr() == null) {
 			/* This happens if the language CSV list has a language(s) with the abbreviation \N,
 			 * such as "Chinese", which is not really a language unlike e.g. "Mandarin Chinese"
 			 */
-			System.err.println("wordLang.getLang().getAbr() == null");
-			System.err.println("word: " + word.getDataField() );
+			LOGGER.info("wordLang.getLang().getAbr() == null for word: " + word.getDataField() );
 			return;
 		}
 		langID_ID = wordLang.getLang().getAbr();
@@ -213,23 +218,41 @@ public class StardictStorer implements Storer, Runnable {
 			/*
 			 * There are two levels here:
 			 * Etymologies and WordEntries
-			 * Currently etym contains just the text "Etymology x"
 			 */
 			if (wordEtym.getDataField() != null) {
+				String etymStr = wordEtym.getDataField();
 				
-				sb.append("\\n" + wordEtym.getDataField() + "\\n");
-				
-				for ( Etym em : wordEtym.getEtyms() ) {
-					/*Set<Pronunciation> prons = em.getPronunciations();
-					pron.setEtym(em);*/
-					
-					for ( Pronunciation pron : em.getPronunciations() ) {
-						String pronStr = pron.getDataField();
-						
-						// TODO Fix this to have the real value set in it
-						sb.append("\\n" + pronStr + "\\n");
+				/* If the etymology text runs on many lines separated by (Unix) newlines, the lines have to be changed
+				 * to be separated by the string \n instead. Otherwise stardict-editor chokes.
+				 */
+				String etymInOneRow = "";
+				String[] etymRows = etymStr.split(LF_LIN);
+				//LOGGER.finer("Etym lines: " + etymRows.length);
+				if (etymRows.length > 1) {
+					for (String etymRow : etymRows)  {
+						etymInOneRow = etymInOneRow + "\\n" + etymRow.substring(0, etymRow.length()-1);
 					}
+				} else {
+					etymInOneRow = etymStr;
 				}
+				//LOGGER.finer("etym: '" + etymInOneRow + "'");
+				
+				// Don't output if the etymology has no contents besides the text "Etymology"
+				if (! (etymInOneRow.trim().equals("Etymology")) ) {
+					sb.append("\\n" + etymInOneRow + "\\n");
+				}
+				
+//				for ( Etym em : wordEtym.getEtyms() ) {
+//					/*Set<Pronunciation> prons = em.getPronunciations();
+//					pron.setEtym(em);*/
+//					
+//					for ( Pronunciation pron : em.getPronunciations() ) {
+//						String pronStr = pron.getDataField();
+//						
+//						// TODO Fix this to have the real value set in it
+//						//sb.append("\\n" + pronStr + "\\n");
+//					}
+//				}
 			}
 			
 			// loop WordEntries
@@ -379,7 +402,7 @@ public class StardictStorer implements Storer, Runnable {
 			synchronized(latch) {
 				threadsAmount++;
 				if (threadsAmount > 0)
-					System.out.println("Created thread #" + threadsAmount);
+					LOGGER.info("Created thread #" + threadsAmount);
 			}
 			
 			try {
@@ -397,7 +420,7 @@ public class StardictStorer implements Storer, Runnable {
 				
 				synchronized(latch) {
 					if (threadsAmount > 0)
-						System.out.println("Ended thread #" + threadsAmount);
+						LOGGER.info("Ended thread #" + threadsAmount);
 				}
 				
 			} catch (Exception e) {

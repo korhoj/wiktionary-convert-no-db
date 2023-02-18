@@ -1,0 +1,281 @@
+Running.txt, notes in detail for building Stardict-tools (not needed anymore)
+
+E. PARSING THE ENTRIES AND CREATING STARDICT FILES
+
+The Ubuntu repo Stardict package in 16.04 LTS doesn't work since it doesn't support multiple lines having the
+same entry name.
+
+Ubuntu 22.04 LTS has @20230218 a newer stardict and stardict-tools v. than SourceForge,
+3.0.7+git20211225+dfsg-1. So there is no need to build it oneself anymore.
+
+cf. https://stardict-4.sourceforge.net/ChangeLog (link is in https://stardict-4.sourceforge.net/index_en.php)
+  2022.
+    StarDict-3.0.1.3 (Bodhisatta xxx) released.
+    Support compress dictionary format!
+    Some small changes!
+  2022.
+    StarDict-2.4.10 (Love-Cher xxx) released.
+    Support compress dictionary format!
+    Some small changes!
+  2022.1.
+    StarDict-3.0.7 (MasterWork xxx) released.
+    Port to gtk3!
+    Add some babylon dictionaries.
+    Add some BigDict dictionaries.
+    Add some PowerWord dictionaries.
+    Stardict_client add md5 salt feature and RSA encrypt feature! As StarDict-Protocol_v04.
+    Thanks Anatoly Sova <anatoliysova@gmail.com> for the bgl and dsl convert patch!
+    Add fortune and cal plugins.
+    Add info plugin.
+    Add flite TTS plugin.
+    Add YouDao.com netdict plugin.
+    Thanks GreenLunar for the Hebrew translation!
+    Many small changes.
+  2022.1.
+    StarDict-3.0.6.3 (Epic xxx) released.
+    Provide Windows exe version.
+    Source code is almost the same as StarDict-3.0.7!
+
+dictzip
+=======
+In Ubuntu, install dictzip, which is used to produce the .dict.dz file:
+sudo apt install dictzip
+
+dictd
+=====
+Install dictd, if you want to lookup words from either Ubuntu supplied or self-built dictionary files locally.
+
+Dictionary packages for dictd in Ubuntu
+=======================================
+Install anyt you want, e.g.:
+  sudo apt install dict-freedict-eng-fra
+   dict-freedict-lat-eng
+   dict-freedict-swe-deu
+   dict-freedict-swe-lat
+   dict-freedict-eng-spa
+   dict-freedict-swe-eng
+   dict-freedict-fin-nld
+   dict-freedict-ita-deu
+   dict-de-en
+
+Building oneself (not recommended)
+================
+3.0.1 etc.
+-----
+(there is also this link in https://stardict-4.sourceforge.net: https://sourceforge.net/projects/stardict-4/files/3.0.1/stardict-tools-3.0.1.tar.bz2/download)
+
+3.0.6.2
+-------
+You can try to download and install (dpkg -i for the deb)
+https://sourceforge.net/projects/stardict-4/files/3.0.6.2/stardict_3.0.6-2-1_all.deb/download
+  This didn't install in my Ubuntu 64b 16.04 LTS. It needs libsigc++-2.0-0c2a and I have libsigc++-2.0.0-v5.
+
+I was however able to compile the stardict-tools part of the package. Download
+https://sourceforge.net/projects/stardict-4/files/3.0.6.2/stardict-3.0.6.2-github-2.tar.xz/download
+
+tar xfj stardict-3.0.6.tar.bz2
+cd stardict-3.0.6/
+
+Install libraries needed for building:
+
+sudo apt install automake
+sudo apt install libtool
+sudo apt install gnome-common
+sudo apt install libglib2.0-dev
+sudo apt install libgtk2.0-dev
+  (sudo apt install zlib1g-dev - installed already as dependency of libgtk2.0-dev)
+sudo apt install libxml2-dev
+sudo apt install libmysqlclient-dev libmysqlclient21
+sudo apt install libgconf2-dev
+sudo apt install libgail-dev
+sudo apt install stardict-tools gir1.2-gee-0.8 libgee-0.8-dev libglib2.0-doc
+
+Continue next to the section below "Building stardict-tools"
+
+3.0.6.3 - haven't managed to build or this or install the deb
+-------
+https://sourceforge.net/projects/stardict-4/files/3.0.6.3/stardict-3.0.6.3-2-src.7z/download
+
+https://sourceforge.net/projects/stardict-4/files/3.0.6.3/stardict_3.0.6.3-1_all.deb/download
+
+sudo apt install p7zip-full
+cd ~/Downloads
+7z x stardict-3.0.6.3-2-src.7z
+
+cd stardict-3.0.6.3/
+
+Install libraries needed for building:
+
+sudo apt install automake
+sudo apt install libtool
+sudo apt install gnome-common
+sudo apt install libglib2.0-dev
+sudo apt install libgtk2.0-dev
+  (sudo apt install zlib1g-dev - installed already as dependency of libgtk2.0-dev)
+sudo apt install libxml2-dev
+sudo apt install libmysqlclient-dev
+  libmysqlclient21
+sudo apt install libgconf2-dev
+sudo apt install libgail-dev
+
+sudo apt install stardict-tools
+  gir1.2-gee-0.8
+  libgee-0.8-dev
+  libglib2.0-doc
+
+*libcanberra-gtk3-0
+  --> libcanberra-gtk3-dev
+*libcanberra0
+*libexpat1
+*libgcc-s1
+*libgdk-pixbuf-2.0-0
+*libgtk-3-0
+*libpango-1.0-0
+*libsigc++2.0-0v5
+  -> libsigc++2.0-dev
+*libstdc++6
+*libx11-6
+*zlib1g
+
+sudo apt install libgc-dev gir1.2-gee-0.8 libgee-0.8-dev libglib2.0-doc libcanberra-gtk3-dev
+
+xsltproc libxslt1-dev xmlto gnome-devel libgtk2.0-doc python-all python-all-dev python2.7-doc dictconv
+
+gnome-doc-utils ?
+  https://ubuntu.pkgs.org/18.04/ubuntu-universe-amd64/gnome-doc-utils_0.20.10-4_all.deb.html
+  -->
+  http://archive.ubuntu.com/ubuntu/pool/universe/g/gnome-doc-utils/gnome-doc-utils_0.20.10-4_all.deb
+  
+  gnome-doc-utils (0.20.10-4) ...
+  dpkg: dependency problems prevent configuration of gnome-doc-utils:
+    gnome-doc-utils depends on python:any (<< 2.8).
+    gnome-doc-utils depends on python:any (>= 2.7.5-5~).
+    gnome-doc-utils depends on python-libxml2
+     (python3-libxml2 exists)
+Won't build without this?
+
+----------------
+
+Building stardict-tools (continue after section 3.0.6.2 above)
+=======================
+
+./autogen.sh
+./configure --disable-dict
+  This tells make we want to compile only the stardict-tools portion of the code
+  2021-Apr-05: stardict-4 tools doesn't support this param anymore, just run ./configure (?)
+make
+
+--------------------------------------------------------------------------------------
+(The below is from Running.txt)
+
+cd tools/src
+./stardict-editor
+In the default Compile tab, press Browse and select the sorted file, wikt-en-ALL-yyyy-mm-dd.txt
+Press Compile. The window is greyed out until processing is ready.
+The program says "Done!" if the conversion worked. It gives warnings for some lines but that should be ok.
+
+The conversion process produces files like:
+
+wikt-en-ALL-yyyy-mm-dd.dict.dz
+  The dictd and Stardict compatible dictionary file
+wikt-en-ALL-yyyy-mm-dd.idx
+  The index file needed by Stardict and dictd
+wikt-en-ALL-yyyy-mm-dd.ifo
+  Description file, can be edited in a text editor
+
+An example:
+  
+~/Downloads/stardict-tools-3.0.2/src/example.ifo:
+  StarDict's dict ifo file
+  version=2.4.2
+  wordcount=100
+  idxfilesize=100
+  bookname=example
+  author=the author name
+  email=author@email
+  website=this dictionary's project website link
+  description=convert to StarDict by...
+  date=2003.05.10
+  sametypesequence=m
+
+Change the generated ifo file, e.g. wikt-en-ALL-yyyy-mm-dd.ifo, to look something like this:
+
+StarDict's dict ifo file
+version=2.4.2
+wordcount=6128515
+idxfilesize=122996950
+bookname=wikt-en-ALL-2018-10-03
+author=Wiktionary volunteers. Converted by Joel Korhonen
+email=stardict-korhoj@outlook.com
+website=https://dictinfo.com
+description=Stardict format, English Wiktionary, English only, v.2018-Oct-03 based on entries from 2018-Oct-01
+date=2018.10.03
+sametypesequence=m
+
+You may copy wikt-en-ALL-yyyy-mm-dd.dict.dz and wikt-en-ALL-yyyy-mm-dd.idx to e.g. your phone and use it with a Stardict compatible
+GUI such as Colordict, or if you have installed the Stardict GUI in your PC, you can use the file with it.
+
+F. CREATING AND INSTALLING A DICTD COMPATIBLE ARCHIVE
+
+Step D. needs to be performed first.
+
+Perform the following steps in Linux.
+
+Install dictd and dictfmt if they are not installed:
+
+sudo apt install dictd dictfmt
+
+Run conv2unix-en-ALL.sh. The script produces wikt-en-ALL-unsorted.txt which needs to be sorted.
+
+Run	join-dupls-dictfmt-en-ALL.cmd in Windows
+  Produces wikt-en-ALL-dictfmt-dupls-joined.txt. Uses JoinDefinitions.jar
+  
+    toformat.txt - an example in F.O.L.D.O.C. format
+	\n's should be replaced by real Unix-linefeeds (real \n's) + tab (\t)
+	  sed 's/\\n/\n\t/g' > sed-test.txt < headi-nodupls.txt
+
+cp pd-header.txt wikt-en-ALL-yyyy-mm-dd-dict.txt
+  This joins a copyright header, public domain + CC-SA-BY in this case
+  This could be done by JoinDefinitions.jar already
+cat wikt-en-ALL-dictfmt-dupls-joined.txt | tee -a wikt-en-ALL-yyyy-mm-dd-dict.txt > /dev/null
+
+N.b. the next step overwrites any .dz file created in step E, e.g. wikt-en-ALL-yyyy-mm-dd.dict.dz
+Run dictfmt which creates .dict and .index for dictd by running one of the dictfmt scripts, e.g.:
+
+dictfmt-en-ALL.sh
+dictfmt-en-eb.sh
+dictfmt-Western.sh
+dictfmt-Western_Greek_Slavonic.sh
+dictfmt-sq-ALL.sh
+
+Or create a new script like this and run it:
+
+dictfmt -f --utf8 --allchars wikt-en-ALL-yyyy-mm-dd -u https://dictinfo.com -s wikt-en-ALL-yyyy-mm-dd < wikt-en-ALL-yyyy-mm-dd-dict.txt
+	    -f: FILE  is  formatted  with  the headwords starting in column 0, with the definition
+            indented at least one space (or tab character) on  subsequent  lines.   The  third
+            line starting in column 0 is taken as the first headword , and the first two lines
+            starting in column 0 are treated as part of  the  00-database-info  header.   This
+            option was written to format the F.O.L.D.O.C.
+
+/Downloads/stardict_3.0.6/tools/src/stardict-verify wikt-en-ALL.ifo
+  Run this if you have done step E and want to verify the dictionary files. The ifo isn't needed for dictd as such
+dictzip wikt-en-ALL-yyyy-mm-dd.dict
+  produces the .dict.dz file. N.b. it overwrites any existing one such as one created in step E
+sudo cp -vi wikt-en-ALL-yyyy-mm-dd.dict.dz /usr/share/dictd/
+sudo cp -vi wikt-en-ALL-yyyy-mm-dd.index /usr/share/dictd/
+dictdconfig -l
+  lists current dictionary entries. It should now show your new dictionary, e.g.:
+  database wikt-en-ALL-2018-05-15
+  {
+   data  /usr/share/dictd/wikt-en-ALL-2018-05-15.dict.dz
+   index /usr/share/dictd/wikt-en-ALL-2018-05-15.index
+  }
+sudo dictdconfig -w
+  updates /var/lib/dictd/db.list
+sudo service dictd restart
+dictdconfig -l
+  confirm the new dictionary is installed
+dict -i wikt-en-ALL-yyyy-mm-dd
+  Confirm that the header info shows OK. The copyright from pd-header.txt should be in the last paragraph
+dict Linux
+  test looking up a word from the new dictionary
