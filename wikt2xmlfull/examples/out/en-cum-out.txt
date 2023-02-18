@@ -1,0 +1,10 @@
+transfinite	\nEtymology\n
+From {{uder|en|de|transfinit}}, coined by {{w|Georg Cantor}}.
+
+\n\n\na.\n1 Beyond finite.\n2 (lb en mathematics) Relating to transfinite numbers. Category:en:Infinity\nn.\nA transfinite number.
+transfinite	German a.\n(de-adj form of: transfinit)
+transfinite	Italian a.\n(adj form of it transfinito  f p)
+uncountable	\nEtymology\n
+{{prefix|en|un|countable}}
+
+\n\n\na.\n1 So many as to be incapable of being counted.\n2 (lb en mathematics) Incapable of being put into one-to-one correspondence with the natural numbers or any subset thereof.\n3 (lb en grammar of a noun) That cannot be used freely with numbers or the indefinite article, and therefore :Appendix:Glossary#uncountable takes no plural form. Example: ''information''.\nn.\n(lb en grammar) An uncountable noun.

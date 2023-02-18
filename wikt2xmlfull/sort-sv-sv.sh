@@ -1,15 +1,14 @@
 #!/bin/bash
 #Combines files and sorts to a single output file
-#Run first conv2unix-fi-ALL.sh
+#Run first conv2unix-sv-sv.sh
+#Joel Korhonen 2021-05-23
 NOW=`date +%Y-%m-%d`
-INFILE=wikt-fi-ALL-unsorted.txt
-OUTFILE=wikt-fi-ALL-$NOW.txt
-# Run as root: localedef -f UTF-8 -i fi_FI fi_FI.UTF-8
-# to generate Finnish in UTF-8 charset and add it to the default locale archive with name fi_FI.UTF-8) 
-# After that, "locale -a" should show fi_FI.UTF-8
-#export LC_ALL=fi_FI.UTF-8
-# The next because ALL includes all languages
-export LC_ALL=en_US.UTF-8
+INFILE=wikt-sv-sv-unsorted.txt
+OUTFILE=wikt-sv-sv-$NOW.txt
+# Run as root: localedef -f UTF-8 -i sv_SE sv_SE.UTF-8
+# to generate Swedish in UTF-8 charset and add it to the default locale archive with name fi_FI.UTF-8) 
+# After that, "locale -a" should show sv_SE.UTF-8
+export LC_ALL=sv_SE.UTF-8
 locale
 echo Sorting...
 # This is the best. Greek letters are after Z though

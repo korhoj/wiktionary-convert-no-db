@@ -1,2 +1,5 @@
-#!/bin/sh
-dictfmt -f --utf8 --allchars wikt-en-en-2018-10-03 -u https://dictinfo.com -s wikt-en-en-2018-10-03 < wikt-en-en-2018-10-03-dict.txt
+#!/bin/bash
+convLangCode="en"
+convLang="en"
+convDate="2023-02-18"
+dictfmt -f --utf8 --allchars wikt-$convLangCode-$convLang-$convDate -u http://dictinfo.com -s wikt-$convLangCode-$convLang-$convDate < ../wikt-$convLangCode-$convLang-$convDate-dict.txt

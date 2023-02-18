@@ -1,6 +1,6 @@
 #!/bin/bash
-convLangCode="sv"
-convLang="ALL"
+convLangCode="el"
+convLang="el"
 convDate="2023-02-18*"
 FILES="wikt-$convLangCode-$convLang-$convDate.txt"
 # Find out YYYY-MM-DD automatically

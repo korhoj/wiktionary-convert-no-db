@@ -1,11 +1,14 @@
 #!/bin/bash
-FILES="wikt-en-Western-2018-05-15*.txt"
+convLangCode="en"
+convLang="Western"
+convDate="2023-02-18*"
+FILES="wikt-$convLangCode-$convLang-$convDate.txt"
 # Find out YYYY-MM-DD automatically
-#FILES="wikt-en-Western-`date %Y-%m-%d*.txt`"
-rm wikt-en-Western-unsorted.txt
+#FILES="wikt-$convLangCode-$convLang-`date %Y-%m-%d*.txt`"
+[ -f wikt-$convLangCode-$convLang-unsorted.txt ] && rm -v wikt-$convLangCode-$convLang-unsorted.txt
 for f in $FILES
 do
   echo Processing file: ${f}
   dos2unix ${f}
-  cat ${f} >> wikt-en-Western-unsorted.txt
+  cat ${f} >> wikt-$convLangCode-$convLang-unsorted.txt
 done

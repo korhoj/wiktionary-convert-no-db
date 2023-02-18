@@ -1,13 +1,10 @@
 #!/bin/bash
 #Combines files and sorts to a single output file
-#Run first conv2unix-fi-ALL.sh
+#Run first conv2unix-no-ALL.sh
 NOW=`date +%Y-%m-%d`
-INFILE=wikt-fi-ALL-unsorted.txt
-OUTFILE=wikt-fi-ALL-$NOW.txt
-# Run as root: localedef -f UTF-8 -i fi_FI fi_FI.UTF-8
-# to generate Finnish in UTF-8 charset and add it to the default locale archive with name fi_FI.UTF-8) 
-# After that, "locale -a" should show fi_FI.UTF-8
-#export LC_ALL=fi_FI.UTF-8
+INFILE=wikt-no-ALL-unsorted.txt
+OUTFILE=wikt-no-ALL-$NOW.txt
+#export LC_ALL=sv_SE.UTF-8
 # The next because ALL includes all languages
 export LC_ALL=en_US.UTF-8
 locale

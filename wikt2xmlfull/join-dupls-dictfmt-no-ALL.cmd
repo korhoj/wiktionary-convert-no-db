@@ -1,6 +1,6 @@
 @echo off
 rem Joel Korhonen 2023-02-18
-set convLangCode="sq"
+set convLangCode="no"
 set convLang="ALL"
 set convDate="2023-02-18"
 set JAVA_HOME=C:\Usr\jdk-19

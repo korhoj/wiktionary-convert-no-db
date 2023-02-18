@@ -100,71 +100,171 @@ Wiktionary has the definitions of the entries in the English language.
 
 D. COMBINING THE OUTPUT FILES
 
-I perform the steps in D and E in Linux running Ubuntu 16.04 LTS. I run it inside VMware Workstation.
+I perform the steps in D and E in Linux running Ubuntu 22.04 LTS. I run it inside VMware Workstation.
 
-You need to have dos2unix installed. If not:
+dos2unix
+--------
+You need to have dos2unix installed. If you don't have it yet, install it:
 
-sudo apt install dos2unix
+$ sudo apt install dos2unix
 
-Copy conv2unix-en-ALL.sh and sort-en-ALL.sh to Linux. I do it using the shared folders feature of VMware Workstation.
+Copying files from git to Linux
+-------------------------------
+Copy any dictionary files you have produced above (by running the ReadStripped*.cmd script for the language you are processing) to your Linux to a directory of your choice.
+These have a name in the format wikt-langcode-lang-yyyy-mm-dd-hh-mm-ss.txt
+E.g.: wikt-en-ALL-2023-02-18-13-22-03.txt, wikt-en-ALL-2023-02-18-13-26-43.txt etc.
 
-By default, conv2unix-en-ALL.sh processes wikt-en-ALL-yyyy-mm-dd, where yyyy-mm-dd is
-the current date. Change this if necessary by editing with e.g. vi.
+Also copy to the same directory the scripts conv2unix*.sh, dictfmt*.sh and sort*.sh from your checked out Git repository for wiktionary-convert-no-db to Linux.
 
-Run conv2unix-en-ALL.sh. The script produces wikt-en-ALL-unsorted.txt which needs to be sorted.
+I do the copying by using the shared folders feature of VMware Workstation.
+Alternatively, you could checkout my git repository using your Linux.
 
-Run sort-en-ALL.sh. It produces wikt-en-ALL-yyyy-mm-dd.txt.
+conv2unix scripts
+-----------------
+Edit the date of the input files to the conv2unix*.sh script for the dictionary language you are processing, e.g.
+
+# for en-ALL:
+$ vi conv2unix-en-ALL.sh
+# for fi-fi:
+$ vi conv2unix-fi-fi.sh
+
+In the file, the input files for a given date are specified like this:
+  convDate="2023-02-18*"
+
+Run the conv2unix-*.sh script for the language you are processing. E.g.:
+
+# for en-ALL
+$ conv2unix-en-ALL.sh
+# for fi-fi
+$ conv2unix-fi-fi.sh
+
+Or run scripts for all supported languages:
+  for f in `ls conv2unix-*.sh` ; do echo $f && ./$f ; done
+
+The conv2unix script(s) produce(s) output unsorted output files, which shows in the file names,
+which are of the format wikt-langcode-lang-unsorted.txt.
+E.g. for en-ALL the file is wikt-en-ALL-unsorted.txt 
+
+sorting
+-------
+The unsorted file(s) produced by conv2unix script(s) need to be sorted to be further processed.
+
+Before doing this by running any of the sort*.sh scripts for the language whose dictionary you are processing, make sure you have the locale(s) you need.
+First check, which locale the script(s) use(s), e.g.:
+
+sort-el-el.sh has this definition:
+  export LC_ALL=el_GR.UTF-8
+Which means you need the locale el_GR.utf8 in your system.
+
+Check, which locales are already available:
+
+$ locale -a
+  C.utf8
+  el_GR.utf8
+  en_AG
+  en_AG.utf8
+  en_AU.utf8
+  en_BW.utf8
+  en_CA.utf8
+  en_DK.utf8
+  en_GB.utf8
+  en_HK.utf8
+  en_IE.utf8
+  en_IL
+  en_IL.utf8
+  en_IN
+  en_IN.utf8
+  en_NG
+  en_NG.utf8
+  en_NZ.utf8
+  en_PH.utf8
+  en_SG.utf8
+  en_US.utf8
+  en_ZA.utf8
+  en_ZM
+  en_ZM.utf8
+  en_ZW.utf8
+  fi_FI.utf8
+  POSIX
+  sv_SE.utf8
+
+If a locale you need is not available, generate it, e.g.:
+
+$ sudo localedef -f UTF-8 -i el_GR el_GR.UTF-8
+$ sudo localedef -f UTF-8 -i fi_FI fi_FI.UTF-8
+$ sudo localedef -f UTF-8 -i sv_SE sv_SE.UTF-8
+
+The sort*.sh parse (unless you change them) the input files for the current date for a given dictionary language, produced above by running the corresponding conv2unix shell script.
+
+Run the sort script for the language you are processing, e.g.:
+
+# for en-ALL
+$ sort-en-ALL.sh
+# for fi-fi
+$ sort-fi-fi.sh
+
+Or run scripts for all supported languages:
+  for f in `ls sort-*.sh` ; do echo $f && ./$f ; done
+
+The sort script produces output named according to the language you are processing. E.g. for en-ALL the file is named in the format:
+  wikt-en-ALL-yyyy-mm-dd.txt
 
 E. PARSING THE ENTRIES AND CREATING STARDICT FILES
 
-The Ubuntu repo Stardict package in 16.04 LTS doesn't work since it doesn't support multiple lines having the
-same entry name.
+Ubuntu repos for 22.04 LTS have a working stardict-tools (and stardict) package,
+3.0.7+git20211225+dfsg-1 (@20230218). So there is no need to build it oneself anymore.
 
-You can try to download and install (dpkg -i for the deb)
-https://sourceforge.net/projects/stardict-4/files/3.0.6.2/stardict_3.0.6-2-1_all.deb/download
+See https://stardict-4.sourceforge.net/ChangeLog (link is in https://stardict-4.sourceforge.net/index_en.php)
+  2022.
+    StarDict-3.0.1.3 (Bodhisatta xxx) released.
+    Support compress dictionary format!
+    Some small changes!
+  2022.1.
+    StarDict-3.0.7 (MasterWork xxx) released.
+    Port to gtk3!
+    Add some babylon dictionaries.
+    Add some BigDict dictionaries.
+    Add some PowerWord dictionaries.
+    Stardict_client add md5 salt feature and RSA encrypt feature! As StarDict-Protocol_v04.
+    Thanks Anatoly Sova <anatoliysova@gmail.com> for the bgl and dsl convert patch!
+    Add fortune and cal plugins.
+    Add info plugin.
+    Add flite TTS plugin.
+    Add YouDao.com netdict plugin.
+    Thanks GreenLunar for the Hebrew translation!
+    Many small changes.
 
-It didn't install in my Ubuntu 64b 16.04 LTS. It needs libsigc++-2.0-0c2a and I have libsigc++-2.0.0-v5.
+stardict-editor
+===============
+Run "stardict-editor" after installing it from the Ubuntu package stardict-tools (see above).
 
-I was however able to compile the stardict-tools part of the package. Download
-https://sourceforge.net/projects/stardict-4/files/3.0.6.2/stardict-3.0.6.2-github-2.tar.xz/download
- (there is also this link in https://stardict-4.sourceforge.net: https://sourceforge.net/projects/stardict-4/files/3.0.1/stardict-tools-3.0.1.tar.bz2/download)
+In my Ubuntu 22.04 LTS, it installed to /usr/lib/stardict-tools/ and is run like this:
 
-cd ~/Downloads
-tar xfj stardict-3.0.6.tar.bz2
-cd stardict-3.0.6/
+$ /usr/lib/stardict-tools/stardict-editor
 
-Install libraries needed for building:
-sudo apt install automake
-sudo apt install libgtk2.0-dev
-sudo apt install libxml2-dev
-(sudo apt install libglib2.0-dev - installed already as dependency of libtk2.0-dev)
-(sudo apt install zlib1g-dev - installed already as dependency of libtk2.0-dev)
-sudo apt install libmysqlclient-dev
-
-Also install dictzip, which is used to produce the .dict.dz file:
-
-sudo apt install dictzip
-
-./autogen.sh
-./configure --disable-dict
-  This tells make we want to compile only the stardict-tools portion of the code
-  2021-Apr-05: stardict-4 tools doesn't support this param anymore, just run ./configure
-make
-
-cd tools/src
-./stardict-editor
-In the default Compile tab, press Browse and select the sorted file, wikt-en-ALL-yyyy-mm-dd.txt
+In the default Compile tab, press Browse and select the sorted file, e.g.
+  wikt-en-ALL-yyyy-mm-dd.txt
 Press Compile. The window is greyed out until processing is ready.
-The program says "Done!" if the conversion worked. It gives warnings for some lines but that should be ok.
+  If it's a big dictionary, Ubuntu may show once or many times a dialog asking
+  whether you want to "Force Quit" or "Wait". Click always "Wait".
+The program prints messages like this, if the conversion works:
+  Building...
+  [message] Conversion is over.
+  [message] wikt-sv-sv-2023-02-18 wordcount: 359441.
+  Done!
+The program may give warnings about missing tabs for some lines but that should be ok.
+The warnings look like this:
+  [warning] Warning: line 12345, no tab! Skipping line.
 
-The conversion process produces files like:
+The above conversion process produces files like:
 
 wikt-en-ALL-yyyy-mm-dd.dict.dz
-  The dictd and Stardict compatible dictionary file
+  The Stardict compatible dictionary file (for dictd compatible ones, see
+   section F. below)
 wikt-en-ALL-yyyy-mm-dd.idx
   The index file needed by Stardict and dictd
 wikt-en-ALL-yyyy-mm-dd.ifo
-  Description file, can be edited in a text editor
+  The Stardict compatible description file. It can be edited in a text editor
 
 An example:
   
@@ -198,24 +298,63 @@ sametypesequence=m
 You may copy wikt-en-ALL-yyyy-mm-dd.dict.dz and wikt-en-ALL-yyyy-mm-dd.idx to e.g. your phone and use it with a Stardict compatible
 GUI such as Colordict, or if you have installed the Stardict GUI in your PC, you can use the file with it.
 
-F. CREATING AND INSTALLING A DICTD COMPATIBLE ARCHIVE
+F. CREATING AND INSTALLING A DICTD COMPATIBLE DICTIONARY ARCHIVE FOR A LANGUAGE
 
-Step D. needs to be performed first.
+Steps in the above section D. (not necessarily E. however) need to be performed first.
+Then perform the following steps in Linux:
 
-Perform the following steps in Linux.
+dictzip
+=======
+In Ubuntu, install dictzip, which is used to produce the .dict.dz file:
 
-Install dictd and dictfmt if they are not installed:
+$ sudo apt install dictzip
 
-sudo apt install dictd dictfmt
+dictd
+=====
+For building dictd compatible dictionary archives, you don't need to be running a dictd server. It is good to install it though, because it can be used to verify the integrity of any dictionary archives you produce. In addition you can also then use the command "dict" to look up dictionary entries in your Linux...
 
-Run conv2unix-en-ALL.sh. The script produces wikt-en-ALL-unsorted.txt which needs to be sorted.
+$ sudo apt install dictd
 
-Run	join-dupls-dictfmt-en-ALL.cmd in Windows
-  Produces wikt-en-ALL-dictfmt-dupls-joined.txt. Uses JoinDefinitions.jar
+Dictionary packages for dictd in Ubuntu
+=======================================
+Ubuntu repo(s) contain many prebuilt dictionaries for dictd.
+You may install any you want. It works best if you only install one or two at a time.
+
+Some example packages for 22.04 LTS (@20230218):
+  sudo apt install dict-freedict-eng-fra
+                   dict-freedict-lat-eng
+                   dict-freedict-swe-deu
+                   dict-freedict-swe-lat
+                   dict-freedict-eng-spa
+                   dict-freedict-swe-eng
+                   dict-freedict-fin-nld
+                   dict-freedict-ita-deu
+                   dict-de-en
+
+dictfmt
+=======
+
+Install dictfmt if it is not installed:
+
+$ sudo apt install dictfmt
+
+Joining duplicates
+==================
+Run the join-dupls-dictfmt-*.cmd script in Windows for the language archive you are producing. The scripts use a Java program placed in the file JoinDefinitions.jar.
+
+E.g. for en-ALL the script is:
+  join-dupls-dictfmt-en-ALL.cmd
+
+The script(s) produce(s) files named in the format
+  wikt-langcode-lang-dictfmt-dupls-joined.txt
+E.g.
+  wikt-en-ALL-dictfmt-dupls-joined.txt
   
+(
     toformat.txt - an example in F.O.L.D.O.C. format
 	\n's should be replaced by real Unix-linefeeds (real \n's) + tab (\t)
 	  sed 's/\\n/\n\t/g' > sed-test.txt < headi-nodupls.txt
+)
 
 cp pd-header.txt wikt-en-ALL-yyyy-mm-dd-dict.txt
   This joins a copyright header, public domain + CC-SA-BY in this case
@@ -223,22 +362,24 @@ cp pd-header.txt wikt-en-ALL-yyyy-mm-dd-dict.txt
 cat wikt-en-ALL-dictfmt-dupls-joined.txt | tee -a wikt-en-ALL-yyyy-mm-dd-dict.txt > /dev/null
 
 N.b. the next step overwrites any .dz file created in step E, e.g. wikt-en-ALL-yyyy-mm-dd.dict.dz
-Run dictfmt which creates .dict and .index for dictd by running one of the dictfmt scripts, e.g.:
 
-dictfmt-en-ALL.sh
-dictfmt-en-eb.sh
-dictfmt-Western.sh
-dictfmt-Western_Greek_Slavonic.sh
-dictfmt-sq-ALL.sh
+Edit the date of the input files to the dictfmt*.sh script for the dictionary language you are processing, e.g.
 
-Or create a new script like this and run it:
+# for en-ALL
+$ dictfmt-en-ALL.sh
+# for fi-fi
+$ dictfmt-fi-fi.sh
 
-dictfmt -f --utf8 --allchars wikt-en-ALL-yyyy-mm-dd -u https://dictinfo.com -s wikt-en-ALL-yyyy-mm-dd < wikt-en-ALL-yyyy-mm-dd-dict.txt
+Run the script. It creates .dict and .index for the given language.
+
+(Or create a new script like this and run it:
+  dictfmt -f --utf8 --allchars wikt-en-ALL-yyyy-mm-dd -u https://dictinfo.com -s wikt-en-ALL-yyyy-mm-dd < wikt-en-ALL-yyyy-mm-dd-dict.txt
 	    -f: FILE  is  formatted  with  the headwords starting in column 0, with the definition
             indented at least one space (or tab character) on  subsequent  lines.   The  third
             line starting in column 0 is taken as the first headword , and the first two lines
             starting in column 0 are treated as part of  the  00-database-info  header.   This
             option was written to format the F.O.L.D.O.C.
+)
 
 /Downloads/stardict_3.0.6/tools/src/stardict-verify wikt-en-ALL.ifo
   Run this if you have done step E and want to verify the dictionary files. The ifo isn't needed for dictd as such

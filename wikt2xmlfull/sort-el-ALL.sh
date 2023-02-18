@@ -1,13 +1,13 @@
 #!/bin/bash
 #Combines files and sorts to a single output file
-#Run first conv2unix-fi-ALL.sh
+#Run first conv2unix-el-ALL.sh
+#Joel Korhonen 2021-Apr-05
 NOW=`date +%Y-%m-%d`
-INFILE=wikt-fi-ALL-unsorted.txt
-OUTFILE=wikt-fi-ALL-$NOW.txt
-# Run as root: localedef -f UTF-8 -i fi_FI fi_FI.UTF-8
-# to generate Finnish in UTF-8 charset and add it to the default locale archive with name fi_FI.UTF-8) 
-# After that, "locale -a" should show fi_FI.UTF-8
-#export LC_ALL=fi_FI.UTF-8
+INFILE=wikt-el-ALL-unsorted.txt
+OUTFILE=wikt-el-ALL-$NOW.txt
+# Run as root: localedef -f UTF-8 -i el_GR el_GR.UTF-8
+# to generate Greek in UTF-8 charset and add it to the default locale archive with name el_GR.UTF-8)
+# After that, "locale -a" should show el_GR.UTF-8
 # The next because ALL includes all languages
 export LC_ALL=en_US.UTF-8
 locale
@@ -20,5 +20,3 @@ sort -t$'\t' -k 1,1 --output=$OUTFILE $INFILE
 # Due to --dictionary-order, À l'ordinaire is placed at l and Τό πρέπόν before To prepon
 # However, this misplaces Œdipus at D and Šiauliai at i.
 #sort -t '<' -k 4,4 --dictionary-order --output=Sort_VnW_test_out6.xml Sort_VnW_test_in.xml
-
-#sort all.txt > sorted.txt

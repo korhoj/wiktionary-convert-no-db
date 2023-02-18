@@ -1,5 +1,5 @@
 #!/bin/bash
-convLangCode="sv"
+convLangCode="fi"
 convLang="ALL"
 convDate="2023-02-18*"
 FILES="wikt-$convLangCode-$convLang-$convDate.txt"

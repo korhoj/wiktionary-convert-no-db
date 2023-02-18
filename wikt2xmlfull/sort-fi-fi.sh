@@ -19,3 +19,5 @@ sort -t$'\t' -k 1,1 --output=$OUTFILE $INFILE
 # Due to --dictionary-order, À l'ordinaire is placed at l and Τό πρέπόν before To prepon
 # However, this misplaces Œdipus at D and Šiauliai at i.
 #sort -t '<' -k 4,4 --dictionary-order --output=Sort_VnW_test_out6.xml Sort_VnW_test_in.xml
+
+#sort all.txt > sorted.txt
