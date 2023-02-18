@@ -1,0 +1,21 @@
+<page>
+    <title>cháchá'érmíng</title>
+    <id>9060639</id>
+    <revision>
+      <id>69892201</id>
+      <timestamp>2022-11-20T05:27:06Z</timestamp>
+      <contributor>
+        <username>Tooironic</username>
+        <id>189643</id>
+      </contributor>
+      <comment>Creating forms of [[察察而明]] ([[WT:ACCEL|Accelerated]])</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="85" xml:space="preserve">==Mandarin==
+
+===Romanization===
+{{cmn-pinyin}}
+
+# {{pinyin reading of|察察而明}}</text>
+    </revision>
+  </page>

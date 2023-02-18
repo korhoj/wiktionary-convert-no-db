@@ -1,0 +1,17 @@
+<page>
+    <title>察察爲明</title>
+    <id>9060638</id>
+    <revision>
+      <id>69892200</id>
+      <timestamp>2022-11-20T05:26:54Z</timestamp>
+      <contributor>
+        <username>Tooironic</username>
+        <id>189643</id>
+      </contributor>
+      <comment>Created page with &quot;==Chinese== {{zh-see|察察為明|v}}&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="37" xml:space="preserve">==Chinese==
+{{zh-see|察察為明|v}}</text>
+    </revision>
+  </page>

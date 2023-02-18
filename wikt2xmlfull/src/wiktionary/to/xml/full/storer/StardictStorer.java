@@ -172,6 +172,23 @@ public class StardictStorer implements Storer, Runnable {
 		String langID_ID = null;
 		boolean isFirstPOS = true;
 		
+		if (wordLang == null) {
+			System.err.println("wordLang == null");
+			
+			System.err.println("word: " + word.getDataField() );
+			return;
+		} else if (wordLang.getLang() == null) {
+			System.err.println("wordLang.getLang() == null");
+			System.err.println("word: " + word.getDataField() );
+			return;
+		} else if (wordLang.getLang().getAbr() == null) {
+			/* This happens if the language CSV list has a language(s) with the abbreviation \N,
+			 * such as "Chinese", which is not really a language unlike e.g. "Mandarin Chinese"
+			 */
+			System.err.println("wordLang.getLang().getAbr() == null");
+			System.err.println("word: " + word.getDataField() );
+			return;
+		}
 		langID_ID = wordLang.getLang().getAbr();
 		if ( ! ( langID_ID.equals(wiktLanguageCode)
 			   )
@@ -370,7 +387,7 @@ public class StardictStorer implements Storer, Runnable {
 				
 				// loop words
 				for (Word word : words) {
-					//System.out.println("OUTPUTING WORD " + word.getDataField());
+//					System.out.println("OUTPUTING WORD " + word.getDataField());
 					for ( WordLang wordLang : word.getWordLangs() ) {
 						outputWord(word, wordLang);
 					}

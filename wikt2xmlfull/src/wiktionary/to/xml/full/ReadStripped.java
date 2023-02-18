@@ -139,9 +139,9 @@ public class ReadStripped {
 			System.exit(255);
 		}
 		
-		LOGGER.setLevel(Level.ALL);
+		//LOGGER.setLevel(Level.ALL);
 		//LOGGER.setLevel(Level.INFO);
-		//LOGGER.setLevel(Level.WARNING);
+		LOGGER.setLevel(Level.WARNING);
 		
 		// Create txt Formatter
 		formatterTxt = new SimpleFormatter();
@@ -168,6 +168,8 @@ public class ReadStripped {
 		 */
 		String wiktLanguageCode = null;
 		
+		String outputType = null;
+		
 		long restartLine = 0;
 		
 		try {
@@ -177,83 +179,118 @@ public class ReadStripped {
 				System.exit(255);
 			}
 			
-			inFileName = args[0];
-			LOGGER.warning("Input: " + inFileName);
-			
-			outFileName = args[1];
-			LOGGER.warning("Output: " + outFileName);
-			
-			lang = args[2];
-			
-			// Strip " in beginning and end, e.g. from "Old English"
-			if (lang.startsWith("\"")) {
-				lang = lang.substring(1);
-				lang = lang.substring( 0, lang.length()-1 );
-			}
-			lang = lang.trim();
-			
-			// ALL == parse all languages
-			if (lang.equals("ALL")) {
-				lang = null;
-			}
-			LOGGER.warning("Language: " + (lang != null ? lang : "(all)") + (langCode != null ? (", code=" + langCode) : ""));
-			
-			String outputLangNamesStr = args[3];
-			if (outputLangNamesStr.equals("false"))
-				outputLangNames = false;
-			LOGGER.warning("Metadata in the Wikt language: " + (outputLangNames ? "yes" : "no"));
-
-			String outputType = args[4];
-			LOGGER.warning("Output type (str): " + outputType);
-			LOGGER.warning("Output type: " + OutputType.valueOf(outputType));
-			
-			if (args.length >= 6) {
-				String restartLineStr = args[5];
-				Long l = Long.parseLong(restartLineStr);
-				restartLine = l.longValue(); // if 0 --> NOP
-			}
-			if (restartLine > 0)
-				LOGGER.warning("Restarting at line " + restartLine);
-			
-			if (args.length >= 7) {
-				langCode = args[6];
-				langCode = langCode.trim();
-			}
-			
-			if (args.length >= 8) {
-				String onlyLanguagesStr = args[7];
-				if (onlyLanguagesStr.equals("false")) {
-					onlyLanguages = false;
+			/* Supported parameters:
+			 * INFILE=xxx
+			 * OUTFILE=xxx
+			 * LANG=xxx
+			 * OUTPUTLANGNAMES=false/true
+			 * OUTTYPE=xxx
+			 * RESTARTATLINE=n
+			 * LANGCODE=xxx
+			 * ONLYLANGUAGES=false/true
+			 * WIKTCODE=xxx
+			 */
+			int argNbr = 0;
+			for (String curArg : args) {
+				argNbr++;
+				LOGGER.finer("arg " + argNbr + ": '" + curArg + "'" );
+				
+				if (curArg.startsWith("INFILE=")) {
+					inFileName = curArg.substring( "INFILE=".length() );
+					LOGGER.warning("Input: " + inFileName);
+				}
+				else if (curArg.startsWith("OUTFILE=")) {
+					outFileName = curArg.substring( "OUTFILE=".length() );
+					LOGGER.warning("Output: " + outFileName);
+				}
+				else if (curArg.startsWith("LANG=")) {
+					lang = curArg.substring( "LANG=".length() );
+					LOGGER.warning("LANG: '" + lang + "'");
+					
+					// Strip " in beginning and end, e.g. from "Old English"
+					if (lang.startsWith("\"")) {
+						lang = lang.substring(1);
+						lang = lang.substring( 0, lang.length()-1 );
+					}
+					lang = lang.trim();
+					
+					// ALL == parse all languages
+					if (lang.equals("ALL")) {
+						lang = null;
+					}
+					LOGGER.warning(" --> LANG: '" + lang + "'");
+				}
+				else if (curArg.startsWith("OUTPUTLANGNAMES=")) {
+					String outputLangNamesStr = curArg.substring( "OUTPUTLANGNAMES=".length() );
+					if (outputLangNamesStr.equals("false"))
+						outputLangNames = false;
+					LOGGER.warning("Metadata in the Wikt language (OUTPUTLANGNAMES): " + (outputLangNames ? "yes" : "no"));
+				}
+				else if (curArg.startsWith("OUTTYPE=")) {
+					outputType = curArg.substring( "OUTTYPE=".length() );
+					LOGGER.warning("Output type (str): " + outputType);
+					
+					// Throws error if wrong argument used
+					switch(OutputType.valueOf(outputType)) {
+						default:
+					}
+					LOGGER.finer(" --> Output type: " + OutputType.valueOf(outputType));
+				}
+				else if (curArg.startsWith("RESTARTATLINE=")) {
+					String restartLineStr = curArg.substring( "RESTARTATLINE=".length() );
+					Long l = Long.parseLong(restartLineStr);
+					restartLine = l.longValue(); // if 0 --> NOP
+					if (restartLine > 0) {
+						LOGGER.warning("Restarting at line " + restartLine);
+					} else {
+						LOGGER.info("Not restarting, RESTARTLINE <= 0: '" + restartLine +"'");
+					}
+				}
+				else if (curArg.startsWith("LANGCODE=")) {
+					langCode = curArg.substring( "LANGCODE=".length() );
+					langCode = langCode.trim();
+					LOGGER.warning("LANGCODE: '" + langCode + "'");
+					
+					LOGGER.finer("Language: " + (lang != null ? lang : "(all)") +
+					 (langCode != null ? (", code=" + langCode) : ""));
+				}
+				else if (curArg.startsWith("ONLYLANGUAGES=")) {
+					String onlyLanguagesStr = curArg.substring( "ONLYLANGUAGES=".length() );
+					if (onlyLanguagesStr.equals("false")) {
+						onlyLanguages = false;
+					}
+					if (onlyLanguages) {
+						LOGGER.warning("ONLYLANGUAGES=true: Processing only entries in languages which are included " +
+					     "in the supplied language CSV file");
+					} else {
+						LOGGER.warning("ONLYLANGUAGES=false: Processing entries in all languages irrespective whether " +
+						 "they are already in the supplied language CSV file");
+					}
+				}
+				else if (curArg.startsWith("WIKTCODE=")) {
+					wiktLanguageCode = curArg.substring( "WIKTCODE=".length() );
+					LOGGER.warning("WIKTCODE: '" + wiktLanguageCode + "'");
+				} else {
+					LOGGER.severe("Unknown parameter ' " + curArg + "', aborting");
+					System.exit(10);
 				}
 			}
 			
-			if (args.length == 9) {
-				wiktLanguageCode = args[8];
-			}
-			
-			// Throws error if wrong argument used
-			switch(OutputType.valueOf(outputType)) {
-				default:
-			}
-			
-//			LOGGER.info("Input: " + inFileName);
-//			LOGGER.info("Output: " + outFileName);
 			LOGGER.warning("Language: " + (lang != null ? lang : "(all)") + (langCode != null ? (", code=" + langCode) : "")
 					 + (wiktLanguageCode != null ? (", wiktLangCode=" + wiktLanguageCode) : ""));
-			if (onlyLanguages)
-				LOGGER.warning("Processing only entries in languages which are included in the supplied language CSV file");
-//			LOGGER.info("Output type: " + OutputType.valueOf(outputType));
-//			if (restartLine > 0)
-//				LOGGER.info("Restarting at line " + restartLine);
 			
 			ReadStripped readStripped = new ReadStripped();
-		
 			readStripped.process(OutputType.valueOf(outputType), inFileName, outFileName, lang, outputLangNames, restartLine,
 					langCode, onlyLanguages, wiktLanguageCode);
 			
 			LOGGER.warning("***FINISHED***");
 			
 			System.exit(0);
+		} catch (NullPointerException npe) {
+			String msg = npe.getMessage();
+			LOGGER.severe(msg);
+			npe.printStackTrace();
+			System.exit(255);
 		} catch (Exception e) {
 			String msg = e.getMessage();
 			LOGGER.severe(msg);
@@ -418,14 +455,17 @@ public class ReadStripped {
 					if (currentTitle != null && currentTitle.length() > 100)
 						titleStart = currentTitle.substring(0, 100);
 					
-					String msg = "Problem at entryNbr: " + entryNbr + ", title: '" + titleStart + "', linesRead=" + linesRead;
+					String msg = "Problem at entryNbr: " + entryNbr + ", title: '" + titleStart + "', linesRead=" + linesRead +
+							", restartLine=" + restartLine;
 					LOGGER.warning(msg);
+					System.err.println(msg);
+					if (outStr != null)
+						LOGGER.finer(outStr);
+					e.printStackTrace();
 					LOGGER.warning(e.getMessage());
-					LOGGER.finer(outStr);
-					//LOGGER.info(outStr);
 					
 					if (FAIL_AT_FIRST_PROBLEM) {
-						LOGGER.info(outStr);
+						LOGGER.severe(outStr);
 						throw e;
 					}
 				}
@@ -493,10 +533,12 @@ public class ReadStripped {
 			if (currentTitle != null && currentTitle.length() > 100)
 				titleStart = currentTitle.substring(0, 100);
 			
-			String msg = "Failed at entryNbr: " + entryNbr + ", title: '" + titleStart + "'";
+			String msg = "Failed at entryNbr: " + entryNbr + ", title: '" + titleStart + "', linesRead=" + linesRead +
+					", restartLine=" + restartLine;
 			LOGGER.severe(msg);
-			//LOGGER.severe(outStr);
+			System.err.println(msg);
 			LOGGER.fine(outStr);
+			e.printStackTrace();
 			throw e;
 		} finally {
         	if (newLangsFos != null) {
@@ -592,6 +634,12 @@ public class ReadStripped {
 				LOGGER.severe(msg);
 				throw new Exception(msg);
 			}
+			if (langNameEnd == 0) {
+				String msg = "Language end not found, langNameEnd == 0 in string '" + langSect + "', title='" + 
+				 currentTitle + "'";
+				LOGGER.severe(msg);
+				throw new Exception(msg);
+			}
 			
 			if (langNameEnd > -1) {
 				langName = langSect.substring(langStart, langNameEnd);
@@ -681,20 +729,31 @@ public class ReadStripped {
 				
 				if (FAIL_AT_FIRST_PROBLEM) {
 					throw new Exception(msg);
+				} else {
+					return false;
 				}
 			} else if (onlyLanguages || onlyLang == null || onlyLang.equals(langCode)) {
-				String sLangSect = langSect.substring(langStart);
+				if (lookupLang.getName() == null) {
+					String msg = "lookupLang.getName() null: '" + langName + "' at title='" + currentTitle + "', " +
+							"entryNbr=" + entryNbr + ", linesRead=" + linesRead + ", '" + langSect + "'";
+					LOGGER.warning(msg);
+						
+					if (FAIL_AT_FIRST_PROBLEM) {
+						throw new Exception(msg);
+					} else {
+						return false;
+					}
+				}
 				
-				//LOGGER.fine("Before parseWord: '" + sLangSect + "'");
-				//LOGGER.info("Before parseWord: '" + sLangSect + "'");
+				String sLangSect = langSect.substring(langStart);
+				LOGGER.finest("Before parseWord: '" + sLangSect + "'");
 				
 				boolean foundLang = false;
 				for (Lang lang : langs) {
 					if (lang.getName().equals(lookupLang.getName())) {
 						foundLang = true;
 						
-						//LOGGER.finer("langName: '" + langName + "', id=" + lang.getId());
-						//LOGGER.info("langName: '" + langName + "', id=" + lang.getId());
+						//LOGGER.finest("langName: '" + langName + "', id=" + lang.getId());
 						
 						WordLang wordLang = new WordLang();
 						wordLangNbr++;
@@ -738,8 +797,15 @@ public class ReadStripped {
 					if (currentTitle != null && currentTitle.length() > 100)
 						titleStart = currentTitle.substring(0, 100);
 					
-					String msg = "Problem at entryNbr: " + entryNbr + ", title: '" + titleStart + "', linesRead=" + linesRead;
+					String msg = "Problem at entryNbr (!foundLang && !onlyLanguages): " + entryNbr + ", title: '" +
+					 titleStart + "', linesRead=" + linesRead;
 					LOGGER.warning(msg);
+					
+					if (FAIL_AT_FIRST_PROBLEM) {
+						throw new Exception(msg);
+					} else {
+						return false;
+					}
 				}
 			}
 		}
@@ -748,7 +814,7 @@ public class ReadStripped {
 			// Outputed in callStorer()
 			words.add(word);
 			
-			//LOGGER.fine("Parsed: '" + currentTitle + "'");
+			LOGGER.finest("Parsed: '" + currentTitle + "'");
 		}
 		
 		return foundAnyLang;
@@ -2183,16 +2249,17 @@ From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period,
 						!langStr.equals("Cantonese") && !langStr.equals("Hakka") &&
 						!langStr.equals("Wu") && !langStr.equals("Min Nan") &&
 						!langStr.equals("Translingual")) {
-						String msg = "Definition not found at title='" + currentTitle + "', linesRead=" + linesRead + ", lang='" + langStr + "'";
+						String msg = "Definition not found at title='" + currentTitle + "', linesRead=" + linesRead +
+						 ", lang='" + langStr + "'";
 //						String msg = "Definition not found at title='" + currentTitle + "', linesRead=" + linesRead +
 //								": '" + etymSect + "'";
 	
 						if (FAIL_AT_FIRST_PROBLEM) {
-							msg = "Definition not found at title='" + currentTitle + "', linesRead=" + linesRead + ", lang='" + langStr + "'" +
-								": '" + etymSect + "'";
+							msg = "Definition not found at title='" + currentTitle + "', linesRead=" + linesRead +
+							 ", lang='" + langStr + "'" + ": '" + etymSect + "'";
 							throw new Exception(msg);
 						} else {
-							LOGGER.warning(msg);	
+							LOGGER.warning(msg);
 						}
 					}
 				}
