@@ -2243,11 +2243,25 @@ From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period,
 					wordEtymsNbr--;
 					
 					// TODO Some langs give lots of errors
-					if (langStr != null && !langStr.equals("Korean") &&
-						!langStr.equals("Mandarin") && !langStr.equals("Vietnamese") &&
-						!langStr.equals("Japanese") && !langStr.equals("Middle Chinese") &&
-						!langStr.equals("Cantonese") && !langStr.equals("Hakka") &&
-						!langStr.equals("Wu") && !langStr.equals("Min Nan") &&
+					if (langStr != null && 
+						!langStr.equals("Korean") &&
+						!langStr.equals("Cantonese") &&
+						!langStr.equals("Chinese") &&
+						!langStr.equals("Hakka") &&
+						!langStr.equals("Japanese") &&
+						!langStr.equals("Kunigami") &&
+						!langStr.equals("Mandarin") &&
+						!langStr.equals("Middle Chinese") &&
+						!langStr.equals("Min Nan") &&
+						!langStr.equals("Okinawan") &&
+						!langStr.equals("Old Korean") &&
+						!langStr.equals("Miyako") &&
+						!langStr.equals("Toku-No-Shima") &&
+						!langStr.equals("Tày") &&
+						!langStr.equals("Vietnamese") &&
+						!langStr.equals("Yaeyama") &&
+						!langStr.equals("Yonaguni") &&
+						!langStr.equals("Wu") &&
 						!langStr.equals("Translingual")) {
 						String msg = "Definition not found at title='" + currentTitle + "', linesRead=" + linesRead +
 						 ", lang='" + langStr + "'";
@@ -2259,7 +2273,8 @@ From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period,
 							 ", lang='" + langStr + "'" + ": '" + etymSect + "'";
 							throw new Exception(msg);
 						} else {
-							LOGGER.warning(msg);
+							//LOGGER.warning(msg);
+							LOGGER.fine(msg);
 						}
 					}
 				}
@@ -2513,6 +2528,10 @@ From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period,
 						senseStr = senseStr.substring(1);
 					
 					Sense sense = null;
+					/* TODO senseStr is sometimes null here, e.g. for 'cum'
+					 * The charAt(0) causes then
+					 *  java.lang.StringIndexOutOfBoundsException: String index out of range: 0
+					 */
 					if (senseStr.charAt(0) != '*' &&
 						senseStr.charAt(0) != ':') {
 						String unwikifiedStr = unwikifyStr(senseStr, outputType);
