@@ -22,6 +22,7 @@ import wiktionary.to.xml.full.data.WordEntry;
 import wiktionary.to.xml.full.data.WordEtym;
 import wiktionary.to.xml.full.data.WordLang;
 import wiktionary.to.xml.full.util.DeepCopy;
+import wiktionary.to.xml.full.util.StringUtils;
 
 /**
  * Creates a tabulator file (UTF8) than can be converted to StarDict
@@ -55,9 +56,6 @@ public class StardictStorer implements Storer, Runnable {
 	private final static Object latch = new Object();
 	private static int threadsAmount = 0;
 	
-	private final static String LF_LIN = "\n";
-	
-	//public final static Logger LOGGER = Logger.getLogger(ReadStripped.class.getName());
 	public final static Logger LOGGER = ReadStripped.LOGGER;
 	
 	/**
@@ -225,16 +223,7 @@ public class StardictStorer implements Storer, Runnable {
 				/* If the etymology text runs on many lines separated by (Unix) newlines, the lines have to be changed
 				 * to be separated by the string \n instead. Otherwise stardict-editor chokes.
 				 */
-				String etymInOneRow = "";
-				String[] etymRows = etymStr.split(LF_LIN);
-				//LOGGER.finer("Etym lines: " + etymRows.length);
-				if (etymRows.length > 1) {
-					for (String etymRow : etymRows)  {
-						etymInOneRow = etymInOneRow + "\\n" + etymRow.substring(0, etymRow.length()-1);
-					}
-				} else {
-					etymInOneRow = etymStr;
-				}
+				String etymInOneRow = StringUtils.joinStringRows(etymStr);
 				//LOGGER.finer("etym: '" + etymInOneRow + "'");
 				
 				// Don't output if the etymology has no contents besides the text "Etymology"
@@ -242,6 +231,7 @@ public class StardictStorer implements Storer, Runnable {
 					sb.append("\\n" + etymInOneRow + "\\n");
 				}
 				
+				// TODO: Output pronunciations. Their data is empty for now
 //				for ( Etym em : wordEtym.getEtyms() ) {
 //					/*Set<Pronunciation> prons = em.getPronunciations();
 //					pron.setEtym(em);*/

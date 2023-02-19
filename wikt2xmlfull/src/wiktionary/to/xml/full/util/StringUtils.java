@@ -20,9 +20,15 @@ import wiktionary.to.xml.full.data.TokenWithPos;
  * 2012-07-25 Fixed javadoc comment of findNextLang
  */
 public class StringUtils {
-	public final static String LF_LIN = "\n";
-	public final static String LF_WIN = "\r\n";
-	public final static String LF_TAB_LIN = "\t\n"; // Some e.g. Middle Chinese entries have this
+	public final static String STR_LF_LIN = "\n";
+	public final static char CHR_LF_LIN = '\n';
+	public final static String STR_LF_WIN = "\r\n";
+	public final static String STR_LF_TAB_LIN = "\t\n"; // Some e.g. Middle Chinese entries have this
+	public final static String STR_LF_TAB_WIN = "\t\r\n"; // Some e.g. Middle Chinese entries have this
+	
+	// Don't use these unless you really want to use the current platform's line separator
+	public final static String LF = System.getProperty("line.separator");
+	public final static int LF_LEN = LF.length();
 	
 	public static Set<Lang> langs = null; // ReadStripped.loadLanguages() assigns value to this
 	
@@ -282,20 +288,20 @@ public class StringUtils {
 		//String regex = "==[a-zA-Z]*==" + LF;
 		
 		// Support various kinds of LF
-		String regex = "----" + LF_LIN;
+		String regex = "----" + STR_LF_LIN;
 		
 		String[] rest = s.split(regex);
 		
 		//System.out.println("len: " + rest.length);
 		if (rest.length == 1) {
-			regex = "----" + LF_WIN;
+			regex = "----" + STR_LF_WIN;
 			rest = s.split(regex);
 			
 			//System.out.println("len: " + rest.length);
 		}
 		
 		if (rest.length == 1) {
-			regex = "----" + LF_TAB_LIN;
+			regex = "----" + STR_LF_TAB_LIN;
 			rest = s.split(regex);
 			
 			//System.out.println("len: " + rest.length);
@@ -310,6 +316,50 @@ public class StringUtils {
 //			System.out.println("1: '" + rest[1] + "'");
 			
 			return len;
+		}
+	}
+	
+	/**
+	 * Joins the rows in strJoin that were separated by (Unix) newlines to one long row without newlines.
+	 * 
+	 * This is used in StardictStorer when an etymology text runs on many lines separated by (Unix) newlines.
+	 * The lines have to be changed to be separated by the literal string \n instead. Otherwise stardict-editor chokes. 
+	 * @param strToJoin String to join to one long row without newlines
+	 * @return String with rows that were separated by newlines joined to one long row without newlines,
+	 * or the original String if it only had one row
+	 */
+	public static String joinStringRows (String strToJoin) {
+		boolean didStrippingJoin = false; // for debugging
+		String strOneRow = "";
+		String[] rowsArr = strToJoin.split(STR_LF_LIN);
+		//System.out.println("joinStringRows() rowsArr size: " + rowsArr.length);
+		//LOGGER.finer("rowsArr size: " + rowsArr.length);
+		if (rowsArr.length > 1) {
+			for (String arrRow : rowsArr)  {
+				int arrRowLen = arrRow.length();
+				//System.out.println("arrRowLen: " + arrRowLen);
+				if (arrRowLen > 1) {
+					// TODO The following is evidently never true, we always go to the else part?
+					if ( arrRow.charAt(arrRowLen-1) == CHR_LF_LIN ) {
+						// etymInOneRow = etymInOneRow + "\\n" + etymRow.substring(0, etymRow.length()-1);
+						strOneRow = strOneRow + "\\n" + arrRow.substring(0, arrRowLen-2);
+						didStrippingJoin = true;
+					} else {
+						strOneRow = strOneRow + "\\n" + arrRow.substring(0, arrRowLen-1);
+					}
+				}
+			}
+			
+			if (didStrippingJoin) {
+				//LOGGER.finer("Multiline (etym) string joined to: '" + strOneRow + "'");
+				//System.out.println("Multiline (etym) string, joined with LN's stripped to: '" + strOneRow + "'");
+			} else {
+				//System.out.println("Multiline (etym) string, joined to: '" + strOneRow + "'");
+			}
+			return strOneRow;
+		} else {
+			//System.out.println("Single line (etym) string, not joined: '" + strToJoin + "'");
+			return strToJoin;
 		}
 	}
 	

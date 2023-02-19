@@ -98,15 +98,6 @@ public class ReadStripped {
 	private static FileHandler fileHandler;
 	private static SimpleFormatter formatterTxt;
 	
-	public final static String LF_LIN = "\n";
-	public final static String LF_WIN = "\r\n";
-	public final static String LF_TAB_LIN = "\t\n"; // Some e.g. Middle Chinese entries have this
-	public final static String LF_TAB_WIN = "\t\r\n"; // Some e.g. Middle Chinese entries have this
-
-	// Don't use these unless you really want to use the current platform's line separator
-	public final static String LF = System.getProperty("line.separator");
-	public final static int LF_LEN = LF.length();
-	
 	public final static String CONTINFO_FILENAME = "continfo.txt";
 	
 	// Used for informing the user whereabout to restart
@@ -443,10 +434,10 @@ public class ReadStripped {
 						int endPos = s.indexOf("</text>");
 						if (endPos > 0) {
 							String substr = s.substring(0, endPos);
-							outStr = outStr + LF + substr; // TODO Should this always be the same, or the platform LF like now?
+							outStr = outStr + StringUtils.LF + substr; // TODO Should this always be the same, or the platform LF like now?
 						}
 					} else if (textSection) {
-						outStr = outStr + LF + s; // TODO Should this always be the same, or the platform LF like now?
+						outStr = outStr + StringUtils.LF + s; // TODO Should this always be the same, or the platform LF like now?
 					} else {
 						// skip other tags
 					}
@@ -2399,8 +2390,8 @@ From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period,
 				/* Detect various kinds of LF. N.b. if LF_WIN is found, founds also
 				 * LF_LIN, but LF_WIN wins 
 				 */
-				int hashPosWin = sLangSect.substring(i).indexOf(LF_WIN + "#");
-				int hashPosLin = sLangSect.substring(i).indexOf(LF_LIN + "#");
+				int hashPosWin = sLangSect.substring(i).indexOf(StringUtils.STR_LF_WIN + "#");
+				int hashPosLin = sLangSect.substring(i).indexOf(StringUtils.STR_LF_LIN + "#");
 				
 				/* TODO Commented the check out, since getAbr doesn't need to be el or grc.
 				 * What is decisive is whether the input is the Greek Wiktionary or not.
@@ -2416,8 +2407,8 @@ From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period,
 //					 wordLang.getLang().getAbr().equals("grc")
 //						)) {
 					if (hashPosWin == -1 && hashPosLin == -1) {
-						hashPosWin = sLangSect.substring(i).indexOf(LF_WIN + "*");
-						hashPosLin = sLangSect.substring(i).indexOf(LF_LIN + "*");
+						hashPosWin = sLangSect.substring(i).indexOf(StringUtils.STR_LF_WIN + "*");
+						hashPosLin = sLangSect.substring(i).indexOf(StringUtils.STR_LF_LIN + "*");
 					}
 //				}
 				
@@ -2503,8 +2494,8 @@ From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period,
 			if (posSense > -1) {
 //				LOGGER.fine("sect = '" + sLangSect.substring(i) + "'");
 				
-				int lfPosWin = sLangSect.substring(i).indexOf(LF_WIN);
-				int lfPosLin = sLangSect.substring(i).indexOf(LF_LIN);
+				int lfPosWin = sLangSect.substring(i).indexOf(StringUtils.STR_LF_WIN);
+				int lfPosLin = sLangSect.substring(i).indexOf(StringUtils.STR_LF_LIN);
 				
 				int lfPos = lfPosWin;
 				if (lfPosWin > -1 && lfPosLin == -1)
@@ -2585,8 +2576,8 @@ From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period,
 						
 						if (posQuote > -1 &&
 							posQuote == lfPos +2) {
-							int exLFPosWin = sLangSect.substring(i + posQuote).indexOf(LF_WIN + "#");
-							int exLFPosLin = sLangSect.substring(i + posQuote).indexOf(LF_LIN + "#");
+							int exLFPosWin = sLangSect.substring(i + posQuote).indexOf(StringUtils.STR_LF_WIN + "#");
+							int exLFPosLin = sLangSect.substring(i + posQuote).indexOf(StringUtils.STR_LF_LIN + "#");
 							
 							int exLFPos = exLFPosWin;
 							if (exLFPosWin > -1 && exLFPosLin == -1)
@@ -2615,8 +2606,8 @@ From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period,
 								i = i + posQuote + 2;
 							}
 						} else { // posSrc (same code as above but with posSrc instead of posQuote)
-							int exLFPosWin = sLangSect.substring(i + posSrc).indexOf(LF_WIN + "#");
-							int exLFPosLin = sLangSect.substring(i + posSrc).indexOf(LF_LIN + "#");
+							int exLFPosWin = sLangSect.substring(i + posSrc).indexOf(StringUtils.STR_LF_WIN + "#");
+							int exLFPosLin = sLangSect.substring(i + posSrc).indexOf(StringUtils.STR_LF_LIN + "#");
 							
 							int exLFPos = exLFPosWin;
 							if (exLFPosWin > -1 && exLFPosLin == -1)
@@ -2702,8 +2693,8 @@ From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period,
 							}
 						}
 						
-						lfPosWin = sLangSect.substring(i).indexOf(LF_WIN); // + "#");
-						lfPosLin = sLangSect.substring(i).indexOf(LF_LIN); // + "#");
+						lfPosWin = sLangSect.substring(i).indexOf(StringUtils.STR_LF_WIN); // + "#");
+						lfPosLin = sLangSect.substring(i).indexOf(StringUtils.STR_LF_LIN); // + "#");
 						
 						lfPos = lfPosWin;
 						if (lfPosWin > -1 && lfPosLin == -1)
@@ -2732,8 +2723,8 @@ From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period,
 					
 					String senseStr = sLangSect.substring(i);
 					
-					lfPosWin = senseStr.indexOf(LF_WIN);
-					lfPosLin = senseStr.indexOf(LF_LIN);
+					lfPosWin = senseStr.indexOf(StringUtils.STR_LF_WIN);
+					lfPosLin = senseStr.indexOf(StringUtils.STR_LF_LIN);
 					
 					lfPos = lfPosWin;
 					if (lfPosWin > -1 && lfPosLin == -1)
@@ -2782,8 +2773,8 @@ From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period,
 						i + lfPos < sLangSect.length() &&
 						(
 						textCont.startsWith("#") ||
-						textCont.startsWith(LF_WIN + "#") ||
-						textCont.startsWith(LF_LIN + "#")
+						textCont.startsWith(StringUtils.STR_LF_WIN + "#") ||
+						textCont.startsWith(StringUtils.STR_LF_LIN + "#")
 			            )
 					) {
 					//sensesCont = true;
@@ -2794,9 +2785,9 @@ From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period,
 				sensesCont = false;
 			}
 			
-			if (counter == 100) {
+			if (counter == 200) {
 				sensesCont = false;
-				LOGGER.warning("Entry '" + currentTitle + "' has >= 100 senses");
+				LOGGER.warning("Entry '" + currentTitle + "' has >= 200 senses");
 			}
 		} while ( sensesCont );
 		
