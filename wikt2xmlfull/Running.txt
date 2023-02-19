@@ -293,18 +293,27 @@ An example:
   date=2003.05.10
   sametypesequence=m
 
-Change the generated ifo file, e.g. wikt-en-ALL-yyyy-mm-dd.ifo, to look something like this:
+The generated ifo file, e.g. wikt-el-ALL-2023-01-19.ifo, looks something like this:
 
 StarDict's dict ifo file
 version=2.4.2
-wordcount=6128515
-idxfilesize=122996950
-bookname=wikt-en-ALL-2018-10-03
+wordcount=843850
+idxfilesize=20955842
+bookname=wikt-el-ALL-2023-02-19
+sametypesequence=m
+
+Change the generated ifo file to look something like this:
+
+StarDict's dict ifo file
+version=2.4.2
+wordcount=843850
+idxfilesize=20955842
+bookname=wikt-el-ALL-2023-02-19
 author=Wiktionary volunteers. Converted by Joel Korhonen
 email=stardict-korhoj@outlook.com
 website=https://dictinfo.com
-description=Stardict format, English Wiktionary, English only, v.2018-Oct-03 based on entries from 2018-Oct-01
-date=2018.10.03
+description=Stardict format, Greek Wiktionary, all languages, v.2023-Feb-19, based on entries from 2022-Nov-20
+date=2023.02.19
 sametypesequence=m
 
 You may copy wikt-en-ALL-yyyy-mm-dd.dict.dz and wikt-en-ALL-yyyy-mm-dd.idx to e.g. your phone and use it with a Stardict compatible
@@ -345,7 +354,6 @@ Some example packages for 22.04 LTS (@20230218):
 
 dictfmt
 =======
-
 Install dictfmt if it is not installed:
 
 $ sudo apt install dictfmt
@@ -368,50 +376,87 @@ E.g.
 	  sed 's/\\n/\n\t/g' > sed-test.txt < headi-nodupls.txt
 )
 
-cp pd-header.txt wikt-en-ALL-yyyy-mm-dd-dict.txt
-  This joins a copyright header, public domain + CC-SA-BY in this case
-  This could be done by JoinDefinitions.jar already
-cat wikt-en-ALL-dictfmt-dupls-joined.txt | tee -a wikt-en-ALL-yyyy-mm-dd-dict.txt > /dev/null
-
+dictfmt
+=======
 N.b. the next step overwrites any .dz file created in step E, e.g. wikt-en-ALL-yyyy-mm-dd.dict.dz
 
 Edit the date of the input files to the dictfmt*.sh script for the dictionary language you are processing, e.g.
 
 # for en-ALL
-$ dictfmt-en-ALL.sh
+$ cd en/
+$ ./dictfmt-en-ALL.sh
+
 # for fi-fi
-$ dictfmt-fi-fi.sh
+$ cd fi/
+$ ./dictfmt-fi-fi.sh
 
-Run the script. It creates .dict and .index for the given language.
+Run the script. It first copies a the public domain + CC-SA-BY copyright header to the output file. Then it copies the joined duplicates after the copyright header. The resulting file, wikt-$convLangCode-$convLang-$convDate-dict.txt, is fed as input to dictfmt:
+  # For illustrative purposes, don't do manually but call the script instead
+  dictfmt -f --utf8 --allchars wikt-$convLangCode-$convLang-$convDate -u http://dictinfo.com -s wikt-$convLangCode-$convLang-$convDate < wikt-$convLangCode-$convLang-$convDate-dict.tx
+    -f: FILE  is  formatted  with  the headwords starting in column 0, with the
+    definition indented at least one space (or tab character) on  subsequent lines.
+    The third line starting in column 0 is taken as the first headword, and the
+    first two lines starting in column 0 are treated as part of the
+    00-database-info  header. This option was written to format the F.O.L.D.O.C.
 
-(Or create a new script like this and run it:
-  dictfmt -f --utf8 --allchars wikt-en-ALL-yyyy-mm-dd -u https://dictinfo.com -s wikt-en-ALL-yyyy-mm-dd < wikt-en-ALL-yyyy-mm-dd-dict.txt
-	    -f: FILE  is  formatted  with  the headwords starting in column 0, with the definition
-            indented at least one space (or tab character) on  subsequent  lines.   The  third
-            line starting in column 0 is taken as the first headword , and the first two lines
-            starting in column 0 are treated as part of  the  00-database-info  header.   This
-            option was written to format the F.O.L.D.O.C.
-)
+dictfmt creates .dict and .index for the given language.
 
-/Downloads/stardict_3.0.6/tools/src/stardict-verify wikt-en-ALL.ifo
-  Run this if you have done step E and want to verify the dictionary files. The ifo isn't needed for dictd as such
-dictzip wikt-en-ALL-yyyy-mm-dd.dict
-  produces the .dict.dz file. N.b. it overwrites any existing one such as one created in step E
-sudo cp -vi wikt-en-ALL-yyyy-mm-dd.dict.dz /usr/share/dictd/
-sudo cp -vi wikt-en-ALL-yyyy-mm-dd.index /usr/share/dictd/
-dictdconfig -l
+The script then calls dictzip to produces the .dict.dz file.
+N.b. this step overwrites any existing .dict.dz file, but that
+is normally not a problem. In step E such files were created
+in a StarDict (but not dictd) compatible format, but in the
+higher directory .., whilst in this step they are created in
+the dictd format in language specific folders.
+
+Verifying language's using ifo file(s) - optional
+-------------------------------------------------
+Run the following for a given language's ifo file, if you have created such by doing step E earlier, and want to verify the dictionary files. The ifo isn't needed for dictd as such:
+
+$ /Downloads/stardict_3.0.6/tools/src/stardict-verify wikt-en-ALL.ifo
+  [message] Verifying dictionary 'wikt-el-ALL-2023-02-19.ifo'...
+  [message] Loading index file: 'wikt-el-ALL-2023-02-19.idx'...
+  [message] Loading dictionary file: 'wikt-el-ALL-2023-02-19.dict.dz'...
+  [message] Dictionary 'wikt-el-ALL-2023-02-19.ifo'. Verification result: OK.
+
+Or to verify dictionaries for all languages, run:
+
+$ for f in `ls wikt*.ifo` ; do ~/Downloads/stardict-3.0.6.3/tools/src/stardict-verify $f ; done
+
+Installing dictd format dictionaries
+------------------------------------
+First make sure you are in the language specific subfolder, such as en/.
+Then install a given languages .dict.dz archive like this:
+
+$ sudo cp -vi wikt-en-ALL-yyyy-mm-dd.{dict.dz,index} /usr/share/dictd/
+$ dictdconfig -l
   lists current dictionary entries. It should now show your new dictionary, e.g.:
   database wikt-en-ALL-2018-05-15
   {
    data  /usr/share/dictd/wikt-en-ALL-2018-05-15.dict.dz
    index /usr/share/dictd/wikt-en-ALL-2018-05-15.index
   }
-sudo dictdconfig -w
+$ sudo dictdconfig -w
   updates /var/lib/dictd/db.list
-sudo service dictd restart
-dictdconfig -l
+$ sudo service dictd restart
+$ dictdconfig -l
   confirm the new dictionary is installed
-dict -i wikt-en-ALL-yyyy-mm-dd
-  Confirm that the header info shows OK. The copyright from pd-header.txt should be in the last paragraph
-dict Linux
-  test looking up a word from the new dictionary
+$ dict -i wikt-en-ALL-yyyy-mm-dd
+  Confirm that the header info shows OK. The copyright (from pd-header.txt) should be in the last paragraph
+
+Testing looking up words in the dictionaries you have installed:
+
+$ dict ἀβλεψία
+  2 definitions found
+
+  From wikt-el-el-2023-02-19 [wikt-el-el-2023-02-19]:
+
+    ἀβλεψία
+     n.
+     (η) η αβλεψία στην πολυτονική γραφή
+     Αρχαία ελληνικά n.
+     1 τύφλωση
+     2 (μεταφορικά) η αδυναμία να δει κάποιος κάτι
+     3 το να είναι κάτι αόρατο
+
+  From wikt-el-ALL-2023-02-19 [wikt-el-ALL-2023-02-19]:
+  ...

@@ -23,7 +23,6 @@ import java.util.logging.SimpleFormatter;
  * dictionary files with dictfmt
  */
 public class JoinDefinitions {
-
 	private final static long MAXLINES = 10000000;
 	//private final static long MAXLINES = 100;
 	
@@ -42,9 +41,9 @@ public class JoinDefinitions {
 			System.exit(255);
 		}
 
-		//LOGGER.setLevel(Level.ALL);
-		LOGGER.setLevel(Level.INFO);
-
+		LOGGER.setLevel(Level.ALL);
+		//LOGGER.setLevel(Level.INFO);
+		
 		// Create txt Formatter
 		formatterTxt = new SimpleFormatter();
 		fileHandler.setFormatter(formatterTxt);
@@ -57,9 +56,9 @@ public class JoinDefinitions {
 		
 		try {
 			if (args.length != 2) {
-				LOGGER.log(Level.SEVERE, "Wrong number of arguments, expected 2, got " + args.length);
-				LOGGER.log(Level.SEVERE, "  JoinDefinitions Input_filename Output_filename");
-				LOGGER.log(Level.SEVERE, "Arg[max] = '" + args[args.length-1] + "'");
+				LOGGER.severe("Wrong number of arguments, expected 2, got " + args.length);
+				LOGGER.severe("  JoinDefinitions Input_filename Output_filename");
+				LOGGER.severe("Arg[max] = '" + args[args.length-1] + "'");
 				System.exit(255);
 			}
 			
@@ -129,8 +128,6 @@ public class JoinDefinitions {
 					if (duplsSize > 0) {
 						int i = 0;
 						
-						// TODO Handle first line
-						
 						for (String duplLine : dupls) {
 							String duplLineOut = duplLine.replace("\\n", "\n\t");
 							
@@ -138,10 +135,16 @@ public class JoinDefinitions {
 							String currDuplDef = duplLineOut.substring(duplLineOut.indexOf('\t') + 1);
 
 							//out.print(duplLineOut);
-							if (i == 0)
+							if (i == 0) {
 								out.print(currDuplHeadword); // + "\n");
-							else
+								
 								out.print("\n\t" + currDuplDef);
+						        //System.out.println("curr1: '" + currDuplDef + "'");
+							} else if (i % 2 == 1) {
+								out.print("\n\t" + currDuplDef);
+								/*System.out.println("i=" + i + ", curr2: '" + currDuplHeadword + 
+								 "', def: '" + currDuplDef + "'");*/
+							}
 							
 //							if (i < duplsSize) {
 //								//out.print("\\n"); // control char "\n" for StarDict, not a newline
