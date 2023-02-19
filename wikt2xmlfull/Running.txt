@@ -159,6 +159,7 @@ Which means you need the locale el_GR.utf8 in your system.
 Check, which locales are already available:
 
 $ locale -a
+  C
   C.utf8
   el_GR.utf8
   en_AG
@@ -185,6 +186,8 @@ $ locale -a
   en_ZM.utf8
   en_ZW.utf8
   fi_FI.utf8
+  nb_NO.utf8
+  nn_NO.utf8
   POSIX
   sv_SE.utf8
 
@@ -211,8 +214,12 @@ The sort script produces output named according to the language you are processi
 
 E. PARSING THE ENTRIES AND CREATING STARDICT FILES
 
+stardict-tools
+==============
 Ubuntu repos for 22.04 LTS have a working stardict-tools (and stardict) package,
 3.0.7+git20211225+dfsg-1 (@20230218). So there is no need to build it oneself anymore.
+
+$ sudo apt install stardict-tools
 
 See https://stardict-4.sourceforge.net/ChangeLog (link is in https://stardict-4.sourceforge.net/index_en.php)
   2022.
@@ -233,6 +240,11 @@ See https://stardict-4.sourceforge.net/ChangeLog (link is in https://stardict-4.
     Add YouDao.com netdict plugin.
     Thanks GreenLunar for the Hebrew translation!
     Many small changes.
+
+Optionally you may install the whole stardict package:
+
+$ sudo apt install stardict stardict-gtk stardict-plugin stardict-plugin-espeak \
+ stardict-plugin-festival stardict-plugin-info stardict-plugin-spell stardict-xmllittre
 
 stardict-editor
 ===============

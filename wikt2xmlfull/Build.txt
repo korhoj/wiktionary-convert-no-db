@@ -22,30 +22,30 @@ Select Java Application and press the New Launch Configuration icon.
 Enter a Name for the configuration.
 
 1) Test for the English Wiktionary, processing all languages.
-Input in examples/apples.txt
+Input in examples/en-apples.txt
 
 Right click ReadStripped.java > Run As > Run Configurations
 Select Java Application and press the New Launch Configuration icon
 Enter a Name for the configuration, e.g.: ReadStripped apples.txt ALL languages test
-The arguments are given in this order:
-  INFILE OUTFILE LANG OUTPUTLANGNAMES OUTTYPE RESTARTATLINE LANGCODE ONLYLANGUAGES WIKTCODE
-Enter into the Arguments tab e.g.:
-  examples\apples.txt examples\out\apples-out.txt ALL true Stardict 0 en true en
+Enter into the Arguments tab:
+  INFILE=examples\en-apples.txt OUTFILE=examples\out\en-ALL-apples-out.txt LANG=ALL OUTPUTLANGNAMES=true OUTTYPE=Stardict RESTARTATLINE=0 LANGCODE=ALL ONLYLANGUAGES=true WIKTCODE=en
+
 Or e.g. with full folder path for the output file:
-  examples/apples.txt G:\Dropbox\Dictionary\wikt\Stardict\OwnStarDict\wikt-en-ALL-debug.txt ALL true Stardict 0 en true en
+  INFILE=examples/en-apples.txt OUTFILE=G:\Dropbox\Dictionary\wikt\Stardict\OwnStarDict\en-ALL-apples-out.txt LANG=ALL OUTPUTLANGNAMES=true OUTTYPE=Stardict RESTARTATLINE=0 LANGCODE=ALL ONLYLANGUAGES=true WIKTCODE=en
+
 To run the test, press Run (or Debug)
-Refresh the workspace. Open examples\out\apples-out.txt. It should contain:
+Refresh the workspace. Open examples\out\en-ALL-apples-out.txt. It should contain:
 
 apples and pears	n.\n(context Cockney rhyming slang English) stairs
 
 2) Test for the English Wiktionary, processing definitions in English only.
-Input in examples/apples.txt
+Input in examples/en-apples.txt
 
 Enter a Name for the configuration, e.g.: ReadStripped apples.txt English only test
 Enter into the Arguments tab:
-  examples\apples.txt examples\out\apples-out-en.txt en true Stardict 0 en true en
+  INFILE=examples\en-apples.txt OUTFILE=examples\out\en-en-apples-out.txt LANG=en OUTPUTLANGNAMES=true OUTTYPE=Stardict RESTARTATLINE=0 LANGCODE=ALL ONLYLANGUAGES=true WIKTCODE=en
 Press Run
-Refresh the workspace. Open examples\out\apples-out.txt. It should contain the same than the previous test.
+Refresh the workspace. Open examples\out\en-en-apples-out.txt. It should contain the same than the previous test.
 
 See Running.txt for instructions on running the JARs via dedicated Win batch scripts,
 e.g. "ReadStripped SD en-ALL.cmd". Running that way does not use Eclipse, just the JDK.

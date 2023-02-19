@@ -1,0 +1,86 @@
+man dictd
+
+DATABASE FORMAT
+       Databases for dictd are distributed separately.  A database consists  of  two  files.
+       One is a flat text file, the other is the index.
+
+       The  flat text file contains dictionary entries (or any other suitable data), and the
+       index contains tab-delimited tuples consisting of the headword, the  byte  offset  at
+       which  this entry begins in the flat text file, and the length of the entry in bytes.
+       The offset and length are encoded using base 64 encoding using the 64-character  sub-
+       set  of International Alphabet IA5 discussed in RFC 1421 (printable encoding) and RFC
+       1522 (base64 MIME).  Encoding the offsets in base 64 saves  considerable  space  when
+       compared  with  the  usual  base  10  encoding, while still permitting tab characters
+       (ASCII 9) to be used for delimiting fields in a record.  Each record ends with a new-
+       line (ASCII 10), so the index file is human readable.
+
+       Some headwords are used by dictd especially
+
+       00-database-info  Contains  the  information about database which is returned by SHOW
+       INFO command, unless it is specified in the configuration file.
+
+       00-database-short Contains the short name of the database which is returned  by  SHOW
+       DB command, unless it is specified in the configuration file.  See dictfmt -s.
+
+       00-database-url  URL  where  original  dictionary  sources  were  obtained from.  See
+       dictfmt -u.  This headword is not used by dictd
+
+       00-database-utf8 Presents if dictionary is encoded using UTF-8.  See dictfmt --utf8
+
+       00-database-8bit-new Presents if dictionary is encoded using 8-BIT character set (not
+       ASCII and not UTF8).  See dictfmt --locale.
+
+       The  flat  text  file may be compressed using gzip(1) (not recommended) or dictzip(1)
+       (highly recommended).  Optimal speed will be obtained  using  an  uncompressed  file.
+       However, the gzip compression algorithm works very well on plain text, and can result
+       in space savings typically between 60 and 80%.  Using a file compressed with  gzip(1)
+       is  not  recommended,  however,  because random access on the file can only be accom‐
+       plished by serially decompressing the whole file, a process  which  is  prohibitively
+       slow.   dictzip(1)  uses  the  same  compression  algorithm  and  file format as does
+       gzip(1), but provides a table that can be used to randomly access  compressed  blocks
+       in  the  file.  The use of 50-64kB blocks for compression typically degrades compres‐
+       sion by less than 10%, while maintaining acceptable random  access  capabilities  for
+       all  data  in the file.  As an added benefit, files compressed with dictzip(1) can be
+       decompressed with gzip(1) or zcat(1).  (Note: recompressing a dictzip'd  file  using,
+       for  example,  znew(1)  will  destroy  the random access characteristics of the file.
+       Always compress data files using dictzip(1).)
+
+--------------------
+
+dictdconfig  generates  a complete dictd database configuration section for available
+dictionary databases found in /usr/share/dictd/ (or possibly elsewhere if an optional
+order override file is present).  If a dictionary database contains a <basename>.suf-
+fix and/or a <basename>.word file, appropriate index_suffix  and  index_word  entries
+are created.
+
+In  Debian, dictdconfig is automatically invoked upon installation or removal of dic-
+tionary database packages, so most users will never need to invoke it by hand.
+
+A dictionary database entry is generated
+if <basename>.index and <basename>.dict.dz or <basename>.dict are present.
+	   
+---------------
+~/Downloads/stardict-tools-3.0.2/src/example.ifo
+  StarDict's dict ifo file
+  version=2.4.2
+  wordcount=100
+  idxfilesize=100
+  bookname=example
+  author=the author name
+  email=author@email
+  website=this dictionary's project websit link
+  description=convert to StarDict by...
+  date=2003.05.10
+  sametypesequence=m
+
+cd ~/Downloads/stardict-tools-3.0.2/src
+./stardict_verify /mnt/hgfs/tmp-OwnStarDict/x/wikt-fi-ALL-2015-05-01.ifo
+  (see X:\Dropbox\Dictionary\StarDict\HowToCreateDictionary.txt)
+sudo cp wikt-en-en-2014-09-14.dict.dz /usr/share/dictd/
+
+dictdconfig -l
+  lists entries
+generate new database (.dict), and place also .index file into /usr/share/dictd/
+  sudo dictdconfig -w
+  --> /var/lib/dictd/db.list
+sudo /etc/init.d/dictd restart
