@@ -177,8 +177,8 @@ public class ReadStripped {
 		
 		try {
 			if (args.length < 5 || args.length > 9) {
-				LOGGER.log(Level.SEVERE, "Wrong number of arguments, expected 6 - 9, got " + args.length);
-				if (args.length > 0) LOGGER.log(Level.SEVERE, "Arg[max] = '" + args[args.length-1] + "'");
+				LOGGER.severe("Wrong number of arguments, expected 6 - 9, got " + args.length);
+				if (args.length > 0) LOGGER.severe("Arg[max] = '" + args[args.length-1] + "'");
 				System.exit(255);
 			}
 			
