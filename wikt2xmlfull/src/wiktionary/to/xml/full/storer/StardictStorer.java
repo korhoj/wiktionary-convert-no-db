@@ -333,9 +333,16 @@ public class StardictStorer implements Storer, Runnable {
 
 			// TODO Print etyms last, and which WordEntry pertains to which?
 		} // ... loop WordEtymologies
+
+		/*
+		 * stardict-editor seems to accept only UTF-8, not UTF-16 which is internally used by Java.
+		 * For the conversion, see https://stackoverflow.com/questions/5729806/encode-string-to-utf-8
+		 */
+		String utf8String = StringUtils.stripTrailingAndConvertUTF16toUTF8(sb);
 		
 		synchronized(this) {
-			StardictStorer.out.println(sb.toString());
+			//StardictStorer.out.println(sb.toString());
+			StardictStorer.out.println(utf8String);
 		}
 	}
 

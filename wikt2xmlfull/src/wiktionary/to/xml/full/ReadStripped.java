@@ -89,9 +89,21 @@ public class ReadStripped {
 	//private static long MAXENTRIES_TOPROCESS = 50000;
 	//private static long MAXENTRIES_TOPROCESS = 1001;
 	//private static long MAXENTRIES_TOPROCESS = 10;
+	//private static long MAXENTRIES_TOPROCESS = 3;
 	
 	private static boolean FAIL_AT_FIRST_PROBLEM = false;
 	//private static boolean FAIL_AT_FIRST_PROBLEM = true;
+	
+	/* TODO Change to true to support etymologies processing. It however tends to choke
+	 * stardict-editor:
+	 *  process:67685): Gtk-CRITICAL (recursed) **: gtk_text_buffer_emit_insert: assertion 'g_utf8_validate (text, len, NULL)' failedAborted (core dumped) 
+	 */
+	private static boolean PROCESS_ETYMS = false;
+	//private static boolean PROCESS_ETYMS = true;
+	
+	// TODO There is no processing for pronunciations yet, leave this false
+	private static boolean PROCESS_PRONUNCIATIONS = false;
+	//private static boolean PROCESS_PRONUNCIATIONS = true;
 	
 	public final static Logger LOGGER = Logger.getLogger(ReadStripped.class
 			.getName());
@@ -901,39 +913,45 @@ public class ReadStripped {
 						/*
 From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period, space of time, season, lifetime, fixed time, favourable time, opportunity}}, from {{inh|en|gem-pro|*tīmô||time}}, from {{der|en|ine-pro|*deh₂imō}}, from {{der|en|ine-pro|*deh₂y-||to divide}}. Cognate with {{cog|sco|tym}}, {{m|sco|tyme||time}}, {{cog|gsw|Zimen}}, {{m|gsw|Zimmän|Zīmmän|time, time of the year, opportune time, opportunity}}, {{cog|da|time||hour, lesson}}, {{cog|sv|timme||hour}}, {{cog|no|time||time, hour}}, {{cog|fo|tími||hour, lesson, time}}, {{cog|is|tími||time, season}}. Cognate with {{m|en|tide}}.
 						 */
-						wordEtym.setDataField("Etymology\\n" + etymSubSect);
-						LOGGER.finest(etymSect);
-						LOGGER.finest(etymSubSect);
+						if (PROCESS_ETYMS) {
+							wordEtym.setDataField("Etymology\\n" + etymSubSect);
+							LOGGER.finest(etymSect);
+							LOGGER.finest(etymSubSect);
+						}
 						
-						// TODO Get these
-						/*
-							===Pronunciation===
-							* {{a|RP|Canada|US}} {{enPR|tīm}}, {{IPA|en|/taɪm/|[tʰaɪm]}}
-							* {{audio|en|en-us-time.ogg|Audio (US)}}
-							* {{a|AusE}} {{IPA|en|/tɑem/}}
-							* {{rfv-pron|en}} {{a|Tasmanian}} {{IPA|en|/tɜːm/}}
-							* {{audio|en|en-aus-time.ogg|Audio (AUS, archaic)}}
-							* {{rhymes|en|aɪm}}
-							* {{hyphenation|en|time}}
-							* {{homophones|en|thyme}}
-						 */
-						//public Pronunciation(Etym etym, String dataField)
-						Pronunciation pron = new Pronunciation();
-						//pron.setDataField("Testing pronunciations");
-						pron.setDataField(""); // TODO
-						
-						// public Etym(WordEtym wordEtym, String dataField, Set<Pronunciation> pronunciations)
-						Etym em = new Etym(wordEtym, "testEtym");
-						Set<Etym> etymSet = wordEtym.getEtyms();
-						Set<Pronunciation> prons = em.getPronunciations();
-						pron.setEtym(em);
-						prons.add(pron);
-						em.setPronunciations(prons);
-						etymSet.add(em);
-						wordEtym.setEtyms(etymSet);
+						if (PROCESS_PRONUNCIATIONS) {
+							// TODO Get these
+							/*
+								===Pronunciation===
+								* {{a|RP|Canada|US}} {{enPR|tīm}}, {{IPA|en|/taɪm/|[tʰaɪm]}}
+								* {{audio|en|en-us-time.ogg|Audio (US)}}
+								* {{a|AusE}} {{IPA|en|/tɑem/}}
+								* {{rfv-pron|en}} {{a|Tasmanian}} {{IPA|en|/tɜːm/}}
+								* {{audio|en|en-aus-time.ogg|Audio (AUS, archaic)}}
+								* {{rhymes|en|aɪm}}
+								* {{hyphenation|en|time}}
+								* {{homophones|en|thyme}}
+							 */
+							//public Pronunciation(Etym etym, String dataField)
+							Pronunciation pron = new Pronunciation();
+							//pron.setDataField("Testing pronunciations");
+							pron.setDataField(""); // TODO
+							
+							// public Etym(WordEtym wordEtym, String dataField, Set<Pronunciation> pronunciations)
+							Etym em = new Etym(wordEtym, "testEtym");
+							Set<Etym> etymSet = wordEtym.getEtyms();
+							Set<Pronunciation> prons = em.getPronunciations();
+							pron.setEtym(em);
+							prons.add(pron);
+							em.setPronunciations(prons);
+							etymSet.add(em);
+							wordEtym.setEtyms(etymSet);
+						}
 					}
 					else { // TODO Fix
-						wordEtym.setDataField("Etymology " + (etymNbr-1));
+						if (PROCESS_ETYMS) {
+							wordEtym.setDataField("Etymology " + (etymNbr-1));
+						}
 					}
 				}
 				

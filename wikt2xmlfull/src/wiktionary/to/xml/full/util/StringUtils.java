@@ -1,5 +1,6 @@
 package wiktionary.to.xml.full.util;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -336,6 +337,7 @@ public class StringUtils {
 		//LOGGER.finer("rowsArr size: " + rowsArr.length);
 		if (rowsArr.length > 1) {
 			for (String arrRow : rowsArr)  {
+				arrRow = arrRow.stripTrailing();
 				int arrRowLen = arrRow.length();
 				//System.out.println("arrRowLen: " + arrRowLen);
 				if (arrRowLen > 1) {
@@ -923,5 +925,50 @@ public class StringUtils {
 		String res = s.replace("\\", ""); // stardict-editor.exe doesn't allow most escapes
 		
 		return res;
+	}
+	
+	/*
+	 * 
+	 */
+
+	/**
+	 * Strips trailing whitespace, and converts a UTF-16 String to UTF-8
+	 * stardict-editor seems to accept only UTF-8, not UTF-16 which is internally used by Java.
+	 * For the conversion, see https://stackoverflow.com/questions/5729806/encode-string-to-utf-8
+	 * @param toConvert String to convert to a UTF8 String
+	 * @return
+	 */
+	public static String stripTrailingAndConvertUTF16toUTF8 (String toConvert) {
+		// The following would strip also the literal String \n used for denoting line feeds for stardict-editor, so can't use it:  
+		//toConvert = toConvert.translateEscapes();
+		
+		// At least etymology sections may have trailing spaces
+		toConvert = toConvert.stripTrailing();
+		
+		try {
+			//byte[] utf8ByteArray = java.nio.charset.Charset.forName("UTF-8").encode(toConvert).array();
+			byte[] utf8ByteArray = toConvert.getBytes("UTF-8");
+			String utf8String = new String(utf8ByteArray, StandardCharsets.UTF_8);
+			
+			//String utf8String = new String(toConvert, StandardCharsets.UTF_8);
+			
+			return utf8String;
+		} catch (Exception e) {
+			System.err.println("utf16 to utf8 conv. error for '" + toConvert + "'");
+			return "";
+		}
+	}
+	
+	/**
+	 * Convenience method to call stripTrailingAndConvertUTF16toUTF8 (String toConvert)
+	 * @param sbToConvert StringBuilder to convert to a UTF8 String
+	 * @return
+	 */
+	public static String stripTrailingAndConvertUTF16toUTF8 (StringBuilder sbToConvert) {
+		String sbString = sbToConvert.toString();
+		
+		String utf8String = stripTrailingAndConvertUTF16toUTF8(sbString);
+		
+		return utf8String;
 	}
 }
