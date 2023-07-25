@@ -10,7 +10,7 @@ SET DATE.MONTH=%X:~4,2%
 SET DATE.DAY=%X:~6,2%
 SET convDate=%DATE.YEAR%-%DATE.MONTH%-%DATE.DAY%
 rem
-set JAVA_HOME=C:\Usr\jdk-19
+set JAVA_HOME=C:\Usr\jdk-20.0.2
 SET JAVA="%JAVA_HOME%\bin\java.exe"
 SET JAR_DIR=G:\Dropbox\Dictionary\wikt
 SET WIKT=C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
