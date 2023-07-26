@@ -5,18 +5,16 @@ rem Processes the Wiktionary given as parameter or by default the English Wiktio
 rem Optionally the edition may be specified as the second parameter
 rem
 rem Before running, change the variables below as needed:
-rem Set JAVA_HOME to point to JDK main dir, e.g. C:\Usr\openjdk-16_windows-x64_bin\jdk-16
+rem (Set JAVA_HOME to point to JDK main dir, e.g. C:\Usr\openjdk-16_windows-x64_bin\jdk-16) or use an already set env variable
 rem Set JAR_DIR to the location of the runnable JAR file
 rem Set DICT to the location under which you uncompressed the Wiktionary edition you have downloaded
 rem e.g. DICT=C:\Temp\wiktionary-dumps
 rem   having uncompressed enwiktionary-%EDITION%-pages-articles.xml.bz2 to
 rem   C:\Temp\enwiktionary-%EDITION%-pages-articles.xml
 rem Then change EDITION to match the Wiktionary edition you have downloaded
-
 set DICT=F:\Temp\wiktionary-dumps
 set JAR_DIR=G:\Dropbox\Dictionary\wikt
-set JAVA_HOME=C:\Usr\jdk-19
-
+rem set JAVA_HOME=C:\Usr\jdk-20.0.2
 set EDITION=20221120
 set LANG=en
 
