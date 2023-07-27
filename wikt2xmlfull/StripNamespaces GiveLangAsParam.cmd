@@ -15,11 +15,11 @@ rem Then change EDITION to match the Wiktionary edition you have downloaded
 
 if "%1"=="" goto errEnd
 
-set DICT=F:\Temp\wiktionary-dumps
+set DICT=G:\Temp\wiktionary-dumps
 set JAR_DIR=G:\Dropbox\Dictionary\wikt
-set JAVA_HOME=C:\Usr\jdk-19
+rem set JAVA_HOME=C:\Usr\jdk-20.0.2
 
-set EDITION=20221120
+set EDITION=20230720
 set LANG=%1
 
 SET PROGDIR=%JAR_DIR%

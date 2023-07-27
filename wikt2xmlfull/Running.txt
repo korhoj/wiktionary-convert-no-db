@@ -316,7 +316,38 @@ description=Stardict format, Greek Wiktionary, all languages, v.2023-Feb-19, bas
 date=2023.02.19
 sametypesequence=m
 
-You may copy wikt-en-ALL-yyyy-mm-dd.dict.dz and wikt-en-ALL-yyyy-mm-dd.idx to e.g. your phone and use it with a Stardict compatible
+Creating 7z files for distributing
+==================================
+Run cp-StarDict-files-to-subdirs-and-compress.sh:
+  #!/bin/bash
+  DATENOW=`date +%Y-%m-%d`
+  cp_and_compress() {
+    cp -v wikt-$LANG-$LCODE-$DATENOW.{dict.dz,idx,ifo} $LANG-StarDict
+    cd $LANG-StarDict/
+    7z a wikt-$LANG-$LCODE-$DATENOW.7z wikt-$LANG-$LCODE-$DATENOW.{dict.dz,idx,ifo}
+    cd ..
+  }
+
+  LANG=el && LCODE=ALL && cp_and_compress
+  LCODE=el && cp_and_compress
+
+  LANG=en && LCODE=ALL && cp_and_compress
+  LCODE=en && cp_and_compress
+
+  LCODE=Western && cp_and_compress
+
+  LCODE=Western_Greek_Slavonic && cp_and_compress
+
+  LANG=fi && LCODE=ALL && cp_and_compress
+  LCODE=fi && cp_and_compress
+
+  LANG=no && LCODE=ALL && cp_and_compress
+  LCODE=no && cp_and_compress
+
+  LANG=sv && LCODE=ALL && cp_and_compress
+  LCODE=sv && cp_and_compress
+
+You may copy and unarchive the 7z files containing wikt-en-ALL-yyyy-mm-dd.dict.dz and wikt-en-ALL-yyyy-mm-dd.idx to e.g. your phone and use it with a Stardict compatible
 GUI such as Colordict, or if you have installed the Stardict GUI in your PC, you can use the file with it.
 
 F. CREATING AND INSTALLING A DICTD COMPATIBLE DICTIONARY ARCHIVE FOR A LANGUAGE
@@ -380,11 +411,23 @@ dictfmt
 =======
 N.b. the next step overwrites any .dz file created in step E, e.g. wikt-en-ALL-yyyy-mm-dd.dict.dz
 
-Edit the date of the input files to the dictfmt*.sh script for the dictionary language you are processing, e.g.
-
 # for en-ALL
 $ cd en/
 $ ./dictfmt-en-ALL.sh
+
+dictfmt-en-ALL.sh:
+  #!/bin/bash
+  convLangCode="en"
+  convLang="ALL"
+  #convDate="2023-02-19"
+  convDate=`date +%Y-%m-%d`
+  cp ../pd-header.txt wikt-$convLangCode-$convLang-$convDate-dict.txt
+  cat ../wikt-$convLangCode-$convLang-dictfmt-dupls-joined.txt | tee -a wikt-$convLangCode-$convLang-$convDate-dict.txt > /dev/null
+  dictfmt -f --utf8 --allchars wikt-$convLangCode-$convLang-$convDate -u http://dictinfo.com -s wikt-$convLangCode-$convLang-$convDate < wikt-$convLangCode-$convLang-$convDate-dict.txt
+  dictzip wikt-$convLangCode-$convLang-$convDate.dict
+  chmod 644 wikt-$convLangCode-$convLang-$convDate.dict.dz
+  chmod 644 wikt-$convLangCode-$convLang-$convDate.index
+  7z a wikt-$convLangCode-$convLang-$convDate-dictd.7z wikt-$convLangCode-$convLang-$convDate.{dict.dz,index}
 
 # for fi-fi
 $ cd fi/

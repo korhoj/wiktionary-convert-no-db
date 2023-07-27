@@ -16,6 +16,6 @@ SET WIKT=C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
 SET PROG=%JAR_DIR%\JoinDefinitions.jar
 SET JCLASS=wiktionary\to\xml\full\JoinDefinitions
 SET UTF8=-Dfile.encoding=UTF8
-SET INFILE=F:\Users\Joel\OwnStarDict-ready\wikt-%convLangCode%-%convLang%-%convDate%.txt
-SET OUTFILE=F:\Users\Joel\OwnStarDict-ready\wikt-%convLangCode%-%convLang%-dictfmt-dupls-joined.txt
+SET INFILE=G:\Users\Joel\OwnStarDict-ready\wikt-%convLangCode%-%convLang%-%convDate%.txt
+SET OUTFILE=G:\Users\Joel\OwnStarDict-ready\wikt-%convLangCode%-%convLang%-dictfmt-dupls-joined.txt
 %JAVA% %UTF8% -jar %PROG% %INFILE% %OUTFILE%

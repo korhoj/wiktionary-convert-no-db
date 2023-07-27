@@ -1,6 +1,6 @@
 @echo off
 rem Joel Korhonen 2021-May-22
-set DICT=F:\Temp\wiktionary-dumps
+set DICT=G:\Temp\wiktionary-dumps
 set JAR_DIR=G:\Dropbox\Dictionary\wikt
 rem set JAVA_HOME=C:\Usr\jdk-20.0.2
 set OUT_DIR=G:\Dropbox\Dictionary\wikt\Stardict\OwnStarDict

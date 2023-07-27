@@ -2,7 +2,7 @@
 rem Process the Albanian Wiktionary, all languages. Run this to start the conversion
 rem Joel Korhonen 2021-May-22
 rem Change EDITION to match with the Wiktionary edition you have downloaded
-set EDITION=20221120
+set EDITION=20230720
 set LANG=ALL
 set LANGCODE=sq
 set OUTPUTLANGNAMES=true

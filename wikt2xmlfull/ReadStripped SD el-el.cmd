@@ -2,7 +2,7 @@
 rem Process the Greek Wiktionary, Greek and Ancient Greek only. Run this to start the conversion
 rem Joel Korhonen 2021-May-22
 rem Change EDITION to match with the Wiktionary edition you have downloaded
-set EDITION=20221120
+set EDITION=20230720
 set LANG=el
 set LANGCODE=el
 set OUTPUTLANGNAMES=true
