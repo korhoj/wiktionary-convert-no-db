@@ -1,0 +1,12 @@
+The etymological sections should also have linefeeds as \n instead of real ones, so that everything is in one long line. Otherwise stardict-editor doesn't process correctly.
+
+dictionary	\nEtymology\n
+{{root|en|ine-pro|*deyḱ-}}
+{{lbor|en|ML.|dictiōnārium}}, from {{der|en|la|dictiōnārius}}, from {{m|la|dictiō||speaking}}, from {{m|la|dictus}}, perfect past participle of {{m|la|dīcō|t=speak}} + {{m|la|-ārium|t=room, place}}.
+
+\n\n\nn.\n1 A reference work with a list of words from one or more languages, normally ordered alphabetically, explaining each word's meaning#Noun ((l en sense id=any particular meaning of a word senses)), and sometimes also containing information on its etymology#Noun, pronunciation#Noun, (l en usage id=language usage), Wiktionary:Semantic relations, and translation#Noun, as well as other data.\n2 {{lb|en|preceded by (m en the)}} A synchronic dictionary of a standardised language held to only contain words that are properly part of the language.\n3 (lb en by extension) Any work that has a list of material organized alphabetically; e.g., biographical dictionary, encyclopedic dictionary.\n4 (lb en computing) An associative array, a data structure where each value is referenced by a particular key, analogous to words and definitions in a physical dictionary.\nvb.\n1 (lb en transitive) To look up in a dictionary.\n2 (lb en transitive) To add to a dictionary.\n3 (lb en intransitive rare) To compile a dictionary.
+free	\nEtymology\n
+{{root|en|ine-pro|*preyH-}}
+From {{inh|en|enm|free}}, {{m|enm|fre}}, {{m|enm|freo}}, from {{inh|en|ang|frēo||free}}, from {{inh|en|gmw-pro|*frī}}, from {{inh|en|gem-pro|*frijaz||beloved, not in bondage}}, from {{inh|en|ine-pro|*priHós||dear, beloved}}, from {{m|ine-pro|*preyH-||to love, please}}. Related to {{m|en|friend}}.
+{{rel-top1|cognates, etc}}
+Germanic cognates include {{cog|fy|frij||free}}, {{cog|nl|vrij||free}}, {{cog|nds|free||free}}, {{cog|de|frei||free}}, {{cog|da|-}}, {{cog|sv|-}} and {{cog|no|fri||free}}.

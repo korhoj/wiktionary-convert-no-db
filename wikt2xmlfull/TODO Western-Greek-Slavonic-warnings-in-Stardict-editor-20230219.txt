@@ -1,0 +1,7 @@
+Building...
+[warning] Warning: line 512: end by \.
+[warning] Warning: line 3717374: \o is unsupported escape sequence.
+[warning] Warning: line 6579572: \  is unsupported escape sequence.
+[message] Convertion is over.
+[message] wikt-en-Western_Greek_Slavonic-2023-02-19 wordcount: 6580071.
+Done!
