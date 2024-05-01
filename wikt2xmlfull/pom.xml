@@ -7,8 +7,8 @@
   <url>https://github.com/korhoj/wiktionary-convert-no-db</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
   </properties>
   <description>Convert Wiktionary entries to StarDict format</description>
   <build>
@@ -35,7 +35,7 @@
     <dependency>
       <groupId>com.google.http-client</groupId>
       <artifactId>google-http-client</artifactId>
-      <version>1.42.3</version>
+      <version>1.44.1</version>
     </dependency>
   </dependencies>
 </project>
