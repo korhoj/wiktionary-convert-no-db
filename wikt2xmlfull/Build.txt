@@ -1,4 +1,22 @@
-Download and install Eclipse 2024-03 and OpenJDK 21.
+Download and install OpenJDK 22 for Windows.
+  https://jdk.java.net/22/
+  --> https://download.java.net/java/GA/jdk22.0.2/c9ecb94cd31b495da20a27d4581645e8/9/GPL/openjdk-22.0.2_windows-x64_bin.zip
+Download and run Eclipse Installer for Windows.
+  https://www.eclipse.org/downloads/packages/installer
+  --> https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2024-09/R/eclipse-inst-jre-win64.exe
+  Use it to install Eclipse JEE 2024-09 ("Eclipse IDE for Enterprise Java and Web Developers").
+    Installation Folder: C:\Usr\eclipse-jee-2024-09 (e.g.)
+  When the installer finally starts Eclipse and it asks for the Eclipse workspace, exit
+  
+  Change in C:\Usr\eclipse-jee-2024-09\eclipse.ini
+    -Xms256m
+    -Xmx2048m
+  -->
+    -Xms1024m
+    -Xmx4096m
+Start Eclipse
+  Select a directory as workspace:
+    G:\Users\Joel\git\wiktionary-convert-no-db (e.g.)
 
 Right click StripNamespaces.java > Run As > Java Applications
   Eclipse runs the program, which outputs in the Console tab, that it got 0 arguments and it quits

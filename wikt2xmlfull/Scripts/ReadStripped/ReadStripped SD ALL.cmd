@@ -2,7 +2,7 @@
 rem Joel Korhonen 2021-May-22
 set DICT=G:\Temp\wiktionary-dumps
 set JAR_DIR=G:\Dropbox\Dictionary\wikt
-rem set JAVA_HOME=C:\Usr\jdk-20.0.2
+rem set JAVA_HOME=C:\Usr\jdk-22
 set OUT_DIR=G:\Dropbox\Dictionary\wikt\Stardict\OwnStarDict
 set WIKT=C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
 
@@ -56,10 +56,37 @@ echo %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% INFILE=%INFILE% OUTFILE=%OUTFILE% LA
 %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% INFILE=%INFILE% OUTFILE=%OUTFILE% LANG=%LANG% OUTPUTLANGNAMES=%OUTPUTLANGNAMES% OUTTYPE=%OUTTYPE% RESTARTATLINE=%RESTARTATLINE% LANGCODE=%LANGCODE% ONLYLANGUAGES=%ONLYLANGUAGES% WIKTCODE=%WIKTCODE%
 if %ERRORLEVEL% GTR 0 goto :errEnd
 echo Ready
+echo "  Conversion started at %NOW%"
+echo "  Params were:"
+echo "    " %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% INFILE=%INFILE% OUTFILE=%OUTFILE% LANG=%LANG% OUTPUTLANGNAMES=%OUTPUTLANGNAMES% OUTTYPE=%OUTTYPE% RESTARTATLINE=%RESTARTATLINE% LANGCODE=%LANGCODE% ONLYLANGUAGES=%ONLYLANGUAGES% WIKTCODE=%WIKTCODE%
+SET X=
+FOR /F "skip=1 delims=" %%x IN ('wmic os get localdatetime') DO IF NOT DEFINED X SET X=%%x
+SET DATE.YEAR=%X:~0,4%
+SET DATE.MONTH=%X:~4,2%
+SET DATE.DAY=%X:~6,2%
+SET DATE.HOUR=%X:~8,2%
+SET DATE.MINUTE=%X:~10,2%
+SET DATE.SECOND=%X:~12,2%
+SET ENDTIME=%DATE.YEAR%-%DATE.MONTH%-%DATE.DAY%-%DATE.HOUR%-%DATE.MINUTE%-%DATE.SECOND%
+echo "  Conversion ended at %ENDTIME%"
 goto end
 
 :errEnd
-echo Ended in error
+echo !!Ended in error!!
+echo "  Conversion started at %NOW%"
+echo "  Params were:"
+echo "    " %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% INFILE=%INFILE% OUTFILE=%OUTFILE% LANG=%LANG% OUTPUTLANGNAMES=%OUTPUTLANGNAMES% OUTTYPE=%OUTTYPE% RESTARTATLINE=%RESTARTATLINE% LANGCODE=%LANGCODE% ONLYLANGUAGES=%ONLYLANGUAGES% WIKTCODE=%WIKTCODE%
+SET X=
+FOR /F "skip=1 delims=" %%x IN ('wmic os get localdatetime') DO IF NOT DEFINED X SET X=%%x
+SET DATE.YEAR=%X:~0,4%
+SET DATE.MONTH=%X:~4,2%
+SET DATE.DAY=%X:~6,2%
+SET DATE.HOUR=%X:~8,2%
+SET DATE.MINUTE=%X:~10,2%
+SET DATE.SECOND=%X:~12,2%
+SET ENDTIME=%DATE.YEAR%-%DATE.MONTH%-%DATE.DAY%-%DATE.HOUR%-%DATE.MINUTE%-%DATE.SECOND%
+echo "  Conversion ended at %ENDTIME%"
+echo !!Ended in error!!
 pause
 rem exit 8
 

@@ -14,8 +14,8 @@ rem   C:\Temp\enwiktionary-%EDITION%-pages-articles.xml
 rem Then change EDITION to match the Wiktionary edition you have downloaded
 set DICT=G:\Temp\wiktionary-dumps
 set JAR_DIR=G:\Dropbox\Dictionary\wikt
-rem set JAVA_HOME=C:\Usr\jdk-20.0.2
-set EDITION=20230720
+rem set JAVA_HOME=C:\Usr\jdk-22
+set EDITION=20240820
 set LANG=en
 
 rem Language specific scripts, e.g. "StripNamespaces elwiktionary.cmd" call passing LANG as param

@@ -11,14 +11,14 @@ set ONLYLANGUAGES=true
 set WIKTCODE=sq
 
 set WIKT=C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
-set SCRIPTS=%WIKT%
+set SCRIPTS=%WIKT%\Scripts
 set CONTINFO_DIR=%WIKT%
 
-cd /D %SCRIPTS%
+cd /D %SCRIPTS%\ReadStripped
 call "ReadStripped SD ALL.cmd" %EDITION% 0 %LANG% %LANGCODE% %OUTPUTLANGNAMES% %ONLYLANGUAGES% %WIKTCODE%
 
 :mainloop
-cd /D %SCRIPTS%
+cd /D %SCRIPTS%\ReadStripped
 if not exist %CONTINFO_DIR%\continfo.txt goto ending
 for /F %%i in (%CONTINFO_DIR%\continfo.txt) do @set RESTARTATLINE=%%i
 call "ReadStripped SD ALL.cmd" %EDITION% %RESTARTATLINE% %LANG% %LANGCODE% %OUTPUTLANGNAMES% %ONLYLANGUAGES% %WIKTCODE%

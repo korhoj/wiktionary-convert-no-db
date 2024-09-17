@@ -1,8 +1,8 @@
 @echo off
-rem Process the Norwegian Wiktionary, Norwegian only. Run this to start the conversion
+rem Process the Norwegian Wiktionary, Bokmål Norwegian only. Run this to start the conversion
 rem Joel Korhonen 2021-May-22
 rem Change EDITION to match with the Wiktionary edition you have downloaded
-set EDITION=20230720
+set EDITION=20240901
 set LANG=ALL
 set LANGCODE=nb
 set OUTPUTLANGNAMES=true
@@ -11,14 +11,14 @@ set ONLYLANGUAGES=true
 set WIKTCODE=nb
 
 set WIKT=C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
-set SCRIPTS=%WIKT%
+set SCRIPTS=%WIKT%\Scripts
 set CONTINFO_DIR=%WIKT%
 
-cd /D %SCRIPTS%
+cd /D %SCRIPTS%\ReadStripped
 call "ReadStripped SD ALL.cmd" %EDITION% 0 %LANG% %LANGCODE% %OUTPUTLANGNAMES% %ONLYLANGUAGES% %WIKTCODE%
 
 :mainloop
-cd /D %SCRIPTS%
+cd /D %SCRIPTS%\ReadStripped
 if not exist %CONTINFO_DIR%\continfo.txt goto ending
 for /F %%i in (%CONTINFO_DIR%\continfo.txt) do @set RESTARTATLINE=%%i
 call "ReadStripped SD ALL.cmd" %EDITION% %RESTARTATLINE% %LANG% %LANGCODE% %OUTPUTLANGNAMES% %ONLYLANGUAGES% %WIKTCODE%

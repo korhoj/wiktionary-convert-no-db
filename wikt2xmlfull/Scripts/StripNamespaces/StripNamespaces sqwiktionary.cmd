@@ -5,7 +5,7 @@ set EDITION=20230720
 set LANG=sq
 
 set WIKT=C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
-set SCRIPTS=%WIKT%
+set SCRIPTS=%WIKT%\Scripts
 
-cd /D %SCRIPTS%
+cd /D "%SCRIPTS%"\StripNamespaces
 call "StripNamespaces ALL.cmd" %LANG% %EDITION%

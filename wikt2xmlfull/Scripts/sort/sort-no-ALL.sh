@@ -4,7 +4,7 @@
 NOW=`date +%Y-%m-%d`
 INFILE=wikt-no-ALL-unsorted.txt
 OUTFILE=wikt-no-ALL-$NOW.txt
-#export LC_ALL=sv_SE.UTF-8
+#export LC_ALL=no_NO.UTF-8
 # The next because ALL includes all languages
 export LC_ALL=en_US.UTF-8
 locale

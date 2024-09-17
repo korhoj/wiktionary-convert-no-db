@@ -2920,7 +2920,7 @@ From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period,
 			throw new IOException("Unable to read languages file: " + e.getMessage());
 		}
 		
-		LOGGER.info("Ended reading languages file, read " + langsCount + " languages");
+		LOGGER.warning("Ended reading languages file, read " + langsCount + " languages");
 		
 		StringUtils.langs = langs;
 		
