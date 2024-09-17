@@ -6,7 +6,9 @@ as VirtualBox, or a machine running Linux.
 
 Download one of the supported Wiktionary article dumps:
 
-English, Finnish, Norwegian, Swedish
+English (en), Finnish (fi), Norwegian Nynorsk (nn), Norwegian (no), Swedish (sv)
+Not fully supported yet: Greek (el)
+Not supported yet: Albanian (sq)
 
 The completed dumps are listed at https://dumps.wikimedia.org/backup-index.html
 Search for the Wiktionary dump you want, e.g. search for "enwiktionary" for the English Wiktionary dump
@@ -216,8 +218,10 @@ E. PARSING THE ENTRIES AND CREATING STARDICT FILES
 
 stardict-tools
 ==============
-Ubuntu repos for 22.04 LTS have a working stardict-tools (and stardict) package,
-3.0.7+git20211225+dfsg-1 (@20230218). So there is no need to build it oneself anymore.
+Ubuntu repos for 22.04 LTS and 24.04 LTS have a working stardict-tools (and stardict) package.
+  22.04 LTS: 3.0.7+git20211225+dfsg-1 (@20230218)
+  24.04 LTS: 3.0.7+git20220909+dfsg-4build4 (@20240917)
+So there is no need to build it oneself anymore.
 
 $ sudo apt install stardict-tools
 
@@ -340,7 +344,10 @@ Run cp-StarDict-files-to-subdirs-and-compress.sh:
 
   LANG=fi && LCODE=ALL && cp_and_compress
   LCODE=fi && cp_and_compress
-
+  
+  LANG=nn && LCODE=ALL && cp_and_compress
+  #LCODE=nn && cp_and_compress
+  
   LANG=no && LCODE=ALL && cp_and_compress
   LCODE=no && cp_and_compress
 
@@ -357,7 +364,10 @@ Then perform the following steps in Linux:
 
 dictzip
 =======
-In Ubuntu, install dictzip, which is used to produce the .dict.dz file:
+In Ubuntu, you need to have dictzip installed to produce the .dict.dz files.
+At least in 24.04 LTS, it was already installed automatically, when stardict-editor was installed.
+
+If it is not installed for some reason, install it with apt, like normally: 
 
 $ sudo apt install dictzip
 
@@ -373,14 +383,14 @@ Ubuntu repo(s) contain many prebuilt dictionaries for dictd.
 You may install any you want. It works best if you only install one or two at a time.
 
 Some example packages for 22.04 LTS (@20230218):
-  sudo apt install dict-freedict-eng-fra
-                   dict-freedict-lat-eng
-                   dict-freedict-swe-deu
-                   dict-freedict-swe-lat
-                   dict-freedict-eng-spa
-                   dict-freedict-swe-eng
-                   dict-freedict-fin-nld
-                   dict-freedict-ita-deu
+  sudo apt install dict-freedict-eng-fra \
+                   dict-freedict-lat-eng \
+                   dict-freedict-swe-deu \
+                   dict-freedict-swe-lat \
+                   dict-freedict-eng-spa \
+                   dict-freedict-swe-eng \
+                   dict-freedict-fin-nld \
+                   dict-freedict-ita-deu \
                    dict-de-en
 
 dictfmt
