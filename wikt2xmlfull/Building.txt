@@ -18,6 +18,9 @@ Start Eclipse
   Select a directory as workspace:
     G:\Users\Joel\git\wiktionary-convert-no-db (e.g.)
 
+The project uses Maven to import the Google HTTP Client Library for Java. See https://googleapis.github.io/google-http-java-client/setup.html
+I check every now and then which is the latest non-beta release and switch to it. It is defined in pom.xml. The release site is https://github.com/googleapis/google-http-java-client/releases
+
 Right click StripNamespaces.java > Run As > Java Applications
   Eclipse runs the program, which outputs in the Console tab, that it got 0 arguments and it quits
 Right click StripNamespaces.java > Run As > Run Configurations

@@ -1,9 +1,9 @@
 @echo off
 rem Joel Korhonen 2023-02-19
-rem Duplicates Greek words test
+rem Duplicate Greek words test
 set convLangCode="el"
 set convLang="el"
-set JAVA_HOME=C:\Usr\jdk-19
+set JAVA_HOME=C:\Usr\jdk-22
 SET JAVA="%JAVA_HOME%\bin\java.exe"
 SET JAR_DIR=G:\Dropbox\Dictionary\wikt
 SET WIKT=C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
