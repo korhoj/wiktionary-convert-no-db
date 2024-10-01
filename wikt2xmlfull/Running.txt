@@ -1,45 +1,133 @@
-You need to first compile the program in Eclipse, see Build.txt
-The example scripts for compiling are for Windows, but Linux could also be used
-Linux with a desktop GUI (window manager) is needed for converting the output into StarDict or dictd
-compatible file. I use a virtual Ubuntu image in VMware WS. You can also use another virtualizer such
-as VirtualBox, or a machine running Linux.
+You need to first compile (I used Eclipse) the three Java programs ("apps", if you prefer) used for processing the Wiktionary dump(s) for the languages you want to process.
+  The programs are: StripNamespaces, ReadStripped and JoinDefinitions
+See Build.txt.
 
-Download one of the supported Wiktionary article dumps:
+To process the dumps with the Java programs and the scripts I have written, you will need to have both a Windows and Linux environment, either real or virtual ones.  
+The Windows scripts are *.cmd scripts, using the syntax for the older Command Prompt (cmd.exe), not PowerShell as such.
+I haven't tested using WSL or WSL2 for the Linux portion of the process. One of the steps uses a GUI program. I use a virtual Ubuntu image in VMware WS. You can of course run Linux in another virtualizer such as VirtualBox, or use a machine running Linux.
 
-English (en), Finnish (fi), Norwegian Nynorsk (nn), Norwegian (no), Swedish (sv)
+The Windows scripts use environment variables for determining the input and output folder and constructing the file names to use. Since I make new conversions for various languages every now and then, I have defined the variables permanently for my user account (you can also of course define them for all user accounts by defining "System variables"). 
+  You can alternatively define the env variables each time you open a Command Prompt (cmd.exe) for running a script(s), by using the SET command, but these instructions assume the permanent definition style. 
+
+To define environment variables for your user account in e.g. Windows 10, click the Search icon, usually located in the lower-left region of the task bar, and type something like "envi" (or if you use Windows in a different language, something that refers to environment variables in your language), and from the search results, under the heading "Settings", pick "Edit environment variables for your account".
+
+Click New to create each variable below, and set them to point to the folder you want to use. N.b. create the folders yourself, if they don't already exist:
+  Variable   Example value               Description
+  DICT       G:\Temp\wiktionary-dumps    Place each dump file (.bz2) you will download here
+  JAVA_HOME  C:\Usr\jdk-22               Define where your JDK is placed
+  WIKT       G:\Dropbox\Dictionary\wikt  Place the JAR files for running the Java apps here
+  WIKTGIT    C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
+                                         The Eclipse workspace location for the wikt2xmlfull project
+
+Next you will download and extract the Wiktionary articles dump of one or more of the languages supported by wikt2xmlfull:
+  English (en), Finnish (fi), Norwegian Nynorsk (nn), Norwegian (no), Swedish (sv)
+
 Not fully supported yet: Greek (el)
+  (I was asked to convert the Greek wikt, but I had trouble parsing the entries)
 Not supported yet: Albanian (sq)
+  (I was asked to convert the Albanian wikt, but I had trouble parsing the entries)
 
-The completed dumps are listed at https://dumps.wikimedia.org/backup-index.html
-Search for the Wiktionary dump you want, e.g. search for "enwiktionary" for the English Wiktionary dump
-It's currently (@20221201) listed like this:
-  2022-11-21 21:53:44 enwiktionary: Dump complete
-    Where "enwiktionary" is a link to https://dumps.wikimedia.org/enwiktionary/20221120/
-However, instead of the aforementioned link, you really should use one of the mirrors,
-so you won't strain the default servers, and downloading is also probably faster.
-I'm currently using a Swedish one:
+The completed dumps are listed at https://dumps.wikimedia.org/backup-index.html,
+although you really should use one of the mirrors, so you won't strain the default servers, and downloading is also probably faster. I'm currently using a Swedish mirror:
   https://mirror.accum.se/mirror/wikimedia.org/dumps/
-  For this mirror, one needs to search for the subdirectory of the wanted Wiktionary, e.g. "enwiktionary/"
-  and click it to open the list of the (about five) latest dumps, and select the latest (complete) one.
-  E.g. https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20221120/
-Download the bzip2 archive for the Wikt you want, e.g. enwiktionary-yyyymmdd-pages-articles.xml.bz2
-  A real link example: https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20221120/enwiktionary-20221120-pages-articles.xml.bz2
-You can also download the "latest" one from e.g. 
- https://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-articles.xml.bz2
-but I prefer to have the directory and unarchived file name show the edition (yyyymmdd) in it. The sample
-cmd script assumes such a naming scheme.
 
-Extract the bz2 file into a subdirectory. I use 7-Zip. You don't need the bz2 file after extracting it.
+It contains links to subdirectories for each language for each Wiki project (Wikibooks, Wikimedia, Wiktionary etc.). wikt2xmlfull only supports Wiktionary dumps though (and only for some few languages - see above).
+
+In the directory listing, search for the link to the subdirectory of the Wiktionary dump for the language you want to download the dump for. 
+  E.g. search for "enwiktionary" (the exact name is "enwiktionary/") for the link to the English Wiktionary dump directory. For the Swedish mirror, the (permanent) link is:
+  https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/
+Open the link in a browser (e.g. Edge, Firefox or Chrome). You get a new directory listing, which contains the available dumps listed by date.
+Note that the Wikimedia foundation makes dumps in a recurring process, happening about twice a month, and when it's ongoing, dumps for different languages naturally are finished at different times. I personally like to download the latest dump of each language, whether they are extracts for the same day or not. 
+
+Currently (@20240926-07.31 UTC+2) the latest English dump is for the date 20240901,
+but say the latest Finnish dump is for 20240920.
+
+Open the link to the subdirectory for the language - date -combination you selected, i.e. for the English Wiktionary currently:
+  https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20240901/
+
+Sometimes the dump is not ready even though the directory exists already. To be sure, open the link to the file status.html in the directory listing. E.g. 
+  https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20240901/status.html
+It should have a text like this:
+  * 2024-09-06 02:28:29 enwiktionary: Dump complete
+
+(where the word "enwiktionary" is currently a slightly _malformed_ link, https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20240901/enwiktionary/20240901, - it's supposed to just point to the dump directory the status.html file is in...)
+
+If the dump isn't complete, you naturally need to use the dump for another date. You probably want to open the dump directory for the second latest date in the listing - currently "20240820":
+  https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20240820/
+
+Download the file named with the naming scheme
+  xxwiktionary-yyyymmdd-pages-articles.xml.bz2 (where xx is the language code)
+e.g. enwiktionary-20240901-pages-articles.xml.bz2. E.g.:
+  https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20240901/enwiktionary-20240901-pages-articles.xml.bz2
+Store the downloaded dump file to the directory pointed by the variable DICT (%DICT%) you defined earlier on.
+
+N.b. make sure to download the -pages-articles.xml.bz2 file, not either of these two files with a partly similar naming scheme:
+  - xxwiktionary-yyyymmdd-pages-articles-multistream-index.txt.bz2
+  - xxwiktionary-yyyymmdd-pages-articles-multistream.xml.bz2 
+
+N.b. You can theoretically instead download the latest finished dump for a language by accessing the dump file in a "/latest/" subdirectory. E.g.: 
+  https://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-articles.xml.bz2
+but don't do that, because the scripts I have written for processing the dump of each supported language use a naming scheme based on the dump date, and the "latest" dump file (.bz2) doesn't contain information for which date the dump is for (so you would need to find out that by investigating the above mentioned dump directories anyway, e.g. .../20240901/).
+
+In the DICT directory, extract each bz2 file you downloaded into it's own subdirectory. Use the name of the .bz2 dump file as the name of the subdirectory.
+
+I use 7-Zip via Windows' Explorer by right-clicking each .bz2 file and selecting the action Extract to "xxwiktionary-yyyymmdd-pages-articles.xml\". E.g. for the latest English dump file:
+  7-Zip > Extract to "enwiktionary-20240901-pages-articles.xml\"
+You don't need the bz2 dump file after extracting it. The input file you just extracted won't be changed when it's processed.
+
+Next you will be using various Windows cmd (*.cmd) scripts for processing the files you downloaded and extracted.
+The scripts are in the Eclipse workspace under the folder Scripts.
+Each kind of script is in its own subfolder, e.g. StripNamespaces\
+In my system, the full path to the StripNamespaces folder is:
+  G:\Users\Joel\git\wiktionary-convert-no-db\wikt2xmlfull\Scripts\StripNamespaces\
+Open a Windows Command Prompt (cmd.exe) and go to the StripNamespaces folder:
+  CD /D "%WIKTGIT%"\Scripts\StripNamespaces
 
 A. COMPILING THE ENGLISH WIKTIONARY, WITH ENTRIES FOR ALL LANGUAGES
 
-Change EDITION to match with the Wiktionary edition you have downloaded in
+1. Change EDITION to match with the Wiktionary edition you have downloaded in
 StripNamespaces ALL.cmd.
-Run StripNamespaces ALL.cmd. I like to do it via going to cmd.exe.
-It prints progress every 10 000 entries.
-Stripping the English Wiktionary takes long even on a fast computer. Takes currently
-(2016-11) about 20 mins. Stripping the English entries is slower at first than after about
-150 000 entries. There are currently about 4 960 000 entries!
+  It is currently defined in the line number 18:
+  
+  set EDITION=20240901
+
+2. Using the StripNamespaces program 
+
+If you have Eclipse open, at this point you may want to close it, to release memory and CPU resources. Then:
+
+Run StripNamespaces ALL.cmd in the Command Prompt (or start it e.g. double-clicking the script file in Windows Explorer).
+
+StripNamespaces prints first what it is going to process and produce, and the start time
+  "EDITION: 20240901"
+  "PROG: G:\Dropbox\Dictionary\wikt\StripNamespaces.jar"
+  "INFILE: G:\Temp\wiktionary-dumps\enwiktionary-20240901-pages-articles.xml\enwiktionary-20240901-pages-articles.xml"
+  "OUTFILE: G:\Temp\wiktionary-dumps\enwiktionary-20240901-pages-articles.xml\stripped-ALL.xml"
+syysk. 26, 2024 8:28:19 AP. wiktionary.to.xml.full.StripNamespaces main
+  ("syysk." is an abbreviation for September in the Finnish language, and "AP." for "am"...)
+
+StripNamespaces prints progress every 10 000 entries. If the printing bothers you, you can minimize the window and check every now and then whether the stripping has finished. 
+
+Stripping the English Wiktionary takes long even on a fast computer. It takes currently
+(20240926) about 55 mins for the about xxxx entries in the dump.
+
+When the stripping finishes, for convenience the start time is printed again, and the 
+finish time is printed, so you can see how long the processing took.
+E.g. for the English Wiktionary:
+  syysk. 26, 2024 9:23:22 AP. wiktionary.to.xml.full.StripNamespaces process
+  INFO: Processed entry 8130000 [shouldn't this be a larger number??]
+  Ready 
+TODO: update the above printout
+
+E.g. for the Greek Wiktionary:
+	syysk. 26, 2024 10:56:10 AP. wiktionary.to.xml.full.StripNamespaces process
+	INFO: Processed entry 1530000
+	Ready
+	  Conversion started at 2024-09-26-10-53-59
+	  Params were:
+	    "C:\Usr\jdk-22\bin\java.exe" -Dfile.encoding=UTF8 -Xmx2600M -Xss400M -jar "G:\Dropbox\Dictionary\wikt\StripNamespaces.jar" "G:\Temp\wiktionary-dumps\elwiktionary-20240901-pages-articles.xml\elwiktionary-20240901-pages-articles.xml" "G:\Temp\wiktionary-dumps\elwiktionary-20240901-pages-articles.xml\stripped-ALL.xml"
+	  Conversion ended at 2024-09-26-10-56-10
+
+3. Using the ReadStripped program 
 
 Running the ReadStripped program uses a language specific script which calls a
 general script common to all languages. (SD in the script names == StarDict)
@@ -58,7 +146,8 @@ that not so much memory is required. Each restart continues processing where the
 run left off.
 
 Change EDITION to match with the Wiktionary edition you have downloaded in e.g.
-ReadStripped SD en-ALL.cmd and run it.
+ReadStripped SD en-ALL.cmd and run it. E.g.:
+  set EDITION=20240901
 
 B. COMPILING A WIKTIONARY OF ANOTHER LANGUAGE
 
