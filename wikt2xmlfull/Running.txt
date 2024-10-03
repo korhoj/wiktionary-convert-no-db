@@ -4,7 +4,8 @@ See Build.txt.
 
 To process the dumps with the Java programs and the scripts I have written, you will need to have both a Windows and Linux environment, either real or virtual ones.  
 The Windows scripts are *.cmd scripts, using the syntax for the older Command Prompt (cmd.exe), not PowerShell as such.
-I haven't tested using WSL or WSL2 for the Linux portion of the process. One of the steps uses a GUI program. I use a virtual Ubuntu image in VMware WS. You can of course run Linux in another virtualizer such as VirtualBox, or use a machine running Linux.
+For the Linux portion of the conversion process, one of the steps uses a GUI program.
+You can run Linux in a virtual environment with e.g. VirtualBox, WSL2 or VMware WS. Or you can of course directly run Linux in your machine.
 
 The Windows scripts use environment variables for determining the input and output folder and constructing the file names to use. Since I make new conversions for various languages every now and then, I have defined the variables permanently for my user account (you can also of course define them for all user accounts by defining "System variables"). 
   You can alternatively define the env variables each time you open a Command Prompt (cmd.exe) for running a script(s), by using the SET command, but these instructions assume the permanent definition style. 
@@ -39,8 +40,8 @@ In the directory listing, search for the link to the subdirectory of the Wiktion
 Open the link in a browser (e.g. Edge, Firefox or Chrome). You get a new directory listing, which contains the available dumps listed by date.
 Note that the Wikimedia foundation makes dumps in a recurring process, happening about twice a month, and when it's ongoing, dumps for different languages naturally are finished at different times. I personally like to download the latest dump of each language, whether they are extracts for the same day or not. 
 
-Currently (@20240926-07.31 UTC+2) the latest English dump is for the date 20240901,
-but say the latest Finnish dump is for 20240920.
+For example, at @20240926-07.31 UTC+2, the latest English dump wass for the date 20240901,
+but the latest Finnish dump was already for 20240920.
 
 Open the link to the subdirectory for the language - date -combination you selected, i.e. for the English Wiktionary currently:
   https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20240901/
@@ -52,7 +53,7 @@ It should have a text like this:
 
 (where the word "enwiktionary" is currently a slightly _malformed_ link, https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20240901/enwiktionary/20240901, - it's supposed to just point to the dump directory the status.html file is in...)
 
-If the dump isn't complete, you naturally need to use the dump for another date. You probably want to open the dump directory for the second latest date in the listing - currently "20240820":
+If the dump isn't complete, you naturally need to use the dump for another date. You probably want to open the dump directory for the second latest date in the listing - which at 20240926 was "20240820":
   https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20240820/
 
 Download the file named with the naming scheme
@@ -87,7 +88,7 @@ A. COMPILING THE ENGLISH WIKTIONARY, WITH ENTRIES FOR ALL LANGUAGES
 
 1. Change EDITION to match with the Wiktionary edition you have downloaded in
 StripNamespaces ALL.cmd.
-  It is currently defined in the line number 18:
+  It is currently defined in the line number 28:
   
   set EDITION=20240901
 
@@ -107,16 +108,19 @@ syysk. 26, 2024 8:28:19 AP. wiktionary.to.xml.full.StripNamespaces main
 
 StripNamespaces prints progress every 10 000 entries. If the printing bothers you, you can minimize the window and check every now and then whether the stripping has finished. 
 
-Stripping the English Wiktionary takes long even on a fast computer. It takes currently
-(20240926) about 55 mins for the about xxxx entries in the dump.
+Stripping the English Wiktionary takes long even on a fast computer. For me it takes currently
+(20241003) about 58 mins for the about 8 150 000 entries in the dump.
 
 When the stripping finishes, for convenience the start time is printed again, and the 
 finish time is printed, so you can see how long the processing took.
 E.g. for the English Wiktionary:
-  syysk. 26, 2024 9:23:22 AP. wiktionary.to.xml.full.StripNamespaces process
-  INFO: Processed entry 8130000 [shouldn't this be a larger number??]
-  Ready 
-TODO: update the above printout
+  lokak. 03, 2024 5:22:30 IP. wiktionary.to.xml.full.StripNamespaces process
+  INFO: Processed entry 8150000
+  Ready
+    Conversion started at 2024-10-03-16-24-57
+    Params were:
+      "C:\Usr\jdk-22\bin\java.exe" -Dfile.encoding=UTF8 -Xmx2600M -Xss400M -jar "G:\Dropbox\Dictionary\wikt\StripNamespaces.jar" "G:\Temp\wiktionary-dumps\enwiktionary-20240920-pages-articles.xml\enwiktionary-20240920-pages-articles.xml" "G:\Temp\wiktionary-dumps\enwiktionary-20240920-pages-articles.xml\stripped-ALL.xml"
+    Conversion ended at 2024-10-03-17-22-32
 
 E.g. for the Greek Wiktionary:
 	syysk. 26, 2024 10:56:10 AP. wiktionary.to.xml.full.StripNamespaces process
@@ -191,11 +195,12 @@ Wiktionary has the definitions of the entries in the English language.
 
 D. COMBINING THE OUTPUT FILES
 
-I perform the steps in D and E in Linux running Ubuntu 22.04 LTS. I run it inside VMware Workstation.
+I perform the steps in D and E in a Linux running Ubuntu 22.04 LTS. I run it inside VMware Workstation.
 
 dos2unix
 --------
-You need to have dos2unix installed. If you don't have it yet, install it:
+You need to have dos2unix installed to be able to run the conv2unix scripts below.
+If you don't have dos2unix installed yet, install it:
 
 $ sudo apt install dos2unix
 
@@ -205,22 +210,20 @@ Copy any dictionary files you have produced above (by running the ReadStripped*.
 These have a name in the format wikt-langcode-lang-yyyy-mm-dd-hh-mm-ss.txt
 E.g.: wikt-en-ALL-2023-02-18-13-22-03.txt, wikt-en-ALL-2023-02-18-13-26-43.txt etc.
 
-Also copy to the same directory the scripts conv2unix*.sh, dictfmt*.sh and sort*.sh from your checked out Git repository for wiktionary-convert-no-db to Linux.
+Also copy to the same directory the scripts conv2unix*.sh, dictfmt*.sh and sort*.sh from your checked out Git repository for wiktionary-convert-no-db to Linux (unless you use the Windows folders directly from the Linux side).
 
 I do the copying by using the shared folders feature of VMware Workstation.
-Alternatively, you could checkout my git repository using your Linux.
+You could also checkout my git repository using your Linux.
 
 conv2unix scripts
 -----------------
-Edit the date of the input files to the conv2unix*.sh script for the dictionary language you are processing, e.g.
-
-# for en-ALL:
-$ vi conv2unix-en-ALL.sh
-# for fi-fi:
-$ vi conv2unix-fi-fi.sh
-
-In the file, the input files for a given date are specified like this:
-  convDate="2023-02-18*"
+The conv2unix*.sh scripts nowadays find out the current date dynamically and use it:
+  FILES="wikt-$convLangCode-$convLang-`date +%Y-%m-%d*.txt`"
+If the date of an input file of a language is not the current date, edit the script(s) of the language,
+e.g. for en-ALL the script conv2unix-en-ALL.sh, to override the date like this:
+  convDate="2024-10-03*"
+  FILES="wikt-$convLangCode-$convLang-$convDate.txt"
+  #FILES="wikt-$convLangCode-$convLang-`date +%Y-%m-%d*.txt`"
 
 Run the conv2unix-*.sh script for the language you are processing. E.g.:
 
@@ -247,7 +250,7 @@ sort-el-el.sh has this definition:
   export LC_ALL=el_GR.UTF-8
 Which means you need the locale el_GR.utf8 in your system.
 
-Check, which locales are already available:
+Check, which locales are already available. E.g.:
 
 $ locale -a
   C
@@ -282,10 +285,13 @@ $ locale -a
   POSIX
   sv_SE.utf8
 
-If a locale you need is not available, generate it, e.g.:
-
+N.b. you don't actually need a lot of en locales unlike in the list above.
+If you don't have one of these locales available (or another one you need), generate it: 
 $ sudo localedef -f UTF-8 -i el_GR el_GR.UTF-8
+$ sudo localedef -f UTF-8 -i en_US en_US.UTF-8
 $ sudo localedef -f UTF-8 -i fi_FI fi_FI.UTF-8
+$ sudo localedef -f UTF-8 -i nb_NO nb_NO.UTF-8
+$ sudo localedef -f UTF-8 -i nn_NO nn_NO.UTF-8
 $ sudo localedef -f UTF-8 -i sv_SE sv_SE.UTF-8
 
 The sort*.sh parse (unless you change them) the input files for the current date for a given dictionary language, produced above by running the corresponding conv2unix shell script.
@@ -311,6 +317,7 @@ Ubuntu repos for 22.04 LTS and 24.04 LTS have a working stardict-tools (and star
   22.04 LTS: 3.0.7+git20211225+dfsg-1 (@20230218)
   24.04 LTS: 3.0.7+git20220909+dfsg-4build4 (@20240917)
 So there is no need to build it oneself anymore.
+(There's also stardict-4, available in https://gitee.com/huzheng/stardict-4.0.x/, but I haven't tried it.)
 
 $ sudo apt install stardict-tools
 
@@ -334,14 +341,15 @@ See https://stardict-4.sourceforge.net/ChangeLog (link is in https://stardict-4.
     Thanks GreenLunar for the Hebrew translation!
     Many small changes.
 
-Optionally you may install the whole stardict package:
+Optionally you may install the whole stardict package and any optional plugins you want, e.g.:
 
 $ sudo apt install stardict stardict-gtk stardict-plugin stardict-plugin-espeak \
- stardict-plugin-festival stardict-plugin-info stardict-plugin-spell stardict-xmllittre
+ stardict-plugin-festival stardict-plugin-info stardict-plugin-spell stardict-xmlittre
 
 stardict-editor
 ===============
 Run "stardict-editor" after installing it from the Ubuntu package stardict-tools (see above).
+It's a GUI program.
 
 In my Ubuntu 22.04 LTS, it installed to /usr/lib/stardict-tools/ and is run like this:
 
@@ -350,8 +358,9 @@ $ /usr/lib/stardict-tools/stardict-editor
 In the default Compile tab, press Browse and select the sorted file, e.g.
   wikt-en-ALL-yyyy-mm-dd.txt
 Press Compile. The window is greyed out until processing is ready.
-  If it's a big dictionary, Ubuntu may show once or many times a dialog asking
-  whether you want to "Force Quit" or "Wait". Click always "Wait".
+  If it's a big dictionary, in at least VMware WS Ubuntu may show once or
+  many times a dialog asking  whether you want to "Force Quit" or "Wait".
+  Click always "Wait".
 The program prints messages like this, if the conversion works:
   Building...
   [message] Conversion is over.
@@ -411,7 +420,11 @@ sametypesequence=m
 
 Creating 7z files for distributing
 ==================================
-Run cp-StarDict-files-to-subdirs-and-compress.sh:
+First install 7zip into Ubuntu if it's not installed:
+
+$ sudo apt install 7zip p7zip-full
+
+Then run cp-StarDict-files-to-subdirs-and-compress.sh:
   #!/bin/bash
   DATENOW=`date +%Y-%m-%d`
   cp_and_compress() {
@@ -442,6 +455,26 @@ Run cp-StarDict-files-to-subdirs-and-compress.sh:
 
   LANG=sv && LCODE=ALL && cp_and_compress
   LCODE=sv && cp_and_compress
+
+The script prints e.g. for the el-ALL (Greek) dictionary:
+  'wikt-el-ALL-2024-10-03.dict.dz' -> 'el-StarDict/wikt-el-ALL-2024-10-03.dict.dz'
+  'wikt-el-ALL-2024-10-03.idx' -> 'el-StarDict/wikt-el-ALL-2024-10-03.idx'
+  'wikt-el-ALL-2024-10-03.ifo' -> 'el-StarDict/wikt-el-ALL-2024-10-03.ifo'
+  
+  7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
+  p7zip Version 16.02 (locale=C,Utf16=off,HugeFiles=on,64 bits,8 CPUs Intel(R) Core(TM) i7-3770 CPU @ 3.40GHz (306A9),ASM,AES-NI)
+  
+  Scanning the drive:
+  3 files, 29130838 bytes (28 MiB)
+  
+  Creating archive: wikt-el-ALL-2024-10-03.7z
+  
+  Items to compress: 3
+  
+  
+  Files read from disk: 3
+  Archive size: 13612820 bytes (13 MiB)
+  Everything is Ok
 
 You may copy and unarchive the 7z files containing wikt-en-ALL-yyyy-mm-dd.dict.dz and wikt-en-ALL-yyyy-mm-dd.idx to e.g. your phone and use it with a Stardict compatible
 GUI such as Colordict, or if you have installed the Stardict GUI in your PC, you can use the file with it.
@@ -508,7 +541,12 @@ E.g.
 
 dictfmt
 =======
-N.b. the next step overwrites any .dz file created in step E, e.g. wikt-en-ALL-yyyy-mm-dd.dict.dz
+N.b. this step overwrites any existing .dict.dz file,
+e.g. wikt-en-ALL-yyyy-mm-dd.dict.dz, but that is normally
+not a problem. In step E such files were created
+in a StarDict (but not dictd) compatible format, but in the
+higher directory .., whilst in this step they are created in
+the dictd format in language specific folders.
 
 # for en-ALL
 $ cd en/
@@ -522,11 +560,30 @@ dictfmt-en-ALL.sh:
   convDate=`date +%Y-%m-%d`
   cp ../pd-header.txt wikt-$convLangCode-$convLang-$convDate-dict.txt
   cat ../wikt-$convLangCode-$convLang-dictfmt-dupls-joined.txt | tee -a wikt-$convLangCode-$convLang-$convDate-dict.txt > /dev/null
-  dictfmt -f --utf8 --allchars wikt-$convLangCode-$convLang-$convDate -u http://dictinfo.com -s wikt-$convLangCode-$convLang-$convDate < wikt-$convLangCode-$convLang-$convDate-dict.txt
+  dictfmt -f --utf8 --allchars wikt-$convLangCode-$convLang-$convDate -u https://dictinfo.com -s wikt-$convLangCode-$convLang-$convDate < wikt-$convLangCode-$convLang-$convDate-dict.txt
   dictzip wikt-$convLangCode-$convLang-$convDate.dict
   chmod 644 wikt-$convLangCode-$convLang-$convDate.dict.dz
   chmod 644 wikt-$convLangCode-$convLang-$convDate.index
   7z a wikt-$convLangCode-$convLang-$convDate-dictd.7z wikt-$convLangCode-$convLang-$convDate.{dict.dz,index}
+
+The dictzip application the script calls prints the amount of headwords processed so far,
+and when it ends, the total number remains on-screen. E.g.: 
+      884083 headwords
+After that, 7-Zip prints e.g.:
+  7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
+  p7zip Version 16.02 (locale=C.UTF-8,Utf16=on,HugeFiles=on,64 bits,8 CPUs Intel(R) Core(TM) i7-3770 CPU @ 3.40GHz (306A9),ASM,AES-NI)
+  
+  Scanning the drive:
+  2 files, 41631598 bytes (40 MiB)
+  
+  Creating archive: wikt-en-ALL-2024-10-03-dictd.7z
+  
+  Items to compress: 2
+  
+  
+  Files read from disk: 2
+  Archive size: 29659322 bytes (29 MiB)
+  Everything is Ok
 
 # for fi-fi
 $ cd fi/
@@ -543,18 +600,17 @@ Run the script. It first copies a the public domain + CC-SA-BY copyright header 
 
 dictfmt creates .dict and .index for the given language.
 
-The script then calls dictzip to produces the .dict.dz file.
-N.b. this step overwrites any existing .dict.dz file, but that
-is normally not a problem. In step E such files were created
-in a StarDict (but not dictd) compatible format, but in the
-higher directory .., whilst in this step they are created in
-the dictd format in language specific folders.
+In those language specific subdirectories such as English, which have many dictfmt scripts,
+you can run them all by first changing in the directory:
+$ cd en/
+and then running:
+$ for f in `ls dictfmt-*.sh` ; do ./$f ; done
 
 Verifying language's using ifo file(s) - optional
 -------------------------------------------------
 Run the following for a given language's ifo file, if you have created such by doing step E earlier, and want to verify the dictionary files. The ifo isn't needed for dictd as such:
 
-$ /Downloads/stardict_3.0.6/tools/src/stardict-verify wikt-en-ALL.ifo
+$ /usr/lib/stardict-tools/stardict-verify wikt-en-ALL-2023-02-19.ifo
   [message] Verifying dictionary 'wikt-el-ALL-2023-02-19.ifo'...
   [message] Loading index file: 'wikt-el-ALL-2023-02-19.idx'...
   [message] Loading dictionary file: 'wikt-el-ALL-2023-02-19.dict.dz'...
@@ -562,16 +618,17 @@ $ /Downloads/stardict_3.0.6/tools/src/stardict-verify wikt-en-ALL.ifo
 
 Or to verify dictionaries for all languages, run:
 
-$ for f in `ls wikt*.ifo` ; do ~/Downloads/stardict-3.0.6.3/tools/src/stardict-verify $f ; done
+$ for f in `ls wikt*.ifo` ; do /usr/lib/stardict-tools/stardict-verify $f ; done
 
 Installing dictd format dictionaries
 ------------------------------------
 First make sure you are in the language specific subfolder, such as en/.
 Then install a given languages .dict.dz archive like this:
 
+$ cd en/
 $ sudo cp -vi wikt-en-ALL-yyyy-mm-dd.{dict.dz,index} /usr/share/dictd/
-$ dictdconfig -l
-  lists current dictionary entries. It should now show your new dictionary, e.g.:
+$ dictdconfig -l | grep wikt-en-ALL
+  lists current dictionary entries and searches for the "wikt-en-ALL" dictionary, e.g.:
   database wikt-en-ALL-2018-05-15
   {
    data  /usr/share/dictd/wikt-en-ALL-2018-05-15.dict.dz
@@ -601,4 +658,7 @@ $ dict ἀβλεψία
      3 το να είναι κάτι αόρατο
 
   From wikt-el-ALL-2023-02-19 [wikt-el-ALL-2023-02-19]:
+  ...
+$ dict auto
+  79 definitions found
   ...

@@ -3,7 +3,7 @@ rem Joel Korhonen 2021-May-22
 if "%DICT%"=="" set DICT=G:\Temp\wiktionary-dumps
 if "%WIKT%"=="" set WIKT=G:\Dropbox\Dictionary\wikt
 set JAR_DIR=%WIKT%
-if "%JAVA_HOME%"=="" set JAVA_HOME=C:\Usr\jdk-22
+if "%JAVA_HOME%"=="" set JAVA_HOME=C:\Usr\jdk-23
 rem TODO: Use a variable for this also
 set OUT_DIR=G:\Dropbox\Dictionary\wikt\Stardict\OwnStarDict
 

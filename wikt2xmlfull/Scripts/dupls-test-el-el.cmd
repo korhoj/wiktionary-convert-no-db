@@ -3,10 +3,10 @@ rem Joel Korhonen 2023-02-19
 rem Duplicate Greek words test
 set convLangCode="el"
 set convLang="el"
-set JAVA_HOME=C:\Usr\jdk-22
+if "%JAVA_HOME%"=="" set JAVA_HOME=C:\Usr\jdk-23
 SET JAVA="%JAVA_HOME%\bin\java.exe"
-SET JAR_DIR=G:\Dropbox\Dictionary\wikt
-SET WIKT=C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
+if "%WIKT%"=="" set WIKT=G:\Dropbox\Dictionary\wikt
+set JAR_DIR=%WIKT%
 SET PROG=%JAR_DIR%\JoinDefinitions.jar
 SET JCLASS=wiktionary\to\xml\full\JoinDefinitions
 SET UTF8=-Dfile.encoding=UTF8

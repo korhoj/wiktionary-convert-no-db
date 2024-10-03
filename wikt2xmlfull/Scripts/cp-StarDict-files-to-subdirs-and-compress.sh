@@ -2,9 +2,13 @@
 DATENOW=`date +%Y-%m-%d`
 cp_and_compress() {
   cp -v wikt-$LANG-$LCODE-$DATENOW.{dict.dz,idx,ifo} $LANG-StarDict
+  [ $? -ne 0 ] && exit 8
   cd $LANG-StarDict/
+  [ $? -ne 0 ] && exit 8
   7z a wikt-$LANG-$LCODE-$DATENOW.7z wikt-$LANG-$LCODE-$DATENOW.{dict.dz,idx,ifo}
+  [ $? -ne 0 ] && exit 8
   cd ..
+  [ $? -ne 0 ] && exit 8
 }
 
 LANG=el && LCODE=ALL && cp_and_compress
@@ -21,7 +25,7 @@ LANG=fi && LCODE=ALL && cp_and_compress
 LCODE=fi && cp_and_compress
 
 LANG=nn && LCODE=ALL && cp_and_compress
-#LCODE=nn && cp_and_compress
+LCODE=nn && cp_and_compress
 
 LANG=no && LCODE=ALL && cp_and_compress
 LCODE=no && cp_and_compress

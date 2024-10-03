@@ -1,6 +1,11 @@
-Download and install OpenJDK 22 for Windows.
-  https://jdk.java.net/22/
-  --> https://download.java.net/java/GA/jdk22.0.2/c9ecb94cd31b495da20a27d4581645e8/9/GPL/openjdk-22.0.2_windows-x64_bin.zip
+Download and install OpenJDK 23 for Windows.
+Or download OpenJDK 21. I use OpenJDK 23 in Eclipse in the JDK 21 compatibility mode.
+Downlaoding OpenJDK 23:
+  https://jdk.java.net/23/
+  Click the "zip" text in this line to download the Win x64 zip version:
+    "Windows / x64 	zip (sha256) 	209091023"
+  --> https://download.java.net/java/GA/jdk23/3c5b90190c68498b986a97f276efd28a/37/GPL/openjdk-23_windows-x64_bin.zip
+
 Download and run Eclipse Installer for Windows.
   https://www.eclipse.org/downloads/packages/installer
   --> https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2024-09/R/eclipse-inst-jre-win64.exe

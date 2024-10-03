@@ -20,12 +20,12 @@ if "%WIKT%"=="" set WIKT=G:\Dropbox\Dictionary\wikt
 rem Set JAR_DIR to the location of the runnable JAR file.
 set JAR_DIR=%WIKT%
 rem Set JAVA_HOME to point to JDK main dir.
-if "%JAVA_HOME%"=="" set JAVA_HOME=C:\Usr\jdk-22
+if "%JAVA_HOME%"=="" set JAVA_HOME=C:\Usr\jdk-23
 rem These two variables are used if this script is run directly.
 rem   Change EDITION to match the Wiktionary edition you have downloaded.
 rem   Change LANG to the languager you use.
 rem They are overridden by command line parameters %1 and %2 by language specific scripts.
-set EDITION=20240901
+set EDITION=20240920
 set LANG=en
 rem Language specific scripts, e.g. "StripNamespaces elwiktionary.cmd" call passing LANG as param
 if not "%1"=="" set LANG=%1
