@@ -20,6 +20,8 @@ SET DATE.HOUR=%X:~8,2%
 SET DATE.MINUTE=%X:~10,2%
 SET DATE.SECOND=%X:~12,2%
 SET NOW=%DATE.YEAR%-%DATE.MONTH%-%DATE.DAY%-%DATE.HOUR%-%DATE.MINUTE%-%DATE.SECOND%
+rem To override date:
+rem SET convDate=2024-10-03
 SET convDate=%DATE.YEAR%-%DATE.MONTH%-%DATE.DAY%
 SET INFILE=%DUPLS_OUT_DIR%\wikt-%convLangCode%-%convLang%-%convDate%.txt
 SET OUTFILE=%DUPLS_OUT_DIR%\wikt-%convLangCode%-%convLang%-dictfmt-dupls-joined.txt

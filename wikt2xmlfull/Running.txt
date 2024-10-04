@@ -13,12 +13,13 @@ The Windows scripts use environment variables for determining the input and outp
 To define environment variables for your user account in e.g. Windows 10, click the Search icon, usually located in the lower-left region of the task bar, and type something like "envi" (or if you use Windows in a different language, something that refers to environment variables in your language), and from the search results, under the heading "Settings", pick "Edit environment variables for your account".
 
 Click New to create each variable below, and set them to point to the folder you want to use. N.b. create the folders yourself, if they don't already exist:
-  Variable   Example value               Description
-  DICT       G:\Temp\wiktionary-dumps    Place each dump file (.bz2) you will download here
-  JAVA_HOME  C:\Usr\jdk-22               Define where your JDK is placed
-  WIKT       G:\Dropbox\Dictionary\wikt  Place the JAR files for running the Java apps here
-  WIKTGIT    C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
-                                         The Eclipse workspace location for the wikt2xmlfull project
+  Variable        Example value                    Description
+  DICT            G:\Temp\wiktionary-dumps         Place each dump file (.bz2) you will download here
+  DUPLS_OUT_DIR   G:\Users\Joel\OwnStarDict-ready  Linux dir used for processing files
+  JAVA_HOME       C:\Usr\jdk-22                    Define where your JDK is placed
+  WIKT            G:\Dropbox\Dictionary\wikt       Place the JAR files for running the Java apps here
+  WIKTGIT         C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
+                                                   The Eclipse workspace location for the wikt2xmlfull project
 
 Next you will download and extract the Wiktionary articles dump of one or more of the languages supported by wikt2xmlfull:
   English (en), Finnish (fi), Norwegian Nynorsk (nn), Norwegian (no), Swedish (sv)
@@ -448,7 +449,7 @@ Then run cp-StarDict-files-to-subdirs-and-compress.sh:
   LCODE=fi && cp_and_compress
   
   LANG=nn && LCODE=ALL && cp_and_compress
-  #LCODE=nn && cp_and_compress
+  LCODE=nn && cp_and_compress
   
   LANG=no && LCODE=ALL && cp_and_compress
   LCODE=no && cp_and_compress
@@ -626,7 +627,8 @@ First make sure you are in the language specific subfolder, such as en/.
 Then install a given languages .dict.dz archive like this:
 
 $ cd en/
-$ sudo cp -vi wikt-en-ALL-yyyy-mm-dd.{dict.dz,index} /usr/share/dictd/
+# Replace yyyy-mm-dd with the actual date
+$ sudo cp -vi wikt-en-{en,ALL}-yyyy-mm-dd.{dict.dz,index} /usr/share/dictd/
 $ dictdconfig -l | grep wikt-en-ALL
   lists current dictionary entries and searches for the "wikt-en-ALL" dictionary, e.g.:
   database wikt-en-ALL-2018-05-15
@@ -639,6 +641,7 @@ $ sudo dictdconfig -w
 $ sudo service dictd restart
 $ dictdconfig -l
   confirm the new dictionary is installed
+# Replace yyyy-mm-dd with the actual date
 $ dict -i wikt-en-ALL-yyyy-mm-dd
   Confirm that the header info shows OK. The copyright (from pd-header.txt) should be in the last paragraph
 
@@ -660,5 +663,5 @@ $ dict ἀβλεψία
   From wikt-el-ALL-2023-02-19 [wikt-el-ALL-2023-02-19]:
   ...
 $ dict auto
-  79 definitions found
+  93 definitions found
   ...

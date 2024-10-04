@@ -1,6 +1,7 @@
 #!/bin/bash
 DATENOW=`date +%Y-%m-%d`
 cp_and_compress() {
+  echo "cp -v wikt-$LANG-$LCODE-$DATENOW.{dict.dz,idx,ifo} $LANG-StarDict"
   cp -v wikt-$LANG-$LCODE-$DATENOW.{dict.dz,idx,ifo} $LANG-StarDict
   [ $? -ne 0 ] && exit 8
   cd $LANG-StarDict/
