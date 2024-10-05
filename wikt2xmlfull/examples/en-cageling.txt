@@ -1,0 +1,41 @@
+<page>
+    <title>cageling</title>
+    <ns>0</ns>
+    <id>204</id>
+    <revision>
+      <id>21098493</id>
+      <parentid>20753427</parentid>
+      <timestamp>2013-06-16T18:15:07Z</timestamp>
+      <contributor>
+        <username>MewBot</username>
+        <id>345682</id>
+      </contributor>
+      <minor />
+      <comment>Add lang= to context</comment>
+      <text xml:space="preserve">==English==
+
+===Etymology===
+From {{suffix|en|cage|ling}}.
+
+===Noun===
+{{en-noun}}
+
+# {{lb|en|uncommon}} A [[bird]] that is kept [[confine]]d in a [[cage]].
+#* {{quote-text|en|year=1869|author=[[w:R._D._Blackmore|R. D. Blackmore]]|title=Lorna Doone: A Romance of Exmoor|chapter=20|passage=Am I as a child perhaps, chasing a flown '''cageling''', who among the branches free plays and peeps at the offered cage?}}
+#* {{quote-journal|en|year=1918|author=Paul Haupt|title=English 'coop' == Assyrian 'Quppu',|journal=Modern Language Notes|volume=33|issue=7|page=434
+|passage=Semmacherib says that he cooped up King Hezekiah of Judah in Jerusalem like a '''cageling'''.}}
+
+===References===
+* {{R:Webster 1913}}
+* ''Oxford English Dictionary'', 2nd ed., 1989.
+* ''Random House Webster's Unabridged Electronic Dictionary'', 1987-1996.
+
+===Anagrams===
+* {{anagrams|en|a=aceggiln|glacéing}}
+
+{{C|en|Birds}}</text>
+      <sha1>rkwknqj0fe6fvodlfirr0fzla5vg1nu</sha1>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+    </revision>
+  </page>

@@ -48,7 +48,9 @@ public class StringUtils {
 		
 //		LinkedList<String> langSects = new LinkedList<String>();
 //		String langName = null;
-
+		
+		int langNbr = 0;
+		
 		int prevStart = -1;
 		int entryLen = s.length();
 		for (int pos = 0; pos < entryLen-2; pos++) {
@@ -61,18 +63,41 @@ public class StringUtils {
 				s.charAt(pos+1) == '=' &&
 				s.charAt(pos+2) != '=') {
 				
-				int langNameEnd = s.substring(pos+2).indexOf("==") + pos+2;
-//				langName = s.substring(pos+2,langNameEnd);
-//				System.out.println("langName: '" + langName + "'");
-				
-				if (prevStart > -1) {
-					langStarts.add(Integer.valueOf(prevStart));
+				char prevChar = 'X';
+				int prevCharPos = -1;
+				if (pos > 0) {
+					prevCharPos = pos-1;
+					prevChar = s.charAt(prevCharPos);
 				}
-				prevStart = pos+2;
 				
-//				langSects.add(langName);
-				
-				pos = langNameEnd;
+				if (langNbr == 0 ||
+					/* Real language sections start at a beginning of a line.
+				     * E.g.	"changeling" would fail without this check, since
+				     * it has '==' in this quote-journal section:
+				     * #* {{quote-journal|en|year=1918|author=Paul Haupt|title=English 'coop' == Assyrian 'Quppu',|journal=Modern Language Notes|volume=33|issue=7|page=434
+					 * |passage=Semmacherib says that he cooped up King Hezekiah of Judah in Jerusalem like a '''cageling'''.}}
+				     */
+					(langNbr > 1 && prevChar == CHR_LF_LIN)
+					) {
+					//if (pos > 2 && s.charAt(pos-1) == CHR_LF_LIN) {
+					int langNameEnd = s.substring(pos+2).indexOf("==") + pos+2;
+	//				langName = s.substring(pos+2,langNameEnd);
+	//				System.out.println("langName: '" + langName + "'");
+					
+					if (prevStart > -1) {
+						langStarts.add(Integer.valueOf(prevStart));
+					}
+					prevStart = pos+2;
+					
+	//				langSects.add(langName);
+					
+					pos = langNameEnd;
+					
+					langNbr++;
+				} else { // Bypass the suspected language entry, probably wasn't a real entry anyway
+//					System.out.println("Langs parsing error at " + pos);
+//					System.out.println(" s='" + s + "'");
+				}
 			}
 		}
 		if (prevStart > -1) {

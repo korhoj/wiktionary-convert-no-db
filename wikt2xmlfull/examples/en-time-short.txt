@@ -1,0 +1,31 @@
+  <page>
+    <title>time</title>
+    <id>2283</id>
+    <revision>
+      <id>62420860</id>
+      <parentid>62240533</parentid>
+      <timestamp>2021-04-24T16:21:50Z</timestamp>
+      <contributor>
+        <ip>2A00:A040:19E:9436:C5D5:5891:EB91:FFE9</ip>
+      </contributor>
+      <comment>/* English */</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="44625" xml:space="preserve">{{also|Time|timé|tìme|-time}}
+==English==
+
+===Noun===
+{{en-noun|~}}
+
+# {{lb|en|uncountable}} The inevitable progression into the [[future]] with the passing of [[present]] and [[past]] events.
+
+----
+
+==Danish==
+
+====Noun====
+{{da-noun|n|r}}
+
+# [[hour]]</text>
+    </revision>
+  </page>

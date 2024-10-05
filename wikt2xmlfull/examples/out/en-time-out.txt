@@ -1,3 +1,1 @@
-time	n.\n(lb en uncountable) The inevitable progression into the future with the passing of present and past events.
-time	Danish n.\n1 hour\n2 lesson, class\nDanish vb.\nto (l en time)
-time	Spanish vb.\n1 (es-verb form of ending=ar mood=subjunctive tense=present pers=1 number=singular timar)\n2 (es-verb form of ending=ar mood=subjunctive tense=present pers=2 formal=yes number=singular timar)\n3 (es-verb form of ending=ar mood=subjunctive tense=present pers=3 number=singular timar)
+time	n.\n(lb en uncountable) The inevitable progression into the future with the passing of present and past events.\nn.\n1 hour\n2 lesson, class\nvb.\nto (l en time)

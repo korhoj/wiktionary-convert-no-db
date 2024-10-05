@@ -27,6 +27,8 @@ public class POSType implements Serializable {
 	public static String AFFIX_STR = "affix";
 	public static String ALT = "alt.";
 	public static String ALT_STR = "alternative forms";
+	public static String ANAGRAMS = "anagr.";
+	public static String ANAGRAMS_STR = "anagrams";
 	public static String ARTICLE = "article";
 	public static String ARTICLE_STR = "article";
 	public static String BRIVLA = "brivla";

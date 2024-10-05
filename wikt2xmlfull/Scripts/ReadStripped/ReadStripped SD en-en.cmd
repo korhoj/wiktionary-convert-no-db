@@ -12,7 +12,7 @@ set WIKTCODE=en
 
 if "%WIKTGIT%"=="" set WIKTGIT=C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
 set SCRIPTS=%WIKTGIT%\Scripts
-set CONTINFO_DIR=%WIKTGIT%
+set CONTINFO_DIR=%SCRIPTS%
 
 rem cd /D %SCRIPTS%\ReadStripped
 call "ReadStripped SD ALL.cmd" %EDITION% 0 %LANG% %LANGCODE% %OUTPUTLANGNAMES% %ONLYLANGUAGES% %WIKTCODE%

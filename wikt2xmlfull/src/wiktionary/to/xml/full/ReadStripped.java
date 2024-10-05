@@ -76,7 +76,7 @@ import wiktionary.to.xml.full.util.StringUtils;
  * 2015-07-17 Fixed resource leaks. Compile with JDK8.0.51
  * 2015-11-14 Initial Norwegian wiktionary support. Compile with JDK8.0.66
  * 2015-11-21 Fix outputing in the end if processed less entries than STORE_INTERVAL (currently 10000)
- * See SVN for further changes.
+ * See Git for further changes.
  * 2018-10-03 Fix parsing only entries of a specified language
  * 2019-11-09 Support only the Stardict output format, no database processing.
  */
@@ -90,6 +90,11 @@ public class ReadStripped {
 	//private static long MAXENTRIES_TOPROCESS = 1001;
 	//private static long MAXENTRIES_TOPROCESS = 10;
 	//private static long MAXENTRIES_TOPROCESS = 3;
+	
+	/* After this many lines, print an INFO level message to the log about how many lines
+	 * have been processed so far.
+	 */
+	private static long AT_LINE_INFO_AMOUNT = 10000000;
 	
 	private static boolean FAIL_AT_FIRST_PROBLEM = false;
 	//private static boolean FAIL_AT_FIRST_PROBLEM = true;
@@ -112,7 +117,7 @@ public class ReadStripped {
 	
 	public final static String CONTINFO_FILENAME = "continfo.txt";
 	
-	// Used for informing the user whereabout to restart
+	// Used for informing the user whereabouts to restart
 	private long linesRead = 0;
 	
 	public Set<Lang> langs = new HashSet<Lang>();
@@ -127,7 +132,10 @@ public class ReadStripped {
 	private int wordEntriesNbr = 0;
 	private int senseNbr = 0;
 	
-	// Invalid entries, could be written to their own file, now just to the log as warnings
+	/*
+	 * Invalid entries could be written to their own file.
+	 * Now they are written just to the log as warnings.
+	 */
 	// private LinkedList<String> nonvalid;
 	
 	private LinkedList<Word> words = new LinkedList<Word>();
@@ -352,7 +360,7 @@ public class ReadStripped {
 			
 			if (restartLine > 0) {
 				for (long l = 0; l < restartLine; l++) {
-					if (l % 10000000 == 0)
+					if (l % AT_LINE_INFO_AMOUNT == 0)
 						LOGGER.info("At line " + l);
 					s = in.readLine();
 					
@@ -611,7 +619,7 @@ public class ReadStripped {
 			
 			return false;
 		}
-
+		
 		Word word = new Word();
 		word.setDataField(currentTitle);
 		
@@ -635,7 +643,7 @@ public class ReadStripped {
 			if (langNameEnd == -1) {
 				String msg = "Language end not found in string '" + langSect + "', title='" + currentTitle + "'";
 				LOGGER.severe(msg);
-				throw new Exception(msg);
+				//throw new Exception(msg);
 			}
 			if (langNameEnd == 0) {
 				String msg = "Language end not found, langNameEnd == 0 in string '" + langSect + "', title='" + 
@@ -1300,6 +1308,18 @@ From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period,
 				int altStart = etymSect.indexOf("===Alternative forms==="); // e.g. "afterborn"
 				if (altStart > -1) {
 					WordEntry entry = processPOS(POSType.ALT, currentTitle, etymSect, altStart, outputType, wordEtym);
+					if (entry != null) {
+						wordEntries.add(entry);
+						foundDefin = true;
+					}
+				}
+				
+				/* E.g. "cageling" has this:
+				 *  * {{anagrams|en|a=aceggiln|glacéing}}
+				 */
+				int anagramsStart = etymSect.indexOf("===Anagrams===");
+				if (anagramsStart > -1) {
+					WordEntry entry = processPOS(POSType.ANAGRAMS, currentTitle, etymSect, anagramsStart, outputType, wordEtym);
 					if (entry != null) {
 						wordEntries.add(entry);
 						foundDefin = true;
@@ -2873,7 +2893,7 @@ From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period,
 			 * OR
 			 *  "fi-ALL-language codes.csv"
 			 */
-			inFileName = (wiktLanguageCode + "-") + (lang == null ? "ALL" : lang) + "-" + inFileName; 
+			inFileName = "langs/" + (wiktLanguageCode + "-") + (lang == null ? "ALL" : lang) + "-" + inFileName; 
 		}
 		
 		LOGGER.warning("Reading languages file for " + (wiktLanguageCode == null ? "en" : wiktLanguageCode) + 
