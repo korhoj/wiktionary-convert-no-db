@@ -650,7 +650,7 @@ Testing looking up words in the dictionaries you have installed:
 $ dict ἀβλεψία
   2 definitions found
 
-  From wikt-el-el-2023-02-19 [wikt-el-el-2023-02-19]:
+  From wikt-el-el-2024-10-05 [wikt-el-el-2023-10-05]
 
     ἀβλεψία
      n.
@@ -660,8 +660,8 @@ $ dict ἀβλεψία
      2 (μεταφορικά) η αδυναμία να δει κάποιος κάτι
      3 το να είναι κάτι αόρατο
 
-  From wikt-el-ALL-2023-02-19 [wikt-el-ALL-2023-02-19]:
+  From wikt-el-ALL-2024-10-05 [wikt-el-ALL-2024-10-05]:
   ...
 $ dict auto
-  93 definitions found
+  97 definitions found
   ...
