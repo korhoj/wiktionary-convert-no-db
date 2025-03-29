@@ -1,30 +1,42 @@
-Download and install OpenJDK 23 for Windows.
-Or download OpenJDK 21. I use OpenJDK 23 in Eclipse in the JDK 21 compatibility mode.
-Downlaoding OpenJDK 23:
-  https://jdk.java.net/23/
+Download and install OpenJDK 24 for Windows.
+  The minimum supported version by my project is OpenJDK 21.
+  I myself use OpenJDK 24 in Eclipse in the JDK 21 compatibility mode.
+Downloading OpenJDK 24:
+  https://jdk.java.net/24/
   Click the "zip" text in this line to download the Win x64 zip version:
-    "Windows / x64 	zip (sha256) 	209091023"
-  --> https://download.java.net/java/GA/jdk23/3c5b90190c68498b986a97f276efd28a/37/GPL/openjdk-23_windows-x64_bin.zip
+    "Windows / x64 	zip (sha256) 	211589892" (bytes)
+  --> https://download.java.net/java/GA/jdk24/1f9ff9062db4449d8ca828c504ffae90/36/GPL/openjdk-24_windows-x64_bin.zip
 
 Download and run Eclipse Installer for Windows.
   https://www.eclipse.org/downloads/packages/installer
-  --> https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2024-09/R/eclipse-inst-jre-win64.exe
-  Use it to install Eclipse JEE 2024-09 ("Eclipse IDE for Enterprise Java and Web Developers").
-    Installation Folder: C:\Usr\eclipse-jee-2024-09 (e.g.)
+  --> https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2025-03/R/eclipse-inst-jre-win64.exe
+  Use it to install Eclipse JEE 2025-03 ("Eclipse IDE for Enterprise Java and Web Developers").
+    Installation Folder: C:\Usr\eclipse-jee-2025-03 (e.g.)
   When the installer finally starts Eclipse and it asks for the Eclipse workspace, exit
   
-  Change in C:\Usr\eclipse-jee-2024-09\eclipse.ini
-    -Xms256m
-    -Xmx2048m
-  -->
+  Add in C:\Usr\eclipse-jee-2025-03\eclipse.ini
     -Xms1024m
     -Xmx4096m
+  e.g. under the line:
+    -Dsun.java.command=Eclipse
 Start Eclipse
   Select a directory as workspace:
     G:\Users\Joel\git\wiktionary-convert-no-db (e.g.)
 
 The project uses Maven to import the Google HTTP Client Library for Java. See https://googleapis.github.io/google-http-java-client/setup.html
 I check every now and then which is the latest non-beta release and switch to it. It is defined in pom.xml. The release site is https://github.com/googleapis/google-http-java-client/releases
+To change the version used:
+  Double-click pom.xml. If it doesn't open in the rightmost tab, "pom.xml", which is the source view, click it.
+  Find this section and change the value of "version" to e.g. the latest available:
+    <dependency>
+      <groupId>com.google.http-client</groupId>
+      <artifactId>google-http-client</artifactId>
+      <version>1.46.3</version>
+    </dependency>
+  Then right click the "wikt2xmlfull" project tree and select > Maven > Update Project.
+  Open the "Maven Dependencies" tree to verify the "google-http-client-x.yy.z.jar" is the version
+  you wanted, e.g. "google-http-client-1.46.3.jar". The other JARs have their independent version
+  numbers.
 
 Right click StripNamespaces.java > Run As > Java Applications
   Eclipse runs the program, which outputs in the Console tab, that it got 0 arguments and it quits

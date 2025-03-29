@@ -3,7 +3,7 @@ rem Joel Korhonen 2024-10-03
 set convLangCode=%1
 set convLang=%2
 rem set convDate=%3
-if "%JAVA_HOME%"=="" set JAVA_HOME=C:\Usr\jdk-23
+if "%JAVA_HOME%"=="" set JAVA_HOME=C:\Usr\jdk-24
 SET JAVA="%JAVA_HOME%\bin\java.exe"
 if "%WIKT%"=="" set WIKT=G:\Dropbox\Dictionary\wikt
 set JAR_DIR=%WIKT%

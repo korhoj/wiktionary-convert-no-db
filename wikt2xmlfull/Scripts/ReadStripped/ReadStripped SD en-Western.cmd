@@ -2,7 +2,7 @@
 rem Process the English Wiktionary, Western languages (Western alphabet) only. Run this to start the conversion
 rem Joel Korhonen 2021-May-22
 rem Change EDITION to match with the Wiktionary edition you have downloaded
-set EDITION=20240920
+set EDITION=20250320
 set LANG=Western
 set LANGCODE=en
 set OUTPUTLANGNAMES=true
