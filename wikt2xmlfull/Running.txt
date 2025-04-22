@@ -1,3 +1,6 @@
+A1. General info
+================
+
 You need to first compile (I used Eclipse) the three Java programs ("apps", if you prefer) used for processing the Wiktionary dump(s) for the languages you want to process.
   The programs are: StripNamespaces, ReadStripped and JoinDefinitions
 See Build.txt.
@@ -28,6 +31,45 @@ Not fully supported yet: Greek (el)
   (I was asked to convert the Greek wikt, but I had trouble parsing the entries)
 Not supported yet: Albanian (sq)
   (I was asked to convert the Albanian wikt, but I had trouble parsing the entries)
+
+B. Downloading Wiktionary dumps
+===============================
+
+B1. Downloading Wiktionary dumps using my Python script
+-------------------------------------------------------
+
+I have written a Python script, dlWiktionary.py, for downloading the newest available dump file of a given language. The language code is supplied as a cmdline parameter. 
+Optionally one can also supply a mirror site URL as the 2nd parameter. 
+
+Run the script for all the languages you want to download.
+E.g., here we run it for English and Finnish:
+
+  %LOCALAPPDATA%\Programs\Python\Python312\python.exe g:/Dropbox/Docs/Programming/Python/YoutubeDL/dlWiktionary.py en
+    Using param lang='en'
+    Newest completed dump is: 20250401
+    File https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20250401/enwiktionary-20250401-pages-articles.xml.bz2 had not been downloaded yet. Downloading
+    Downloading https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20250401/enwiktionary-20250401-pages-articles.xml.bz2
+    Ready.
+
+  %LOCALAPPDATA%\Programs\Python\Python312\python.exe g:/Dropbox/Docs/Programming/Python/YoutubeDL/dlWiktionary.py fi
+...
+
+If the script finds an already existing file having the name of the newest dump file, it checks the file size. If the file size is:
+- Smaller than 1 000 000 b, the script attempts to redownload the file, overwriting the existing one. This is mainly because very small files are probably merely 404's or such HTTP error documents. E.g.:
+
+  Using param lang='el'
+  Newest completed dump is: 20250401
+  File https://mirror.accum.se/mirror/wikimedia.org/dumps/elwiktionary/20250401/elwiktionary-20250401-pages-articles.xml.bz2 already found, but with a small size: 13, so redownloading it
+  Downloading https://mirror.accum.se/mirror/wikimedia.org/dumps/elwiktionary/20250401/elwiktionary-20250401-pages-articles.xml.bz2
+  Ready.
+- At least 1 000 000 b, the script aborts the download. E.g.:
+  
+  Using param lang='en'
+  Newest completed dump is: 20250401
+  File https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20250401/enwiktionary-20250401-pages-articles.xml.bz2 already found, size: 1450722468, aborting download (remove file to force a redownload) 
+
+B2. Downloading Wiktionary dumps manually (alternative to A1)
+-------------------------------------------------------------
 
 The completed dumps are listed at https://dumps.wikimedia.org/backup-index.html,
 although you really should use one of the mirrors, so you won't strain the default servers, and downloading is also probably faster. I'm currently using a Swedish mirror:
@@ -71,6 +113,9 @@ N.b. You can theoretically instead download the latest finished dump for a langu
   https://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-articles.xml.bz2
 but don't do that, because the scripts I have written for processing the dump of each supported language use a naming scheme based on the dump date, and the "latest" dump file (.bz2) doesn't contain information for which date the dump is for (so you would need to find out that by investigating the above mentioned dump directories anyway, e.g. .../20240901/).
 
+C. Extracting the downloaded dumps
+==================================
+
 In the DICT directory, extract each bz2 file you downloaded into it's own subdirectory. Use the name of the .bz2 dump file as the name of the subdirectory.
 
 I use 7-Zip via Windows' Explorer by right-clicking each .bz2 file and selecting the action Extract to "xxwiktionary-yyyymmdd-pages-articles.xml\". E.g. for the latest English dump file:
@@ -85,15 +130,20 @@ In my system, the full path to the StripNamespaces folder is:
 Open a Windows Command Prompt (cmd.exe) and go to the StripNamespaces folder:
   CD /D "%WIKTGIT%"\Scripts\StripNamespaces
 
-A. COMPILING THE ENGLISH WIKTIONARY, WITH ENTRIES FOR ALL LANGUAGES
+D. COMPILING THE ENGLISH WIKTIONARY, WITH ENTRIES FOR ALL LANGUAGES
+===================================================================
 
-1. Change EDITION to match with the Wiktionary edition you have downloaded in
+D1. Change EDITION
+------------------
+
+Change the variable EDITION to match with the Wiktionary edition you have downloaded in
 StripNamespaces ALL.cmd.
   It is currently defined in the line number 28:
   
   set EDITION=20240901
 
-2. Using the StripNamespaces program 
+D2. Using the StripNamespaces program
+-------------------------------------
 
 If you have Eclipse open, at this point you may want to close it, to release memory and CPU resources. Then:
 
@@ -131,7 +181,8 @@ E.g. for the Greek Wiktionary:
 	    "C:\Usr\jdk-22\bin\java.exe" -Dfile.encoding=UTF8 -Xmx2600M -Xss400M -jar "G:\Dropbox\Dictionary\wikt\StripNamespaces.jar" "G:\Temp\wiktionary-dumps\elwiktionary-20240901-pages-articles.xml\elwiktionary-20240901-pages-articles.xml" "G:\Temp\wiktionary-dumps\elwiktionary-20240901-pages-articles.xml\stripped-ALL.xml"
 	  Conversion ended at 2024-09-26-10-56-10
 
-3. Using the ReadStripped program 
+D3. Using the ReadStripped program
+---------------------------------- 
 
 Running the ReadStripped program uses a language specific script which calls a
 general script common to all languages. (SD in the script names == StarDict)
@@ -173,6 +224,8 @@ Or for the Norwegian, Norwegian language only Wiktionary:
       "C:\Usr\jdk-24\bin\java.exe" -Dfile.encoding=UTF-8 -Xmx2600M -Xss400M -jar "G:\Dropbox\Dictionary\wikt\ReadStripped.jar" INFILE="G:\Temp\wiktionary-dumps\nowiktionary-20250320-pages-articles.xml\stripped-ALL.xml" OUTFILE="G:\Dropbox\Dictionary\wikt\Stardict\OwnStarDict\wikt-no-no-2025-03-23-11-52-51.txt" LANG=no OUTPUTLANGNAMES=true OUTTYPE=Stardict RESTARTATLINE=0 LANGCODE=no ONLYLANGUAGES=true WIKTCODE=no
     Conversion ended at 2025-03-23-11-52-56
 
+D4. In case ReadStripped finishes with a processing error 
+
 However, if there's an error, the program prints a Java stack trace, info on when the
 conversion (if there have been restarts, the info is for the current restart) started and ended, and "!!Ended in error!!". If Windows asks "Terminate batch job (Y/N)? ",
 answer y and press enter. You should then report the error to me. Example error:
@@ -196,7 +249,8 @@ answer y and press enter. You should then report the error to me. Example error:
   Press any key to continue . . .
   Terminate batch job (Y/N)? y
 
-B. COMPILING A WIKTIONARY OF ANOTHER LANGUAGE
+E. COMPILING A WIKTIONARY OF ANOTHER LANGUAGE
+=============================================
 
 There are one or two sample script files for each supported language. They really only differ in having
 different language specific variables set. I use the Finnish Wiktionary as an example:
@@ -215,7 +269,8 @@ or
 
 Then run the script you changed.
 
-C. UPDATING LANGUAGES SUPPORTED BY ReadStripped
+F. UPDATING LANGUAGES SUPPORTED BY ReadStripped
+===============================================
 
 When you export the runnable JAR in Eclipse, the *.csv files in src/ get packaged
 in the JAR. They are CSV files containing the language codes (unique abbroviations) and names
@@ -236,19 +291,20 @@ is currently hard coded in the program.
 All Wiktionaries have entries for numerous languages. Just that e.g. the English
 Wiktionary has the definitions of the entries for all languages it includes written in the English language, whereas say the Swedish Wiktionary has the definitions written in the Swedish language.
 
-D. COMBINING THE OUTPUT FILES
+G. COMBINING THE OUTPUT FILES
+=============================
 
 I perform the steps in D and E in a WSL2 virtual machine in Windows, running Ubuntu.
 
-dos2unix
---------
+G1. dos2unix
+------------
 You need to have dos2unix installed to be able to run the conv2unix scripts below.
 If you don't have dos2unix installed yet, install it:
 
 $ sudo apt install dos2unix
 
-Copying files from git to Linux
--------------------------------
+G2. Copying files from git to Linux
+-----------------------------------
 Copy any dictionary files you have produced above (by running the ReadStripped*.cmd script for the language you are processing) to your Linux to a directory of your choice.
 These have a name in the format wikt-langcode-lang-yyyy-mm-dd-hh-mm-ss.txt
 E.g.: wikt-en-ALL-2023-02-18-13-22-03.txt, wikt-en-ALL-2023-02-18-13-26-43.txt etc.
@@ -258,8 +314,8 @@ Also copy to the same directory the scripts conv2unix*.sh, dictfmt*.sh and sort*
 (TODO: Update: I do the copying by using the shared folders feature of VMware Workstation.)
 You could also checkout my git repository using your Linux.
 
-conv2unix scripts
------------------
+G3. conv2unix scripts
+---------------------
 The conv2unix*.sh scripts nowadays find out the current date dynamically and use it:
   FILES="wikt-$convLangCode-$convLang-`date +%Y-%m-%d*.txt`"
 If the date of an input file of a language is not the current date, edit the script(s) of the language,
@@ -282,8 +338,8 @@ The conv2unix script(s) produce(s) output unsorted output files, which shows in 
 which are of the format wikt-langcode-lang-unsorted.txt.
 E.g. for en-ALL the file is wikt-en-ALL-unsorted.txt 
 
-sorting
--------
+G4. Sorting
+-----------
 The unsorted file(s) produced by conv2unix script(s) need to be sorted to be further processed.
 
 Before doing this by running any of the sort*.sh scripts for the language whose dictionary you are processing, make sure you have the locale(s) you need.
@@ -352,10 +408,11 @@ Or run scripts for all supported languages:
 The sort script produces output named according to the language you are processing. E.g. for en-ALL the file is named in the format:
   wikt-en-ALL-yyyy-mm-dd.txt
 
-E. PARSING THE ENTRIES AND CREATING STARDICT FILES
+H. PARSING THE ENTRIES AND CREATING STARDICT FILES
+===================================================
 
-stardict-tools
-==============
+H1. stardict-tools
+------------------
 Ubuntu repos for 22.04 LTS and 24.04 LTS have a working stardict-tools (and stardict) package.
   22.04 LTS: 3.0.7+git20211225+dfsg-1 (@20230218)
   24.04 LTS: 3.0.7+git20220909+dfsg-4build4 (@20240917)
@@ -389,8 +446,8 @@ Optionally you may install the whole stardict package and any optional plugins y
 $ sudo apt install stardict stardict-gtk stardict-plugin stardict-plugin-espeak \
  stardict-plugin-festival stardict-plugin-info stardict-plugin-spell stardict-xmlittre
 
-stardict-editor
-===============
+H2. stardict-editor
+-------------------
 Run "stardict-editor" after installing it from the Ubuntu package stardict-tools (see above).
 It's a GUI program.
 
@@ -461,8 +518,8 @@ description=Stardict format, Greek Wiktionary, all languages, v.2023-Feb-19, bas
 date=2023.02.19
 sametypesequence=m
 
-Creating 7z files for distributing
-==================================
+H3. Creating 7z files for distributing
+--------------------------------------
 First install 7zip into Ubuntu if it's not installed:
 
 $ sudo apt install 7zip p7zip-full
@@ -522,13 +579,14 @@ The script prints e.g. for the el-ALL (Greek) dictionary:
 You may copy and unarchive the 7z files containing wikt-en-ALL-yyyy-mm-dd.dict.dz and wikt-en-ALL-yyyy-mm-dd.idx to e.g. your phone and use it with a Stardict compatible
 GUI such as Colordict, or if you have installed the Stardict GUI in your PC, you can use the file with it.
 
-F. CREATING AND INSTALLING A DICTD COMPATIBLE DICTIONARY ARCHIVE FOR A LANGUAGE
+I. CREATING AND INSTALLING A DICTD COMPATIBLE DICTIONARY ARCHIVE FOR A LANGUAGE
+===============================================================================
 
 Steps in the above section D. (not necessarily E. however) need to be performed first.
 Then perform the following steps in Linux:
 
-dictzip
-=======
+I1. dictzip
+-----------
 In Ubuntu, you need to have dictzip installed to produce the .dict.dz files.
 At least in 24.04 LTS, it was already installed automatically, when stardict-editor was installed.
 
@@ -536,14 +594,14 @@ If it is not installed for some reason, install it with apt, like normally:
 
 $ sudo apt install dictzip
 
-dictd
-=====
+I2. dictd
+---------
 For building dictd compatible dictionary archives, you don't need to be running a dictd server. It is good to install it though, because it can be used to verify the integrity of any dictionary archives you produce. In addition you can also then use the command "dict" to look up dictionary entries in your Linux...
 
 $ sudo apt install dictd
 
-Dictionary packages for dictd in Ubuntu
-=======================================
+I3. Dictionary packages for dictd in Ubuntu
+-------------------------------------------
 Ubuntu repo(s) contain many prebuilt dictionaries for dictd.
 You may install any you want. It works best if you only install one or two at a time.
 
@@ -558,14 +616,14 @@ Some example packages for 22.04 LTS (@20230218):
                    dict-freedict-ita-deu \
                    dict-de-en
 
-dictfmt
-=======
+I4. Install dictfmt
+-------------------
 Install dictfmt if it is not installed:
 
 $ sudo apt install dictfmt
 
-Joining duplicates
-==================
+I5. Joining duplicates
+----------------------
 Run the join-dupls-dictfmt-*.cmd script in Windows for the language archive you are producing. The scripts use a Java program placed in the file JoinDefinitions.jar.
 
 E.g. for en-ALL the script is:
@@ -582,8 +640,8 @@ E.g.
 	  sed 's/\\n/\n\t/g' > sed-test.txt < headi-nodupls.txt
 )
 
-dictfmt
-=======
+I6. Using dictfmt
+-----------------
 N.b. this step overwrites any existing .dict.dz file,
 e.g. wikt-en-ALL-yyyy-mm-dd.dict.dz, but that is normally
 not a problem. In step E such files were created
@@ -649,8 +707,8 @@ $ cd en/
 and then running:
 $ for f in `ls dictfmt-*.sh` ; do ./$f ; done
 
-Verifying language's using ifo file(s) - optional
--------------------------------------------------
+I7. Verifying language's using ifo file(s) (optional)
+-----------------------------------------------------
 Run the following for a given language's ifo file, if you have created such by doing step E earlier, and want to verify the dictionary files. The ifo isn't needed for dictd as such:
 
 $ /usr/lib/stardict-tools/stardict-verify wikt-en-ALL-2023-02-19.ifo
@@ -663,8 +721,8 @@ Or to verify dictionaries for all languages, run:
 
 $ for f in `ls wikt*.ifo` ; do /usr/lib/stardict-tools/stardict-verify $f ; done
 
-Installing dictd format dictionaries
-------------------------------------
+I8. Installing dictd format dictionaries
+----------------------------------------
 First make sure you are in the language specific subfolder, such as en/.
 Then install a given languages .dict.dz archive like this:
 
@@ -687,7 +745,8 @@ $ dictdconfig -l
 $ dict -i wikt-en-ALL-yyyy-mm-dd
   Confirm that the header info shows OK. The copyright (from pd-header.txt) should be in the last paragraph
 
-Testing looking up words in the dictionaries you have installed:
+I9. Look up words in the dictionaries you have installed
+--------------------------------------------------------
 
 $ dict ἀβλεψία
   2 definitions found
