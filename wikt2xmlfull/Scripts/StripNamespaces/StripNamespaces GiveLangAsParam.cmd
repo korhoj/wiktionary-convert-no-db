@@ -1,6 +1,6 @@
 @echo off
 rem Process the Wiktionary whose language code (e.g. "en") is given as the parameter, e.g.:
-rem  GiveLangAsParam.cmd en
+rem "StripNamespaces GiveLangAsParam.cmd"" en
 rem Joel Korhonen 2013-Dec-12
 rem 2021-04-07 Changed to use variables given in the script, and updated edition 
 

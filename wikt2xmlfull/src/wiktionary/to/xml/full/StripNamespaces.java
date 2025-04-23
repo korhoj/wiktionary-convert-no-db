@@ -29,14 +29,15 @@ public class StripNamespaces {
 	private static FileHandler fileHandler;
 	private static SimpleFormatter formatterTxt;
 	
-	private boolean SHOW_PROGRESS = true; // log every n entries
+	// if true, log "Processed entry xxx" every n entries, at INFO level
+	private boolean SHOW_PROGRESS = true; 
 	private int SHOW_PROGRESS_EVERY = 10000;
 	
 	private final static String LF = System.getProperty("line.separator");
 	
 	// For languages starting from the beginning of a line
 	private final Pattern LANG_PATTERN = Pattern.compile("==[a-zA-ZåÅ\\Q'-\\E íôõçéè]*==");
-	// The 1st language may also start like this:       <text xml:space="preserve">==English==
+	// The 1st language may also start like this: <text xml:space="preserve">==English==
 	private final Pattern LANG_PATTERN2 = Pattern.compile(".*>==[a-zA-ZåÅ\\Q'-\\E íôõçéè]*==");
 	
 	// For German Wiktionary: <text xml:space="preserve">== speciēs ({{Sprache|Lateinisch}}) ==
@@ -48,62 +49,69 @@ public class StripNamespaces {
 	 */
 	
 	// TODO Since we only include NS 0, should we define any others below?
+	// The version number changes every now and then. In the 20250401 dumps, it was 0.11:
 	private final static String HEADER =
-			"<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.6/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSch" +
-			"ema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.6/ http://www.mediawiki.org/" +
-			"xml/export-0.6.xsd\" version=\"0.6\" xml:lang=\"en\">" + LF;
-	// siteinfo is already in the input document
-	/*
-			  "<siteinfo>" + LF +
-			    "<sitename>Wiktionary</sitename>" + LF +
-			    "<base>http://en.wiktionary.org/wiki/Wiktionary:Main_Page</base>" + LF +
-			    "<generator>MediaWiki 1.19wmf1</generator>" + LF +
-			    "<case>case-sensitive</case>" + LF +
-			    "<namespaces>" + LF +
-			      "<namespace key=\"-2\" case=\"case-sensitive\">Media</namespace>" + LF +
-			      "<namespace key=\"-1\" case=\"first-letter\">Special</namespace>" + LF +
-			      "<namespace key=\"0\" case=\"case-sensitive\" />" + LF +
-			      "<namespace key=\"1\" case=\"case-sensitive\">Talk</namespace>" + LF +
-			      "<namespace key=\"2\" case=\"first-letter\">User</namespace>" + LF +
-			      "<namespace key=\"3\" case=\"first-letter\">User talk</namespace>" + LF +
-			      "<namespace key=\"4\" case=\"case-sensitive\">Wiktionary</namespace>" + LF +
-			      "<namespace key=\"5\" case=\"case-sensitive\">Wiktionary talk</namespace>" + LF +
-			      "<namespace key=\"6\" case=\"case-sensitive\">File</namespace>" + LF +
-			      "<namespace key=\"7\" case=\"case-sensitive\">File talk</namespace>" + LF +
-			      "<namespace key=\"8\" case=\"first-letter\">MediaWiki</namespace>" + LF +
-			      "<namespace key=\"9\" case=\"first-letter\">MediaWiki talk</namespace>" + LF +
-			      "<namespace key=\"10\" case=\"case-sensitive\">Template</namespace>" + LF +
-			      "<namespace key=\"11\" case=\"case-sensitive\">Template talk</namespace>" + LF +
-			      "<namespace key=\"12\" case=\"case-sensitive\">Help</namespace>" + LF +
-			      "<namespace key=\"13\" case=\"case-sensitive\">Help talk</namespace>" + LF +
-			      "<namespace key=\"14\" case=\"case-sensitive\">Category</namespace>" + LF +
-			      "<namespace key=\"15\" case=\"case-sensitive\">Category talk</namespace>" + LF +
-			      "<namespace key=\"90\" case=\"case-sensitive\">Thread</namespace>" + LF +
-			      "<namespace key=\"91\" case=\"case-sensitive\">Thread talk</namespace>" + LF +
-			      "<namespace key=\"92\" case=\"case-sensitive\">Summary</namespace>" + LF +
-			      "<namespace key=\"93\" case=\"case-sensitive\">Summary talk</namespace>" + LF +
-			      "<namespace key=\"100\" case=\"case-sensitive\">Appendix</namespace>" + LF +
-			      "<namespace key=\"101\" case=\"case-sensitive\">Appendix talk</namespace>" + LF +
-			      "<namespace key=\"102\" case=\"case-sensitive\">Concordance</namespace>" + LF +
-			      "<namespace key=\"103\" case=\"case-sensitive\">Concordance talk</namespace>" + LF +
-			      "<namespace key=\"104\" case=\"case-sensitive\">Index</namespace>" + LF +
-			      "<namespace key=\"105\" case=\"case-sensitive\">Index talk</namespace>" + LF +
-			      "<namespace key=\"106\" case=\"case-sensitive\">Rhymes</namespace>" + LF +
-			      "<namespace key=\"107\" case=\"case-sensitive\">Rhymes talk</namespace>" + LF +
-			      "<namespace key=\"108\" case=\"case-sensitive\">Transwiki</namespace>" + LF +
-			      "<namespace key=\"109\" case=\"case-sensitive\">Transwiki talk</namespace>" + LF +
-			      "<namespace key=\"110\" case=\"case-sensitive\">Wikisaurus</namespace>" + LF +
-			      "<namespace key=\"111\" case=\"case-sensitive\">Wikisaurus talk</namespace>" + LF +
-			      "<namespace key=\"114\" case=\"case-sensitive\">Citations</namespace>" + LF +
-			      "<namespace key=\"115\" case=\"case-sensitive\">Citations talk</namespace>" + LF +
-			      "<namespace key=\"116\" case=\"case-sensitive\">Sign gloss</namespace>" + LF +
-			      "<namespace key=\"117\" case=\"case-sensitive\">Sign gloss talk</namespace>" + LF +
-			    "</namespaces>" + LF +
-			  "</siteinfo>";*/
+			"<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSch" +
+			"ema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/" +
+			"xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"en\">" + LF;
+    
+	/* The namespace descriptions ("Media", "Special" etc.) are localized, i.e.
+	 * they are in English for enwiktionary, Greek in elwiktionary etc.
+	 * Below are the English ones from the 20250401 dump:
+     *
+      <siteinfo>
+        <sitename>Wiktionary</sitename>
+        <dbname>enwiktionary</dbname>
+        <base>https://en.wiktionary.org/wiki/Wiktionary:Main_Page</base>
+        <generator>MediaWiki 1.44.0-wmf.23</generator>
+        <case>case-sensitive</case>
+        <namespaces>
+          <namespace key="-2" case="case-sensitive">Media</namespace>
+          <namespace key="-1" case="first-letter">Special</namespace>
+          <namespace key="0" case="case-sensitive" />
+          <namespace key="1" case="case-sensitive">Talk</namespace>
+          <namespace key="2" case="first-letter">User</namespace>
+          <namespace key="3" case="first-letter">User talk</namespace>
+          <namespace key="4" case="case-sensitive">Wiktionary</namespace>
+          <namespace key="5" case="case-sensitive">Wiktionary talk</namespace>
+          <namespace key="6" case="case-sensitive">File</namespace>
+          <namespace key="7" case="case-sensitive">File talk</namespace>
+          <namespace key="8" case="first-letter">MediaWiki</namespace>
+          <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+          <namespace key="10" case="case-sensitive">Template</namespace>
+          <namespace key="11" case="case-sensitive">Template talk</namespace>
+          <namespace key="12" case="case-sensitive">Help</namespace>
+          <namespace key="13" case="case-sensitive">Help talk</namespace>
+          <namespace key="14" case="case-sensitive">Category</namespace>
+          <namespace key="15" case="case-sensitive">Category talk</namespace>
+          <namespace key="90" case="case-sensitive">Thread</namespace>
+          <namespace key="91" case="case-sensitive">Thread talk</namespace>
+          <namespace key="92" case="case-sensitive">Summary</namespace>
+          <namespace key="93" case="case-sensitive">Summary talk</namespace>
+          <namespace key="100" case="case-sensitive">Appendix</namespace>
+          <namespace key="101" case="case-sensitive">Appendix talk</namespace>
+          <namespace key="106" case="case-sensitive">Rhymes</namespace>
+          <namespace key="107" case="case-sensitive">Rhymes talk</namespace>
+          <namespace key="108" case="case-sensitive">Transwiki</namespace>
+          <namespace key="109" case="case-sensitive">Transwiki talk</namespace>
+          <namespace key="110" case="case-sensitive">Thesaurus</namespace>
+          <namespace key="111" case="case-sensitive">Thesaurus talk</namespace>
+          <namespace key="114" case="case-sensitive">Citations</namespace>
+          <namespace key="115" case="case-sensitive">Citations talk</namespace>
+          <namespace key="116" case="case-sensitive">Sign gloss</namespace>
+          <namespace key="117" case="case-sensitive">Sign gloss talk</namespace>
+          <namespace key="118" case="case-sensitive">Reconstruction</namespace>
+          <namespace key="119" case="case-sensitive">Reconstruction talk</namespace>
+          <namespace key="710" case="case-sensitive">TimedText</namespace>
+          <namespace key="711" case="case-sensitive">TimedText talk</namespace>
+          <namespace key="828" case="case-sensitive">Module</namespace>
+          <namespace key="829" case="case-sensitive">Module talk</namespace>
+        </namespaces>
+      </siteinfo>
+	*/
 	
-	// Only needed if not whole file is processed
-	private final static String FOOTER =
-			"</mediawiki>";
+	// Would be needed to added to the output file, if the whole input file was not to be processed
+	//private final static String FOOTER = "</mediawiki>";
 	
 	// Invalid entries, could be written to their own file, now just to the log as warnings
 	// private LinkedList<String> nonvalid;
@@ -128,13 +136,30 @@ public class StripNamespaces {
 	}	
 	
 	/**
-	 * @param args
+	 * @param args Command line parameters. These are passed first by the
+	 *  language-specific ScriptNamespaces cmd scripts, e.g. for the Greek wiktionary
+	 *  "StripNamespaces elwiktionary.cmd", to the general script
+	 *  "StripNamespaces ALL.cmd" (if nothing is passed, it defaults to English),
+	 *  which passes them to this Java program.
+	 *  
+	 *  param1: input file name
+	 *    E.g.: "%DICT%\%LANG%wiktionary-%EDITION%-pages-articles.xml\%LANG%wiktionary-%EDITION%-pages-articles.xml"
+	 *    i.e.: "G:\Temp\wiktionary-dumps\nnwiktionary-20250401-pages-articles.xml\nnwiktionary-20250401-pages-articles.xml"
+	 *  param2: output file name
+	 *    E.g.: "%DICT%\%LANG%wiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
+	 *    i.e.: "G:\Temp\wiktionary-dumps\nnwiktionary-20250401-pages-articles.xml\stripped-ALL.xml"
+	 *  (param3: lang name - not in use, yet at least)
 	 */
 	public static void main(String[] args) {
 		String inFileName = null; // = "WiktionaryTest.txt";
 		String outFileName = null; // = "WiktionaryTestOut.xml";
-		String lang = null; // English, "Old English" etc.
-
+		/* Language name. Not in use, yet at least.
+		 * Meant for specifying a language if entries from only one language
+		 * were to be included. 
+		 * E.g.: English, "Old English" etc.
+		 */
+		String lang = null; 
+		
 		try {
 			if (args.length == 2 || args.length == 3) {
 				inFileName = args[0];
@@ -157,6 +182,7 @@ public class StripNamespaces {
 			
 			LOGGER.log(Level.INFO, "Input: " + inFileName);
 			LOGGER.log(Level.INFO, "Output: " + outFileName);
+			// For now, the scripts don't pass this arg, so it's always null
 			LOGGER.log(Level.INFO, "Language: " + lang);
 			
 			StripNamespaces stripNS = new StripNamespaces();
@@ -171,7 +197,7 @@ public class StripNamespaces {
 			System.exit(255);
 		}
 	}
-
+    
 	/*
 	 * Process the input file and produce output
 	 * @param inFileName

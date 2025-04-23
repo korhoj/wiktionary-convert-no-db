@@ -79,45 +79,83 @@ import wiktionary.to.xml.full.util.StringUtils;
  * See Git for further changes.
  * 2018-10-03 Fix parsing only entries of a specified language
  * 2019-11-09 Support only the Stardict output format, no database processing.
+ * 
+ * Newer change comments than above are in the Git history.
  */
 public class ReadStripped {
-	private static int STORE_INTERVAL = 10000; // Store entries after this many read
-	
-	//private static int STORE_INTERVAL = 200; // Store entries after this many read
-	//private static int STORE_INTERVAL = 5; // Store entries after this many read
-	private static long MAXENTRIES_TOPROCESS = 900000;
-	//private static long MAXENTRIES_TOPROCESS = 50000;
-	//private static long MAXENTRIES_TOPROCESS = 1001;
-	//private static long MAXENTRIES_TOPROCESS = 10;
-	//private static long MAXENTRIES_TOPROCESS = 3;
-	
-	/* After this many lines, print an INFO level message to the log about how many lines
-	 * have been processed so far.
+	/**
+	 * Normally the logging level is defined here as WARNING, but for
+	 * debugging, it may be changed.
 	 */
-	private static long AT_LINE_INFO_AMOUNT = 10000000;
+	public static final Level LOG_LEVEL_TO_USE = Level.WARNING;
+	//public static final java.util.logging.Level LOG_LEVEL_TO_USE = Level.INFO;
+	//public static final java.util.logging.Level LOG_LEVEL_TO_USE = Level.ALL;
 	
+	public final static Logger LOGGER = Logger.getLogger(ReadStripped.class
+	 .getName());
+	private static FileHandler fileHandler;
+	private static SimpleFormatter formatterTxt;
+	
+	// Store entries after this many have been read
+	private static final int STORE_INTERVAL = 10_000;
+	//private static final int STORE_INTERVAL = 200;
+	//private static final int STORE_INTERVAL = 5;
+	
+	/**
+	 * After this many entries, stop processing, and
+	 * write out info needed for a restart "pass",
+	 * to the file CONTINFO_FILENAME defined further below.
+	 */
+	private static final long MAXENTRIES_TOPROCESS = 900_000l;
+	//private static final long MAXENTRIES_TOPROCESS = 50_000l;
+	//private static final long MAXENTRIES_TOPROCESS = 1001l;
+	//private static final long MAXENTRIES_TOPROCESS = 10l;
+	//private static final long MAXENTRIES_TOPROCESS = 3l;
+	
+	/**
+	 * After this many lines, print an INFO level message to the log about how
+	 * many lines have been processed so far.
+	 */
+	private static final long AT_LINE_INFO_AMOUNT = 10_000_000l;
+	
+	/**
+	 * Whether to fail at the first parsing problem encountered.
+	 * Usually "false", but may want to change it to "true" when debugging.
+	 */
 	private static boolean FAIL_AT_FIRST_PROBLEM = false;
 	//private static boolean FAIL_AT_FIRST_PROBLEM = true;
 	
-	/* TODO Change to true to support etymologies processing. It however tends to choke
+	/**
+	 * TODO Change to true to support etymologies processing. It however tends to choke
 	 * stardict-editor:
 	 *  process:67685): Gtk-CRITICAL (recursed) **: gtk_text_buffer_emit_insert: assertion 'g_utf8_validate (text, len, NULL)' failedAborted (core dumped) 
 	 */
 	private static boolean PROCESS_ETYMS = false;
 	//private static boolean PROCESS_ETYMS = true;
 	
-	// TODO There is no processing for pronunciations yet, leave this false
+	/**
+	 * TODO There is no processing for pronunciations yet, leave this false
+	 */
 	private static boolean PROCESS_PRONUNCIATIONS = false;
 	//private static boolean PROCESS_PRONUNCIATIONS = true;
 	
-	public final static Logger LOGGER = Logger.getLogger(ReadStripped.class
-			.getName());
-	private static FileHandler fileHandler;
-	private static SimpleFormatter formatterTxt;
-	
+	/**
+	 * If processing an input file needs many "passes", i.e. if the
+	 * cmd script needs to call this Java program many times -
+	 * in order to avoid OutOfMemory situations - the file with
+	 * the file name defined here is used to store the location
+	 * in the input file that has been reached so far, when
+	 * a given "pass" finishes running.
+	 * The location is namely used as the starting location
+	 * for the next "pass". 
+	 */
 	public final static String CONTINFO_FILENAME = "continfo.txt";
 	
-	// Used for informing the user whereabouts to restart
+	/**
+	 * The position to use when restarting, i.e. when this Java
+	 * program is called again for a new "pass".
+	 * It is written to the file named in CONTINFO_FILENAME above. 
+	 */
 	private long linesRead = 0;
 	
 	public Set<Lang> langs = new HashSet<Lang>();
@@ -150,9 +188,8 @@ public class ReadStripped {
 			System.exit(255);
 		}
 		
-		//LOGGER.setLevel(Level.ALL);
-		//LOGGER.setLevel(Level.INFO);
-		LOGGER.setLevel(Level.WARNING);
+		// LOG_LEVEL_TO_USE is defined in the beginning of the code of this class.
+		LOGGER.setLevel(LOG_LEVEL_TO_USE);
 		
 		// Create txt Formatter
 		formatterTxt = new SimpleFormatter();
@@ -161,7 +198,8 @@ public class ReadStripped {
 	}	
 	
 	/**
-	 * @param args
+	 * @param args Command line parameters. See descriptions in the code below,
+	 * at "Supported parameters:"
 	 */
 	public static void main(String[] args) {
 		String inFileName = null; // = "WiktionaryTest.txt";

@@ -16,21 +16,23 @@ The Windows scripts use environment variables for determining the input and outp
 To define environment variables for your user account in e.g. Windows 10, click the Search icon, usually located in the lower-left region of the task bar, and type something like "envi" (or if you use Windows in a different language, something that refers to environment variables in your language), and from the search results, under the heading "Settings", pick "Edit environment variables for your account".
 
 Click New to create each variable below, and set them to point to the folder you want to use. N.b. create the folders yourself, if they don't already exist:
-  Variable        Example value                    Description
-  DICT            G:\Temp\wiktionary-dumps         Place each dump file (.bz2) you will download here
-  DUPLS_OUT_DIR   G:\Users\Joel\OwnStarDict-ready  Linux dir used for processing files
-  JAVA_HOME       C:\Usr\jdk-24                    Define where your JDK is placed
-  WIKT            G:\Dropbox\Dictionary\wikt       Place the JAR files for running the Java apps here
+  Variable        Example value                     Description
+  DICT            G:\Temp\wiktionary-dumps          Place each dump file (.bz2) you will download here
+  DUPLS_OUT_DIR   G:\Users\korho\OwnStarDict-ready  Linux dir used for processing files
+  JAVA_HOME       C:\Usr\jdk-24                     Define where your JDK is placed
+  WIKT            G:\Dropbox\Dictionary\wikt        Place the JAR files for running the Java apps here
   WIKTGIT         C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
                                                    The Eclipse workspace location for the wikt2xmlfull project
 
 Next you will download and extract the Wiktionary articles dump of one or more of the languages supported by wikt2xmlfull:
   English (en), Finnish (fi), Norwegian Nynorsk (nn), Norwegian (no), Swedish (sv)
 
-Not fully supported yet: Greek (el)
+Not fully supported, yet at least: Greek (el)
   (I was asked to convert the Greek wikt, but I had trouble parsing the entries)
-Not supported yet: Albanian (sq)
+Not supported, yet at least: Albanian (sq)
   (I was asked to convert the Albanian wikt, but I had trouble parsing the entries)
+Not supported, yet at least: Hebrew (he)
+  (I was asked to convert the Hebrew wikt, but I had trouble parsing the entries)
 
 B. Downloading Wiktionary dumps
 ===============================
@@ -39,36 +41,37 @@ B1. Downloading Wiktionary dumps using my Python script
 -------------------------------------------------------
 
 I have written a Python script, dlWiktionary.py, for downloading the newest available dump file of a given language. The language code is supplied as a cmdline parameter. 
-Optionally one can also supply a mirror site URL as the 2nd parameter. 
+Optionally one can also supply a mirror site URL as the 2nd parameter. The code defaults to using the Swedish mirror, because it's close to Finland where I live :)
 
 Run the script for all the languages you want to download.
-E.g., here we run it for English and Finnish:
+E.g., here we run it in cmd.exe for English and Finnish:
 
-  %LOCALAPPDATA%\Programs\Python\Python312\python.exe g:/Dropbox/Docs/Programming/Python/YoutubeDL/dlWiktionary.py en
+  %LOCALAPPDATA%\Programs\Python\Python312\python.exe g:/Dropbox/Docs/Programming/Python/dlWiktionary/dlWiktionary.py en
     Using param lang='en'
     Newest completed dump is: 20250401
     File https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20250401/enwiktionary-20250401-pages-articles.xml.bz2 had not been downloaded yet. Downloading
     Downloading https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20250401/enwiktionary-20250401-pages-articles.xml.bz2
     Ready.
 
-  %LOCALAPPDATA%\Programs\Python\Python312\python.exe g:/Dropbox/Docs/Programming/Python/YoutubeDL/dlWiktionary.py fi
-...
+  %LOCALAPPDATA%\Programs\Python\Python312\python.exe g:/Dropbox/Docs/Programming/Python/dlWiktionary/dlWiktionary.py fi
+  ...
 
 If the script finds an already existing file having the name of the newest dump file, it checks the file size. If the file size is:
-- Smaller than 1 000 000 b, the script attempts to redownload the file, overwriting the existing one. This is mainly because very small files are probably merely 404's or such HTTP error documents. E.g.:
-
-  Using param lang='el'
-  Newest completed dump is: 20250401
-  File https://mirror.accum.se/mirror/wikimedia.org/dumps/elwiktionary/20250401/elwiktionary-20250401-pages-articles.xml.bz2 already found, but with a small size: 13, so redownloading it
-  Downloading https://mirror.accum.se/mirror/wikimedia.org/dumps/elwiktionary/20250401/elwiktionary-20250401-pages-articles.xml.bz2
-  Ready.
-- At least 1 000 000 b, the script aborts the download. E.g.:
+  - Smaller than 1 000 000 B, the script attempts to redownload the file, overwriting the existing one. This is mainly because very small files are probably merely 404's or such HTTP error documents. E.g.:
+    
+    Using param lang='el'
+    Newest completed dump is: 20250401
+    File https://mirror.accum.se/mirror/wikimedia.org/dumps/elwiktionary/20250401/elwiktionary-20250401-pages-articles.xml.bz2 already found, but with a small size: 13, so redownloading it
+    Downloading https://mirror.accum.se/mirror/wikimedia.org/dumps/elwiktionary/20250401/elwiktionary-20250401-pages-articles.xml.bz2
+    Ready.
   
-  Using param lang='en'
-  Newest completed dump is: 20250401
-  File https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20250401/enwiktionary-20250401-pages-articles.xml.bz2 already found, size: 1450722468, aborting download (remove file to force a redownload) 
+  - At least 1 000 000 B, the script aborts the download. E.g.:
+    
+    Using param lang='en'
+    Newest completed dump is: 20250401
+    File https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20250401/enwiktionary-20250401-pages-articles.xml.bz2 already found, size: 1450722468, aborting download (remove file to force a redownload) 
 
-B2. Downloading Wiktionary dumps manually (alternative to A1)
+B2. Downloading Wiktionary dumps manually (alternative to B1)
 -------------------------------------------------------------
 
 The completed dumps are listed at https://dumps.wikimedia.org/backup-index.html,
@@ -116,17 +119,17 @@ but don't do that, because the scripts I have written for processing the dump of
 C. Extracting the downloaded dumps
 ==================================
 
-In the DICT directory, extract each bz2 file you downloaded into it's own subdirectory. Use the name of the .bz2 dump file as the name of the subdirectory.
+In the %DICT% directory, extract each bz2 file you downloaded into it's own subdirectory. Use the name of the .bz2 dump file as the name of the subdirectory.
 
 I use 7-Zip via Windows' Explorer by right-clicking each .bz2 file and selecting the action Extract to "xxwiktionary-yyyymmdd-pages-articles.xml\". E.g. for the latest English dump file:
   7-Zip > Extract to "enwiktionary-20240901-pages-articles.xml\"
-You don't need the bz2 dump file after extracting it. The input file you just extracted won't be changed when it's processed.
+You don't need the bz2 archive file for the dump after extracting it. The input file you just extracted won't be changed when it's processed.
 
 Next you will be using various Windows cmd (*.cmd) scripts for processing the files you downloaded and extracted.
 The scripts are in the Eclipse workspace under the folder Scripts.
 Each kind of script is in its own subfolder, e.g. StripNamespaces\
 In my system, the full path to the StripNamespaces folder is:
-  G:\Users\Joel\git\wiktionary-convert-no-db\wikt2xmlfull\Scripts\StripNamespaces\
+  G:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull\Scripts\StripNamespaces\
 Open a Windows Command Prompt (cmd.exe) and go to the StripNamespaces folder:
   CD /D "%WIKTGIT%"\Scripts\StripNamespaces
 
@@ -136,11 +139,10 @@ D. COMPILING THE ENGLISH WIKTIONARY, WITH ENTRIES FOR ALL LANGUAGES
 D1. Change EDITION
 ------------------
 
-Change the variable EDITION to match with the Wiktionary edition you have downloaded in
-StripNamespaces ALL.cmd.
-  It is currently defined in the line number 28:
-  
-  set EDITION=20240901
+Change the variable EDITION in
+StripNamespaces ALL.cmd to match the Wiktionary edition you have downloaded. 
+It is currently defined in the line number 28. E.g.:
+  set EDITION=20250401
 
 D2. Using the StripNamespaces program
 -------------------------------------
