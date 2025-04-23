@@ -1,11 +1,24 @@
 @echo off
 rem Hebrew Wikt namespace stripping script
 rem Joel Korhonen 2022-Dec-01
+rem 2025-04-23 Either change EDITION below and run this script to use it,
+rem or change EDITION to "StripNamespaces ALL.cmd" and run it, for
+rem calling each language specific script, such as this one.
 set EDITION=20250401
-set LANG=he
 
+if not "%1"=="" goto :calledByStripNamespacesALL
+
+rem Do these only when this script is called directly by the user:
+chcp 65001
+cls
+goto :mainPart
+
+:calledByStripNamespacesALL
+set EDITION=%1
+
+:mainPart
+set LANG=he
 if "%WIKTGIT%"=="" set WIKTGIT=C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
 set SCRIPTS=%WIKTGIT%\Scripts
-
 cd /D "%SCRIPTS%"\StripNamespaces
-call "StripNamespaces ALL.cmd" %LANG% %EDITION%
+call "StripNamespaces MAIN.cmd" %LANG% %EDITION%

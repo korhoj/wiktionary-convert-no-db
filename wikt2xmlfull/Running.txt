@@ -139,9 +139,9 @@ D. COMPILING THE ENGLISH WIKTIONARY, WITH ENTRIES FOR ALL LANGUAGES
 D1. Change EDITION
 ------------------
 
-Change the variable EDITION in
+Change the variable EDITION in the beginning of
 StripNamespaces ALL.cmd to match the Wiktionary edition you have downloaded. 
-It is currently defined in the line number 28. E.g.:
+E.g.:
   set EDITION=20250401
 
 D2. Using the StripNamespaces program
@@ -149,9 +149,26 @@ D2. Using the StripNamespaces program
 
 If you have Eclipse open, at this point you may want to close it, to release memory and CPU resources. Then:
 
-Run StripNamespaces ALL.cmd in the Command Prompt (or start it e.g. double-clicking the script file in Windows Explorer).
+To process all the currently supported Wiktionary dumps, run:
+  StripNamespaces ALL.cmd
+in the Windows Command Prompt (or start it e.g. by double-clicking the script file in Windows Explorer).
 
-StripNamespaces prints first what it is going to process and produce, and the start time
+The script calls each supported language specific sub-script.
+E.g.:
+  StripNamespaces elwiktionary.cmd
+  StripNamespaces enwiktionary.cmd
+  ...
+
+Each language specific sub-script in turn call a general script:
+  StripNamespaces MAIN.cmd
+N.b. The general script used to be called "StripNamespaces ALL.cmd", but
+the new name is better. Also, I reused the old name, for the script
+processing all supported languages (which script was mentioned in the beginning of this section, D2). 
+
+Each time the shared script "StripNamespaces MAIN.cmd" is called,
+it is passed language specific parameters.
+The script first prints what it is going to process and produce, and the start time.
+E.g.:
   "EDITION: 20240901"
   "PROG: G:\Dropbox\Dictionary\wikt\StripNamespaces.jar"
   "INFILE: G:\Temp\wiktionary-dumps\enwiktionary-20240901-pages-articles.xml\enwiktionary-20240901-pages-articles.xml"
@@ -165,16 +182,8 @@ Stripping the English Wiktionary takes long even on a fast computer. For me at 2
 
 When StripNamespaces finishes running, for convenience the start time is printed again, and the 
 finish time is printed, so you can see how long the processing took.
-E.g. for the English Wiktionary:
-  lokak. 03, 2024 5:22:30 IP. wiktionary.to.xml.full.StripNamespaces process
-  INFO: Processed entry 8150000
-  Ready
-    Conversion started at 2024-10-03-16-24-57
-    Params were:
-      "C:\Usr\jdk-22\bin\java.exe" -Dfile.encoding=UTF8 -Xmx2600M -Xss400M -jar "G:\Dropbox\Dictionary\wikt\StripNamespaces.jar" "G:\Temp\wiktionary-dumps\enwiktionary-20240920-pages-articles.xml\enwiktionary-20240920-pages-articles.xml" "G:\Temp\wiktionary-dumps\enwiktionary-20240920-pages-articles.xml\stripped-ALL.xml"
-    Conversion ended at 2024-10-03-17-22-32
 
-E.g. for the Greek Wiktionary:
+E.g. output for the Greek Wiktionary:
 	syysk. 26, 2024 10:56:10 AP. wiktionary.to.xml.full.StripNamespaces process
 	INFO: Processed entry 1530000
 	Ready
@@ -183,31 +192,69 @@ E.g. for the Greek Wiktionary:
 	    "C:\Usr\jdk-22\bin\java.exe" -Dfile.encoding=UTF8 -Xmx2600M -Xss400M -jar "G:\Dropbox\Dictionary\wikt\StripNamespaces.jar" "G:\Temp\wiktionary-dumps\elwiktionary-20240901-pages-articles.xml\elwiktionary-20240901-pages-articles.xml" "G:\Temp\wiktionary-dumps\elwiktionary-20240901-pages-articles.xml\stripped-ALL.xml"
 	  Conversion ended at 2024-09-26-10-56-10
 
+After a specific language has been processed, as mentioned, the new version of the 
+StripNamespaces ALL.cmd script calls the next language specific script.
+
+E.g. output for the English Wiktionary:
+  lokak. 03, 2024 5:22:30 IP. wiktionary.to.xml.full.StripNamespaces process
+  INFO: Processed entry 8150000
+  Ready
+    Conversion started at 2024-10-03-16-24-57
+    Params were:
+      "C:\Usr\jdk-22\bin\java.exe" -Dfile.encoding=UTF8 -Xmx2600M -Xss400M -jar "G:\Dropbox\Dictionary\wikt\StripNamespaces.jar" "G:\Temp\wiktionary-dumps\enwiktionary-20240920-pages-articles.xml\enwiktionary-20240920-pages-articles.xml" "G:\Temp\wiktionary-dumps\enwiktionary-20240920-pages-articles.xml\stripped-ALL.xml"
+    Conversion ended at 2024-10-03-17-22-32
+
+It is also possible to call a given language's StripNamespaces script directly,
+therefore processing only that specific language's Wiktionary dump.
+You can then, if you want, call also each other language's scripts directly.
+That was the old, more workative way I ran StripNamespaces for all supported languages...
+
 D3. Using the ReadStripped program
 ---------------------------------- 
 
-Running the ReadStripped program uses a language specific script which calls a
-general script common to all languages. (SD in the script names == StarDict)
-E.g.:
+For running the ReadStripped Java program, like StripNamespaces, there is a
+script, ReadStripped SD all.cmd, which in turn calls the sub-scripts of
+all the languages whose Wiktionary dumps are currently supported by ReadStripped.
+ 
+Each language specific script calls in turn a general script common to all languages.
+(SD in the script names == StarDict)
 
+Update first the variable EDITION into "ReadStripped SD ALL.cmd",
+and then call the script. It passes EDITION to each language specific
+sub-script. You must have first downloaded them and used StripNamespaces
+to process each of them, of course, as instructed earlier in this document.
+
+So, run
+  "ReadStripped SD ALL.cmd"
+to process dumps for all supported languages. It will automatically
+make calls to the language specific sub-scripts:
+  call "ReadStripped SD el-ALL.cmd" %EDITION%
+  call "ReadStripped SD el-el.cmd" %EDITION%
+  ...
+  call "ReadStripped SD sv-sv.cmd" %EDITION%
+
+About the naming of the scripts:
+  
 1) ReadStripped SD en-ALL.cmd
   Process the English Wiktionary, all languages
+
 2) ReadStripped SD en-en.cmd
   Process the English Wiktionary, English only
 --> the scripts above call automatically a general script:
-3) ReadStripped SD ALL.cmd
 
-The MEM and/or STCK variables in the ReadStripped SD ALL.cmd script file have been set as
--Xmx2600M and -Xss400M which should suffice for one pass. The reason for restarts is indeed
-that not so much memory is required. Each restart continues processing where the previous
-run left off.
+3) ReadStripped SD MAIN.cmd
+ (used to be called "ReadStripped SD ALL.cmd", but changed the name
+  and reused the old name for the new script that processes all languages)
 
-Change EDITION to match with the Wiktionary edition you have downloaded in e.g.
-ReadStripped SD en-ALL.cmd and run it. E.g.:
-  set EDITION=20250301
+The MEM and/or STCK variables in the ReadStripped SD MAIN.cmd script file have been set as
+-Xmx2600M and -Xss400M which should suffice for each "pass". The reason for restarts is indeed
+that not so much memory is required for a given "pass". Each restart continues processing where the previous run left off.
 
-When ReadStripped finishes running, for convenience the start time is printed again, and the 
-finish time is printed, so you can see how long the processing took. Although, if there have been restarts, the info is for the current restart only.
+Each time the common "ReadStripped SD MAIN.cmd" script finishes running,
+for clarity and convenience the start time (of the particular, current run of the script) 
+is printed again, and the finish time is printed too, so you can see how long the processing took. 
+
+To clarify, if there have been restarts, the start and finish times are for the current restart only.
 
 E.g. for the English, All languages Wiktionary:
   maalis 23, 2025 12:44:31 IP. wiktionary.to.xml.full.ReadStripped main
