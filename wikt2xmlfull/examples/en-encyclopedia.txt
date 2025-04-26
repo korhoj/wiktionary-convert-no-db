@@ -1,0 +1,210 @@
+  <page>
+    <title>encyclopedia</title>
+    <id>27</id>
+    <revision>
+      <id>84124087</id>
+      <parentid>84124015</parentid>
+      <timestamp>2025-03-04T17:09:44Z</timestamp>
+      <contributor>
+        <username>Surjection</username>
+        <id>3370302</id>
+      </contributor>
+      <minor />
+      <comment>Reverted edits by [[Special:Contributions/112.198.68.118|112.198.68.118]]. If you think this rollback is in error, please leave a message on my [[User talk:Surjection|talk page]].</comment>
+      <origin>83594899</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="10867" sha1="9stwz5g1xte3414w66vmxfgc193w64f" xml:space="preserve">==English==
+{{rfquote|en}}
+[[File:Göttingen-SUB-Encyclopedia.Americana.JPG|thumb|right|300px|Volumes 5{{ndash}}12 of the ''Encyclopedia Americana'' (covering topics from Bulgaria to Goethals) in the SUB Library at the University of Göttingen, Germany]]
+
+===Alternative forms===
+* {{alter|en|encyclopaedia||UK}}
+* {{alter|en|encyclopædia||archaic}}
+
+===Etymology===
+{{root|en|ine-pro|*peh₂w-}}
+{{etymon|en|id=reference work|bor|NL.&gt;encyclopaedīa&gt;encyclopedia|tree=1}}
+{{bor+|en|NL.|encyclopēdīa, [[encyclopaedia|encyclopaedīa]]|t=general education}}, a [[univerbation|univerbated]] form of {{der|en|grc-koi|ἐγκύκλιος παιδείᾱ|t=education in the circle of arts and sciences}}, from {{der|en|grc|ἐγκύκλιος||[[circular]]}} + {{m|grc|παιδείᾱ||[[childrearing]]; [[education]]}}, q.v. Nearly all modern English use of the word influenced by the scope and format of {{w|Diderot}} &amp; al.'s {{der|en|fr|-}} ''{{w|Encyclopédie}}''.
+
+===Pronunciation===
+* {{IPA|en|/ənˌsəɪ.kləˈpi.di.ə/|a=Canada}}
+* {{IPA|en|/ɪnˌsaɪ.kləˈpi(ː).dɪə/|a=UK}}
+* {{IPA|en|/ɪnˌsaɪ.kləˈpi(ː).di.ə/|a=US}}
+* {{audio|en|en-us-encyclopedia.ogg|a=US}}
+* {{rhymes|en|iːdiə|s=6}}
+* {{hyphenation|en|en|cy|clo|pe|di|a}}
+
+===Noun===
+{{en-noun|s|encyclopediae|encyclopediæ}}
+
+# {{senseid|en|Q5292}}A [[comprehensive]] [[reference work]] (often spanning several printed volumes) with articles (usually arranged in alphabetical order, or sometimes arranged by category) on a range of [[subjects]], sometimes general, sometimes limited to a particular field.
+#: {{ux|en|I only use the library for the '''encyclopedia''', as we’ve got most other books here.}}
+#: {{ux|en|His life's work is a four-volume '''encyclopedia''' of aviation topics.}}
+# [[similarly|Similarly]] [[comprehensive]] [[work]]s in other [[format]]s.
+#: {{ux|en|{{w|Wikipedia}} is an online '''encyclopedia''' anyone can edit.&lt;sup&gt;&lt;small&gt;[citation needed]&lt;/small&gt;&lt;/sup&gt;}}
+# {{lb|en|dated}} The [[circle]] of [[arts]] and [[sciences]]; a [[comprehensive]] summary of [[knowledge]], or of a branch of [[knowledge]].
+
+====Usage notes====
+* The spelling ''encyclopedia'' is standard in American English, common in Canadian English, accepted in Australian and International English, and also very common in British English although [[nonstandard]]. Oxford spelling prefers the etymologized form ''encyclopaedia'', which restores the ''αι'' diphthong in Ancient Greek ''παιδεία''. The variant with the ''æ'' ligature still appears in the titles of some encyclopaedic works, but it is otherwise archaic in ordinary usage.
+
+====Derived terms====
+{{col|en|encyclopedial|encyclopedialike|encyclopedian|Wikipedia|xenoencyclopedia
+|encyclopedical|encyclopedic|encyclopedic fiction|encyclopedist|encyclopedic dictionary|-pedia|walking encyclopedia}}
+
+====Related terms====
+{{col2|en
+|paideia
+|Paidia
+|-pedia
+|pedo-
+}}
+
+====Translations====
+{{trans-top|comprehensive with on a range of topics}}
+* Acehnese: {{t|ace|ènsiklopèdia}}
+* Afrikaans: {{t+|af|ensiklopedie}}
+* Albanian: {{t+|sq|enciklopedi|f}}
+* Alemannic German: {{t|gsw|Enzyklopädie}}
+* Amharic: {{t|am|መዝገበ ዕውቀት}}
+* Arabic: {{t+|ar|مَوْسُوعَة|f}}, {{t|ar|دَائِرَة مَعَارِف|f|tr=dāʔirat maʕārif}}
+*: Moroccan Arabic: {{t|ary|موسوعة|tr=mawsūʕa}}
+* Armenian: {{t+|hy|հանրագիտարան}}
+* Asturian: {{t|ast|enciclopedia|f}}
+* Azerbaijani: {{t|az|qamus}}, {{t+|az|ensiklopediya}}, {{t|az|biliklik}} {{qualifier|South Azerbaijani}}
+*: Arabic: {{t|az|قاموس|tr=qāmūs}}
+* Bakhtiari: {{t|bqi|دونسمندنامه|tr=dunismandnāma}}
+* Baluchi: {{t|bal|زانتنامہ|tr=zāntnāma}}, {{t|bal|زانتگرد|tr=zántgird}}
+* Basque: {{t+|eu|entziklopedia}}
+* Belarusian: {{t|be|энцыклапе́дыя|f}}, {{t|be|энцыкляпэ́дыя|f}}
+* Bengali: {{t+|bn|বিশ্বকোষ}} {{t|bn|এনসাইক্লোপিডিয়া}}
+* Betawi: {{t|bew|ènsiklopédi}}
+* Brahui: {{t|brh|zántgird}}
+* Breton: {{t+|br|holloueziadur}}
+* Bulgarian: {{t+|bg|енциклопе́дия|f}}
+* Burmese: {{t+|my|စွယ်စုံကျမ်း}}
+* Carpathian Rusyn: {{t|rue|енціклопе́дія|f}}
+* Catalan: {{t+|ca|enciclopèdia}}
+* Chinese:
+*: Cantonese: {{t|yue|百科全書}}, {{t|yue|百科事典}}
+*: Mandarin: {{t+|cmn|百科全書}}, {{t+|cmn|百科事典}}
+* Chuvash: {{t|cv|энциклопеди}}
+* Crimean Tatar: {{t|crh|entsiklopediya}}
+* Czech: {{t+|cs|encyklopedie|f}}
+* Danish: {{t+|da|encyklopædi}}, {{t+|da|leksikon|n}}
+* Dutch: {{t+|nl|encyclopedie|m}}
+* Erzya: {{t|myv|содамкундо}}
+* Esperanto: {{t+|eo|enciklopedio}}
+* Estonian: {{t+|et|entsüklopeedia}}
+* Faroese: {{t|fo|alfrøðibók|f}}
+* Finnish: {{t+|fi|tietosanakirja}}, {{t+|fi|ensyklopedia}}
+* French: {{t+|fr|encyclopédie|f}}
+* Galician: {{t+|gl|enciclopedia|f}}
+* Georgian: {{t|ka|ენციკლოპედია}}
+* German: {{t+|de|Enzyklopädie|f}}, {{t+|de|Lexikon|n}}, {{t+|de|Konversationslexikon|n}}; {{t|de|Realencyclopädie|f}}, {{t|de|Realwörterbuch|n}} {{q|archaic}}
+* Gilaki: {{t|glk|دانشنامه‌|tr=dånišnåmä}}
+* Greek: {{t+|el|εγκυκλοπαίδεια|f}}
+*: Ancient: {{t|grc|πανδέκτης|m}}
+* Gurani: {{t|hac|زانستنامە|tr=zānistnāma}}
+* Haitian Creole: {{t|ht|ansiklopedi}}
+* Hebrew: {{t+|he|אֶנְצִיקְלוֹפֶּדְיָה|f|tr=entsiklopédya}}
+* Hindi: {{t|hi|ज्ञानकोष|m}}, {{t+|hi|विश्वकोश|m}}, {{t+|hi|विश्वकोष|m}}, {{t+|hi|साइक्लोपीडिया|f}}, {{t|hi|इनसाइक्लोपीडिया|f}}
+* Hungarian: {{t+|hu|enciklopédia}}, {{t+|hu|lexikon}}
+* Icelandic: {{t+|is|alfræðibók|f}}, {{t+|is|alfræðiorðabók|f}}, {{t+|is|alfræðirit|n}}
+* Ido: {{t+|io|enciklopedio}}
+* Indonesian: {{t+|id|ensiklopedia}}
+* Interlingua: {{t+|ia|encyclopedia}}
+* Irish: {{t|ga|ciclipéid|f}}
+* Italian: {{t+|it|enciclopedia|f}}
+* Japanese: {{t+|ja|百科事典|tr=ひゃっかじてん, hyakkajiten}}, {{t+|ja|百科全書|tr=ひゃっかぜんしょ, hyakkazensho}}
+* Kannada: {{t|kn|ವಿಶ್ವಕೋಶ}}
+* Karachay-Balkar: {{t|krc|энциклопедия}}
+* Kazakh: {{t|kk|энциклопедия}}
+* Khmer: {{t|km|វិជ្ជាសមោធាន}}, {{t|km|សៀវភៅប្រជុំវិជ្ជា}}
+* Korean: {{t+|ko|백과사전(百科事典)}}, {{t+|ko|백과전서(百科全書)}}
+* Kurdish:
+*: Central Kurdish: {{t|ckb|زانستنامە}}
+*: Laki: {{t|lki|زانستنۆمە}}
+*: Northern Kurdish: {{t+|kmr|zanistname}}
+*: Southern Kurdish: {{t|sdh|زانستنامە}}
+* Kyrgyz: {{t+|ky|энциклопедия}}
+* Lao: {{t+|lo|ສາລານຸກົມ}}
+* Latin: {{t|la|encyclopaedīa|f}} {{q|new}}, {{t|la|pandectēs|m}}
+* Latvian: {{t|lv|enciklopēdija|f}}
+* Limburgish: {{t|li|encyklopedie}}
+* Lithuanian: {{t+|lt|enciklopedija|f}}
+* Livvi: {{t|olo|tiedosanakniigu}}
+* Low German: {{t|nds|nokieksel}}
+* Luxembourgish: {{t|lb|Enzyklopedie|f}}
+* Macedonian: {{t|mk|енциклопе́дија|f}}
+* Malay: {{t+|ms|ensiklopedia}}, {{t|ms|jagat katan}}
+* Malayalam: {{t|ml|സര്‍വവിജ്ഞാനകോശം}}, {{t+|ml|വിജ്ഞാനകോശം}}
+* Maori: {{t|mi|mātāpunenga}}
+* Mazanderani: {{t|mzn|دانشنومه|tr=dānišnuma}}
+* Mongolian:
+*: Cyrillic: {{t|mn|нэвтэрхий толь}}
+* Nahuatl: {{t+|nah|centlamatilizamoxtli}}
+* Navajo: {{t|nv|ínsadoobíídiiya}}
+* Northern Luri: {{t|lrc|دونسمنامٱ|tr=dunismnāma}}
+* Northern Sami: {{t|se|diehtosátnegirji}}
+* Northwestern Ojibwa: {{t|ojb|gikendamowin-mazina'igan}}
+* Norwegian:
+*: Bokmål: {{t+|nb|encyklopedi|m}}
+*: Nynorsk: {{t|nn|encyklopedi|m}}
+* Old Church Slavonic:
+*: Cyrillic: {{t|cu|єнкѷклопєдїꙗ|f}} {{q|new}}
+* Ossetian: {{t|os|энциклопеди}}
+* Ottoman Turkish: {{t|ota|محیطالمعرف|tr=mühītülmā'rif}}
+* Pashto: {{t+|ps|پوهنغونډ|m|tr=pohǝnǧwǝnḍ}}
+* Persian:
+*: Iranian Persian: {{t|fa-ira|دانِشْنامِه}}, {{t|fa-ira|دایِرَةُالْمَعارِف|tr=dâyerat-ol-ma'âref}}, {{t|fa|دائِرَةُالْمَعارِف|tr=dâ'erat-ol-ma'âref}}, {{t|fa-ira|آنْسیکْلوپِدی|tr=ânsiklopedi}}
+* Polish: {{t+|pl|encyklopedia|f}}
+* Portuguese: {{t+|pt|enciclopédia|f}}
+* Punjabi: {{t|pa|ਵਿਸ਼ਵਕੋਸ਼|m}}
+* Romanian: {{t+|ro|enciclopedie|f}}
+* Russian: {{t+|ru|энциклопе́дия|f}}
+* Sanskrit: {{t+|sa|विश्वकोश}}
+* Serbo-Croatian:
+*: Cyrillic: {{t|sh|енциклопе́дија|f}}
+*: Roman: {{t|sh|enciklopédija|f}}
+* Slovak: {{t+|sk|encyklopédia|f}}
+* Slovene: {{t+|sl|enciklopedija|f}}
+* Sorbian:
+*: Lower Sorbian: {{t|dsb|encyklopedija|f}}
+*: Upper Sorbian: {{t|hsb|encyklopedija|f}}
+* Spanish: {{t+|es|enciclopedia|f}}
+* Swahili: {{t|sw|kamusi elezo}}, {{t|sw|ensaiklopidia}}
+* Swedish: {{t+|sv|encyklopedi|c}}, {{t+|sv|konversationslexikon|n}}, {{t+|sv|uppslagsverk|n}}
+* Tagalog: {{t|tl|santalaalaman}}, {{t+|tl|ensiklopedya}}
+* Tajik: {{t+|tg|донишнома}}, {{t|tg|доиратулмаориф}}, {{t|tg|энсиклопедия}}
+* Tatar: {{t|tt|энциклопедия}}
+* Telugu: {{t|te|విజ్ఞానసర్వస్వం}}
+* Thai: {{t+|th|สารานุกรม}}
+* Tibetan: {{t|bo|ཤེས་བྱ་ཀུན་ཁྱབ་མཛོད|lit=treasury of the universally knowable}}, {{t|bo|རིག་མཛོད|lit=knowledge treasury}} {{qualifier|non-standard, but now used to translate “-pedia” in “Wikipedia”}}
+* Tigrinya: {{t|ti|ኢንሳይክሎፐድያ}}, {{t|ti|መዝገበ ፍልጠት}}
+* Turkish: {{t+|tr|ansiklopedi}}
+* Turkmen: {{t|tk|ensiklopediýa}}
+* Ukrainian: {{t|uk|енциклопе́дія|f}}
+* Urdu: {{t|ur|دائِرَۃُ الْمَعارِف|tr=dāiratu l-ma'ārif}}, {{t|ur|کِتابُ الْمَعارِف|tr=kitābu l-ma'ārif}}, {{t+|ur|قامُوس|m}}, {{t|ur|اِنْسائِیکِلوپِیڈْیا}}, {{t|ur|موسوعہ|tr=mausū'a}}, {{t|ur|احصاء العلوم|tr=ihsā'-ul-u'lūm}}, {{t|ur|قاموس الاحلام|tr=qāmūs-al-ahlām}}
+* Uyghur: {{t+|ug|قامۇس}}, {{t|ug|ئېنسىكلوپېدىيە}}, {{t|ug|ئېنىسىكلوپېدىيە}}
+* Uzbek: {{t+|uz|ensiklopediya}}, {{t+|uz|qomus}}
+* Vietnamese: {{t+|vi|bách khoa toàn thư}} ({{t|vi|百科全書}})
+* Volapük: {{t+|vo|sikloped}}, {{qualifier|synonym}} {{t|vo|züklopäod}}, {{t|vo|realasikloped}}
+* Welsh: {{t+|cy|gwyddoniadur|m}}
+* West Frisian: {{t|fy|ensyklopedy}}
+* Yakut: {{t|sah|энциклопедия}}
+* Yiddish: {{t|yi|ענציקלאָפּעדיע|f}}
+* Zazaki: {{t|zza|ensiklopediye}}
+* Zealandic: {{t|zea|encyclopedie}}
+{{trans-bottom}}
+
+===See also===
+* {{l|en|dictionary}}
+
+===Further reading===
+* {{pedia}}
+* {{R:Webster 1913}}
+
+{{C|en|Reference works}}</text>
+    </revision>
+  </page>

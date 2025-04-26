@@ -14,6 +14,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.nio.file.Files;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -88,13 +89,22 @@ public class ReadStripped {
 	 * debugging, it may be changed.
 	 */
 	public static final Level LOG_LEVEL_TO_USE = Level.WARNING;
-	//public static final java.util.logging.Level LOG_LEVEL_TO_USE = Level.INFO;
-	//public static final java.util.logging.Level LOG_LEVEL_TO_USE = Level.ALL;
+	//public static final Level LOG_LEVEL_TO_USE = Level.INFO;
+	//public static final Level LOG_LEVEL_TO_USE = Level.ALL;
+	//public static final Level LOG_LEVEL_TO_USE = Level.SEVERE;
 	
 	public final static Logger LOGGER = Logger.getLogger(ReadStripped.class
 	 .getName());
 	private static FileHandler fileHandler;
 	private static SimpleFormatter formatterTxt;
+	
+	// Change to true, if you want to output more log after a restart
+	public final static boolean DEBUGGING_RESTART = false;
+	//public final static boolean DEBUGGING_RESTART = true;
+	
+	// If true, prints a lot logging 
+	//public final static boolean LOG_SENSE_NOT_FOUND_ERRORS = true;
+	public final static boolean LOG_SENSE_NOT_FOUND_ERRORS = false;
 	
 	// Store entries after this many have been read
 	private static final int STORE_INTERVAL = 10_000;
@@ -105,6 +115,9 @@ public class ReadStripped {
 	 * After this many entries, stop processing, and
 	 * write out info needed for a restart "pass",
 	 * to the file CONTINFO_FILENAME defined further below.
+	 * The cmd script calling this program will then
+	 * call again.
+	 * This is done to avoid out-of-mem errors.
 	 */
 	private static final long MAXENTRIES_TOPROCESS = 900_000l;
 	//private static final long MAXENTRIES_TOPROCESS = 50_000l;
@@ -180,7 +193,20 @@ public class ReadStripped {
 	
 	static {
 		try {
-			fileHandler = new FileHandler(ReadStripped.class.getName() + ".log");
+			LocalDateTime cdt = LocalDateTime.now();
+			String monthStr = "" + cdt.getMonthValue();
+			if (monthStr.length() == 1) monthStr = "0" + monthStr;
+			String dayStr = "" + cdt.getDayOfMonth();
+			if (dayStr.length() == 1) dayStr = "0" + dayStr;
+			String hourStr = "" + cdt.getHour();
+			if (hourStr.length() == 1) hourStr = "0" + hourStr;
+			String minStr = "" + cdt.getMinute();
+			if (minStr.length() == 1) minStr = "0" + minStr;
+			String secStr = "" + cdt.getSecond();
+			if (secStr.length() == 1) secStr = "0" + secStr;
+			String dateTimeStr = "" + cdt.getYear() + monthStr + dayStr + "-" +
+			 hourStr + minStr + secStr;
+			fileHandler = new FileHandler(ReadStripped.class.getName() + "." + dateTimeStr + ".log" );
 		} catch (Exception e) {
 			System.err.println(""
 					+ "LOGGING ERROR, CANNOT INITIALIZE FILEHANDLER");
@@ -291,6 +317,11 @@ public class ReadStripped {
 					restartLine = l.longValue(); // if 0 --> NOP
 					if (restartLine > 0) {
 						LOGGER.warning("Restarting at line " + restartLine);
+						// To debug after a restart:
+						if (DEBUGGING_RESTART) {
+							LOGGER.setLevel(Level.ALL);
+							LOGGER.severe("!!! N.b. changed LOGLEVEL to ALL for debugging");
+						}
 					} else {
 						LOGGER.info("Not restarting, RESTARTLINE <= 0: '" + restartLine +"'");
 					}
@@ -365,6 +396,7 @@ public class ReadStripped {
 	 * which case the sole language name is never outputed)
 	 * @throws Exception
 	 */
+	@SuppressWarnings("unused") // Skips dead code warnings caused by DEBUGGING_RESTART being false usually
 	private void process (OutputType outputType, String inFileName, String outFileName, String lang, 
 			boolean outputLangNames, long restartLine, String langCode, boolean onlyLanguages,
 			String wiktLanguageCode) throws Exception {
@@ -376,8 +408,9 @@ public class ReadStripped {
 		String currentTitle = null;
 		String outStr = null;
 		boolean onlyOneLang = false; // true if only one language is being processed (language list has only one language)
+		boolean forceQuit = false; // When debugging, code can change this to true to quit 
 		
-        try (BufferedReader in = new BufferedReader(new InputStreamReader(
+        try (BufferedReader inFile = new BufferedReader(new InputStreamReader(
 				new FileInputStream(inFileName), "UTF-8"))) {
         	
         	// Load languages from csv file
@@ -386,33 +419,20 @@ public class ReadStripped {
         	if (langs.size() == 1)
         		onlyOneLang = true;
 			
-			String s = in.readLine();
+			String s = inFile.readLine();
 			linesRead++;
-			
-			/*String sNext = null;
-			if (s != null) {
-				in.mark(1000);
-				sNext = in.readLine();
-				in.reset();
-			}*/
 			
 			if (restartLine > 0) {
 				for (long l = 0; l < restartLine; l++) {
 					if (l % AT_LINE_INFO_AMOUNT == 0)
 						LOGGER.info("At line " + l);
-					s = in.readLine();
-					
-					/*if (s != null) {
-						in.mark(1000);
-						sNext = in.readLine();
-						in.reset();
-					}*/
+					s = inFile.readLine();
 				}
 				LOGGER.info("Seeked to line " + restartLine);
 			}
 			
 			outStr = "";
-			while (s != null && entryNbr < MAXENTRIES_TOPROCESS) {
+			while (s != null && entryNbr < MAXENTRIES_TOPROCESS && !forceQuit) {
 				try {
 					if (entryNbr % STORE_INTERVAL == 0 && entryNbr > 0 && evenThousand) {
 						LOGGER.info("Processed entry " + entryNbr + ", lines read: " + (restartLine > 0 ?
@@ -426,35 +446,48 @@ public class ReadStripped {
 				
 						haveEverOutputed = true;
 						evenThousand = false; // otherwise prints until finds new entry
+					} else if (DEBUGGING_RESTART && restartLine > 0 && entryNbr > 2 ) {
+						forceQuit = true;
 					}
-	
-					// To stop here:
-	//				if (entryNbr % 10000 == 0 && entryNbr > 0) {
-	//					in.close();
-	//					try {
-	//						KindleStorer storer = new KindleStorer(words);
-	//						storer.storeWords(false, outFileName);
-	//					} catch (Exception e) {
-	//						String msg = "Output failed";
-	//						LOGGER.severe(msg);
-	//						throw e;
-	//					}
-	//					System.exit(1);
-	//				}
 					
 					if (s.indexOf("<page>") > -1) {
 						textSection = false; // should be false already
 						hadTextSection = false;
 						
-						if (outStr.length() > 0) { // Not first time
+						/**
+						 * TODO E.g. The Swedish Wiktionary otherwise failed right after
+						 * the first restart, at 20250426 parsing the 1st word "förmiddan".
+						 * currentTitle is null right after a restart. Currently we in
+						 * effect skip processing the first term. It should be possible
+						 * to fix this somehow.
+						 * 
+						 * The "( entryNbr > 0 || currentTitle != null )" check is
+						 * for continuing if it's not the problematic first entry after
+						 * a restart. If in such a different scenario currentTitle is null,
+						 * the code below then gives an error to help in debugging.
+						 */
+						if (outStr != null && outStr.length() > 0 &&
+							 ( restartLine <= 0 ||
+							   ( restartLine > 0 &&
+								 ( entryNbr > 0 || currentTitle != null )
+							   )
+							 )
+						   ) { // Not first time
 							//LOGGER.info("Processed entry " + entryNbr);
 							LOGGER.fine("Processed entry " + entryNbr + ", lines read: " + linesRead);
 							
-							LOGGER.fine("To parse: '" + currentTitle + "'");
-							//LOGGER.info("To parse: '" + currentTitle + "'");
+							LOGGER.fine("To parse: '" + (currentTitle != null ? currentTitle : "(null)" ) +
+								"'");
+							// If debugging a restart
+							if (DEBUGGING_RESTART && restartLine > 0) {
+								LOGGER.warning("!! Processed entry " + entryNbr + ", lines read: " +
+									linesRead + ", restartLine = " + restartLine);
+								LOGGER.warning("To parse: '" + (currentTitle != null ? currentTitle :
+									"(null)" ) + "', outStr = '" + outStr + "'");
+							}
 							
 							if (parseEntry(outStr, currentTitle, outputType, entryNbr, lang, onlyLanguages,
-									langCode, wiktLanguageCode)) {
+								langCode, wiktLanguageCode)) {
 								entryNbr++;
 								evenThousand = true; // restart logging every 1000 entries
 							}
@@ -462,28 +495,43 @@ public class ReadStripped {
 							outStr = null;
 						}
 					} else if (s.indexOf("<title>") > -1) {
-						int beginIndex = s.indexOf("<title>") + 7;
-						int endIndex = s.indexOf("</title>");
-						
-						if (endIndex > -1) {
-							currentTitle = s.substring(beginIndex, endIndex);
+						int titleTagStartIndex = s.indexOf("<title>");
+						String restOfText = s.substring(titleTagStartIndex) + 7;
+						int titleTagEndIndex = titleTagStartIndex + 
+							restOfText.indexOf("</title>");
+						if (titleTagEndIndex > -1) {
+							currentTitle = s.substring(titleTagStartIndex + 7, titleTagEndIndex);
+							String msg = "Title end section at entryNbr: " + entryNbr + ", " +
+								"SECTION = '" + ( currentTitle != null ? currentTitle :
+								"(currentTitle == null, s = '" + ( s != null ? s : (null) ) + ")'" ) +
+								"', linesRead=" + linesRead;
+							LOGGER.fine(msg);
 						} else {
 							currentTitle = s; // leaks purposefully
 							String msg = "Bad title end section at entryNbr: " + entryNbr + ", " +
-							 "SECTION = '" + currentTitle + "', linesRead=" + linesRead;
+							 "SECTION = '" + ( currentTitle != null ? currentTitle :
+							 "(currentTitle == null, s = '" + ( s != null ? s : (null) ) + ")'" ) +
+							 "', linesRead=" + linesRead;
 							LOGGER.warning(msg);
 						}
 					} else if (s.indexOf("<text") > -1) {
 						textSection = true;
 						
-						if (s.indexOf("<text xml:space=\"preserve\">") > -1) {
+						/**
+						 * Nowadays Wiktionary dumps have this format instead of the commented out one:
+						 *  <text bytes="79" sha1="43lusfn4ihnlpgfrgj90f6qjcap7fzj" xml:space="preserve"
+						 */
+						/*if (s.indexOf("<text xml:space=\"preserve\">") > -1) {
 							int startIndex = s.indexOf("<text xml:space=\"preserve\">") + 27;
 							outStr = s.substring(startIndex);
-						} else {
-							outStr = s; // leaks purposefully
-							/*String msg = "Bad text section at entryNbr: " + entryNbr + ", " +
-							 "title = '" + currentTitle + "', linesRead=" + linesRead;
-							//LOGGER.warning(msg);*/
+						} */
+						if (s.indexOf("<text ") > -1) {
+							int tagStartIndex = s.indexOf("<text ");
+							String restOfText = s.substring(tagStartIndex + 6);
+							int tagEndIndex = tagStartIndex + 6 + restOfText.indexOf('>');
+							outStr = s.substring(tagEndIndex + 1);
+							if (DEBUGGING_RESTART && restartLine > 0)
+								LOGGER.severe("outStr for <text>: '" + outStr + "'");
 						}
 					} else if (s.indexOf("</text>") > -1) {
 						hadTextSection = true;
@@ -500,12 +548,12 @@ public class ReadStripped {
 						// skip other tags
 					}
 				} catch (Exception e) {
-					String titleStart = currentTitle;
+					String titleStart = (currentTitle != null ? currentTitle : "(null)" );
 					if (currentTitle != null && currentTitle.length() > 100)
 						titleStart = currentTitle.substring(0, 100);
 					
-					String msg = "Problem at entryNbr: " + entryNbr + ", title: '" + titleStart + "', linesRead=" + linesRead +
-							", restartLine=" + restartLine;
+					String msg = "Problem at entryNbr: " + entryNbr + ", title: '" +
+						titleStart + "', linesRead=" + linesRead + ", restartLine=" + restartLine;
 					LOGGER.warning(msg);
 					System.err.println(msg);
 					if (outStr != null)
@@ -514,20 +562,15 @@ public class ReadStripped {
 					LOGGER.warning(e.getMessage());
 					
 					if (FAIL_AT_FIRST_PROBLEM) {
-						LOGGER.severe(outStr);
+						if (outStr != null)
+							LOGGER.severe(outStr);
 						throw e;
 					}
 				}
 	
-				s = in.readLine();
+				s = inFile.readLine();
 				linesRead++;
-				
-				/*if (s != null) {
-					in.mark(1000);
-					sNext = in.readLine();
-					in.reset();
-				}*/
-			}
+			} // <-- while (s != null && entryNbr < MAXENTRIES_TOPROCESS)
 			
 			// Handle last entry if any
 			if (outStr != null && outStr.length() > 0 && // this should always be true if there is any input
@@ -550,10 +593,16 @@ public class ReadStripped {
 				}
 			}
 			
-			in.close();
+			inFile.close();
 			
-			if (entryNbr == MAXENTRIES_TOPROCESS) {
-				LOGGER.warning("Reached maximum lines to read in one run, please restart at " + (linesRead + restartLine) + " and combine results");
+			/**
+			 * When debugging, forceQuit may be set in code when wanted,
+			 * and then we don't want a restart, or it would create an infinite
+			 * restart loop
+			 */
+			if (entryNbr == MAXENTRIES_TOPROCESS && !forceQuit) {
+				LOGGER.warning("Reached maximum lines to read in one run, please restart at " +
+					(linesRead + restartLine) + " and combine results");
 				
 				FileOutputStream contInfoFos = new FileOutputStream(CONTINFO_FILENAME);
 				PrintWriter contInfoOut = null;
@@ -564,7 +613,7 @@ public class ReadStripped {
 				contInfoFos.close();
 			} else { // tell calling script not to restart
 				File file = new File(CONTINFO_FILENAME);
-				boolean result = Files.deleteIfExists(file.toPath());
+				Files.deleteIfExists(file.toPath());
 			}
 			
 			switch(outputType) {
@@ -572,21 +621,22 @@ public class ReadStripped {
 			case Stardict:
 				StardictStorer.closeOutput();
 			}
-
+			
 			if (newLangsFos != null) {
 				newLangsFos.close();
 				newLangsFos = null;
 			}
 		} catch (Exception e) {
-			String titleStart = currentTitle;
+			String titleStart = (currentTitle != null ? currentTitle : "(null)" );
 			if (currentTitle != null && currentTitle.length() > 100)
 				titleStart = currentTitle.substring(0, 100);
 			
-			String msg = "Failed at entryNbr: " + entryNbr + ", title: '" + titleStart + "', linesRead=" + linesRead +
-					", restartLine=" + restartLine;
+			String msg = "Failed at entryNbr: " + entryNbr + ", title: '" + titleStart +
+				"', linesRead=" + linesRead + ", restartLine=" + restartLine;
 			LOGGER.severe(msg);
 			System.err.println(msg);
-			LOGGER.fine(outStr);
+			if (outStr != null)
+				LOGGER.fine(outStr);
 			e.printStackTrace();
 			throw e;
 		} finally {
@@ -594,6 +644,15 @@ public class ReadStripped {
 				try { newLangsFos.close(); } catch (Exception e) {}
 				newLangsFos = null;
 			}
+        	try {
+        		StardictStorer.closeOutput();
+        	} catch (Exception sde) {
+        		String msg = "Failed at closing StarDict output file in finally section";
+        		LOGGER.severe(msg);
+    			System.err.println(msg);
+    			sde.printStackTrace();
+    			throw sde;
+        	}
         }
 	}
 	
@@ -603,7 +662,7 @@ public class ReadStripped {
 	 * @param onlyOneLang True if only one language is being processed (language list has only one language)
 	 * @param wiktLanguageCode Which language the Wikt is in. Affects metadata output
 	 * @param outputLangNames True if the name of each language should be outputed (except if onlyOneLang == true, in
-	 * which case the sole language name is never outputed) 
+	 * which case the sole language name is never outputed)
 	 */
 	private void callStorer(OutputType outputType, String outFileName, boolean onlyOneLang,
 			String wiktLanguageCode, boolean outputLangNames) throws Exception {
@@ -638,6 +697,8 @@ public class ReadStripped {
 	 * @param langCode Code of language to process
 	 * @param wiktLanguageCode Which language the Wikt is in. Often same than langCode, but
 	 * langCode may also be "ALL". Affects metadata output
+	 * 
+	 * @return True if the entry was parsed successfully, otherwise false
 	 */
 	private boolean parseEntry(String s, String currentTitle, OutputType outputType,
 			long entryNbr, String onlyLang, boolean onlyLanguages, String langCode, String wiktLanguageCode) throws Exception {
@@ -679,13 +740,14 @@ public class ReadStripped {
 			int langNameEnd = langSect.substring(langStart).indexOf("==") + langStart;
 			
 			if (langNameEnd == -1) {
-				String msg = "Language end not found in string '" + langSect + "', title='" + currentTitle + "'";
+				String msg = "Language end not found in string '" + langSect +
+					"', title='" + ( currentTitle != null ? currentTitle : "(null)" ) + "'";
 				LOGGER.severe(msg);
 				//throw new Exception(msg);
 			}
 			if (langNameEnd == 0) {
-				String msg = "Language end not found, langNameEnd == 0 in string '" + langSect + "', title='" + 
-				 currentTitle + "'";
+				String msg = "Language end not found, langNameEnd == 0 in string '" + langSect +
+					"', title='" + ( currentTitle != null ? currentTitle : "(null)" ) + "'";
 				LOGGER.severe(msg);
 				throw new Exception(msg);
 			}
@@ -746,7 +808,7 @@ public class ReadStripped {
 				 (!onlyLanguages && lookByLangCode && langName != null && !wasFoundByCode)
 			   ) {
 				String msg = "Adding language: '" + langName + "', langsCount=" + (langsCount+1) +
-						" at title='" + currentTitle + "'";
+					" at title='" + ( currentTitle != null ? currentTitle : "(null)" ) + "'";
 				LOGGER.info(msg);
 				
 				// Write separate output file for new language candidates
@@ -771,20 +833,33 @@ public class ReadStripped {
 				}
 			}
 			
+			/**
+			 * TODO: Don't give errors for languages, that aren't _meant_ to be processed.
+			 * Such as for el-el, don't warn about langName = en.
+			 * It seems the problem is due to the section "if (langName.endsWith("-}}"))"
+			 * earlier on, which can't look up language codes, if the language
+			 * specific CSV file el-el-language codes.csv is used. It only has
+			 * "el" and "grc" defined...
+			 */
 			if (langName == null || (lookByLangCode && !wasFoundByCode)) {
-				String msg = "Unknown language: '" + langName + "' at title='" + currentTitle + "', " +
-					"entryNbr=" + entryNbr + ", linesRead=" + linesRead + ", '" + langSect + "'";
-				LOGGER.warning(msg);
-				
-				if (FAIL_AT_FIRST_PROBLEM) {
-					throw new Exception(msg);
-				} else {
-					return false;
-				}
+				// TODO Commented out until the above problem is fixed
+//				String msg = "Unknown language: '" + ( langName != null ? langName : "(null)" ) +
+//					"' at title='" + ( currentTitle != null ? currentTitle : "(null)" ) + "', " +
+//					"entryNbr=" + entryNbr + ", linesRead=" + linesRead + ", '" +
+//					( langSect != null ? langSect : "(null)") + "'";
+//				LOGGER.warning(msg);
+//				
+//				if (FAIL_AT_FIRST_PROBLEM) {
+//					throw new Exception(msg);
+//				} else {
+//					return false;
+//				}
+				return false;
 			} else if (onlyLanguages || onlyLang == null || onlyLang.equals(langCode)) {
 				if (lookupLang.getName() == null) {
-					String msg = "lookupLang.getName() null: '" + langName + "' at title='" + currentTitle + "', " +
-							"entryNbr=" + entryNbr + ", linesRead=" + linesRead + ", '" + langSect + "'";
+					String msg = "lookupLang.getName() null: '" + langName + "' at title='" +
+						( currentTitle != null ? currentTitle : "(null)" ) + "', " +
+						"entryNbr=" + entryNbr + ", linesRead=" + linesRead + ", '" + langSect + "'";
 					LOGGER.warning(msg);
 						
 					if (FAIL_AT_FIRST_PROBLEM) {
@@ -795,7 +870,8 @@ public class ReadStripped {
 				}
 				
 				String sLangSect = langSect.substring(langStart);
-				LOGGER.finest("Before parseWord: '" + sLangSect + "'");
+				LOGGER.finest("Before parseWord: '" + ( sLangSect != null ? sLangSect : "(null)" )
+					+ "'");
 				
 				boolean foundLang = false;
 				for (Lang lang : langs) {
@@ -842,12 +918,12 @@ public class ReadStripped {
 				if (!foundLang && !onlyLanguages) {
 					//throw new Exception("Lang not found"); // go through whole loop we are inside
 					
-					String titleStart = currentTitle;
+					String titleStart = ( currentTitle != null ? currentTitle : "(null)" );
 					if (currentTitle != null && currentTitle.length() > 100)
 						titleStart = currentTitle.substring(0, 100);
 					
-					String msg = "Problem at entryNbr (!foundLang && !onlyLanguages): " + entryNbr + ", title: '" +
-					 titleStart + "', linesRead=" + linesRead;
+					String msg = "Problem at entryNbr (!foundLang && !onlyLanguages): " + entryNbr +
+						", title: '" + titleStart + "', linesRead=" + linesRead;
 					LOGGER.warning(msg);
 					
 					if (FAIL_AT_FIRST_PROBLEM) {
@@ -863,7 +939,7 @@ public class ReadStripped {
 			// Outputed in callStorer()
 			words.add(word);
 			
-			LOGGER.finest("Parsed: '" + currentTitle + "'");
+			LOGGER.finest("Parsed: '" + ( currentTitle != null ? currentTitle : "(null)" ) + "'");
 		}
 		
 		return foundAnyLang;
@@ -2515,7 +2591,8 @@ From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period,
 					 */
 					String msg = "Sense not found at title='" + currentTitle + "', linesRead=" + linesRead +
 							", wordPos='" + wordPos + "'";
-					LOGGER.warning(msg);
+					if (LOG_SENSE_NOT_FOUND_ERRORS)
+						LOGGER.warning(msg);
 					
 					posSense = -1;
 				}
@@ -2559,7 +2636,8 @@ From {{inh|en|enm|tyme}}, {{m|enm|time}}, from {{inh|en|ang|tīma||time, period,
 					if (dashPos == -1 || i >= sLangSect.length() ) {
 						String msg = "Sense not found at Albanian title='" + currentTitle + "', linesRead=" + linesRead +
 								", wordPos='" + wordPos + "'";
-						LOGGER.warning(msg);
+						if (LOG_SENSE_NOT_FOUND_ERRORS)
+							LOGGER.warning(msg);
 						
 						posSense = -1;
 					}

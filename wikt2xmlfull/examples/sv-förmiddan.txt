@@ -1,0 +1,20 @@
+  <page>
+    <title>förmiddan</title>
+    <id>1023920</id>
+    <revision>
+      <id>4035201</id>
+      <timestamp>2024-06-07T14:27:33Z</timestamp>
+      <contributor>
+        <username>Frodlekis</username>
+        <id>762</id>
+      </contributor>
+      <comment>böjningsform av [[förmiddag]]</comment>
+      <origin>4035201</origin>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="79" sha1="43lusfn4ihnlpgfrgj90f6qjcap7fzj" xml:space="preserve">==Svenska==
+===Substantiv===
+'''förmiddan'''
+#{{böjning|sv|subst|förmiddag}}</text>
+    </revision>
+  </page>

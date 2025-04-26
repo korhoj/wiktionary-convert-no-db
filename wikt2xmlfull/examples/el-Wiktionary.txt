@@ -2,19 +2,22 @@
     <title>Wiktionary</title>
     <id>855</id>
     <revision>
-      <id>4091766</id>
-      <parentid>3989668</parentid>
-      <timestamp>2019-09-19T05:39:24Z</timestamp>
+      <id>5601861</id>
+      <parentid>5283925</parentid>
+      <timestamp>2022-10-11T11:44:03Z</timestamp>
       <contributor>
-        <username>Sarri.greek</username>
-        <id>25517</id>
+        <username>UnaToFiAN-1</username>
+        <id>40915</id>
       </contributor>
-      <comment>χωρίς -διεθ-</comment>
+      <minor />
+      <comment>/* {{-de-}} */</comment>
+      <origin>5601861</origin>
       <model>wikitext</model>
       <format>text/x-wiki</format>
-      <text bytes="633" xml:space="preserve">=={{-en-}}==
+      <text bytes="828" sha1="bjzsalvx8zl63u5mm94xucu20mie0ea" xml:space="preserve">=={{-en-}}==
+
 ==={{ετυμολογία}}===
-: {{PAGENAME}} &lt;  [[χαβανέζικος|χαβανέζικη]] λέξη ''[[wiki]]'' + κατάληξη της [[αγγλικός|αγγλική]]ς λέξης ''[[dictionary]]''.
+: {{PAGENAME}} &lt;  [[χαβανέζικος|χαβανέζικη]] λέξη ''[[wiki]]'' + κατάληξη της [[αγγλικός|αγγλική]]ς λέξης ''[[dictionary]]''
 
 ==={{κύριο όνομα|en}}===
 {{τ|en|{{PAGENAME}}}}
@@ -26,10 +29,22 @@
 
 ----
 
+=={{-de-}}==
+
+==={{ετυμολογία}}===
+: {{PAGENAME}} &lt; {{μτφδ|en|de|Wiktionary}}
+
+==={{κύριο όνομα|de}}===
+{{τ|en|{{PAGENAME}}}} {{ο}}
+* [[Βικιλεξικό]]
+
+
+----
+
 =={{-nl-}}==
 
 ==={{προφορά}}===
-{{ήχος|nl}}
+: {{ήχος|nl}}
 
 ==={{κύριο όνομα|nl}}===
 {{τ|nl|{{PAGENAME}}}}
