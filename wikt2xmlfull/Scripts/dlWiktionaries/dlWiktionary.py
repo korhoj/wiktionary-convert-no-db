@@ -114,10 +114,13 @@ for tableRow in tableRows:
       if reYYYYMMDD_and_slash.match(tagValue):
         #print('aTag OK')
         #print(' ' + tagValue)
-        dateList.append(tagValue)
+        dateList.append(tagValue.rstrip('/'))
 
-penUltimateDumpDate = ''
-ultimateDumpDate = ''
+penUltimateDumpDate = dateList[len(dateList)-2]
+ultimateDumpDate = dateList[len(dateList)-1]
+
+print(f"Second latest dump: {penUltimateDumpDate}")
+print(f"Latest dump:        {ultimateDumpDate}")
 
 ## Check whether the newest or second-newest dump for a particular date has been finished
 #print('Finding the latest dump that has been finished')
@@ -125,64 +128,72 @@ ultimateDumpDate = ''
 ### Sometimes the dump is not ready even though the directory exists already.
 ### To be sure, open the link to the file status.html in the directory listing. E.g.:
 ###   https://mirror.accum.se/mirror/wikimedia.org/dumps/fiwiktionary/20240901/status.html
-for dateStr in dateList:
-  #print(f"  Checking date: {dateStr}")
-  URLforDate = mirrorSite + lang + 'wiktionary/' + dateStr + 'status.html'
-  
-  dateWithoutSlash = dateStr.rstrip('/')
-  DLfileForDate = lang + '-dumps-'+dateWithoutSlash+'-status.html'
-  DLFileForDateFullFilePath = DLpath + DLfileForDate
-  with open (DLFileForDateFullFilePath, 'wb') as fFileForDateDownloaded:
-    try:
-      fFileForDateDownloaded.write(requests.get(URLforDate).content)
-    except requests.exceptions.ConnectionError as ce:
-      print(f"ConnectionError in connecting to URL {URLforDate}")
-      #sys.exit(3)
-      raise ce
-    except Exception as e:
-      print(f"General error in connecting to URL {URLforDate}")
-      print(f"Error type: {type(e)}")
-      print(e)
-      traceback.print_exc()
-      raise e
-    finally:
-      fFileForDateDownloaded.close()
-  
-  docForDate = None
-  with open (DLFileForDateFullFilePath, 'r', encoding='utf-8') as fForDateInput:
-    try:
-      docForDate = BeautifulSoup(fForDateInput, parser)
-      # It should have a text like this:
-      # * 2024-09-06 02:28:29 enwiktionary: Dump complete
-      #
-      # (where the word "enwiktionary" is currently a slightly _malformed_ link,
-      #  https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20240901/enwiktionary/20240901,
-      # - it's supposed to just point to the dump directory the status.html file is in...)
-      ##
-      # An actual example:
-      # <li>2025-02-06 16:32:57 <a href="fiwiktionary/20250201">fiwiktionary</a>: <span class='done'>Dump complete</span></li>
-      #
-      
+#for dateStr in dateList:
+dateStr = ultimateDumpDate
+#print(f"  Checking date: {dateStr}")
+URLforDate = mirrorSite + lang + 'wiktionary/' + dateStr + '/status.html'
+
+#dateWithoutSlash = dateStr.rstrip('/')
+DLfileForDate = lang + '-dumps-'+dateStr+'-status.html'
+DLFileForDateFullFilePath = DLpath + DLfileForDate
+with open (DLFileForDateFullFilePath, 'wb') as fFileForDateDownloaded:
+  try:
+    fFileForDateDownloaded.write(requests.get(URLforDate).content)
+  except requests.exceptions.ConnectionError as ce:
+    print(f"ConnectionError in connecting to URL {URLforDate}")
+    #sys.exit(3)
+    raise ce
+  except Exception as e:
+    print(f"General error in connecting to URL {URLforDate}")
+    print(f"Error type: {type(e)}")
+    print(e)
+    traceback.print_exc()
+    raise e
+  finally:
+    fFileForDateDownloaded.close()
+
+docForDate = None
+with open (DLFileForDateFullFilePath, 'r', encoding='utf-8') as fForDateInput:
+  try:
+    docForDate = BeautifulSoup(fForDateInput, parser)
+    # It should have a text like this:
+    # * 2024-09-06 02:28:29 enwiktionary: Dump complete
+    #
+    # (where the word "enwiktionary" is currently a slightly _malformed_ link,
+    #  https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20240901/enwiktionary/20240901,
+    # - it's supposed to just point to the dump directory the status.html file is in...)
+    ##
+    # An actual example:
+    # <li>2025-02-06 16:32:57 <a href="fiwiktionary/20250201">fiwiktionary</a>: <span class='done'>Dump complete</span></li>
+    #
+    
+    # If the dump being parsed is the oldest, the directory for it may exist in the
+    # server, but be empty. At least mirror.accum.se returns then a 404 error document.
+    # Although changed the code to parse just the latest dump anyway as such.
+    if docForDate.title is None or docForDate.title.string != '404 Not Found':
       ## Finds the string 'done' from this:
       # <span class='done'>Dump complete</span>
       doneStr = docForDate.span['class'][0]
       if doneStr == 'done':
+        pass
         #print('Dump is done.')
+        #
+        #if ultimateDumpDate != '':
+        #  penUltimateDumpDate = ultimateDumpDate
+        #ultimateDumpDate = dateWithoutSlash
+  except Exception as e:
+    print(f"Error in parsing dump status for {DLFileForDateFullFilePath}")
+    print(e)
+    traceback.print_exc()
+    raise e
+  finally:
+    fForDateInput.close()
+# <-- for dateStr in dateList
 
-        if ultimateDumpDate != '':
-          penUltimateDumpDate = ultimateDumpDate
-        ultimateDumpDate = dateWithoutSlash
-    except Exception as e:
-      print(e)
-      traceback.print_exc()
-      raise e
-    finally:
-      fForDateInput.close()
-
-if ultimateDumpDate == '':
-  print("Unfortunately, there is no completed dump available presently, aborting!")
-  raise
-print(f"Newest completed dump is: {ultimateDumpDate}")
+#if ultimateDumpDate == '':
+#  print("Unfortunately, there is no completed dump available presently, aborting!")
+#  sys.exit(1)
+#print(f"Newest completed dump is: {ultimateDumpDate}")
 
 # Download the *-pages-articles.xml.bz2 file for the latest completed dump. E.g.:
 #  https://mirror.accum.se/mirror/wikimedia.org/dumps/fiwiktionary/20250401/fiwiktionary-20250401-pages-articles.xml.bz2
@@ -207,7 +218,7 @@ except FileNotFoundError as fe:
 except Exception as e:
   print(e)
   traceback.print_exc()
-
+  
   print(f"Might want to try downloading the penultimate dump instead: {penUltimateDumpDate}")
   
   raise e
