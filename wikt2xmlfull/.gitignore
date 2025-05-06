@@ -8,4 +8,5 @@
 /wiktionary.to.xml.full.ReadStripped.log.lck
 /.metadata/
 /target/
-/wiktionary.to.xml.full.ReadStripped.log.1
+/wiktionary.to.xml.full.ReadStripped.*.log
+/wiktionary.to.xml.full.ReadStripped.*.log.1

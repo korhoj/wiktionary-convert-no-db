@@ -1,0 +1,442 @@
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi main
+INFO: Input: langs/fi/langs-in.html
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi main
+INFO: Output: G:\Temp\wiktionary-dumps\parselangs-fi-ALL-language_codes.csv
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+WARNING: inFile: 'langs/fi/langs-in.html'
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+WARNING: outFile: 'G:\Temp\wiktionary-dumps\parselangs-fi-ALL-language_codes.csv'
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO:  trying to open input again, as: 'src/langs/fi/langs-in.html'
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ab: Abhaasi
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: aa: Afar
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: af: Afrikaans
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ay: Aimara
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ak: Akan
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: nds: Alasaksa
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: sq: Albania
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ale: Aleutti
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: am: Amhara
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ar: Arabia
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: an: Aragonia
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: arc: Aramea
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: hy: Armenia
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: rup: Aromania
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: as: Assami
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ast: Asturia
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: av: Avaari
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: az: Azeri
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: bm: Bambara
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: eu: Baski
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ba: Baškiiri
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: bn: Bengali
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: bh: Bihari
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: bi: Bislama
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: bs: Bosnia
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: br: Bretoni
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: bg: Bulgaria
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: my: Burma
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ceb: Cebuano
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ch: Chamorro
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: cho: Choctaw
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: Processed 1000 lines
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: chr: Cherokee
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: chy: Cheyenne
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: cr: Cree
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: dv: Divehi
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: dz: Dzongkha
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: als: Elsassi
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: en: Englanti
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: myv: Ersä
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: es: Espanja
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: eo: Esperanto
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ee: Eveeni
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: fj: Fidži
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: fy: Friisi
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: fur: Friuli
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ff: Fulani
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: fo: Fääri
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: gd: Gaeli
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: gl: Galicia
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: lg: Ganda
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ka: Georgia
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: gn: Guarani
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: gu: Gudžarati
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: got: Gootti
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ht: Haiti
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ha: Hausa
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: haw: Havaiji
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: he: Heprea
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: hz: Herero
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: hi: Hindi
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ho: Hiri-motu
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: nl: Hollanti
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: io: Ido
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ig: Igbo
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ga: Iiri
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ilo: Iloko
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: id: Indonesia
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ia: Interlingua
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ie: Interlingue
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: iu: Inuktitut
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ik: Inupiaq
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: is: Islanti
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: it: Italia
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: jv: Jaava
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ja: Japani
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: yi: Jiddiš
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: yo: Joruba
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: kl: Kalaallisut
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: kn: Kannada
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: kr: Kanuri
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: kaa: Karakalpakki
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: fiu-kar: Karjala
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: kk: Kazakki
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ks: Kašmiri
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: csb: Kašubi
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ca: Katalaani
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: qu: Ketšua
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: km: Khmer
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: zh: Kiina
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ki: Kikuju
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ky: Kirgiisi
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: kv: Komi
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: kg: Kongo
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ko: Korea
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: kw: Korni
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: co: Korsika
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: el: Kreikka
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: hr: Kroaatti
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: kj: Kuanjama
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ku: Kurdi
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: cy: Kymri
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: lad: Ladino
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: lo: Lao
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: la: Latina
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: lv: Latvia
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: lb: Letzeburg
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: lt: Liettua
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: li: Limburgi
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ln: Lingala
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: jbo: Lojban
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: mg: Malagasi
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ms: Malaiji
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ml: Malajalam
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: mt: Malta
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: mr: Marathi
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: mk: Makedonia
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: gv: Manx
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: mi: Maori
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: mh: Marshall
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: zh-min-nan: Min-kiina
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: mo: Moldova
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: mdf: Mokša
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: mn: Mongoli
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ang: Muinaisenglanti
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: mus: Muskogi
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: nah: Nahuatl
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: nap: Napoli
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: na: Nauru
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: nv: Navaho
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ng: Ndonga
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ne: Nepali
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: no: Norja
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: xal: Oiraatti
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: oc: Oksitaani
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: or: Orija
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: om: Oromo
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: os: Osseetti
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: pi: Pali
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: pa: Pandžabi
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: pam: Pampanga
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ps: Pašto
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: fa: Persia
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ii: Pohjois-ji
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: se: Pohjoissaame
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: pt: Portugali
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: pl: Puola
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: fr: Ranska
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: rm: Retoromaani
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ro: Romania
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: rw: Ruanda
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: rn: Rundi
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: sv: Ruotsi
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: de: Saksa
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: sm: Samoa
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: sg: Sango
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: sa: Sanskrit
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: sc: Sardi
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: sr: Serbia
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: sn: Shona
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: sd: Sindhi
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: si: Singali
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: scn: Sisilia
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ss: Siswati
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: sco: Skotti
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: sk: Slovakki
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: sl: Sloveeni
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: so: Somali
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: st: Sotho
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: su: Sunda
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+WARNING: fi: Suomi - TODO added, but this is a hack only!
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: sw: Swahili
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: tg: Tadžikki
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: tl: Tagalog
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ty: Tahiti
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ta: Tamili
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: da: Tanska
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: tt: Tataari
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: te: Telugu
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: th: Thai
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ti: Tigrinja
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: bo: Tiibet
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: tokipona: Toki pona
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: tpi: Tok-pisin
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: to: Tonga
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: cs: Tšekki
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ce: Tšetšeeni
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ny: Tšewa
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ts: Tsonga
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: cv: Tšuvassi
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: tn: Tswana
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: tum: Tumbuka
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: tr: Turkki
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: tk: Turkmeeni
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: tyv: Tuva
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: tw: Twi
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: udm: Udmurtti
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ug: Uiguuri
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: uk: Ukraina
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: hu: Unkari
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ur: Urdu
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: uz: Uzbekki
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: wa: Valloni
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ve: Venda
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: ru: Venäjä
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: vi: Vietnam
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: et: Viro
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: vo: Volapük
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: fiu-vro: Võro
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: war: Waray
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: wo: Wolof
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: xh: Xhosa
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: za: Zhuang
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: zu: Zulu
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: Processed 2000 lines
+touko 06, 2025 10:04:07 AP. wiktionary.to.xml.full.ParseLangsFi process
+INFO: Ended processing. Processed 2085 lines
