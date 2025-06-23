@@ -46,15 +46,12 @@ Optionally one can also supply a mirror site URL as the 2nd parameter. The code 
 Run the script for all the languages you want to download.
 E.g., here we run it in cmd.exe for English and Finnish:
 
-  %LOCALAPPDATA%\Programs\Python\Python312\python.exe g:/Dropbox/Docs/Programming/Python/dlWiktionary/dlWiktionary.py en
+  py %WIKTGIT%/Scripts/dlWiktionaries/dlWiktionary.py en
     Using param lang='en'
     Newest completed dump is: 20250401
     File https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20250401/enwiktionary-20250401-pages-articles.xml.bz2 had not been downloaded yet. Downloading
     Downloading https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20250401/enwiktionary-20250401-pages-articles.xml.bz2
     Ready.
-
-  %LOCALAPPDATA%\Programs\Python\Python312\python.exe g:/Dropbox/Docs/Programming/Python/dlWiktionary/dlWiktionary.py fi
-  ...
 
 If the script finds an already existing file having the name of the newest dump file, it checks the file size. If the file size is:
   - Smaller than 1 000 000 B, the script attempts to redownload the file, overwriting the existing one. This is mainly because very small files are probably merely 404's or such HTTP error documents. E.g.:
@@ -64,6 +61,10 @@ If the script finds an already existing file having the name of the newest dump 
     File https://mirror.accum.se/mirror/wikimedia.org/dumps/elwiktionary/20250401/elwiktionary-20250401-pages-articles.xml.bz2 already found, but with a small size: 13, so redownloading it
     Downloading https://mirror.accum.se/mirror/wikimedia.org/dumps/elwiktionary/20250401/elwiktionary-20250401-pages-articles.xml.bz2
     Ready.
+
+Or run this script to download the Wiktionary dumps for all supported languages:
+  
+  %WIKTGIT%\Scripts\dlWiktionaries\dlAllWiktionaries.cmd
   
   - At least 1 000 000 B, the script aborts the download. E.g.:
     

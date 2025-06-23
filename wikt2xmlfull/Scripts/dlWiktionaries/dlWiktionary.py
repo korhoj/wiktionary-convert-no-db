@@ -8,10 +8,16 @@ from bs4.diagnose import diagnose
 import sys
 import traceback
 
-# In Windows, in a PS shell, run this app e.g. like this:
-## & C:/Users/korho/AppData/Local/Programs/Python/Python312/python.exe g:/Dropbox/Docs/Programming/Python/YoutubeDL/dlWiktionary.py en
-# In Windows, in a cmd shell, run like this:
-## %LOCALAPPDATA%\Programs\Python\Python312\python.exe g:/Dropbox/Docs/Programming/Python/YoutubeDL/dlWiktionary.py en
+# EITHER:
+## In Windows, in a cmd shell, run this app like this:
+### py %WIKTGIT%/Scripts/dlWiktionaries/dlWiktionary.py en
+
+# OR:
+
+## In Windows, in a PS shell, run this app like this:
+### & py $Env:WIKTGIT/Scripts/dlWiktionaries/dlWiktionary.py en
+## or:
+### & $Env:LOCALAPPDATA/Programs/Python/Python312/python.exe $Env:WIKTGIT/Scripts/dlWiktionaries/dlWiktionary.py en
 
 lang = 'fi'
 mirrorSite = 'https://mirror.accum.se/mirror/wikimedia.org/dumps/'
