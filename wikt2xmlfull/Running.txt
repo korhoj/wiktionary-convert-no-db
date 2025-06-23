@@ -322,8 +322,28 @@ Then run the script you changed.
 F. UPDATING LANGUAGES SUPPORTED BY ReadStripped
 ===============================================
 
+F1. Finnish Wiktionary
+
+1. Download https://fi.wiktionary.org/wiki/Wikisanakirja:Luettelo_kielikoodeista
+and store it in Eclipse over the existing langs/fi/langs-in.html
+2. Run Scripts\ParseLangs\ParseLangs fiwiktionary.cmd
+  It overwrites the existing langs/fi/fi-language_codes.csv
+3. In Eclipse, copy langs/fi/fi-language_codes.csv over the existing
+src/langs/fi-ALL-language codes.csv
+
+F2. English Wiktionary
+
+1. Run the Python script for downloading the language codes:
+  py %WIKTGIT%/Scripts/ParseLangs/dlEngLangs.py
+2. Run the Python script for parsing the language codes:
+  py %WIKTGIT%/Scripts/ParseLangs/ParseLangs enwiktionary.py
+3. In Eclipse, copy en-language codes-by-parseEnglLangs.csv over the existing
+src/langs/en-ALL-language codes.csv
+
+F3. General info
+
 When you export the runnable JAR in Eclipse, the *.csv files in src/ get packaged
-in the JAR. They are CSV files containing the language codes (unique abbroviations) and names
+in the JAR. They are CSV files containing the language codes (unique abbreviations) and names
 used in Wiktionaries of various languages.   
 
 While running, ReadStripped reads in, based on the parameters, one of the CSV files.

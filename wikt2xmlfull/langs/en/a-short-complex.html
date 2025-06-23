@@ -1,0 +1,60 @@
+<dd>Now <code>3</code>.</dd>
+<dt><code>scripts</code></dt>
+<dd>Now <code>4</code>.</dd></dl>
+<br style="clear: both;"></div>
+<div class="mw-highlight mw-highlight-lang-lua mw-content-ltr mw-highlight-lines" dir="ltr"><pre><span></span><span id="L-1"><a href="#L-1"><span class="linenos" data-line="1"></span></a><span class="kd">local</span> <span class="n">m_langdata</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">"Module:languages/data"</span><span class="p">)</span>
+</span><span id="L-2"><a href="#L-2"><span class="linenos" data-line="2"></span></a>
+</span><span id="L-3"><a href="#L-3"><span class="linenos" data-line="3"></span></a><span class="c1">-- Loaded on demand, as it may not be needed (depending on the data).</span>
+</span><span id="L-4"><a href="#L-4"><span class="linenos" data-line="4"></span></a><span class="kd">local</span> <span class="kr">function</span> <span class="nf">u</span><span class="p">(...)</span>
+</span><span id="L-5"><a href="#L-5"><span class="linenos" data-line="5"></span></a>	<span class="n">u</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">"Module:string utilities"</span><span class="p">).</span><span class="n">char</span>
+</span><span id="L-6"><a href="#L-6"><span class="linenos" data-line="6"></span></a>	<span class="kr">return</span> <span class="n">u</span><span class="p">(...)</span>
+</span><span id="L-7"><a href="#L-7"><span class="linenos" data-line="7"></span></a><span class="kr">end</span>
+</span><span id="L-8"><a href="#L-8"><span class="linenos" data-line="8"></span></a>
+</span><span id="L-9"><a href="#L-9"><span class="linenos" data-line="9"></span></a><span class="kd">local</span> <span class="n">c</span> <span class="o">=</span> <span class="n">m_langdata</span><span class="p">.</span><span class="n">chars</span>
+</span><span id="L-10"><a href="#L-10"><span class="linenos" data-line="10"></span></a><span class="kd">local</span> <span class="n">p</span> <span class="o">=</span> <span class="n">m_langdata</span><span class="p">.</span><span class="n">puaChars</span>
+</span><span id="L-11"><a href="#L-11"><span class="linenos" data-line="11"></span></a><span class="kd">local</span> <span class="n">s</span> <span class="o">=</span> <span class="n">m_langdata</span><span class="p">.</span><span class="n">shared</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos" data-line="12"></span></a>
+</span><span id="L-13"><a href="#L-13"><span class="linenos" data-line="13"></span></a><span class="kd">local</span> <span class="n">m</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="L-14"><a href="#L-14"><span class="linenos" data-line="14"></span></a>
+</span><span id="L-15"><a href="#L-15"><span class="linenos" data-line="15"></span></a><span class="n">m</span><span class="p">[</span><span class="s2">"aaa"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="L-16"><a href="#L-16"><span class="linenos" data-line="16"></span></a>	<span class="s2">"Ghotuo"</span><span class="p">,</span>
+</span><span id="L-17"><a href="#L-17"><span class="linenos" data-line="17"></span></a>	<span class="mi">35463</span><span class="p">,</span>
+</span><span id="L-18"><a href="#L-18"><span class="linenos" data-line="18"></span></a>	<span class="s2">"alv-yek"</span><span class="p">,</span>
+</span><span id="L-19"><a href="#L-19"><span class="linenos" data-line="19"></span></a>	<span class="s2">"Latn"</span><span class="p">,</span>
+</span><span id="L-20"><a href="#L-20"><span class="linenos" data-line="20"></span></a><span class="p">}</span>
+</span><span id="L-21"><a href="#L-21"><span class="linenos" data-line="21"></span></a>
+</span><span id="L-21"><a href="#L-21"><span class="linenos" data-line="21"></span></a>
+</span><span id="L-22"><a href="#L-22"><span class="linenos" data-line="22"></span></a><span class="n">m</span><span class="p">[</span><span class="s2">"aab"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="L-23"><a href="#L-23"><span class="linenos" data-line="23"></span></a>	<span class="s2">"Alumu-Tesu"</span><span class="p">,</span>
+</span><span id="L-24"><a href="#L-24"><span class="linenos" data-line="24"></span></a>	<span class="mi">35034</span><span class="p">,</span>
+</span><span id="L-25"><a href="#L-25"><span class="linenos" data-line="25"></span></a>	<span class="s2">"nic-alu"</span><span class="p">,</span>
+</span><span id="L-26"><a href="#L-26"><span class="linenos" data-line="26"></span></a>	<span class="s2">"Latn"</span><span class="p">,</span>
+</span>
+<span id="L-1985"><a href="#L-1985"><span class="linenos" data-line="1985"></span></a>
+</span><span id="L-1986"><a href="#L-1986"><span class="linenos" data-line="1986"></span></a><span class="n">m</span><span class="p">[</span><span class="s2">"ani"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="L-1987"><a href="#L-1987"><span class="linenos" data-line="1987"></span></a>	<span class="s2">"Andi"</span><span class="p">,</span>
+</span><span id="L-1988"><a href="#L-1988"><span class="linenos" data-line="1988"></span></a>	<span class="mi">34849</span><span class="p">,</span>
+</span><span id="L-1989"><a href="#L-1989"><span class="linenos" data-line="1989"></span></a>	<span class="s2">"cau-and"</span><span class="p">,</span>
+</span><span id="L-1990"><a href="#L-1990"><span class="linenos" data-line="1990"></span></a>	<span class="s2">"Cyrl"</span><span class="p">,</span>
+</span><span id="L-1991"><a href="#L-1991"><span class="linenos" data-line="1991"></span></a>	<span class="n">translit</span> <span class="o">=</span> <span class="s2">"cau-nec-translit"</span><span class="p">,</span>
+</span><span id="L-1992"><a href="#L-1992"><span class="linenos" data-line="1992"></span></a>	<span class="n">override_translit</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+</span><span id="L-1993"><a href="#L-1993"><span class="linenos" data-line="1993"></span></a>	<span class="n">display_text</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="s2">"cau-Cyrl-displaytext"</span><span class="p">],</span>
+</span><span id="L-1994"><a href="#L-1994"><span class="linenos" data-line="1994"></span></a>	<span class="n">entry_name</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="s2">"cau-Cyrl-entryname"</span><span class="p">],</span>
+</span><span id="L-1995"><a href="#L-1995"><span class="linenos" data-line="1995"></span></a><span class="p">}</span>
+</span><span id="L-1996"><a href="#L-1996"><span class="linenos" data-line="1996"></span></a>
+</span><span id="L-1997"><a href="#L-1997"><span class="linenos" data-line="1997"></span></a><span class="n">m</span><span class="p">[</span><span class="s2">"anj"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="L-1998"><a href="#L-1998"><span class="linenos" data-line="1998"></span></a>	<span class="s2">"Anor"</span><span class="p">,</span>
+</span><span id="L-1999"><a href="#L-1999"><span class="linenos" data-line="1999"></span></a>	<span class="mi">56458</span><span class="p">,</span>
+</span><span id="L-2000"><a href="#L-2000"><span class="linenos" data-line="2000"></span></a>	<span class="s2">"paa"</span><span class="p">,</span>
+</span><span id="L-2001"><a href="#L-2001"><span class="linenos" data-line="2001"></span></a>	<span class="s2">"Latn"</span><span class="p">,</span>
+</span><span id="L-2002"><a href="#L-2002"><span class="linenos" data-line="2002"></span></a><span class="p">}</span>
+</span><span id="L-2119"><a href="#L-2119"><span class="linenos" data-line="2119"></span></a>
+</span><span id="L-2120"><a href="#L-2120"><span class="linenos" data-line="2120"></span></a><span class="n">m</span><span class="p">[</span><span class="s2">"aoa"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="L-2121"><a href="#L-2121"><span class="linenos" data-line="2121"></span></a>	<span class="s2">"Angolar"</span><span class="p">,</span>
+</span><span id="L-2122"><a href="#L-2122"><span class="linenos" data-line="2122"></span></a>	<span class="mi">34994</span><span class="p">,</span>
+</span><span id="L-2123"><a href="#L-2123"><span class="linenos" data-line="2123"></span></a>	<span class="s2">"crp"</span><span class="p">,</span>
+</span><span id="L-2124"><a href="#L-2124"><span class="linenos" data-line="2124"></span></a>	<span class="s2">"Latn"</span><span class="p">,</span>
+</span><span id="L-2125"><a href="#L-2125"><span class="linenos" data-line="2125"></span></a>	<span class="n">ancestors</span> <span class="o">=</span> <span class="s2">"pt"</span><span class="p">,</span>
+</span><span id="L-2126"><a href="#L-2126"><span class="linenos" data-line="2126"></span></a><span class="p">}</span>
+</span>
+</pre>

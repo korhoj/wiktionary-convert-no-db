@@ -15,10 +15,9 @@ if "%JAVA_HOME%"=="" set JAVA_HOME=C:\Usr\jdk-24
 rem This variable is used if this script is run directly.
 rem   Change LANG to the language you use.
 rem It is overridden by command line parameter %1 by language specific scripts.
-rem set EDITION=20250401
 set LANG=en
 set LANGUCBEG=En
-rem Language specific scripts, e.g. "StripNamespaces elwiktionary.cmd" call passing LANG as param
+rem Language specific scripts, e.g. "ParseLangs fiwiktionary.cmd" call passing params
 if not "%1"=="" set LANG=%1
 if not "%2"=="" set LANGUCBEG=%2
 
