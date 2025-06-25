@@ -335,10 +335,32 @@ F2. English Wiktionary
 
 1. Run the Python script for downloading the language codes:
   py %WIKTGIT%/Scripts/ParseLangs/dlEngLangs.py
-2. Run the Python script for parsing the language codes:
-  py %WIKTGIT%/Scripts/ParseLangs/ParseLangs enwiktionary.py
-3. In Eclipse, copy en-language codes-by-parseEnglLangs.csv over the existing
+2. Run the cmd script for parsing and combining the language codes:
+  "%WIKTGIT%/Scripts/ParseLangs/ParseLangs enwiktionary.cmd"
+  
+  N.b. It parses the lang codes generating the letter specific files a.csv .. z.csv, and calls
+   "ParseLangs enwiktionary-combine.cmd", which combines the generated files
+   with a header row, "langs/en/en-2_letter-language codes.csv" (hand created for now) and
+   "langs/en/en-extra_non_generated-language codes.csv" (partially hand-created, see below)
+  
+  A previously (before these scripts existed) hand-created
+  "langs/en/old-en-language codes.csv" contained a couple of thousand more definitions (lines) than the generated one: 7732 vs. 5511.
+  At least the "Proto-" definitions were missing.
+  The "ParseLangs enwiktionary-combine.cmd" uses grep to find out added lines,
+  writing them into "langs/en/out/gen-sorted-added.txt": 
+    grep -xvFf sorted-2_and_3.csv ../old-en-ALL-language\ codes.csv > gen-sorted-added.txt
+  Copy the gen-sorted-added.txt over the previously generated one, which is in: 
+    "langs/en/out/en-extra_non_generated-language codes.csv".
+    Remove the first line (the header, e.g. "name;abr"), and the last, empty line.
+    Then run "ParseLangs enwiktionary-combine.cmd" again, and it will
+    use the new "en-extra_non_generated-language codes.csv" when it creates
+    the final result into "langs/en/out/en-ALL-language codes.csv".
+    It also creates an empty "gen-sorted-added.txt" then.
+3. In Eclipse, copy "langs/en/out/en-ALL-language codes.csv" over the existing
 src/langs/en-ALL-language codes.csv
+3. Fix the new "src/langs/en-ALL-language codes.csv" by deleting the last line.
+ It is some kind of a control code "", coming from the last line of a.csv. 
+5. Create a new jar in Eclipse, so it includes the new version of src/langs/en-ALL-language codes.csv 
 
 F3. General info
 

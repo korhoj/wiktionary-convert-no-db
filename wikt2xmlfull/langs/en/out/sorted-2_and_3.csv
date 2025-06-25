@@ -1,12 +1,8 @@
-name;abr
 'Are'are;alu
-'Auhelawa;kud
-ǃKung;khi-kun
 ǃXóõ;nmn
 Àhàn;ahn
 ǀXam;xam
 ǂHoan;huc
-ǂKxʼauǁʼein;aue
 Ömie;aom
 Önge;oon
 ǁAni;hnh
@@ -16,7 +12,6 @@ name;abr
 Äiwoo;nfl
 Äynu;aib
 A'ou;aou
-A'tong;aot
 A-Hmao;hmd
 A-Pucikwar;apq
 Aari;aiw
@@ -26,22 +21,18 @@ Aba;utp
 Abaga;abg
 Abai Sungai;abf
 Abanyom;abm
-Abar;mij
 Abau;aau
 Abaza;abq
 Abenaki;abe
 Abenlen Ayta;abp
-Abewa;aum
 Abidji;abi
 Abinomn;bsa
 Abipón;axb
-Abipon;axb
 Abishira;ash
 Abkhaz;ab
 Abom;aob
 Abon;abo
 Abron;abr
-Abu' Arapesh;aah
 Abu';aah
 Abu;ado
 Abua;abn
@@ -50,35 +41,28 @@ Abun;kgr
 Abung;abl
 Abure;abu
 Abureni;mgj
-Acadian French;fra-aca
 Acatepec Me'phaa;tpx
 Acehnese;ace
 Aché;guq
 Achagua;aca
 Achang;acn
-Ache;yif
 Acheron;acz
 Achi;acr
 Acholi;ach
 Achuar;acu
 Achumawi;acv
 Acroá;acs
-Adabe;adb
-Adai;xad
-Adamawa Fulfulde;fub
 Adamorobe Sign Language;ads
 Adang;adn
 Adangbe;adq
 Adangme;ada
 Adap;adp
-Adasen;tiu
 Adele;ade
 Adhola;adh
 Adi;adi
 Adioukrou;adj
 Adithinngithigh;dth
 Adivasi Odia;ort
-Adivasi Oriya;ort
 Adiwasi Garasia;gas
 Adja;ajg
 Adnyamathanha;adt
@@ -91,9 +75,8 @@ Aekyom;awi
 Aequian;xae
 Aer;aeq
 Afade;aal
-Afghan Sign Language;afg
+Afar;aa
 Afitti;aft
-Afra;ulf
 Afrihili;afh
 Afrikaans;af
 Afro-Seminole Creole;afs
@@ -102,24 +85,19 @@ Agariya;agi
 Agatu;agc
 Agavotaguerra;avo
 Aghem;agq
-Aghu Tharnggalu;ggr
 Aghu Tharrnggala;gtu
 Aghu;ahh
 Aghul;agx
 Aghwan;xag
 Agi;aif
-Agob;kit
 Agoi;ibm
 Aguacateca;agu
-Aguacateco;agu
-Aguano;aga
 Aguaruna;agr
 Aguna;aug
 Agusan Manobo;msm
 Agutaynen;agn
 Agwagwune;yay
 Ahanta;aha
-Aheu;thm
 Ahirani;ahr
 Ahom;aho
 Ahtna;aht
@@ -128,7 +106,6 @@ Ai-Cham;aih
 Aighon;aix
 Aikanã;tba
 Aiklep;mwg
-Aimaq;aiq
 Aimele;ail
 Aimol;aim
 Ainbai;aic
@@ -137,7 +114,6 @@ Aiome;aki
 Airoran;air
 Aisi;mmq
 Aiton;aio
-Aiwoo;nfl
 Aja;aja
 Ajawa;ajw
 Ajië;aji
@@ -146,13 +122,11 @@ Ak;akq
 Aka-Bea;abj
 Aka-Bo;akm
 Aka-Cari;aci
-Aka-Jeru;akj
 Aka-Kede;akx
 Aka-Kol;aky
 Aka-Kora;ack
 Aka (Central Africa);axk
 Aka (Sudan);soh
-Aka;soh
 Akan;ak
 Akar-Bale;acl
 Akaselem;aks
@@ -179,7 +153,6 @@ Akuntsu;aqz
 Akurio;ako
 Akuwagel;bey
 Akwa;akw
-Al-Sayyid Bedouin Sign Language;syy
 Alaba;alw
 Alabama;akz
 Alabat Island Agta;dul
@@ -193,7 +166,6 @@ Alanic;xln
 Alapmunte;apv
 Alas-Kluet Batak;btz
 Alawa;alh
-Albanian Sign Language;sqk
 Albanian;sq
 Alcozauca Mixtec;xta
 Alege;alf
@@ -201,24 +173,18 @@ Alekano;gah
 Alemannic German;gsw
 Aleut;ale
 Algerian Arabic;arq
-Algerian Saharan Arabic;aao
-Algerian Sign Language;asp
 Algonquin;alq
 Ali;aiy
 Alladian;ald
 Allar;all
 Alngith;aid
-Alo Phola;ypo
 Aloápam Zapotec;zaq
-Alor;aol
 Alorese;aol
-Alsea;aes
 Alu Kurumba;xua
 Alu;mte
 Alugu;aub
 Alumu-Tesu;aab
 Alune;alp
-Aluo;yna
 Alur;alz
 Alutiiq;ems
 Alutor;alr
@@ -248,14 +214,12 @@ Ambrak;aag
 Ambul;apo
 Ambulas;abt
 Amdang;amj
-Amdo Tibetan;adx
 Amele;aey
 American Sign Language;ase
 Amganad Ifugao;ifa
 Amharic;am
 Ami;amy
 Amis;ami
-Ammonite;sem-amm
 Amo;amo
 Amol;alx
 Amoltepec Mixtec;mbz
@@ -264,28 +228,22 @@ Ampanang;apg
 Ampari Dogon;aqd
 Amri Karbi;ajz
 Amto;amt
-Amundava;adw
 Amurdag;amg
-Amuzgo;amu
 Anāl;anm
 Ana Tinga Dogon;dti
 Anaang;anw
 Anakalangu;akg
-Anal;anm
 Anam;pda
 Anambé;aan
-Anamgura;imi
 Anasi;bpo
 Ancient Greek;grc
 Ancient Ligurian;xlg
 Ancient Macedonian;xmk
 Ancient North Arabian;xna
-Ancient Zapotec;xzp
 Andai;afd
 Andajin;ajn
 Andalusian Arabic;xaa
 Andaman Creole Hindi;hca
-Andaqui;ana
 Andarum;aod
 Andegerebinha;adg
 Andh;anr
@@ -297,14 +255,12 @@ Andra-Hus;anx
 Aneityum;aty
 Anem;anz
 Aneme Wake;aby
-Anfillo;myo
 Angaataha;agm
 Angaité;aqt
 Angal Enen;aoe
 Angal Heneng;akh
 Angal;age
 Angami;njm
-Angas;anc
 Angguruk Yali;yli
 Angika;anp
 Angkamuthi;avm
@@ -313,9 +269,7 @@ Angloromani;rme
 Angolar;aoa
 Angor;agg
 Angoram;aog
-Angosturas Tunebo;tnd
 Anguthimri;awg
-Ani Phowa;ypn
 Anii;blo
 Animere;anf
 Anindilyakwa;aoi
@@ -338,11 +292,9 @@ Anus;auq
 Anuta;aud
 Anyi;any
 Anyin Morofo;mtb
-Anyin;any
 Ao;njo
 Aoheng;pni
 Aore;aor
-Ap Ma;kbx
 Apalaí;apy
 Apalachee;xap
 Apali;ena
@@ -363,23 +315,18 @@ Araki;akr
 Arakwal;rkw
 Aralle-Tabulahan;atq
 Aramaic;arc
-Aramanik;aam
 Arammba;stk
 Aranadan;aaf
-Aranama-Tamique;xrt
 Arandai;jbj
 Araona;aro
 Arapaho;arp
 Arapaso;arj
 Arara-Karo;arr
 Ararandewára;xaj
-Arawak;arw
 Araweté;awt
 Arawum;awm
-Arbëreshë Albanian;aae
 Arbore;arv
 Archi;aqc
-Ardhamagadhi Prakrit;pka
 Are;mwc
 Areba;aea
 Arem;aem
@@ -399,9 +346,6 @@ Arikara;ari
 Arikem;ait
 Arin;xrn
 Aringa;luc
-Arma;aoh
-Armazic;xrm
-Armenian Sign Language;aen
 Armenian;hy
 Aromanian;rup
 Arop-Lokep;apr
@@ -413,31 +357,23 @@ Arua;aru
 Aruamu;msy
 Aruek;aur
 Aruop;lsr
-Arutani;atx
-Arvanitika Albanian;aat
 As;asz
 Asaro'o;mtv
-Asas;asd
 Ashéninka Pajonal;cjo
 Ashéninka Perené;prq
 Asháninka;cni
 Ashe;ahs
 Ashkun;ask
-Asho Chin;csh
-Ashtiani;atn
 Asi;bno
 Asilulu;asl
 Askopan;eiv
 Asoa;asv
 Assamese;as
 Assan;xss
-Assangori;sjg
 Assiniboine;asb
 Assyrian Neo-Aramaic;aii
 Asturian;ast
-Asu;asa
 Asu;aum
-Asue Awyu;psa
 Asumboa;aua
 Asunción Mixtepec Zapotec;zoo
 Asuri;asr
@@ -455,16 +391,13 @@ Atikamekw;atj
 Atohwaim;aqm
 Atong (Cameroon);ato
 Atong (India);aot
-Atong;ato
 Atorada;aox
 Atsahuaca;atc
 Atsam;cch
 Atsugewi;atw
 Attapady Kurumba;pkr
 Attié;ati
-Atzingo Matlatzinca;ocu
 Au;avt
-Augila;auj
 Auhelawa;kud
 Aukan;djk
 Aulua;aul
@@ -475,10 +408,8 @@ Auslan;asf
 Austral;aut
 Australian Aboriginal Sign Language;asw
 Australian Kriol;rop
-Australian Manda;zma
 Austrian Sign Language;asq
 Austronesian Mari;hob
-Austronesian Mor;mhz
 Auwe;smf
 Auyana;auy
 Auye;auu
@@ -494,9 +425,7 @@ Avokaya;avu
 Awa-Cuaiquer;kwi
 Awa (China);vwa
 Awa (New Guinea);awb
-Awa;awb
 Awabakal;awk
-Awad Bing;bcu
 Awadhi;awa
 Awak;awo
 Awar;aya
@@ -510,44 +439,33 @@ Awjila;auj
 Awngi;awn
 Awngthim;gwm
 Awtuw;kmn
-Awu;yiu
 Awun;aww
 Awutu;afu
 Awyi;auw
 Axamb;ahb
-Axi Yi;yix
 Ayabadhu;ayd
-Ayautla Mazatec;vmy
 Ayere;aye
 Ayerrerenge;axe
 Ayi;ayq
-Ayizi;yyz
-Ayizo Gbe;ayb
 Ayizo;ayb
 Aymara;ay
-Aynu;aib
 Ayoquesco Zapotec;zaf
 Ayoreo;ayo
 Ayu;ayu
 Ayutla Mixtec;miy
 Azeri;az
 Azha;aza
-Azhe;yiz
 Azoyú Me'phaa;tpc
-Bädi Kanum;khd
-Baa;kwb
 Baagandji;drl
 Baan;bvj
 Baangi;bqx
 Baatonum;bba
 Baba Malay;mbf
 Baba;bbw
-Babalia Creole Arabic;bbz
 Babango;bbm
 Babanki;bbk
 Babatana;baa
 Babine-Witsuwit'en;bcr
-Babine;bcr
 Babole;bvx
 Babungo;bav
 Babuza;bzg
@@ -560,7 +478,6 @@ Badanchi;bau
 Bade;bde
 Badeshi;bdz
 Badimaya;bia
-Badui;bac
 Baduy;bac
 Badyara;pbp
 Baeggu;bvd
@@ -568,29 +485,22 @@ Baekje;pkc
 Baelelea;bvc
 Baetora;btr
 Bafanji;bfj
-Bafaw-Balong;bwt
 Bafaw;bwt
 Bafia;ksf
 Bafut;bfd
-Baga Binari;bcg
 Baga Kaloum;bqf
 Baga Koga;bgo
 Baga Manduri;bmd
-Baga Mboteni;bgm
 Baga Pokur;bcg
 Baga Sitemu;bsp
 Baga Sobané;bsv
 Bagheli;bfy
-Bagirmi Fulfulde;fui
 Bagirmi;bmi
-Bago-Kusuntu;bqg
 Bagri;bgq
 Bagupi;bpi
 Bagusa;bqb
 Bagvalal;kva
-Baha Buyang;yha
 Baham;bdw
-Bahamas Creole English;bah
 Bahamian Creole;bah
 Baharna Arabic;abv
 Bahau;bhv
@@ -601,7 +511,6 @@ Bahonsuai;bsu
 Bai;bdj
 Baibai;bbf
 Baikeno;bkx
-Baima;bqh
 Baimak;bmx
 Bainouk-Gunyaamolo;bcz
 Bainouk-Gunyuño;bab
@@ -642,7 +551,6 @@ Balti;bft
 Baltic Romani;rml
 Baluan-Pam;blq
 Baluchi;bal
-Bamako Sign Language;bog
 Bamali;bbq
 Bambalang;bmo
 Bambam;ptu
@@ -653,32 +561,24 @@ Bamenyam;bce
 Bamu;bcf
 Bamukumbit;bqt
 Bamum;bax
-Bamun;bax
 Bamunka;bvm
 Bamwe;bmg
-Ban Khor Sign Language;bfk
 Bana;bcw
-Banam Bay;vrt
 Banao Itneg;bjx
 Banaro;byz
 Banda-Bambari;liy
 Banda-Banda;bpd
 Banda-Mbrès;bqk
 Banda-Ndélé;bfl
-Banda-Yangere;yaj
-Banda (Indonesia);bnd
 Banda Malay;bpq
 Banda;bnd
 Bandi;bza
 Bandial;bqj
 Bandjalang;bdy
-Bandjigali;bjd
 Bangala;bxg
 Bangandu;bgf
 Bangba;bbe
 Banggai;bgz
-Banggarla;bjb
-Bangi Me;dba
 Bangi;bni
 Bangime;dba
 Bangka;mfb
@@ -689,16 +589,12 @@ Baniva;bvv
 Baniwa;bwi
 Banjarese;bjn
 Banka;bxw
-Bankagooma;bxw
 Bankan Tey Dogon;dbw
 Bankon;abb
-Bannoni;bcm
 Banoni;bcm
 Bantawa;bap
 Bantayanon;bfx
 Bantik;bnq
-Banyumasan;map-bms
-Baoulé;bci
 Baoule;bci
 Barí;mot
 Baré;bae
@@ -712,7 +608,6 @@ Baramu;bmz
 Barapasi;brp
 Baras;brs
 Barasana;bsn
-Barbacoas;bpb
 Barbareño;boi
 Barclayville Grebo;gry
 Bardi;bcj
@@ -726,7 +621,6 @@ Barikewa;jbk
 Barngarla;bjb
 Barok;bjk
 Barombi;bbi
-Barro Negro Tunebo;tbn
 Barrow Point;bpt
 Baruga;bjz
 Baruya;byr
@@ -749,10 +643,6 @@ Bassossi;bsi
 Bata;bta
 Bataan Ayta;ayt
 Batad Ifugao;ifb
-Batak Dairi;\N
-Batak Karo;\N
-Batak Toba;\N
-Batak;bya
 Batanga;bnm
 Batek;btq
 Bateri;btv
@@ -763,7 +653,6 @@ Bats;bbl
 Batu;btu
 Batui;zbt
 Batuley;bay
-Batyala;xby
 Bau Bidayuh;sne
 Bau;bbd
 Bauchi;bsf
@@ -781,7 +670,6 @@ Baygo;byg
 Bayono;byl
 Bayot;bda
 Bayungu;bxj
-Bazigar;bfr
 Beami;beo
 Beaver;bea
 Beba;bfp
@@ -808,13 +696,11 @@ Belanda Viri;bvi
 Belarusian;be
 Belhariya;byw
 Beli;blm
-Belize Kriol English;bzj
 Belizean Creole;bzj
 Bella Coola;blc
 Bellari;brw
 Bemba;bem
 Bembe;bmb
-Ben Tey Dogon;dbt
 Ben Tey;dbt
 Bena;yun
 Benabena;bef
@@ -826,10 +712,8 @@ Beng;nhb
 Benga;bng
 Bengali;bn
 Benggoi;bgy
-Bengkala Sign Language;bqy
 Bentong;bnu
 Benyadu';byd
-Beothuk;bue
 Bepour;bie
 Bera;brf
 Berakou;bxv
@@ -851,17 +735,13 @@ Bete;byf
 Betta Kurumba;xub
 Bezhta;kap
 Bhadrawahi;bhd
-Bhalay;bhx
 Bharia;bha
-Bhatola;btl
 Bhatri;bgw
 Bhattiyali;bht
-Bhaya;bhe
 Bhele;bhy
 Bhilali;bhi
 Bhili;bhb
 Bhojpuri;bho
-Bhoti Kinnauri;nes
 Bhunjia;bhu
 Biafada;bif
 Biage;bdf
@@ -870,11 +750,9 @@ Biali;beh
 Bian Marind;bpv
 Biangai;big
 Biao-Jiao Mien;bje
-Biao Mon;bmt
 Biao;byk
 Biatah Bidayuh;bth
 Bibaali;bcn
-Bibbulman;xbp
 Bidiyo;bid
 Bidyara;bym
 Bidyogo;bjg
@@ -890,7 +768,6 @@ Bihari;bh
 Bijori;bix
 Bikaru;bic
 Bikol Central;bcl
-Bikol;bik
 Bikya;byb
 Bila;bip
 Bilakura;bql
@@ -899,7 +776,6 @@ Bilba;bpz
 Bilbil;brz
 Bile;bil
 Biliau;bcu
-Bilma Kanuri;bms
 Biloxi;bll
 Bilua;blb
 Bilur;bxf
@@ -910,9 +786,7 @@ Bina;bmn
 Binahari;bxz
 Binandere;bhg
 Binawa;byj
-Bindal;xbd
 Bine;bon
-Bini;bin
 Binji;bpj
 Binongan Itneg;itb
 Bintauna;bne
@@ -926,11 +800,9 @@ Birgit;btf
 Birhor;biy
 Biri;bzr
 Biritai;bqq
-Birked;brk
 Birri;bvq
 Birrpayi;xbj
 Birwa;brl
-Bisaya;\N
 Biseni;ije
 Bishnupriya Manipuri;bpy
 Bishuo;bwh
@@ -941,7 +813,6 @@ Bissa;bib
 Bisu;bzi
 Bit;bgk
 Bitare;brt
-Bitur;mcc
 Biwat;bwm
 Biyo;byo
 Biyom;bpm
@@ -952,14 +823,11 @@ Blagar;beu
 Blang;blr
 Blin;byn
 Bo-Rukul;mae
-Bo-Ung;mux
-Bo;bgl
 Boano (Maluku);bzn
 Boano (Sulawesi);bzl
 Bobongko;bgb
 Bobot;bty
 Bodo (Central Africa);boy
-Bodo (Central African Republic);boy
 Bodo (India);brx
 Bodo Gadaba;gbj
 Bodo Parja;bdv
@@ -970,33 +838,28 @@ Boghom;bux
 Boguru;bqu
 Bohtan Neo-Aramaic;bhn
 Boikin;bzf
-Bokha;ybk
 Boko;bqc
 Bokobaru;bus
 Bokoto;bdt
 Bokyi;bky
 Bola;bnp
-Bolak;art-blk
 Bolango;bld
 Bole;bol
 Bolgo;bvo
 Bolia;bli
 Bolinao;smk
 Bolivian Sign Language;bvl
-Bolo;blv
 Boloki;bkt
 Bolon;bof
 Bolondo;bzm
 Bolongan;blj
 Bolyu;ply
 Bom;bmf
-Boma;boh
 Bomboli;bml
 Bomboma;bws
 Bomitaba;zmx
 Bomu;bmq
 Bomwali;bmw
-Bon Gula;glc
 Bonan;peh
 Bondei;bou
 Bondo;bfw
@@ -1011,16 +874,12 @@ Bongu;bpu
 Bonjo;bok
 Bonkeng;bvg
 Bonkiman;bop
-Bontoc;bnc
 Bookan;bnb
 Boon;bnl
 Boor;bvf
 Borôro;bor
 Bora;boa
-Borana-Arsi-Guji Oromo;gax
-Border Kuna;kvn
 Borei;gai
-Borgu Fulfulde;fue
 Borong;ksr
 Boruca;brn
 Boselewa;bwf
@@ -1028,14 +887,12 @@ Bosngun;bqs
 Bote-Majhi;bmj
 Botlikh;bph
 Botolan Sambal;sbl
-Bouna Kulango;nku
 Bouyei;pcc
 Bozaba;bzo
 Bragat;aof
 Brahui;brh
 Braj;bra
 Brazilian Sign Language;bzs
-Brek Karen;kvl
 Brem;buq
 Breri;brq
 Breton;br
@@ -1048,7 +905,6 @@ Brooke's Point Palawano;plw
 Broome Pearling Lugger Pidgin;bpl
 Brunei Bisaya;bsb
 Brunei Malay;kxd
-Brunei;kxd
 Bu-Nao Bunu;bwx
 Bu;jid
 Bua;bub
@@ -1057,7 +913,6 @@ Buamu;box
 Bube;bvb
 Bubi;buw
 Bubia;bbx
-Budeh Stieng;stt
 Budibud;btp
 Budong-Budong;bdx
 Budu;buu
@@ -1065,7 +920,6 @@ Budukh;bdk
 Buduma;bdm
 Budza;bja
 Bugan;bbh
-Bugawac;buk
 Bughotu;bgt
 Buginese;bug
 Buglere;sab
@@ -1081,24 +935,17 @@ Bukhari;bhh
 Bukit Malay;bvu
 Bukitan;bkn
 Bukiyip;ape
-Buksa;tkb
 Bukusu;bxk
-Bukwen;buz
 Bulgar;xbo
-Bulgarian Sign Language;bqn
 Bulgarian;bg
 Bulgebi;bmp
 Buli (Ghana);bwu
 Buli (Indonesia);bzq
-Bullom So;buy
 Bulo Stieng;sti
 Bulu (Cameroon);bum
 Bulu (New Guinea);bjl
-Bulu (Papua New Guinea);bjl
-Bulu;bum
 Bum;bmv
 Bumaji;byp
-Bumang;bvp
 Bumbita Arapesh;aon
 Bumthangkha;kjz
 Bun;buv
@@ -1109,15 +956,11 @@ Bunama;bdd
 Bundeli;bns
 Bung;bqd
 Bungain;but
-Bunganditj;xbg
 Bungku;bkz
 Bungu;wun
-Bunoge Dogon;dgb
 Bunoge;dgb
 Bunun;bnn
-Bunurong;aus-bun
 Buol;blf
-Bura-Pabir;bwr
 Bura Mabang;mde
 Bura;bwr
 Burak;bys
@@ -1144,7 +987,6 @@ Busa;bqp
 Busam;bxs
 Busami;bsm
 Busang Kayan;bfg
-Bushi;buc
 Bushoong;buf
 Buso;bso
 Busoa;bup
@@ -1154,10 +996,8 @@ Butbut Kalinga;kyb
 Butmas-Tur;bnr
 Butuanon;btw
 Buwal;bhs
-Buya;byy
 Buyeo;xpy
 Buyu;byi
-Buyuan Jinuo;jiy
 Bwa;bww
 Bwaidoka;bwd
 Bwanabwana;tte
@@ -1167,11 +1007,7 @@ Bwela;bwl
 Bwile;bwc
 Bwisi;bwz
 Byangsi;bee
-Byep;mkk
-Byzantine Greek;gkm
-C'lela;dri
 Cèmuhî;cam
-Côông;cnc
 Caac;msq
 Cabécar;cjp
 Cabiyarí;cbb
@@ -1181,36 +1017,24 @@ Cacgia Roglai;roc
 Cacua;cbv
 Caddo;cad
 Cafundó;ccd
-Cafundo Creole;ccd
-Cagua;cbh
 Cahuarano;cah
 Cahuilla;chl
 Cajonos Zapotec;zad
-Cajun French;frc
 Caka;ckx
-Cakchiquel-Quiché Mixed Language;ckz
-Cakchiquel;cak
 Cakfem-Mushere;cky
 Caló;rmq
-Calabrian Greek;grk-cal
 Calamian Tagbanwa;tbk
-Callawalla;caw
 Caluyanun;clu
 Camarines Norte Agta;abd
-Camba;xba
 Cameroon Mambila;mcu
 Cameroon Pidgin;wes
-Camling;rab
 Campalagian;cml
-Campidanese Sardinian;sro
 Camsá;kbh
 Camtho;cmt
-Camunic;xcc
 Candoshi-Shapra;cbu
 Canela;ram
 Canichana;caz
 Cantonese;yue
-Cao Miao;cov
 Caolan;mlc
 Capanahua;kaq
 Capiznon;cps
@@ -1241,35 +1065,23 @@ Cauca;cca
 Cavineña;cav
 Cayubaba;cyb
 Cayuga;cay
-Cayuse;xcy
-Cebaara Senoufo;sef
 Cebuano;ceb
 Celtiberian;xce
-Cemuhî;cam
 Cen;cen
 Centúúm;cet
-Central-Eastern Niger Fulfulde;fuq
 Central Asmat;cns
 Central Atlas Tamazight;tzm
 Central Awyu;awu
-Central Aymara;ayr
 Central Bai;bca
-Central Berawan;zbc
 Central Bontoc;lbk
-Central Bontok;lbk
 Central Cagayan Agta;agt
 Central Dusun;dtp
 Central Grebo;grv
-Central Hongshuihe Zhuang;zch
 Central Huasteca Nahuatl;nch
-Central Huishui Hmong;hmc
-Central Kanuri;knc
 Central Kurdish;ckb
-Central Maewo;mwo
 Central Mahuatlán Zapoteco;zam
 Central Malay;pse
 Central Masela;mxz
-Central Mashan Hmong;hmm
 Central Mazahua;maz
 Central Melanau;mel
 Central Min;czo
@@ -1295,7 +1107,6 @@ Chaap Wuurong;tjw
 Chachi;cbi
 Chadian Arabic;shu
 Chadian Sign Language;cds
-Chadong;cdy
 Chagatai;chg
 Chaima;ciy
 Chak;ckh
@@ -1304,10 +1115,8 @@ Chakma;ccp
 Chala;cll
 Chaldean Neo-Aramaic;cld
 Chali;tgf
-Chalikha;tgf
 Chamacoco;ceg
 Chamalal;cji
-Chamari;cdg
 Chamba Daka;ccg
 Chamba Leko;ndi
 Chambeali;cdh
@@ -1317,19 +1126,15 @@ Chamling;rab
 Chamorro;ch
 Chané;caj
 Chang;nbc
-Chango;snq
 Changriwa;cga
 Changthang;cna
 Chantyal;chx
 Chara;cra
-Chaudangsi;cdn
-Chaungtha;ccq
 Chaura;crv
 Chavacano;cbk
 Chayahuita;cbt
 Chayuco Mixtec;mih
 Chazumba Mixtec;xtb
-Che;ruk
 Chechen;ce
 Cheke Holo;mrn
 Chemakum;xch
@@ -1337,19 +1142,14 @@ Chenapian;cjn
 Chenchu;cde
 Chenoua;cnu
 Chepang;cdm
-Chepya;ycp
-Cheq Wong;cwg
 Cherepon;cpn
 Cherokee;chr
-Chesu;ych
 Chetco-Tolowa;ctc
-Chetco;ctc
 Chewong;cwg
 Cheyenne;chy
 Chhattisgarhi;hne
 Chhintange;ctn
 Chhulung;cur
-Chiangmai Sign Language;csd
 Chiapanec;cip
 Chibcha;chb
 Chicahuaxtla Triqui;trs
@@ -1359,7 +1159,6 @@ Chichimeca-Jonaz;pei
 Chichonyi-Chidzihana-Chikauma;coh
 Chickasaw;cic
 Chicomuceltec;cob
-Chidigo;dig
 Chiduruma;dug
 Chigmecatitlán Mixtec;mii
 Chilcotin;clc
@@ -1370,40 +1169,28 @@ Chimalapa Zoque;zoh
 Chimariko;cid
 Chimila;cbg
 Chinali;cih
-Chinbon Chin;cnb
 Chinese Pidgin English;cpi
-Chinese Sign Language;csl
-Chinese;\N
 Chinook Jargon;chn
 Chinook;chh
 Chipaya;cap
 Chipewyan;chp
-Chipiajes;cbe
 Chiquihuitlán Mazatec;maq
 Chiquitano;cax
 Chiricahua;apm
 Chiripá;nhd
 Chiru;cdf
 Chitimacha;ctm
-Chitkuli Kinnauri;cik
-Chitonga;tog
 Chittagonian;ctg
-Chitwania Tharu;the
 Chiwere;iow
 Choapan Zapotec;zpc
 Chocangaca;cgk
-Chocangacakha;cgk
 Chochotec;coz
 Choctaw;cho
 Chodri;cdi
-Chokri Naga;nri
 Chokwe;cjk
 Chol;ctu
-Cholón;cht
 Chong;cog
-Choni;cda
 Chopi;cce
-Chorasmian;xco
 Chothe Naga;nct
 Chrau;crw
 Chru;cje
@@ -1414,16 +1201,13 @@ Chug;cvg
 Chuj;cac
 Chuka;cuh
 Chukchi;ckt
-Chukwa;cuw
 Chulym;clw
 Chumburung;ncu
 Churahi;cdj
 Chut;scb
 Chuukese;chk
 Chuvan;xcv
-Chuvantsy;xcv
 Chuvash;cv
-Chuwabu;chw
 Ci Gbe;cib
 Cia-Cia;cia
 Cibak;ckl
@@ -1434,18 +1218,14 @@ Cinda-Regi-Tiyal;cdr
 Cineni;cie
 Cinta Larga;cin
 Cishingini;asg
-Citak;txt
-Ciwogai;tgd
 Classical Gaelic;ghc
 Classical Mandaic;myz
 Classical Mongolian;cmg
 Classical Nahuatl;nci
 Classical Newar;nwc
-Classical Newari;nwc
 Classical Quechua;qwc
 Classical Syriac;syc
 Classical Tibetan;xct
-Coahuilteco;xcw
 Coast Miwok;csi
 Coastal Kadazan;kzj
 Coastal Konjo;kjc
@@ -1454,7 +1234,6 @@ Coatepec Nahuatl;naz
 Coatlán Mixe;mco
 Coatlán Zapotec;zps
 Coatzospan Mixtec;miz
-Cocama-Cocamilla;cod
 Cocama;cod
 Cochimi;coj
 Cocopa;coc
@@ -1462,19 +1241,13 @@ Cocos Islands Malay;coa
 Coeur d'Alene;crd
 Cofán;con
 Cogui;kog
-Col;liw
 Colombian Sign Language;csn
 Colonia Tovar German;gct
-Colorado;cof
 Columbia-Wenatchi;col
 Comaltepec Chinantec;cco
 Comanche;com
-Comecrudo;xcm
-Communicationssprache;art-com
 Como Karim;cfg
-Comorian;\N
 Comox;coo
-Con;cno
 Coos;csz
 Copainalá Zoque;zoc
 Copala Triqui;trc
@@ -1487,17 +1260,13 @@ Corsican;co
 Cosoleacaque Nahuatl;nhk
 Costa Rican Sign Language;csr
 Cotabato Manobo;mta
-Cotoname;xcn
 Cowlitz;cow
-Coxima;kox
 Coyaima;coy
 Coyotepec Popoloca;pbf
 Coyutla Totonac;toc
 Cree;cr
 Creek;mus
-Crimean Gothic;gme-cgo
 Crimean Tatar;crh
-Croatian Sign Language;csq
 Cross River Mbembe;mfn
 Crow;cro
 Cruzeño;crz
@@ -1509,8 +1278,6 @@ Cuiba;cui
 Cuitlatec;cuy
 Culina;cul
 Cumanagoto;cuo
-Cumbric;xcb
-Cumeral;cum
 Cun;cuq
 Cung;cug
 Cupeño;cup
@@ -1528,10 +1295,8 @@ Dâw;kwa
 Da'a Kaili;kzf
 Daai Chin;dao
 Daakaka;bpa
-Daantanai';lni
 Daasanach;dsh
 Daba;dbq
-Dabarre;dbr
 Dabe;dbe
 Dacian;xdc
 Dadi Dadi;dda
@@ -1546,31 +1311,21 @@ Dagoman;dgn
 Dahalik;dlk
 Dahalo;dal
 Daho-Doo;das
-Dai Zhuang;zhd
 Dai;dij
 Dair;drb
 Dairi Batak;btd
-Dakaka;bpa
-Dakka;dkk
 Dakota;dak
 Dakpa;dka
-Dakpakha;dka
 Dalmatian;dlm
 Daloa Bété;bev
 Dama (Nigeria);dmm
-Dama;dmm
 Damakawa;dam
-Damal;uhn
 Dambi;dac
-Dameli;dml
 Dampelas;dms
-Dan;daf
 Dan;dnj
 Danaru;dnr
-Danau;dnu
 Dandami Maria;daq
 Dangaléat;daa
-Dangaura Tharu;thl
 Danish Sign Language;dsl
 Danish;da
 Dano;aso
@@ -1583,11 +1338,8 @@ Dar Fur Daju;daj
 Dar Sila Daju;dau
 Darai;dry
 Dargwa;dar
-Darkinjung;aus-dar
 Darkinjung;xda
-Darling;drl
 Darlong;dln
-Darmiya;drd
 Daro-Matu Melanau;dro
 Dass;dot
 Datooga;tcc
@@ -1599,21 +1351,16 @@ Dawera-Daweloor;ddw
 Dawro;dwr
 Day;dai
 Dayi;dax
-Daza;dzd
 Dazaga;dzg
-Deccan;dcc
 Deccani;dcc
 Dedua;ded
 Defaka;afn
 Defi Gbe;gbh
 Deg Xinag;ing
 Deg;mzw
-Degaru;dgu
 Degema;deg
 Degenan;dge
 Dehwari;deh
-Dek;dek
-Dela-Oenale;row
 Delo;ntr
 Dem;dem
 Dema;dmx
@@ -1630,14 +1377,10 @@ Deori;der
 Desano;des
 Desiya;dso
 Dewoin;dee
-Dezfuli;def
 Dghwede;dgh
 Dhaiso;dhs
 Dhalandji;dhl
 Dhangu;dhg
-Dhanki;dhn
-Dhao;nfa
-Dhargari;dhr
 Dharug;xdk
 Dhatki;mki
 Dhimal;dhi
@@ -1648,53 +1391,38 @@ Dhudhuroa;ddr
 Dhundhari;dhd
 Dhungaloo;dhx
 Dhurga;dhu
-Dhuwal;duj
 Dhuwal;dwu
 Dhuwaya;dwy
 Dia;dia
 Dibabawon Manobo;mbd
 Dibiyaso;dby
 Dibo;dio
-Dibole;bvx
 Dicamay Agta;duy
 Didinga;did
-Diebroud;tbp
 Dieri;dif
-Digaro-Mishmi;mhu
 Digo;dig
 Dii;dur
-Diitidaht;dtd
 Dijim-Bwilim;cfa
 Dilling;dil
-Dima;jma
 Dimasa;dis
 Dimbong;dii
-Dime;dim
-Dimir;dmc
 Dineor;mrx
 Ding;diz
 Dinka;din
 Diodio;ddi
-Dirari;dit
 Dirasha;gdl
 Diri;dwa
 Dirim;dir
 Disa;dsi
-Ditammari;tbz
 Ditidaht;dtd
-Diudish;diu
-Diuwe;diy
 Diuxi-Tilantongo Mixtec;xtd
 Dixon Reef;dix
 Dizin;mdx
 Djadjawurrung;dja
 Djambarrpuyngu;djr
-Djamindjung;djd
 Djangun;djf
 Djauan;djn
 Djawi;djw
-Djeebbana;djj
-Djimini Senoufo;dyi
 Djimini;dyi
 Djinang;dji
 Djinba;djb
@@ -1705,19 +1433,15 @@ Doe;doe
 Doga;dgg
 Doghoro;dgx
 Dogosé;dos
-Dogoso;dgs
 Dogri;doi
 Dogrib;dgr
-Dogul Dom Dogon;dbg
 Dogul Dom;dbg
 Doka;dbi
 Doko-Uyanga;uya
 Dolgan;dlg
-Dolpo;dre
 Dom;doa
 Domaaki;dmk
 Domari;rmt
-Dombe;dov
 Dominican Sign Language;doq
 Dompo;doy
 Domu;dof
@@ -1726,15 +1450,11 @@ Dondo;dok
 Dong;doh
 Dongo;doo
 Dongolawi;kzh
-Dongotono;ddd
-Dongshanba Lalo;yik
 Dongxiang;sce
 Donno So Dogon;dds
 Doondo;dde
 Dori'o;dor
 Dorig;wwo
-Doromu-Koki;kqc
-Dororo;drr
 Dorze;doz
 Doso;dol
 Doteli;dty
@@ -1746,13 +1466,11 @@ Drung;duu
 Duala;dua
 Duano;dup
 Duau;dva
-Dubli;dub
 Dubu;dmu
 Dugun;ndu
 Duguri;dbm
 Dugwor;dme
 Duhwa;kbz
-Duke;nke
 Dulbu;dbo
 Duli;duz
 Duma;dma
@@ -1762,13 +1480,10 @@ Dumpas;dmv
 Dumun;dui
 Duna;duc
 Dungan;dng
-Dungmali;raa
 Dungra Bhil;duh
 Dungu;dbv
-Dupaninan Agta;duo
 Dupaningan Agta;duo
 Dura;drq
-Durango Nahuatl;nln
 Duri;mvp
 Duriankere;dbn
 Duruwa;pci
@@ -1776,11 +1491,9 @@ Dusner;dsn
 Dusun Deyah;dun
 Dusun Malang;duq
 Dusun Witu;duw
-Dutch Low Saxon;nds-nl
 Dutch Sign Language;dse
 Dutch;nl
 Duun;dux
-Duungooma;dux
 Duupa;dae
 Duvle;duv
 Duwai;dbp
@@ -1793,77 +1506,51 @@ Dyangadi;dyn
 Dyirbal;dbl
 Dyugun;dyd
 Dyula;dyu
-Dzùùngoo;dnn
-Dza;jen
 Dzala;dzl
-Dzalakha;dzl
 Dzando;dzn
-Dzao Min;bpn
 Dzodinka;add
 Dzongkha;dz
 Dzuun;dnn
-E'ma Buyang;yzg
 E;eee
-Early Tripuri;xtr
-East Ambae;omb
-East Berawan;zbe
 East Damar;dmr
 East Franconian;vmf
 East Futuna;fud
-East Kewa;kjs
-East Limba;lma
 East Makian;mky
 East Masela;vme
 East Nyala;nle
-East Tarangan;tre
 East Yugur;yuy
 Eastern Acipa;acp
 Eastern Arrernte;aer
-Eastern Balochi;bgp
 Eastern Bolivian Guaraní;gui
 Eastern Bontoc;ebk
-Eastern Bontok;ebk
 Eastern Bru;bru
 Eastern Canadian Inuktitut;ike
 Eastern Cham;cjm
 Eastern Durango Nahuatl;azd
-Eastern Egyptian Bedawi Arabic;avl
-Eastern Frisian;frs
 Eastern Gorkha Tamang;tge
 Eastern Gurung;ggn
 Eastern Highland Chatino;cly
 Eastern Highland Otomi;otm
-Eastern Hongshuihe Zhuang;zeh
 Eastern Huasteca Nahuatl;nhe
-Eastern Huishui Hmong;hme
-Eastern Karaboro;xrb
 Eastern Katu;ktv
 Eastern Kayah;eky
 Eastern Keres;kee
-Eastern Krahn;kqo
-Eastern Lalu;yit
 Eastern Lawa;lwl
 Eastern Magar;mgp
 Eastern Maninkakan;emk
-Eastern Mari;chm
 Eastern Mari;mhr
 Eastern Meohang;emg
 Eastern Min;cdo
 Eastern Mnong;mng
-Eastern Muria;emu
 Eastern Ngad'a;nea
-Eastern Nisu;nos
 Eastern Ojibwa;ojg
 Eastern Parbate Kham;kif
 Eastern Penan;pez
-Eastern Persian;prs
 Eastern Pomo;peb
 Eastern Pwo;kjp
-Eastern Qiandong Miao;hmq
 Eastern Subanun;sfe
 Eastern Tamang;taj
 Eastern Tawbuid;bnj
-Eastern Xiangxi Miao;muq
 Eastern Xwla Gbe;gbx
 Ebira;igb
 Eblaite;xeb
@@ -1887,7 +1574,6 @@ Efutop;ofu
 Ega;ega
 Eggon;ego
 Egyptian Arabic;arz
-Egyptian Sign Language;esl
 Egyptian;egy
 Ehueun;ehu
 Eipomek;eip
@@ -1906,18 +1592,14 @@ El Molo;elo
 Elamite;elx
 Eleme;elm
 Elepi;ele
-Elfdalian;dlc
 Elfdalian;ovd
 Elip;ekm
 Elkei;elk
-Eloi;art-elo
 Elotepec Zapotec;zte
 Eloyi;afo
-Elseng;mrf
 Elu;elu
 Elymian;xly
 Emae;mmw
-Emai-Iuleha-Ora;ema
 Emai;ema
 Eman;emn
 Embaloh;emb
@@ -1926,10 +1608,8 @@ Emberá-Catío;cto
 Emberá-Chamí;cmi
 Emberá-Tadó;tdc
 Embu;ebu
-Emem;enr
 Emerillon;eme
 Emilian;egl
-Emok;emo
 Emplawas;emw
 En;enc
 Enawené-Nawé;unk
@@ -1939,19 +1619,15 @@ Engenni;enn
 Enggano;eno
 English;en
 Enlhet;enl
-Enrekang;ptt
-Enu;enu
 Enwan;env
 Enwang;enw
 Enxet;enx
 Enya;gey
 Eotile;eot
 Epena;sja
-Epi-Olmec;xep
 Epie;epi
 Epigraphic Mayan;emy
 Eravallan;era
-Erave;kjy
 Ere;twp
 Eritai;ert
 Erokwanas;erw
@@ -1975,9 +1651,6 @@ Esuma;esm
 Etchemin;etc
 Etebi;etb
 Eten;etx
-Eteocretan;ecr
-Eteocypriot;ecy
-Ethiopian Sign Language;eth
 Etkywan;ich
 Eton (Cameroon);eto
 Eton (Vanuatu);etn
@@ -1986,7 +1659,6 @@ Etulo;utr
 Evant;bzz
 Even;eve
 Evenki;evn
-Ewage-Notu;nou
 Ewe;ee
 Ewondo;ewo
 Extremaduran;ext
@@ -2006,10 +1678,7 @@ Fanagalo;fng
 Fanamaket;bjp
 Fang (Bantu);fan
 Fang (Beboid);fak
-Fang;fak
 Fania;fni
-Fanti;fat
-Far Western Muria;fmu
 Farefare;gur
 Faroese;fo
 Fas;fqs
@@ -2033,7 +1702,6 @@ Finongan;fag
 Fipa;fip
 Firan;fir
 Fiwaga;fiw
-Flemish Sign Language;vgt
 Flinders Island;fln
 Foau;flh
 Foi;foi
@@ -2051,8 +1719,6 @@ Fortsenal;frt
 Fox;sac
 Francisco León Zoque;zos
 Franco-Provençal;frp
-Frankish;frk
-French Belgian Sign Language;sfb
 French Sign Language;fsl
 French;fr
 Friulian;fur
@@ -2072,18 +1738,14 @@ Fyer;fie
 Ga'anda;gqa
 Ga'dang;gdg
 Ga;gaa
-Gaa;ttb
 Gaam;tbi
 Gabadi;kbt
-Gabi-Gabi;gbw
-Gabi;aus-gab
 Gabi;gbw
 Gabri;gab
 Gabrielino-Fernandeño;xgf
 Gadang;gdk
 Gaddang;gad
 Gaddi;gbk
-Gade Lohar;gda
 Gade;ged
 Gadjerawang;gdh
 Gadsup;gaj
@@ -2093,27 +1755,20 @@ Gagauz;gag
 Gagnoa Bété;btg
 Gahri;bfu
 Gaikundi;gbf
-Gail;gic
 Gaina;gcn
 Gal;gap
 Galambu;glo
 Galatian;xga
 Galela;gbi
 Galeya;gar
-Galibi Carib;car
 Galice;gce
 Galician;gl
-Galindan;xgl
 Galindian;xgl
-Gallo;roa-gal
-Gallurese Sardinian;sdn
 Gallurese;sdn
 Galo;adl
 Galoli;gal
-Gam;kmc
 Gamale Kham;kgj
 Gambera;gma
-Gambian Wolof;wof
 Gamilaraay;kld
 Gamit;gbl
 Gamkonora;gak
@@ -2126,44 +1781,32 @@ Gandhari;pgd
 Gane;gzn
 Ganggalida;gcd
 Ganglau;ggl
-Gangte;gnb
-Gangulu;gnl
 Gants;gao
 Ganza;gza
 Ganzi;gnz
 Gao;gga
 Gapapaiwa;pwg
-Garawa;gbc
 Garawa;wrk
 Garhwali;gbm
 Garifuna;cab
-Garingbal;xgi
 Garo;grt
 Garre;gex
 Garus;gyb
-Garza;xgr
-Gata';gaq
-Gaulish;cel-gau
 Gavak;dmc
-Gavar;gou
-Gavião Do Jiparaná;gvo
 Gavião do Jiparaná;gvo
 Gawar-Bati;gwt
 Gawwada;gwd
 Gaya;zra
 Gayil;gyl
 Gayo;gay
-Gazi;gzi
 Gbagyi;gbr
 Gban;ggu
 Gbanu;gbv
 Gbanziri;gbg
 Gbari;gby
-Gbati-ri;gti
 Gbaya-Bossangoa;gbp
 Gbaya-Bozoum;gbq
 Gbaya-Mbodomo;gmm
-Gbaya;gba
 Gbayi;gyg
 Gbesi Gbe;gbs
 Gbii;ggb
@@ -2179,19 +1822,15 @@ Gebe;gei
 Gedaged;gdd
 Gedeo;drs
 Geji;gji
-Geko Karen;ghk
 Gela;nlg
-Gelao;gio
 Gele';sbc
 Geme;geq
 Gen;gej
 Gende;gaf
 Gengle;geg
 Georgian;ka
-Gepo;ygp
 Gera;gew
 Gerka;gek
-German Low German;nds-de
 German Sign Language;gsg
 German;de
 Geruma;gea
@@ -2199,49 +1838,30 @@ Geser-Gorom;ges
 Gey;guv
 Ghadames;gha
 Ghanaian Sign Language;gse
-Ghandruk Sign Language;gds
 Ghanongga;ghn
 Ghari;gri
 Ghayavi;bmk
-Gheg Albanian;aln
-Ghera;ghr
-Ghodoberi;gdo
-Ghomálá';bbj
 Ghomala';bbj
 Ghomara;gho
-Ghotuo;aaa
 Ghulfan;ghl
 Giangan;bgi
 Gibanawa;gib
 Gidar;gid
-Giiwo;kks
 Gikyode;acd
 Gilaki;glk
 Gilbertese;gil
 Gilima;gix
 Gimi (Goroka);gim
-Gimme;kmp
 Gimnime;gmn
-Ginuman;gnm
-Ginyanga;ayg
 Girawa;bbr
 Giryama;nyf
 Githabul;gih
-Gitonga;toh
 Gitua;ggt
 Gitxsan;git
-Giyug;giy
-Gizrra;tof
-Glaro-Twabo;glr
 Glavda;glw
-Glio-Oubi;oub
 Glosa;igs
-Gnau;gnu
-Goa'uld;art-gld
 Goaria;gig
 Gobasi;goi
-Gobu;gox
-Godié;god
 Godoberi;gdo
 Godwari;gdx
 Goemai;ank
@@ -2257,36 +1877,26 @@ Golpa;lja
 Gondi;gon
 Gone Dau;goo
 Gong;ugo
-Gongduk;goe
 Gonja;gjn
 Goo;gov
 Gooniyandi;gni
 Gor;gqr
 Gorakor;goc
 Gorap;goq
-Goreng;xgg
 Gorontalo;gor
 Gorovu;grq
-Gorowa;gow
 Gothic;got
-Goundo;goy
 Gourmanchéma;gux
-Gowlan;goj
-Gowli;gok
 Gowro;gwf
 Gozarkhani;goz
 Grangali;nli
 Grass Koiari;kbk
 Grebo;grb
-Greek Sign Language;gss
 Greek;el
-Green Gelao;giq
 Green Hmong;hnj
-Greenlandic Eskimo Pidgin;crp-gep
 Greenlandic;kl
 Grenadian Creole English;gcl
 Gresi;grs
-Groma;gro
 Gros Ventre;ats
 Guébie;gie
 Gua;gwx
@@ -2295,44 +1905,29 @@ Guajá;gvj
 Guajajára;gub
 Guambiano;gum
 Guanano;gvc
-Guanche;gnc
-Guanyinqiao;jiq
 Guaraní;gn
 Guarayu;gyr
 Guató;gta
 Guatemalan Sign Language;gsm
 Guayabero;guo
-Gudang;xgd
-Gudanji;nji
 Gude;gde
 Gudu;gdu
 Guduf-Gava;gdf
-Guernésiais;roa-grn
 Guerrero Amuzgo;amu
 Guerrero Nahuatl;ngu
 Guevea de Humboldt Zapotec;zpg
-Guevea De Humboldt Zapotec;zpg
 Gugadj;ggd
-Gugu-Mini;ggm
 Gugu Badhun;gdc
-Gugu Warra;wrw
-Gugubera;kkp
 Guhu-Samane;ghs
 Guianese Creole;gcr
-Guibei Zhuang;zgb
 Guiberoua Bété;bet
-Guiberoua Béte;bet
-Guibian Zhuang;zgn
 Guinea-Bissau Creole;pov
 Guinea Kpelle;gkp
 Guinean Sign Language;gus
-Guiqiong;gqi
 Gujarati;gu
 Gula'alaa;gmb
 Gulay;gvl
-Gule;gly
 Gulf Arabic;afb
-Guliguli;gli
 Gullah;gul
 Gumalu;gmu
 Gumatj;gnn
@@ -2340,11 +1935,8 @@ Gumawana;gvs
 Gumuz;guk
 Gun;guw
 Gundi;gdi
-Gunditjmara;gjm
-Gundungurra;xrd
 Gungabula;gyf
 Gungu;rub
-Guntai;gnt
 Gunu;yas
 Gunwinggu;gup
 Gunya;gyy
@@ -2354,8 +1946,6 @@ Gur Lama;las
 Guragone;gge
 Guramalum;grz
 Gurani;hac
-Gurdjar;gdj
-Gureng Gureng;gnr
 Gurgula;ggg
 Guriaso;grx
 Gurindji Kriol;gjr
@@ -2366,11 +1956,8 @@ Guruntum;grd
 Gusan;gsn
 Gusii;guz
 Gusilay;gsl
-Gutnish;gmq-gut
 Guugu Yimidhirr;kky
-Guwa;xgw
 Guwamu;gwu
-Guwinmal;xgm
 Guya;gka
 Guyanese Creole English;gyn
 Guyani;gvy
@@ -2386,13 +1973,10 @@ Gwich'in;gwi
 Gyele;gyi
 Gyem;gye
 Hértevin;hrt
-Hõne;juh
 Hän;haa
-Ha;haq
 Habu;hbu
 Hadiyya;hdy
 Hadothi;hoj
-Hadrami Arabic;ayh
 Hadrami;xhd
 Hadza;hts
 Haeke;aek
@@ -2402,44 +1986,31 @@ Haida;hai
 Haigwai;hgw
 Hainanese;hnm
 Hainyaxo Bozo;bzx
-Haiphong Sign Language;haf
 Haisla;has
 Haitian Creole;ht
 Haitian Vodoun Culture Language;hvc
-Haji;hji
 Hajong;haj
 Hakö;hao
 Hakka;hak
-Halang Doan;hld
 Halang;hal
 Halbi;hlb
 Halia;hla
 Halkomelem;hur
-Hamap;hmu
 Hamba;hba
 Hamer-Banna;amf
 Hamtai;hmt
-Han;haa
 Hanga Hundi;wos
 Hanga;hag
-Hangaza;han
 Hani;hni
-Hano;lml
 Hanoi Sign Language;hab
 Hanunoo;hnn
-Harami;xha
 Harari;har
 Harijan Kinnauri;kjo
 Haroi;hro
 Harsusi;hss
-Haruai;tmd
-Haruku;hrk
 Haryanvi;bgc
 Harzani;hrz
-Hasha;ybj
 Hassaniya Arabic;mey
-Hassaniya;mey
-Hatam;had
 Hattic;xht
 Hausa Sign Language;hsl
 Hausa;ha
@@ -2450,63 +2021,40 @@ Hawai'i Pidgin Sign Language;hps
 Hawaiian Creole;hwc
 Hawaiian;haw
 Haya;hay
-Hazaragi;haz
 Hdi;xed
 Hebrew;he
 Hehe;heh
-Heiban;hbn
 Heiltsuk;hei
-Helambu Sherpa;scp
 Helong;heg
 Hema;nix
-Hemba;hem
-Herdé;hed
 Herero;hz
 Hermit;llf
 Hernican;xhr
-Hewa;ham
 Heyo;auk
-Hibito;hib
 Hidatsa;hid
 Higaonon;mba
-Highland Konjo;kjk
 Highland Oaxaca Chontal;chd
 Highland Popoluca;poi
 Highland Puebla Nahuatl;azz
 Highland Totonac;tos
 Hijazi Arabic;acw
-Hijuk;hij
 Hiligaynon;hil
 Hill Maria;mrr
-Himarimã;hir
-Hindi Dogri;dgo
 Hindi;hi
-Hinduri;hii
 Hinukh;gin
 Hiri Motu;ho
 Hittite;hit
 Hitu;htu
 Hiw;hiw
-Hixkaryána;hix
 Hixkaryana;hix
 Hlai;lic
-Hlepho Phowa;yhl
-Hlersu;hle
 Hmar;hmr
-Hmong Dô;hmv
-Hmong Daw;mww
-Hmong Don;hmf
-Hmong Njua;hnj
-Hmong Shua;hmz
-Hmong;hmn
 Hmwaveke;mrk
 Ho Chi Minh City Sign Language;hos
 Ho;hoc
 Hoava;hoa
 Hobyót;hoh
-Hoia Hoia;hhi
 Holikachuk;hoi
-Holiya;hoy
 Holma;hod
 Holoholo;hoo
 Holu;hol
@@ -2514,25 +2062,13 @@ Homa;hom
 Honduran Lenca;len
 Honduras Sign Language;hds
 Hone;juh
-Hong Kong Sign Language;hks
-Honi;how
 Hopi;hop
-Horned Miao;hrm
-Horo;hor
 Horom;hoe
-Horpa;ero
-Horuru;hrr
 Hote;hot
 Hoti;hti
-Hovongan;hov
 Hoyahoya;hhy
-Hozo;hoz
 Hpon;hpo
 Hrê;hre
-Hrangkhol;hra
-Hre;hre
-Hruso;hru
-Hu;huo
 Huachipaeri;hug
 Huambisa;hub
 Huaorani;auc
@@ -2541,8 +2077,6 @@ Huaulu;hud
 Huautla Mazatec;mau
 Huave;huv
 Huaxcaleca Nahuatl;nhq
-Huba;hbb
-Huehuetla Tepehua;tee
 Huichol;hch
 Huilliche;huh
 Huitepec Mixtec;mxs
@@ -2551,66 +2085,43 @@ Hukumina;huw
 Hula;hul
 Hulaulá;huy
 Huli;hui
-Hulung;huk
-Humburi Senni Songhay;hmb
 Humene;huf
-Humla;hut
-Hun-Saare;dud
 Hun;uth
 Hunde;hke
-Hung;hnu
-Hungana;hum
 Hungarian Sign Language;hsh
 Hungarian;hu
 Hungworo;nat
-Hunjara-Kaina Ke;hkk
-Hunnic;xhc
 Hunsrik;hrx
 Hunzib;huz
 Hupa;hup
 Hupdë;jup
-Hupla;hap
 Hurrian;xhu
 Hutterisch;geh
 Hwana;hwo
 Hya;hya
 Hyam;jab
-I-Wak;iwk
 Iñapari;inp
 Iaai;iai
 Iamalele;yml
-Iapama;iap
-Iatmul;ian
-Iau;tmu
-Ibali Teke;tek
 Ibaloi;ibl
 Iban;iba
 Ibanag;ibg
-Ibani;iby
 Ibatan;ivb
 Iberian;xib
 Ibibio;ibb
-Ibilo;ibi
 Ibino;ibn
 Iboko;bkp
-Ibu;ibu
-Ibuoro;ibr
 Icelandic Sign Language;icl
 Icelandic;is
 Iceve-Maci;bec
 Ida'an;dbj
-Idakho-Isukha-Tiriki;ida
 Idaté;idt
-Idere;ide
 Idesa;ids
 Idi;idi
 Ido;io
 Idoma;idu
-Idon;idc
-Idu-Mishmi;clk
 Idu;clk
 Idun;ldb
-Iduna;viv
 Ifè;ife
 Ifo;iff
 Igala;igl
@@ -2621,12 +2132,9 @@ Ignaciano;ign
 Igo;ahl
 Iguta;nar
 Igwe;igw
-Iha Based Pidgin;ihb
-Iha;ihp
 Ihievbe;ihi
 Ija-Zuba;vki
 Ik;ikx
-Ika;ikk
 Ikizu;ikz
 Iko;iki
 Ikobi-Mena;meb
@@ -2634,49 +2142,32 @@ Ikoma;ntk
 Ikpeng;txi
 Ikpeshi;ikp
 Ikposo;kpo
-Iku-Gora-Ankwa;ikv
 Ikulu;ikl
-Ikwere;ikw
 Ikwo;iqw
 Ila;ilb
-Ile Ape;ila
 Ilgar;ilg
-Ili'uun;ilu
 Ili Turki;ili
 Ilianen Manobo;mbi
 Illyrian;xil
 Ilocano;ilo
 Ilongot;ilk
 Ilue;ilv
-Ilwana;mlk
-Imbongu;imo
-Imeraguen;ime
-Imonda;imn
-Imroing;imr
 Inabaknon;abx
 Inapang;mzu
 Inari Sami;smn
-Indian Sign Language;ins
 Indo-Portuguese;idb
 Indonesian Bajau;bdl
 Indonesian Sign Language;inl
 Indonesian;id
-Indri;idr
 Indus Kohistani;mvy
-Indus Valley Language;xiv
-Inebu One;oin
 Ineseño;inz
 Inga;inb
 Ingrian;izh
 Ingush;inh
-Inlaod Itneg;iti
-Inoke-Yate;ino
 Inonhan;loc
 Inor;ior
-Inpui Naga;nkf
 Interlingua;ia
 Interlingue;ie
-International Sign;ils
 Interslavic;isv
 Intha;int
 Inuit Sign Language;iks
@@ -2684,12 +2175,8 @@ Inuktitut;iu
 Inupiak;ik
 Inuvialuktun;ikt
 Ipalapa Amuzgo;azm
-Ipiko;ipo
-Ipili;ipi
 Ipulo;ass
 Iquito;iqu
-Ir;irr
-Irántxe;irn
 Iranun;ill
 Iraqi Arabic;acm
 Iraqw;irk
@@ -2697,28 +2184,19 @@ Irarutu;irh
 Iraya;iry
 Iresim;ire
 Iriga Bicolano;bto
-Irigwe;iri
 Irish Sign Language;isg
 Irish;ga
 Irula;iru
-Isabi;isa
 Isan;tts
 Isanzu;isn
 Isarog Agta;agk
 Isconahua;isc
-Isebe;igo
-Isekiri;its
 Ishkashimi;isk
 Isinai;inn
-Isirawa;srl
-Island Carib;crb
 Islander Creole English;icr
 Isnag;isd
 Isoko;iso
 Israeli Sign Language;isr
-Isthmus-Cosoleacaque Nahuatl;nhk
-Isthmus-Mecayapan Nahuatl;nhx
-Isthmus-Pajapan Nahuatl;nhp
 Isthmus Mixe;mir
 Isthmus Zapotec;zai
 Istriot;ist
@@ -2730,23 +2208,15 @@ Italian;it
 Itawit;itv
 Itelmen;itl
 Itene;ite
-Iteri;itr
-Itik;itx
 Ito;itw
-Itonama;ito
 Itsekiri;its
 Itu Mbon Uzo;itm
 Itundujia Mixtec;mce
-Itzá;itz
 Itza';itz
 Iu Mien;ium
 Ivatan;ivv
-Ivbie North-Okpela-Arhe;atg
 Iwaidja;ibd
 Iwal;kbm
-Iwam;iwm
-Iwur;iwo
-Ixcatec;ixc
 Ixcatlán Mazatec;mzi
 Ixil;ixl
 Ixtayutla Mixtec;vmj
@@ -2757,25 +2227,18 @@ Iyo'wujwa Chorote;crq
 Iyo;nca
 Iyojwa'ja Chorote;crt
 Izere;izr
-Izi-Ezaa-Ikwo-Mgbo;izi
 Izi;izz
 Izon;ijc
 Izora;cbo
-Jèrriais;roa-jer
 Júma;jua
 Jabem;jae
 Jabutí;jbt
-Jad;jda
-Jadgali;jdg
 Jah Hut;jah
 Jahanka;jad
-Jaimatang;xjt
 Jair Awyu;awv
 Jakaltek;jac
 Jakati;jat
-Jakun;jak
 Jalapa de Díaz Mazatec;maj
-Jalapa De Díaz Mazatec;maj
 Jalkunan;bxl
 Jamaican Country Sign Language;jcs
 Jamaican Creole;jam
@@ -2784,13 +2247,10 @@ Jamamadí;jaa
 Jambi Malay;jax
 Jamiltepec Mixtec;mxt
 Jaminjung;djd
-Jamsay Dogon;djm
 Jamsay;djm
 Jandavra;jnd
 Janday;jan
-Jangkang;djo
 Jangshung;jna
-Janji;jni
 Japanese Sign Language;jsl
 Japanese;ja
 Japrería;jru
@@ -2805,173 +2265,95 @@ Javanese;jv
 Javindo;jvd
 Jawe;jaz
 Jaya;jyy
-Jebero;jeb
 Jeh;jeh
-Jehai;jhi
 Jeju;jje
 Jemez;tow
 Jenaama Bozo;bze
 Jeng;jeg
 Jennu Kurumba;xuj
-Jere;jer
 Jeri Kuo;jek
-Jersey Dutch;gmw-jdt
 Jeru;akj
-Jerung;jee
-Jhankot Sign Language;jhs
-Jiamao;jio
-Jiarong;jya
-Jiba;juo
 Jibu;jib
 Jicarilla;apj
 Jiiddu;jii
-Jilbe;jie
-Jilim;jil
 Jimi;jmi
 Jimjimen;jim
 Jin;cjy
-Jina;jia
 Jingpho;kac
-Jingulu;jig
-Jinyu;cjy
-Jiongnai Bunu;pnu
-Jirel;jul
-Jiru;jrr
 Jita;jit
 Jju;kaj
-Joba;job
-Jofotek-Bromnya;jbr
 Jola-Fonyi;dyo
 Jola-Kasa;csk
-Jonkor Bourmataguil;jeu
 Jorá;jor
 Jordanian Sign Language;jos
-Jorto;jrt
 Jowulu;jow
-Ju;juu
 Juǀ'hoan;ktz
 Juang;jun
 Juba Arabic;pga
-Judeo-Arabic;jrb
-Judeo-Berber;jbe
-Judeo-Georgian;jge
-Judeo-Iraqi Arabic;yhd
 Judeo-Italian;itk
-Judeo-Moroccan Arabic;aju
 Judeo-Persian;jpr
 Judeo-Tat;jdt
-Judeo-Tripolitanian Arabic;yud
-Judeo-Tunisian Arabic;ajt
-Judeo-Yemeni Arabic;jye
 Jukun Takum;jbu
 Jumjum;jum
-Jumla Sign Language;jus
-Jumli;jml
 Jungle Inga;inj
-Juquila Mixe;mxq
 Jur Modo;bex
 Jurúna;jur
-Juray;juy
 Jurchen;juc
 Jutish;jut
 Juwal;mwb
 Juxtlahuaca Mixtec;vmc
 Jwira-Pepesa;jwi
 K'iche';quc
-Kélé;keb
-Kölsch;ksh
 Kâte;kmg
-Kaamba;xku
-Kaan;ldl
 Kaang Chin;ckn
-Kaansa;gna
-Kaapor Sign Language;uks
-Kaba;ksp
-Kabalai;kvf
 Kabardian;kbd
 Kabatei;xkp
 Kabba-Laka;lap
-Kabixí;xbx
 Kabiyé;kbp
-Kabola;klz
 Kabore One;onk
 Kabras;lkb
-Kaburi;uka
-Kabutra;kbu
 Kabuverdianu;kea
 Kabwa;cwa
-Kabwari;kcw
 Kabyle;kab
-Kachama-Ganjule;kcx
-Kachari;xac
 Kachchi;kfr
-Kachi Koli;gjk
-Kacipo-Balesi;koe
-Kaco';xkk
 Kadai;kzd
-Kadar;kej
 Kadara;kad
 Kadaru;kdu
 Kadiwéu;kbc
-Kado;kdv
 Kadu (Myanmar);zkd
 Kadugli;xtc
-Kaduo;ktp
 Kaera;jka
 Kafa;kbr
-Kafoa;kpu
-Kagan Kalagan;kll
 Kagate;syw
 Kagayanen;cgc
-Kagoma;kdm
-Kagoro;xkg
 Kagulu;kki
 Kahe;hka
 Kahua;agw
-Kaian;kct
-Kaibobo;kzb
 Kaidipang;kzp
 Kaiep;kbw
-Kaikadi;kep
-Kaike;kzq
 Kaiku;kkq
-Kaimbé;xai
 Kaimbulawa;zka
 Kaingang;kgp
 Kairak;ckr
 Kairiru;kxa
-Kairui-Midiki;krd
 Kais;kzm
 Kaitag;xdq
-Kaivi;kce
 Kaiwá;kgk
-Kaiy;tcq
 Kajakse;ckq
 Kajali;xkj
 Kajaman;kag
 Kakabai;kqf
 Kakabe;kke
-Kakanda;kka
-Kakauhua;kbf
 Kaki Ae;tbd
 Kakihum;kxe
-Kako;kkj
-Kakwa;keo
 Kala Lagaw Ya;mwp
 Kala;kcl
-Kalaamaya;lkm
 Kalabakan;kve
-Kalabari;ijn
 Kalabra;kzz
 Kalagan;kqe
 Kalaktang Monpa;kkf
-Kalam;kmh
 Kalami;gwc
-Kalamsé;knz
-Kalanadi;wkl
 Kalanga;kck
-Kalao;kly
-Kalapuya;kyl
 Kalarko;kba
 Kalasha;kls
 Kalenjin;kln
@@ -2983,49 +2365,26 @@ Kalmyk;xal
 Kalo Finnish Romani;rmf
 Kalou;ywa
 Kaluli;bco
-Kalumpang;kli
-Kam;kdx
 Kamakan;vkm
 Kamang;woi
 Kamano;kbq
-Kamantan;kci
-Kamar;keq
-Kamara;jmr
 Kamarian;kzx
-Kamaru;kgx
-Kamasa;klp
 Kamasau;kms
 Kamassian;xas
-Kamayo;kyk
 Kamayurá;kay
 Kamba;kam
 Kambaata;ktb
-Kambaira;kyy
 Kambera;xbr
 Kamberataro;kbv
-Kamberau;irx
-Kambiwá;xbw
 Kami;kmi
 Kamkata-viri;bsh
-Kamo;kcq
-Kamoro;kgq
 Kamta;rkt
-Kamu;xmu
-Kamula;xla
-Kamviri;xvi
-Kamwe;hig
 Kanakanabu;xnb
 Kanakuru;kna
-Kanamarí;knm
 Kanamari;knm
-Kanashi;xns
-Kanasi;soq
-Kanauji;bjj
 Kandas;kqw
 Kandawo;gam
 Kande;kbs
-Kanembu;kbl
-Kang;kyp
 Kanga;kcp
 Kangean;kkv
 Kanggape;igm
@@ -3035,374 +2394,204 @@ Kango;kty
 Kangri;xnr
 Kaniet;ktk
 Kanikkaran;kev
-Kaningdon-Nindem;kdp
-Kaningi;kzo
-Kaningra;knr
 Kaninuwa;wat
-Kanite;kmu
 Kanjari;kft
 Kanju;kbe
 Kankanaey;kne
-Kannada Kurumba;kfi
 Kannada;kn
 Kannauji;bjj
-Kanoé;kxo
-Kanowit-Tanjong Melanau;kxn
 Kanowit;kxn
 Kansa;ksk
-Kantosi;xkt
-Kanu;khx
 Kanufi;kni
 Kanuri;kr
-Kanyok;kny
-Kao;kax
 Kaonde;kqn
 Kap;ykm
 Kapampangan;pam
-Kapauri;khp
 Kapin;tbx
-Kapinawá;xpn
 Kapingamarangi;kpg
 Kapriman;dju
 Kaptiau;kbi
-Kapya;klo
 Kaqchikel-K'iche' Mixed Language;ckz
 Kaqchikel;cak
 Kara (New Guinea);leu
-Kara (Papua New Guinea);leu
-Kara (Tanzania);reg
 Karachay-Balkar;krc
 Karadjeri;gbd
-Karaga Mandaya;mry
-Karahawyana;xkh
 Karaim;kdr
 Karajá;kpj
 Karakalpak;kaa
 Karakhanid;xqa
-Karami;xar
 Karamojong;kdj
 Karang;kzr
-Karanga;kth
-Karankawa;zkk
 Karao;kyj
-Karas;kgv
 Karata;kpt
-Karawa;xrw
 Karbi;mjw
 Kare (Africa);kbn
 Kare (New Guinea);kmf
 Karekare;kai
 Karelian;krl
-Karenggapa;eaa
-Karey;kyd
 Kari'na;car
 Kari;kbj
 Karingani;kgn
 Karipúna Creole French;kmv
-Karipúna;kgm
 Karipuna;kuq
-Karirí-Xocó;kzw
 Kariri;kzw
 Karitiâna;ktn
-Kariya;kil
 Kariyarra;vka
 Karkar-Yuri;yuj
 Karkin;krb
-Karko;kko
 Karnai;bbv
 Karo Batak;btx
-Karo;kxh
 Karok;kyh
-Karolanos;kyn
-Karon Dori;kgw
-Karon;krx
-Karore;xkx
-Karuwali;rxw
 Kasanga;ccj
 Kasem;xsm
 Kashaya;kju
 Kashmiri;ks
 Kashubian;csb
-Kasiguranin;ksn
 Kaska;kkz
-Kaskean;zsk
 Kaskihá;gva
-Kasseng;kgc
 Kassonke;kao
-Kasua;khs
-Kataang;kgd
-Katabaga;ktq
-Katawixi;xat
-Kathoriya Tharu;tkt
-Kathu;ykt
-Kati;bsh
-Katkari;kfu
-Katla;kcr
 Kato;ktw
-Katso;kaf
-Katua;kta
-Katukína;kav
 Katukina;knt
-Kaulong;pss
-Kaur;vkk
 Kaure;bpp
 Kaurna;zku
-Kauwera;xau
 Kavalan;ckv
 Kavet;krv
 Kawésqar;alc
-Kawacha;kcb
 Kawaiisu;xaw
-Kawe;kgb
 Kaxararí;ktx
-Kaxuiâna;kbb
 Kaxuyana;kbb
-Kaya;zra
 Kayabí;kyz
-Kayagar;kyt
-Kayan Mahakam;xay
-Kayan River Kayan;xkn
 Kayan;pdu
 Kayapó;txu
 Kayapa Kallahan;kak
 Kayardild;gyd
 Kayeli;kzl
-Kayong;kxy
 Kayort;kyv
 Kaytetye;gbb
-Kayupulau;kzu
 Kazakh;kk
-Kazukuru;kzk
-Ke'o;xxk
-Keak;keh
 Keapara;khz
 Kedah Malay;meo
 Kedang;ksx
-Keder;kdy
-Kehu;khh
-Kei;kei
 Keiga;kec
 Kein;bmh
 Keiyo;eyo
 Kela-Yela;kel
 Kelabit;kzi
 Keley-I Kallahan;ify
-Keliko;kbo
-Kelo;xel
-Kelon;kyo
 Kemak;kem
-Kembayan;xem
 Kemberano;bzp
-Kembra;xkw
 Kemezung;dmo
 Kemi Sami;sjk
-Kemiehua;kfj
-Kemtuik;kmt
-Kenaboi;xbn
 Kenati;gat
 Kendayan;knx
-Kendeje;klf
 Kendem;kvm
-Kenga;kyq
 Keningau Murut;kxi
 Keninjal;knl
-Kensiu;kns
 Kenswei Nsei;ndb
-Kenuzi-Dongola;kzh
-Kenyan Sign Language;xki
 Kenyang;ken
-Kenyi;lke
-Keoru-Ahia;xeu
 Kepkiriwát;kpn
-Kepo';kuk
 Kera;ker
-Kerak;hhr
 Kereho;xke
 Kerek;krk
-Kerewe;ked
-Kerewo;kxz
 Kerinci;kvr
 Kesawai;xes
 Ket;ket
-Ketangalan;kae
-Kete;kcv
-Ketengban;xte
-Ketum;ktt
 Kewa;kew
-Keyagana;kyg
 Kgalagadi;xkv
 Khün;kkh
-Kháng;kjm
 Khakas;kjh
-Khalaj;kjf
 Khalaj;klj
 Khaling;klr
-Kham;kjl
-Khamba;kbg
 Khamnigan Mongol;ykh
-Khams Tibetan;khg
 Khamti;kht
-Khamyang;ksu
 Khana;ogo
-Khandesi;khn
-Khanty;kca
-Khao;xao
-Kharam Naga;kfw
-Kharia Thar;ksy
-Kharia;khr
 Khasi;kha
-Khayo;lko
 Khazar;zkz
-Khe;kqg
-Khehek;tlx
 Khengkha;xkf
 Khetrani;xhe
-Khezha Naga;nkh
 Khiamniungan Naga;kix
 Khinalug;kjj
-Khirwar;kwx
-Khisa;kqm
 Khitan;zkt
-Khlor;llo
-Khlula;ykl
 Khmer;km
 Khmu;kjg
-Kho'ini;xkc
 Khoekhoe;naq
-Khoibu Naga;nkb
 Khoini;xkc
-Kholok;ktc
 Khonso;kxc
 Khorasani Turkish;kmz
 Khorezmian Turkic;zkh
-Khorezmian;zkh
 Khotanese;kho
 Khowar;khw
-Khua;xhv
-Khuen;khf
-Khumi Awa Chin;cka
 Khumi Chin;cnk
-Khunsari;kfm
 Khvarshi;khv
 Khwarezmian;xco
 Khwe;xuu
 Kibala;blv
 Kibena;bez
-Kibet;kie
-Kibiri;prm
 Kickapoo;kic
 Kikai;kzg
 Kikami;kcu
-Kikumu;kmw
 Kikuyu;ki
 Kildin Sami;sjd
 Kilivila;kij
 Kiliwa;klb
-Kilmeri;kih
 Kim Mun;mji
-Kim;kia
-Kimaama;kig
 Kimaragang;kqr
-Kimbu;kiv
 Kimbundu;kmb
-Kimki;sbt
-Kimré;kqp
 Kinabalian;cbw
-Kinalakna;kco
 Kinaray-a;krj
 Kinga;zga
 Kinikinao;gqn
 Kinnauri;kfk
-Kintaq;knq
-Kinuku;kkd
-Kinyabemba;bmy
 Kinyarwanda;rw
-Kioko;ues
 Kiong;kkm
-Kiorr;xko
 Kiowa;kio
 Kipchak;qwm
 Kipfokomo;pkb
-Kipsigis;sgc
 Kiput;kyi
 Kir-Balar;kkr
 Kire;geb
 Kirfi;kks
-Kirike;okr
-Kirikiri;kiy
 Kirundi;rn
 Kirya-Konzel;fkk
 Kis;kis
 Kisa;lks
 Kisan;xis
-Kisankasa;kqh
 Kisar;kje
-Kisi;kiz
 Kistane;gru
-Kita Maninkakan;mwk
 Kitembo;tbt
 Kitja;gia
 Kitsai;kii
 Kituba;ktu
-Kiunum;wei
 Kla;lda
 Klallam;clm
 Klamath-Modoc;kla
-Klao;klu
-Klias River Kadazan;kqt
 Klingon;tlh
 Knaanic;czk
 Ko;fuj
-Koalib;kib
 Koasati;cku
-Koba;kpd
-Kobiana;kcj
-Kobol;kgu
 Kobon;kpw
-Koch;kdq
-Kochila Tharu;thq
 Koda;cdz
-Kodaku;ksz
 Kodava;kfa
-Kodeoha;vko
 Kodi;kod
-Kodia;kwp
-Koenoem;kcs
-Kofa;kso
 Kofei;kpi
 Kofyar;kwl
-Kohin;kkx
 Kohistani Shina;plk
 Koho;kpm
 Kohumono;bcs
-Koi;kkt
 Koibal;zkb
-Koireng;nkd
-Koitabu;kqi
-Koiwat;kxt
 Kok-Nar;gko
 Kok-Paponk;okg
-Kokata;ktd
 Kokborok;trp
-Koke;kou
 Koko-Bera;kkp
-Kokoda;xod
 Kokola;kzn
 Kokota;kkk
 Kol (Cameroon);biw
-Kol;biw
-Kola;kvv
 Kolami;kfb
-Kolbila;klc
 Kolhe;ekl
 Kolibugan Subanon;skn
 Kolom;klm
 Koluwawa;klx
 Kom (Cameroon);bkm
-Kom (India);kmm
-Koma;kmy
-Komba;kpf
-Kombai;tyn
 Kombio;xbi
 Komering;kge
 Komi-Permyak;koi
@@ -3411,37 +2600,23 @@ Komi-Zyrian;kv
 Kominimung;xoi
 Komo;xom
 Komodo;kvh
-Kompane;kvp
 Komyandaret;kzv
-Kon Keu;kkn
 Konabéré;bbo
-Konai;kxw
 Konda-Dora;kfc
 Konda;knd
 Kondekor;gau
-Koneraw;kdw
 Kongo;kg
 Konkani;kok
 Konkomba;xon
-Konni;kma
 Kono (Guinea);knu
 Kono (Nigeria);klk
-Kono;kno
 Konomala;koa
 Konongo;kcz
 Konyak Naga;nbe
-Konyanka Maninka;mku
-Konzo;koo
-Koongo;kng
 Koonzime;ozm
 Koorete;kqy
-Kopar;xop
 Kopkaka;opk
-Korafe-Yegha;kpr
-Korak;koz
 Korana;kqz
-Korandje;kcy
-Korean Sign Language;kvk
 Korean;ko
 Koreguaje;coe
 Koresh-e Rostam;okh
@@ -3450,215 +2625,117 @@ Korlai Creole Portuguese;vkp
 Koro (Vanuatu);krf
 Koro (West Africa);kfo
 Koromfé;kfz
-Koromira;kqj
 Koronadal Blaan;bpr
-Koroni;xkq
 Korop;krp
-Koropó;xxr
 Koroshi;ktl
-Korowai;khe
 Korra Koraga;kfd
-Korubo;xor
-Korupun-Sela;kpq
-Korwa;kfp
 Koryak;kpy
-Kosadle;kiq
-Kosarek Yale;kkl
 Kosena;kze
 Koshin;kid
 Kosraean;kos
 Kota (Gabon);koq
 Kota (India);kfe
-Kota Bangun Kutai Malay;mqg
 Kota Marudu Talantang;grm
-Kota Marudu Tinagas;ktr
-Kotafon Gbe;kqk
 Kotava;avk
 Koti;eko
 Kott;zko
 Kou;snz
-Kouya;kyf
-Kovai;kqb
 Kove;kvc
-Kowaki;xow
 Kowiai;kwh
-Koy Sanjaq Surat;kqd
 Koya;kff
-Koyaga;kga
 Koyo;koh
-Koyra Chiini Songhay;khq
 Koyra Chiini;khq
-Koyraboro Senni Songhai;ses
 Koyraboro Senni;ses
 Koyukon;koy
-Kpagua;kuw
 Kpala;kpl
 Kpan;kpk
 Kpasam;pbn
 Kpati;koc
-Kpatili;kym
-Kpeego;cpo
 Kpelle;kpe
-Kpessi;kef
-Kplang;kph
-Krache;kye
-Krahô;xra
 Kraol;rka
-Krenak;kqq
-Kresh;krs
 Krevinian;zkv
-Kreye;xre
-Krikati-Timbira;xri
-Krim;krm
 Krio;kri
-Kriol;rop
 Krisa;ksi
-Kristang;cpp
 Kristang;mcm
 Krobu;kxb
 Krongo;kgo
-Kru'ng;krr
 Krymchak;jct
 Kryts;kry
-Kua;tyu
-Kuan;uan
-Kuanhua;xnh
-Kube;kgf
 Kubi;kof
-Kubo;jko
-Kubu;kvb
-Kucong;lkc
-Kudiya;kfg
 Kudmali;kyw
-Kudu-Camo;kov
-Kugama;kow
 Kugbo;kes
 Kugu-Muminh;xmh
 Kui (India);kxu
-Kui;kxu
-Kuijau;dkr
-Kuikúro-Kalapálo;kui
 Kuikúro;kui
-Kujarge;vkj
 Kuk;kfn
-Kukatja;kux
 Kukele;kez
 Kukna;kex
 Kuku-Mangk;xmq
-Kuku-Mu'inh;xmp
-Kuku-Muminh;xmh
 Kuku-Thaypan;typ
-Kuku-Ugbanh;ugb
-Kuku-Uwanh;uwa
 Kuku-Yalanji;gvn
-Kula;tpg
-Kulaal;glj
-Kulere;kul
-Kulfa;kxj
-Kulina;xpk
 Kulisusu;vkl
 Kullu Pahari;kfx
 Kulon-Pazeh;uun
 Kulon;uon
-Kulung;kle
 Kumak;nee
 Kumalu;ksl
-Kumam;kdi
 Kuman;kue
 Kumaoni;kfy
 Kumarbhag Paharia;kmj
-Kumba;ksm
-Kumbainggar;kgs
-Kumbaran;wkb
-Kumbewaha;xks
 Kumhali;kra
-Kumiai;dih
 Kumu;kmw
-Kumukio;kuo
 Kumyk;kum
 Kumzari;zum
 Kuna;cuk
-Kunama;kun
 Kunbarlang;wlg
 Kunda;kdn
 Kundal Shahi;shd
-Kunduvadi;wku
 Kung;kfl
 Kungarakany;ggk
 Kungardutyi;gdt
-Kunggara;kvs
-Kunggari;kgl
-Kungkari;lku
-Kuni-Boazi;kvg
 Kuni;kse
 Kunigami;xug
-Kunimaipa;kup
-Kunja;pep
 Kunjen;kjn
 Kunyi;njx
-Kunza;kuz
-Kuo;xuo
-Kuot;kto
-Kupa;kug
 Kupang Malay;mkn
-Kupia;key
-Kupsabiny;kpz
 Kur;kuv
-Kura Ede Nago;nqk
-Kurama;krh
 Kuranko;knk
 Kurdish;ku
 Kuri;nbn
 Kuria;kuj
 Kurichiya;kfh
-Kurmukar;kfv
 Kurnai;unn
 Kurrama;vku
 Kurtöp;xkz
 Kurti;ktm
 Kurtjar;gdj
-Kurtokha;xkz
 Kuruáya;kyr
 Kurudu;kjr
 Kurukh;kru
 Kusaal;kus
 Kusaghe;ksg
-Kushi;kuh
-Kusu;ksv
 Kusunda;kgg
 Kutang Ghale;ght
 Kutenai;kut
-Kutep;kub
-Kuthant;xut
-Kutto;kpa
-Kutu;kdc
 Kuturmi;khj
 Kuuk Thaayorre;thd
 Kuuk Yak;uky
-Kuuku-Ya'u;kuy
 Kuvale;olu
 Kuvi;kxv
 Kuwaa;blh
 Kuwaataay;cwt
 Kuy;kdt
 Kven;fkv
-Kw'adza;wka
 Kwa';bko
-Kwaami;ksq
 Kwadi;kwz
 Kwaio;kwd
 Kwaja;kdz
 Kwak'wala;kwk
 Kwak;kwq
-Kwakum;kwu
 Kwalhioqua-Tlatskanai;qwt
-Kwama;kmq
-Kwambi;kwm
 Kwamera;tnk
-Kwami;ktf
 Kwamtim One;okk
 Kwang;kvi
-Kwanga;kwj
 Kwangali;kwn
 Kwanja;knp
 Kwanka;bij
@@ -3666,292 +2743,150 @@ Kwanyama;kj
 Kwara'ae;kwf
 Kwasio;nmg
 Kwaya;kya
-Kwaza;xwa
-Kwegu;xwg
-Kwer;kwr
-Kwerba Mamberamo;xwr
-Kwerba;kwe
 Kwere;cwe
-Kwerisa;kkb
-Kwese;kws
-Kwesten;kwt
 Kwini;gww
-Kwinsu;kuc
 Kwinti;kww
-Kwoma;kmo
-Kwomtari;kwo
-Kxoe;xuu
 Kyak;bka
-Kyaka;kyc
-Kyan-Karyaw Naga;nqq
-Kyenele;kql
 Kyenga;tye
-Kyerung;kgy
 Kyrgyz;ky
 Lü;khb
 Löyöp;urr
 Láá Láá Bwamu;bwj
 Láadan;ldn
-La'bi;lbi
 Laal;gdm
 Laalaa;cae
-Laari;ldi
-Laba;lau
 Label;lbb
-Labir;jku
-Labo Phowa;ypb
 Labo;mwi
 Laboya;lmy
 Labu;lbu
 Labuk-Kinabatangan Kadazan;dtb
 Lacandon;lac
-Lachi;lbt
 Lachiguiri Zapotec;zpa
 Lachixío Zapotec;zpl
 Ladakhi;lbj
 Ladin;lld
 Ladino;lad
-Laeko-Libuat;lkl
-Lafofa;laf
 Laghu;lgb
-Laghuu;lgh
 Lagwan;kot
 Lahanan;lhn
 Lahnda;lah
-Lahta Karen;kvt
-Lahu Shi;lhi
 Lahu;lhu
-Lahul Lohar;lhl
 Lai;cnh
-Laimbue;lmx
-Laiyolo;lji
 Lak;lbe
 Lakalei;lka
 Lake Miwok;lmw
-Lakha;lkh
 Laki;lki
-Lakkia;lbc
 Lakon;lkn
 Lakondê;lkd
 Lakota Dida;dic
 Lakota;lkt
-Lala-Bisa;leb
-Lala-Roba;lla
-Lala;nrz
 Lalana Chinantec;cnl
-Lalia;lal
 Lama Bai;lay
 Lamaholot;slp
-Lamalera;lmr
-Lamam;lmm
 Lamang;hia
-Lamatuka;lmq
 Lamba;lam
 Lambadi;lmn
 Lambichhong;lmh
-Lamboya;lmy
-Lambya;lai
 Lame;bma
 Lamenu;lmu
-Lamet;lbn
-Lamja-Dengsa-Tola;ldh
-Lamkang;lmk
-Lamma;lev
-Lamnso';lns
 Lamogai;lmg
 Lampung Api;ljp
-Lamu-Lamu;lby
-Lamu;llh
-Lanas Lobu;ruu
-Landoma;ldm
-Lang'e;yne
 Langam;lnm
-Langbashe;lna
-Langi;lag
-Langnian Buyang;yln
 Lango (Uganda);laj
-Lango;laj
 Lanima;lnw
-Lanoh;lnh
-Lao Naga;nlq
 Lao;lo
-Laomian;lwm
-Laopang;lbg
-Laos Sign Language;lso
 Lapaguía-Guivini Zapotec;ztl
-Lapine;art-lap
-Lapuyan Subanun;laa
 Larëvat;lrv
-Laragia;lrg
 Larantuka Malay;lrt
 Lardil;lbz
 Larestani;lrl
-Larevat;lrv
-Lari;lrl
 Larike-Wakasihu;alo
-Laro;lro
 Larteh;lar
 Laru;lan
-Lasalimu;llm
-Lasgerdi;lsa
 Lashi;lsi
 Lasi;lss
 Latgalian;ltg
 Latin;la
-Latu;ltu
 Latundê;ltn
-Latvian Sign Language;lsl
 Latvian;lv
 Lau;llu
-Laua;luf
 Lauan;llx
 Lauje;law
-Laura;lur
 Laurentian;lre
 Lavatbura-Lamusong;lbv
-Lave;brb
 Laven;lbo
 Lavukaleve;lvk
 Lawangan;lbx
 Lawi;lvi
-Lawu;lwu
-Lawunuia;tgi
 Layakha;lya
 Laz;lzz
 Lealao Chinantec;cle
-Leco;lec
 Ledo Kaili;lew
-Leelau;ldk
-Lefa;lfa
-Lega-Mwenga;lgm
-Lega-Shabunda;lea
 Legbo;agb
 Legenyem;lcc
 Lehali;tql
-Lehalurup;urr
-Leinong Naga;lzn
 Leipon;lek
 Leizhou Min;luh
 Lela;dri
 Lelak;llk
 Lele (Papua New Guinea);lle
-Lele;llc
-Lelemi;lef
 Lelepa;lpa
-Lembena;leq
 Lemerig;lrz
-Lemio;lei
 Lemnian;xle
-Lemolang;ley
-Lemoro;ldj
 Lenakel;tnl
-Lenca;len
 Lendu;led
 Lengilu;lgi
 Lengo;lgr
-Lengola;lej
-Lengua;leg
-Leningitij;lnj
-Lenje;leh
 Lenkau;ler
 Lenyima;ldg
-Leonese;roa-leo
 Lepcha;lep
-Lepki;lpe
 Lepontic;xlp
-Lere;gnh
-Lese;les
 Lesing-Gelimi;let
 Letemboi;nms
 Leti;lti
-Levuka;lvu
-Lewo Eleng;lwe
 Lewo;lww
-Lewotobi;lwt
 Leyigha;ayi
 Lezgi;lez
 Lhao Vo;mhx
-Lhaovo;mhx
-Lhokpu;lhp
-Lhomi;lhm
 Li'o;ljl
-Liabuku;lix
-Liana-Seti;ste
-Liangmai Naga;njn
-Lianshan Zhuang;zln
 Liberia Kpelle;xpe
-Liberian English;lir
 Liberian Kreyol;lir
-Libido;liq
-Libinza;liz
 Libon Bikol;lbl
-Liburnian;xli
 Libyan Arabic;ayl
-Libyan Sign Language;lbs
-Ligbi;lig
-Ligenza;lgz
 Ligurian;lij
 Lihir;lih
-Lijili;mgi
-Lika;lik
 Liki;lio
-Likila;lie
-Likuba;kxx
 Likum;lib
-Likwala;kwc
-Lilau;lll
 Lillooet;lil
 Limassa;bme
 Limbu;lif
 Limbum;lmp
 Limburgish;li
-Limi;ylm
-Limilngan;lmc
 Limos Kalinga;kmk
 Lindu;klw
-Linear A;lab
 Lingala;ln
 Lingao;onb
-Lingarak;lgk
-Lingkhim;lii
 Lingua Franca Nova;lfn
 Linngithigh;lnj
 Lipan;apl
 Lipo;lpo
-Lisabata-Nuniali;lcs
 Lisela;lcl
-Lish;lsh
-Lishán Didán;trg
 Lishana Deni;lsd
 Lishanid Noshan;aij
 Lisu;lis
 Literary Chinese;lzh
-Lithuanian Sign Language;lls
 Lithuanian;lt
 Litzlitz;lzl
-Liujiang Zhuang;zlj
-Liuqian Zhuang;zlq
 Livonian;liv
 Livvi;olo
 Lo-Toga;lht
-Loarki;lrk
-Lobala;loq
-Lobi;lob
-Lodhi;lbm
 Logba;lgq
-Logo;log
-Logol;lof
 Logooli;rag
-Logorik;liu
-Logudorese Sardinian;src
 Lojban;jbo
 Lokaa;yaz
 Loko;lok
 Lokono;arw
-Lokoya;lky
 Lola;lcd
-Lolak;llq
-Lole;llg
 Lolo;llb
 Loloda;loa
 Lolopo;ycl
@@ -3959,93 +2894,55 @@ Loma;lom
 Lomaiviti;lmv
 Lomavren;rmi
 Lombard;lmo
-Lombardic;lng
-Lombi;lmi
-Lombo;loo
 Lomwe;ngl
-Loncong;lce
-Long Phuri Naga;lpn
-Long Wat;ttw
-Longgu;lgu
 Longto;wok
 Longuda;lnu
 Loniu;los
 Lonwolwol;crc
-Lonzo;lnz
-Loo;ldo
-Lopa;lop
-Lopi;lov
-Lopit;lpx
-Lorang;lrn
 Lorediakarkar;lnn
-Loreto-Ucayali Spanish;spq
 Lote;uvl
-Lotha Naga;njh
 Lotud;dtr
-Lotuko;lot
 Lou;loj
-Louisiana Creole French;lou
 Louisiana Creole;lou
 Loun;lox
 Loup A;xlo
 Loup B;xlb
 Lovono;vnk
 Low German;nds
-Lowa;loy
-Lower Burdekin;xbb
 Lower Chehalis;cea
 Lower Grand Valley Dani;dni
 Lower Nossob;nsb
 Lower Sorbian;dsb
 Lower Southern Aranda;axl
-Lower Ta'oih;tto
 Lower Tanana;taa
-Lower Tanudan Kalinga;kml
 Lowland Oaxaca Chontal;clo
 Lowland Tarahumara;tac
 Loxicha Zapotec;ztp
 Lozi;loz
-Lua';prb
 Luang;lex
 Luba-Kasai;lua
 Luba-Katanga;lu
 Lubila;kcc
-Lubu;lcf
 Lubuagan Kalinga;knb
-Luchazi;lch
 Lucumí;luq
-Lucumi;luq
 Ludian;lud
 Lufu;ldq
 Luganda;lg
-Lugbara;lgg
 Luguru;ruf
 Luhu;lcq
 Luhya;luy
-Lui;lba
-Luimbi;lum
 Luiseño;lui
-Luiseno;lui
 Lukpa;dop
 Lule Sami;smj
-Lule;ule
 Lumba-Yakkha;luu
-Lumbee;lmz
-Lumbu;lup
-Lumun;lmd
 Lun Bawang;lnd
-Luna;luj
 Lunanakha;luk
 Lunda;lun
 Lungga;lga
 Luo;luo
-Luopohe Hmong;hml
-Luri;ldd
-Lusengo;lse
 Lushootseed;lut
 Lusi;khl
 Lusitanian;xls
-Lutachoni;lts
 Lutos;ndy
 Lutuv;clt
 Luvale;lue
@@ -4053,33 +2950,16 @@ Luwati;luv
 Luwian;xlu
 Luwo;lwo
 Luxembourgish;lb
-Luyana;lyn
-Lwalu;lwa
 Lwel;lvl
-Lyélé;lee
 Lycian;xlc
 Lydian;xld
-Lyngngam;lyg
-Lyons Sign Language;lsg
-Mün Chin;mwq
 Mündü;muh
 Mòcheno;mhn
-Mághdì;gmd
 Ma'anyan;mhy
-Ma'di;mhi
-Ma'ya;slz
 Ma;msj
-Maa;cma
 Maaka;mew
-Maale;mdy
 Maasai;mas
-Maasina Fulfulde;ffm
 Maay;ymm
-Maba;mqa
-Mabaale;mmz
-Mabaan;mfz
-Mabaka Valley Kalinga;kkg
-Mabire;muj
 Maca;mca
 Macaguán;mbn
 Macaguaje;mcl
@@ -4088,60 +2968,38 @@ Macedonian;mk
 Machame;jmc
 Machiguenga;mcb
 Machinere;mpd
-Machinga;mvw
-Maco;wpc
 Macuna;myy
 Macushi;mbc
 Mada (Cameroon);mxu
 Mada (Nigeria);mda
-Mada;mda
-Madagascar Sign Language;mzc
 Madak;mmx
-Maden;xmx
 Madhi Madhi;dmd
 Madi;grg
 Madngele;zml
-Madukayang Kalinga;kmd
 Madurese;mad
-Mae;mme
-Maek;hmk
-Maeng Itneg;itt
 Mafa;maf
-Mafea;mkv
 Mag-Anchi Ayta;sgb
 Mag-Indi Ayta;blx
 Magɨ;gkd
-Magahat;mtw
 Magahi;mag
 Magdalena Peñasco Mixtec;xtm
 Magiyi;gmg
-Magoma;gmx
 Magori;zgr
 Maguindanao;mdh
-Mahali;mjx
-Maharastri Prakrit;pmh
 Mahasu Pahari;bfz
 Mahican;mjy
-Mahongwe;mhb
-Mahou;mxx
 Maia;sks
 Maiadomu;mzz
 Maiani;tnh
 Maii;mmm
-Mailu;mgu
 Maindo;cwb
 Mairasi;zrs
-Maisin;mbq
 Maithili;mai
 Maiwa (Indonesia);wmm
 Maiwa (New Guinea);mti
 Maiwala;mum
-Majang;mpe
 Majera;xmj
-Majhi;mjz
-Majhwar;mmj
 Mak (Nigeria);pbl
-Makaa;mcp
 Makah;myh
 Makalero;mjb
 Makasae;mkz
@@ -4150,82 +3008,47 @@ Makassar Malay;mfp
 Makayam;aup
 Makhuwa-Marrevone;xmc
 Makhuwa-Meetto;mgh
-Makhuwa-Moniga;mhm
 Makhuwa-Saka;xsq
 Makhuwa-Shirima;vmk
 Makhuwa;vmw
-Maklew;mgf
 Makolkol;zmh
 Makonde;kde
-Maku'a;lva
 Makuráp;mpu
-Makuri Naga;jmn
-Makwe;ymk
-Makyan Naga;umn
 Mal Paharia;mkb
-Mal;mlf
 Maléku Jaíka;gut
 Mala (New Guinea);ped
-Mala Malasar;ima
 Malaccan Creole Malay;ccm
-Malaccan Creole Portuguese;mcm
 Malagasy;mg
 Malalamai;mmt
 Malango;mln
-Malankuravan;mjo
-Malapandaram;mjp
-Malaryan;mjq
-Malas;mkr
 Malasanga;mqz
-Malasar;ymr
 Malavedan;mjr
 Malawi Lomwe;lon
-Malawi Sena;swk
 Malay;ms
 Malayalam;ml
-Malayic Dayak;xdy
-Malaynon;mlz
-Malayo;mbp
-Malaysian Sign Language;xml
 Malba Birifor;bfo
-Male;mdc
 Malecite-Passamaquoddy;pqm
-Maleng;pkt
-Maleu-Kilenge;mgl
 Malfaxal;mlx
 Malgana;vml
-Malgbe;mxf
 Mali;gcc
 Malila;mgq
-Malimba;mzd
-Malimpung;mli
 Malinaltepec Tlapanec;tcf
-Malo;mla
 Malol;mbk
-Maltese Sign Language;mdl
 Maltese;mt
-Malto;mjt
 Malua Bay;mll
 Malvi;mup
-Malyangapa;yga
 Mam;mam
-Mama;mma
 Mamaa;mhf
 Mamaindé;wmd
 Mamanwa;mmn
 Mamara Senoufo;myk
 Mamasa;mqj
 Mambae;mgm
-Mambai;mcs
-Mamboru;mvd
 Mambwe-Lungu;mgr
 Mampruli;maw
 Mamuju;mqx
 Mamulique;emm
 Mamusi;kdf
-Mamvu;mdi
-Man Cao Lan;mlc
-Man Met;mml
 Manado Malay;xmm
 Manam;mva
 Manambu;mle
@@ -4234,120 +3057,71 @@ Manangkari;znk
 Manchu;mnc
 Manda (Australia);zma
 Manda (India);mha
-Manda;mha
-Mandahuaca;mht
 Mandaic;mid
 Mandailing Batak;btm
-Mandalorian;art-man
 Mandan;mhq
 Mandandanyi;zmk
 Mandar;mdr
 Mandara;tbf
-Mandari;mqu
 Mandarin;cmn
 Mandeali;mjl
-Mander;mqr
 Mandingo;man
 Mandinka;mnk
-Mandjak;mfv
 Mandobo Atas;aax
 Mandobo Bawah;bwp
-Manem;jet
-Mang;zng
-Manga Kanuri;kby
-Mangala;mem
-Mangarayi;mpc
 Mangarevan;mrv
 Mangas;zns
-Mangayat;myj
-Mangbetu;mdj
-Mangbutu;mdk
-Mangerr;zme
 Mangga Buang;mmo
 Manggarai;mqy
 Mango;mge
 Mangole;mqc
 Mangseng;mbh
-Manichaean Middle Persian;xmn
 Manigri-Kambolé Ede Nago;xkb
-Manikion;mnx
 Manipa;mqp
 Manipuri;mni
-Mankanya;knf
-Manna-Dora;mju
 Mannan;mjv
 Mano;mev
 Manombai;woo
 Mansaka;msk
-Mansi;mns
-Mansoanka;msw
 Manta;myg
-Mantsi;nty
 Manumanaw Karen;kxf
 Manus Koro;kxr
-Manusela;wha
 Manx;gv
-Manya;mzj
 Manyawa;mny
-Manyika;mxc
-Manza;mzv
 Mao Naga;nbi
 Maonan;mmd
 Maore Comorian;swb
 Maori;mi
-Mape;mlh
-Mapena;mnm
 Mapia;mpy
 Mapidian;mpw
 Mapos Buang;bzh
 Mapoyo;mcg
 Mapudungun;arn
 Mapun;sjm
-Maquiritari;mch
 Marúbo;mzr
 Mara Chin;mrh
-Mara;mec
-Marachi;lri
 Maraghei;vmh
 Maragus;mrs
-Maram Naga;nma
 Marama;lrm
-Maramba;myd
 Maranao;mrw
-Maranunggu;zmr
 Maranungku;zmr
-Mararit;mgb
 Marathi;mr
 Marau;mvr
-Marba;mpg
 Marenje;vmr
-Marfa;mvu
 Margany;zmc
-Marghi Central;mrt
-Marghi South;mfm
 Margi;mrt
-Margu;mhg
-Mari;\N
 Maricopa;mrc
 Maridan;zmd
 Maridjabin;zmj
 Marik;dad
 Marimanindji;zmm
-Marind;mrz
-Maring Naga;nng
-Maring;mbw
 Maringarr;zmt
-Marino;mrb
-Mariri;mqi
-Maritime Sign Language;nsr
 Maritsauá;msp
 Mariyedi;zmy
 Marka;rkm
 Markweeta;enb
 Marma;rmz
-Maroon Spirit Language;cpe-mar
 Marovo;mvo
-Marriammu;xru
 Marrithiyel;mfr
 Marrucinian;umc
 Marshallese;mh
@@ -4357,37 +3131,22 @@ Marti Ke;zmg
 Martu Wangka;mpj
 Martuthunira;vma
 Marwari;mwr
-Masaaba;myx
 Masaba;myx
-Masadiit Itneg;tis
-Masalit;mls
-Masana;mcn
 Masbate Sorsogon;bks
 Masbatenyo;msb
 Mashco Piro;cuj
-Mashi;jms
 Mashi;mho
 Masimasi;ism
 Masiwang;bnf
 Maskelynes;klv
-Maskoy Pidgin;mhh
-Maslam;msv
-Masmaje;mes
 Massachusett;wam
-Massalat;mdg
-Massep;mvs
 Matís;mpq
-Matagalpa;mtn
 Matal;mfh
-Matbat;xmt
 Matengo;mgv
-Matepi;mqe
 Matigsalug Manobo;mbt
 Matipuhy;mzo
 Matlatzinca;mat
-Mato Grosso Arára;axg
 Mato;met
-Mator-Taygi-Karagas;ymt
 Mator;mtm
 Matsés;mcf
 Mattole;mvb
@@ -4396,23 +3155,13 @@ Matumbi;mgw
 Matya Samo;stj
 Maung;mph
 Mauritian Creole;mfe
-Mauritian Sign Language;lsy
-Mauwake;mhl
 Mav̋ea;mkv
 Mawa;mcw
-Mawak;mjj
-Mawan;mcz
-Mawayana;mzx
-Mawchi;mke
-Mawes;mgk
 Maxakalí;mbl
-Maxi Gbe;mxl
 Maya Samo;sym
-Mayaguduna;xmy
 Mayangna;yan
 Mayawali;yxa
 Maybrat;ayz
-Mayeka;myc
 Mayi-Thakurti;xyt
 Maykulan;mnt
 Mayo;mfy
@@ -4422,110 +3171,71 @@ Mazagway;dkx
 Mazaltepec Zapotec;zpy
 Mazanderani;mzn
 Mazatlán Mazatec;vmz
-Mazatlán Mixe;mzl
 Mba;mfc
 Mbabaram;vmb
-Mbala;mdp
-Mbalanhu;lnb
 Mbandja;zmz
-Mbangala;mxg
 Mbangi;mgn
 Mbangwe;zmn
 Mbariman-Gudhinma;zmv
-Mbati;mdn
 Mbato;gwa
 Mbay;myb
 Mbe';mtk
 Mbe;mfo
-Mbelime;mql
-Mbere;mdt
 Mbesa;zms
 Mbo (Cameroon);mbo
 Mbo (Congo);zmw
-Mbo (Democratic Republic of the Congo);zmw
-Mboi;moi
-Mboko;mdu
-Mbole;mdq
 Mbonga;xmb
 Mbongno;bgu
-Mbosi;mdw
-Mbowe;mxo
-Mbre;mka
 Mbu';muc
 Mbudum;xmd
 Mbugu;mhd
-Mbugwe;mgz
 Mbuko;mqb
-Mbukushu;mhw
 Mbula-Bwazza;mbu
 Mbula;mna
 Mbule;mlb
 Mbulungish;mbv
-Mbum;mdd
 Mbunda;mck
-Mbunga;mgy
 Mburku;bbt
 Mbuun;zmp
 Mbwela;mfu
 Mbyá Guaraní;gun
-Me'en;mym
 Meänkieli;fit
-Mea;meg
-Mebu;mjn
 Mecayapan Nahuatl;nhx
 Medebur;mjm
 Medefaidrin;dmf
 Media Lengua;mue
-Mediak;mwx
-Median;xme
 Mednyj Aleut;mud
 Medumba;byv
-Mefele;mfj
-Megam;mef
 Megleno-Romanian;ruq
 Mehek;nux
 Mehináku;mmh
 Mehri;gdq
 Mekéns;skf
-Mekeo;mek
-Mekmek;mvk
 Mekwei;msf
 Mele-Fila;mxe
-Melo;mfx
-Melpa;med
 Memoni;mby
-Mendalam Kayan;xkd
 Mendankwe-Nkwen;mfd
 Mende;men
 Mengaka;xmg
-Mengen;mee
 Mengisa;leo
-Mengisa;mct
 Menka;mea
 Menominee;mez
 Mentawai;mwv
-Menya;mcr
 Meoswar;mvx
-Mer;mnu
 Meramera;mxm
 Merei;lmb
 Merey;meq
 Meriam;ulk
-Merlav;mrm
 Meroitic;xmr
 Meru;mer
 Mesaka;iyo
-Mese;mci
 Mesme;zim
-Mesmes;mys
-Mesqan;mvz
 Messapic;cms
 Meta';mgo
 Metlatónoc Mixtec;mxv
 Mewari;mtr
 Mewati;wtm
 Mexican Sign Language;mfs
-Meyah;mej
 Mezontla Popoloca;pbe
 Mezquital Otomi;ote
 Mfinu;zmf
@@ -4534,7 +3244,6 @@ Mgbo;gmz
 Mi'kmaq;mic
 Miami;mia
 Mian;mpt
-Miani;pla
 Micha;yiq
 Michif;crg
 Michigamea;cmm
@@ -4545,67 +3254,41 @@ Mid Grand Valley Dani;dnt
 Middle Armenian;axm
 Middle Breton;xbm
 Middle Chinese;ltc
-Middle Chinese;zhx-mid
 Middle Cornish;cnx
 Middle Dutch;dum
 Middle English;enm
 Middle French;frm
 Middle High German;gmh
-Middle Hittite;htx
 Middle Irish;mga
 Middle Khmer;xhm
 Middle Korean;okm
 Middle Low German;gml
 Middle Mongol;xng
-Middle Mongolian;xng
 Middle Newar;nwx
-Middle Norwegian;gmq-mno
 Middle Persian;pal
 Middle Watut;mpl
 Middle Welsh;wlm
 Midob;mei
 Migaama;mmy
-Migabac;mpp
-Miji;sjl
-Miju-Mishmi;mxj
 Miju;mxj
 Mikasuki;mik
-Mili;ymh
-Miltu;mlj
 Miluk;iml
 Milyan;imy
-Min Bei;mnp
-Min Dong;cdo
 Min Nan;nan
-Min Zhong;czo
 Minaean;inm
-Minang;xrg
 Minangkabau;min
-Minanibai;mcv
 Minaveha;mvn
 Minderico;drc
 Mindiri;mpn
-Mingang Doso;mko
-Mingo;iro-min
 Mingrelian;xmf
 Minica Huitoto;hto
 Minidien;wii
 Minigir;vmg
 Minjungbal;xjb
-Minkin;xxm
-Minoan;omn
-Minokok;mqq
-Minriq;mnq
-Mintil;mzt
-Minz Zhuang;zgm
-Miqie;yiq
 Mirandese;mwl
 Miraya Bikol;rbl
-Mire;mvh
-Mirgan;zrg
 Miriti;mmv
 Miriwung;mep
-Mirpur Panjabi;pmu
 Misantla Totonac;tlc
 Miship;mjs
 Misima-Paneati;mpx
@@ -4616,19 +3299,14 @@ Mitlatongo Mixtec;vmm
 Mittu;mwu
 Mituku;zmq
 Miu;mpo
-Miwa;vmi
 Mixed Great Andamanese;gac
-Mixifore;mfg
 Mixtepec Mixtec;mix
 Mixtepec Zapotec;zpm
 Miya;mkf
 Miyako;mvi
 Miyobe;soy
 Mizo;lus
-Mlabri;mra
 Mlahsö;lhs
-Mlap;kja
-Mlomp;mlo
 Mmaala;mmu
 Mmani;buy
 Mmen;bfm
@@ -4640,195 +3318,111 @@ Mobilian;mod
 Mobumrin Aizi;ahm
 Mochi;old
 Mochica;omc
-Mocho;mhc
 Mocoví;moc
 Modang;mxd
-Modole;mqo
-Moere;mvq
 Mofu-Gudur;mif
 Mogholi;mhj
 Mogum;mou
 Mohawk;moh
 Mohegan-Pequot;xpq
 Moi (Congo);mow
-Moikodi;mkp
-Moingi;mwz
 Mojave;mov
-Moji;ymi
-Mok;mqt
-Moken;mwt
 Mokerang;mft
 Mokilese;mkj
-Moklen;mkm
 Mokole;mkl
 Mokpwe;bri
-Moksela;vms
 Moksha;mdf
 Molale;mbe
 Molbog;pwm
-Moldova Sign Language;vsi
 Molengue;bxc
 Molima;mox
-Molise Croatian;svm
 Molmo One;aun
 Molo;zmo
-Molof;msl
 Moloko;mlw
-Mom Jango;ver
-Moma;myl
-Momare;msz
 Mombo Dogon;dmb
-Mombum;mso
-Momina;mmb
-Momuna;mqf
 Mon;mnw
-Monastic Sign Language;mzg
 Mondé;mnd
-Mondropolon;npn
 Mongo;lol
 Mongol;mgt
-Mongolian Sign Language;msr
 Mongolian;mn
 Mongondow;mog
-Monguor;mjg
-Moni;mnz
-Monimbo;mom
 Mono (California);mnr
 Mono (Cameroon);mru
 Mono (Congo);mnh
-Mono (Democratic Republic of the Congo);mnh
-Mono (United States of America);mnr
-Monom;moo
-Monsang Naga;nmh
 Montagnais;moe
 Montana Salish;fla
 Montol;mtl
-Monumbo;mxk
 Monzombo;moj
 Moo;gwg
 Moore;mos
 Moose Cree;crm
 Mopan Maya;mop
 Mor (Austronesian);mhz
-Moraid;msg
-Morawa;mze
-More;mos
 Morelos Nahuatl;nhm
 Morerebi;xmo
-Moresada;msx
-Mori Atas;mzq
 Mori Bawah;xmz
-Morigi;mdb
 Moro;mor
 Moroccan Amazigh;zgh
 Moroccan Arabic;ary
-Moroccan Sign Language;xms
 Morokodo;mgc
 Morom;bdo
 Moronene;mqn
-Morori;mok
 Morouas;mrp
 Mortlockese;mrl
-Moru;mgd
 Mosimo;mqv
-Mosiro;mwy
-Moskona;mtj
 Mota;mtt
-Motlav;mlv
 Motu;meu
 Mouk-Aria;mwh
 Mount Iraya Agta;atl
 Mount Iriga Agta;agz
-Mountain Koiali;kpx
 Mouwase;jmw
-Movima;mzp
-Moyadan Itneg;ity
-Moyon Naga;nmo
-Mozambican Sign Language;mzy
 Mozarabic;mxi
 Mpade;mpi
-Mpalitjanh;xpj
-Mpi;mpz
-Mpiemo;mcx
-Mpongmpong;mgg
 Mpoto;mpa
 Mpotovoro;mvt
-Mpuono;zmp
 Mpur;akc
-Mro Chin;cmr
 Mru;mro
-Mser;kqx
 Mạ;cma
-Mt. Iraya Agta;atl
-Mt. Iriga Agta;agz
 Muak Sa-aak;ukk
 Mualang;mtd
-Mubami;tsx
 Mubi;mub
-Muda;ymd
-Mudbura;mwd
 Mudburra;dmw
-Mudhili Gadaba;gau
 Mudu Koraga;vmd
 Muduapa;wiv
 Muduga;udg
 Mufian;aoj
-Mugom;muk
 Muinane;bmr
-Mukha-Dora;mmk
-Mukulu;moz
-Mulaha;mfw
 Mulam;mlm
-Mullu Kurumba;kpb
-Mullukmulluk;mpb
-Muluridyi;vmu
-Mum;kqa
 Mumuye;mzm
 Muna;mnb
 Munda;unx
 Mundabli;boe
-Mundang;mua
 Mundani;mnf
 Mundari;unr
 Mundat;mmf
-Mundolinco;art-mun
 Mundurukú;myu
 Mungaka;mhk
 Mungbam;mij
 Munggui;mth
 Mungkip;mpv
-Muniche;myr
-Munit;mtc
 Munji;mnj
 Munsee;umu
 Muong;mtq
 Mur Pano;tkv
 Muratayak;asx
 Murik (New Guinea);mtf
-Murkim;rmh
-Murle;mur
 Murrinh-Patha;mwf
-Mursi;muz
 Murui Huitoto;huu
 Murupi;mqw
 Muruwari;zmu
-Musak;mmq
-Musan;mmp
-Musar;mmi
 Musasa;smm
-Musey;mse
 Musgu;mug
-Mushungulu;xma
 Musi;mui
-Muskum;mje
 Musom;msu
 Mussau-Emira;emi
-Muthuvan;muv
 Mutu;tuc
-Muya;mvm
 Muyang;muy
 Muyuw;myw
-Muzi;ymz
 Mvanip;mcj
 Mvuba;mxh
 Mwaghavul;sur
@@ -4842,33 +3436,20 @@ Mwimbi-Muthambi;mws
 Mwotlap;mlv
 Mycenaean Greek;gmy
 Myene;mye
-Mysian;yms
-Mzieme Naga;nme
 N'Ko;nqo
 Nüpode Huitoto;hux
 Nùng;nut
 Nǀuu;ngh
-Ná-Meo;neo
-Na'vi;art-nav
 Na;nbt
 Naaba;nao
-Naasioi;nas
-Naba;mne
 Nabak;naf
 Nabi;mty
 Nachering;ncd
 Nadëb;mbj
-Nadruvian;ndf
 Nafaanra;nfr
-Nafi;srf
 Nafri;nxx
 Naga Pidgin;nag
-Nagarchal;nbg
-Nage;nxe
 Nagu;ngr
-Nagumi;ngv
-Nahali;nlx
-Nahari;nhh
 Nahavaq;sns
 Nahuatl;nah
 Nai;bio
@@ -4883,87 +3464,59 @@ Naki;mff
 Nakwi;nax
 Nalögo;nlz
 Nalca;nlc
-Nali;nss
 Nalik;nal
 Nalu;naj
-Naluo Yi;ylo
-Nama;naq
 Namakura;nmk
-Namat;nkm
 Nambikwara;nab
-Nambo;ncm
 Nambya;nmq
 Namia;nnm
-Namiae;nvm
 Namibian Sign Language;nbs
 Namla;naa
-Namo;mxw
-Namonuito;nmt
 Namosi-Naitasiri-Serua;bwb
 Namuyi;nmy
 Nanai;gld
 Nancere;nnc
 Nande;nnb
 Nandi;niq
-Nanerigé Sénoufo;sen
 Nanga Dama Dogon;nzz
-Nangikurrunggurr;nam
 Nankina;nnk
 Nanti;cox
 Nanticoke;nnt
 Nanubae;afk
-Napu;npy
-Nar Phu;npa
-Nara;nrb
 Narak;nac
 Narango;nrg
 Narau;nxu
-Narim;loh
 Naro;nhr
 Narom;nrm
 Narragansett;xnt
 Narua;nru
 Narungga;nnr
-Nasal;nsy
 Nasarian;nvh
 Nasioi;nas
 Naskapi;nsk
 Nasu;ywq
 Natügu;ntu
-Natagaimas;nts
-Natanzi;ntz
-Nataoran Amis;ais
-Natchez;ncz
 Nateni;ntm
-Nathembo;nte
-Natioro;nti
-Nauete;nxa
 Naukanski;ynk
 Nauna;ncn
 Nauo;nwo
 Nauruan;na
 Navajo;nv
 Navut;nsw
-Nawaru;nwr
 Nawathinehena;nwa
 Nawdm;nmz
 Nawuri;naw
 Naxi;nxq
-Nayi;noz
-Nayini;nyq
 Ncane;ncr
 Nchumbulu;nlu
 Nda'nda';nnz
-Ndai;gke
 Ndaka;ndk
-Ndaktup;ncp
 Ndali;ndh
 Ndam;ndm
 Ndamba;ndj
 Ndambomo;nxo
 Ndasa;nda
 Ndau;ndc
-Nde-Gbite;ned
 Nde-Nsele-Nta;ndd
 Ndemli;nml
 Ndendeule;dne
@@ -4977,10 +3530,8 @@ Ndogo;ndz
 Ndolo;ndl
 Ndom;nqm
 Ndombe;ndq
-Ndonde Hamba;njd
 Ndonga;ng
 Ndoola;ndr
-Nduga;ndx
 Ndumu;nmd
 Ndunda;nuh
 Ndunga;ndt
@@ -4988,9 +3539,6 @@ Ndut;ndv
 Ndyuka-Trio Pidgin;njt
 Ndzwani Comorian;wni
 Neapolitan;nap
-Nedebang;nec
-Nefamese;nef
-Nefusa;jbn
 Negerhollands;dcr
 Negeri Sembilan Malay;zmi
 Negidal;neg
@@ -4998,33 +3546,20 @@ Nehan;nsn
 Nek;nif
 Nekgini;nkg
 Neko;nej
-Neku;nek
-Neme;nex
 Nemi;nem
-Nen;nqn
 Nend;anh
-Nenets;yrk
 Nengone;nen
-Neo-Hittite;nei
 Neo;neu
-Nepalese Sign Language;nsp
 Nepali Kurux;kxl
 Nepali;ne
-Nete;net
 Neve'ei;vnm
 Neverver;lgk
 New Caledonian Javanese;jas
-New Zealand Sign Language;nzs
 Newar;new
-Newari;new
-Neyo;ney
 Nez Perce;nez
 Ngäbere;gym
-Nga La;hlt
 Ngaanyatjarra;ntj
-Ngad'a;nxg
 Ngadha;nxg
-Ngadjunmaya;nju
 Ngadjuri;jui
 Ngaing;nnf
 Ngaju;nij
@@ -5038,55 +3573,38 @@ Ngambay;sba
 Ngamini;nmv
 Ngamo;nbh
 Ngan'gityemerri;nam
-Nganakarti;xnk
 Nganasan;nio
 Ngandi;nid
 Ngandyera;nne
-Ngangam;gng
-Ngantangarra;ntg
 Nganyaywana;nyx
-Ngardi;rxd
-Ngarigu;xni
-Ngarinman;nbj
 Ngarinyin;ung
-Ngarla;nlr
 Ngarla;nrk
 Ngarluma;nrl
 Ngarrindjeri;nay
 Ngas;anc
-Ngasa;nsg
 Ngatik Men's Creole;ngm
-Ngawn Chin;cnw
 Ngawun;nxn
 Ngazidja Comorian;zdj
 Ngbaka Ma'bo;nbm
 Ngbaka Manza;ngg
 Ngbaka;nga
-Ngbee;jgb
 Ngbinda;nbd
 Ngbundu;nuu
 Ngelima;agh
 Ngemba;nge
 Ngen of Djonkro;gnj
 Ngendelengo;nql
-Ngeq;ngt
 Ngete;nnn
 Nggem;nbq
 Nggwahyi;ngx
 Ngie;ngj
 Ngiemboon;nnh
-Ngile;jle
 Ngindo;nnq
-Ngiti;niy
 Ngiyambaa;wyb
 Ngizim;ngi
-Ngkâlmpw Kanum;kcd
 Ngom;nra
 Ngomba;jgo
 Ngombale;nla
-Ngombe (Central African Republic);nmj
-Ngombe (Democratic Republic of the Congo);ngc
-Ngong;nnx
 Ngongo;noq
 Ngoni;ngo
 Ngoreme;ngq
@@ -5094,64 +3612,38 @@ Ngoshie;nsh
 Nguôn;nuo
 Ngul;nlo
 Ngulu;ngp
-Nguluwan;nuw
-Ngumbi;nui
 Ngunawal;xul
 Ngundi;ndn
 Ngundu;nue
 Ngungwel;ngz
-Ngura;nbx
-Ngurmbur;nrx
 Ngwaba;ngw
 Ngwe;nwe
 Ngwo;ngn
 Nhanda;nha
 Nheengatu;yrl
-Nhengatu;yrl
-Nhirrpi;hrp
 Nhuwala;nhf
 Nias;nia
-Nicaragua Creole English;bzk
 Nicaraguan Creole;bzk
 Nicaraguan Sign Language;ncs
-Niellim;nie
 Nigeria Mambila;mzk
-Nigerian Fulfulde;fuv
 Nigerian Pidgin;pcm
-Nigerian Sign Language;nsi
 Nihali;nll
 Nii;nii
-Nijadali;nad
 Niksek;gbe
-Nila;nil
 Nilamba;nim
 Nimadi;noe
-Nimanbur;nmp
-Nimbari;nmr
-Nimboran;nir
 Nimi;nis
-Nimo;niw
-Nimoa;nmw
 Ninam;shb
 Nindi;nxi
 Ningera;nby
 Ninggerum;nxr
-Ningil;niz
-Ningye;nns
-Ninia Yali;nlk
-Ninzo;nin
-Nipsan;nps
-Nisa;njs
 Nisenan;nsz
 Nisga'a;ncg
-Nisi;yso
 Niuafo'ou;num
-Niuatoputapu;nkp
 Niuean;niu
 Nivaclé;cag
 Nivkh;niv
 Niwer Mil;hrc
-Njalgulgule;njl
 Njebi;nzb
 Njen;njj
 Njerep;njr
@@ -5160,10 +3652,8 @@ Nkami;nkq
 Nkangala;nkn
 Nkari;nkz
 Nkem-Nkum;isi
-Nkhumbi;khu
 Nkongho;nkc
 Nkonya;nko
-Nkoroo;nkx
 Nkoya;nka
 Nkukoli;nbo
 Nkutu;nkw
@@ -5171,55 +3661,35 @@ Nnam;nbp
 Nobiin;fia
 Nobonob;gaw
 Nocamán;nom
-Nocte Naga;njb
 Nogai;nog
-Noiri;noi
 Nokuku;nkk
 Nomaande;lem
-Nomane;nof
 Nomatsiguenga;not
 Nomlaki;nol
-Nomu;noh
 Nong Zhuang;zhn
 Nonuya;noj
-Nooksack;nok
 Noon;snf
 Noone;nhu
-Nootka;noo
 Nootka;nuk
 Nopala Chatino;cya
 Noric;nrc
 Norman;nrf
-Norman;roa-nor
 Norn;nrn
-Norra;nrr
-North Alaskan Inupiatun;esi
 North Ambrym;mmg
-North Asmat;nks
-North Awyu;yir
-North Azerbaijani;azj
 North Babar;bcd
 North Boma;boh
-North Central Mixe;neq
 North Efate;llp
 North Fali;fll
 North Frisian;frr
-North Giziga;gis
 North Levantine Arabic;apc
 North Marquesan;mrq
 North Mesopotamian Arabic;ayp
 North Mofu;mfk
 North Moluccan Malay;max
 North Muyu;kti
-North Nuaulu;nni
-North Picene;nrp
 North Slavey;scs
-North Tairora;tbg
 North Tanna;tnn
-North Wahgi;whg
 North Watut;una
-North Wemale;weo
-Northeast Kiwai;kiw
 Northeast Maidu;nmu
 Northeast Malakula;upv
 Northeast Pashayi;aee
@@ -5227,36 +3697,24 @@ Northeastern Dinka;dip
 Northeastern Pomo;pef
 Northern Alta;aqn
 Northern Altai;atv
-Northern Amami-Oshima;ryn
 Northern Amami Ōshima;ryn
-Northern Bai;bfc
 Northern Bontoc;rbk
-Northern Bontok;rbk
 Northern Catanduanes Bicolano;cts
 Northern Dagara;dgi
 Northern East Cree;crl
 Northern Emberá;emp
 Northern Ghale;ghh
-Northern Gondi;gno
 Northern Grebo;gbo
-Northern Guiyang Hmong;huj
 Northern Haida;hdn
 Northern Hindko;hno
-Northern Huishui Hmong;hmi
-Northern Kalapuya;nrt
 Northern Kam;doc
 Northern Kankanay;xnn
 Northern Khmer;kxm
-Northern Kissi;kqs
 Northern Kurdish;kmr
-Northern Lorung;lbr
 Northern Luri;lrc
-Northern Mashan Hmong;hmp
 Northern Min;mnp
-Northern Muji;ymx
 Northern Ndebele;nd
 Northern Ngbandi;ngb
-Northern Nisu;yiv
 Northern Nuni;nuv
 Northern Oaxaca Nahuatl;nhy
 Northern Ohlone;cst
@@ -5266,11 +3724,9 @@ Northern Pame;pmq
 Northern Pinghua;cnp
 Northern Pomo;pej
 Northern Puebla Nahuatl;ncj
-Northern Pumi;pmi
 Northern Pwo;pww
 Northern Qiandong Miao;hea
 Northern Qiang;cng
-Northern Rengma Naga;nnl
 Northern Roglai;rog
 Northern Saharan Berber;mzb
 Northern Sami;se
@@ -5281,32 +3737,23 @@ Northern Tarahumara;thh
 Northern Tepehuan;ntp
 Northern Thai;nod
 Northern Tlaxiaco Mixtec;xtn
-Northern Toussian;tsp
-Northern Tujia;tji
 Northern Tutchone;ttm
-Northern Uzbek;uzn
 Northern Yukaghir;ykg
-Northwest Alaska Inupiatun;esk
 Northwest Gbaya;gya
 Northwest Maidu;mjd
 Northwest Oaxaca Mixtec;mxa
 Northwest Pashayi;glh
 Northwestern Dinka;diw
-Northwestern Fars;faz
-Northwestern Kolami;kfb
 Northwestern Ojibwa;ojb
 Northwestern Tamang;tmk
 Norwegian Bokmål;nb
 Norwegian Nynorsk;nn
-Norwegian Sign Language;nsl
 Norwegian;no
 Notre;bly
 Notsi;ncf
 Nottoway-Meherrin;nwy
 Nottoway;ntw
 Novial;nov
-Noxilo;art-nox
-Noy;noy
 Nsari;asj
 Nsenga;nse
 Nshi;nsc
@@ -5317,70 +3764,39 @@ Ntomba;nto
 Ntra'ngith;dgt
 Nubaca;baf
 Nubi;kcn
-Nubri;kte
 Nuer;nus
 Nuguria;nur
 Nuk;noc
 Nukak Makú;mbr
 Nukna;klt
-Nukuini;nuc
-Nukumanu;nuq
-Nukunu;nnv
-Nukunul;xnu
 Nukuoro;nkr
-Nukuria;nur
 Numèè;kdk
-Numana-Nunku-Gbantu-Numbu;nbr
 Numana;nbr
 Numanggang;nop
-Numbami;sij
 Nume;tgs
-Numee;kdk
 Numidian;nxm
-Nungali;nug
-Nunggubuyu;nuy
 Nungu;rin
-Nupbikha;npb
-Nupe-Nupe-Tako;nup
 Nupe;nup
-Nusa Laut;nul
-Nusu;nuf
-Nuu-chah-nulth;nuk
-Nyâlayu;yly
-Nyabwa;nwb
 Nyah Kur;cbn
-Nyaheun;nev
-Nyahkur;cbn
 Nyakyusa;nyy
 Nyali;nlj
 Nyam;nmi
 Nyamal;nly
 Nyambo;now
-Nyamusa-Molo;nwm
-Nyamwanga;mwn
 Nyamwezi;nym
 Nyaneka;nyk
-Nyang'i;nyp
 Nyanga-li;nyc
 Nyanga (Congo);nyj
 Nyanga (Togo);ayg
-Nyanga;nyj
-Nyangatom;nnj
 Nyangbo;nyb
 Nyangga;nny
-Nyangumarta;nna
 Nyankole;nyn
-Nyanza;mjh
-Nyarafolo Senoufo;sev
-Nyasa;mgs
 Nyaturu;rim
 Nyaw;nyw
-Nyawaygi;nyt
 Nyelâyu;yly
 Nyemba;nba
 Nyengo;nye
 Nyenkha;neh
-Nyeu;nyl
 Nyigina;nyh
 Nyiha;nih
 Nyika;nkt
@@ -5392,9 +3808,6 @@ Nyiyaparli;xny
 Nyokon;nvo
 Nyole (Kenya);nyd
 Nyole (Uganda);nuj
-Nyole;nuj
-Nyong;muo
-Nyore;nyd
 Nyoro;nyo
 Nyulnyul;nyv
 Nyunga;nys
@@ -5403,13 +3816,10 @@ Nzadi;nzd
 Nzakambay;nzy
 Nzakara;nzk
 Nzanyi;nja
-Nzima;nzi
 O'chi'chi';xoc
-O'du;tyh
 O'odham;ood
 Obanliku;bzy
 Obispeño;obi
-Oblo;obl
 Obo Manobo;obo
 Obokuitai;afz
 Obolo;ann
@@ -5420,11 +3830,9 @@ Ocotepec Mixtec;mie
 Ocotlán Zapotec;zac
 Od;odk
 Odiai;bhf
-Odoodee;kkc
 Odual;odu
 Odut;oda
 Ofayé;opy
-Ofo;ofo
 Ogbah;ogc
 Ogbia;ogb
 Ogbogolo;ogg
@@ -5434,15 +3842,11 @@ Oirata;oia
 Ojibwe;oj
 Ojitlán Chinantec;chj
 Okanagan;oka
-Oki-No-Erabu;okn
 Okiek;oki
 Okinawan;ryu
 Okinoerabu;okn
 Oko-Eni-Osayen;oks
-Oko-Juwoi;okj
 Okobo;okb
-Okodia;okd
-Okolod;kqv
 Okpamheri;opa
 Okpe (Northwestern Edo);okx
 Okpe (Southwestern Edo);oke
@@ -5456,7 +3860,6 @@ Old Burmese;obr
 Old Chinese;och
 Old Church Slavonic;cu
 Old Cornish;oco
-Old Danish;gmq-oda
 Old Dutch;odt
 Old East Slavic;orv
 Old English;ang
@@ -5464,16 +3867,12 @@ Old French;fro
 Old Frisian;ofs
 Old Georgian;oge
 Old High German;goh
-Old Hittite;oht
 Old Hungarian;ohu
 Old Irish;sga
-Old Italian;roa-oit
 Old Japanese;ojp
 Old Javanese;kaw
-Old Kentish Sign Language;okl
 Old Khmer;okz
 Old Korean;oko
-Old Lithuanian;bat-olt
 Old Lithuanian;olt
 Old Manipuri;omp
 Old Marathi;omr
@@ -5481,78 +3880,52 @@ Old Mon;omx
 Old Norse;non
 Old Nubian;onw
 Old Occitan;pro
-Old Ossetic;oos
 Old Persian;peo
-Old Polish;zlw-opl
-Old Portuguese;roa-ptg
-Old Provençal;pro
 Old Prussian;prg
 Old Saxon;osx
-Old South Arabian;sem-srb
 Old Spanish;osp
 Old Sundanese;osn
-Old Swedish;gmq-osw
 Old Tamil;oty
 Old Tibetan;otb
 Old Tupi;tpw
 Old Turkic;otk
-Old Uighur;oui
 Old Uyghur;oui
 Old Welsh;owl
 Olekha;ole
-Olkol;olk
 Ollari;gdb
 Olo;ong
 Oloma;olm
 Olrat;olr
-Olu'bo;lul
 Olukumi;ulb
 Olulumo-Ikom;iko
 Oluta Popoluca;plo
 Olutsotso;lto
-Oluwanga;lwg
 Omagua;omg
 Omaha-Ponca;oma
 Omani Arabic;acx
-Omati;mgx
 Omba;omb
 Ombamba;mbm
 Ombo;oml
-Omejes;ome
 Ometepec Nahuatl;nht
-Omi;omi
 Omok;omk
-Omotik;omt
-Omurano;omu
 Oneida;one
-Ong;oog
-Ongota;bxe
-Onin Based Pidgin;onx
 Onin;oni
 Onjob;onj
 Ono;ons
 Onobasulu;onn
 Onondaga;ono
-Ontenu;ont
 Ontong Java;ojv
-Oorlams;oor
 Opao;opo
 Opata;opt
-Opuuo;lgn
-Orang Kanaq;orn
-Orang Seletar;ors
-Oraon Sadri;sdr
 Orejón;ore
 Oring;org
 Oriya;or
 Orizaba Nahuatl;nlv
-Orma;orc
 Ormu;orz
 Ormuri;oru
 Oro Win;orw
 Oro;orx
 Oroch;oac
-Oroha;ora
 Orok;oaa
 Orokaiva;okv
 Oroko;bdu
@@ -5571,33 +3944,20 @@ Ososo;oso
 Ossetian;os
 Ot Danum;otd
 Otank;uta
-Oti;oti
-Otoro;otr
 Ottawa;otw
 Ottoman Turkish;ota
 Otuke;otu
 Ouma;oum
-Oune;oue
 Owa;stn
-Owenia;wsr
 Owiniga;owi
-Oy;oyb
 Oya'oya;oyy
-Oyda;oyd
 Ozolotepec Zapotec;zao
 Ozumacín Chinantec;chz
 Pémono;pev
-Pévé;lme
 Pökoot;pko
 Pááfang;pfa
-Páez;pbb
-Päri;lkr
-Pa'a;pqa
 Pa'o Karen;blk
-Pa-Hng;pha
-Pa Di;pdi
 Pa;ppt
-Paama;pma
 Paamese;pma
 Paasaal;sig
 Pacahuara;pcp
@@ -5610,55 +3970,34 @@ Pagu;pgu
 Pahanan Agta;apf
 Pahari-Potwari;phr
 Pahi;lgt
-Pahlavani;phv
-Pahouin;fan
 Pai Tavytera;pta
 Paicî;pri
 Paipai;ppi
-Paite Chin;pck
 Paiwan;pwn
 Pajapan Nahuatl;nhp
-Pak-Tong;pkg
-Pakanha;pkn
-Pakistan Sign Language;pks
-Paku Karen;kpp
-Paku;pku
 Pal;abw
 Palaic;plq
 Palaka Senoufo;plr
 Palantla Chinantec;cpa
-Palatinate German;pfl
 Palauan;pau
 Palawan Batak;bya
 Paleni;pnl
 Palenquero;pln
 Pali;pi
-Palikúr;plu
 Palikur;plu
-Paliyan;pcf
 Pallanganmiddang;pmd
 Palor;fap
-Palpa;plp
 Palu'e;ple
-Paluan;plz
-Palumata;pmc
 Palya Bareli;bpx
-Pam;pmn
 Pambia;pmb
 Pamlico;pmk
 Pamona;pmf
-Pamosu;hih
 Pamplona Atta;att
 Pana (Central Africa);pnz
 Pana (West Africa);pnq
-Panamanian Sign Language;lsp
 Panamint;par
-Panang;pcr
-Panará;kre
 Panare;pbh
-Panasuan;psn
 Panawa;pwb
-Pancana;pnp
 Panchpargania;tdb
 Pande;bkj
 Pangasinan;pag
@@ -5666,163 +4005,92 @@ Pangseng;pgs
 Pangutaran Sama;slm
 Pangwa;pbr
 Pangwali;pgg
-Panim;pnr
-Paniya;pcg
-Pankararé;pax
-Pankararú;paz
-Pankhu;pkh
-Pannei;pnc
 Pannonian Rusyn;rsk
-Panoan Katukína;knt
 Panobo;pno
 Panyi Bai;bfc
 Panyjima;pnw
-Pao;ppa
 Papantla Totonac;top
 Papapana;ppn
 Papar;dpp
 Papasena;pas
 Papel;pbo
-Papi;ppe
 Papiamentu;pap
-Papitalai;pat
 Papora;ppu
 Papuan Malay;pmy
-Papuan Mor;moq
 Papuma;ppm
 Pará Arára;aap
 Pará Gavião;gvp
 Para Naga;pzn
 Parachi;prc
 Paraguayan Guaraní;gug
-Paraguayan Sign Language;pys
 Parakanã;pak
-Paranan;prf
 Paranawát;paf
 Paraujano;pbg
 Parauk;prk
-Parawen;prw
-Pardhan;pch
-Pardhi;pcl
 Pare;asa
-Pare;ppt
-Parecís;pab
 Pareci;pab
-Parenga;pcj
-Parkari Koli;kvx
-Parsi-Dari;prd
-Parsi;prp
 Parthian;xpr
-Parya;paq
 Pashto;ps
-Pasi;psq
 Pass Valley Yali;yac
 Patamona;pbc
 Patani;ptn
-Pataxó Hã-Ha-Hãe;pth
 Patep;ptp
-Pathiya;pty
 Patpatar;gfk
 Pattani Malay;mfa
-Pattani;lae
 Patwin;pwi
-Paulohi;plh
 Paumarí;pad
-Paunaca;pnk
 Paunaka;pnk
 Pauri Bareli;bfb
 Pauserna;psm
 Pawaia;pwa
 Pawnee;paw
-Paynamar;pmr
 Pazeh;pzh
 Pe;pai
 Peñoles Mixtec;mil
 Pear;pcb
 Pech;pay
-Pecheneg;xpc
 Peere;pfe
-Pei;ppq
-Pekal;pel
-Pela;bxd
 Pele-Ata;ata
-Pelende;ppp
 Pemon;aoc
-Penang Sign Language;psg
 Penchal;pek
-Pendau;ums
 Pengo;peg
 Pennsylvania German;pdc
 Penobscot;aaq
 Penrhyn;pnh
 Pentlatch;ptw
-Perai;wet
 Peranakan Indonesian;pea
 Perema;wom
-Pero;pip
-Persian Sign Language;psc
 Persian;fa
-Peruvian Sign Language;prl
 Petapa Zapotec;zpe
 Petats;pex
-Petjo;pey
-Phai;prt
 Phake;phk
-Phala;ypa
 Phalura;phl
-Phana';phq
 Phangduwali;phw
 Phende;pem
-Philippine Sign Language;psp
 Phimbi;phm
 Phoenician;phn
-Phola;ypg
-Pholo;yip
-Phom;nph
-Phong-Kniang;pnx
-Phrae Pwo Karen;kjt
 Phrae Pwo;kjt
 Phrygian;xpg
 Phu Thai;pht
-Phuan;phu
-Phudagi;phd
-Phuie;pug
-Phukha;phh
-Phuma;ypm
-Phunoi;pho
-Phuong;phg
-Phupa;ypp
-Phupha;yph
-Phuthi;bnt-phu
-Phuza;ypz
 Piamatsina;ptr
-Piame;pin
 Piapoco;pio
-Piaroa;pid
 Picard;pcd
 Pichinglis;fpe
 Pichis Ashéninka;cpu
 Pictish;xpi
-Picuris;nai-pic
 Pidgin Delaware;dep
 Pidgin Iha;ihb
 Pidgin Onin;onx
 Piedmontese;pms
-Pijao;pij
 Pije;piz
 Pijin;pis
 Pilagá;plg
 Pileni;piv
 Pima Bajo;pia
-Pimbwe;piw
-Pinai-Hagahai;pnn
 Pingelapese;pif
-Pini;pii
 Pinigura;pnv
-Pinjarup;pnj
 Pinji;pic
 Pinotepa Nacional Mixtec;mio
-Pintiini;pti
 Pintupi-Luritja;piu
 Pinyin;pny
 Pipil;ppl
@@ -5830,234 +4098,77 @@ Pirahã;myp
 Piratapuyo;pir
 Pirlatapa;bxi
 Piro;pie
-Pirriya;xpa
-Piru;ppr
 Pisabo;pig
-Pisaflores Tepehua;tpp
-Piscataway;psy
-Pisidian;xps
 Pitcairn-Norfolk;pih
 Pite Sami;sje
 Piti;pcn
 Pitjantjatjara;pjt
 Pitta-Pitta;pit
-Piu;pix
-Piya-Kwonci;piy
 Plains Apache;apk
 Plains Cree;crk
-Plains Indian Sign Language;psd
 Plains Miwok;pmw
-Plapo Krumen;ktj
 Plautdietsch;pdt
-Playero;gob
 Pnar;pbv
-Pochuri Naga;npo
 Pochutec;xpo
 Podoko;pbi
-Pogolo;poy
 Pohnpeian;pon
 Pokangá;pok
-Poke;pof
 Pol;pmm
 Polabian;pox
-Polci;plj
-Polish Sign Language;pso
 Polish;pl
 Polonombauk;plb
 Pom;pmo
-Pomeranian;zlw-pom
-Pomo;pmm
 Ponam;ncc
-Ponares;pod
-Pongu;png
 Ponosakan;pns
 Pontic Greek;pnt
 Poqomam;poc
 Poqomchi';poh
-Porohanon;prh
 Port Sandwich;psw
 Port Vato;ptv
-Portuguese Sign Language;psr
 Portuguese;pt
 Potawatomi;pot
 Potiguára;pog
-Pottangi Ollar Gadaba;gdb
-Poumei Naga;pmx
 Pouye;bye
 Powari;pwr
 Powhatan;pim
-Poyanáwa;pyn
 Prakrit;pra
-Prasuni;prn
-Pray;pry
-pre-Roman (Balkans);und-bal
-pre-Roman (Iberia);und-ibe
 Primitive Irish;pgl
 Principense;pre
-Proto-Afro-Asiatic;afa-pro
-Proto-Albanian;sqj-pro
-Proto-Algic;aql-pro
-Proto-Algonquian;alg-pro
-Proto-Altaic;tut-pro
-Proto-Anatolian;ine-ana-pro
-Proto-Armenian;hyx-pro
-Proto-Atayalic;map-ata-pro
-Proto-Athabaskan;ath-pro
-Proto-Austro-Asiatic;aav-pro
-Proto-Austronesian;map-pro
-Proto-Baltic;bat-pro
-Proto-Balto-Slavic;ine-bsl-pro
-Proto-Bantu;bnt-pro
-Proto-Basque;euq-pro
-Proto-Berber;ber-pro
-Proto-Brythonic;cel-bry-pro
-Proto-Bungku-Tolaki;poz-btk-pro
-Proto-Celtic;cel-pro
-Proto-Central-Eastern Malayo-Polynesian;poz-cet-pro
-Proto-Central Malayo-Polynesian;plf-pro
-Proto-Central New South Wales;aus-cww-pro
-Proto-Chamic;cmc-pro
-Proto-Chukotko-Kamchatkan;qfa-cka-pro
-Proto-Dravidian;dra-pro
-Proto-East-Polynesian;pqe-pol-pro
-Proto-Eastern Malayo-Polynesian;pqe-pro
-Proto-Eastern Polynesian;poz-pep-pro
-Proto-Eskimo-Aleut;esx-pro
-Proto-Eskimo;esx-esk-pro
-Proto-Finnic;fiu-fin-pro
-Proto-Finno-Permic;fiu-fpr-pro
-Proto-Finno-Ugric;fiu-pro
-Proto-Germanic;gem-pro
-Proto-Halmahera-Cenderawasih;poz-hce-pro
-Proto-Hellenic;grk-pro
-Proto-Hmong-Mien;hmx-pro
-Proto-Hmong;hmn-pro
-Proto-Indo-Aryan;inc-pro
-Proto-Indo-European;ine-pro
-Proto-Indo-Iranian;iir-pro
-Proto-Inupik;esx-inu-pro
-Proto-Iranian;ira-pro
-Proto-Italic;itc-pro
-Proto-Japonic;jpx-pro
-Proto-Kartvelian;ccs-pro
-Proto-Korean;qfa-kor-pro
-Proto-Lampungic;poz-lgx-pro
-Proto-Malayic;poz-mly-pro
-Proto-Malayo-Chamic;poz-mcm-pro
-Proto-Malayo-Polynesian;poz-pro
-Proto-Malayo-Sumbawan;poz-msa-pro
-Proto-Mien;hmx-mie-pro
-Proto-Mon-Khmer;mkh-pro
-Proto-Mongolic;xgn-pro
-Proto-Nahuan;azc-nah-pro
-Proto-Norse;gmq-pro
-Proto-North Caucasian;ccn-pro
-Proto-North Sarawak;poz-swa-pro
-Proto-Northeast Caucasian;cau-nec-pro
-Proto-Nuclear Polynesian;poz-pnp-pro
-Proto-Oceanic;poz-oce-pro
-Proto-Pama-Nyungan;aus-pam-pro
-Proto-Philippine;phi-pro
-Proto-Polynesian;poz-pol-pro
-Proto-Rukai;dru-pro
-Proto-Samic;smi-pro
-Proto-Samoyedic;syd-pro
-Proto-Semitic;sem-pro
-Proto-Sino-Tibetan;sit-pro
-Proto-Siouan-Catawban;sca-pro
-Proto-Siouan;sio-pro
-Proto-Slavic;sla-pro
-Proto-South Sulawesi;poz-ssw-pro
-Proto-Southwestern Tai;tai-swe-pro
-Proto-Sunda-Sulawesi;poz-sus-pro
-Proto-Tai;tai-pro
-Proto-Tocharian;ine-toc-pro
-Proto-Turkic;trk-pro
-Proto-Ugric;fiu-ugr-pro
-Proto-Uralic;urj-pro
-Proto-Uto-Aztecan;azc-pro
-Proto-Vietic;mkh-vie-pro
-Proto-Western Malayo-Polynesian;pqw-pro
-Proto-Yeniseian;qfa-yen-pro
-Providencia Sign Language;prz
-Psikye;kvj
-Pu Ko;puk
-Pu Xian;cpx
-Puare;pux
 Pudtol Atta;atp
 Puebla Mazatec;pbm
-Puelche;pue
-Puerto Rican Sign Language;psl
-Puimei Naga;npu
-Puinave;pui
-Pukapuka;pkp
 Pukapukan;pkp
-Pulaar;fuc
-Pulabu;pup
-Pular;fuf
 Puluwat;puw
-Puluwatese;puw
-Pumé;yae
-Puma;pum
 Pumpokol;xpm
-Punan Aput;pud
 Punan Bah-Biau;pna
-Punan Batu;pnm
-Punan Merah;puf
-Punan Merap;puc
-Punan Tubu;puj
 Punic;xpu
 Punjabi;pa
 Punu;puu
 Puoc;puo
-Puquina;puq
-Puragi;pru
-Purari;iar
 Purepecha;pua
-Puri;prr
-Purik;prx
 Purisimeño;puy
 Puroik;suv
-Puruborá;pur
-Purum Naga;puz
 Purum;pub
-Putai;mfl
 Putoh;put
 Putukwam;afe
 Puxian Min;cpx
-Puyo-Paekche;xpp
 Puyuma;pyu
 Pwaamèi;pme
-Pwaamei;pme
 Pwapwâ;pop
-Pwapwa;pop
-Pwo Eastern Karen;kjp
-Pyapun;pcw
-Pye Krumen;pye
-Pyen;pyy
 Pyu (New Guinea);pby
-Pyu;pby
 Q'anjob'al;kjb
 Q'eqchi;kek
-Qabiao;laq
 Qaqet;byx
-Qashqa'i;qxq
 Qatabanian;xqt
-Qila Muji;ymq
 Qimant;ahg
-Qiubei Zhuang;zqe
 Quapaw;qua
 Quebec Sign Language;fcs
-Quechan;yum
 Quechua;qu
 Quenya;qya
 Querétaro Otomi;otq
 Quetzaltepec Mixe;pxm
-Queyu;qvy
 Quiavicuzas Zapotec;zpj
 Quileute;qui
 Quinault;qun
-Quinqui;quq
 Quioquitani-Quierí Zapotec;ztq
 Quiotepec Chinantec;chq
 Quiripi;qyp
@@ -6066,91 +4177,55 @@ Rabha;rah
 Rade;rad
 Raetic;xrr
 Raga;lml
-Rahambuu;raz
-Rajah Kabunsuwan Manobo;mqk
-Rajasthani;raj
 Rajbanshi;rjs
-Raji;rji
 Rajong;rjg
 Rajput Garasia;gra
 Rakahanga-Manihiki;rkh
 Rakhine;rki
 Ralte;ral
-Rama;rma
 Ramandi;tks
 Ramoaaina;rai
-Ramopa;kjx
-Rampi;lje
 Rana Tharu;thr
-Rang;rax
-Rangkas;rgk
-Ranglong;rnl
 Rao;rao
 Rapa Nui;rap
-Rapa;ray
-Rapoisi;kyx
-Rapting;rpt
-Rara Bakati';lra
 Rarotongan;rar
 Rasawa;rac
 Ratagnon;btn
 Ratahan;rth
-Rathawi;rtw
 Rathwi Bareli;bgd
 Raute;rau
 Ravula;yea
 Rawa;rwo
 Rawang;raw
-Rawat;jnl
-Rawo;rwa
 Rayón Zoque;zor
 Razajerdi;rat
 Razihi;rzh
-Reang;ria
-Red Gelao;gir
 Reel;atu
 Rejang Kayan;ree
 Rejang;rej
-Reli;rei
 Rema;bow
 Rembarunga;rmb
 Rembong;reb
 Remo;rem
 Remontado Agta;agv
-Rempi;rmp
 Remun;lkj
 Rendille;rel
-Rengao;ren
-Rennellese Sign Language;rsi
 Rennellese;mnv
 Repanbitip;rpn
-Rer Bare;rer
-Rerau;rea
 Rerep;pgk
 Resígaro;rgr
-Reshe;res
-Retta;ret
 Reyesano;rey
-Riang;ril
 Riantana;ran
 Ribun;rir
-Rien;rie
 Rigwe;iri
 Rikbaktsa;rkb
 Rincón Zapotec;zar
-Ringgou;rgu
-Ririo;rri
 Ritarungo;rit
 Riung;riu
 Riverain Sango;snj
-Rogo;rod
 Rohingya;rhg
-Roma;rmm
 Romagnol;rgn
-Romam;rmx
-Romani Greek;rge
 Romani;rom
-Romanian Sign Language;rms
 Romanian;ro
 Romano-Greek;rge
 Romano-Serbian;rsb
@@ -6161,10 +4236,7 @@ Rombo;rof
 Romkun;rmk
 Ron;cla
 Ronga;rng
-Rongga;ror
 Rongmei Naga;nbu
-Rongpo;rnp
-Ronji;roe
 Roon;rnn
 Roria;rga
 Roro;rro
@@ -6173,117 +4245,65 @@ Rotuman;rtm
 Roviana;rug
 Ruching Palaung;pce
 Rudbari;rdb
-Rufiji;rui
-Ruga;ruh
 Rukai;dru
 Rukiga;cgg
-Ruma;ruz
 Rumai Palaung;rbb
-Rumu;klq
-Runa;rna
-Runga;rou
 Rungus;drg
 Rungwa;rnw
-Russenorsk;crp-rsn
-Russian Sign Language;rsl
 Russian;ru
-Rusyn;rue
 Rutul;rut
-Ruuli;ruc
-Ruund;rnd
-Rwa;rwk
 S'gaw Karen;ksw
 Sîshëë;sih
-Sô;sss
-Sìcìté Sénoufo;sep
-Sáliba;slc
 São Paulo Kaingáng;zkp
 Sãotomense;cri
 Sa'a;apb
 Sa'ban;snv
-Sa'och;scq
 Sa;sax
 Saafi-Saafi;sav
-Saam;raq
-Saamia;lsm
 Saanich;str
 Saare;uss
 Saaroa;sxr
-Sabüm;sbo
 Saba;saa
 Sabaean;xsa
 Sabah Bisaya;bsy
-Sabah Malay;msi
 Sabanê;sae
-Sabaot;spy
 Sabine;sbv
 Sabir;pml
 Sabu;hvn
 Sacapulteco;quv
 Sadri;sck
 Saek;skb
-Saep;spd
 Safaliba;saf
 Safeyoka;apz
 Safwa;sbk
 Sagala;sbm
-Sagalla;tga
-Sahaptin;qot
 Saho;ssy
 Sahu;saj
-Saidi Arabic;aec
 Saisiyat;xsy
-Sajau Basap;sjb
-Sakachep;sch
-Sakam;skm
 Sakao;sku
 Sakata;skt
 Sake;sak
-Sakirabiá;skf
 Sakizaya;szy
 Sala;shq
 Salampasu;slx
 Salar;slr
-Salas;sgu
-Salchuq;slq
-Saleman;sau
-Saliba;sbe
 Salinan;sln
-Salt-Yui;sll
-Saluan;loe
 Salumá;slj
 Salvadoran Sign Language;esn
-Sam;snx
 Sama;smd
 Samaritan Aramaic;sam
 Samaritan Hebrew;smp
-Samaritan;smp
-Samarokena;tmj
-Samatao;ysd
-Samba Daka;ccg
-Samba Leko;ndi
 Samba;smx
 Sambali;xsb
 Sambalpuri;spv
 Sambe;xab
 Samberigi;ssx
-Samburu;saq
-Samei;smh
-Samo;smq
-Samoan Plantation Pidgin;cpe-spp
 Samoan;sm
 Samogitian;sgs
 Samosa;swm
-Sampang;rav
-Samre;sxm
-Samtao;stu
-Samvedi;smv
 San Agustín Mixtepec Zapotec;ztm
 San Baltazar Loxicha Zapotec;zpx
-San Dionisio Del Mar Huave;hve
 San Felipe Otlaltepec Popoloca;pow
-San Francisco Del Mar Huave;hue
-San Francisco Matlatzinca;mat
 San Jerónimo Tecóatl Mazatec;maa
 San Juan Atzingo Popoloca;poe
 San Juan Colorado Mixtec;mjc
@@ -6294,42 +4314,28 @@ San Marcos Tlalcoyalco Popoloca;pls
 San Martín Itunyoso Triqui;trq
 San Miguel Creole French;scf
 San Miguel el Grande Mixtec;mig
-San Miguel El Grande Mixtec;mig
 San Miguel Piedras Mixtec;xtp
 San Pablo Güilá Zapotec;ztu
 San Pedro Amuzgos Amuzgo;azg
 San Pedro Quiatoni Zapotec;zpf
-San Salvador Kongo;kwy
 San Vicente Coatlán Zapotec;zpt
-Sanaani Arabic;ayn
-Sanapaná;sap
 Sanapaná;spn
 Sandawe;sad
 Sanga (Congo);sng
 Sanga (Nigeria);xsn
-Sanggau;scg
 Sangil;snl
 Sangir;sxn
 Sangisari;sgr
-Sangkong;sgk
-Sanglechi;sgy
 Sango;sg
-Sangtam Naga;nsa
 Sangu (Gabon);snq
 Sangu (Tanzania);sbp
-Sangu;sbp
 Sani;ysn
-Sanie;ysy
 Saniyo-Hiyewe;sny
-Sankaran Maninka;msc
-Sansi;ssi
 Sanskrit;sa
-Sansu;sca
 Santa Catarina Albarradas Zapotec;ztn
 Santa Inés Ahuatempan Popoloca;pca
 Santa Inés Yatzechi Zapotec;zpn
 Santa Lucía Monteverde Mixtec;mdv
-Santa María Del Mar Huave;hvv
 Santa María La Alta Nahuatl;nhz
 Santa María Quiegolani Zapotec;zpi
 Santa María Zacatepec Mixtec;mza
@@ -6337,148 +4343,80 @@ Santa Teresa Cora;cok
 Santali;sat
 Santiago Xanica Zapotec;zpr
 Santo Domingo Albarradas Zapotec;zas
-Sanumá;xsu
-Sapé;spc
 Sapa;tys
-Saparua;spr
-Sapo;krn
-Saponi;spi
-Saposa;sps
-Sapuan;spu
 Sar;mwm
-Sara Dunjo;koj
-Sara Kaba Deme;kwg
 Sara Kaba Náà;kwv
 Sara Kaba;sbz
-Sara;sre
 Saraiki;skr
 Saramaccan;srm
 Sarangani Blaan;bps
 Sarangani Manobo;mbs
-Sarasira;zsa
-Saraveca;sar
-Sarcee;srs
 Sardinian;sc
 Sarikoli;srh
 Sarli;sdf
 Sartang;onp
 Sarua;swy
-Sarudu;sdu
 Saruga;sra
 Sasak;sas
 Sasaru;sxs
-Sassarese Sardinian;sdc
 Sassarese;sdc
 Satawalese;stw
 Sateré-Mawé;mav
 Saterland Frisian;stq
-Saudi Arabian Sign Language;sdl
-Sauk;skc
-Sauraseni Prakrit;psu
 Saurashtra;saz
-Sauri;srt
 Sause;sao
 Sausi;ssj
-Savara;svr
-Savi;sdg
 Savosavo;svs
 Sawai;szw
-Saweru;swr
 Sawi;saw
-Sawila;swt
 Sawriya Paharia;mjt
 Saxwe Gbe;sxw
 Saya;say
 Sayula Popoluca;pos
 Scots;sco
 Scottish Gaelic;gd
-Scythian;xsc
 Seba;kdg
 Sebat Bet Gurage;sgw
-Seberuang;sbx
 Sebop;sib
-Sebuyau;snb
 Sechelt;sec
 Secoya;sey
 Sedang;sed
-Sedoa;tvw
-Seeku;sos
-Segai;sge
 Segeju;seg
-Seget;sbg
 Sehwi;sfw
 Seimat;ssg
-Seit-Kaitetu;hik
 Sekani;sek
-Sekapan;skp
-Sekar;skz
-Seke;skj
 Seki;syi
-Seko Padang;skx
-Seko Tengah;sko
-Sekpele;lip
-Selangor Sign Language;kgi
 Selaru;slu
-Selayar;sly
 Selee;snw
-Selepet;spl
-Selian;sxl
 Selk'nam;ona
-Selknam;ona
-Selkup;sel
 Selonian;sxl
-Selungai Murut;slg
-Seluwasan;sws
-Sema;nsm
 Semai;sea
-Semandang;sdm
-Semaq Beri;szc
-Sembakung Murut;sbr
 Semelai;sza
 Semimi;etz
-Semnam;ssm
 Semnani;smy
-Sempan;xse
 Sena;seh
-Senara Sénoufo;seq
-Senaya;syn
-Sene;sej
 Seneca;see
-Sened;sds
 Sengele;szg
-Senggi;snu
 Sengo;spk
 Sengseng;ssz
-Senhaja De Srair;sjs
 Sensi;sni
 Sentani;set
-Senthang Chin;sez
-Sentinelese;std
 Sepa (Indonesia);spb
 Sepa (New Guinea);spe
-Sepa;spe
 Sepen;spm
-Sepik Iwam;iws
 Sepik Mari;mbx
 Sera;sry
-Seraiki;skr
 Serbo-Croatian;sh
 Sere;swf
 Serer;srr
 Seri;sei
-Serili;sve
-Seroa;kqu
 Serrano;ser
 Seru;szd
-Serua;srw
-Serudung Murut;srk
 Serui-Laut;seu
 Seta;stf
 Setaman;stm
 Seti;sbi
-Settla;sta
 Severn Ojibwa;ojs
-Sewa Bay;sew
 Seychellois Creole;crs
 Seze;sze
 Sha;scw
@@ -6486,32 +4424,22 @@ Shabak;sdb
 Shabo;sbf
 Shahmirzadi;srz
 Shahrudi;shm
-Shall-Zwall;sha
 Shama-Sambuga;sqa
-Shamang;xsh
 Shambala;ksb
 Shan;shn
 Shanenawa;swo
 Shanga;sho
-Shangzhai;jih
 Shaojiang Min;sjc
 Sharanahua;mcd
 Shark Bay;ssv
 Sharwa;swq
 Shasta;sht
-Shatt;shj
 Shau;sqh
 Shawnee;sjw
-She;shx
 Shehri;shv
-Shekkacho;moy
-Sheko;she
 Shelta;sth
-Shempire Senoufo;seb
-Shendu;shl
 Sheni;scv
 Sherbro;bun
-Sherdukpen;sdp
 Sherpa;xsr
 Sheshi Kham;kip
 Shi;shr
@@ -6519,39 +4447,23 @@ Shihhi Arabic;ssh
 Shiki;gua
 Shilluk;shk
 Shina;scl
-Shinabo;snh
 Shinasha;bwo
-Shinyiha;nyr
 Shipibo-Conibo;shp
 Shixing;sxg
 Sholaga;sle
-Shom Peng;sii
 Shona;sn
 Shoo-Minda-Nye;bcv
 Shor;cjs
 Shoshone;shh
-Shqip;shq
 Shua;shg
-Shuadit;sdt
 Shuar;jiv
-Shubi;suj
 Shughni;sgh
 Shumashti;sts
-Shumcho;scu
 Shuswap;shs
-Shuwa-Zamani;ksa
-Shwai;shw
 Shwe Palaung;pll
-Sialum;slw
-Siamou;sif
-Sian;spg
 Siane;snp
-Siang;sya
-Siar-Lak;sjr
 Sibe;nco
 Siberian Tatar;sty
-Sibu Melanau;sdx
-Sicanian;sxc
 Sicel;scx
 Sichuan Yi;ii
 Sicilian;scn
@@ -6560,34 +4472,21 @@ Sidamo;sid
 Sidetic;xsd
 Sie;erg
 Sierra de Juárez Zapotec;zaa
-Sierra Leone Sign Language;sgx
 Sierra Negra Nahuatl;nsu
 Sighu;sxe
-Sihan;snr
 Sika;ski
 Sikaiana;sky
-Sikaritai;tty
 Sikiana;sik
 Sikkimese;sip
-Sikule;skh
-Sila;slt
 Silacayoapan Mixtec;mks
-Sileibi;sbq
-Silesian German;sli
 Silesian;szl
-Silimo;wul
 Siliput;mkc
-Silopi;xsp
 Silt'e;stv
 Simaa;sie
 Simalungun Batak;bts
 Simba;sbw
 Simbali;smg
-Simbari;smb
-Simbo;sbb
-Simeku;smz
 Simeulue;smr
-Simte;smt
 Sinagen;siu
 Sinasina;sst
 Sinaugoro;snc
@@ -6596,17 +4495,13 @@ Sindhi Bhil;sbn
 Sindhi;sd
 Sindihui Mixtec;xts
 Singa;sgm
-Singapore Sign Language;sls
 Singpho;sgp
 Sinhalese;si
 Sinicahua Mixtec;xti
 Sininkere;skq
-Sinsauru;snz
 Sinte Romani;rmo
 Sinyar;sys
-Sio;xsi
 Siona;snn
-Sipacapense;qum
 Sipakapense;qum
 Sira;swj
 Siraya;fos
@@ -6614,96 +4509,60 @@ Sirenik;ysr
 Siri;sir
 Siriano;sri
 Sirionó;srq
-Sirmauri;srx
 Siroi;ssd
 Sissala;sld
 Sissano;sso
-Siuslaw;sis
 Sivandi;siy
-Siwa;siz
-Siwai;siw
 Siwi;siz
 Siwu;akp
-Siyin Chin;csy
 Skagit;ska
 Skalvian;svx
 Ske;ske
 Skepi Creole Dutch;skw
 Skolt Sami;sms
 Skou;skv
-Slavey;den
 Slavomolisano;svm
 Slovak;sk
-Slovakian Sign Language;svk
 Slovene;sl
-Slovincian;zlw-slv
-Smärky Kanum;kxq
-Small Flowery Miao;sfm
 Snohomish;sno
 So'a;ssq
-Sobei;sob
 Sochiapam Chinantec;cso
 Soga;xog
 Sogdian;sog
-Soi;soj
-Sok;skk
-Sokna;swn
 Soko;soc
 Sokoro;sok
-Solano;xso
 Soli;sby
 Solong;aaw
-Solos;sol
 Som;smc
 Somali;so
 Somba-Siawari;bmu
 Somrai;sor
-Somray;smu
 Somyev;kgt
 Sonde;shc
-Songa;sgo
 Songe;sop
-Songlai Chin;csj
-Songo;soo
 Songomeno;soe
 Songoora;sod
-Sonha;soi
-Sonia;siq
 Soninke;snk
 Sonsorolese;sov
-Soo;teu
 Sop;urw
 Soqotri;sqt
 Sora;srb
 Sori-Harengan;sbh
-Sorkhei;sqo
-Sorothaptic;sxo
 Sorsogon Ayta;ays
 Sos Kundi;sdk
-Sota Kanum;krz
 Sotho;st
-Sou;sqq
-South African Sign Language;sfs
 South Awyu;aws
-South Azerbaijani;azb
-South Central Banda;lnl
 South Central Dinka;dib
 South Efate;erk
 South Fali;fal
-South Giziga;giz
-South Lembata;lmf
 South Levantine Arabic;ajp
 South Marquesan;mqm
 South Muyu;kts
-South Nuaulu;nxl
 South Picene;spx
 South Slavey;xsl
 South Tairora;omw
 South Ucayali Ashéninka;cpy
-South Watut;mcy
-South Wemale;tlw
 Southeast Ambrym;tvk
-Southeast Babar;vbb
 Southeast Ijo;ijs
 Southeast Pashayi;psi
 Southeastern Dinka;dks
@@ -6716,44 +4575,25 @@ Southeastern Tarahumara;tcu
 Southeastern Tepehuan;stp
 Southern Alta;agy
 Southern Altai;alt
-Southern Amami-Oshima;ams
 Southern Amami Ōshima;ams
-Southern Aymara;ayc
 Southern Bai;bfs
-Southern Balochi;bcc
 Southern Birifor;biv
-Southern Bobo Madaré;bwq
 Southern Bobo;bwq
 Southern Bontoc;obk
-Southern Bontok;obk
 Southern Carrier;caf
 Southern Catanduanes Bicolano;bln
 Southern Dagaare;dga
 Southern East Cree;crj
 Southern Ghale;ghe
-Southern Gondi;ggo
 Southern Grebo;grj
-Southern Guiyang Hmong;hmy
 Southern Haida;hax
 Southern Hindko;hnd
-Southern Kalapuya;sxk
-Southern Kalinga;ksc
 Southern Kam;kmc
-Southern Kisi;kss
-Southern Kiwai;kjd
 Southern Kurdish;sdh
-Southern Lolopo;ysp
-Southern Lorung;lrr
 Southern Luri;luz
-Southern Ma'di;snm
 Southern Mashan Hmong;hma
-Southern Mnong;mnn
-Southern Muji;ymc
-Southern Nambikuára;nab
 Southern Ndebele;nr
 Southern Ngbandi;nbw
-Southern Nicobarese;nik
-Southern Nisu;nsd
 Southern Nuni;nnw
 Southern Ohlone;css
 Southern One;osu
@@ -6762,64 +4602,40 @@ Southern Pinghua;csp
 Southern Pomo;peq
 Southern Puebla Mixtec;mit
 Southern Puget Sound Salish;slh
-Southern Pumi;pmj
-Southern Qiandong Miao;hms
 Southern Qiang;qxs
-Southern Rengma Naga;nre
 Southern Rincon Zapotec;zsr
-Southern Roglai;rgs
 Southern Sama;ssb
 Southern Sami;sma
 Southern Samo;sbd
 Southern Sierra Miwok;skd
 Southern Thai;sou
 Southern Tiwa;tix
-Southern Toussian;wib
 Southern Tujia;tjs
 Southern Tutchone;tce
-Southern Uzbek;uzs
 Southern Yukaghir;yux
 Southwest Gbaya;gso
 Southwest Palawano;plv
 Southwest Pashayi;psh
 Southwest Tanna;nwi
 Southwestern Bontoc;vbk
-Southwestern Bontok;vbk
 Southwestern Dinka;dik
-Southwestern Fars;fay
-Southwestern Guiyang Hmong;hmg
-Southwestern Huishui Hmong;hmh
-Southwestern Nisu;nsv
-Southwestern Tamang;tsf
 Southwestern Tarahumara;twr
 Southwestern Tepehuan;tla
 Southwestern Tlaxiaco Mixtec;meh
 Sowa;sww
-Sowanda;sow
-Soyaltepec Mazatec;vmp
 Soyaltepec Mixtec;vmq
-Spanish Sign Language;ssp
 Spanish;es
-Spiti Bhoti;spt
-Spokane;spo
 Squamish;squ
 Sranan Tongo;srn
 Sri Lankan Creole Malay;sci
-Sri Lankan Sign Language;sqs
 Ỹaroamë;yro
-Standard Moroccan Tamazight;zgh
-Stod Bhoti;sbu
 Stoney;sto
 Suabo;szp
-Suarmin;seo
-Suau;swp
 Suba-Simbiti;ssc
 Suba;sxb
-Subi;xsj
 Subiya;sbs
 Subtiaba;sut
 Sudanese Arabic;apd
-Sudest;tgo
 Sudovian;xsv
 Suena;sue
 Suga;sgi
@@ -6830,66 +4646,40 @@ Suki;sui
 Suku;sub
 Sukuma;suk
 Sukur;syk
-Sukurum;zsu
 Sula;szn
-Sulka;sua
-Sulod;srg
-Sulung;suv
-Suma;sqm
 Sumariup;siv
 Sumau;six
 Sumbawa;smw
 Sumbwa;suw
 Sumerian;sux
-Sunam;ssk
 Sundanese;su
 Sungwadaga;mwo
 Sungwadia;mrb
 Sunum;ymn
 Sunwar;suz
-Suoy;syo
 Supyire;spp
-Sur;tdl
-Surbakhal;sbj
-Suri;suq
 Surigaonon;sgd
 Surjapuri;sjp
 Sursurunga;sgz
 Suruí Do Pará;mdz
 Suruí;sru
-Suruahá;swx
 Surubu;sde
-Susquehannock;sqn
 Susu;sus
 Susuami;ssu
 Suundi;sdj
-Suwawa;swu
 Suyá;suy
 Svan;sva
 Swabian;swg
 Swahili;sw
 Swampy Cree;csw
-Swati;\N
 Swazi;ss
-Swedish Sign Language;swl
 Swedish;sv
-Swiss-French Sign Language;ssr
-Swiss-German Sign Language;sgg
-Swiss-Italian Sign Language;slf
 Swo;sox
-Syenara Senoufo;shz
 Sylheti;syl
-Syriac;syr
-Syrian Arabic;sem-syr
-T'en;tct
 Tîrî;cir
-Téén;lor
 Tübatulabal;tub
-Tày Sa Pa;tys
-Tày Tac;tyt
 Tày;tyz
 Tây Bồi;tas
-Ta'izzi-Adeni Arabic;acq
 Taíno;tnq
 Taabwa;tap
 Tabaa Zapotec;zat
@@ -6898,250 +4688,142 @@ Tabasaran;tab
 Tabasco Chontal;chf
 Tabasco Nahuatl;nhc
 Tabasco Zoque;zoq
-Tabassaran;tab
-Tabla;tnm
-Tabo;knv
 Tabriak;tzx
 Tacahua Mixtec;xtt
 Tacana;tna
 Tachawit;shy
-Tachelhit;shi
 Tadaksahak;dsq
 Tadyawan;tdy
 Tae';rob
-Tafi;tcd
 Tagabawa;bgs
 Tagakaulu Kalagan;klg
 Tagal Murut;mvv
 Tagalog;tl
-Tagargrent;oua
 Tagbanwa;tbw
-Tagbu;tbm
-Tagdal;tda
 Tagish;tgx
 Tagoi;tag
-Tagwana Senoufo;tgw
-Tahaggart Tamahaq;thv
 Tahitian;ty
 Tahltan;tht
 Tai Dón;twh
 Tai Daeng;tyr
 Tai Dam;blt
 Tai Do;tyj
-Tai Hang Tong;thc
-Tai Hongjin;tiz
 Tai Laing;tjl
-Tai Loi;tlq
-Tai Long;thi
-Tai Mène;tmp
 Tai Nüa;tdd
-Tai Pao;tpo
-Tai Thanh;tmm
 Tai Ya;cuu
 Tai;taw
-Taiap;gpn
 Taikat;aos
-Taimyr Pidgin Russian;crp-tpr
 Tainae;ago
-Taino;tnq
-Tairuma;uar
 Taita;dav
 Taivoan;tvx
-Taiwan Sign Language;tss
-Taje;pee
 Tajik;tg
 Tajiki Arabic;abh
 Tajio;tdj
-Tajuasohn;tja
-Takelma;tkm
-Takestani;tks
 Takia;tbc
-Takua;tkz
 Takuu;nho
 Takwane;tke
 Tal;tal
 Tala;tak
-Talaud;tld
 Taliabu;tlv
-Talieng;tdf
-Talinga-Bwisi;tlj
-Talise;tlr
-Talodi;tlo
-Taloki;tlk
-Talondo';tln
 Talossan;tzl
-Talu;yta
-Talur;ilw
 Talysh;tly
 Tama (Colombia);ten
-Tamagario;tcg
 Tamambo;mla
 Taman (Indonesia);tmn
 Taman (Myanmar);tcl
 Tamanaku;tmz
-Tamashek;tmh
-Tamasheq;taq
 Tamazola Mixtec;vmx
-Tambas;tdk
 Tambora;xxt
 Tambotalo;tls
 Tambunan Dusun;kzt
-Tami;tmy
 Tamil;ta
 Tamki;tax
-Tamnim Citak;tml
-Tampias Lobu;low
 Tampuan;tpu
-Tampulma;tpm
 Tanacross;tcb
-Tanahmerah;tcm
-Tanapag;tpv
 Tanchangya;tnv
 Tandaganon;tgn
 Tandia;tni
 Tanema;tnx
 Tangale;tan
-Tangchangya;tnv
-Tangga;tgg
 Tanggu;tgu
 Tangkhul Naga;nmf
-Tangko;tkx
-Tanglang;ytl
 Tangoa;tgp
 Tangsa;nst
 Tanguat;tbs
 Tangut;txg
 Tanimbili;tbe
 Tanimuca-Retuarã;tnc
-Tanjijili;uji
 Tanudan Kalinga;kml
-Tanzanian Sign Language;tza
 Taos;twf
-Tapeba;tbb
 Tapei;afp
-Tapieté;tpj
 Tapirapé;taf
-Tar Gula;kcm
 Tara Baka;bdh
-Tarantino;roa-tar
-Tarao Naga;tro
 Tarao;tro
 Taraon;mhu
-Tareng;tgr
 Tariana;tae
 Tarifit;rif
 Tarjumo;txj
 Tarok;yer
 Taroko;trv
 Tarpia;tpf
-Tartessian;txr
-Tasawaq;twq
 Tashelhit;shi
-Tasmanian;xtz
 Tasmate;tmt
 Tat;ttt
 Tataltepec Chatino;cta
-Tatana;txx
 Tatar;tt
 Tatuyo;tav
-Tauade;ttd
-Taulil;tuh
 Taungyo;tco
-Taupota;tpa
 Tause;tad
-Taushiro;trr
 Tausug;tsg
 Tauya;tya
 Taveta;tvs
 Tavoyan;tvn
 Tavringer Romani;rmu
 Tawala;tbo
-Tawallammat Tamajaq;ttq
 Tawandê;xtw
 Tawang Monpa;twm
-Tawara;twl
 Taworta;tbp
-Tawoyan;twy
-Tawr Chin;tcp
-Tay Boi;tas
-Tay Khang;tnu
 Tayabas Ayta;ayy
-Tayart Tamajeq;thz
 Tayo;cks
-Taznatit;grr
 Tboli;tbl
-Tchitchege;tck
 Tchumbuli;bqa
 Te'un;tve
 Teanu;tkw
-Tebul Sign Language;tsy
 Tebul Ure Dogon;dtu
 Tecpatlán Totonac;tcw
-Tedaga;tuq
 Tedim Chin;ctd
 Tee;tkq
 Tefaro;tfo
 Tegali;ras
-Tehit;kps
 Tehuelche;teh
 Teiwa;twe
 Tejalapan Zapotec;ztt
-Teke-Ebo;ebo
-Teke-Fuumu;ifm
-Teke-Kukuya;kkw
-Teke-Laali;lli
-Teke-Nzikou;nzu
-Teke-Tege;teg
-Teke-Tsaayi;tyi
 Teke-Tyee;tyx
-Tektiteko;ttc
-Tela-Masbuar;tvm
-Telefol;tlf
 Telugu;te
-Teluti;tlt
 Tem;kdh
-Temacine Tamazight;tjo
 Temascaltepec Nahuatl;nhv
 Tembé;tqb
-Teme;tdo
-Temein;teq
 Temi;soz
 Temiar;tea
 Temoaya Otomi;ott
-Temoq;tmo
-Tempasuk Dusun;tdu
-Temuan;tmw
 Ten'edn;tnz
 Tenango Otomi;otn
 Tene Kan Dogon;dtk
-Tenggarong Kutai Malay;vkt
 Tengger;tes
 Tenharim;pah
 Tenino;tqn
 Tenis;tns
-Tennet;tex
 Teop;tio
-Teor;tev
 Tepecano;tep
 Tepetotutla Chinantec;cnt
 Tepeuxila Cuicatec;cux
 Tepinapa Chinantec;cte
-Tepo Krumen;ted
 Ter Sami;sjt
-Tera;ttr
-Terebu;trb
 Terei;buo
 Tereno;ter
-Teressa;tef
-Tereweng;twg
 Teribe;tfr
-Terik;tec
 Termanu;twu
 Ternate;tft
-Ternateño;tmg
-Tese;keg
-Teshenawa;twc
-Tetela;tll
 Tetelcingo Nahuatl;nhg
 Tetete;teb
 Tetserret;tez
@@ -7149,135 +4831,75 @@ Tetum;tet
 Tetun Dili;tdt
 Teutila Cuicatec;cut
 Tewa;tew
-Tewe;twx
 Texcatepec Otomi;otx
 Texistepec Popoluca;poq
 Texmelucan Zapotec;zpz
 Tezoatlán Mixtec;mxb
-Tha;thy
-Thachanadan;thn
-Thado Chin;tcz
 Thai Sign Language;tsq
 Thai Song;soa
 Thai;th
-Thakali;ths
-Thangal Naga;nki
-Thangmi;thf
 Thao;ssf
-Tharaka;thk
 Tharrgari;dhr
 Thavung;thm
-Thawa;xtv
-Thayore;thd
-Thaypan;typ
-The;thx
 Tho;tou
 Thompson;thp
-Thopho;ytp
 Thracian;txh
-Thu Lao;tyl
-Thudam;thw
-Thulung;tdh
-Thurawal;tbh
-Thuri;thu
-Tiéfo;tiq
 Tiéyaxo Bozo;boz
 Tiagbamrin Aizi;ahi
 Tiale;mnl
 Tiang;tbj
 Tibea;ngy
 Tibetan;bo
-Tichurong;tcn
 Ticuna;tca
 Tidaá Mixtec;mtx
-Tidikelt Tamazight;tia
-Tidong;tid
 Tidore;tvo
 Tiemacèwè Bozo;boo
-Tiene;tii
-Tifal;tif
 Tigak;tgc
 Tigon Mbembe;nza
 Tigre;tig
 Tigrinya;ti
-Tii;txq
 Tijaltepec Mixtec;xtl
 Tikar;tik
 Tikopia;tkp
 Tilapa Otomi;otl
 Tillamook;til
 Tilquiapan Zapotec;zts
-Tilung;tij
-Tima;tms
-Timbe;tim
-Timne;tem
 Timor Pidgin;tvy
-Timucua;tjm
 Timugon Murut;tih
-Tinà Sambal;xsb
-Tinani;lbf
 Tindi;tin
-Tingal;tie
 Tingui-Boto;tgv
-Tinigua;tit
-Tinoc Kallahan;tne
-Tinputz;tpz
-Tippera;tpe
-Tira;tic
-Tirahi;tra
-Tiranige Diga Dogon;tde
 Tirax;mme
-Tircul;pyx
-Tiri;cir
 Tiruray;tiy
-Tita;tdq
-Titan;ttv
 Tiv;tiv
-Tivi;tiv
 Tiwa;lax
 Tiwi;tiw
 Tjurruru;tju
-Tlachichilco Tepehua;tpt
-Tlacoapa Me'phaa;tpl
 Tlacoatzintepec Chinantec;ctl
 Tlacolulita Zapotec;zpk
 Tlahuica;ocu
-Tlahuitoltepec Mixe;mxp
 Tlamacazapa Nahuatl;nuz
 Tlazoyaltepec Mixtec;mqh
 Tlingit;tli
 To'abaita;mlu
-To;toz
-Toaripi;tqo
 Toba-Maskoy;tmf
 Toba Batak;bbc
 Toba;tob
 Tobagonian Creole English;tgh
-Tobanga;tng
 Tobati;tti
 Tobelo;tlb
-Tobian;tox
 Tobilung;tgb
-Tobo;tbv
 Tocantins Asurini;asu
 Tocharian A;xto
 Tocharian B;txb
 Tocho;taz
 Toda;tcx
-Todrah;tdr
 Tofa;kim
-Tofanma;tlg
-Tofin Gbe;tfi
-Togbo-Vara Banda;tor
-Togoyo;tgy
 Tojolabal;toj
 Tok Pisin;tpi
 Toka-Leya;dov
 Tokano;zuh
 Tokelauan;tkl
-Toki Pona;art-top
 Toki Pona;tok
-Toku-No-Shima;tkn
 Tokunoshima;tkn
 Tol;jic
 Tolai;ksd
@@ -7286,38 +4908,24 @@ Tolomako;tlm
 Tolowa;tol
 Toma;tod
 Tomadino;tdi
-Tombelala;ttp
 Tombonuo;txa
 Tombulu;tom
-Tomedes;toe
 Tomini;txm
-Tommo So Dogon;dto
 Tommo So;dto
 Tomo Kan Dogon;dtm
-Tomoip;tqp
 Tondano;tdn
 Tonga (Malawi);tog
 Tonga (Zambia);toi
-Tonga;toi
 Tongan;to
-Tongwe;tny
-Tonjon;tjn
 Tonkawa;tqw
 Tonsawang;tnw
 Tonsea;txs
 Tontemboan;tnt
 Tooro;ttj
-Topoiyo;toy
-Toposa;toq
-Torá;trz
 Toraja-Sa'dan;sda
-Toram;trj
-Torau;ttu
 Toro So Dogon;dts
 Toro Tegu Dogon;dtt
-Toro;tdv
 Toromono;tno
-Torona;tqr
 Torres Strait Creole;tcs
 Torricelli Yau;yyu
 Torricelli;tei
@@ -7328,202 +4936,113 @@ Totoli;txe
 Totomachapan Zapotec;zph
 Totontepec Mixe;mto
 Totoro;ttk
-Touo;tqu
 Toura;neb
-Towei;ttn
 Translingual;mul
 Traveller Danish;rmd
 Traveller Norwegian;rmg
 Traveller Scottish;trl
-Tregami;trm
-Tremembé;tme
 Trió;tri
-Trieng;stg
-Trimuris;tip
-Tring;tgq
-Tringgus-Sembaan Bidayuh;trx
-Trinidad and Tobago Sign Language;lst
 Trinidadian Creole English;trf
-Trinitario;trn
-Truká;tka
-Trumai;tpy
-Ts'ün-Lao;tsl
-Tsaangi;tsa
 Tsafiki;cof
 Tsakhur;tkr
 Tsakonian;tsd
-Tsakwambo;kvz
-Tsamai;tsb
-Tsat;huq
-Tseku;tsk
 Tsetsaut;txc
 Tsez;ddo
 Tshangla;tsj
-Tshiluba;lua
-Tsikimba;kdl
 Tsimané;cas
 Tsimshian;tsi
-Tsishingini;tsw
-Tso;ldp
-Tsoa;hio
-Tsogo;tsv
 Tsonga;ts
 Tsotsitaal;fly
 Tsou;tsu
 Tsucuba;cbq
-Tsum;ttz
 Tsuut'ina;srs
-Tsuvadi;tvd
-Tsuvan;tsh
-Tswa;tsc
 Tswana;tn
-Tswapong;two
 Tuamotuan;pmt
 Tuareg;tmh
 Tubar;tbu
 Tucano;tuo
-Tugen;tuy
-Tugun;tzn
-Tugutil;tuj
-Tukang Besi North;khc
 Tukang Besi South;bhq
 Tuki;bag
-Tukpa;tpq
 Tukudede;tkd
 Tukumanféd;tkf
-Tula;tul
-Tulehu;tlu
 Tulishi;tey
 Tulu-Bohuai;rak
 Tulu;tcy
 Tuma-Irumu;iou
-Tumak;tmc
-Tumari Kanuri;krt
 Tumbuka;tum
-Tumi;kku
-Tumleo;tmq
 Tumshuqese;xtq
-Tumtum;tbr
 Tumulung Sisaala;sil
-Tumzabt;mzb
 Tundra Enets;enh
 Tundra Nenets;yrk
-Tunen;baz
-Tunen;tvu
 Tungag;lcm
 Tunggare;trt
-Tunia;tug
 Tunica;tun
 Tunisian Arabic;aeb
-Tunisian Sign Language;tse
 Tunjung;tjg
-Tunni;tqq
 Tunzu;dza
 Tuotomb;ttf
 Tuparí;tpr
 Tupinambá;tpn
-Tupinikin;tpk
 Tupuri;tui
-Turaka;trh
-Turi;trd
 Turiwára;twt
 Turka;tuz
 Turkana;tuv
-Turkic Khalaj;klj
-Turkish Sign Language;tsm
 Turkish;tr
 Turkmen;tk
 Turks and Caicos Creole English;tch
-Turks And Caicos Creole English;tch
 Turoyo;tru
-Turumsa;tqm
 Turung;try
 Tuscarora;tus
 Tutelo;tta
 Tutong;ttg
-Tutsa Naga;tvt
 Tutuba;tmi
 Tututepec Mixtec;mtu
 Tututni;tuu
 Tuvaluan;tvl
 Tuvan;tyv
 Tuwali Ifugao;ifk
-Tuwari;tww
 Tuwuli;bov
-Tuxá;tud
 Tuxináwa;tux
 Tuyuca;tue
 Twana;twa
-Twendi;twn
 Twi;tw
 Tyap;kcg
-Tyaraity;woa
 Tz'utujil;tzj
 Tzeltal;tzh
 Tzotzil;tzo
-U;uuu
 Uab Meto;aoz
-Uamué;uam
-Uare;ksj
 Ubaghara;byc
 Ubang;uba
-Ubi;ubi
 Ubir;ubr
 Ubykh;uby
 Ucayali-Yurúa Ashéninka;cpb
-Uda;uda
 Udi;udi
 Udihe;ude
 Udmurt;udm
-Uduk;udu
 Ufim;ufi
-Ugandan Sign Language;ugn
 Ugaritic;uga
-Ughele;uge
-Ugong;ugo
 Uhami;uha
-Uisai;uis
 Ujir;udj
-Ukaan;kcf
-Ukhwejo;ukh
-Ukit;umi
 Ukpe-Bayobiri;ukp
 Ukpet-Ehom;akd
-Ukrainian Sign Language;ukl
 Ukrainian;uk
 Ukue;uku
-Ukuriguma;ukg
-Ukwa;ukq
 Ukwuani-Aboh-Ndoni;ukw
 Ulau-Suain;svb
 Ulch;ulc
 Uldeme;udl
-Ulithian;uli
-Ullatan;ull
-Ulukwumi;ulb
-Ulumanda';ulm
-Ulwa;ulw
-Uma' Lasan;xky
-Uma' Lung;ulu
 Uma;ppk
 Umanakaina;gdn
 Umatilla;uma
-Umbindhamu;umd
 Umbrian;xum
 Umbu-Ungu;ubu
-Umbugarla;umr
 Umbundu;umb
-Umbuygamu;umg
 Ume Sami;sju
-Umeda;upi
 Umiida;xud
 Umiray Dumaget Agta;due
 Umon;umm
-Umotína;umo
 Umpila;ump
-Una;mtg
 Unami;unm
-Unas;art-una
 Unde Kaili;unz
 Undetermined;und
 Uneapa;bbn
@@ -7532,29 +5051,21 @@ Unggaranggu;xun
 Unggumi;xgu
 Unserdeutsch;uln
 Unua;onu
-Unubahe;unu
 Uokha;uok
 Upper Chehalis;cjh
 Upper Grand Valley Dani;dna
-Upper Guinea Crioulo;pov
 Upper Kinabatangan;dmg
 Upper Kuskokwim;kuu
 Upper Necaxa Totonac;tku
-Upper Saxon;sxu
 Upper Sorbian;hsb
-Upper Ta'oih;tth
 Upper Tanana;tau
-Upper Tanudan Kalinga;kgh
 Upper Taromi;tov
 Upper Umpqua;xup
 Ura (Papua New Guinea);uro
 Ura (Vanuatu);uur
-Ura;uur
 Uradhi;urf
 Urak Lawoi';urk
 Urali;url
-Urapmin;urm
-Urarina;ura
 Urartian;xur
 Urat;urt
 Urdu;ur
@@ -7563,15 +5074,11 @@ Uri;uvh
 Urigina;urg
 Urim;uri
 Urimo;urx
-Uripiv-Wala-Rano-Atchin;upv
-Urningangg;urc
 Uru-Eu-Wau-Wau;urz
 Uru-Pa-In;urp
-Uru;ure
 Uruangnirin;urn
 Uruava;urv
 Urubú-Kaapor;urb
-Uruguayan Sign Language;ugy
 Urum;uum
 Urumi;uru
 Usaghade;usk
@@ -7580,12 +5087,9 @@ Usarufa;usa
 Ushojo;ush
 Usila Chinantec;cuc
 Uspanteco;usp
-Usui;usi
 Utarmbung;omo
 Ute;ute
-Utu;utu
 Uvbie;evh
-Uya;usu
 Uyajitaya;duk
 Uyghur;ug
 Uzbek;uz
@@ -7593,197 +5097,108 @@ Uzbeki Arabic;auz
 Uzekwe;eze
 Võro;vro
 Vaagri Booli;vaa
-Vafsi;vaf
-Vaghat-Ya-Bijim-Legeri;bij
 Vaghri;vgr
 Vaghua;tva
-Vagla;vag
 Vai;vai
-Vaiphei;vap
-Vale;vae
-Valencian Sign Language;vsv
 Valle Nacional Chinantec;cvn
 Valley Maidu;vmv
-Valman;van
 Valpei;vlp
 Vamale;mkt
-Vame;mlr
 Vandalic;xvn
 Vangunu;mpr
-Vanimo;vam
-Vanuma;vau
 Vao;vao
-Varhadi-Nagpuri;vah
 Varhadi;vah
-Varisi;vrs
 Varli;vav
-Vasavi;vas
-Vasekela Bushman;vaj
-Vayu;vay
 Veddah;ved
-Vehes;val
-Vemgo-Mabas;vem
 Venda;ve
 Venetan;vec
-Venetian;vec
 Venetic;xve
-Venezuelan Sign Language;vsl
 Ventureño;veo
 Veps;vep
 Vera'a;vra
 Vestinian;xvs
-Vidunda;vid
-Viemo;vig
 Vietnamese;vi
 Vilamovian;wym
-Vilela;vil
 Vili;vif
 Villa Viciosa Agta;dyg
 Vincentian Creole English;svc
-Vinza;vin
 Virgin Islands Creole;vic
-Vishavan;vis
-Viti;vit
-Vitou;vto
 Viya;gev
 Vlax Romani;rmy
 Volapük;vo
 Volscian;xvo
-Vono;kch
-Voro;vor
 Votic;vot
-Vumbu;vum
 Vunapu;vnp
 Vunjo;vun
 Vurës;msn
 Vute;vut
-Wè Northern;wob
 Wè Southern;gxx
-Wè Western;wec
-Wára;tci
 Wãpha;juw
 Wa'ema;wag
-Wa;wbm
 Waama;wwa
 Waamwang;wmn
-Waata;ssn
 Wab;wab
 Wabo;wbb
-Waboda;kmx
-Waci Gbe;wci
-Wadaginam;wdg
-Waddar;wbq
-Wadi Wadi;xwd
-Wadikali;wdk
-Wadiyara Koli;kxp
-Wadjabangayi;wdy
-Wadjiginy;wdj
-Wadjigu;wdu
-Wae Rana;wrx
 Waffa;waj
-Wagawaga;wgb
-Wagaya;wga
-Wagdi;wbr
 Wageman;waq
 Wagi;fad
-Wahau Kayan;whu
-Wahau Kenyah;whk
-Wahgi;wgi
 Waigali;wbk
-Waigeo;wgo
 Wailaki;wlk
 Wailapa;wlr
 Waima'a;wmh
 Waimaha;bao
 Waimiri-Atroari;atr
-Waioli;wli
 Waiwai;waw
-Waja;wja
 Wajarri;wbv
-Wajuk;xwj
-Waka;wav
-Wakawaka;wkw
 Wakhi;wbl
-Wakoná;waf
-Wala;lgl
-Walak;wlw
-Walamo;wal
-Walangama;nlw
 Wali (Ghana);wlx
 Waling;wly
-Walio;wla
 Walla Walla;waa
 Wallisian;wls
 Walloon;wa
 Walmajarri;wmt
-Walo Kumbe Dogon;dwl
-Walser;wae
-Walungge;ola
 Wam;wmo
-Wamas;wmc
 Wambaya;wmb
 Wambon;wms
 Wambule;wme
 Wamey;cou
-Wamin;wmi
 Wampar;lbq
 Wampur;waz
-Wan;wan
 Wané;hwa
 Wanambre;wnb
 Wanap;wnp
 Wancho;nnp
-Wanda;wbh
 Wandala;mfi
 Wandamen;wad
 Wandarang;wnd
-Wandji;wdd
 Waneci;wne
-Wangaaybuwan-Ngiyambaa;wyb
 Wanggamala;wnm
 Wangganguru;wgg
 Wanggom;wng
-Wangkayutyuru;wky
 Wangkumara;xwk
 Wanji;wbi
-Wanman;wbt
-Wannu;jub
 Wano;wno
 Wantoat;wnc
 Wanukaka;wnk
 Wanyi;wny
-Wapan;juk
 Wapishana;wap
 Wappo;wao
 War-Jaintia;aml
-Wara;wbf
 Warao;wba
 Warapu;wra
 Waray-Waray;war
 Waray Sorsogon;srv
-Waray;wrz
-Wardaman;wrr
-Wardandi;wxw
-Warduji;wrd
 Warekena;gae
-Warembori;wsa
-Wares;wai
 Wari';pav
-Waris;wrs
 Waritai;wbe
 Wariyangga;wri
 Warji;wji
 Warkay-Bipim;bgv
-Warlmanpa;wrl
 Warlpiri;wbp
 Warluwara;wrb
-Warnang;wrn
 Waropen;wrp
 Warrgamay;wgy
-Warrwa;wwr
-Waru;wru
 Warumungu;wrm
-Waruna;wrv
 Warungu;wrg
 Warwar Feni;hrw
 Wasa;wss
@@ -7792,61 +5207,39 @@ Wasembo;gsp
 Washo;was
 Waskia;wsk
 Wastek;hus
-Wasu;wsu
-Watakataui;wtk
 Watam;wax
 Wathaurong;wth
 Watiwa;wtf
 Watubela;wah
-Waube;kop
 Wauja;wau
-Waurá;wau
-Wauyai;wuy
 Wawa;www
 Wawonii;wow
 Waxiang;wxa
-Waxianghua;wxa
 Wayampi;oym
 Wayana;way
 Wayanad Chetti;ctt
-Wayoró;wyr
 Wayuu;guc
 Wedau;wed
-Weh;weh
-Welaung;weu
 Weliki;klh
 Welsh Romani;rmw
 Welsh;cy
 Wemba-Wemba;xww
-Weme Gbe;wem
 Wendat;wdt
-Wergaia;weg
-Weri;wer
-Wersing;kvw
-West-Central Limba;lia
 West Albay Bikol;fbl
 West Ambae;nnd
-West Berawan;zbw
 West Central Banda;bbp
-West Central Oromo;gaz
 West Coast Bajau;bdr
 West Damar;drn
 West Flemish;vls
 West Frisian;fy
-West Kewa;kew
-West Lembata;lmj
 West Makian;mqs
-West Masela;mss
 West Tarangan;txn
 West Uvean;uve
-West Yugur;ybe
 Western Apache;apw
 Western Arrernte;are
-Western Balochi;bgn
 Western Bolivian Guaraní;gnw
 Western Bru;brv
 Western Bukidnon Manobo;mbb
-Western Canadian Inuktitut;ikt
 Western Cham;cja
 Western Dani;dnw
 Western Durango Nahuatl;azn
@@ -7855,69 +5248,39 @@ Western Gurung;gvr
 Western Highland Chatino;ctp
 Western Huasteca Nahuatl;nhw
 Western Juxtlahuaca Mixtec;jmx
-Western Kanjobal;knj
-Western Karaboro;kza
 Western Katu;kuf
 Western Kayah;kyu
 Western Keres;kjq
-Western Krahn;krw
-Western Lalu;ywl
 Western Lawa;lcp
 Western Magar;mrd
-Western Maninkakan;mlq
 Western Mari;mrj
-Western Mashan Hmong;hmw
-Western Meohang;raf
-Western Muria;mut
 Western Neo-Aramaic;amw
-Western Niger Fulfulde;fuh
 Western Ojibwa;ojw
-Western Panjabi;pnb
 Western Parbate Kham;kjl
 Western Penan;pne
-Western Persian;pes
 Western Pwo;pwo
 Western Sisaala;ssl
 Western Subanon;suc
 Western Tamang;tdg
-Western Tawbuid;twb
 Western Totonac;tqt
-Western Tunebo;tnb
 Western Xiangxi Miao;mmr
 Western Xwla Gbe;xwl
 Western Yugur;ybe
-Wewaw;wea
 Weyewa;wew
-Weyto;woy
-White Gelao;giw
 White Hmong;mww
-White Lachi;lwh
 Whitesands;tnp
 Wiarumus;tua
 Wichí Lhamtés Güisnay;mzh
 Wichí Lhamtés Nocten;mtp
 Wichí Lhamtés Vejoz;wlv
 Wichita;wic
-Wik-Epa;wie
-Wik-Iiyanh;wij
-Wik-Keyangan;wif
-Wik-Me'anha;wih
 Wik-Mungkan;wim
-Wik-Ngathana;wig
-Wikalkan;wik
-Wikngenchera;wua
-Wilawila;wil
 Winnebago;win
-Wintu;wit
 Wintu;wnw
-Winyé;kst
 Wipi;gdr
-Wiradhuri;wrh
 Wiradjuri;wrh
 Wiraféd;wir
 Wirangu;wgu
-Wirangu;wiw
-Wiru;wiu
 Wiwa;mbp
 Wiyot;wiy
 Woccon;xwc
@@ -7925,7 +5288,6 @@ Wogamusin;wog
 Wogeo;woc
 Woi;wbw
 Woiwurrung;wyi
-Wojenaka;jod
 Wolane;wle
 Wolani;wod
 Wolaytta;wal
@@ -7937,25 +5299,12 @@ Wongo;won
 Woods Cree;cwd
 Woria;wor
 Worimi;kda
-Worodougou;jud
-Worora;unp
-Wotapuri-Katarqalai;wsv
-Wotjobaluk;xwt
-Wotu;wtw
 Woun Meu;noa
 Written Oirat;xwo
 Wu;wuu
-Wuding-Luquan Yi;ywq
 Wudu;wud
-Wuliwuli;wlu
-Wulna;wux
 Wumboko;bqm
 Wumbvu;wum
-Wumeng Nasu;ywu
-Wunai Bunu;bwn
-Wunambal;wub
-Wurrugu;wur
-Wusa Nasu;yig
 Wushi;bse
 Wusi;wsi
 Wutung;wut
@@ -7964,58 +5313,36 @@ Wuvulu-Aua;wuv
 Wyandot;wya
 Xârâcùù;ane
 Xârâgurè;axx
-Xaasongaxango;kao
 Xadani Zapotec;zax
 Xakriabá;xkr
 Xamtanga;xan
 Xanaguía Zapotec;ztg
-Xaragure;axx
 Xavante;xav
 Xerénte;xer
 Xetá;xet
 Xhosa;xh
-Xiandao;xia
 Xiang;hsn
 Xibe;sjo
 Xicotepec de Juárez Totonac;too
-Xicotepec De Juárez Totonac;too
 Xinca;xin
 Xingú Asuriní;asn
-Xipaya;xiy
-Xipináwa;xip
-Xiri;xii
 Xiriâna;xir
-Xishanba Lalo;ywt
-Xokleng;xok
-Xukurú;xoo
-Xwela Gbe;xwe
 Yámana;yag
 Yaa;iyx
-Yaaku;muu
 Yabaâna;ybn
 Yabarana;yar
-Yaben;ybm
-Yabong;ybo
 Yabula Yabula;yxy
 Yace;ekr
 Yaeyama;rys
-Yafi;wfg
 Yagara;yxg
 Yagaria;ygr
 Yagnobi;yai
 Yagomi;ygm
-Yagua;yad
 Yagwoia;ygw
-Yahadian;ner
-Yahang;rhp
-Yahuna;ynu
-Yaka (Central African Republic);axk
 Yaka;yaf
-Yakaikeke;ykk
 Yakan;yka
 Yakima;yak
 Yakkha;ybh
-Yakoma;yky
 Yakut;sah
 Yalálag Zapotec;zpu
 Yala;yba
@@ -8023,67 +5350,41 @@ Yalahatan;jal
 Yalakalore;xyl
 Yalarnnga;ylr
 Yale;nce
-Yaleba;ylb
-Yalunka;yal
 Yamap;ymp
 Yamba;yam
 Yambes;ymb
 Yambeta;yat
 Yamdena;jmd
-Yameo;yme
 Yami;tao
 Yaminahua;yaa
 Yamongeri;ymg
-Yamphe;yma
 Yamphu;ybi
 Yan-nhangu;jay
-Yana;ynn
 Yanda Dogon;dym
-Yanda Dom Dogon;dym
-Yanda;yda
-Yandjibara;xyb
 Yandruwandha;ynd
 Yanesha';ame
-Yang Zhuang;zyg
 Yangben;yav
-Yangbye;ybd
-Yangho;ynh
 Yangkam;bsx
-Yangman;jng
 Yango;yng
-Yangulam;ynl
 Yangum Dey;yde
 Yangum Gel;ygl
 Yangum Mon;ymo
 Yankunytjatjara;kdd
-Yanomámi;wca
 Yanomam;wca
 Yanomamö;guu
-Yansi;yns
 Yanyuwa;jao
 Yao;yao
 Yaosakor Asmat;asy
-Yaouré;yre
 Yapese;yap
 Yapunda;yev
 Yaqay;jaq
 Yaqui;yaq
-Yarí;yri
-Yarawata;yrw
-Yardliyawarra;yxi
-Yardliyawarra;yxl
-Yareba;yrb
 Yareni Zapotec;zae
 Yarli;yxl
-Yarluyandi;yry
-Yarsun;yrs
 Yasa;yko
-Yassic;ysc
-Yatay;yty
 Yatee Zapotec;zty
 Yatzachi Zapotec;zav
 Yaul;yla
-Yauma;yax
 Yaur;jau
 Yautepec Zapotec;zpb
 Yavitero;yvt
@@ -8091,117 +5392,67 @@ Yawa;yva
 Yawalapití;yaw
 Yawanawa;ywn
 Yawarawarga;yww
-Yaweyuha;yby
 Yawijibaya;jbw
-Yawiyo;ybx
 Yawuru;ywr
-Yay;pcc
-Yaygir;xya
 Yazghulami;yah
-Yazgulyam;yah
 Ye'kwana;mch
-Yecuatla Totonac;tlc
-Yei;jei
 Yekhee;ets
-Yekora;ykr
-Yela;yel
-Yele;yle
-Yelmek;jel
-Yelogu;ylg
 Yemaek;hmk
 Yemba;ybb
 Yemeni Arabic;ayn
-Yemsa;jnj
 Yendang;yen
-Yeni;yei
-Yeniche;yec
 Yenish;yec
-Yerakai;yra
 Yeretuar;gop
-Yerong;yrn
-Yerukula;yeu
 Yeskwa;yes
 Yessan-Mayo;yss
-Yetfa;yet
 Yevanic;yej
-Yeyi;yey
-Yiddish Sign Language;yds
 Yiddish;yi
 Yidgha;ydg
 Yidiny;yii
 Yil;yll
 Yilan Creole;ycr
-Yimas;yee
 Yimchungru Naga;yim
-Yinbaw Karen;kvu
-Yinchia;yin
 Yindjibarndi;yij
 Yindjilandji;yil
 Yine;pib
 Yinggarda;yia
 Yinhawangka;ywg
-Yiningayi;ygi
-Yintale Karen;kvy
 Yinwum;yxm
 Yir-Yoront;yiy
-Yirandali;ljw
 Yis;yis
-Yitha Yitha;xth
-Yiwom;gek
 Yoba;yob
 Yocoboué Dida;gud
 Yogad;yog
-Yoidik;ydk
-Yoke;yki
-Yokuts;yok
 Yola;yol
 Yolmo;scp
 Yoloxochitl Mixtec;xty
-Yom;pil
 Yombe;yom
 Yonaguni;yoi
 Yong;yno
-Yongbei Zhuang;zyb
-Yongkom;yon
-Yongnan Zhuang;zyn
 Yopno;yut
 Yora;mts
 Yoron;yox
 Yorta Yorta;xyy
 Yoruba;yo
-Yos;yos
 Yosondúa Mixtec;mpm
-Youjiang Zhuang;zyj
-Youle Jinuo;jiu
 Younuo Bunu;buh
 Yout Wam;ytw
-Yoy;yoy
-Yuaga;nua
 Yuanga;nua
 Yucatec Maya Sign Language;msd
 Yucatec Maya;yua
-Yuchi;yuc
 Yucuañe Mixtec;mvg
 Yucuna;ycn
 Yug;yug
-Yugambal;yub
-Yugh;yuu
-Yugoslavian Sign Language;ysl
-Yugul;ygu
 Yuhup;yab
 Yuki;yuk
 Yukpa;yup
-Yukuben;ybl
-Yulu;yul
 Yuma;yum
 Yup'ik;esu
 Yuqui;yuq
 Yuracare;yuz
 Yurok;yur
-Yuru;ljx
 Yurutí;yui
 Yutanduchi Mixtec;mab
-Yuwana;yau
 Yuyu;yxu
 Záparo;zro
 Zaachila Zapotec;ztx
@@ -8211,8 +5462,6 @@ Zacatlán-Ahuacatlán-Tepetzintla Nahuatl;nhi
 Zaghawa;zag
 Zaiwa;atb
 Zakhring;zkr
-Zambian Sign Language;zsl
-Zamboanga Chavacano;cbk-zam
 Zan Gula;zna
 Zanaki;zak
 Zande;zne
@@ -8223,22 +5472,17 @@ Zapotec;zap
 Zaramo;zaj
 Zari;zaz
 Zarma;dje
-Zarphatic;zrp
 Zauzou;zal
 Zay;zwa
-Zayein Karen;kxk
 Zayse-Zergulla;zay
 Zazaki;zza
 Zazao;jaj
 Zealandic;zea
 Zeem;zua
 Zemba;dhm
-Zeme Naga;nzm
-Zemgalian;xzm
 Zenag;zeg
 Zenaga;zen
 Zenzontepec Chatino;czn
-Zhaba;zhb
 Zhang-Zhung;xzh
 Zhire;zhi
 Zhoa;zhw
@@ -8248,23 +5492,18 @@ Zialo;zil
 Zigula;ziw
 Zimakani;zik
 Zimba;zmb
-Zimbabwe Sign Language;zib
 Zinza;zin
-Zire;sih
 Zirenkel;zrn
 Ziriya;zir
 Zizilivakan;ziz
 Zo'é;pto
 Zokhuo;yzk
 Zoogocho Zapotec;zpq
-Zoroastrian Dari;gbz
 Zotung Chin;czt
 Zou;zom
 Zulgo-Gemzek;gnd
-Zulu;zu
 Zulu;zuGhotuo;aaa
 Zumaya;zuy
-Zumbun;jmbAfar;aa
 Zuni;zun
 Zuojiang Zhuang;zzj
 Zyphe;zyp
