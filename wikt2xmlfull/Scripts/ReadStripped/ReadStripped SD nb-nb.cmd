@@ -2,7 +2,7 @@
 rem Process the Bokmål Norwegian Wiktionary, Bokmål Norwegian only. Run this to start the conversion
 rem Joel Korhonen 2021-May-22
 rem Change EDITION to match with the Wiktionary edition you have downloaded
-set EDITION=20250401
+set EDITION=20250501
 
 if not "%1"=="" goto :calledByReadStrippedSDALL
 

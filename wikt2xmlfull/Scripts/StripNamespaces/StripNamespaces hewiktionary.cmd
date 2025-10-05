@@ -4,7 +4,7 @@ rem Joel Korhonen 2022-Dec-01
 rem 2025-04-23 Either change EDITION below and run this script to use it,
 rem or change EDITION to "StripNamespaces ALL.cmd" and run it, for
 rem calling each language specific script, such as this one.
-set EDITION=20250401
+set EDITION=20250501
 
 if not "%1"=="" goto :calledByStripNamespacesALL
 

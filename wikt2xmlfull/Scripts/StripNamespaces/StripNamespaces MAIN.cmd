@@ -7,14 +7,14 @@ rem
 rem Before running, change either environment variables for your Windows user account,
 rem or the variables below as needed. See "Running.txt".
 rem
-rem Set DICT to the location under which you uncompressed the Wiktionary edition you have downloaded
-rem e.g. DICT=G:\Temp\wiktionary-dumps
-rem  and make sure you have already uncompressed enwiktionary-%EDITION%-pages-articles.xml.bz2 to
-rem   G:\Temp\wiktionary-dumps\enwiktionary-%EDITION%-pages-articles.xml\
+rem Set DICTDUMPS to the location under which you uncompressed the Wiktionary edition(s)
+rem you have downloaded and uncompressed
+rem E.g. for en, you should uncompress enwiktionary-%EDITION%-pages-articles.xml.bz2
+rem into the folder %DICTDUMPS%\enwiktionary-%EDITION%-pages-articles.xml\
 rem The last mentioned folder will also be used as the output folder.
 rem Each language has its own output folder, and a similarly named output file
 rem in it: stripped-ALL.xml 
-if "%DICT%"=="" set DICT=G:\Temp\wiktionary-dumps
+if "%DICTDUMPS%"=="" set DICTDUMPS=G:\Temp\wiktionary-dumps
 rem Used for JAR_DIR below, since WIKT is the variable that may have been defined as an env variable already
 if "%WIKT%"=="" set WIKT=G:\Dropbox\Dictionary\wikt
 rem Set JAR_DIR to the location of the runnable JAR file.
@@ -44,22 +44,17 @@ SET DATE.MINUTE=%X:~10,2%
 SET DATE.SECOND=%X:~12,2%
 SET NOW=%DATE.YEAR%-%DATE.MONTH%-%DATE.DAY%-%DATE.HOUR%-%DATE.MINUTE%-%DATE.SECOND%
 
-rem SET PROGDIR=%JAR_DIR%
-rem SET PROG="%PROGDIR%\StripNamespaces.jar""
 SET PROG="%JAR_DIR%\StripNamespaces.jar"
 SET JCLASS=wiktionary\to\xml\full\StripNamespaces
 SET JAVA="%JAVA_HOME%\bin\java.exe"
-SET INFILE="%DICT%\%LANG%wiktionary-%EDITION%-pages-articles.xml\%LANG%wiktionary-%EDITION%-pages-articles.xml"
-SET OUTFILE="%DICT%\%LANG%wiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
+SET INFILE="%DICTDUMPS%\%LANG%wiktionary-%EDITION%-pages-articles.xml\%LANG%wiktionary-%EDITION%-pages-articles.xml"
+SET OUTFILE="%DICTDUMPS%\%LANG%wiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
 SET UTF8=-Dfile.encoding=UTF8
 SET MEM=-Xmx2600M
 SET STCK=-Xss400M
 
-rem cd /D "%JAR_DIR%"
-
 echo %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% 
 %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE%
-if %ERRORLEVEL% GTR 0 goto :errEnd
 echo Ready
 echo   Conversion started at %NOW%
 echo   Params were:
@@ -74,26 +69,12 @@ SET DATE.MINUTE=%X:~10,2%
 SET DATE.SECOND=%X:~12,2%
 SET ENDTIME=%DATE.YEAR%-%DATE.MONTH%-%DATE.DAY%-%DATE.HOUR%-%DATE.MINUTE%-%DATE.SECOND%
 echo   Conversion ended at %ENDTIME%
-goto end
+if %ERRORLEVEL% EQU 0 goto :end
 
 :errEnd
 echo ""
-echo !!Ended in error!!
-echo   Conversion started at %NOW%
-echo   Params were:
-echo     %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE%
-SET X=
-FOR /F "skip=1 delims=" %%x IN ('wmic os get localdatetime') DO IF NOT DEFINED X SET X=%%x
-SET DATE.YEAR=%X:~0,4%
-SET DATE.MONTH=%X:~4,2%
-SET DATE.DAY=%X:~6,2%
-SET DATE.HOUR=%X:~8,2%
-SET DATE.MINUTE=%X:~10,2%
-SET DATE.SECOND=%X:~12,2%
-SET ENDTIME=%DATE.YEAR%-%DATE.MONTH%-%DATE.DAY%-%DATE.HOUR%-%DATE.MINUTE%-%DATE.SECOND%
-echo   Conversion ended at %ENDTIME%
-echo !!Ended in error!!
+echo !!Ended in error!! ERRORLEVEL == %ERRORLEVEL% 
 pause
-rem exit 8
+exit /B 8
 
 :end

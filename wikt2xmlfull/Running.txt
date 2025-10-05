@@ -3,7 +3,7 @@ A1. General info
 
 You need to first compile (I used Eclipse) the three Java programs ("apps", if you prefer) used for processing the Wiktionary dump(s) for the languages you want to process.
   The programs are: StripNamespaces, ReadStripped and JoinDefinitions
-See Build.txt.
+See Building.txt.
 
 To process the dumps with the Java programs and the scripts I have written, you will need to have both a Windows and Linux environment, either real or virtual ones.  
 The Windows scripts are *.cmd scripts, using the syntax for the older Command Prompt (cmd.exe), not PowerShell as such.
@@ -334,7 +334,8 @@ src/langs/fi-ALL-language codes.csv
 F2. English Wiktionary
 
 1. Run the Python script for downloading the language codes:
-  py %WIKTGIT%/Scripts/ParseLangs/dlEngLangs.py
+  cd /D %WIKTGIT%\Scripts\ParseLangs\
+  py dlEngLangs.py
 2. Run the cmd script for parsing and combining the language codes:
   "%WIKTGIT%/Scripts/ParseLangs/ParseLangs enwiktionary.cmd"
   

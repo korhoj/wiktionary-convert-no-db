@@ -20,8 +20,8 @@ Download and run Eclipse Installer for Windows.
   e.g. under the line:
     -Dsun.java.command=Eclipse
 Start Eclipse
-  Select a directory as workspace:
-    G:\Users\Joel\git\wiktionary-convert-no-db (e.g.)
+  Select a directory as workspace, e.g.:
+    G:\Users\Joel\git\wiktionary-convert-no-db 
 
 The project uses Maven to import the Google HTTP Client Library for Java. See https://googleapis.github.io/google-http-java-client/setup.html
 I check every now and then which is the latest non-beta release and switch to it. It is defined in pom.xml. The release site is https://github.com/googleapis/google-http-java-client/releases
@@ -31,11 +31,11 @@ To change the version used:
     <dependency>
       <groupId>com.google.http-client</groupId>
       <artifactId>google-http-client</artifactId>
-      <version>1.46.3</version>
+      <version>2.0.0</version>
     </dependency>
   Then right click the "wikt2xmlfull" project tree and select > Maven > Update Project.
   Open the "Maven Dependencies" tree to verify the "google-http-client-x.yy.z.jar" is the version
-  you wanted, e.g. "google-http-client-1.46.3.jar". The other JARs have their independent version
+  you wanted, e.g. "google-http-client-2.0.0.jar". The other JARs have their independent version
   numbers.
 
 Right click StripNamespaces.java > Run As > Java Applications

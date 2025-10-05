@@ -42,21 +42,21 @@ SET DATE.MINUTE=%X:~10,2%
 SET DATE.SECOND=%X:~12,2%
 SET ENDTIME=%DATE.YEAR%-%DATE.MONTH%-%DATE.DAY%-%DATE.HOUR%-%DATE.MINUTE%-%DATE.SECOND%
 echo   Parsings English Wiktionary langs ended at %ENDTIME%
-if %ERRLVL% GTR 0 goto :parseErrEnd
+if %ERRLVL% NEQ 0 goto :parseErrEnd
 goto :parsedOk
 :parseErrEnd
 echo ""
-echo !!Parsing ended in error!!
+echo !!Parsing ended in error!! ERRORLEVEL == %ERRORLEVEL%
 rem exit 8
 goto :end
 :parsedOk
 call "ParseLangs %LANG%wiktionary-combine.cmd"
-if %ERRLVL% GTR 0 goto :combErrEnd
+if %ERRORLEVEL% NEQ 0 goto :combErrEnd
 goto :pauseSect
 :combErrEnd
 echo ""
-echo !!Combining parsed files ended in error!!
-rem exit 8
+echo !!Combining parsed files ended in error!! ERRORLEVEL == %ERRORLEVEL%
+rem exit 10
 goto :end
 :pauseSect
 rem pause

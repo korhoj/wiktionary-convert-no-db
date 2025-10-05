@@ -20,7 +20,9 @@ copy "%OUTPATH%\abcd.csv" + "%OUTPATH%\efgh.csv" + "%OUTPATH%\ijkl.csv" + "%OUTP
 echo name;abr>"%OUTPATH%\header.csv"
 copy "%OUTPATH%\..\en-2_letter-language codes.csv" + "%OUTPATH%\3ltr.csv" "%OUTPATH%\combined-2_and_3.csv"
 rem Added lines. Copy to ..\en-extra_non_generated-language codes.csv
+rem FIXME Is this supposed to be the Git bash v. of grep (GNU grep v.3.0), or some Win version??
 grep -xvFf sorted-2_and_3.csv ../old-en-ALL-language\ codes.csv > gen-sorted-added.txt
+if %ERRORLEVEL% NEQ 0 goto :errEnd
 rem Removed lines:
 rem  grep -xvFf sorted-2_and_3.csv ../old-en-ALL-language\ codes.csv > gen-sorted-removed.txt
 rem -x: match whole lines
@@ -37,3 +39,10 @@ copy "%OUTPATH%\..\en-extra_non_generated-language codes.csv" + "%OUTPATH%\combi
 sort "%OUTPATH%\combined.csv" > "%OUTPATH%\sorted.csv"
 copy "%OUTPATH%\header.csv" + "%OUTPATH%\sorted.csv" "%OUTPATH%\en-ALL-language codes.csv" 
 cd /D %SCRIPTDIR% 
+goto end
+
+:errEnd
+echo ""
+echo !!Ended in error!! ERRORLEVEL == %ERRORLEVEL%
+
+:end
