@@ -88,15 +88,18 @@ public class ReadStripped {
 	 * Normally the logging level is defined here as WARNING, but for
 	 * debugging, it may be changed.
 	 */
+	//public static final Level LOG_LEVEL_TO_USE = Level.SEVERE;
 	public static final Level LOG_LEVEL_TO_USE = Level.WARNING;
 	//public static final Level LOG_LEVEL_TO_USE = Level.INFO;
-	//public static final Level LOG_LEVEL_TO_USE = Level.ALL;
-	//public static final Level LOG_LEVEL_TO_USE = Level.SEVERE;
+	//public static final Level LOG_LEVEL_TO_USE = Level.FINEST;
 	
-	public final static Logger LOGGER = Logger.getLogger(ReadStripped.class
+	public static Logger LOGGER = Logger.getLogger(ReadStripped.class
 	 .getName());
 	private static FileHandler fileHandler;
 	private static SimpleFormatter formatterTxt;
+	
+	//private Logger LOGGER2 = Logger.getLogger(ReadStripped.class.getName() + "abc");
+	//private Logger LOGGER2 = LOGGER;
 	
 	// Change to true, if you want to output more log after a restart
 	public final static boolean DEBUGGING_RESTART = false;

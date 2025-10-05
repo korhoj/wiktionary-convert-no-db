@@ -17,12 +17,13 @@ To define environment variables for your user account in e.g. Windows 10, click 
 
 Click New to create each variable below, and set them to point to the folder you want to use. N.b. create the folders yourself, if they don't already exist:
   Variable        Example value                     Description
-  DICT            G:\Temp\wiktionary-dumps          Place each dump file (.bz2) you will download here
+  DICTDUMPS       G:\Temp\wiktionary-dumps          Place each dump file (.bz2) you will download here
   DUPLS_OUT_DIR   G:\Users\korho\OwnStarDict-ready  Linux dir used for processing files
-  JAVA_HOME       C:\Usr\jdk-24                     Define where your JDK is placed
+  JAVA_HOME       C:\Usr\jdk-25                     Define where your JDK is placed
   WIKT            G:\Dropbox\Dictionary\wikt        Place the JAR files for running the Java apps here
   WIKTGIT         C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
                                                    The Eclipse workspace location for the wikt2xmlfull project
+  WIKTSDOUT       G:\Dropbox\Dictionary\wikt\Stardict\OwnStarDict   Output dir for processed files
 
 Next you will download and extract the Wiktionary articles dump of one or more of the languages supported by wikt2xmlfull:
   English (en), Finnish (fi), Norwegian Nynorsk (nn), Norwegian (no), Swedish (sv)
@@ -43,8 +44,15 @@ B1. Downloading Wiktionary dumps using my Python script
 I have written a Python script, dlWiktionary.py, for downloading the newest available dump file of a given language. The language code is supplied as a cmdline parameter. 
 Optionally one can also supply a mirror site URL as the 2nd parameter. The code defaults to using the Swedish mirror, because it's close to Finland where I live :)
 
-Run the script for all the languages you want to download.
-E.g., here we run it in cmd.exe for English and Finnish:
+Either:
+B1.A. Run this script to download the Wiktionary dumps for all supported languages:
+  
+  %WIKTGIT%\Scripts\dlWiktionaries\dlAllWiktionaries.cmd
+
+Or:
+B1.B. Run the script for all the languages you want to download.
+
+E.g., here we run it in cmd.exe for English:
 
   py %WIKTGIT%/Scripts/dlWiktionaries/dlWiktionary.py en
     Using param lang='en'
@@ -53,24 +61,28 @@ E.g., here we run it in cmd.exe for English and Finnish:
     Downloading https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20250401/enwiktionary-20250401-pages-articles.xml.bz2
     Ready.
 
-If the script finds an already existing file having the name of the newest dump file, it checks the file size. If the file size is:
-  - Smaller than 1 000 000 B, the script attempts to redownload the file, overwriting the existing one. This is mainly because very small files are probably merely 404's or such HTTP error documents. E.g.:
-    
+B1.C. Some technical details for dlWiktionary.py
+
+If the script finds an already existing file having the name of the newest dump file, it checks the file size.
+If the file size is:
+  - Smaller than 1 000 000 B, the script attempts to redownload the file, overwriting the existing one. This is mainly because very small files are probably merely 404's or such HTTP error documents.
+  
+  E.g.:
     Using param lang='el'
     Newest completed dump is: 20250401
     File https://mirror.accum.se/mirror/wikimedia.org/dumps/elwiktionary/20250401/elwiktionary-20250401-pages-articles.xml.bz2 already found, but with a small size: 13, so redownloading it
     Downloading https://mirror.accum.se/mirror/wikimedia.org/dumps/elwiktionary/20250401/elwiktionary-20250401-pages-articles.xml.bz2
     Ready.
-
-Or run this script to download the Wiktionary dumps for all supported languages:
-  
-  %WIKTGIT%\Scripts\dlWiktionaries\dlAllWiktionaries.cmd
-  
-  - At least 1 000 000 B, the script aborts the download. E.g.:
     
+If the file size is:
+  - At least 1 000 000 B, the script aborts the download.
+  - If using dlAllWiktionaries.cmd to download all supported languages,
+  this doesn't abort trying to download any other remaining languages.
+  
+  E.g.:
     Using param lang='en'
     Newest completed dump is: 20250401
-    File https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20250401/enwiktionary-20250401-pages-articles.xml.bz2 already found, size: 1450722468, aborting download (remove file to force a redownload) 
+    File https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20250401/enwiktionary-20250401-pages-articles.xml.bz2 already found, size: 1450722468, aborting download (remove file to force a redownload)
 
 B2. Downloading Wiktionary dumps manually (alternative to B1)
 -------------------------------------------------------------
@@ -121,10 +133,52 @@ C. Extracting the downloaded dumps
 ==================================
 
 In the %DICT% directory, extract each bz2 file you downloaded into it's own subdirectory. Use the name of the .bz2 dump file as the name of the subdirectory.
+My instructions use 7-Zip, but you can use an alternative program if you wish.
 
-I use 7-Zip via Windows' Explorer by right-clicking each .bz2 file and selecting the action Extract to "xxwiktionary-yyyymmdd-pages-articles.xml\". E.g. for the latest English dump file:
+C1. Via cmdline
+---------------
+
+Do either this step or C2.
+
+Install 7-Zip for Windows first. Then run these commands in a Windows cmd window:
+
+cd /D %DICTDUMPS%
+dir /OD *.bz2
+  If you have any old dump files you don't want to process, delete them based on this file list.
+  E.g.:
+    del ??wiktionary-202508*-pages*.bz2
+    del ??-dumps-202508*-status.html
+    
+Then run the following command to extract each file to its own subfolder named
+xxwiktionary-yyyymmdd-pages-articles.xml (i.e. the extension, .bz2, is removed):
+  for %f in (*.bz2) do "C:\Program Files\7-Zip\7z.exe" x -o"%~nf" "%f"
+  
+  (or if you create a .cmd file for doing this, use this syntax:
+     for %%f in (*.bz2) do "C:\Program Files\7-Zip\7z.exe" x -o"%%~nf" "%%f"
+   )
+
+C2. Via Windows Explorer and 7-Zip
+----------------------------------
+
+Do either C1 or this step.
+
+Right-click each .bz2 file in Windows Explorer, and select for each
+7-Zip > Extract to "xxwiktionary-yyyymmdd-pages-articles.xml\".
+
+E.g. for the latest English dump file:
   7-Zip > Extract to "enwiktionary-20240901-pages-articles.xml\"
-You don't need the bz2 archive file for the dump after extracting it. The input file you just extracted won't be changed when it's processed.
+
+C3. A final note for this step
+------------------------------
+
+You don't need the bz2 archive files for the dumps after extracting them.
+The input file yous just extracted won't be changed when they are processed.
+
+D. COMPILING THE ENGLISH WIKTIONARY, WITH ENTRIES FOR ALL LANGUAGES
+===================================================================
+
+D0. Preparing for the processing
+--------------------------------
 
 Next you will be using various Windows cmd (*.cmd) scripts for processing the files you downloaded and extracted.
 The scripts are in the Eclipse workspace under the folder Scripts.
@@ -133,9 +187,6 @@ In my system, the full path to the StripNamespaces folder is:
   G:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull\Scripts\StripNamespaces\
 Open a Windows Command Prompt (cmd.exe) and go to the StripNamespaces folder:
   CD /D "%WIKTGIT%"\Scripts\StripNamespaces
-
-D. COMPILING THE ENGLISH WIKTIONARY, WITH ENTRIES FOR ALL LANGUAGES
-===================================================================
 
 D1. Change EDITION
 ------------------
@@ -210,7 +261,80 @@ therefore processing only that specific language's Wiktionary dump.
 You can then, if you want, call also each other language's scripts directly.
 That was the old, more workative way I ran StripNamespaces for all supported languages...
 
-D3. Using the ReadStripped program
+E. UPDATING LANGUAGES SUPPORTED BY ReadStripped (optional)
+===============================================
+
+FIXME: These steps are optional, and currently (2025-Oct-05) one step is broken!
+
+E1. Finnish Wiktionary
+----------------------
+
+1. Download https://fi.wiktionary.org/wiki/Wikisanakirja:Luettelo_kielikoodeista
+and store it in Eclipse over the existing langs/fi/langs-in.html
+2. Run Scripts\ParseLangs\ParseLangs fiwiktionary.cmd
+  It overwrites the existing langs/fi/fi-language_codes.csv
+3. In Eclipse, copy langs/fi/fi-language_codes.csv over the existing
+src/langs/fi-ALL-language codes.csv
+
+E2. English Wiktionary
+----------------------
+
+1. Run the Python script for downloading the language codes:
+  cd /D %WIKTGIT%\Scripts\ParseLangs\
+  py dlEngLangs.py
+2. Run the cmd script for parsing and combining the language codes:
+  "%WIKTGIT%/Scripts/ParseLangs/ParseLangs enwiktionary.cmd"
+  
+  N.b. It parses the lang codes generating the letter specific files a.csv .. z.csv, and calls
+   "ParseLangs enwiktionary-combine.cmd", which combines the generated files
+   with a header row, "langs/en/en-2_letter-language codes.csv" (hand created for now) and
+   "langs/en/en-extra_non_generated-language codes.csv" (partially hand-created, see below)
+  
+  A previously (before these scripts existed) hand-created
+  "langs/en/old-en-language codes.csv" contained a couple of thousand more definitions (lines) than the generated one: 7732 vs. 5511.
+  At least the "Proto-" definitions were missing.
+  The "ParseLangs enwiktionary-combine.cmd" uses grep to find out added lines,
+  writing them into "langs/en/out/gen-sorted-added.txt": 
+    grep -xvFf sorted-2_and_3.csv ../old-en-ALL-language\ codes.csv > gen-sorted-added.txt
+  Copy the gen-sorted-added.txt over the previously generated one, which is in: 
+    "langs/en/out/en-extra_non_generated-language codes.csv".
+    Remove the first line (the header, e.g. "name;abr"), and the last, empty line.
+    Then run "ParseLangs enwiktionary-combine.cmd" again, and it will
+    use the new "en-extra_non_generated-language codes.csv" when it creates
+    the final result into "langs/en/out/en-ALL-language codes.csv".
+    It also creates an empty "gen-sorted-added.txt" then.
+3. In Eclipse, copy "langs/en/out/en-ALL-language codes.csv" over the existing
+src/langs/en-ALL-language codes.csv
+3. Fix the new "src/langs/en-ALL-language codes.csv" by deleting the last line.
+ It is some kind of a control code "", coming from the last line of a.csv. 
+5. Create a new jar in Eclipse, so it includes the new version of src/langs/en-ALL-language codes.csv 
+
+E3. General info
+
+When you export the runnable JAR in Eclipse, the *.csv files in src/ get packaged
+in the JAR. They are CSV files containing the language codes (unique abbreviations) and names
+used in Wiktionaries of various languages.   
+
+While running, ReadStripped reads in, based on the parameters, one of the CSV files.
+
+The program rejects any unknown language names and outputs them into "new language codes.csv".
+You can check that file and insert any new languages into the CSV you used.
+
+If you don't want entries of some languages to be included, you can remove them from your
+copy of the CSV file you used. Just don't commit it :) E.g. I don't need entries for various
+Asian languages, since I can't even read their scripts.
+
+N.b. this has nothing to do with which language's Wiktionaries the program supports, which
+is currently hard coded in the program.
+
+All Wiktionaries have entries for numerous languages. Just that e.g. the English
+Wiktionary has the definitions of the entries for all languages it includes written in the English language, whereas say the Swedish Wiktionary has the definitions written in the Swedish language.
+
+
+F. RUNNING THE READSTRIPPED PROGRAM
+===================================
+
+F1. Using the ReadStripped program
 ---------------------------------- 
 
 For running the ReadStripped Java program, like StripNamespaces, there is a
@@ -274,7 +398,8 @@ Or for the Norwegian, Norwegian language only Wiktionary:
       "C:\Usr\jdk-24\bin\java.exe" -Dfile.encoding=UTF-8 -Xmx2600M -Xss400M -jar "G:\Dropbox\Dictionary\wikt\ReadStripped.jar" INFILE="G:\Temp\wiktionary-dumps\nowiktionary-20250320-pages-articles.xml\stripped-ALL.xml" OUTFILE="G:\Dropbox\Dictionary\wikt\Stardict\OwnStarDict\wikt-no-no-2025-03-23-11-52-51.txt" LANG=no OUTPUTLANGNAMES=true OUTTYPE=Stardict RESTARTATLINE=0 LANGCODE=no ONLYLANGUAGES=true WIKTCODE=no
     Conversion ended at 2025-03-23-11-52-56
 
-D4. In case ReadStripped finishes with a processing error 
+F2. In case ReadStripped finishes with a processing error
+--------------------------------------------------------- 
 
 However, if there's an error, the program prints a Java stack trace, info on when the
 conversion (if there have been restarts, the info is for the current restart) started and ended, and "!!Ended in error!!". If Windows asks "Terminate batch job (Y/N)? ",
@@ -299,95 +424,38 @@ answer y and press enter. You should then report the error to me. Example error:
   Press any key to continue . . .
   Terminate batch job (Y/N)? y
 
-E. COMPILING A WIKTIONARY OF ANOTHER LANGUAGE
-=============================================
+F3. Information about compiling Wiktionaries of other languages than English (optional)
+---------------------------------------------------------------------------- 
+
+If you ran "ReadStripped SD ALL.cmd" in step F1, or the script(s) for each language
+in step F2, you do not have to perform what is described in this step (F3).
 
 There are one or two sample script files for each supported language. They really only differ in having
-different language specific variables set. I use the Finnish Wiktionary as an example:
+different language specific variables set.
 
-Change EDITION in "StripNamespaces fiwiktionary.cmd" to match with the Wiktionary edition you have downloaded.
-
-Run StripNamespaces fiwiktionary.cmd. Stripping of the Finnish Wiktionary doesn't take many minutes on a fast computer (unlike the English one).
-
-Change EDITION to match with the Wiktionary edition you have downloaded, in either
-
-1) ReadStripped SD fi-ALL.cmd
-  Process the Finnish Wiktionary, all languages
-or
-2) ReadStripped SD fi-fi.cmd
-  Process the Finnish Wiktionary, Finnish only
-
-Then run the script you changed.
-
-F. UPDATING LANGUAGES SUPPORTED BY ReadStripped
-===============================================
-
-F1. Finnish Wiktionary
-
-1. Download https://fi.wiktionary.org/wiki/Wikisanakirja:Luettelo_kielikoodeista
-and store it in Eclipse over the existing langs/fi/langs-in.html
-2. Run Scripts\ParseLangs\ParseLangs fiwiktionary.cmd
-  It overwrites the existing langs/fi/fi-language_codes.csv
-3. In Eclipse, copy langs/fi/fi-language_codes.csv over the existing
-src/langs/fi-ALL-language codes.csv
-
-F2. English Wiktionary
-
-1. Run the Python script for downloading the language codes:
-  cd /D %WIKTGIT%\Scripts\ParseLangs\
-  py dlEngLangs.py
-2. Run the cmd script for parsing and combining the language codes:
-  "%WIKTGIT%/Scripts/ParseLangs/ParseLangs enwiktionary.cmd"
+I use the Finnish Wiktionary as an example:
+  N.b. the steps described in F3.1 - F3.2 were performed already in step D2:
   
-  N.b. It parses the lang codes generating the letter specific files a.csv .. z.csv, and calls
-   "ParseLangs enwiktionary-combine.cmd", which combines the generated files
-   with a header row, "langs/en/en-2_letter-language codes.csv" (hand created for now) and
-   "langs/en/en-extra_non_generated-language codes.csv" (partially hand-created, see below)
+  F3.1 Run StripNamespaces for the Finnish language 
+    Change EDITION in "StripNamespaces fiwiktionary.cmd" to match with the Wiktionary edition you have downloaded.
+  F3.2 Run StripNamespaces fiwiktionary.cmd. Stripping of the Finnish Wiktionary doesn't take many minutes on a fast computer (unlike the English one).
   
-  A previously (before these scripts existed) hand-created
-  "langs/en/old-en-language codes.csv" contained a couple of thousand more definitions (lines) than the generated one: 7732 vs. 5511.
-  At least the "Proto-" definitions were missing.
-  The "ParseLangs enwiktionary-combine.cmd" uses grep to find out added lines,
-  writing them into "langs/en/out/gen-sorted-added.txt": 
-    grep -xvFf sorted-2_and_3.csv ../old-en-ALL-language\ codes.csv > gen-sorted-added.txt
-  Copy the gen-sorted-added.txt over the previously generated one, which is in: 
-    "langs/en/out/en-extra_non_generated-language codes.csv".
-    Remove the first line (the header, e.g. "name;abr"), and the last, empty line.
-    Then run "ParseLangs enwiktionary-combine.cmd" again, and it will
-    use the new "en-extra_non_generated-language codes.csv" when it creates
-    the final result into "langs/en/out/en-ALL-language codes.csv".
-    It also creates an empty "gen-sorted-added.txt" then.
-3. In Eclipse, copy "langs/en/out/en-ALL-language codes.csv" over the existing
-src/langs/en-ALL-language codes.csv
-3. Fix the new "src/langs/en-ALL-language codes.csv" by deleting the last line.
- It is some kind of a control code "", coming from the last line of a.csv. 
-5. Create a new jar in Eclipse, so it includes the new version of src/langs/en-ALL-language codes.csv 
-
-F3. General info
-
-When you export the runnable JAR in Eclipse, the *.csv files in src/ get packaged
-in the JAR. They are CSV files containing the language codes (unique abbreviations) and names
-used in Wiktionaries of various languages.   
-
-While running, ReadStripped reads in, based on the parameters, one of the CSV files.
-
-The program rejects any unknown language names and outputs them into "new language codes.csv".
-You can check that file and insert any new languages into the CSV you used.
-
-If you don't want entries of some languages to be included, you can remove them from your
-copy of the CSV file you used. Just don't commit it :) E.g. I don't need entries for various
-Asian languages, since I can't even read their scripts.
-
-N.b. this has nothing to do with which language's Wiktionaries the program supports, which
-is currently hard coded in the program.
-
-All Wiktionaries have entries for numerous languages. Just that e.g. the English
-Wiktionary has the definitions of the entries for all languages it includes written in the English language, whereas say the Swedish Wiktionary has the definitions written in the Swedish language.
+  F3.3 Change EDITION to match with the Wiktionary edition you have downloaded, in either/both of:
+    1) ReadStripped SD fi-ALL.cmd
+      Process the Finnish Wiktionary, all languages
+  and/or
+    2) ReadStripped SD fi-fi.cmd
+      Process the Finnish Wiktionary, Finnish only
+  
+  F3.4 Then run the script you changed (or both scripts).
 
 G. COMBINING THE OUTPUT FILES
 =============================
 
-I perform the steps in D and E in a WSL2 virtual machine in Windows, running Ubuntu.
+Performing step F (and its predecessors) produces output files from the program ReadStripped
+for each supported language. Next, we are going to further process them. 
+
+I perform the steps in G and H in a WSL2 virtual machine in Windows, running Ubuntu.
 
 G1. dos2unix
 ------------
@@ -398,36 +466,99 @@ $ sudo apt install dos2unix
 
 G2. Copying files from git to Linux
 -----------------------------------
-Copy any dictionary files you have produced above (by running the ReadStripped*.cmd script for the language you are processing) to your Linux to a directory of your choice.
-These have a name in the format wikt-langcode-lang-yyyy-mm-dd-hh-mm-ss.txt
+The dictionary files produced above are stored in the directory %WIKTSDOUT%.
+I define variables and aliases using the variables in my ~/.bash_aliases:
+  export OwnReady='/mnt/g/Users/Joel/OwnStarDict-ready'
+	export ownready=$OwnReady
+	alias cdOwnReady='cd $OwnReady'
+	alias cdownready='cd $OwnReady'
+	##
+	#export DICT='G:\Temp\wiktionary-dumps'
+	export DICT='/mnt/g/Temp/wiktionary-dumps'
+	export dict=$DICT
+	alias cdDict='cd $DICT'
+	alias cddict='cd $DICT'
+	##
+	#WIKT=G:\Dropbox\Dictionary\wikt
+	export WIKT='/mnt/g/Dropbox/Dictionary/wikt'
+	export wikt=$WIKT
+	alias cdWikt='cd $WIKT'
+	alias cdwikt='cd $WIKT'
+	##
+	#WIKTGIT=C:\Users\korho\git\wiktionary-convert-no-db\wikt2xmlfull
+	export WIKTGIT='/mnt/c/Users/korho/git/wiktionary-convert-no-db/wikt2xmlfull'
+	export wiktgit=$WIKTGIT
+	alias cdGitWikt='cd $WIKTGIT'
+	alias cdgitwikt='cd $WIKTGIT'
+	#WIKTSDOUT=G:\Dropbox\Dictionary\wikt\Stardict\OwnStarDict
+	export WIKTSDOUT='/mnt/g/Dropbox/Dictionary/wikt/Stardict/OwnStarDict'
+	export wiktsdout=$WIKTSDOUT
+	alias cdWiktSDOut='cd $WIKTSDOUT'
+	alias cdwiktsdout='cd $WIKTSDOUT'
+
+First check that you have produced what you wanted. The files names are 
+in the format: wikt-langcode-lang-yyyy-mm-dd-hh-mm-ss.txt, and there may
+be just one for short Wiktionaries or many for big Wiktionaries.
 E.g.: wikt-en-ALL-2023-02-18-13-22-03.txt, wikt-en-ALL-2023-02-18-13-26-43.txt etc.
+
+$ ll -tr $wiktsdout/wikt-*.txt
+
+You may want to copy any any dictionary files you have produced above (by running the ReadStripped*.cmd script for the language you are processing) to another directory,
+such as to a filesystem internal to Linux. 
+I copy the files into a directory I define in the variable $OwnReady:
+
+$ cd $OwnReady
+$ cp -vi $wiktsdout/wikt-*-2025-10-05-*.txt .
 
 Also copy to the same directory the scripts conv2unix*.sh, dictfmt*.sh and sort*.sh from your checked out Git repository for wiktionary-convert-no-db to Linux (unless you use the Windows folders directly from the Linux side).
 
-(TODO: Update: I do the copying by using the shared folders feature of VMware Workstation.)
 You could also checkout my git repository using your Linux.
 
 G3. conv2unix scripts
 ---------------------
 The conv2unix*.sh scripts nowadays find out the current date dynamically and use it:
   FILES="wikt-$convLangCode-$convLang-`date +%Y-%m-%d*.txt`"
+
 If the date of an input file of a language is not the current date, edit the script(s) of the language,
 e.g. for en-ALL the script conv2unix-en-ALL.sh, to override the date like this:
   convDate="2024-10-03*"
   FILES="wikt-$convLangCode-$convLang-$convDate.txt"
   #FILES="wikt-$convLangCode-$convLang-`date +%Y-%m-%d*.txt`"
 
-Run the conv2unix-*.sh script for the language you are processing. E.g.:
+G3.1 Running scripts for all supported languages
 
-# for en-ALL
-$ conv2unix-en-ALL.sh
-# for fi-fi
-$ conv2unix-fi-fi.sh
+Perform either this step or step G3.2.
 
-Or run scripts for all supported languages:
+Run scripts for all supported languages:
   for f in `ls conv2unix-*.sh` ; do echo $f && ./$f ; done
+Output looks like this:
+  conv2unix-el-ALL.sh
+  removed 'wikt-el-ALL-unsorted.txt'
+  Processing file: wikt-el-ALL-2025-10-05-16-34-51.txt
+  dos2unix: converting file wikt-el-ALL-2025-10-05-16-34-51.txt to Unix format...
+  Processing file: wikt-el-ALL-2025-10-05-16-36-25.txt
+  dos2unix: converting file wikt-el-ALL-2025-10-05-16-36-25.txt to Unix format...
+  conv2unix-el-el.sh
+  removed 'toiconv-wikt-el-el.txt'
+  removed 'wikt-el-el-unsorted.txt'
+  Processing file: wikt-el-el-2025-10-05-16-36-55.txt
+  dos2unix: converting file wikt-el-el-2025-10-05-16-36-55.txt to Unix format...
+  conv2unix-en-ALL.sh
+  ...
 
-The conv2unix script(s) produce(s) output unsorted output files, which shows in the file names,
+G3.2 Run the conv2unix-*.sh script for the language(s) you are processing
+
+Perform either this step or step G3.1.
+
+Run scripts for the language(s) you want to process:
+  # for en-ALL
+  $ conv2unix-en-ALL.sh
+  # for fi-fi
+  $ conv2unix-fi-fi.sh
+
+G3.3 Info on files produced by the conv2unix script(s)
+
+The conv2unix script(s) produce(s) unsorted output files, which shows in the file names,
 which are of the format wikt-langcode-lang-unsorted.txt.
 E.g. for en-ALL the file is wikt-en-ALL-unsorted.txt 
 
@@ -442,7 +573,14 @@ sort-el-el.sh has this definition:
   export LC_ALL=el_GR.UTF-8
 Which means you need the locale el_GR.utf8 in your system.
 
-Check, which locales are already available. E.g.:
+G4.1 Install any missing locales
+--------------------------------
+
+If you haven't checked and installed locales to your Linux instance,
+you may well be missing some that the sort program needs when ran
+further in these instructions.
+
+G4.1.1 First check which locales are already available. E.g.:
 
 $ locale -a
   C
@@ -478,27 +616,75 @@ $ locale -a
   sv_SE.utf8
 
 N.b. you don't actually need a lot of en locales unlike in the list above.
-If you don't have one of these locales available (or another one you need), generate it: 
-$ sudo localedef -f UTF-8 -i el_GR el_GR.UTF-8
-$ sudo localedef -f UTF-8 -i en_US en_US.UTF-8
-$ sudo localedef -f UTF-8 -i fi_FI fi_FI.UTF-8
-$ sudo localedef -f UTF-8 -i nb_NO nb_NO.UTF-8
-$ sudo localedef -f UTF-8 -i nn_NO nn_NO.UTF-8
-$ sudo localedef -f UTF-8 -i sv_SE sv_SE.UTF-8
+
+G4.1.2 If you don't have one of these locales available (or another one you need), generate it: 
+  $ sudo localedef -f UTF-8 -i el_GR el_GR.UTF-8
+  $ sudo localedef -f UTF-8 -i en_US en_US.UTF-8
+  $ sudo localedef -f UTF-8 -i fi_FI fi_FI.UTF-8
+  $ sudo localedef -f UTF-8 -i nb_NO nb_NO.UTF-8
+  $ sudo localedef -f UTF-8 -i nn_NO nn_NO.UTF-8
+  $ sudo localedef -f UTF-8 -i sv_SE sv_SE.UTF-8
+
+G4.2 Sorting the files
+----------------------
 
 The sort*.sh parse (unless you change them) the input files for the current date for a given dictionary language, produced above by running the corresponding conv2unix shell script.
 
-Run the sort script for the language you are processing, e.g.:
+G4.2.1 Run script for all supported languages
 
-# for en-ALL
-$ sort-en-ALL.sh
-# for fi-fi
-$ sort-fi-fi.sh
+Either perform this step or step G4.2.2.
 
-Or run scripts for all supported languages:
+Run scripts for all supported languages:
   for f in `ls sort-*.sh` ; do echo $f && ./$f ; done
+Sample output:
+  sort-el-ALL.sh
+  LANG=en_US.UTF-8
+  LANGUAGE=
+  LC_CTYPE="en_US.UTF-8"
+  LC_NUMERIC="en_US.UTF-8"
+  LC_TIME="en_US.UTF-8"
+  LC_COLLATE="en_US.UTF-8"
+  LC_MONETARY="en_US.UTF-8"
+  LC_MESSAGES="en_US.UTF-8"
+  LC_PAPER="en_US.UTF-8"
+  LC_NAME="en_US.UTF-8"
+  LC_ADDRESS="en_US.UTF-8"
+  LC_TELEPHONE="en_US.UTF-8"
+  LC_MEASUREMENT="en_US.UTF-8"
+  LC_IDENTIFICATION="en_US.UTF-8"
+  LC_ALL=en_US.UTF-8
+  Sorting...
+  sort-el-el.sh
+  LANG=en_US.UTF-8
+  LANGUAGE=
+  LC_CTYPE="el_GR.UTF-8"
+  LC_NUMERIC="el_GR.UTF-8"
+  LC_TIME="el_GR.UTF-8"
+  LC_COLLATE="el_GR.UTF-8"
+  LC_MONETARY="el_GR.UTF-8"
+  LC_MESSAGES="el_GR.UTF-8"
+  LC_PAPER="el_GR.UTF-8"
+  LC_NAME="el_GR.UTF-8"
+  LC_ADDRESS="el_GR.UTF-8"
+  LC_TELEPHONE="el_GR.UTF-8"
+  LC_MEASUREMENT="el_GR.UTF-8"
+  LC_IDENTIFICATION="el_GR.UTF-8"
+  LC_ALL=el_GR.UTF-8
+  Sorting...
+  ...
 
-The sort script produces output named according to the language you are processing. E.g. for en-ALL the file is named in the format:
+G4.2.2 Run the sort script for the language(s) you are processing.
+
+Either perform this step or step G4.2.1.
+
+Run the sort script for the language(s) you are processing. E.g.:
+  # for en-ALL
+  $ sort-en-ALL.sh
+  # for fi-fi
+  $ sort-fi-fi.sh
+
+The sort scripts produce output named according to the language you are processing.
+E.g. for en-ALL the file is named in the format:
   wikt-en-ALL-yyyy-mm-dd.txt
 
 H. PARSING THE ENTRIES AND CREATING STARDICT FILES
@@ -508,7 +694,7 @@ H1. stardict-tools
 ------------------
 Ubuntu repos for 22.04 LTS and 24.04 LTS have a working stardict-tools (and stardict) package.
   22.04 LTS: 3.0.7+git20211225+dfsg-1 (@20230218)
-  24.04 LTS: 3.0.7+git20220909+dfsg-4build4 (@20240917)
+  24.04 LTS: 3.0.7+git20220909+dfsg-4build4 (@20251005)
 So there is no need to build it oneself anymore.
 (There's also stardict-4, available in https://gitee.com/huzheng/stardict-4.0.x/, but I haven't tried it.)
 
@@ -548,22 +734,33 @@ In my Ubuntu 22.04 LTS, it installed to /usr/lib/stardict-tools/ and is run like
 
 $ /usr/lib/stardict-tools/stardict-editor
 
-In the default Compile tab, press Browse and select the sorted file, e.g.
-  wikt-en-ALL-yyyy-mm-dd.txt
-Press Compile. The window is greyed out until processing is ready.
-  If it's a big dictionary, in at least VMware WS Ubuntu may show once or
-  many times a dialog asking whether you want to "Force Quit" or "Wait".
-  Click always "Wait".
-The program prints messages like this, if the conversion works:
-  Building...
-  [message] Conversion is over.
-  [message] wikt-sv-sv-2023-02-18 wordcount: 359441.
-  Done!
-The program may give warnings about missing tabs for some lines but that should be ok.
-The warnings look like this:
-  [warning] Warning: line 12345, no tab! Skipping line.
+For each sorted file:
 
-The above conversion process produces files like:
+  In the default Compile tab, press Browse and select the sorted file, e.g.
+    wikt-en-ALL-yyyy-mm-dd.txt
+  Press Compile. Depending on your Linux, the window may be greyed out until processing is ready.
+    If it's a big dictionary, in at least VMware WS Ubuntu may show once or
+    many times a dialog asking whether you want to "Force Quit" or "Wait".
+    Click always "Wait".
+  The program prints messages like this, if the conversion works:
+    Building...
+    [message] Conversion is over.
+    [message] wikt-sv-sv-2023-02-18 wordcount: 359441.
+    Done!
+  The program may give warnings about missing tabs for some lines but that should be ok.
+  The warnings look like this:
+    [warning] Warning: line 12345, no tab! Skipping line.
+
+For some input files (at least the English Wiktionary), you may get some
+warnings about lines endes by \ or unsupported escape sequences, but ignore the warnings,
+as long as there aren't dozens of them, and the conversion ends with "Done!".
+Warning examples:
+  [warning] Warning: line 31632: end by \.
+  [warning] Warning: line 31633: \  is unsupported escape sequence.
+
+H3. Editing the ifo files
+
+The conversion done in step H2 produces files like:
 
 wikt-en-ALL-yyyy-mm-dd.dict.dz
   The Stardict compatible dictionary file (for dictd compatible ones, see
@@ -588,28 +785,68 @@ An example:
   date=2003.05.10
   sametypesequence=m
 
-The generated ifo file, e.g. wikt-el-ALL-2023-01-19.ifo, looks something like this:
+Each generated ifo file, e.g. wikt-el-ALL-2023-01-19.ifo, looks something like this
+(without the spaces in the beginning of the lines):
+  StarDict's dict ifo file
+  version=2.4.2
+  wordcount=843850
+  idxfilesize=20955842
+  bookname=wikt-el-ALL-2023-02-19
+  sametypesequence=m
 
-StarDict's dict ifo file
-version=2.4.2
-wordcount=843850
-idxfilesize=20955842
-bookname=wikt-el-ALL-2023-02-19
-sametypesequence=m
+TODO: Maybe the changes could be performed by a script, which would need to be
+told which dates to use in each date section of the "description" part below.
+  1. Don't change the date in "bookname". It's the date the ifo file was created
+  2. In Description:
+    - The v. section should be the current date
+    - The based on entries from section should tell which date the dump was taken
+  3. Set "date" to the date the ifo file was created
 
-Change the generated ifo file to look something like this:
-
-StarDict's dict ifo file
-version=2.4.2
-wordcount=843850
-idxfilesize=20955842
-bookname=wikt-el-ALL-2023-02-19
-author=Wiktionary volunteers. Converted by Joel Korhonen
-email=stardict-korhoj@outlook.com
-website=https://dictinfo.com
-description=Stardict format, Greek Wiktionary, all languages, v.2023-Feb-19, based on entries from 2022-Nov-20
-date=2023.02.19
-sametypesequence=m
+Change each generated ifo file.
+  - Add author, email, website and description, between the existing "bookname" and "sametypesequence" fields
+  - Set the language parts of the descriptions as:
+    * el-ALL
+      Greek Wiktionary, all languages
+    * el-el
+      Greek Wiktionary, Greek only
+    * en-ALL
+      English Wiktionary, all languages
+    * en-en
+      English Wiktionary, English only
+    * en-Western
+      English Wiktionary, Western languages
+    * en-Western_Greek_Slavonic
+      English Wiktionary, Western, Greek and Slavonic languages
+    * fi-ALL
+      Finnish Wiktionary, all languages
+    * fi-fi
+      Finnish Wiktionary, Finnish only
+    * nn-ALL
+      Norwegian Nynorsk Wiktionary, all languages
+    * nn-nn
+      Norwegian Nynorsk Wiktionary, Norwegian Nynorsk only
+    * no-ALL
+      Norwegian Wiktionary, all languages
+    * no-no
+      Norwegian Wiktionary, Norwegian only
+    * sv-ALL
+      Swedish Wiktionary, all languages
+    * sv-sv
+      Swedish Wiktionary, Swedish only
+  
+  The result looks something like this
+(without the spaces in the beginning of the lines):
+  StarDict's dict ifo file
+  version=2.4.2
+  wordcount=843850
+  idxfilesize=20955842
+  bookname=wikt-el-ALL-2023-02-19
+  author=Wiktionary volunteers. Converted by Joel Korhonen
+  email=stardict-korhoj@outlook.com
+  website=https://dictinfo.com
+  description=Stardict format, Greek Wiktionary, all languages, v.2023-Feb-19, based on entries from 2022-Nov-20
+  date=2023.02.19
+  sametypesequence=m
 
 H3. Creating 7z files for distributing
 --------------------------------------
@@ -617,65 +854,38 @@ First install 7zip into Ubuntu if it's not installed:
 
 $ sudo apt install 7zip p7zip-full
 
-Then run cp-StarDict-files-to-subdirs-and-compress.sh:
-  #!/bin/bash
-  DATENOW=`date +%Y-%m-%d`
-  cp_and_compress() {
-    cp -v wikt-$LANG-$LCODE-$DATENOW.{dict.dz,idx,ifo} $LANG-StarDict
-    cd $LANG-StarDict/
-    7z a wikt-$LANG-$LCODE-$DATENOW.7z wikt-$LANG-$LCODE-$DATENOW.{dict.dz,idx,ifo}
-    cd ..
-  }
+Copy the script cp-StarDict-files-to-subdirs-and-compress.sh into your Linux and run it:
 
-  LANG=el && LCODE=ALL && cp_and_compress
-  LCODE=el && cp_and_compress
-
-  LANG=en && LCODE=ALL && cp_and_compress
-  LCODE=en && cp_and_compress
-
-  LCODE=Western && cp_and_compress
-
-  LCODE=Western_Greek_Slavonic && cp_and_compress
-
-  LANG=fi && LCODE=ALL && cp_and_compress
-  LCODE=fi && cp_and_compress
-  
-  LANG=nn && LCODE=ALL && cp_and_compress
-  LCODE=nn && cp_and_compress
-  
-  LANG=no && LCODE=ALL && cp_and_compress
-  LCODE=no && cp_and_compress
-
-  LANG=sv && LCODE=ALL && cp_and_compress
-  LCODE=sv && cp_and_compress
+./cp-StarDict-files-to-subdirs-and-compress.sh
 
 The script prints e.g. for the el-ALL (Greek) dictionary:
-  'wikt-el-ALL-2024-10-03.dict.dz' -> 'el-StarDict/wikt-el-ALL-2024-10-03.dict.dz'
-  'wikt-el-ALL-2024-10-03.idx' -> 'el-StarDict/wikt-el-ALL-2024-10-03.idx'
-  'wikt-el-ALL-2024-10-03.ifo' -> 'el-StarDict/wikt-el-ALL-2024-10-03.ifo'
+  'wikt-el-ALL-2025-10-05.dict.dz' -> 'el-StarDict/wikt-el-ALL-2025-10-05.dict.dz'
+  'wikt-el-ALL-2025-10-05.idx' -> 'el-StarDict/wikt-el-ALL-2025-10-05.idx'
+  'wikt-el-ALL-2025-10-05.ifo' -> 'el-StarDict/wikt-el-ALL-2025-10-05.ifo'
   
-  7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
-  p7zip Version 16.02 (locale=C,Utf16=off,HugeFiles=on,64 bits,8 CPUs Intel(R) Core(TM) i7-3770 CPU @ 3.40GHz (306A9),ASM,AES-NI)
+  7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=C.UTF-8 Threads:8 OPEN_MAX:10240
   
   Scanning the drive:
-  3 files, 29130838 bytes (28 MiB)
+  3 files, 34152294 bytes (33 MiB)
   
-  Creating archive: wikt-el-ALL-2024-10-03.7z
+  Creating archive: wikt-el-ALL-2025-10-05.7z
   
-  Items to compress: 3
+  Add new data to archive: 3 files, 34152294 bytes (33 MiB)
   
   
   Files read from disk: 3
-  Archive size: 13612820 bytes (13 MiB)
+  Archive size: 15229511 bytes (15 MiB)
   Everything is Ok
 
-You may copy and unarchive the 7z files containing wikt-en-ALL-yyyy-mm-dd.dict.dz and wikt-en-ALL-yyyy-mm-dd.idx to e.g. your phone and use it with a Stardict compatible
-GUI such as Colordict, or if you have installed the Stardict GUI in your PC, you can use the file with it.
+You may copy the ??-StarDict\*.{dz,idx,ifo} files (or the 7z files containing them and unarchive them)
+to e.g. an Android device, and use it with a Stardict compatible GUI such as Colordict,
+or if you have installed the Stardict GUI in your PC, you can use the file with it.
 
 I. CREATING AND INSTALLING A DICTD COMPATIBLE DICTIONARY ARCHIVE FOR A LANGUAGE
 ===============================================================================
 
-Steps in the above section D. (not necessarily E. however) need to be performed first.
+Steps in the above section G. (not necessarily H. however) need to be performed first.
 Then perform the following steps in Linux:
 
 I1. dictzip
@@ -742,9 +952,14 @@ in a StarDict (but not dictd) compatible format, but in the
 higher directory .., whilst in this step they are created in
 the dictd format in language specific folders.
 
-# for en-ALL
-$ cd en/
-$ ./dictfmt-en-ALL.sh
+You can run all dictfmt scripts for a language (e.g. el-el and el-ALL, or for English
+there are many), by first changing in the directory:
+  $ cd en/
+and then running:
+  $ for f in `ls dictfmt-*.sh` ; do ./$f ; done
+or you can run them one by one, e.g.:
+  # for en-ALL
+  $ ./dictfmt-en-ALL.sh
 
 dictfmt-en-ALL.sh:
   #!/bin/bash
@@ -762,28 +977,29 @@ dictfmt-en-ALL.sh:
 
 The dictzip application the script calls prints the amount of headwords processed so far,
 and when it ends, the total number remains on-screen. E.g.: 
-      884083 headwords
-After that, 7-Zip prints e.g.:
-  7-Zip [64] 16.02 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-21
-  p7zip Version 16.02 (locale=C.UTF-8,Utf16=on,HugeFiles=on,64 bits,8 CPUs Intel(R) Core(TM) i7-3770 CPU @ 3.40GHz (306A9),ASM,AES-NI)
+       1135965 headwords
+After that, 7-Zip prints its output, e.g.:
+  7-Zip 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+  64-bit locale=en_US.UTF-8 Threads:8 OPEN_MAX:10240
   
   Scanning the drive:
-  2 files, 41631598 bytes (40 MiB)
+  2 files, 39516726 bytes (38 MiB)
   
-  Creating archive: wikt-en-ALL-2024-10-03-dictd.7z
+  Creating archive: wikt-el-ALL-2025-10-05-dictd.7z
   
-  Items to compress: 2
+  Add new data to archive: 2 files, 39516726 bytes (38 MiB)
   
   
   Files read from disk: 2
-  Archive size: 29659322 bytes (29 MiB)
+  Archive size: 21291811 bytes (21 MiB)
   Everything is Ok
 
-# for fi-fi
-$ cd fi/
-$ ./dictfmt-fi-fi.sh
+Another example, running just the fi-fi script:
+  # for fi-fi
+  $ cd fi/
+  $ ./dictfmt-fi-fi.sh
 
-Run the script. It first copies a the public domain + CC-SA-BY copyright header to the output file. Then it copies the joined duplicates after the copyright header. The resulting file, wikt-$convLangCode-$convLang-$convDate-dict.txt, is fed as input to dictfmt:
+When you run the script(s), it first copies a the public domain + CC-SA-BY copyright header to the output file. Then it copies the joined duplicates after the copyright header. The resulting file, wikt-$convLangCode-$convLang-$convDate-dict.txt, is fed as input to dictfmt:
   # For illustrative purposes, don't do manually but call the script instead
   dictfmt -f --utf8 --allchars wikt-$convLangCode-$convLang-$convDate -u http://dictinfo.com -s wikt-$convLangCode-$convLang-$convDate < wikt-$convLangCode-$convLang-$convDate-dict.tx
     -f: FILE  is  formatted  with  the headwords starting in column 0, with the
@@ -794,15 +1010,9 @@ Run the script. It first copies a the public domain + CC-SA-BY copyright header 
 
 dictfmt creates .dict and .index for the given language.
 
-In those language specific subdirectories such as English, which have many dictfmt scripts,
-you can run them all by first changing in the directory:
-$ cd en/
-and then running:
-$ for f in `ls dictfmt-*.sh` ; do ./$f ; done
-
 I7. Verifying language's using ifo file(s) (optional)
 -----------------------------------------------------
-Run the following for a given language's ifo file, if you have created such by doing step E earlier, and want to verify the dictionary files. The ifo isn't needed for dictd as such:
+Run the following for a given language's ifo file, if you have created such by doing step H3 earlier, and want to verify the dictionary files. The ifo isn't needed for dictd as such:
 
 $ /usr/lib/stardict-tools/stardict-verify wikt-en-ALL-2023-02-19.ifo
   [message] Verifying dictionary 'wikt-el-ALL-2023-02-19.ifo'...
@@ -810,18 +1020,17 @@ $ /usr/lib/stardict-tools/stardict-verify wikt-en-ALL-2023-02-19.ifo
   [message] Loading dictionary file: 'wikt-el-ALL-2023-02-19.dict.dz'...
   [message] Dictionary 'wikt-el-ALL-2023-02-19.ifo'. Verification result: OK.
 
-Or to verify dictionaries for all languages, run:
-
-$ for f in `ls wikt*.ifo` ; do /usr/lib/stardict-tools/stardict-verify $f ; done
+Or to verify dictionaries for all languages for the files produced at 2025-10-05, run:
+$ for f in `ls wikt*-2025-10-05.ifo` ; do /usr/lib/stardict-tools/stardict-verify $f ; done
 
 I8. Installing dictd format dictionaries
 ----------------------------------------
 First make sure you are in the language specific subfolder, such as en/.
 Then install a given languages .dict.dz archive like this:
 
+$ export DICTDATE=`date +%Y-%m-%d`
 $ cd en/
-# Replace yyyy-mm-dd with the actual date
-$ sudo cp -vi wikt-en-{en,ALL}-yyyy-mm-dd.{dict.dz,index} /usr/share/dictd/
+$ sudo cp -vi wikt-en-{en,ALL}-$DICTDATE.{dict.dz,index} /usr/share/dictd/
 $ dictdconfig -l | grep wikt-en-ALL
   lists current dictionary entries and searches for the "wikt-en-ALL" dictionary, e.g.:
   database wikt-en-ALL-2018-05-15
@@ -832,29 +1041,42 @@ $ dictdconfig -l | grep wikt-en-ALL
 $ sudo dictdconfig -w
   updates /var/lib/dictd/db.list
 $ sudo service dictd restart
-$ dictdconfig -l
+$ dictdconfig -l | grep wikt-en-ALL
   confirm the new dictionary is installed
-# Replace yyyy-mm-dd with the actual date
-$ dict -i wikt-en-ALL-yyyy-mm-dd
+$ dict -i wikt-en-ALL-$DICTDATE
   Confirm that the header info shows OK. The copyright (from pd-header.txt) should be in the last paragraph
 
 I9. Look up words in the dictionaries you have installed
 --------------------------------------------------------
 
 $ dict ἀβλεψία
-  2 definitions found
+  4 definitions found
 
-  From wikt-el-el-2024-10-05 [wikt-el-el-2023-10-05]
-
+  From wikt-en-Western_Greek_Slavonic-2025-10-05 [wikt-en-Western_Greek_Slavonic-2025-10-05]:
+  
     ἀβλεψία
-     n.
-     (η) η αβλεψία στην πολυτονική γραφή
-     Αρχαία ελληνικά n.
-     1 τύφλωση
-     2 (μεταφορικά) η αδυναμία να δει κάποιος κάτι
-     3 το να είναι κάτι αόρατο
-
-  From wikt-el-ALL-2024-10-05 [wikt-el-ALL-2024-10-05]:
+       Ancient Greek n.
+       1 blindness
+       2 failure to see (q: something)
+       3 invisibility
+  
+  From wikt-en-ALL-2025-10-05 [wikt-en-ALL-2025-10-05]:
+  
+    ἀβλεψία
+       Ancient Greek n.
+       1 blindness
+       2 failure to see (q: something)
+       3 invisibility
+  
+  From wikt-el-el-2025-10-05 [wikt-el-el-2025-10-05]:
+  
+    ἀβλεψία
+       n.
+       (η) η αβλεψία στην πολυτονική γραφή
+       n.
+       1 τύφλωση
+       2 (μεταφορικά) η αδυναμία να δει κάποιος κάτι
+       3 το να είναι κάτι αόρατο
   ...
 $ dict auto
   97 definitions found

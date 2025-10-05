@@ -1,29 +1,74 @@
-Download and install OpenJDK 24 for Windows.
-  The minimum supported version by my project is OpenJDK 21.
-  I myself use OpenJDK 24 in Eclipse in the JDK 21 compatibility mode.
-Downloading OpenJDK 24:
-  https://jdk.java.net/24/
-  Click the "zip" text in this line to download the Win x64 zip version:
-    "Windows / x64 	zip (sha256) 	211589892" (bytes)
-  --> https://download.java.net/java/GA/jdk24/1f9ff9062db4449d8ca828c504ffae90/36/GPL/openjdk-24_windows-x64_bin.zip
+1. Download and install OpenJDK 25 for Windows
+==============================================
 
-Download and run Eclipse Installer for Windows.
-  https://www.eclipse.org/downloads/packages/installer
-  --> https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2025-03/R/eclipse-inst-jre-win64.exe
-  Use it to install Eclipse JEE 2025-03 ("Eclipse IDE for Enterprise Java and Web Developers").
-    Installation Folder: C:\Usr\eclipse-jee-2025-03 (e.g.)
-  When the installer finally starts Eclipse and it asks for the Eclipse workspace, exit
-  
-  Add in C:\Usr\eclipse-jee-2025-03\eclipse.ini
-    -Xms1024m
-    -Xmx4096m
-  e.g. under the line:
-    -Dsun.java.command=Eclipse
-Start Eclipse
-  Select a directory as workspace, e.g.:
-    G:\Users\Joel\git\wiktionary-convert-no-db 
+Some of the scripts used in this "wiktionary-convert-no-db" project
+during the processing of the Wiktionary dumps are Windows cmd scripts,
+so you need Windows to run them.
+
+The minimum supported version by my project is OpenJDK 25.
+Download OpenJDK 25 for Windows:
+  https://jdk.java.net/25/
+  Click the "zip" text in this line to download the Win x64 zip version:
+    "Windows / x64 	zip (sha256) 	221611465" (bytes)
+  --> https://download.java.net/java/GA/jdk25/bd75d5f9689641da8e1daabeccb5528b/36/GPL/openjdk-25_windows-x64_bin.zip
+
+2. Download Eclipse JEE 2025-09
+===============================
+
+I myself use OpenJDK 25 in Eclipse JEE 2025-09, as both the IDE runtime and the build JRE target.
+I don't really use any particularly new Java features, e.g. OpenJDK 17 should work feature-wise,
+but the Eclipse configurations I use are for OpenJDK 25 and may not work with older JDKs.
+
+2A. Download and run Eclipse Installer for Windows, for Eclipse JEE 2025-09
+---------------------------------------------------------------------------
+Either do this step, 2A, or 2B below.
+
+Go to https://www.eclipse.org/downloads/packages/installer
+
+Click Download > Download x86_64
+It downloads the file:
+  https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2025-09/R/eclipse-inst-jre-win64.exe
+Run the downloaded exe file
+Choose to install Eclipse JEE 2025-09 ("Eclipse IDE for Enterprise Java and Web Developers").
+  Installation Folder: C:\Usr\eclipse-jee-2025-09 (e.g.)
+When the installer finally starts Eclipse and it asks for the Eclipse workspace, exit
+
+
+2B. Download Eclipse JEE 2025-09 directly from "Eclipse IDE 2025-09 R Packages"
+-------------------------------------------------------------------------------
+Do either this step or 2A above.
+
+Go to  https://www.eclipse.org/downloads/packages/release/2025-09/r
+Click Windows > x86_64
+It downloads the file:
+  https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2025-09/R/eclipse-jee-2025-09-R-win32-x86_64.zip
+Continue as in 2A after the download step
+
+3. Customize and start Eclipse JEE
+==================================
+
+3A. Add more memory for the IDE (optional)
+-------------------------------
+
+If you want to run tests with big files in the IDE instead of via Windows' cmdline: 
+
+Add into C:\Usr\eclipse-jee-2025-09\eclipse.ini
+  -Xms1024m
+  -Xmx4096m
+e.g. under the line:
+  -Dsun.java.command=Eclipse
+
+3B. Start Eclipse JEE
+---------------------
+
+Select a directory as workspace, e.g.:
+  G:\Users\Joel\git\wiktionary-convert-no-db 
+
+3C. Update Maven Dependencies in Eclipse JEE
+--------------------------------------------
 
 The project uses Maven to import the Google HTTP Client Library for Java. See https://googleapis.github.io/google-http-java-client/setup.html
+
 I check every now and then which is the latest non-beta release and switch to it. It is defined in pom.xml. The release site is https://github.com/googleapis/google-http-java-client/releases
 To change the version used:
   Double-click pom.xml. If it doesn't open in the rightmost tab, "pom.xml", which is the source view, click it.
@@ -31,12 +76,18 @@ To change the version used:
     <dependency>
       <groupId>com.google.http-client</groupId>
       <artifactId>google-http-client</artifactId>
-      <version>2.0.0</version>
+      <version>2.0.1</version>
     </dependency>
   Then right click the "wikt2xmlfull" project tree and select > Maven > Update Project.
   Open the "Maven Dependencies" tree to verify the "google-http-client-x.yy.z.jar" is the version
-  you wanted, e.g. "google-http-client-2.0.0.jar". The other JARs have their independent version
+  you wanted, e.g. "google-http-client-2.0.1.jar". The other JARs have their independent version
   numbers.
+
+4. Add Run configurations and Export JAR files in Eclipse JEE
+=============================================================
+
+4A. For StripNameSpaces
+-----------------------
 
 Right click StripNamespaces.java > Run As > Java Applications
   Eclipse runs the program, which outputs in the Console tab, that it got 0 arguments and it quits
@@ -46,46 +97,76 @@ Right click StripNamespaces.java > Export > Java > Runnable JAR file
   Launch configuration = StripNamespaces - wikt2xmlfull
   Export destination: Choose path where you want to keep the runnable JAR
   [x] Package required libraries into generated JAR
-Perform the Run As and Export steps also for ReadStripped.java
+
+4B. For ReadStripped
+--------------------
+
+Perform the Run As and Export steps also for ReadStripped.java.
 The two runnable JARs really only differ in the Rsrc-Main-Class in META-INF\MANIFEST.MF
 
-Running tests in Eclipse
+4C. For JoinDefinitions
+-----------------------
+Export JoinDefinitions.jar as in 4A.
 
-For running Wiktionary conversion tests in Eclipse, you need to create a run (or debug) configuration. They
-unfortunately can't easily be shared in Git.
+4D. For ParseLangsFi
+--------------------
+
+Do this step, if you want to process the Finnish language Wiktionary:
+
+Export ParseLangsFi.jar as in 4A.
+
+5. Running tests in Eclipse JEE (optional)
+===============================
+For running Wiktionary conversion tests in Eclipse, you need to create a run
+(or debug) configuration. The configurations unfortunately can't be easily shared in Git.
 
 To define a test for e.g. ReadStripped.java (can also be done for StripNamespaces.java), right click
  ReadStripped.java > Run As > Run Configurations.
 Select Java Application and press the New Launch Configuration icon.
 Enter a Name for the configuration.
 
-1) Test for the English Wiktionary, processing all languages.
+5A. Run the test for the English Wiktionary, processing all languages
+---------------------------------------------------------------------
+
 Input in examples/en-apples.txt
 
 Right click ReadStripped.java > Run As > Run Configurations
 Select Java Application and press the New Launch Configuration icon
-Enter a Name for the configuration, e.g.: ReadStripped apples.txt ALL languages test
+Enter a Name for the configuration, e.g.: ReadStripped en-apples.txt ALL languages test
 Enter into the Arguments tab:
-  INFILE=examples\en-apples.txt OUTFILE=examples\out\en-ALL-apples-out.txt LANG=ALL OUTPUTLANGNAMES=true OUTTYPE=Stardict RESTARTATLINE=0 LANGCODE=ALL ONLYLANGUAGES=true WIKTCODE=en
+  INFILE=examples\en-apples.txt OUTFILE=examples\out\en-ALL-apples-out.txt LANG=ALL OUTPUTLANGNAMES=true OUTTYPE=Stardict RESTARTATLINE=0 LANGCODE=en ONLYLANGUAGES=true WIKTCODE=en
 
-Or e.g. with full folder path for the output file:
-  INFILE=examples/en-apples.txt OUTFILE=G:\Dropbox\Dictionary\wikt\Stardict\OwnStarDict\en-ALL-apples-out.txt LANG=ALL OUTPUTLANGNAMES=true OUTTYPE=Stardict RESTARTATLINE=0 LANGCODE=ALL ONLYLANGUAGES=true WIKTCODE=en
+(You can also e.g. enter in the Arguments tab the full path to an output file, into the
+variables OUTFILE:
+  INFILE=examples/en-apples.txt OUTFILE=G:\Dropbox\Dictionary\wikt\Stardict\OwnStarDict\en-ALL-apples-out.txt LANG=ALL OUTPUTLANGNAMES=true OUTTYPE=Stardict RESTARTATLINE=0 LANGCODE=en ONLYLANGUAGES=true WIKTCODE=en
+)
 
 To run the test, press Run (or Debug)
 Refresh the workspace. Open examples\out\en-ALL-apples-out.txt. It should contain:
 
 apples and pears	n.\n(context Cockney rhyming slang English) stairs
 
-2) Test for the English Wiktionary, processing definitions in English only.
+5B. Run the test for the English Wiktionary, processing definitions in English only
+-----------------------------------------------------------------------------------
+
 Input in examples/en-apples.txt
 
-Enter a Name for the configuration, e.g.: ReadStripped apples.txt English only test
+Enter a Name for the configuration, e.g.: ReadStripped en-apples.txt English only test
 Enter into the Arguments tab:
-  INFILE=examples\en-apples.txt OUTFILE=examples\out\en-en-apples-out.txt LANG=en OUTPUTLANGNAMES=true OUTTYPE=Stardict RESTARTATLINE=0 LANGCODE=ALL ONLYLANGUAGES=true WIKTCODE=en
+  INFILE=examples\en-apples.txt OUTFILE=examples\out\en-en-apples-out.txt LANG=en OUTPUTLANGNAMES=true OUTTYPE=Stardict RESTARTATLINE=0 LANGCODE=en ONLYLANGUAGES=true WIKTCODE=en
+
 Press Run
 Refresh the workspace. Open examples\out\en-en-apples-out.txt. It should contain the same than the previous test.
 
+5C. About testing outside of Eclipse JEE
+----------------------------------------
+
+If you want, you can of course also run tests outside of Eclipse, but I haven't written batch scripts for that.
+
+6. Preparing for running the programs
+-------------------------------------
+
 See Running.txt for instructions on running the JARs via dedicated Win batch scripts,
 e.g. "ReadStripped SD en-ALL.cmd". Running that way does not use Eclipse, just the JDK.
-For producing real builds it's probably clearest to use the scripts, not Eclipse. At least it requires less RAM.
-If you want, you can of course also run tests outside of Ecipse, but I haven't written batch scripts for that.
+
+For producing and using real builds it's probably clearest to use the scripts to run the Java programs, not Eclipse. At least it requires less RAM.
