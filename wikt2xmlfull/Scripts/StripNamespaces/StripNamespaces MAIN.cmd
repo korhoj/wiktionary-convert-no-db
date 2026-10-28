@@ -20,12 +20,12 @@ if "%WIKT%"=="" set WIKT=G:\Dropbox\Dictionary\wikt
 rem Set JAR_DIR to the location of the runnable JAR file.
 set JAR_DIR=%WIKT%
 rem Set JAVA_HOME to point to JDK main dir.
-if "%JAVA_HOME%"=="" set JAVA_HOME=C:\Usr\jdk-24
+if "%JAVA_HOME%"=="" set JAVA_HOME=C:\Usr\jdk-26
 rem These two variables are used if this script is run directly.
 rem   Change EDITION to match the Wiktionary edition you have downloaded.
 rem   Change LANG to the languager you use.
 rem They are overridden by command line parameters %1 and %2 by language specific scripts.
-set EDITION=20250401
+set EDITION=20260301
 set LANG=en
 rem Language specific scripts, e.g. "StripNamespaces elwiktionary.cmd" call passing LANG as param
 if not "%1"=="" set LANG=%1
@@ -50,15 +50,17 @@ SET JAVA="%JAVA_HOME%\bin\java.exe"
 SET INFILE="%DICTDUMPS%\%LANG%wiktionary-%EDITION%-pages-articles.xml\%LANG%wiktionary-%EDITION%-pages-articles.xml"
 SET OUTFILE="%DICTDUMPS%\%LANG%wiktionary-%EDITION%-pages-articles.xml\stripped-ALL.xml"
 SET UTF8=-Dfile.encoding=UTF8
-SET MEM=-Xmx2600M
+rem SET MEM=-Xmx2600M
+set MEM1=-XX:+UseG1GC 
+set MEM2=-XX:MaxRAMPercentage=70
 SET STCK=-Xss400M
 
-echo %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE% 
-%JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE%
+echo %JAVA% %UTF8% %MEM1% %MEM2% %STCK% -jar %PROG% %INFILE% %OUTFILE% 
+%JAVA% %UTF8% %MEM1% %MEM2% %STCK% -jar %PROG% %INFILE% %OUTFILE%
 echo Ready
 echo   Conversion started at %NOW%
 echo   Params were:
-echo     %JAVA% %UTF8% %MEM% %STCK% -jar %PROG% %INFILE% %OUTFILE%
+echo     %JAVA% %UTF8% %MEM1% %MEM2% %STCK% -jar %PROG% %INFILE% %OUTFILE%
 SET X=
 FOR /F "skip=1 delims=" %%x IN ('wmic os get localdatetime') DO IF NOT DEFINED X SET X=%%x
 SET DATE.YEAR=%X:~0,4%
