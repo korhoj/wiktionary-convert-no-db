@@ -1,21 +1,29 @@
 A1. General info
 ================
 
-You need to first compile (I used Eclipse) the three Java programs ("apps", if you prefer) used for processing the Wiktionary dump(s) for the languages you want to process.
+You need to first compile (I used Eclipse) the three Java programs ("apps", if you prefer) used for processing the Wiktionary dump(s)
+for the languages you want to process.
   The programs are: StripNamespaces, ReadStripped and JoinDefinitions
 See Building.txt.
 
-To process the dumps with the Java programs and the scripts I have written, you will need to have both a Windows and Linux environment, either real or virtual ones.  
+To process the dumps with the Java programs and the scripts I have written, you will need to have both a Windows and Linux environment,
+either real or virtual ones.  
 The Windows scripts are *.cmd scripts, using the syntax for the older Command Prompt (cmd.exe), not PowerShell as such.
 For the Linux portion of the conversion process, one of the steps uses a GUI program.
 You can run Linux in a virtual environment with e.g. VirtualBox, WSL2 or VMware WS. Or you can of course directly run Linux in your machine.
 
-The Windows scripts use environment variables for determining the input and output folder and constructing the file names to use. Since I make new conversions for various languages every now and then, I have defined the variables permanently for my user account (you can also of course define them for all user accounts by defining "System variables"). 
-  You can alternatively define the env variables each time you open a Command Prompt (cmd.exe) for running a script(s), by using the SET command, but these instructions assume the permanent definition style. 
+The Windows scripts use environment variables for determining the input and output folder and constructing the file names to use.
+Since I make new conversions for various languages every now and then, I have defined the variables permanently for my user account
+(you can also of course define them for all user accounts by defining "System variables"). 
+  You can alternatively define the env variables each time you open a Command Prompt (cmd.exe) for running a script(s), by using
+  the SET command, but these instructions assume the permanent definition style. 
 
-To define environment variables for your user account in e.g. Windows 10, click the Search icon, usually located in the lower-left region of the task bar, and type something like "envi" (or if you use Windows in a different language, something that refers to environment variables in your language), and from the search results, under the heading "Settings", pick "Edit environment variables for your account".
+To define environment variables for your user account in e.g. Windows 10, click the Search icon, usually located in the lower-left region
+of the task bar, and type something like "envi" (or if you use Windows in a different language, something that refers to environment variables
+in your language), and from the search results, under the heading "Settings", pick "Edit environment variables for your account".
 
-Click New to create each variable below, and set them to point to the folder you want to use. N.b. create the folders yourself, if they don't already exist:
+Click New to create each variable below, and set them to point to the folder you want to use. N.b. create the folders yourself, if they
+don't already exist:
   Variable        Example value                     Description
   DICTDUMPS       G:\Temp\wiktionary-dumps          Place each dump file (.bz2) you will download here
   DUPLS_OUT_DIR   G:\Users\korho\OwnStarDict-ready  Linux dir used for processing files
@@ -41,8 +49,10 @@ B. Downloading Wiktionary dumps
 B1. Downloading Wiktionary dumps using my Python script
 -------------------------------------------------------
 
-I have written a Python script, dlWiktionary.py, for downloading the newest available dump file of a given language. The language code is supplied as a cmdline parameter. 
-Optionally one can also supply a mirror site URL as the 2nd parameter. The code defaults to using the Swedish mirror, because it's close to Finland where I live :)
+I have written a Python script, dlWiktionary.py, for downloading the newest available dump file of a given language. The language code
+is supplied as a cmdline parameter. 
+Optionally one can also supply a mirror site URL as the 2nd parameter. The code defaults to using the Swedish mirror, because it's close
+to Finland where I live :)
 
 Either:
 B1.A. Run this script to download the Wiktionary dumps for all supported languages:
@@ -65,7 +75,8 @@ B1.C. Some technical details for dlWiktionary.py
 
 If the script finds an already existing file having the name of the newest dump file, it checks the file size.
 If the file size is:
-  - Smaller than 1 000 000 B, the script attempts to redownload the file, overwriting the existing one. This is mainly because very small files are probably merely 404's or such HTTP error documents.
+  - Smaller than 1 000 000 B, the script attempts to redownload the file, overwriting the existing one. This is mainly because very small
+  files are probably merely 404's or such HTTP error documents.
   
   E.g.:
     Using param lang='el'
@@ -88,16 +99,21 @@ B2. Downloading Wiktionary dumps manually (alternative to B1)
 -------------------------------------------------------------
 
 The completed dumps are listed at https://dumps.wikimedia.org/backup-index.html,
-although you really should use one of the mirrors, so you won't strain the default servers, and downloading is also probably faster. I'm currently using a Swedish mirror:
+although you really should use one of the mirrors, so you won't strain the default servers, and downloading is also probably faster.
+I'm currently using a Swedish mirror:
   https://mirror.accum.se/mirror/wikimedia.org/dumps/
 
-It contains links to subdirectories for each language for each Wiki project (Wikibooks, Wikimedia, Wiktionary etc.). wikt2xmlfull only supports Wiktionary dumps though (and only for some few languages - see above).
+It contains links to subdirectories for each language for each Wiki project (Wikibooks, Wikimedia, Wiktionary etc.). wikt2xmlfull
+only supports Wiktionary dumps though (and only for some few languages - see above).
 
 In the directory listing, search for the link to the subdirectory of the Wiktionary dump for the language you want to download the dump for. 
-  E.g. search for "enwiktionary" (the exact name is "enwiktionary/") for the link to the English Wiktionary dump directory. For the Swedish mirror, the (permanent) link is:
+  E.g. search for "enwiktionary" (the exact name is "enwiktionary/") for the link to the English Wiktionary dump directory. For the
+  Swedish mirror, the (permanent) link is:
   https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/
 Open the link in a browser (e.g. Edge, Firefox or Chrome). You get a new directory listing, which contains the available dumps listed by date.
-Note that the Wikimedia foundation makes dumps in a recurring process, happening about twice a month, and when it's ongoing, dumps for different languages naturally are finished at different times. I personally like to download the latest dump of each language, whether they are extracts for the same day or not. 
+Note that the Wikimedia foundation makes dumps in a recurring process, happening about twice a month, and when it's ongoing, dumps for different
+languages naturally are finished at different times. I personally like to download the latest dump of each language, whether they are extracts
+for the same day or not. 
 
 For example, at @20240926-07.31 UTC+2, the latest English dump wass for the date 20240901,
 but the latest Finnish dump was already for 20240920.
@@ -105,14 +121,18 @@ but the latest Finnish dump was already for 20240920.
 Open the link to the subdirectory for the language - date -combination you selected, i.e. for the English Wiktionary currently:
   https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20240901/
 
-Sometimes the dump is not ready even though the directory exists already. To be sure, open the link to the file status.html in the directory listing. E.g. 
+Sometimes the dump is not ready even though the directory exists already. To be sure, open the link to the file status.html in
+the directory listing. E.g. 
   https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20240901/status.html
 It should have a text like this:
   * 2024-09-06 02:28:29 enwiktionary: Dump complete
 
-(where the word "enwiktionary" is currently a slightly _malformed_ link, https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20240901/enwiktionary/20240901, - it's supposed to just point to the dump directory the status.html file is in...)
+(where the word "enwiktionary" is currently a slightly _malformed_ link,
+ https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20240901/enwiktionary/20240901, - it's supposed to just point to the dump
+ directory the status.html file is in...)
 
-If the dump isn't complete, you naturally need to use the dump for another date. You probably want to open the dump directory for the second latest date in the listing - which at 20240926 was "20240820":
+If the dump isn't complete, you naturally need to use the dump for another date. You probably want to open the dump directory for the
+second latest date in the listing - which at 20240926 was "20240820":
   https://mirror.accum.se/mirror/wikimedia.org/dumps/enwiktionary/20240820/
 
 Download the file named with the naming scheme
@@ -127,12 +147,15 @@ N.b. make sure to download the -pages-articles.xml.bz2 file, not either of these
 
 N.b. You can theoretically instead download the latest finished dump for a language by accessing the dump file in a "/latest/" subdirectory. E.g.: 
   https://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-articles.xml.bz2
-but don't do that, because the scripts I have written for processing the dump of each supported language use a naming scheme based on the dump date, and the "latest" dump file (.bz2) doesn't contain information for which date the dump is for (so you would need to find out that by investigating the above mentioned dump directories anyway, e.g. .../20240901/).
+but don't do that, because the scripts I have written for processing the dump of each supported language use a naming scheme based on the
+dump date, and the "latest" dump file (.bz2) doesn't contain information for which date the dump is for (so you would need to find out that
+by investigating the above mentioned dump directories anyway, e.g. .../20240901/).
 
 C. Extracting the downloaded dumps
 ==================================
 
-In the %DICT% directory, extract each bz2 file you downloaded into it's own subdirectory. Use the name of the .bz2 dump file as the name of the subdirectory.
+In the %DICT% directory, extract each bz2 file you downloaded into it's own subdirectory. Use the name of the .bz2 dump file as the
+name of the subdirectory.
 My instructions use 7-Zip, but you can use an alternative program if you wish.
 
 C1. Via cmdline
@@ -228,9 +251,11 @@ E.g.:
 syysk. 26, 2024 8:28:19 AP. wiktionary.to.xml.full.StripNamespaces main
   ("syysk." is an abbreviation for September in the Finnish language, and "AP." for "am"...)
 
-StripNamespaces prints progress every 10 000 entries. If the printing bothers you, you can minimize the window and check every now and then whether the stripping has finished. 
+StripNamespaces prints progress every 10 000 entries. If the printing bothers you, you can minimize the window and check every now and
+then whether the stripping has finished. 
 
-Stripping the English Wiktionary takes long even on a fast computer. For me at 20241003 it took about 58 mins for the about 8 150 000 entries in the dump.
+Stripping the English Wiktionary takes long even on a fast computer. For me at 20241003 it took about 58 mins for the
+about 8 150 000 entries in the dump.
 
 When StripNamespaces finishes running, for convenience the start time is printed again, and the 
 finish time is printed, so you can see how long the processing took.
@@ -328,7 +353,8 @@ N.b. this has nothing to do with which language's Wiktionaries the program suppo
 is currently hard coded in the program.
 
 All Wiktionaries have entries for numerous languages. Just that e.g. the English
-Wiktionary has the definitions of the entries for all languages it includes written in the English language, whereas say the Swedish Wiktionary has the definitions written in the Swedish language.
+Wiktionary has the definitions of the entries for all languages it includes written in the English language, whereas say the
+Swedish Wiktionary has the definitions written in the Swedish language.
 
 
 F. RUNNING THE READSTRIPPED PROGRAM
@@ -402,7 +428,8 @@ F2. In case ReadStripped finishes with a processing error
 --------------------------------------------------------- 
 
 However, if there's an error, the program prints a Java stack trace, info on when the
-conversion (if there have been restarts, the info is for the current restart) started and ended, and "!!Ended in error!!". If Windows asks "Terminate batch job (Y/N)? ",
+conversion (if there have been restarts, the info is for the current restart) started and ended, and "!!Ended in error!!".
+If Windows asks "Terminate batch job (Y/N)? ",
 answer y and press enter. You should then report the error to me. Example error:
   maalis 23, 2025 11:47:57 AP. wiktionary.to.xml.full.ReadStripped process
   SEVERE: Failed at entryNbr: 507491, title: 'remblayage', linesRead=51250809, restartLine=0
@@ -503,14 +530,16 @@ E.g.: wikt-en-ALL-2023-02-18-13-22-03.txt, wikt-en-ALL-2023-02-18-13-26-43.txt e
 
 $ ll -tr $wiktsdout/wikt-*.txt
 
-You may want to copy any any dictionary files you have produced above (by running the ReadStripped*.cmd script for the language you are processing) to another directory,
+You may want to copy any any dictionary files you have produced above (by running the ReadStripped*.cmd script for the language you are
+processing) to another directory,
 such as to a filesystem internal to Linux. 
 I copy the files into a directory I define in the variable $OwnReady:
 
 $ cd $OwnReady
 $ cp -vi $wiktsdout/wikt-*-2025-10-05-*.txt .
 
-Also copy to the same directory the scripts conv2unix*.sh, dictfmt*.sh and sort*.sh from your checked out Git repository for wiktionary-convert-no-db to Linux (unless you use the Windows folders directly from the Linux side).
+Also copy to the same directory the scripts conv2unix*.sh, dictfmt*.sh and sort*.sh from your checked out Git repository for
+wiktionary-convert-no-db to Linux (unless you use the Windows folders directly from the Linux side).
 
 You could also checkout my git repository using your Linux.
 
@@ -566,7 +595,8 @@ G4. Sorting
 -----------
 The unsorted file(s) produced by conv2unix script(s) need to be sorted to be further processed.
 
-Before doing this by running any of the sort*.sh scripts for the language whose dictionary you are processing, make sure you have the locale(s) you need.
+Before doing this by running any of the sort*.sh scripts for the language whose dictionary you are processing, make sure you have the
+locale(s) you need.
 First check, which locale the script(s) use(s), e.g.:
 
 sort-el-el.sh has this definition:
@@ -628,7 +658,8 @@ G4.1.2 If you don't have one of these locales available (or another one you need
 G4.2 Sorting the files
 ----------------------
 
-The sort*.sh parse (unless you change them) the input files for the current date for a given dictionary language, produced above by running the corresponding conv2unix shell script.
+The sort*.sh parse (unless you change them) the input files for the current date for a given dictionary language, produced above by
+running the corresponding conv2unix shell script.
 
 G4.2.1 Run script for all supported languages
 
@@ -899,7 +930,9 @@ $ sudo apt install dictzip
 
 I2. dictd
 ---------
-For building dictd compatible dictionary archives, you don't need to be running a dictd server. It is good to install it though, because it can be used to verify the integrity of any dictionary archives you produce. In addition you can also then use the command "dict" to look up dictionary entries in your Linux...
+For building dictd compatible dictionary archives, you don't need to be running a dictd server. It is good to install it though,
+because it can be used to verify the integrity of any dictionary archives you produce. In addition you can also then use the command "dict"
+to look up dictionary entries in your Linux...
 
 $ sudo apt install dictd
 
@@ -927,7 +960,8 @@ $ sudo apt install dictfmt
 
 I5. Joining duplicates
 ----------------------
-Run the join-dupls-dictfmt-*.cmd script in Windows for the language archive you are producing. The scripts use a Java program placed in the file JoinDefinitions.jar.
+Run the join-dupls-dictfmt-*.cmd script in Windows for the language archive you are producing. The scripts use a Java program placed
+in the file JoinDefinitions.jar.
 
 E.g. for en-ALL the script is:
   join-dupls-dictfmt-en-ALL.cmd
@@ -999,7 +1033,8 @@ Another example, running just the fi-fi script:
   $ cd fi/
   $ ./dictfmt-fi-fi.sh
 
-When you run the script(s), it first copies a the public domain + CC-SA-BY copyright header to the output file. Then it copies the joined duplicates after the copyright header. The resulting file, wikt-$convLangCode-$convLang-$convDate-dict.txt, is fed as input to dictfmt:
+When you run the script(s), it first copies a the public domain + CC-SA-BY copyright header to the output file. Then it copies the joined
+duplicates after the copyright header. The resulting file, wikt-$convLangCode-$convLang-$convDate-dict.txt, is fed as input to dictfmt:
   # For illustrative purposes, don't do manually but call the script instead
   dictfmt -f --utf8 --allchars wikt-$convLangCode-$convLang-$convDate -u http://dictinfo.com -s wikt-$convLangCode-$convLang-$convDate < wikt-$convLangCode-$convLang-$convDate-dict.tx
     -f: FILE  is  formatted  with  the headwords starting in column 0, with the
@@ -1012,7 +1047,8 @@ dictfmt creates .dict and .index for the given language.
 
 I7. Verifying language's using ifo file(s) (optional)
 -----------------------------------------------------
-Run the following for a given language's ifo file, if you have created such by doing step H3 earlier, and want to verify the dictionary files. The ifo isn't needed for dictd as such:
+Run the following for a given language's ifo file, if you have created such by doing step H3 earlier, and want to verify the dictionary files.
+The ifo isn't needed for dictd as such:
 
 $ /usr/lib/stardict-tools/stardict-verify wikt-en-ALL-2023-02-19.ifo
   [message] Verifying dictionary 'wikt-el-ALL-2023-02-19.ifo'...
